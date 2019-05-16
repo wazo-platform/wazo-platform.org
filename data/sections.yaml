@@ -1,0 +1,159 @@
+---
+  - name: Programmable platform
+    modules:
+      authentication:
+        title: Authentication
+        description: Authenticate users and manage groups, policies and ACLs
+        icon: fa fa-key
+        color: green
+        repository: wazo-auth
+
+      application:
+        title: Application
+        description: Create your communication application.
+        icon: fa fa-brain
+        color: pink
+        repository: wazo-calld
+        redocUrl: https://quintana.wazo.community/api/ctid-ng/1.0/api/api.yml
+
+      configuration:
+        title: Configuration
+        description: Configure your platform.
+        icon: fa fa-cogs
+        color: blue
+        repository: wazo-confd
+        redocUrl: https://quintana.wazo.community/api/confd/1.1/api/api.yml
+
+      contact:
+        title: Contacts
+        description: Get, manage and search contacts.
+        icon: fa fa-users
+        color: purple
+        repository: wazo-dird
+        redocUrl: https://quintana.wazo.community/api/dird/0.1/api/api.yml
+
+      provisioning:
+        title: Phone provisioning
+        description: Provisioning and configuration of phone devices.
+        icon: fa fa-phone
+        color: primary
+        repository: wazo-provd
+        redocUrl: https://quintana.wazo.community/api/provd/api/api.yml
+
+      webhook:
+        title: Webhooks
+        description: Create webhooks based on Wazo events.
+        icon: fa fa-globe
+        color: orange
+        repository: wazo-webhookd
+        redocUrl: https://quintana.wazo.community/api/webhookd/1.0/api/api.yml
+
+      cdr:
+        title: Calls Details Record
+        description: Get your CDR by our API.
+        icon: fa fa-newspaper
+        color: green
+        repository: wazo-call-logd
+        redocUrl: https://quintana.wazo.community/api/call-logd/1.0/api/api.yml
+
+      plugins:
+        title: Plugins
+        description: Enhance your platform, add and maintain easily plugins you develop to creating your own value.
+        icon: fa fa-puzzle-piece
+        color: pink
+        repository: wazo-plugind
+        redocUrl: https://quintana.wazo.community/api/plugind/0.2/api/api.yml
+
+      agent:
+        title: Call Center Agent
+        description: Enhance your platform, add and maintain easily plugins you develop to creating your own value.
+        icon: fa fa-headset
+        color: blue
+        repository: xivo-agentd
+        redocUrl: https://quintana.wazo.community/api/agentd/1.0/api/api.yml
+
+      chat:
+        title: Presence and Chat
+        description: Programmable presence and chat.
+        icon: fa fa-comment-dots
+        color: red
+        repository: wazo-chatd
+        redocUrl: https://quintana.wazo.community/api/chatd/1.0/api/api.yml
+
+      websocket:
+        title: Websocket
+        description: Get events from Wazo platform in our websocket service.
+        icon: fa fa-meteor
+        color: purple
+        repository: xivo-websocketd
+        redocUrl: http://documentation.wazo.community/en/stable/api_sdk/websocket.html
+
+  - name: Management platform
+    modules:
+      nestbox-authentication:
+        title: Authentication
+        description: Authentication in the Nestbox platform.
+        icon: fa fa-key
+        color: green
+        repository: wazo-auth
+        redocUrl: https://nestbox.dev.wazo.io/api/auth/0.1/api/api.yml
+
+      nestbox-configuration:
+        title: Configuration
+        description: Manage your resellers, customers, instances on Nestbox.
+        icon: fa fa-cogs
+        color: red
+        repository: wazo-confd
+        redocUrl: https://nestbox.dev.wazo.io/api/confd/1.0/api/api.yml
+
+      nestbox-deployd:
+        title: Configuration
+        description: Manage your resellers, customers, instances on Nestbox.
+        icon: fa fa-server
+        color: orange
+        repository: wazo-deployd
+        redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
+
+  - name: Wazo Client SDK - Demo
+    modules:
+      javascript:
+        title: Javascript
+        description: Wazo JavaScript Software Development Kit is an API wrapper making it easy for you to communicate with our APIs, websocket and webrtc.
+        icon: fab fa-js
+        color: green
+        url: https://github.com/wazo-pbx/wazo-js-sdk
+
+      python:
+        title: Python
+        description: Wazo python client to use with our APIs and websocket.
+        icon: fab fa-python
+        color: primary
+        url: https://github.com/wazo-pbx?utf8=%E2%9C%93&q=-client&type=&language=python
+
+      callkeep:
+        title: Callkeep
+        description: Use iOS CallKit and Android ConnectionService to make the life easier to your VoIP developement using React Native.
+        icon: fab fa-js
+        color: blue
+        url: https://github.com/react-native-webrtc/react-native-callkeep
+
+      mobile-demo:
+        title: Mobile application demo
+        description: Develop your own mobile application with our javascript SDK, webrtc and react-native library on iOS and Android.
+        icon: fa fa-mobile-alt
+        color: purple
+        url: https://github.com/wazo-pbx/wazo-react-native-demo
+
+      webrtc-demo:
+        title: Web application demo
+        description: Create or add communication on web application with our javascript SDK and webrtc.
+        icon: fa fa-globe
+        color: red
+        url: https://github.com/wazo-pbx/wazo-webrtc-demo
+
+      wdk:
+        title: Develop
+        description: Wazo SDK is our tools to help people to develop in Wazo.
+        icon: fa fa-terminal
+        color: primary
+        url: https://github.com/wazo-pbx/wazo-sdk
