@@ -37,7 +37,7 @@
         description: Provisioning and configuration of phone devices.
         icon: fa fa-phone
         color: primary
-        repository: wazo-provd
+        repository: xivo-provd
         redocUrl: https://quintana.wazo.community/api/provd/api/api.yml
 
       webhook:
@@ -157,3 +157,13 @@
         icon: fa fa-terminal
         color: primary
         url: https://github.com/wazo-pbx/wazo-sdk
+
+  - name: Internal platform
+    modules:
+      amid:
+        title: Asterisk Manager
+        description: Add REST API for Asterisk Manager interface.
+        icon: fa fa-code
+        color: orange
+        repository: xivo-amid
+        redocUrl: https://quintana.wazo.community/api/amid/1.0/api/api.yml
