@@ -85,7 +85,7 @@
         description: Get events from Wazo platform in our websocket service.
         icon: fa fa-meteor
         color: purple
-        repository: xivo-websocketd
+        repository: wazo-websocketd
         redocUrl: http://documentation.wazo.community/en/stable/api_sdk/websocket.html
 
   - name: Management platform

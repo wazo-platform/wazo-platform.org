@@ -1,6 +1,12 @@
-FROM think/plantuml:1.2018.5
+# Use multistage builds to take node and npm binaries from another base image
+FROM node:12.2.0-alpine AS build-node
 
-RUN apk add --update nodejs nodejs-npm yarn
+FROM think/plantuml:1.2018.5
+COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
+COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
+
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+RUN npm i -g yarn
 
 RUN mkdir /app
 COPY . /app
