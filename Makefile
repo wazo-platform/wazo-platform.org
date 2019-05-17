@@ -1,6 +1,6 @@
 .PHONY: build
 
-install:
+builder:
 	docker-compose build
 
 develop:

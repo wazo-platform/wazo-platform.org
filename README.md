@@ -16,7 +16,7 @@ cp config{.sample,}.js
 Then build the container:
 
 ```sh
-make install
+make builder
 ```
 
 ## Develop
