@@ -2,6 +2,8 @@
   Wazo project documentation for developers
 </h1>
 
+This tool is aimed at generating http://developers.wazo.io from the files in [wazo-doc-ng](https://github.com/wazo-pbx/wazo-doc-ng).
+
 # Installation
 
 ```sh
