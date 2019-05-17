@@ -50,7 +50,9 @@ export const Module = ({ moduleName, module }) => (
 
 export default ({ pageContext: { sections } }) => (
   <Layout isHome>
-    <Helmet bodyAttributes={{ class: 'landing-page' }} />
+    <Helmet bodyAttributes={{ class: 'landing-page' }}>
+      <title>Wazo project documentation for developers</title>
+    </Helmet>
     <section className="cards-section text-center">
       {sections.map(section => (
         <div key={section.name}>

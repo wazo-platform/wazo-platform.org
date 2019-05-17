@@ -2,6 +2,23 @@ body {
   margin: 0;
 }
 
+h1 .icon_documents_alt {
+  padding-right: 5px;
+}
+
+/* Search */
+div.main-search-box ul li.ais-Hits-item a {
+  color: #494d55;
+}
+
+a.snippet-link {
+  text-decoration: none;
+}
+
+.ais-Snippet {
+  color: #494d55;
+}
+
 .page-wrapper:after {
   display: none;
 }
