@@ -55,7 +55,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await retrieveGithubFiles();
 
   // Generate puml to svg
-  exec(`java -jar plantuml.jar -tsvg /tmp/*.puml -o ${diagramOutputDir}`);
+  exec(`java -jar $JAVA_HOME/lib/plantuml.jar -tsvg /tmp/*.puml -o ${diagramOutputDir}`);
 
   // Create homepage
   await newPage('/', 'index', { sections });

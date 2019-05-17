@@ -5,6 +5,9 @@ FROM think/plantuml:1.2018.5
 COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
 COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
+# Move plantuml to a folder in the PATH
+RUN mv /plantuml.jar "$JAVA_HOME/lib"
+
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm i -g yarn
 
