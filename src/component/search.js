@@ -71,6 +71,15 @@ export const HitsWrapper = styled.div`
   }
 `;
 
+const By = styled.span`
+  font-size: 0.6em;
+  text-align: end;
+  padding: 0;
+  a {
+    color: #616670 !important;
+  }
+`;
+
 const Input = connectSearchBox(
   ({
     refine,
@@ -168,6 +177,12 @@ export default class Search extends Component {
               <Hits hitComponent={PageHit(this.disableHits)} />
             </Results>
           </Index>
+          <By>
+            Powered by{' '}
+            <a href="https://www.algolia.com">
+              <i className="fab fa-algolia" /> Algolia
+            </a>
+          </By>
         </HitsWrapper>
       </InstantSearch>
     );
