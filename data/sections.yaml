@@ -107,8 +107,8 @@
         redocUrl: https://nestbox.dev.wazo.io/api/confd/1.0/api/api.yml
 
       nestbox-deployd:
-        title: Configuration
-        description: Manage your resellers, customers, instances on Nestbox.
+        title: Deployment
+        description: Deploy your instances from Nestbox.
         icon: fa fa-server
         color: orange
         repository: wazo-deployd
