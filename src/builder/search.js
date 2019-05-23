@@ -1,7 +1,9 @@
 const algoliasearch = require('algoliasearch');
 const striptags = require('striptags');
 const showdown = require('showdown');
+
 const config = require('../../config');
+const { getAllModules, getModuleName, getOverviews } = require('./utils');
 
 const markdownConverter = new showdown.Converter();
 
@@ -10,8 +12,7 @@ const algoliaClient = algoliasearch(
   config.algolia.apiKey
 );
 
-
-const index = algoliaClient.initIndex('wazo-doc-overview');
+const overviewIndex = algoliaClient.initIndex('wazo-doc-overview');
 index.setSettings({
   attributeForDistinct: 'title',
   attributesToHighlight: ['title', 'content'],
@@ -19,14 +20,17 @@ index.setSettings({
   distinct: true,
 });
 
-export default async () => {
-  // Update algolia index
-  await new Promise(resolve => index.clearIndex(resolve));
+module.exports = async () => {
+  // Reset algolia index
+  await new Promise(resolve => overviewIndex.clearIndex(resolve));
+
+  const overviews = await getOverviews();
+  const allModules = await getAllModules();
 
   const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
     const moduleName = getModuleName(repoName);
     const module = allModules[moduleName];
-    const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
+    const htmlContent = markdownConverter.makeHtml(overviews[repoName]['description.md']);
     const content = striptags(htmlContent);
 
     acc.push({
@@ -40,5 +44,5 @@ export default async () => {
     return acc;
   }, []);
 
-  index.addObjects(algoliaObjects);
-}
+  overviewIndex.addObjects(algoliaObjects);
+};

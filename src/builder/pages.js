@@ -1,8 +1,8 @@
-const fs = require('fs');
+const path = require('path');
 
-const { getRepo, retrieveGithubFiles } = require('./utils');
+const { getSections, getAllModules, getOverviews, getModuleName } = require('./utils');
 
-export default async (createPage) => {
+module.exports = async (createPage) => {
   // Helper to generate page
   const newPage = (modulePath, component, context) =>
     createPage({
@@ -11,30 +11,9 @@ export default async (createPage) => {
       context,
     });
 
-  const sections = yaml.safeLoad(
-    fs.readFileSync('./data/sections.yaml', { encoding: 'utf-8' })
-  );
-
-  const allModules = sections.reduce((acc, section) => {
-    Object.keys(section.modules).forEach(
-      moduleName => (acc[moduleName] = section.modules[moduleName])
-    );
-    return acc;
-  }, {});
-
-  const getModuleName = repoName =>
-    Object.keys(allModules).find(moduleName => {
-      const { repository } = allModules[moduleName];
-
-      return (
-        repository &&
-        repoName ===
-          repository
-            .split('-')
-            .splice(1)
-            .join('-')
-      );
-    });
+  const sections = getSections();
+  const allModules = getAllModules();
+  const overviews = await getOverviews();
 
   // Create homepage
   await newPage('/', 'index', { sections });
@@ -49,12 +28,9 @@ export default async (createPage) => {
     )
   );
 
-  const overviews = await retrieveGithubFiles(getRepo('wazo-pbx/wazo-doc-ng'), '/', 'description.md');
-
   // Create overview pages
   Object.keys(overviews).forEach(repoName => {
     const moduleName = getModuleName(repoName);
-
     if (!moduleName) {
       return;
     }
@@ -67,4 +43,4 @@ export default async (createPage) => {
       module,
     });
   });
-}
+};
