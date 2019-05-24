@@ -29,6 +29,9 @@ export default ({ pageContext: { name, vendor } }) => (
                   </a>
                    <div className="card-block">
                     <h4 className="card-title">{phoneName}</h4>
+                    <div className="card-text">
+                      {/* TODO */}
+                    </div>
                   </div>
                   <a href={`/provisioning/${slugify(phoneName)}.html`} className="mask">&nbsp;</a>
                 </div>

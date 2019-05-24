@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { exec } = require('child_process');
+const path = require('path');
 const yaml = require('js-yaml');
 const github = require('octonode');
 
@@ -8,6 +10,7 @@ const ghClient = github.client(config.githubToken);
 let cachedOverviews = null;
 let cachedSections = null;
 let cachedModules = null;
+let cachedPlugins = null;
 
 const getRepo = name => ghClient.repo(name);
 
@@ -59,6 +62,38 @@ const getOverviews = async () => {
   return cachedOverviews;
 };
 
+const getProvisioningPlugins = async () => {
+  if (cachedPlugins) {
+    return cachedPlugins;
+  }
+
+  const provdRepo = getRepo('wazo-pbx/xivo-provd-plugins');
+  const pluginInfoFiles = await retrieveGithubFiles(provdRepo, '/', /plugin-info/, 'WAZO-428-gigaset-N870');
+  cachedPlugins = {};
+
+  // Parse plugin-info files
+  Object.keys(pluginInfoFiles).forEach(basePath => {
+    Object.keys(pluginInfoFiles[basePath]).forEach(fileName => {
+      const content = JSON.parse(pluginInfoFiles[basePath][fileName]);
+      Object.keys(content.capabilities).forEach(capabilityName => {
+        const [vendor, phone, firmware] = capabilityName.split(', ');
+        if (!(vendor in cachedPlugins)) {
+          cachedPlugins[vendor] = {};
+        }
+        if (!(phone in cachedPlugins[vendor])) {
+          cachedPlugins[vendor][phone] = {};
+        }
+
+        cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
+      });
+    });
+  });
+
+  delete cachedPlugins['*'];
+
+  return cachedPlugins;
+};
+
 const getSections = () => {
   if (cachedSections) {
     return cachedSections;
@@ -104,6 +139,7 @@ module.exports = {
   getAllModules,
   getSections,
   getOverviews,
+  getProvisioningPlugins,
   retrieveGithubFiles,
   getRepo,
 };
