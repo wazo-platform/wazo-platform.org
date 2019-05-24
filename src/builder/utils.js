@@ -9,25 +9,21 @@ let cachedOverviews = null;
 let cachedSections = null;
 let cachedModules = null;
 
-const getRepo = (name) => ghClient.repo(name);
+const getRepo = name => ghClient.repo(name);
 
-const retrieveGithubFiles = async (repo, basePath = '/', regexp) => {
-  const files = await repo.contentsAsync(basePath, 'master');
+const retrieveGithubFiles = async (repo, basePath = '/', regexp, branch = 'master', encoding = 'utf-8') => {
+  const files = await repo.contentsAsync(basePath, branch);
 
   const results = await Promise.all(
     files[0].map(async file => {
-      const repoName = basePath.split('/')[0];
-      const results = { [repoName]: {} };
+      const results = { [basePath]: {} };
       if (file.type === 'dir') {
-        return retrieveGithubFiles(repo, file.path, regexp);
+        return retrieveGithubFiles(repo, file.path, regexp, branch, encoding);
       }
 
       if (file.name.match(regexp)) {
-        const contentResponse = await repo.contentsAsync(file.path, 'master');
-        results[repoName][file.name] = Buffer.from(
-          contentResponse[0].content,
-          'base64'
-        ).toString('utf-8');
+        const contentResponse = await repo.contentsAsync(file.path, branch);
+        results[basePath][file.name] = Buffer.from(contentResponse[0].content, 'base64').toString(encoding);
       }
 
       return results;
@@ -35,14 +31,15 @@ const retrieveGithubFiles = async (repo, basePath = '/', regexp) => {
   );
 
   return results.reduce((acc, obj) => {
-    obj && Object.keys(obj).forEach(repoName => {
-      Object.keys(obj[repoName]).forEach(fileName => {
-        if (!(repoName in acc)) {
-          acc[repoName] = {}
-        }
-        acc[repoName][fileName] = obj[repoName][fileName];
+    obj &&
+      Object.keys(obj).forEach(basePath => {
+        Object.keys(obj[basePath]).forEach(fileName => {
+          if (!(basePath in acc)) {
+            acc[basePath] = {};
+          }
+          acc[basePath][fileName] = obj[basePath][fileName];
+        });
       });
-    });
 
     return acc;
   }, {});
@@ -54,8 +51,9 @@ const getOverviews = async () => {
   }
 
   cachedOverviews = await retrieveGithubFiles(getRepo('wazo-pbx/wazo-doc-ng'), '/', /description\.md/);
-  Object.keys(cachedOverviews).forEach(repoName => {
-    cachedOverviews[repoName] = cachedOverviews[repoName]['description.md'];
+  Object.keys(cachedOverviews).forEach(basePath => {
+    const repoName = basePath.split('/')[0];
+    cachedOverviews[repoName] = cachedOverviews[basePath]['description.md'];
   });
 
   return cachedOverviews;
@@ -77,9 +75,7 @@ const getAllModules = () => {
   }
 
   cachedModules = getSections().reduce((acc, section) => {
-    Object.keys(section.modules).forEach(
-      moduleName => (acc[moduleName] = section.modules[moduleName])
-    );
+    Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
 
@@ -103,4 +99,11 @@ const getModuleName = repoName => {
   });
 };
 
-module.exports = { getModuleName, getAllModules, getSections, getOverviews, retrieveGithubFiles, getRepo };
+module.exports = {
+  getModuleName,
+  getAllModules,
+  getSections,
+  getOverviews,
+  retrieveGithubFiles,
+  getRepo,
+};

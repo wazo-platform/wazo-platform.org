@@ -6,13 +6,17 @@ const { retrieveGithubFiles, getRepo } = require('./utils');
 
 module.exports = async () => {
   // Retrieve all diagrams
-  const diagramOutputDir = path.resolve('../../public/diagrams/');
+  const diagramOutputDir = path.resolve('./public/diagrams/');
   exec(`mkdir -p ${diagramOutputDir}`);
   exec(`rm -rf ${diagramOutputDir}/*`);
 
   const files = await retrieveGithubFiles(getRepo('wazo-pbx/wazo-doc-ng'), '/', /\.puml$/);
-  Object.keys(files).forEach(repo =>
-    Object.keys(files[repo]).forEach(fileName => fs.writeFileSync(`/tmp/${repo}-${fileName}`, files[repo][fileName]))
+  Object.keys(files).forEach(basePath =>
+    Object.keys(files[basePath]).forEach(fileName => {
+      const repoName = basePath.split('/')[0];
+
+      fs.writeFileSync(`/tmp/${repoName}-${fileName}`, files[repo][fileName]);
+    })
   );
 
   // Generate puml to svg

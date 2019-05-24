@@ -1,22 +1,12 @@
-const path = require('path');
-
 const { getSections, getAllModules, getOverviews, getModuleName } = require('./utils');
 
-module.exports = async (createPage) => {
-  // Helper to generate page
-  const newPage = (modulePath, component, context) =>
-    createPage({
-      path: modulePath,
-      component: path.resolve(`src/component/${component}.js`),
-      context,
-    });
-
+module.exports = async newPage => {
   const sections = getSections();
   const allModules = getAllModules();
   const overviews = await getOverviews();
 
   // Create homepage
-  await newPage('/', 'index', { sections });
+  newPage('/', 'index', { sections });
 
   // Create api pages
   sections.forEach(section =>

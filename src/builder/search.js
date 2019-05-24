@@ -7,13 +7,10 @@ const { getAllModules, getModuleName, getOverviews } = require('./utils');
 
 const markdownConverter = new showdown.Converter();
 
-const algoliaClient = algoliasearch(
-  config.algolia.appId,
-  config.algolia.apiKey
-);
+const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
 
 const overviewIndex = algoliaClient.initIndex('wazo-doc-overview');
-index.setSettings({
+overviewIndex.setSettings({
   attributeForDistinct: 'title',
   attributesToHighlight: ['title', 'content'],
   attributesToSnippet: ['content'],

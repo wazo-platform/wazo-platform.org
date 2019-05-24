@@ -16,6 +16,9 @@ export default () => (
           <Link className="btn btn-cta-secondary" to="documentation">
             Documentation
           </Link>
+          <Link className="btn btn-cta-secondary" to="/provisioning/vendors.html">
+            Plugins
+          </Link>
           <Link className="btn btn-cta-primary" to="install">
             Install
           </Link>
