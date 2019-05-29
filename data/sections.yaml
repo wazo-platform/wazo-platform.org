@@ -7,6 +7,7 @@
         icon: fa fa-key
         color: green
         repository: wazo-auth
+        redocUrl: https://quintana.wazo.community/api/auth/0.1/api/api.yml
 
       application:
         title: Application
