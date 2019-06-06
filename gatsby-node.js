@@ -13,6 +13,7 @@ const markdownConverter = new showdown.Converter();
 const ghClient = github.client(config.githubToken);
 const repo = ghClient.repo('wazo-pbx/wazo-doc-ng');
 const overviews = {};
+let hasSearch = true;
 
 const algoliaClient = algoliasearch(
   config.algolia.appId,
@@ -24,6 +25,11 @@ index.setSettings({
   attributesToHighlight: ['title', 'content'],
   attributesToSnippet: ['content'],
   distinct: true,
+}, (err) => {
+  if (err) {
+    hasSearch = false;
+    console.error('Algolia error:' + err.message);
+  }
 });
 
 const retrieveGithubFiles = async (basePath = '/') => {
@@ -103,25 +109,27 @@ exports.createPages = async ({ actions: { createPage } }) => {
   );
 
   // Update algolia index
-  await new Promise(resolve => index.clearIndex(resolve));
-  const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
-    const moduleName = getModuleName(repoName);
-    const module = allModules[moduleName];
-    const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
-    const content = striptags(htmlContent);
+  if (hasSearch) {
+    await new Promise(resolve => index.clearIndex(resolve));
+    const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
+      const moduleName = getModuleName(repoName);
+      const module = allModules[moduleName];
+      const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
+      const content = striptags(htmlContent);
 
-    acc.push({
-      repository: repoName,
-      moduleName,
-      title: module.title,
-      description: module.description,
-      content,
-    });
+      acc.push({
+        repository: repoName,
+        moduleName,
+        title: module.title,
+        description: module.description,
+        content,
+      });
 
-    return acc;
-  }, []);
+      return acc;
+    }, []);
 
-  index.addObjects(algoliaObjects);
+    index.addObjects(algoliaObjects);
+  }
 
   // Create homepage
   await newPage('/', 'index', { sections });
