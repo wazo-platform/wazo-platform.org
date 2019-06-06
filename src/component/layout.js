@@ -6,7 +6,7 @@ import '../styles/fontawesome.css';
 import '../styles/elegant-font.css';
 import '../styles/pretty-docs.css';
 import '../styles/styles.css';
-import Search from './search';
+// import Search from './search';
 
 const HomeHeader = () => (
   <header className="header text-center">
@@ -25,7 +25,7 @@ const HomeHeader = () => (
         </p>
       </div>
 
-      <Search />
+      {/* <Search /> */}
     </div>
   </header>
 );
@@ -51,7 +51,7 @@ const PageHeader = () => (
       </ol>
 
       <div className="top-search-box">
-        <Search />
+        {/* <Search /> */}
       </div>
     </div>
   </header>
