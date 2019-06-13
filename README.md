@@ -36,8 +36,7 @@ make build
 ## Testing
 
 ```sh
-# The script will fetch the url from the config if no args provided
-yarn test [localhost:8000]
+yarn test
 ```
 
 The documentation is built in the `public` folder, you can then run in it :

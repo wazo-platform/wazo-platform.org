@@ -7,7 +7,11 @@ const SWAGGER_ERROR_MESSAGE = 'Something went wrong...';
 let hasError = false;
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage', '--disable-setuid-sandbox'] });
+  console.log(`Checking swagger issues for ${baseUrl}`);
+  const browser = await puppeteer.launch({
+    headless: false,
+    args: ['--no-sandbox'],
+  });
   const page = await browser.newPage();
   await page.goto(baseUrl);
   await page.waitForSelector('h1');

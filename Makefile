@@ -10,6 +10,7 @@ format:
 	docker-compose run doc yarn format
 
 build:
+	rm -rf public/*
 	docker-compose run doc yarn build
 
 test:

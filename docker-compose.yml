@@ -6,10 +6,12 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/app/src:ro
-      - ./gatsby-node.js:/app/gatsby-node.js:ro
-      - ./gatsby-config.js:/app/gatsby-config.js:ro
+      - ./data:/app/data:ro
+      - ./src:/app/src
+      - ./gatsby-node.js:/app/gatsby-node.js
+      - ./gatsby-config.js:/app/gatsby-config.js
       - ./public/diagrams:/app/public/diagrams
+      - ./tests:/app/tests
       - ./public:/app/public
   # Used to run a server to be used by test
   server:
@@ -25,7 +27,7 @@ services:
       context: .
       dockerfile: Dockerfile-test
     volumes:
-      - .:/app/
+      - ./tests:/app/tests
     links:
       - server
-    command: yarn test http://server:8000
+    command: yarn test

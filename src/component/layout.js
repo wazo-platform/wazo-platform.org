@@ -65,10 +65,7 @@ export default ({ children, isHome }) => (
         rel="stylesheet"
         type="text/css"
       />
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" />
     </Helmet>
 
@@ -80,11 +77,7 @@ export default ({ children, isHome }) => (
       <div className="container">
         <small className="copyright">
           Designed with <i className="fas fa-heart" /> by{' '}
-          <a
-            href="https://themes.3rdwavemedia.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://themes.3rdwavemedia.com/" target="_blank" rel="noopener noreferrer">
             Xiaoying Riley
           </a>{' '}
           for developers

@@ -6,9 +6,7 @@ import handleViewport from 'react-in-viewport';
 import Layout from './layout';
 
 const flatten = (text, child) =>
-  typeof child === 'string'
-    ? text + child
-    : React.Children.toArray(child.props.children).reduce(flatten, text);
+  typeof child === 'string' ? text + child : React.Children.toArray(child.props.children).reduce(flatten, text);
 
 const getMenuRenderers = currentMenus => ({
   heading: props => {
@@ -22,10 +20,7 @@ const getMenuRenderers = currentMenus => ({
 
     if (props.level === 2) {
       return (
-        <a
-          className={`nav-link scrollto${active ? ' active' : ''}`}
-          href={`#${slug}`}
-        >
+        <a className={`nav-link scrollto${active ? ' active' : ''}`} href={`#${slug}`}>
           {props.children}
         </a>
       );
@@ -33,10 +28,7 @@ const getMenuRenderers = currentMenus => ({
 
     return (
       <nav className="doc-sub-menu nav flex-column">
-        <a
-          className={`nav-link scrollto${active ? ' active' : ''}`}
-          href={`#${slug}`}
-        >
+        <a className={`nav-link scrollto${active ? ' active' : ''}`} href={`#${slug}`}>
           {props.children}
         </a>
       </nav>
@@ -64,10 +56,7 @@ const getContentRenderers = (module, onEnter, onLeave) => ({
 
     if (props.level === 2) {
       return (
-        <ViewportSection
-          onEnterViewport={() => onEnter(slug)}
-          onLeaveViewport={() => onLeave(slug)}
-        >
+        <ViewportSection onEnterViewport={() => onEnter(slug)} onLeaveViewport={() => onLeave(slug)}>
           <section className="doc-section" id={slug}>
             <h2 className="section-title">{text}</h2>
             <div className="section-block" />
@@ -77,10 +66,7 @@ const getContentRenderers = (module, onEnter, onLeave) => ({
     }
 
     return (
-      <ViewportSection
-        onEnterViewport={() => onEnter(slug)}
-        onLeaveViewport={() => onLeave(slug)}
-      >
+      <ViewportSection onEnterViewport={() => onEnter(slug)} onLeaveViewport={() => onLeave(slug)}>
         <h3 className="block-title" id={slug}>
           {props.children}
         </h3>

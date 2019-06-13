@@ -69,10 +69,10 @@ section.cards-section > div > h3 {
   border-top: 1px solid #eee;
 }
 
-.cards-section .bottom-links a:nth-child(1) {
+.cards-section .bottom-links a.left {
   float: left;
 }
 
-.cards-section .bottom-links a:nth-child(2) {
+.cards-section .bottom-links a.right {
   float: right;
 }
