@@ -16,7 +16,9 @@ COPY . /app
 
 WORKDIR /app
 
+RUN rm -rf node_modules/
+
 # Install node dependencies
-RUN yarn
+RUN yarn install
 
 ENTRYPOINT []

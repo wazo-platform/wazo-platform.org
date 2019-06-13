@@ -1,9 +1,9 @@
 FROM alekzonder/puppeteer
 
-COPY . /app
+COPY ./package.json /app
+#COPY ./yarn.lock /app
 
 WORKDIR /app
 
 # Install node dependencies
-RUN yarn
-
+RUN yarn install

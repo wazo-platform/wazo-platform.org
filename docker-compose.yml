@@ -23,11 +23,11 @@ services:
     command: bash -c "cd /app/public && python -m http.server 8000"
   # Allow to run scrap tests before deployment
   test:
-    build:
-      context: .
-      dockerfile: Dockerfile-test
+    build: tests
     volumes:
-      - ./tests:/app/tests
+      - ./tests/src:/app/src
+      - ./tests/package.json:/app/package.json
     links:
       - server
-    command: yarn test
+    command: sleep 1d
+#    command: yarn test

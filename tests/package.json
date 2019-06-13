@@ -1,0 +1,13 @@
+{
+  "name": "wazo-doc-api-tests",
+  "private": true,
+  "description": "Wazo project documentation for developers",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "for filename in src/*.js; do node $filename localhost:8000; done"
+  },
+  "dependencies": {
+    "puppeteer": "^0.11.0"
+  }
+}

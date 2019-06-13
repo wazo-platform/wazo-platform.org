@@ -9,8 +9,8 @@ let hasError = false;
 (async () => {
   console.log(`Checking swagger issues for ${baseUrl}`);
   const browser = await puppeteer.launch({
-    headless: false,
-    args: ['--no-sandbox'],
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   const page = await browser.newPage();
   await page.goto(baseUrl);
