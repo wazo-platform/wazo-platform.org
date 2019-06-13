@@ -9,7 +9,8 @@
     "develop": "./node_modules/.bin/gatsby develop",
     "format": "./node_modules/.bin/prettier --write src/**/*.{js,jsx} gatsby-node.js",
     "start": "npm run develop",
-    "serve": "./node_modules/.bin/gatsby serve"
+    "serve": "./node_modules/.bin/gatsby serve",
+    "test": "node ./tests/swagger-issues.js"
   },
   "dependencies": {
     "algoliasearch": "^3.33.0",
@@ -35,7 +36,8 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "puppeteer": "^0.11.0"
   },
   "repository": {
     "type": "git",

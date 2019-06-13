@@ -1,0 +1,9 @@
+FROM alekzonder/puppeteer
+
+COPY . /app
+
+WORKDIR /app
+
+# Install node dependencies
+RUN yarn
+

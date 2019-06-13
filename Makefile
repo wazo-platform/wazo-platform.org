@@ -11,3 +11,6 @@ format:
 
 build:
 	docker-compose run doc yarn build
+
+test:
+	docker-compose up --exit-code-from test test

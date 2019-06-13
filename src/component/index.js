@@ -34,7 +34,7 @@ export const Module = ({ moduleName, module }) => (
           </ul>
 
           <div className="bottom-links clearfix">
-            <a href={`/api/${moduleName}.html`}>API Reference</a>
+            <a href={`/api/${moduleName}.html`} className="api-reference">API Reference</a>
             <a
               href={`https://github.com/wazo-pbx/${module.repository}`}
               className="right"

@@ -1,5 +1,6 @@
 version: '3'
 services:
+  # Use to build project
   doc:
     build: .
     ports:
@@ -10,3 +11,21 @@ services:
       - ./gatsby-config.js:/app/gatsby-config.js:ro
       - ./public/diagrams:/app/public/diagrams
       - ./public:/app/public
+  # Used to run a server to be used by test
+  server:
+    image: python:3.5-stretch
+    volumes:
+      - ./public:/app/public
+    expose:
+      - "8000"
+    command: bash -c "cd /app/public && python -m http.server 8000"
+  # Allow to run scrap tests before deployment
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    volumes:
+      - .:/app/
+    links:
+      - server
+    command: yarn test http://server:8000

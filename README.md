@@ -33,6 +33,13 @@ Then open `localhost:8000` your favorite browser.
 make build
 ```
 
+## Testing
+
+```sh
+# The script will fetch the url from the config if no args provided
+yarn test [localhost:8000]
+```
+
 The documentation is built in the `public` folder, you can then run in it :
 
 ```sh
