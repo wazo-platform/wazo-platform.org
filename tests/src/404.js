@@ -64,8 +64,6 @@ const crawlLinks = async (page, url) => {
 
   const hasError = await crawlLinks(page, baseUrl);
 
-  console.log('hasError', hasError);
-
   await browser.close();
   process.exit(hasError ? 1 : 0);
 })();

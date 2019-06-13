@@ -124,14 +124,12 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Create api pages
   sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName => {
+    Object.keys(section.modules).forEach(moduleName =>
       newPage(`/api/${moduleName}.html`, 'api', {
         moduleName,
         module: section.modules[moduleName],
-      });
-
-      console.log('url', section.modules[moduleName].redocUrl);
-    })
+      })
+    )
   );
 
   // Create overview pages

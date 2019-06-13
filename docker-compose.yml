@@ -29,5 +29,4 @@ services:
       - ./tests/package.json:/app/package.json
     links:
       - server
-    command: sleep 1d
-#    command: yarn test
+    command: yarn test
