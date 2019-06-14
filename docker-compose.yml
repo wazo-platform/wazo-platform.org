@@ -10,9 +10,8 @@ services:
       - ./src:/app/src
       - ./gatsby-node.js:/app/gatsby-node.js
       - ./gatsby-config.js:/app/gatsby-config.js
-      - ./public/diagrams:/app/public/diagrams
       - ./tests:/app/tests
-      - ./public:/app/public
+    command: sleep 3600 # Use to let container up during build
   # Used to run a server to be used by test
   server:
     image: python:3.5-stretch
