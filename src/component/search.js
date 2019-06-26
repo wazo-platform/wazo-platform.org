@@ -110,8 +110,10 @@ const Results = connectStateResults(({ searchState: state, searchResults: res, c
 
 export default class Search extends Component {
   list = React.createRef();
-  state = { query: ``, focused: false };
-  searchClient = algoliasearch(config.algolia.appId, config.algolia.publicKey);
+  state = { query: '', focused: false };
+
+  searchClient = config.algolia && !!config.algolia.appId && !!config.algolia.publicKey ?
+    algoliasearch(config.algolia.appId, config.algolia.publicKey) : null;
 
   updateState = state => this.setState(state);
 
@@ -136,6 +138,9 @@ export default class Search extends Component {
   render() {
     const { query, focused } = this.state;
     const { collapse, hitsAsGrid } = this.props;
+    if (!this.searchClient) {
+      return null;
+    }
 
     return (
       <InstantSearch
