@@ -13,24 +13,28 @@ const markdownConverter = new showdown.Converter();
 const ghClient = github.client(config.githubToken);
 const repo = ghClient.repo('wazo-pbx/wazo-doc-ng');
 const overviews = {};
-let hasSearch = true;
+let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 
-const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-const index = algoliaClient.initIndex('wazo-doc-overview');
-index.setSettings(
-  {
-    attributeForDistinct: 'title',
-    attributesToHighlight: ['title', 'content'],
-    attributesToSnippet: ['content'],
-    distinct: true,
-  },
-  err => {
-    if (err) {
-      hasSearch = false;
-      console.error('Algolia error:' + err.message);
+let algoliaIndex = null;
+
+if (hasSearch) {
+  const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
+  algoliaIndex = algoliaClient.initIndex('wazo-doc-overview');
+  algoliaIndex.setSettings(
+    {
+      attributeForDistinct: 'title',
+      attributesToHighlight: ['title', 'content'],
+      attributesToSnippet: ['content'],
+      distinct: true,
+    },
+    err => {
+      if (err) {
+        hasSearch = false;
+        console.error('Algolia error:' + err.message);
+      }
     }
-  }
-);
+  );
+}
 
 const retrieveGithubFiles = async (basePath = '/') => {
   const files = await repo.contentsAsync(basePath, 'master');
@@ -98,7 +102,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Update algolia index
   if (hasSearch) {
-    await new Promise(resolve => index.clearIndex(resolve));
+    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
     const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
       const moduleName = getModuleName(repoName);
       const module = allModules[moduleName];
@@ -116,7 +120,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
       return acc;
     }, []);
 
-    index.addObjects(algoliaObjects);
+    algoliaIndex.addObjects(algoliaObjects);
   }
 
   // Create homepage
