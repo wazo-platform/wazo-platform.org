@@ -1,11 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import '../styles/bootstrap.css';
-import '../styles/fontawesome.css';
-import '../styles/elegant-font.css';
-import '../styles/pretty-docs.css';
-import '../styles/styles.css';
+import '../../styles/elegant-font.css';
+import '../../styles/pretty-docs.scss';
+import '../../styles/documentation-styles.scss';
 import Search from './search';
 
 const HomeHeader = () => (
@@ -57,15 +55,14 @@ const PageHeader = () => (
   </header>
 );
 
-export default ({ children, isHome }) => (
-  <div className="page-wrapper">
-    <Helmet>
+export default ({ children, className, isHome }) => (
+  <div className={`page-wrapper ${className}`}>
+    <Helmet bodyAttributes={{ class: 'documentation' }}>
       <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet"
         type="text/css"
       />
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" />
     </Helmet>
 

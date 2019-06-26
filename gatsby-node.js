@@ -117,12 +117,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
   }
 
   // Create homepage
-  await newPage('/', 'index', { sections, overviews });
+  await newPage('/', 'index');
+
+  // Create homepage
+  await newPage('/documentation', 'documentation/index', { sections, overviews });
 
   // Create api pages
   sections.forEach(section =>
     Object.keys(section.modules).forEach(moduleName =>
-      newPage(`/api/${moduleName}.html`, 'api', {
+      newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
         moduleName,
         module: section.modules[moduleName],
       })
@@ -137,7 +140,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
       return;
     }
 
-    newPage(`/overview/${moduleName}.html`, 'overview', {
+    newPage(`/documentation/overview/${moduleName}.html`, 'documentation/overview', {
       overview: overviews[repoName.split('-')[1]],
       moduleName,
       module,

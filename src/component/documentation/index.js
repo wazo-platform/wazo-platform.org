@@ -1,12 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import Layout from './layout';
+import Layout from './Layout';
 
 export const Module = ({ moduleName, module }) => (
   <div className={`item item-${module.color} col-lg-4 col-6`}>
     <div className="item-inner">
-      <a href={module.url || `/overview/${moduleName}.html`}>
+      <a href={module.url || `/documentation/overview/${moduleName}.html`}>
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
@@ -18,7 +18,7 @@ export const Module = ({ moduleName, module }) => (
         <>
           <ul className="links clearfix">
             <li>
-              <a href={`/overview/${moduleName}.html`}>
+              <a href={`/documentation/overview/${moduleName}.html`}>
                 <i className="fas fa-home" /> Overview
               </a>
             </li>
@@ -35,7 +35,7 @@ export const Module = ({ moduleName, module }) => (
 
           <div className="bottom-links clearfix">
             {module.redocUrl && (
-              <a href={`/api/${moduleName}.html`} className="api-reference left">
+              <a href={`/documentation/api/${moduleName}.html`} className="api-reference left">
                 API Reference
               </a>
             )}
@@ -51,8 +51,8 @@ export const Module = ({ moduleName, module }) => (
 );
 
 export default ({ pageContext: { sections } }) => (
-  <Layout isHome>
-    <Helmet bodyAttributes={{ class: 'landing-page' }}>
+  <Layout isHome className="landing-page">
+    <Helmet>
       <title>Wazo project documentation for developers</title>
     </Helmet>
     <section className="cards-section text-center">
