@@ -1,0 +1,30 @@
+---
+- hosts: all
+  tasks:
+    - name: Prepare config.js
+      copy:
+        content: |
+          module.exports = {
+            githubToken: '',
+            algolia: {
+              appId: '',
+              publicKey: '',
+              apiKey: '',
+            },
+          };
+        dest: "{{ zuul.project.src_dir }}/config.js"
+
+    - name: make
+      command: "make"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+    - name: make build
+      command: "make build"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+    - name: Push the public directory to the web site
+      command: 'rsync -e "ssh -o StrictHostKeyChecking=no" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
+      args:
+        chdir: "{{ zuul.project.src_dir }}"

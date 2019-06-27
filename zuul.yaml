@@ -1,0 +1,26 @@
+- job:
+    name: yarn-build-copy
+    description: Build and copy
+    pre-run: pre.yaml
+    run: run-copy.yaml
+
+- job:
+    name: yarn-build-publish
+    description: Build and publish
+    pre-run: pre.yaml
+    run: run.yaml
+
+- project:
+    check:
+      jobs:
+        - yarn-build-copy:
+            nodeset: debian9-vm
+    gate:
+      jobs:
+        - yarn-build-copy:
+            nodeset: debian9-vm
+
+    post:
+      jobs:
+        - yarn-build-publish:
+            nodeset: debian9-vm
