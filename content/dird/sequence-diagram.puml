@@ -1,0 +1,12 @@
+@startuml
+
+User -> dird: token and search term "Alice"
+dird -> auth: validate token
+dird <- auth: allow
+dird -> confd: "Alice"
+dird -> google: "Alice"
+dird -> office365: "Alice"
+dird -> ldap: "Alice"
+User <- dird: Contact list
+
+@enduml

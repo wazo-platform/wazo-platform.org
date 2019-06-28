@@ -1,0 +1,5 @@
+.gitignore
+*.html
+*.svg
+*.jar
+*~

@@ -1,0 +1,26 @@
+@startuml
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+Container(asterisk, "Asterisk", "C", "Back2Back Agent")
+Container(amid, "wazo-amid", "Python", "")
+
+System_Boundary(call_logd_platform, "Call-logd application"){
+    Container(call_logd, "wazo-call-logd", "Python", "Call-log service")
+    Container(db, "Postgresql", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+}
+
+actor User
+
+Rel_D(amid, bus, "Push events", "AMQP")
+Rel_L(amid, asterisk, " ")
+Rel_D(asterisk, db, "Push raw call logs", "SQL")
+Rel_U(call_logd, db, "Push and Fetch call-log", "SQL")
+Rel_U(call_logd, bus, "Publishs and Recevied internal events", "AMQP")
+Rel_R(call_logd, auth, "Authenticates", "REST")
+Rel_L(User, call_logd, "Retrieves call history", "REST")
+@enduml

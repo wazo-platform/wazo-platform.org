@@ -1,0 +1,40 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+Person(phone, "Phone")
+Person(user, "User")
+
+System_Boundary(auth_system, "Agent") {
+    Container(agentd_app, "wazo-agentd", "Python", "Agent service")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    ContainerDb(pgsql, "PostgreSQL", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Message bus")
+    Container(agid, "xivo-agid", "Python", "AGI service")
+    Container(asterisk, "Asterisk", "C", "Media server")
+}
+
+
+' Relationships
+
+' Users
+Rel_R(user, agentd_app, " ", "REST")
+Rel_R(phone, asterisk, " ", "SIP/SCCP")
+
+' Layout corrections
+Lay_R(phone, agid)
+Lay_D(user, phone)
+
+' Services
+Rel_U(agentd_app, auth, " ", "REST")
+Rel_D(agentd_app, pgsql, " ", "SQL")
+Rel_R(agentd_app, bus, " ", "AMQP")
+
+Rel_R(agid, agentd_app, " ", "REST")
+
+Rel_U(asterisk, agid, " ", "AGI")
+Rel_D(agentd_app, asterisk, " ", "AMI")
+
+
+@enduml

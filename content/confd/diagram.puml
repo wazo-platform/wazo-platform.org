@@ -1,0 +1,29 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+System_Boundary(confd_platform, "Configuration application"){
+
+    Container(confd, "wazo-confd", "Python", "Configuration service")
+
+    Container(db, "Postgresql", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+
+    Container(provd, "xivo-provd", "Python", "Provisionning service") [["/overview/provisioning.html"]]
+    Container(sysconfd, "xivo-sysconfd", "Python", "Operating system configuration service")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+}
+
+actor User
+
+Rel_R(User, confd, "uses", "REST")
+
+Rel_U(confd, db, " ", "SQL")
+Rel_U(confd, bus, "Recevied Wazo platform events", "AMQP")
+
+Rel_R(confd, auth, "Authenticates", "REST")
+Rel_D(confd, provd, "Configures devices", "REST")
+Rel_D(confd, sysconfd, "Runs Operating System commands", "REST")
+
+@enduml

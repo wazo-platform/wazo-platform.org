@@ -1,0 +1,12 @@
+@startuml
+
+User -> auth: POST /token
+User <- auth: Token
+
+User -> dird: GET /dir/lookup & token
+auth <- dird: token & ACL
+auth -> dird: 204 or 403
+
+dird -> User: Result
+
+@enduml

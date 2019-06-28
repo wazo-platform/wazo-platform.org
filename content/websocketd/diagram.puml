@@ -1,0 +1,17 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+System_Boundary(websocketd_platform, "Websocketd application"){
+    Container(websocketd, "wazo-websocketd", "Python", "Websocketd service")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+}
+
+actor User
+
+Rel_R(User, websocketd, "Receives events", "REST")
+Rel_U(websocketd, bus, "Receives Wazo platform events", "AMQP")
+Rel_R(websocketd, auth, "Authenticates", "REST")
+@enduml
