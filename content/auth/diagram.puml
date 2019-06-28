@@ -1,0 +1,28 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+Person(user, "User")
+
+System_Boundary(auth_system, "Authentication") {
+    Container(auth_app, "wazo-auth", "Python", "Authentication service")
+    ContainerDb(pgsql, "PostgreSQL", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Message bus")
+}
+
+System_Ext(oauth2, "wazo-oauth2")
+System_Ext(google, "Google")
+System_Ext(microsoft, "Microsoft Office 365")
+
+' Relationships
+Rel_L(user, auth_app, " ", "REST")
+Rel_U(auth_app, oauth2, " ", "WS")
+
+Rel_L(auth_app, pgsql, " ", "SQL")
+Rel_R(google, oauth2, " ", "REST")
+Rel_L(microsoft, oauth2, " ", "REST")
+Rel_D(auth_app, bus, " ", "AMQP")
+
+
+@enduml

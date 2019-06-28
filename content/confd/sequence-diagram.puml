@@ -1,0 +1,20 @@
+@startuml
+
+actor Admin
+
+Admin -> confd: edit extension
+confd -> auth: Validate token
+auth --> confd: allow
+confd -> Bus: send message extension_edited
+confd -> sysconfd: HTTP request to reload
+sysconfd -> Asterisk: dialplan reload
+Asterisk -> Filesystem: read config
+Filesystem --> Asterisk: command
+Asterisk -> confgend: execute command
+confd -> DB
+confgend -> DB: retrieve extension
+DB --> confgend
+confgend --> Asterisk: stream config
+confd --> Admin: OK
+
+@enduml

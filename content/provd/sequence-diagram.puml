@@ -1,0 +1,30 @@
+@startuml
+
+phone -> asterisk: prov code
+asterisk -> agid: device IP and prov code
+agid -> confd: token, get device from IP
+confd -> auth: validate token
+confd <- auth: allow
+agid <- confd: device
+agid -> confd: token, get line from prov code
+confd -> auth: validate token
+confd <- auth: allow
+agid <- confd: line
+agid -> confd: token, associate line with device
+confd -> auth: validate token
+confd <- auth: allow
+confd -> provd: token, update device
+auth <- provd: validate token
+auth -> provd: allow
+confd <- provd: ok
+confd -> provd: token, synchronize device
+auth <- provd: validate token
+auth -> provd: allow
+confd <- provd: ok
+agid <- confd: ok
+provd -> amid: synchronize device
+asterisk <- amid: synchronize device
+phone <- asterisk: SIP Notify
+phone -> provd: get configuration
+
+@enduml

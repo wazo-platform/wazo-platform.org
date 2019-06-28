@@ -1,0 +1,20 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+System_Boundary(amid_platform, "amid application"){
+    Container(amid, "wazo-amid", "Python", "Asterisk proxy service")
+    Container(asterisk, "Asterisk", "C", "Back to Back User agent")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+}
+
+actor User
+
+Rel_R(User, amid, " ", "REST")
+Rel_U(asterisk, amid, "Receives AMI events", "AMI")
+Rel_U(amid, asterisk, "Sends AMI commands", "AJAM")
+Rel_D(amid, bus, "Publishs Wazo platform events", "AMQP")
+Rel_R(amid, auth, "Authenticates", "REST")
+@enduml

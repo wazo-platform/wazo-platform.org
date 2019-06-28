@@ -1,0 +1,14 @@
+@startuml
+User -> websocketd: Send token
+websocketd -> auth: Validate token
+auth --> websocketd: send acl list
+
+User -> websocketd: Subscribe event
+User -> websocketd: Subscribe event
+User -> websocketd: Start events emission
+
+rabbitmq -> websocketd: Receive event
+websocketd -> websocketd: Check ACL and filter event
+websocketd -> User: Send event
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+actor Alice
+Alice -> chatd: <b>Create a room\nPOST /users/me/rooms\n{users:[<uuid:bob>]}
+chatd --> Alice:
+Alice -> chatd: <b>Create a message\nPOST /users/me/rooms/<uuid>/messages
+chatd --> bus: <b>Publish message\nas Wazo platform event
+bus --> websocketd: <b>Relay message
+
+actor Bob
+websocketd -> Bob: <b>Receive message
+
+@enduml

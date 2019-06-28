@@ -1,0 +1,14 @@
+@startuml
+
+Phone1000 -> asterisk: Call 1001
+asterisk -> Phone1001: 1001
+User <- Phone1001: answers
+asterisk -> calld: Event
+User <- calld: Event
+User -> calld: DELETE /calls/{call_id}
+asterisk <- calld: Hangup
+asterisk -> calld: OK
+asterisk -> Phone1001: Bye
+User <- calld: 204
+
+@enduml

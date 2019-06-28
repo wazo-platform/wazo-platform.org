@@ -1,0 +1,12 @@
+@startuml
+
+admin -> plugind: install plugin <git URI>
+plugind -> auth: authorize token?
+plugind -> admin: 201
+plugind -> repo: git clone <git URI>
+plugind -> plugind: build
+plugind -> plugind: package
+plugind -> plugind: install
+plugind -> bus: install completed event
+
+@enduml

@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const { exec } = require('child_process');
-const github = require('octonode');
+const { execSync } = require('child_process');
 const showdown = require('showdown');
 const algoliasearch = require('algoliasearch');
 const striptags = require('striptags');
@@ -10,8 +9,6 @@ const striptags = require('striptags');
 const config = require('./config');
 
 const markdownConverter = new showdown.Converter();
-const ghClient = github.client(config.githubToken);
-const repo = ghClient.repo('wazo-pbx/wazo-doc-ng');
 const overviews = {};
 let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 
@@ -36,30 +33,20 @@ if (hasSearch) {
   );
 }
 
-const retrieveGithubFiles = async (basePath = '/') => {
-  const files = await repo.contentsAsync(basePath, 'master');
+function walk(dir) {
+  let files = fs.readdirSync(dir);
+  const dirname = dir.split('/').pop();
 
-  await Promise.all(
-    files[0].map(async file => {
-      const repoName = basePath.split('/')[0];
+  console.info("processing " + dir);
 
-      if (file.type === 'dir') {
-        return retrieveGithubFiles(file.path);
-      }
-
-      if (file.name.split('.')[1] === 'puml') {
-        const contentResponse = await repo.contentsAsync(file.path, 'master');
-        const content = Buffer.from(contentResponse[0].content, 'base64').toString('utf-8');
-
-        return fs.writeFileSync(`/tmp/${repoName}-${file.name}`, content);
-      }
-
-      if (file.name === 'description.md') {
-        const contentResponse = await repo.contentsAsync(file.path, 'master');
-        overviews[repoName] = Buffer.from(contentResponse[0].content, 'base64').toString('utf-8');
-      }
-    })
-  );
+  files.forEach(function(file) {
+    const filePath = dir + '/' + file;
+    if (fs.statSync(filePath).isDirectory()) {
+      walk(filePath);
+    } else if (file === 'description.md') {
+      overviews[dirname] = fs.readFileSync(filePath, 'utf8');
+    }
+  })
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
@@ -93,12 +80,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
-  exec(`mkdir -p ${diagramOutputDir}`);
-  exec(`rm -rf ${diagramOutputDir}/*`);
-  await retrieveGithubFiles();
+  execSync(`mkdir -p ${diagramOutputDir}`);
+  execSync(`rm -rf ${diagramOutputDir}/*`);
+  walk('content');
 
   // Generate puml to svg
-  exec(`java -jar $JAVA_HOME/lib/plantuml.jar -tsvg /tmp/*.puml -o ${diagramOutputDir}`);
+  console.info(`generating svg diagrams in ${diagramOutputDir}`);
+  execSync(
+    `for f in $(find content -name '*.puml'); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
+  );
 
   // Update algolia index
   if (hasSearch) {

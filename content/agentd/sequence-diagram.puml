@@ -1,0 +1,12 @@
+@startuml
+
+phone -> asterisk: ~*311001
+asterisk -> agid: agent login 1001
+agid -> agentd: token, login 1001
+agentd -> auth: authorize token?
+agentd <- auth: ok
+agentd -> db: login 1001
+asterisk <- agentd: add queue member
+
+
+@enduml

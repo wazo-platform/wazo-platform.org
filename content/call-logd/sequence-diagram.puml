@@ -1,0 +1,16 @@
+@startuml
+
+actor Alice
+Alice -> Asterisk: Hangup Call
+Asterisk -> postgres: Store Channel Events Logging (CELs)
+Asterisk -> amid: Push event:LINKEDID_END
+amid -> bus: Publish event:LINKEDID_END internally
+bus -> call_logd: Received event:LINKEDID_END
+call_logd -> postgres: Retrieve all CELs linked with LINKEDID_END through the CELID
+call_logd -> call_logd: Transforms CELs in Call Log
+call_logd -> postgres: Store Call Log
+call_logd -> bus: Publish call_logs_created event with the new Call Log
+bus -> websocketd: Transfert call_logs_created event
+websocketd -> Alice: Receive call_logs_created event
+
+@enduml
