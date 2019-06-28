@@ -29,14 +29,15 @@ index.setSettings({
   }
 });
 
-function walk(dir) {
-  let files = fs.readdirSync(dir);
+const walk = (dir) => {
+  const files = fs.readdirSync(dir);
   const dirname = dir.split('/').pop();
   
   console.info("processing " + dir);
 
-  files.forEach(function(file) {
+  files.forEach((file) => {
     const filePath = dir + '/' + file;
+
     if (fs.statSync(filePath).isDirectory()) {
       walk(filePath);
     } else if (file === 'description.md') {
@@ -47,7 +48,7 @@ function walk(dir) {
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const sections = yaml.safeLoad(
-    fs.readFileSync('./data/sections.yaml', { encoding: 'utf-8' })
+    fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' })
   );
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(
@@ -85,7 +86,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   walk('content');
 
   // Generate puml to svg
-  console.info(`generating svg diagrams in ${diagramOutputDir}`)
+  console.info(`generating svg diagrams in ${diagramOutputDir}...`);
   execSync(
     `for f in $(find content -name '*.puml'); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
   );
