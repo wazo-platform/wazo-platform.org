@@ -39,7 +39,7 @@
         icon: fa fa-phone
         color: primary
         repository: xivo-provd
-        redocUrl: https://quintana.wazo.community/api/provd/api/api.yml
+        redocUrl: https://quintana.wazo.community/api/provd/0.2/api/api.yml
 
       webhook:
         title: Webhooks
@@ -87,7 +87,6 @@
         icon: fa fa-meteor
         color: purple
         repository: wazo-websocketd
-        redocUrl: http://documentation.wazo.community/en/stable/api_sdk/websocket.html
 
   - name: Management platform
     modules:

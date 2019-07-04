@@ -11,6 +11,7 @@ cp config{.sample,}.js
 
 # edit it to set a github personnal access token with read access on `public_repo`.
 # You can create one at https://github.com/settings/tokens
+# Algolia credentials arn't mandatory to develop locally.
 ```
 
 Then build the container:
@@ -31,6 +32,12 @@ Then open `localhost:8000` your favorite browser.
 
 ```sh
 make build
+```
+
+## Testing
+
+```sh
+yarn test
 ```
 
 The documentation is built in the `public` folder, you can then run in it :

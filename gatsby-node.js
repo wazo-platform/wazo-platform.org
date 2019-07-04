@@ -13,24 +13,28 @@ const markdownConverter = new showdown.Converter();
 const ghClient = github.client(config.githubToken);
 const repo = ghClient.repo('wazo-pbx/wazo-doc-ng');
 const overviews = {};
-let hasSearch = true;
+let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 
-const algoliaClient = algoliasearch(
-  config.algolia.appId,
-  config.algolia.apiKey
-);
-const index = algoliaClient.initIndex('wazo-doc-overview');
-index.setSettings({
-  attributeForDistinct: 'title',
-  attributesToHighlight: ['title', 'content'],
-  attributesToSnippet: ['content'],
-  distinct: true,
-}, (err) => {
-  if (err) {
-    hasSearch = false;
-    console.error('Algolia error:' + err.message);
-  }
-});
+let algoliaIndex = null;
+
+if (hasSearch) {
+  const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
+  algoliaIndex = algoliaClient.initIndex('wazo-doc-overview');
+  algoliaIndex.setSettings(
+    {
+      attributeForDistinct: 'title',
+      attributesToHighlight: ['title', 'content'],
+      attributesToSnippet: ['content'],
+      distinct: true,
+    },
+    err => {
+      if (err) {
+        hasSearch = false;
+        console.error('Algolia error:' + err.message);
+      }
+    }
+  );
+}
 
 const retrieveGithubFiles = async (basePath = '/') => {
   const files = await repo.contentsAsync(basePath, 'master');
@@ -45,33 +49,23 @@ const retrieveGithubFiles = async (basePath = '/') => {
 
       if (file.name.split('.')[1] === 'puml') {
         const contentResponse = await repo.contentsAsync(file.path, 'master');
-        const content = Buffer.from(
-          contentResponse[0].content,
-          'base64'
-        ).toString('utf-8');
+        const content = Buffer.from(contentResponse[0].content, 'base64').toString('utf-8');
 
         return fs.writeFileSync(`/tmp/${repoName}-${file.name}`, content);
       }
 
       if (file.name === 'description.md') {
         const contentResponse = await repo.contentsAsync(file.path, 'master');
-        overviews[repoName] = Buffer.from(
-          contentResponse[0].content,
-          'base64'
-        ).toString('utf-8');
+        overviews[repoName] = Buffer.from(contentResponse[0].content, 'base64').toString('utf-8');
       }
     })
   );
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  const sections = yaml.safeLoad(
-    fs.readFileSync('./data/sections.yaml', { encoding: 'utf-8' })
-  );
+  const sections = yaml.safeLoad(fs.readFileSync('./data/sections.yaml', { encoding: 'utf-8' }));
   const allModules = sections.reduce((acc, section) => {
-    Object.keys(section.modules).forEach(
-      moduleName => (acc[moduleName] = section.modules[moduleName])
-    );
+    Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
 
@@ -104,13 +98,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await retrieveGithubFiles();
 
   // Generate puml to svg
-  exec(
-    `java -jar $JAVA_HOME/lib/plantuml.jar -tsvg /tmp/*.puml -o ${diagramOutputDir}`
-  );
+  exec(`java -jar $JAVA_HOME/lib/plantuml.jar -tsvg /tmp/*.puml -o ${diagramOutputDir}`);
 
   // Update algolia index
   if (hasSearch) {
-    await new Promise(resolve => index.clearIndex(resolve));
+    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
     const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
       const moduleName = getModuleName(repoName);
       const module = allModules[moduleName];
@@ -128,11 +120,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
       return acc;
     }, []);
 
-    index.addObjects(algoliaObjects);
+    algoliaIndex.addObjects(algoliaObjects);
   }
 
   // Create homepage
-  await newPage('/', 'index', { sections });
+  await newPage('/', 'index', { sections, overviews });
 
   // Create api pages
   sections.forEach(section =>
@@ -145,17 +137,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
   );
 
   // Create overview pages
-  Object.keys(overviews).forEach(repoName => {
-    const moduleName = getModuleName(repoName);
-
-    if (!moduleName) {
+  Object.keys(allModules).forEach(moduleName => {
+    const module = allModules[moduleName];
+    const repoName = module.repository;
+    if (!repoName) {
       return;
     }
 
-    const module = allModules[moduleName];
-
     newPage(`/overview/${moduleName}.html`, 'overview', {
-      overview: overviews[repoName],
+      overview: overviews[repoName.split('-')[1]],
       moduleName,
       module,
     });

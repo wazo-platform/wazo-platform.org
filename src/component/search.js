@@ -15,11 +15,7 @@ import { Link } from 'gatsby';
 const config = require('../../config');
 const indexName = 'wazo-doc-overview';
 
-const Root = props => (
-  <div className="main-search-box pt-3 pb-4 d-inline-block">
-    {props.children}
-  </div>
-);
+const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
 
 const list = css`
   position: absolute;
@@ -80,27 +76,18 @@ const By = styled.span`
   }
 `;
 
-const Input = connectSearchBox(
-  ({
-    refine,
-    focused,
-    currentRefinement,
-    isSearchStalled,
-    createURL,
-    ...rest
-  }) => (
-    <form className="form-inline search-form justify-content-center">
-      <input
-        type="text"
-        className="form-control search-input"
-        placeholder="Search"
-        aria-label="Search"
-        onChange={e => refine(e.target.value)}
-        {...rest}
-      />
-    </form>
-  )
-);
+const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchStalled, createURL, ...rest }) => (
+  <form className="form-inline search-form justify-content-center">
+    <input
+      type="text"
+      className="form-control search-input"
+      placeholder="Search"
+      aria-label="Search"
+      onChange={e => refine(e.target.value)}
+      {...rest}
+    />
+  </form>
+));
 
 const PageHit = clickHandler => ({ hit }) => (
   <div>
@@ -109,11 +96,7 @@ const PageHit = clickHandler => ({ hit }) => (
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h6>
     </Link>
-    <Link
-      className="snippet-link"
-      to={`/overview/${hit.moduleName}.html`}
-      onClick={clickHandler}
-    >
+    <Link className="snippet-link" to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
       <Snippet attribute="content" hit={hit} tagName="mark" />
     </Link>
   </div>
@@ -121,15 +104,16 @@ const PageHit = clickHandler => ({ hit }) => (
 
 const events = ['mousedown', 'touchstart'];
 
-const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits ? children : `No results for ${state.query}`
+const Results = connectStateResults(({ searchState: state, searchResults: res, children }) =>
+  res && res.nbHits ? children : `No results for ${state.query}`
 );
 
 export default class Search extends Component {
   list = React.createRef();
-  state = { query: ``, focused: false };
-  searchClient = algoliasearch(config.algolia.appId, config.algolia.publicKey);
+  state = { query: '', focused: false };
+
+  searchClient = config.algolia && !!config.algolia.appId && !!config.algolia.publicKey ?
+    algoliasearch(config.algolia.appId, config.algolia.publicKey) : null;
 
   updateState = state => this.setState(state);
 
@@ -144,20 +128,19 @@ export default class Search extends Component {
   };
 
   componentDidMount() {
-    events.forEach(event =>
-      document.addEventListener(event, this.handleClickOutside)
-    );
+    events.forEach(event => document.addEventListener(event, this.handleClickOutside));
   }
 
   componentWillUnmount() {
-    events.forEach(event =>
-      document.removeEventListener(event, this.handleClickOutside)
-    );
+    events.forEach(event => document.removeEventListener(event, this.handleClickOutside));
   }
 
   render() {
     const { query, focused } = this.state;
     const { collapse, hitsAsGrid } = this.props;
+    if (!this.searchClient) {
+      return null;
+    }
 
     return (
       <InstantSearch
@@ -167,11 +150,7 @@ export default class Search extends Component {
         root={{ Root }}
       >
         <Input onFocus={this.focus} {...{ collapse, focused }} />
-        <HitsWrapper
-          show={query.length > 0 && focused}
-          hitsAsGrid={hitsAsGrid}
-          ref={this.list}
-        >
+        <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
           <Index indexName={indexName}>
             <Results>
               <Hits hitComponent={PageHit(this.disableHits)} />

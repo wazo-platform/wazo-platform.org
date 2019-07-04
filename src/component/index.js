@@ -34,11 +34,13 @@ export const Module = ({ moduleName, module }) => (
           </ul>
 
           <div className="bottom-links clearfix">
-            <a href={`/api/${moduleName}.html`}>API Reference</a>
-            <a
-              href={`https://github.com/wazo-pbx/${module.repository}`}
-              className="right"
-            >
+            {module.redocUrl && (
+              <a href={`/api/${moduleName}.html`} className="api-reference left">
+                API Reference
+              </a>
+            )}
+
+            <a href={`https://github.com/wazo-pbx/${module.repository}`} className="right">
               <i className="fab fa-github" /> {module.repository}
             </a>
           </div>
@@ -60,11 +62,7 @@ export default ({ pageContext: { sections } }) => (
           <div className="container">
             <div className="cards-wrapper row">
               {Object.keys(section.modules).map(moduleName => (
-                <Module
-                  key={moduleName}
-                  moduleName={moduleName}
-                  module={section.modules[moduleName]}
-                />
+                <Module key={moduleName} moduleName={moduleName} module={section.modules[moduleName]} />
               ))}
             </div>
           </div>
