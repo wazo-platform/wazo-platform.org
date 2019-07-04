@@ -47,7 +47,7 @@ const walk = (dir) => {
     } else if (file === 'description.md') {
       overviews[dirname] = fs.readFileSync(filePath, 'utf8');
     }
-  })
+  });
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
