@@ -22,7 +22,6 @@
     "gatsby-transformer-yaml": "^2.1.12",
     "js-yaml": "^3.13.1",
     "mobx": "^4.2.0",
-    "octonode": "^0.9.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",

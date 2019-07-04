@@ -1,0 +1,24 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+System_Boundary(webhookd_platform, "Webhook application"){
+    Container(webhookd, "wazo-webhookd", "Python", "Webhook service")
+    Container(db, "Postgresql", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+}
+
+System_Ext(external_webapp, "HTTP Server", "External Applications")
+actor User
+
+Rel_R(User, webhookd, "Configures wanted events", "REST")
+
+Rel_U(webhookd, db, "SQL")
+Rel_D(bus, webhookd, "Receives Wazo platform events", "AMQP")
+
+Rel_R(webhookd, auth, "Authenticates", "REST")
+Rel_D(webhookd, external_webapp, "Send Wazo platform events", "HTTP")
+
+@enduml

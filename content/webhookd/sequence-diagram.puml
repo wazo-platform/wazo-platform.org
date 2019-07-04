@@ -1,0 +1,16 @@
+@startuml
+
+actor Alice
+
+Alice -> webhookd: listen to 'voicemail_created'
+webhookd -> auth: Validate token
+auth --> webhookd: allows
+webhookd --> Alice: OK
+
+Asterisk -> Bus: via amid
+Bus -> webhookd: listen
+actor Bob
+Bob -> Asterisk: leave voicemail
+webhookd -> "SMS Service\n(external)": push 
+
+@enduml

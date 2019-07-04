@@ -12,7 +12,8 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm i -g yarn
 
 RUN mkdir /app
-COPY . /app
+COPY ./package.json /app/package.json
+COPY ./yarn.lock /app/yarn.lock
 
 WORKDIR /app
 

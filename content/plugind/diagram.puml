@@ -1,0 +1,21 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+Person(user, "Admin")
+
+System_Boundary(dird_system, "Plugin") {
+    Container(plugind_app, "wazo-plugind", "Python", "Plugin service")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(bus, "RabbitMQ", "Erlang", "Message bus")
+}
+
+System_Ext(git, "Git repository")
+
+Rel_U(plugind_app, auth, " ", "REST")
+Rel_R(user, plugind_app, " ", "REST")
+Rel_R(plugind_app, git, " ", "git")
+Rel_D(plugind_app, bus, " ", "AMQP")
+
+@enduml

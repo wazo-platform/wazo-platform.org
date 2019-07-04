@@ -1,0 +1,25 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+System_Boundary(chatd_platform, "chatd application"){
+    Container(chatd, "wazo-chatd", "Python", "Presentiel and Chat service")
+    Container(db, "Postgresql", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+
+    Container(amid, "wazo-amid", "Python", "") [["/overview/ami.html"]]
+    Container(confd, "wazo-confd", "Python", "") [["/overview/configuration.html"]]
+}
+
+actor User
+
+Rel_D(chatd, amid, "Get phone status", "REST")
+Rel_D(chatd, confd, "Get user list", "REST")
+Rel_D(chatd, auth, "Get sessions", "REST")
+Rel_R(User, chatd, "Retrieves presences", "REST")
+Rel_U(chatd, db, "", "SQL")
+Rel_U(chatd, bus, "Publishs and Recevied internal events", "AMQP")
+Rel_R(chatd, auth, "Authenticates", "REST")
+@enduml

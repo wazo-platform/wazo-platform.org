@@ -1,0 +1,40 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+hide stereotype
+
+Person(user, "User")
+Person(phone, "Phone")
+
+System_Boundary(calld_system, "Call application") {
+    Container(calld_app, "wazo-calld", "Python", "Call application service")
+    Container(asterisk, "Asterisk", "C", "Media server")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(amid, "wazo-amid", "Python", "AMI proxy service") [["/overview/amid.html"]]
+    Container(bus, "RabbitMQ", "Erlang", "Message bus")
+    Container(confd, "wazo-confd", "Python", "Configuration service") [["/overview/configuration.html"]]
+}
+
+' Relationships
+
+' User to others
+Rel(user, phone, "uses")
+Rel(user, calld_app, " ", "REST")
+
+' Auth
+Rel_U(calld_app, auth, " ", "REST")
+Rel_D(calld_app, amid, " ", "REST")
+
+Rel_L(amid, asterisk, " ", "HTTP")
+Rel_L(amid, asterisk, " ", "TCP")
+Rel_U(amid, bus, " ", "AMQP")
+
+Rel_L(asterisk, phone, " ", "SIP/SCCP")
+
+Rel_R(phone, asterisk, " ")
+
+Rel_R(calld_app, bus, " ", "AMQP")
+Rel_U(calld_app, confd, " ", "REST")
+Rel_D(calld_app, asterisk, " ", "REST")
+
+@enduml

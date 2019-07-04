@@ -1,0 +1,21 @@
+@startuml
+
+actor Alice
+Alice -> asterisk: compose *10
+
+group Internal events
+  asterisk --> amid: Event DeviceStateChange\nname: PJSIP/alice\nstate: ringing
+  amid --> bus:  Event DeviceStateChange\nname: PJSIP/alice\nstate: ringing
+  bus --> chatd:  Event DeviceStateChange\nname: PJSIP/alice\nstate: ringing
+end
+
+
+group Wazo platform events
+  chatd -> bus: Event Presence Alice
+  bus --> websocketd: Event Presence Alice
+  actor Bob
+  websocketd -> Bob: Event Presence Alice
+  websocketd -> Alice: Event Presence Alice
+end
+
+@enduml
