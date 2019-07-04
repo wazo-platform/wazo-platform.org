@@ -1,8 +1,6 @@
-This is a PoC repository that aggregates documentation about Wazo services.
+This directory aggregates documentation about Wazo services.
 
-The documenation is oriented towards system architecture, not development or end-users.
-
-The files in this repo are meant to be read by [wazo-doc-tools](https://github.com/wazo-pbx/wazo-doc-tools) to generate http://developers.wazo.io/.
+The documentation is oriented towards system architecture, not development or end-users.
 
 Diagrams are written with [PlantUML](https://plantuml.com).
 

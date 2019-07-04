@@ -1,24 +1,17 @@
-<h1 align="center">
-  Wazo project documentation for developers
-</h1>
+# Wazo project documentation for developers
 
-This tool is aimed at generating http://developers.wazo.io from the files in [wazo-doc-ng](https://github.com/wazo-pbx/wazo-doc-ng).
+This repo contains the source and building scripts for generating http://developers.wazo.io.
 
-# Installation
+## Installation
 
-```sh
-cp config{.sample,}.js
-
-# edit it to set a github personnal access token with read access on `public_repo`.
-# You can create one at https://github.com/settings/tokens
-# Algolia credentials arn't mandatory to develop locally.
-```
-
-Then build the container:
+Build the builder container:
 
 ```sh
 make builder
+cp config.sample.js config.js  # the config.js file must exist
 ```
+
+In `config.js`, you can configure the Algolia credentials used for the search engine. If left empty, the search engine will be disabled.
 
 ## Develop
 
@@ -26,7 +19,7 @@ make builder
 make develop
 ```
 
-Then open `localhost:8000` your favorite browser.
+Then open http://localhost:8000 in your favorite browser.
 
 ## Building
 
@@ -34,16 +27,18 @@ Then open `localhost:8000` your favorite browser.
 make build
 ```
 
+The documentation is built in the `public/` folder, you can then run a simple HTTP server:
+
+```sh
+cd public/
+python3 -m http.server
+```
+
+Then open http://localhost:8000 in your favorite browser.
+
+
 ## Testing
 
 ```sh
-yarn test
+make test
 ```
-
-The documentation is built in the `public` folder, you can then run in it :
-
-```sh
-python -m SimpleHTTPServer
-```
-
-Then open `localhost:8000` your favorite browser.
