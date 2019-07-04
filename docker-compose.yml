@@ -7,17 +7,17 @@ services:
       - "8000:8000"
     volumes:
       - ./data:/app/data:ro
-      - ./src:/app/src
-      - ./gatsby-node.js:/app/gatsby-node.js
-      - ./gatsby-config.js:/app/gatsby-config.js
-      - ./config.js:/app/config.js
-      - ./tests:/app/tests
+      - ./src:/app/src:ro
+      - ./gatsby-node.js:/app/gatsby-node.js:ro
+      - ./gatsby-config.js:/app/gatsby-config.js:ro
+      - ./config.js:/app/config.js:ro
+      - ./tests:/app/tests:ro
     command: sleep 3600 # Use to let container up during build
   # Used to run a server to be used by test
   server:
     image: python:3.5-stretch
     volumes:
-      - ./public:/app/public
+      - ./public:/app/public:ro
     expose:
       - "8000"
     command: bash -c "cd /app/public && python -m http.server 8000"
@@ -25,8 +25,8 @@ services:
   test:
     build: tests
     volumes:
-      - ./tests/src:/app/src
-      - ./tests/package.json:/app/package.json
+      - ./tests/src:/app/src:ro
+      - ./tests/package.json:/app/package.json:ro
     links:
       - server
     command: yarn test
