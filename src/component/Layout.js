@@ -25,7 +25,7 @@ export default ({ children }) => (
       <div className="container">
         <h1 className="logo float-left">
           <a className="scrollto" href="#promo">
-            <span className="logo-title">Wazo platform</span>
+            <span className="logo-title">Wazo Platform</span>
           </a>
         </h1>
         <nav id="main-nav" className="main-nav navbar-expand-md float-right" role="navigation">
