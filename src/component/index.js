@@ -15,15 +15,15 @@ export default () => (
         <h2 className="title">
           Wazo<span className="highlight">Platform</span>
         </h2>
-        <p className="intro">An Open Source project to build IP telecom platforms</p>
+        <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
           <a className="btn btn-cta-secondary" href="/documentation">
-            Services
+            API Docs
           </a>
           <a className="btn btn-cta-primary" href="/install">
             Install
           </a>
-          <a href="https://github.com/wazo-pbx"><img style={{position: 'absolute', top: 0, right: 0, border: 0, 'z-index': 99999}} src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"/></a>	
+          <a href="https://github.com/wazo-pbx"><img style={{position: 'absolute', top: 0, right: 0, border: 0, 'z-index': 99999}} src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"/></a>
         </div>
       </div>
     </section>
@@ -34,25 +34,30 @@ export default () => (
         <h2 className="title text-center">What is Wazo Platform?</h2>
         <p className="intro">
 Wazo Platform is an Open Source project allowing to build carrier
-grade programmable IP communication infrastructures. You can pick and
-chose the components you need to build your own IP communication
-infrastructures from class 5 features like voice and video calls,
-chat, call centers, conferences, voicemail, etc. to class 4 features
-like security, routing, load balancing, etc. through subscription and
+grade programmable IP communication infrastructure. You can pick and
+chose the components you need to build class 5 features like audio and video
+calls, chat, call centers, conferences, voicemail, etc., and class 4 features
+like security, routing, load balancing, etc., coupled with subscription and
 billing capabilities.
 <br/>
 <br/>
 Wazo Platform is defined by 4 layers:
 <ul>
-  <li>App layer (SDK to build mobile and web apps)</li>
-
-  <li>Business layer (conferences, calls, cc, routing, load balancing,
-      billing, subscription management, phone provisioning, system
-      administration, user management) (calld, agentd)</li>
-
-  <li>Engine layer (asterisk + confd + agid + amid + provd, kamailio, rtpengine)</li>
-
-  <li>Technical layer (nginx, messaging, database, auth, discovery, webhookd, websocketd)</li>
+  <li>
+  App layer: an SDK to build mobile and web apps<br/>
+  </li>
+  <li>
+  Business layer: REST API to manage users, phones, call centers, load balancing, billing, ...<br/>
+  <span className="small">Services: calld, confd, agentd</span>
+  </li>
+  <li>
+  Engine layer: the internal services for audio/video, provisioning, ...<br/>
+  <span className="small">Services: asterisk, confd, agid, amid, provd, kamailio, rtpengine</span>
+  </li>
+  <li>
+  Technical layer: the internal services for HTTP, internal messaging, database, ...<br/>
+  <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
+  </li>
 </ul>
 
 These communication infrastructures can be deployed and scaled on bare
@@ -89,7 +94,7 @@ metal, virtual machines or containers.
             <div className="content">
               <h3 className="sub-title">Battlefield tested</h3>
               <p>
-    The core engines are implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,
+    The core engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,
     &nbsp;<a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and
     &nbsp;<a href="https://www.kamailio.org/">Kamailio</a> projects.
               </p>
