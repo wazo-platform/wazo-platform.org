@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: install docker-compose
+      become: yes
+      package:
+        name: docker-compose
+        state: present

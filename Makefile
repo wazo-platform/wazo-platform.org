@@ -15,6 +15,9 @@ build:
 	docker-compose exec -T doc yarn build
 	docker cp "$$(docker-compose ps -q doc)":/app/public public
 	docker-compose down
+	pwd
+	ls -l public
+	ssh-add -l || :
 
 test:
 	docker-compose up --exit-code-from test test

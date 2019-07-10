@@ -1,0 +1,35 @@
+---
+- hosts: all
+  tasks:
+    - name: Prepare config.js
+      copy:
+        content: |
+          module.exports = {
+            githubToken: '',
+            algolia: {
+              appId: '',
+              publicKey: '',
+              apiKey: '',
+            },
+          };
+        dest: "{{ zuul.project.src_dir }}/config.js"
+
+    - name: make
+      command: "make"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+    - name: make build
+      command: "make build"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+    - name: Upload site
+      synchronize:
+        src: '{{ zuul.project.src_dir }}/public'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --prune-empty-dirs
