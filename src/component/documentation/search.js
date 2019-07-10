@@ -12,7 +12,7 @@ import {
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
-const config = require('../../config');
+const config = require('../../../config');
 const indexName = 'wazo-doc-overview';
 
 const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
@@ -91,12 +91,12 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
 
 const PageHit = clickHandler => ({ hit }) => (
   <div>
-    <Link to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link to={`/documentation/overview/${hit.moduleName}.html`} onClick={clickHandler}>
       <h6>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h6>
     </Link>
-    <Link className="snippet-link" to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link className="snippet-link" to={`/documentation/overview/${hit.moduleName}.html`} onClick={clickHandler}>
       <Snippet attribute="content" hit={hit} tagName="mark" />
     </Link>
   </div>
@@ -122,7 +122,7 @@ export default class Search extends Component {
   disableHits = () => this.setState({ focused: false });
 
   handleClickOutside = event => {
-    if (!this.list.current.contains(event.target)) {
+    if (this.list.current && !this.list.current.contains(event.target)) {
       this.setState({ focused: false });
     }
   };
