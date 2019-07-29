@@ -51,6 +51,7 @@ const walk = (dir) => {
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
+  const install_doc = fs.readFileSync('./content/install.md', 'utf8');
   const sections = yaml.safeLoad(
     fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' })
   );
@@ -119,8 +120,10 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Create homepage
   await newPage('/', 'index');
 
-  // Create homepage
+  // Create doc page
   await newPage('/documentation', 'documentation/index', { sections, overviews });
+  // Create install page
+  await newPage('/install', 'install/index', { install_doc });
 
   // Create api pages
   sections.forEach(section =>
