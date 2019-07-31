@@ -16,7 +16,7 @@ Note: You should replace the following values:
 * `secret` with a secure password.
 
 ```shell
-curl -k -X POST -d '{"engine_internal_address": "127.0.0.1", "engine_language": "en_US", "engine_license": true, "engine_password": "secret"}' https://localhost/api/setupd/1.0/setup
+curl -k -X POST -H 'Content-Type: application/json' -d '{"engine_internal_address": "127.0.0.1", "engine_language": "en_US", "engine_license": true, "engine_password": "secret"}' https://localhost/api/setupd/1.0/setup
 ```
 
 
@@ -33,7 +33,7 @@ wazo-auth-cli tenant create api-tenant
 Note: You should replace the following values:
 * `secret` with a secure password.
 
-```python
+```shell
 wazo-auth-cli user create api-client --tenant api-tenant --password secret --purpose external_api
 ```
 
@@ -52,7 +52,7 @@ You may now use the REST API from outside your virtual machine (here `wazo.examp
 1. Get an authentication token for 1 hour:
 
 ```shell
-curl -k -X POST -u api-client:secret -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/tokens
+curl -k -X POST -u api-client:secret -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
 ```
 
 2. Use any REST API you want, for example, to list the telephony users configured on the system:
@@ -61,7 +61,7 @@ Note: You should replace the following values:
 * `my-token` with the authentication token
 
 ```shell
-curl -k -X POST -H 'X-Auth-Token: my-token' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
+curl -k -X GET -H 'X-Auth-Token: my-token' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
 ```
 
 Note: the token that you have now only has permissions for configuration REST API (wazo-confd).
