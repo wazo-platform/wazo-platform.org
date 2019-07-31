@@ -28,7 +28,23 @@ const HomeHeader = () => (
   </header>
 );
 
-const PageHeader = () => (
+const Breadcrumbs = ({ breadcrumbs }) => {
+  if (!breadcrumbs.length) {
+    return <li className="breadcrumb-item active">Quick Start</li>;
+  }
+
+  return (
+    <>
+      {breadcrumbs.map(breadcrumb => (
+        <li className={`breadcrumb-item ${breadcrumb.active ? 'active' : ''}`}>
+          {breadcrumb.link ? <a href={breadcrumb.link}>{breadcrumb.label}</a> : breadcrumb.label}
+        </li>
+      ))}
+    </>
+  );
+};
+
+const PageHeader = ({ breadcrumbs }) => (
   <header id="header" className="header">
     <div className="container">
       <div className="branding">
@@ -45,7 +61,7 @@ const PageHeader = () => (
         <li className="breadcrumb-item">
           <a href="/">Home</a>
         </li>
-        <li className="breadcrumb-item active">Quick Start</li>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
       </ol>
 
       <div className="top-search-box">
@@ -55,7 +71,7 @@ const PageHeader = () => (
   </header>
 );
 
-export default ({ children, className, isHome }) => (
+export default ({ children, className, isHome, breadcrumbs = [] }) => (
   <div className={`page-wrapper ${className}`}>
     <Helmet bodyAttributes={{ class: 'documentation' }}>
       <link
@@ -66,7 +82,7 @@ export default ({ children, className, isHome }) => (
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" />
     </Helmet>
 
-    {isHome ? <HomeHeader /> : <PageHeader />}
+    {isHome ? <HomeHeader /> : <PageHeader breadcrumbs={breadcrumbs} />}
 
     {children}
 

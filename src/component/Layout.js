@@ -17,7 +17,10 @@ export default ({ children }) => (
       />
       <script type="text/javascript" src="/prism.js" />
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js" />
+      <script
+        type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
+      />
       <script type="text/javascript" src="/main.js" defer />
     </Helmet>
 

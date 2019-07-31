@@ -33,13 +33,13 @@ if (hasSearch) {
   );
 }
 
-const walk = (dir) => {
+const walk = dir => {
   const files = fs.readdirSync(dir);
   const dirname = dir.split('/').pop();
 
-  console.info("processing " + dir);
+  console.info('processing ' + dir);
 
-  files.forEach((file) => {
+  files.forEach(file => {
     const filePath = dir + '/' + file;
 
     if (fs.statSync(filePath).isDirectory()) {
@@ -51,9 +51,8 @@ const walk = (dir) => {
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  const sections = yaml.safeLoad(
-    fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' })
-  );
+  const installDoc = fs.readFileSync('./content/install.md', 'utf8');
+  const sections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
@@ -119,8 +118,10 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Create homepage
   await newPage('/', 'index');
 
-  // Create homepage
+  // Create doc page
   await newPage('/documentation', 'documentation/index', { sections, overviews });
+  // Create install page
+  await newPage('/install', 'install/index', { installDoc });
 
   // Create api pages
   sections.forEach(section =>
