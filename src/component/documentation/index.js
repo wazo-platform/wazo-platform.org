@@ -51,7 +51,10 @@ export const Module = ({ moduleName, module }) => (
 );
 
 export default ({ pageContext: { sections } }) => (
-  <Layout isHome className="landing-page">
+        <Layout breadcrumbs={[
+            {link: '../', label: 'Home', active: false},
+            {link: '#', label: 'Documentation', active: true}
+        ]} >
     <Helmet>
       <title>Wazo project documentation for developers</title>
     </Helmet>
