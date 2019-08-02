@@ -58,9 +58,6 @@ const PageHeader = ({ breadcrumbs }) => (
       </div>
 
       <ol className="breadcrumb">
-        <li className="breadcrumb-item">
-          <a href="../">Home</a>
-        </li>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </ol>
 
