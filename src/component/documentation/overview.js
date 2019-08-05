@@ -75,7 +75,7 @@ const getContentRenderers = (module, onEnter, onLeave) => ({
   image: props => (
     <object
       type="image/svg+xml"
-      data={`/diagrams/${module.repository
+      data={`../../diagrams/${module.repository
         .split('-')
         .splice(1)
         .join('-')}-${props.src}`}

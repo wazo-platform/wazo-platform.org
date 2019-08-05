@@ -28,6 +28,6 @@ The bus events are defined [here](https://github.com/wazo-pbx/wazo-calld/blob/ma
 
 ## Related
 
-* [wazo-auth](/overview/authentication.html)
-* [wazo-confd](/overview/configuration.html)
-* [xivo-amid](/overview/amid.html)
+* [wazo-auth](authentication.html)
+* [wazo-confd](configuration.html)
+* [xivo-amid](amid.html)

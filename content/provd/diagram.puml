@@ -12,12 +12,12 @@ System_Boundary(provd_system, "Provisioning") {
     Container(dxtora, "dxtora", "Python", "DHCP info transfer daemon")
     System(dhcp_server, "DHCP Server")
     Container(asterisk, "Asterisk", "C", "Media server")
-    Container(confd, "wazo-confd", "Python", "Configuration service") [["/overview/configuration.html"]]
+    Container(confd, "wazo-confd", "Python", "Configuration service") [["../documentation/overview/configuration.html"]]
     Container(agid, "xivo-agid", "Python", "AGI service")
-    Container(amid, "xivo-amid", "Python", "AMI proxy service") [["/overview/amid.html"]]
+    Container(amid, "xivo-amid", "Python", "AMI proxy service") [["../documentation/overview/amid.html"]]
     ContainerDb(filesystem, "File System", "/var/lib/xivo-provd", "JSON database and provisioning plugins")
 }
-Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
 System_Ext(provd_plugins, "Provd device plugins repository")
 
 ' Relationships

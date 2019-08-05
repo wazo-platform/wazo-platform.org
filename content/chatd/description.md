@@ -20,4 +20,4 @@ The REST API for wazo-chatd is available [here](http://developers.wazo.io/api/ch
 ## Related
 
 * [wazo-ami](https://github.com/wazo-pbx/wazo-ami)
-* [wazo-confd](/overview/configuration.html)
+* [wazo-confd](configuration.html)

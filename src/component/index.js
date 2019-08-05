@@ -17,10 +17,10 @@ export default () => (
         </h2>
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
-          <a className="btn btn-cta-secondary" href="/documentation">
+          <a className="btn btn-cta-secondary" href="documentation">
             API Docs
           </a>
-          <a className="btn btn-cta-primary" href="/install">
+          <a className="btn btn-cta-primary" href="install">
             Install
           </a>
           <a href="https://github.com/wazo-pbx">

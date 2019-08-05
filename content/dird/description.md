@@ -53,5 +53,5 @@ The database is used to store:
 
 ## Related
 
-* [wazo-auth](/overview/authentication.html)
-* [wazo-confd](/overview/configuration.html)
+* [wazo-auth](authentication.html)
+* [wazo-confd](configuration.html)

@@ -7,7 +7,7 @@ Person(user, "Admin")
 
 System_Boundary(dird_system, "Plugin") {
     Container(plugind_app, "wazo-plugind", "Python", "Plugin service")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
 }
 
