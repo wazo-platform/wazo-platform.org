@@ -15,13 +15,13 @@
         dest: "{{ zuul.project.src_dir }}/config.js"
 
     - name: make
-      command: "make"
-      args:
+      make:
+        target: builder
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: make build
-      command: "make build"
-      args:
+      make:
+        target: build
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: Upload site
