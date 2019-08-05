@@ -6,7 +6,7 @@ import Layout from './Layout';
 export const Module = ({ moduleName, module }) => (
   <div className={`item item-${module.color} col-lg-4 col-6`}>
     <div className="item-inner">
-      <a href={module.url || `/documentation/overview/${moduleName}.html`}>
+      <a href={module.url || `overview/${moduleName}.html`}>
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
@@ -18,7 +18,7 @@ export const Module = ({ moduleName, module }) => (
         <>
           <ul className="links clearfix">
             <li>
-              <a href={`/documentation/overview/${moduleName}.html`}>
+              <a href={`overview/${moduleName}.html`}>
                 <i className="fas fa-home" /> Overview
               </a>
             </li>
@@ -35,7 +35,7 @@ export const Module = ({ moduleName, module }) => (
 
           <div className="bottom-links clearfix">
             {module.redocUrl && (
-              <a href={`/documentation/api/${moduleName}.html`} className="api-reference left">
+              <a href={`api/${moduleName}.html`} className="api-reference left">
                 API Reference
               </a>
             )}
@@ -51,7 +51,10 @@ export const Module = ({ moduleName, module }) => (
 );
 
 export default ({ pageContext: { sections } }) => (
-  <Layout isHome className="landing-page">
+        <Layout breadcrumbs={[
+            {link: '../', label: 'Home', active: false},
+            {link: '#', label: 'Documentation', active: true}
+        ]} >
     <Helmet>
       <title>Wazo project documentation for developers</title>
     </Helmet>
