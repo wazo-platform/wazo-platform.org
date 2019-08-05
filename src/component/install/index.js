@@ -5,10 +5,7 @@ import Helmet from 'react-helmet';
 import Layout from '../documentation/Layout';
 
 export default ({ pageContext: { installDoc }}) => (
-        <Layout breadcrumbs={[
-            {link: '../', label: 'Home', active: false},
-            {link: '#', label: 'Install', active: true}
-        ]} className="body-green">
+  <Layout breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
     <Helmet>
       <title>Getting Started</title>
     </Helmet>
