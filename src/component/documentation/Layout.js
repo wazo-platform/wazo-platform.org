@@ -49,7 +49,7 @@ const PageHeader = ({ breadcrumbs }) => (
     <div className="container">
       <div className="branding">
         <h1 className="logo">
-          <a href="/">
+          <a href="../">
             <span aria-hidden="true" className="icon_documents_alt icon" />
             <span className="text-highlight">Wazo</span>
             <span className="text-bold">Documentation</span>
@@ -59,7 +59,7 @@ const PageHeader = ({ breadcrumbs }) => (
 
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <a href="/">Home</a>
+          <a href="../">Home</a>
         </li>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </ol>

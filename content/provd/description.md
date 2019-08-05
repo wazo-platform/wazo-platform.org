@@ -68,6 +68,6 @@ it anyway, you must delete the device and restart it manually.
 
 ## Related
 
-* [wazo-auth](/overview/authentication.html)
-* [wazo-confd](/overview/configuration.html)
-* [xivo-amid](/overview/amid.html)
+* [wazo-auth](authentication.html)
+* [wazo-confd](configuration.html)
+* [xivo-amid](amid.html)

@@ -7,7 +7,7 @@ System_Boundary(webhookd_platform, "Webhook application"){
     Container(webhookd, "wazo-webhookd", "Python", "Webhook service")
     Container(db, "Postgresql", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
 }
 
 System_Ext(external_webapp, "HTTP Server", "External Applications")

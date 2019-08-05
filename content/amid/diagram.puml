@@ -7,7 +7,7 @@ System_Boundary(amid_platform, "amid application"){
     Container(amid, "wazo-amid", "Python", "Asterisk proxy service")
     Container(asterisk, "Asterisk", "C", "Back to Back User agent")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
 }
 
 actor User

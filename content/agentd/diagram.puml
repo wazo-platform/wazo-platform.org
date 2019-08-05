@@ -8,7 +8,7 @@ Person(user, "User")
 
 System_Boundary(auth_system, "Agent") {
     Container(agentd_app, "wazo-agentd", "Python", "Agent service")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
     ContainerDb(pgsql, "PostgreSQL", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
     Container(agid, "xivo-agid", "Python", "AGI service")
