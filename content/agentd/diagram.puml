@@ -11,7 +11,7 @@ System_Boundary(auth_system, "Agent") {
     Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
     ContainerDb(pgsql, "PostgreSQL", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
-    Container(agid, "xivo-agid", "Python", "AGI service")
+    Container(agid, "wazo-agid", "Python", "AGI service")
     Container(asterisk, "Asterisk", "C", "Media server")
 }
 
