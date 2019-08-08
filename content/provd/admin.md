@@ -16,7 +16,7 @@ want to write some custom templates for it.
 First thing to do is to go into the directory where the plugin is installed:
 
 ```sh
-cd /var/lib/xivo-provd/plugins/xivo-aastra-3.3.1-SP2
+cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
 ```
 
 Once you are there, you can see there's quite a few files and directories:
@@ -83,13 +83,13 @@ A few things to know before writing your first custom template:
 ```sh
 cp templates/base.tpl var/templates
 vi var/templates/base.tpl
-xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 ```
 
 Once this is done, if you want to synchronize all the affected devices, use the following command:
 
 ```sh
-xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
+wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 ```
 
 ### Custom template for a specific model
@@ -99,7 +99,7 @@ Let's supose we want to customize the template for our 6739i
 ```sh
 cp templates/6739i.tpl var/templates
 vi var/templates/6739i.tpl
-xivo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 ```
 
 ### Custom template for a specific device
@@ -121,7 +121,7 @@ we need to create a template named `00085D2EECFB.cfg.tpl`
 ```sh
 cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
 vi var/templates/00085D2EECFB.cfg.tpl
-xivo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
+wazo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 ```
 
 **Note**:
@@ -156,13 +156,13 @@ Once you take the decision to migrate all your phones to the new plugin, you can
 use the following command:
 
 ```sh
-xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
 ```
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time:
 
 ```sh
-xivo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 ```
 
 You can check that all went well by looking at ``GET /devices``
@@ -232,7 +232,7 @@ By design, the auto-provisioning process is vulnerable to:
 That said, starting from XiVO 16.08, XiVO adds [Fail2ban](http://www.fail2ban.org/) support to the
 provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
 file potentially containing sensitive information is requested, a log line is appended to the
-`/var/log/xivo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
+`/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing
 happens when a new device is automatically created by the provisioning server.
 
 The fail2ban configuration for the provisioning server is located at
@@ -246,7 +246,7 @@ of fail2ban. See the fail2ban(1) man page for more information.
 
 ### System Requirements
 
-Wazo 16.08 or later is required. You also need to use compatible xivo-provd plugins. Here's the list
+Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
 of official plugins which are compatible:
 
 ```

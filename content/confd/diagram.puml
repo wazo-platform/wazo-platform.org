@@ -10,7 +10,7 @@ System_Boundary(confd_platform, "Configuration application"){
     Container(db, "Postgresql", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
 
-    Container(provd, "xivo-provd", "Python", "Provisionning service") [["../documentation/overview/provisioning.html"]]
+    Container(provd, "wazo-provd", "Python", "Provisionning service") [["../documentation/overview/provisioning.html"]]
     Container(sysconfd, "xivo-sysconfd", "Python", "Operating system configuration service")
     Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
 }

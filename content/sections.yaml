@@ -38,7 +38,7 @@
         description: Provisioning and configuration of phone devices.
         icon: fa fa-phone
         color: primary
-        repository: xivo-provd
+        repository: wazo-provd
         redocUrl: https://quintana.wazo.community/api/provd/0.2/api/api.yml
 
       webhook:

@@ -1,6 +1,6 @@
-# [provd](https://github.com/wazo-pbx/xivo-provisioning)
+# [provd](https://github.com/wazo-pbx/wazo-provd)
 
-xivo-provd is the phone provisioning service for the Wazo platform. It generates configuration files for phones and gateways based on the plugins that are installed.
+wazo-provd is the phone provisioning service for the Wazo platform. It generates configuration files for phones and gateways based on the plugins that are installed.
 
 ## Schema
 
@@ -12,11 +12,11 @@ xivo-provd is the phone provisioning service for the Wazo platform. It generates
 
 ## API documentation
 
-The REST API for xivo-provd is available [here](http://developers.wazo.io/api/provisionning.html)
+The REST API for wazo-provd is available [here](http://developers.wazo.io/api/provisionning.html)
 
 ## Plugins
 
-Each model of phone must have its plugin to be supported by xivo-provd. Plugins are located [here](https://github.com/wazo-pbx/xivo-provd-plugins)
+Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located [here](https://github.com/wazo-pbx/wazo-provd-plugins)
 
 Plugins are meant to be installed and upgraded independently of the OS to be able to use firmware version that works best for your use case.
 
