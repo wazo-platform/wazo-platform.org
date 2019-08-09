@@ -95,12 +95,12 @@ Finally:
 
 Then, [run integration tests][integration-tests].
 
-## Modified xivo-provisioning
+## Modified wazo-provd
 
-**requirement:** update `xivo-provisioning` repository.
+**requirement:** update `wazo-provd` repository.
 
-    git clone https://github.com/wazo-pbx/xivo-provisioning
-    PROVD_DIR=../../xivo-provisioning make build-provd
+    git clone https://github.com/wazo-pbx/wazo-provd
+    PROVD_DIR=../../wazo-provd make build-provd
 
 Then, [run integration tests][integration-tests].
 

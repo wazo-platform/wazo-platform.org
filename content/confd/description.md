@@ -53,5 +53,5 @@ The REST API for wazo-confd is available [here](http://developers.wazo.io/api/co
 
 * [wazo-auth](https://github.com/wazo-pbx/wazo-auth)
 * [wazo-confd-client](https://github.com/wazo-pbx/wazo-confd-client)
-* [xivo-provd](https://github.com/wazo-pbx/xivo-provisioning)
+* [wazo-provd](https://github.com/wazo-pbx/wazo-provd)
 * [xivo-sysconfd](https://github.com/wazo-pbx/xivo-sysconfd)
