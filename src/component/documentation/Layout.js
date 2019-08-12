@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 
 import '../../styles/elegant-font.css';
 import '../../styles/pretty-docs.scss';
@@ -37,7 +38,7 @@ const Breadcrumbs = ({ breadcrumbs }) => {
     <>
       {breadcrumbs.map(breadcrumb => (
         <li className={`breadcrumb-item ${breadcrumb.active ? 'active' : ''}`}>
-          {breadcrumb.link ? <a href={breadcrumb.link}>{breadcrumb.label}</a> : breadcrumb.label}
+          {breadcrumb.link ? <Link to={breadcrumb.link}>{breadcrumb.label}</Link> : breadcrumb.label}
         </li>
       ))}
     </>
@@ -49,17 +50,17 @@ const PageHeader = ({ breadcrumbs }) => (
     <div className="container">
       <div className="branding">
         <h1 className="logo">
-          <a href="../">
+          <Link to="/">
             <span aria-hidden="true" className="icon_documents_alt icon" />
             <span className="text-highlight">Wazo</span>
             <span className="text-bold">Documentation</span>
-          </a>
+          </Link>
         </h1>
       </div>
 
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <a href="../">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </ol>

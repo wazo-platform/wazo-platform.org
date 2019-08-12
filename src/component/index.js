@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 
 import Layout from './Layout';
 
@@ -17,12 +18,12 @@ export default () => (
         </h2>
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
-          <a className="btn btn-cta-secondary" href="documentation">
+          <Link className="btn btn-cta-secondary" to="documentation">
             API Docs
-          </a>
-          <a className="btn btn-cta-primary" href="install">
+          </Link>
+          <Link className="btn btn-cta-primary" to="install">
             Install
-          </a>
+          </Link>
           <a href="https://github.com/wazo-pbx">
             <img
               style={{ position: 'absolute', top: 0, right: 0, border: 0, 'z-index': 99999 }}
