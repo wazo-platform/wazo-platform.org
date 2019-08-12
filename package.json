@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "./node_modules/.bin/gatsby build",
+    "build": "./node_modules/.bin/gatsby build --prefix-paths",
     "develop": "./node_modules/.bin/gatsby develop",
     "format": "./node_modules/.bin/prettier --write src/**/*.{js,jsx} tests/*.js gatsby-node.js",
     "start": "npm run develop",

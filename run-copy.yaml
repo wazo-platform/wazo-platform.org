@@ -14,14 +14,28 @@
           };
         dest: "{{ zuul.project.src_dir }}/config.js"
 
+    - name: configure path prefix
+      lineinfile:
+        line: "pathPrefix: '/logs/{{ zuul.change }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}/public',"
+        insertafter: "module.exports = {"
+        path: "{{ zuul.project.src_dir }}/gatsby-config.js"
+        state: present
+
+    - name: configure asset prefix
+      lineinfile:
+        line: "assetPrefix: '/logs/{{ zuul.change }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}/public',"
+        insertafter: "module.exports = {"
+        path: "{{ zuul.project.src_dir }}/gatsby-config.js"
+        state: present
+
     - name: make
-      command: "make"
-      args:
+      make:
+        target: builder
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: make build
-      command: "make build"
-      args:
+      make:
+        target: build
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: Upload site

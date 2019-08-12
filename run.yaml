@@ -25,6 +25,6 @@
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: Push the public directory to the web site
-      command: 'rsync -e "ssh -o StrictHostKeyChecking=no" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
+      shell: 'rsync -e "ssh -o StrictHostKeyChecking=no" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
       args:
         chdir: "{{ zuul.project.src_dir }}"
