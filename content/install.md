@@ -52,6 +52,11 @@ You may now use the REST API from outside your virtual machine (here `wazo.examp
 1. Get an authentication token for 1 hour:
 
 ```shell
+wazo-auth-cli token create --auth-user api-client --auth-password secret
+```
+Or with curl
+
+```shell
 curl -k -X POST -u api-client:secret -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
 ```
 
