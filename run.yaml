@@ -24,7 +24,10 @@
       args:
         chdir: "{{ zuul.project.src_dir }}"
 
+    - name: Display available ssh keys
+      shell: "ssh-add -l || :"
+
     - name: Push the public directory to the web site
-      shell: 'rsync -e "ssh -o StrictHostKeyChecking=no" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
+      shell: 'rsync -e "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  -o PreferredAuthentications=publickey" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
       args:
         chdir: "{{ zuul.project.src_dir }}"
