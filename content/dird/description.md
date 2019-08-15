@@ -31,7 +31,7 @@ Backend capabilities:
 
 ![Directory schema](diagram.svg)
 
-* wazo-dird-phoned is a service that act as a proxy for phones and verify that the IP address of the phone is allowed to do a directory search before doing the HTTP request on dird on behalf of the phone.
+* wazo-phoned is a service that act as a proxy for phones and verify that the IP address of the phone is allowed to do a directory search before doing the HTTP request on dird on behalf of the phone.
 
 ## Example
 

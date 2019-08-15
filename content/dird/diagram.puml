@@ -13,7 +13,7 @@ System_Boundary(dird_system, "Directory") {
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
     Container(agid, "wazo-agid", "Python", "AGI service")
     Container(asterisk, "Asterisk", "C", "Media server")
-    Container(dird_phoned, "wazo-dird-phoned", "Python", "Phone directory proxy service")
+    Container(phoned, "wazo-phoned", "Python", "Phone directory proxy service")
 }
 
 Container_Boundary(extern, "Sources") {
@@ -27,17 +27,17 @@ Container_Boundary(extern, "Sources") {
 
 ' Services
 Rel_U(dird_app, auth, " ", "REST")
-Rel_L(dird_phoned, dird_app, " ", "REST")
+Rel_L(phoned, dird_app, " ", "REST")
 Rel_R(agid, dird_app, " ", "REST")
 Rel_R(asterisk, agid, " ", "AGI")
 Rel_D(dird_app, pgsql, " ", "SQL")
 Rel_D(dird_app, bus, " ", "AMQP")
 ' Layout corrections
 Lay_R(pgsql, microsoft)
-Lay_L(dird_phoned, dird_app)
+Lay_L(phoned, dird_app)
 Lay_L(agid, dird_app)
 Lay_L(agid, asterisk)
-Lay_D(agid, dird_phoned)
+Lay_D(agid, phoned)
 
 ' Sources
 Rel_L(dird_app, confd, " ", "REST")
@@ -56,6 +56,6 @@ Lay_D(user, phone)
 
 ' Phone
 Rel_D(phone, asterisk, " ", "SIP/SCCP")
-Rel_R(phone, dird_phoned, " ", "REST")
+Rel_R(phone, phoned, " ", "REST")
 
 @enduml
