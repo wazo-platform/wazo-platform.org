@@ -36,7 +36,7 @@ export const Module = ({ moduleName, module }) => (
 
           <div className="bottom-links clearfix">
             {module.redocUrl && (
-              <Link href={`/documentation/api/${moduleName}.html`} className="api-reference left">
+              <Link to={`/documentation/api/${moduleName}.html`} className="api-reference left">
                 API Reference
               </Link>
             )}
