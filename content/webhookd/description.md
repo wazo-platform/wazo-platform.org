@@ -1,4 +1,4 @@
-# [`webhookd`](https://github.com/wazo-pbx/wazo-webhookd)
+# [`webhookd`](https://github.com/wazo-platform/wazo-webhookd)
 
 Connect to Wazo Platform event bus to push custom HTTP hooks to external
 system. It manages the list of webhooks and triggers them when an event occurs.

@@ -1,4 +1,4 @@
-# [dird](https://github.com/wazo-pbx/wazo-dird)
+# [dird](https://github.com/wazo-platform/wazo-dird)
 
 wazo-dird is the directory server for Wazo. It offers a simple REST interface to query all directories that are configured.
 
@@ -41,7 +41,7 @@ Backend capabilities:
 
 The REST API for wazo-dird is available [here](http://developers.wazo.io/api/contacts.html)
 
-The database tables are defined [here](https://github.com/wazo-pbx/wazo-dird/blob/master/wazo_dird/database/models.py)
+The database tables are defined [here](https://github.com/wazo-platform/wazo-dird/blob/master/wazo_dird/database/models.py)
 
 The database is used to store:
 

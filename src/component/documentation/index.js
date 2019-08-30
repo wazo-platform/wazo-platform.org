@@ -41,7 +41,7 @@ export const Module = ({ moduleName, module }) => (
               </Link>
             )}
 
-            <a href={`https://github.com/wazo-pbx/${module.repository}`} className="right">
+            <a href={`https://github.com/wazo-platform/${module.repository}`} className="right">
               <i className="fab fa-github" /> {module.repository}
             </a>
           </div>

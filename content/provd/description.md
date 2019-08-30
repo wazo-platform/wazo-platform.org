@@ -1,4 +1,4 @@
-# [provd](https://github.com/wazo-pbx/wazo-provd)
+# [provd](https://github.com/wazo-platform/wazo-provd)
 
 wazo-provd is the phone provisioning service for the Wazo platform. It generates configuration files for phones and gateways based on the plugins that are installed.
 
@@ -16,7 +16,7 @@ The REST API for wazo-provd is available [here](http://developers.wazo.io/api/pr
 
 ## Plugins
 
-Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located [here](https://github.com/wazo-pbx/wazo-provd-plugins)
+Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located [here](https://github.com/wazo-platform/wazo-provd-plugins)
 
 Plugins are meant to be installed and upgraded independently of the OS to be able to use firmware version that works best for your use case.
 

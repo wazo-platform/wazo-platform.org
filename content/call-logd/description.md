@@ -1,4 +1,4 @@
-# [`call-logd`](https://github.com/wazo-pbx/wazo-call-logd)
+# [`call-logd`](https://github.com/wazo-platform/wazo-call-logd)
 
 Collect metadata on calls made on a Wazo Platform, allowing users to see their calls' history.
 
@@ -18,4 +18,4 @@ The REST API for wazo-call-logd is available [here](http://developers.wazo.io/ap
 
 ## Related
 
-* [wazo-auth](https://github.com/wazo-pbx/wazo-auth)
+* [wazo-auth](https://github.com/wazo-platform/wazo-auth)

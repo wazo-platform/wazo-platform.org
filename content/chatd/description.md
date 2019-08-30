@@ -1,4 +1,4 @@
-# [`chatd`](https://github.com/wazo-pbx/xivo-chatd)
+# [`chatd`](https://github.com/wazo-platform/xivo-chatd)
 
 Add messaging functionality, as well as devices and users presence for a Wazo Platform.
 
@@ -19,5 +19,5 @@ The REST API for wazo-chatd is available [here](http://developers.wazo.io/api/ch
 
 ## Related
 
-* [wazo-ami](https://github.com/wazo-pbx/wazo-ami)
+* [wazo-ami](https://github.com/wazo-platform/wazo-ami)
 * [wazo-confd](configuration.html)

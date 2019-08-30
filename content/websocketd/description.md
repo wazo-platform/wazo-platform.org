@@ -1,4 +1,4 @@
-# [`websocketd`](https://github.com/wazo-pbx/wazo-websocketd)
+# [`websocketd`](https://github.com/wazo-platform/wazo-websocketd)
 
 WebSocket server that delivers Wazo Platform-related events to clients.
 

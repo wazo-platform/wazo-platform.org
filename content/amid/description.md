@@ -1,4 +1,4 @@
-# [`amid`](https://github.com/wazo-pbx/xivo-amid)
+# [`amid`](https://github.com/wazo-platform/xivo-amid)
 
 ## Description
 
@@ -21,5 +21,5 @@ The REST API for wazo-ami is available [here](http://developers.wazo.io/api/ami.
 
 ## Related
 
-* [xivo-amid](https://github.com/wazo-pbx/xivo-amid)
-* [xivo-amid-client](https://github.com/wazo-pbx/xivo-amid-client)
+* [xivo-amid](https://github.com/wazo-platform/xivo-amid)
+* [xivo-amid-client](https://github.com/wazo-platform/xivo-amid-client)

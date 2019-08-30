@@ -11,7 +11,7 @@ You need Docker installed on your machine.
 
 1. ```cd integration_tests```
 2. ```pip install -r test-requirements.txt```
-3. ```git clone https://github.com/wazo-pbx/chan-test```
+3. ```git clone https://github.com/wazo-platform/chan-test```
 4. ```export CHAN_TEST_DIR=$PWD/chan-test   # CHAN_TEST_DIR defaults to ../../chan-test```
 4. ```make test-setup```
 5. ```make test```

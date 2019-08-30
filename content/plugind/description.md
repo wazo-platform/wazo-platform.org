@@ -1,4 +1,4 @@
-# [plugind](https://github.com/wazo-pbx/wazo-plugind)
+# [plugind](https://github.com/wazo-platform/wazo-plugind)
 
 A service to manage plugins in the [Wazo](http://wazo.community) platform.
 
@@ -25,7 +25,7 @@ It can:
 
 The REST API for wazo-plugind is available [here](http://developers.wazo.io/api/plugins.html).
 
-The bus events are defined [here](https://github.com/wazo-pbx/xivo-bus/blob/master/xivo_bus/resources/plugins/events.py).
+The bus events are defined [here](https://github.com/wazo-platform/xivo-bus/blob/master/xivo_bus/resources/plugins/events.py).
 
 ## What is a plugin
 

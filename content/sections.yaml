@@ -121,14 +121,14 @@
         description: Wazo JavaScript Software Development Kit is an API wrapper making it easy for you to communicate with our APIs, websocket and webrtc.
         icon: fab fa-js
         color: green
-        url: https://github.com/wazo-pbx/wazo-js-sdk
+        url: https://github.com/wazo-platform/wazo-js-sdk
 
       python:
         title: Python
         description: Wazo python client to use with our APIs and websocket.
         icon: fab fa-python
         color: primary
-        url: https://github.com/wazo-pbx?utf8=%E2%9C%93&q=-client&type=&language=python
+        url: https://github.com/wazo-platform?utf8=%E2%9C%93&q=-client&type=&language=python
 
       callkeep:
         title: Callkeep
@@ -142,21 +142,21 @@
         description: Develop your own mobile application with our javascript SDK, webrtc and react-native library on iOS and Android.
         icon: fa fa-mobile-alt
         color: purple
-        url: https://github.com/wazo-pbx/wazo-react-native-demo
+        url: https://github.com/wazo-platform/wazo-react-native-demo
 
       webrtc-demo:
         title: Web application demo
         description: Create or add communication on web application with our javascript SDK and webrtc.
         icon: fa fa-globe
         color: red
-        url: https://github.com/wazo-pbx/wazo-webrtc-demo
+        url: https://github.com/wazo-platform/wazo-webrtc-demo
 
       wdk:
         title: Develop
         description: Wazo SDK is our tools to help people to develop in Wazo.
         icon: fa fa-terminal
         color: primary
-        url: https://github.com/wazo-pbx/wazo-sdk
+        url: https://github.com/wazo-platform/wazo-sdk
 
   - name: Internal platform
     modules:

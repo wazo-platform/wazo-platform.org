@@ -1,4 +1,4 @@
-# [auth](https://github.com/wazo-pbx/wazo-auth)
+# [auth](https://github.com/wazo-platform/wazo-auth)
 
 wazo-auth is the authentication server used by the Wazo platform.
 
@@ -26,9 +26,9 @@ wazo-auth is used to:
 
 The REST API for wazo-auth is available [here](http://developers.wazo.io/api/authentication.html).
 
-The bus events are defined [here](https://github.com/wazo-pbx/xivo-bus/blob/master/xivo_bus/resources/auth/events.py).
+The bus events are defined [here](https://github.com/wazo-platform/xivo-bus/blob/master/xivo_bus/resources/auth/events.py).
 
-The database tables are defined [here](https://github.com/wazo-pbx/wazo-auth/blob/master/wazo_auth/database/models.py).
+The database tables are defined [here](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/database/models.py).
 
 ## Policies
 

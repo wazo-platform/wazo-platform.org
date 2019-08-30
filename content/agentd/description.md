@@ -1,4 +1,4 @@
-# [agentd](https://github.com/wazo-pbx/wazo-agentd)
+# [agentd](https://github.com/wazo-platform/wazo-agentd)
 
 wazo-agentd is the service responsible of managing agent which are used to distribute calls received on queues in a call center use case.
 

@@ -1,5 +1,6 @@
 import Helmet from 'react-helmet';
 import React from 'react';
+import { Link } from 'gatsby';
 
 import '../styles/bootstrap.css';
 import '../styles/fontawesome.css';
@@ -57,9 +58,9 @@ export default ({ children }) => (
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link scrollto" href="documentation">
+                <Link className="nav-link scrollto" to="documentation">
                   Documentation
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link scrollto" href="#license">

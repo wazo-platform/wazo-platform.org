@@ -90,7 +90,7 @@ Finally:
 
 **requirement:** update `xivo-manage-db` repository.
 
-    git clone https://github.com/wazo-pbx/xivo-manage-db
+    git clone https://github.com/wazo-platform/xivo-manage-db
     MANAGE_DB_DIR=../../xivo-manage-db make update-db
 
 Then, [run integration tests][integration-tests].
@@ -99,7 +99,7 @@ Then, [run integration tests][integration-tests].
 
 **requirement:** update `wazo-provd` repository.
 
-    git clone https://github.com/wazo-pbx/wazo-provd
+    git clone https://github.com/wazo-platform/wazo-provd
     PROVD_DIR=../../wazo-provd make build-provd
 
 Then, [run integration tests][integration-tests].
