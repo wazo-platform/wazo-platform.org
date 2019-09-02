@@ -1,4 +1,12 @@
 ---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Add webserver SSH hostkey
+      known_hosts:
+        name: "webserver.wazo.community"
+        key: "webserver.wazo.community,52.21.34.41 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPkV9UYmjJpPFhQyrMGeJ8Ft+8N83JyNmkyLf5Z181ebYY7HW/G2nq76IRtzYP3Cg3wXuLQt5tUkQ9fxtP/+3t4="
+
 - hosts: all
   tasks:
     - name: Prepare config.js
@@ -24,10 +32,21 @@
       args:
         chdir: "{{ zuul.project.src_dir }}"
 
+    - name: Copy site
+      synchronize:
+        src: '{{ zuul.project.src_dir }}/public'
+        dest: '{{ zuul.executor.log_root }}'
+        mode: pull
+        copy_links: true
+        verify_host: true
+        rsync_opts:
+          - --prune-empty-dirs
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
     - name: Display available ssh keys
       shell: "ssh-add -l || :"
 
-    - name: Push the public directory to the web site
-      shell: 'rsync -e "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  -o PreferredAuthentications=publickey" -avz --delete public/ zuul-publisher@webserver.wazo.community:'
-      args:
-        chdir: "{{ zuul.project.src_dir }}"
+    - name: Upload site
+      command: 'rsync -e ssh -a --delete {{ zuul.executor.log_root }}/public/ zuul-publisher@webserver.wazo.community:'

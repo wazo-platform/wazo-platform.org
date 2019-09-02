@@ -58,7 +58,7 @@ export default ({ children }) => (
                 </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link scrollto" to="documentation">
+                <Link className="nav-link" to="documentation">
                   Documentation
                 </Link>
               </li>
