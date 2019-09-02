@@ -69,7 +69,15 @@ export default () => (
               <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
           </ul>
-          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or containers.
+          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
+          containers.
+        </p>
+        <h2 className="title text-center">Why Wazo Platform?</h2>
+        <p className="intro">
+          There was no building blocks to create programmable Telecom infrastructure so we evolved our own
+          telecom stack based on Asterisk to make it fully programmable, multi-tenant and user centric. The
+          target use cases were Unified Communications, Chat server, Call centers, IoT, Fax services in Distributed
+          or all-in-one setups.
         </p>
         <div className="row">
           <div className="clearfix visible-md" />
@@ -79,7 +87,7 @@ export default () => (
             </div>
             <div className="content">
               <h3 className="sub-title">Mobile and Web friendly</h3>
-              <p>All the interfaces are mobile and web friendly: REST API, Web sockets and Web hooks.</p>
+              <p>All the programmable interfaces are mobile and web friendly: WebRTC, REST API, Web sockets and Web hooks.</p>
             </div>
           </div>
           <div className="item col-lg-4 col-md-6 col-12">
@@ -87,8 +95,8 @@ export default () => (
               <i className="fas fa-code" />
             </div>
             <div className="content">
-              <h3 className="sub-title">Easy to customise</h3>
-              <p>Building blocks are micro-services developed in Python.</p>
+              <h3 className="sub-title">Easy to consume</h3>
+              <p>Building blocks are micro-services developed in Python. All API are described in <a href="https://www.openapis.org/">OpenAPI</a>.</p>
             </div>
           </div>
           <div className="item col-lg-4 col-md-6 col-12">
@@ -98,9 +106,8 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Battlefield tested</h3>
               <p>
-                The core engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>, &nbsp;
-                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp;
-                <a href="https://www.kamailio.org/">Kamailio</a> projects.
+                The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>, &nbsp;
+                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp; <a href="https://www.kamailio.org/">Kamailio</a> projects. The technical core engine is based on <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://www.consul.io/">Consul</a>, <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PosgreSQL</a>.
               </p>
             </div>
           </div>
@@ -165,6 +172,12 @@ export default () => (
               <a href="https://mm.wazo.community/wazo-platform/">https://mm.wazo.community/wazo-platform/</a>
               <br />
               IRC: #wazo on irc.freenode.net
+            </p>
+          </p>
+          <h3 className="title  text-center">Support</h3>
+          <p className="intro  text-left">
+            <p>
+              The Wazo Platform project is supported by its community. Use the various channels above to reach out to us.
             </p>
           </p>
           <div className="author-message">
