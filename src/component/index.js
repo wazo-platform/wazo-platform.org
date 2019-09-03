@@ -147,10 +147,9 @@ export default () => (
     <section id="contact" className="contact section has-pattern">
       <div className="container">
         <div className="contact-inner">
-          <div className="col-wrapper">
-            <div className="col">
-              <h2 className="title  text-center">Contact</h2>
-              <p className="intro  text-left">
+          <div className="col-wrapper one">
+            <div className="coll">
+              <h2>Contact</h2>
                 <p>
                   Forum:{' '}
                   <a href="https://projects.wazo.community/projects/1/boards">
@@ -166,17 +165,10 @@ export default () => (
                   <br />
                   IRC: #wazo on irc.freenode.net
                 </p>
-              </p>
-              <h3 className="title  text-center">Support</h3>
-              <p className="intro  text-left">
-                <p>
-                  The Wazo Platform project is supported by its community. Use the various channels above to reach out to us.
-                </p>
-              </p>
             </div>
-            <div className="col">
-              <div className="speech-bubble">
-                <h2 className="sub-title">Recent publications</h2>
+            <div className="coll">
+              <div>
+                <h2>Recent publications</h2>
                 <p>
                   Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
                 </p>
@@ -191,21 +183,28 @@ export default () => (
               </div>
             </div>
           </div>
-          <div className="clearfix" />
-          <div className="info text-center">
-            <h4 className="sub-title">Get Connected</h4>
-            <ul className="social-icons list-inline">
-              <li className="list-inline-item">
-                <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-twitter" />
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="https://github.com/wazo-platform" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github" />
-                </a>
-              </li>
-            </ul>
+          <div className="col-wrapper">
+              <div className="coll">
+                <h2>Support</h2>
+                <p>
+                  The Wazo Platform project is supported by its community. Use the various channels above to reach out to us.
+                </p>
+              </div>
+              <div className="coll">
+                <h2>Get Connected</h2>
+                  <ul className="social-icons list-inline">
+                    <li className="list-inline-item">
+                      <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://github.com/wazo-platform" target="_blank" rel="noopener noreferrer">
+                        <i className="fab fa-github" />
+                      </a>
+                    </li>
+                  </ul>
+              </div>
           </div>
         </div>
       </div>
