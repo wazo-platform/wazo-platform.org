@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
+import LogoSquare from '../assets/logo.square.svg';
 
 import Layout from './Layout';
 
@@ -13,9 +14,7 @@ export default () => (
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
       <div className="container text-center">
-        <h2 className="title">
-          Wazo<span className="highlight">Platform</span>
-        </h2>
+        <img src={LogoSquare} alt="Wazo Platform" id="wazo-platform" />
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
           <Link className="btn btn-cta-secondary" to="documentation">
