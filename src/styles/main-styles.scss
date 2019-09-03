@@ -1,6 +1,50 @@
+$green: #80b800;
+$green-light: #90d800;
 .main {
+  
   #header {
-    background: #75c181;
+    background: $green;
+  }
+
+  #promo{
+    .btn-cta-primary {
+      background: #666;
+      border-color: #666
+    }
+  }
+
+  #about, #features, #license{
+    color: #666;
+    font-size: 18px;
+    li {
+      color: #666;
+    }
+    .small {
+      font-size: 1em;
+      color: #aaa;
+    }
+    h2{
+      color: #444;
+      font-weight: normal !important;
+      font-size: 48px;
+    }
+  }
+
+  .col-wrapper{
+    display: flex;
+    align-items: top;
+    .col {
+      flex: 1 50%;
+    }
+  }
+
+  #wazo-platform {
+    width: 50%;
+    @media (min-width: 767px) {
+      width: 25%;
+    }
+    height: auto; 
+    padding: 40px 0 60px;
   }
 
   .header.navbar-fixed-top .logo a {
@@ -9,12 +53,71 @@
 
   #promo {
     padding-bottom: 50px;
-    background: #75c181;
+    background: $green;
+  }
+
+  #features {
+    background: #ddd;
+  }
+
+  #license {
+    background: transparent;
+  }
+
+  #contact {
+    background: #666;
+    h2{
+      color: #fff;
+    }
+    h3 {
+      font-size: 1.2em;
+      color: #aaa;
+      font-weight: normal;
+    }
+    h4{
+      margin-top: 30px;
+      color: #fff;
+    }
+    font-size: 16px;
+    a {
+      color: $green-light
+    }
+
+    .contact-inner {
+      max-width: 968px;
+    }
   }
 
   #contact li.list-inline-item i {
     padding-top: 12px;
     display: block;
     color: white;
+  }
+
+  .footer {
+    background: #222;
+    a {
+      color: $green-light;
+    }
+  }
+}
+
+header{
+  #wazo-platform-nav {
+    margin-top: 2px;
+    width: 150px;
+    height: auto;
+    opacity: 0;
+    transition: opacity .2s linear;
+  }
+  .main-nav .nav .nav-item .nav-link {
+    color: #fff !important;
+    text-transform: uppercase;
+  }
+}
+
+header.navbar-fixed-top{
+  #wazo-platform-nav{
+    opacity: 1;
   }
 }

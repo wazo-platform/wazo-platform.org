@@ -1,6 +1,7 @@
 import Helmet from 'react-helmet';
 import React from 'react';
 import { Link } from 'gatsby';
+import LogoHoriz from '../assets/logo.horiz.svg';
 
 import '../styles/bootstrap.css';
 import '../styles/fontawesome.css';
@@ -27,11 +28,7 @@ export default ({ children }) => (
 
     <header id="header" className="header">
       <div className="container">
-        <h1 className="logo float-left">
-          <a className="scrollto" href="#promo">
-            <span className="logo-title">Wazo Platform</span>
-          </a>
-        </h1>
+        <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
         <nav id="main-nav" className="main-nav navbar-expand-md float-right" role="navigation">
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
             <span className="sr-only">Toggle navigation</span>
