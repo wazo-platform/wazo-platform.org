@@ -3,6 +3,7 @@ $green: #80c400;
   
   #header {
     background: $green;
+    z-index: 11;
     .main-nav .navbar-toggler {
       background: rgba(0,0,0,.1);
     }
@@ -71,7 +72,7 @@ $green: #80c400;
 
   #promo {
     padding-bottom: 50px;
-    background: $green;
+    background: linear-gradient(to bottom, $green 100px, #408400 100%);
   }
 
   #about {
@@ -133,8 +134,9 @@ $green: #80c400;
 }
 
 header{
+  .main &.header{ padding: 0 };
   #wazo-platform-nav {
-    margin-top: 2px;
+    margin-top: 8px;
     width: 150px;
     height: auto;
     opacity: 0;
@@ -143,6 +145,10 @@ header{
   .main-nav .nav .nav-item .nav-link {
     color: #fff !important;
     text-transform: uppercase;
+    padding: 20px 10px !important;
+    &.active{
+      background: rgba(0,0,0,.1) !important;
+    }
   }
 }
 
