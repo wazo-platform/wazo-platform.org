@@ -35,7 +35,7 @@ export default ({ children, isDoc, isDocHome, className, breadcrumbs = []}) => (
 
       <header id="header" className="header">
         <div className="container">
-          <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
+          <Link to="/"><img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" /></Link>
           <nav id="main-nav" className="main-nav navbar-expand-md float-right" role="navigation">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
               <span className="sr-only">Toggle navigation</span>
@@ -62,7 +62,7 @@ export default ({ children, isDoc, isDocHome, className, breadcrumbs = []}) => (
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/documentation">
+                  <Link className="nav-link" to="/documentation" activeClassName="active">
                     Documentation
                   </Link>
                 </li>
