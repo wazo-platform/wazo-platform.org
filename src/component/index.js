@@ -33,7 +33,7 @@ export default () => (
         <h2 className="title text-center">What is Wazo Platform?</h2>
         <p className="intro">
           Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
-          infrastructure. You can pick and chose the components you need to build class 5 features like audio and video
+          infrastructure. You can pick and choose the components you need to build class 5 features like audio and video
           calls, chat, call centers, conferences, voicemail, etc., and class 4 features like security, routing, load
           balancing, etc., coupled with subscription and billing capabilities.
           <br />
@@ -135,7 +135,7 @@ export default () => (
             <p>
               You may copy, distribute and modify the software as long as you track changes/dates in source files. Any
               modifications to or software including (via compiler) GPL-licensed code must also be made available under
-              the GPL along with build & install instructions. Mode details at{' '}
+              the GPL along with build & install instructions. More details at{' '}
               <a href="https://tldrlegal.com/l/gpl-3.0">tldrlegal.com</a>
             </p>
           </div>
