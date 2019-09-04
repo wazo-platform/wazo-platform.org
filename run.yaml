@@ -34,7 +34,7 @@
 
     - name: Copy site
       synchronize:
-        src: '{{ zuul.project.src_dir }}/site'
+        src: '{{ zuul.project.src_dir }}/public'
         dest: '{{ zuul.executor.log_root }}'
         mode: pull
         copy_links: true
@@ -49,4 +49,4 @@
       shell: "ssh-add -l || :"
 
     - name: Upload site
-      command: 'rsync -e ssh -a --delete {{ zuul.executor.log_root }}/site/ zuul-publisher@webserver.wazo.community:'
+      command: 'rsync -e ssh -a --delete {{ zuul.executor.log_root }}/public/ zuul-publisher@webserver.wazo.community:'
