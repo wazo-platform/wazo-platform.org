@@ -2,6 +2,13 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 
+// duplicated from ../Layout
+import '../../styles/bootstrap.css';
+import '../../styles/fontawesome.css';
+import '../../styles/prism.css';
+import '../../styles/devaid.scss';
+import '../../styles/main-styles.scss';
+
 import '../../styles/elegant-font.css';
 import '../../styles/pretty-docs.scss';
 import '../../styles/documentation-styles.scss';
