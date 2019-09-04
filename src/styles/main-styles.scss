@@ -72,7 +72,7 @@ $green: #80c400;
 
   #promo {
     padding-bottom: 50px;
-    background: $green;
+    background: linear-gradient(to bottom, $green 100px, #408400 100%);
   }
 
   #about {
