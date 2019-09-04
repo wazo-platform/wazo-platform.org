@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
+import LogoSquare from '../assets/logo.square.svg';
 
 import Layout from './Layout';
 
@@ -13,9 +14,7 @@ export default () => (
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
       <div className="container text-center">
-        <h2 className="title">
-          Wazo<span className="highlight">Platform</span>
-        </h2>
+        <img src={LogoSquare} alt="Wazo Platform" id="wazo-platform" />
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
           <Link className="btn btn-cta-secondary" to="documentation">
@@ -24,14 +23,6 @@ export default () => (
           <Link className="btn btn-cta-primary" to="install">
             Install
           </Link>
-          <a href="https://github.com/wazo-platform">
-            <img
-              style={{ position: 'absolute', top: 0, right: 0, border: 0, 'z-index': 99999 }}
-              src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
-              alt="Fork me on GitHub"
-              data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
-            />
-          </a>
         </div>
       </div>
     </section>
@@ -69,7 +60,15 @@ export default () => (
               <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
           </ul>
-          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or containers.
+          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
+          containers.
+        </p>
+        <h2 className="title text-center">Why Wazo Platform?</h2>
+        <p className="intro">
+          There was no building blocks to create programmable Telecom infrastructure so we evolved our own
+          telecom stack based on Asterisk to make it fully programmable, multi-tenant and user centric. The
+          target use cases were Unified Communications, Chat server, Call centers, IoT, Fax services in Distributed
+          or all-in-one setups.
         </p>
         <div className="row">
           <div className="clearfix visible-md" />
@@ -79,7 +78,7 @@ export default () => (
             </div>
             <div className="content">
               <h3 className="sub-title">Mobile and Web friendly</h3>
-              <p>All the interfaces are mobile and web friendly: REST API, Web sockets and Web hooks.</p>
+              <p>All the programmable interfaces are mobile and web friendly: WebRTC, REST API, Web sockets and Web hooks.</p>
             </div>
           </div>
           <div className="item col-lg-4 col-md-6 col-12">
@@ -87,8 +86,8 @@ export default () => (
               <i className="fas fa-code" />
             </div>
             <div className="content">
-              <h3 className="sub-title">Easy to customise</h3>
-              <p>Building blocks are micro-services developed in Python.</p>
+              <h3 className="sub-title">Easy to consume</h3>
+              <p>Building blocks are micro-services developed in Python. All API are described in <a href="https://www.openapis.org/">OpenAPI</a>.</p>
             </div>
           </div>
           <div className="item col-lg-4 col-md-6 col-12">
@@ -98,9 +97,8 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Battlefield tested</h3>
               <p>
-                The core engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>, &nbsp;
-                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp;
-                <a href="https://www.kamailio.org/">Kamailio</a> projects.
+                The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>, &nbsp;
+                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp; <a href="https://www.kamailio.org/">Kamailio</a> projects. The technical core engine is based on <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://www.consul.io/">Consul</a>, <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PosgreSQL</a>.
               </p>
             </div>
           </div>
@@ -149,58 +147,64 @@ export default () => (
     <section id="contact" className="contact section has-pattern">
       <div className="container">
         <div className="contact-inner">
-          <h2 className="title  text-center">Contact</h2>
-          <p className="intro  text-left">
-            <p>
-              Forum:{' '}
-              <a href="https://projects.wazo.community/projects/1/boards">
-                https://projects.wazo.community/projects/1/boards
-              </a>
-              <br />
-              Bug tracking: <a href="https://wazo-dev.atlassian.net/">https://wazo-dev.atlassian.net/</a>
-              <br />
-              E-Mail: <a href="mailto:contact@wazo.community">contact@wazo.community</a>
-              <br />
-              Mattermost:{' '}
-              <a href="https://mm.wazo.community/wazo-platform/">https://mm.wazo.community/wazo-platform/</a>
-              <br />
-              IRC: #wazo on irc.freenode.net
-            </p>
-          </p>
-          <div className="author-message">
-            <div className="profile">
-              <img className="img-fluid" src="/favicon.ico" alt="" />
+          <div className="col-wrapper one">
+            <div className="coll">
+              <h2>Contact</h2>
+                <p>
+                  Forum:{' '}
+                  <a href="https://projects.wazo.community/projects/1/boards">
+                    https://projects.wazo.community/projects/1/boards
+                  </a>
+                  <br />
+                  Bug tracking: <a href="https://wazo-dev.atlassian.net/">https://wazo-dev.atlassian.net/</a>
+                  <br />
+                  E-Mail: <a href="mailto:contact@wazo.community">contact@wazo.community</a>
+                  <br />
+                  Mattermost:{' '}
+                  <a href="https://mm.wazo.community/wazo-platform/">https://mm.wazo.community/wazo-platform/</a>
+                  <br />
+                  IRC: #wazo on irc.freenode.net
+                </p>
             </div>
-            <div className="speech-bubble">
-              <h3 className="sub-title">Recent publications about Wazo Platform</h3>
-              <p>
-                Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
-              </p>
-              <p>
-                Video at the Telecom Application Development Summit 2018:{' '}
-                <a href="https://youtu.be/JxKlxPDDnsk">What can you do with Wazo?</a>
-              </p>
-              <p>
-                Video at the Telecom Application Development Summit 2017:{' '}
-                <a href="https://youtu.be/vh43Vt40myY">WAZO Keynote: xCPaaS</a>
-              </p>
+            <div className="coll">
+              <div>
+                <h2>Recent publications</h2>
+                <p>
+                  Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
+                </p>
+                <p>
+                  Video at the Telecom Application Development Summit 2018:{' '}
+                  <a href="https://youtu.be/JxKlxPDDnsk">What can you do with Wazo?</a>
+                </p>
+                <p>
+                  Video at the Telecom Application Development Summit 2017:{' '}
+                  <a href="https://youtu.be/vh43Vt40myY">WAZO Keynote: xCPaaS</a>
+                </p>
+              </div>
             </div>
           </div>
-          <div className="clearfix" />
-          <div className="info text-center">
-            <h4 className="sub-title">Get Connected</h4>
-            <ul className="social-icons list-inline">
-              <li className="list-inline-item">
-                <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-twitter" />
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="https://github.com/wazo-platform" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github" />
-                </a>
-              </li>
-            </ul>
+          <div className="col-wrapper">
+              <div className="coll">
+                <h2>Support</h2>
+                <p>
+                  The Wazo Platform project is supported by its community. Use the various channels above to reach out to us.
+                </p>
+              </div>
+              <div className="coll">
+                <h2>Get Connected</h2>
+                  <ul className="social-icons list-inline">
+                    <li className="list-inline-item">
+                      <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://github.com/wazo-platform" target="_blank" rel="noopener noreferrer">
+                        <i className="fab fa-github" />
+                      </a>
+                    </li>
+                  </ul>
+              </div>
           </div>
         </div>
       </div>

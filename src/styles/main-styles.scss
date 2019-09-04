@@ -1,20 +1,159 @@
+$green: #80c400;
 .main {
+  
   #header {
-    background: #75c181;
+    background: $green;
+    .main-nav .navbar-toggler {
+      background: rgba(0,0,0,.1);
+    }
   }
 
-  .header.navbar-fixed-top .logo a {
-    color: #F88C30;
+  #promo{
+    .btn-cta-secondary {
+      color: #444;
+      background: #FC0;
+      border: none;
+    }
+    .btn-cta-primary {
+      background: #444;
+      border: none;
+    }
+  }
+
+  #about, #features, #license{
+    .fas{
+      font-size: 36px;
+    }
+    .icon-holder{
+      left: 20px;
+    }
+    h3.sub-title{
+      color: #444;
+    }
+    color: #666;
+    font-size: 18px;
+    li {
+      color: #666;
+    }
+    .small {
+      font-size: 1em;
+      color: #aaa;
+    }
+    h2{
+      color: #444;
+      font-weight: normal !important;
+      font-size: 48px;
+    }
+  }
+
+  .col-wrapper{
+    display: flex;
+    align-items: top;
+    flex-wrap: wrap;
+    &.one{
+      padding-bottom: 20px;
+    }
+    .coll {
+      flex: 1 40%;
+      padding: 0 15px;
+    }
+  }
+
+  #wazo-platform {
+    transition: opacity .2s linear;
+    width: 50%;
+    @media (min-width: 767px) {
+      width: 25%;
+    }
+    height: auto; 
+    padding: 20px 0 60px;
   }
 
   #promo {
     padding-bottom: 50px;
-    background: #75c181;
+    background: $green;
+  }
+
+  #about {
+    .icon-holdr{
+      text-align: center;
+      margin-bottom: 20px;
+      .fas {
+        font-size: 48px;
+      }
+    }
+  }
+
+  #features {
+    background: #ddd;
+  }
+
+  #license {
+    background: transparent;
+  }
+
+  #contact {
+    background: #444;
+    h2{
+      color: #fff;
+    }
+    h3 {
+      font-size: 1.2em;
+      color: #aaa;
+      font-weight: normal;
+    }
+    h4{
+      margin-top: 30px;
+      color: #fff;
+    }
+    font-size: 16px;
+    a {
+      font-weight: bold;
+      color: $green;
+    }
+
+    .contact-inner {
+      max-width: 968px;
+    }
   }
 
   #contact li.list-inline-item i {
     padding-top: 12px;
     display: block;
     color: white;
+  }
+
+  .footer {
+    background: #222;
+    a {
+      color: $green;
+      font-weight: bold;
+    }
+  }
+}
+
+header{
+  #wazo-platform-nav {
+    margin-top: 2px;
+    width: 150px;
+    height: auto;
+    opacity: 0;
+    transition: opacity .2s linear;
+  }
+  .main-nav .nav .nav-item .nav-link {
+    color: #fff !important;
+    text-transform: uppercase;
+  }
+}
+
+.navbar-fixed-top{
+  header{
+    box-shadow: none !important;
+  }
+  #wazo-platform {
+    opacity: 0;
+  }
+  #wazo-platform-nav{
+    opacity: 1;
   }
 }

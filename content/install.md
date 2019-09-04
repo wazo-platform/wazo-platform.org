@@ -1,58 +1,54 @@
-# Install the Wazo platform
+# Install the Wazo Platform UC use case
 
-1. Install Debian 9 Stretch in a virtual machine
-2. Run the following commands in the virtual machine
+To install the Unified Communication use case in an all-in-one
+setup, do the following steps:
 
-```shell
-wget http://mirror.wazo.community/fai/xivo-migration/wazo_install.sh
-chmod +x wazo_install.sh
-./wazo_install.sh
-```
-
-3. Finish the installation by running the following command.
-
-Note: You should replace the following values:
-* `127.0.0.1` with the internal IP address of the virtual machine
-* `secret` with a secure password.
+1. Install a Debian 9 Stretch system
+2. Run the following commands on the Debian system to provision git and Ansible 2.7.9: 
 
 ```shell
-curl -k -X POST -H 'Content-Type: application/json' -d '{"engine_internal_address": "127.0.0.1", "engine_language": "en_US", "engine_license": true, "engine_password": "secret"}' https://localhost/api/setupd/1.0/setup
+# apt-get install -yq virtualenv python3-pip python git
+# virtualenv /var/lib/wazo-ansible-venv
+# source /var/lib/wazo-ansible-venv/bin/activate
+# pip install 'ansible==2.7.9'
 ```
 
-
-# Get ready to use the REST API
-
-1. Still inside the virtual machine, create a tenant:
+4. Extract the Wazo Platform installer
 
 ```shell
-wazo-auth-cli tenant create api-tenant
+# git clone https://github.com/wazo-platform/wazo-ansible.git
+# cd wazo-ansible
+# ansible-galaxy install -r requirements-postgresql.yml
 ```
 
-2. Create an API authentication `api-client`:
+5. Edit the Ansible inventory in `inventories/uc-engine` to add your
+   preferences and passwords. The various variables that can be
+   customized are described at
+   <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>. Be
+   sure to set `engine_api_configure_wizard` to `true` if you want to
+   provision the needed resources to use the REST API right away.
 
-Note: You should replace the following values:
-* `secret` with a secure password.
+6. Launch the installation by running the following command:
 
 ```shell
-wazo-auth-cli user create api-client --tenant api-tenant --password secret --purpose external_api
+# ansible-playbook -i inventories/uc-engine uc-engine.yml
 ```
-
-3. Give it some permissions:
-
-```shell
-wazo-auth-cli policy create api-client-policy --tenant api-tenant --acl 'confd.#'
-wazo-auth-cli user add api-client --policy api-client-policy
-```
-
-
 # Use the REST API
 
 You may now use the REST API from outside your virtual machine (here `wazo.example.com`).
 
 1. Get an authentication token for 1 hour:
 
+Using the `api_client_name` and `api_client_password` you defined in
+your inventory, you can execute from the Debian system:
+
 ```shell
-curl -k -X POST -u api-client:secret -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
+wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_client_password>
+```
+Or with curl from anywhere:
+
+```shell
+curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
 ```
 
 2. Use any REST API you want, for example, to list the telephony users configured on the system:
@@ -61,7 +57,7 @@ Note: You should replace the following values:
 * `my-token` with the authentication token
 
 ```shell
-curl -k -X GET -H 'X-Auth-Token: my-token' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
+curl -k -X GET -H 'X-Auth-Token: <my-token>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
 ```
 
 Note: the token that you have now only has permissions for configuration REST API (wazo-confd).

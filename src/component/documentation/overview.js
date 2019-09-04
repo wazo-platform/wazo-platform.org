@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import handleViewport from 'react-in-viewport';
-import { Link } from 'gatsby';
 
 import Layout from './Layout';
 
