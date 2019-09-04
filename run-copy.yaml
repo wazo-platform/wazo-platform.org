@@ -29,13 +29,13 @@
         state: present
 
     - name: make
-      make:
-        target: builder
+      command: "make"
+      args:
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: make build
-      make:
-        target: build
+      command: "make build"
+      args:
         chdir: "{{ zuul.project.src_dir }}"
 
     - name: Upload site
