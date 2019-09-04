@@ -52,6 +52,7 @@ const walk = dir => {
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
+  const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const sections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
@@ -122,6 +123,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await newPage('/documentation', 'documentation/index', { sections, overviews });
   // Create install page
   await newPage('/install', 'install/index', { installDoc });
+  // Create contribute page
+  await newPage('/contribute', 'contribute/index', { contributeDoc });
 
   // Create api pages
   sections.forEach(section =>
