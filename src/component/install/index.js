@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Helmet from 'react-helmet';
 
-import Layout from '../documentation/Layout';
+import Layout from '../Layout';
 
 export default ({ pageContext: { installDoc }}) => (
   <Layout breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
