@@ -1,10 +1,16 @@
 $green: #80c400;
 .main {
   
+  h1, h2, h3{
+    font-weight: normal;
+  }
+
   #header {
     background: $green;
     z-index: 11;
     .main-nav .navbar-toggler {
+      margin-top: 15px;
+      margin-bottom: 15px;
       background: rgba(0,0,0,.1);
     }
   }
@@ -72,10 +78,15 @@ $green: #80c400;
 
   #promo {
     padding-bottom: 50px;
-    background: linear-gradient(to bottom, $green 100px, #408400 100%);
+    background: linear-gradient(to bottom, $green 100px, #509400 100%);
   }
 
   #about {
+    h3{
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #666 !important;
+    }
     .icon-holdr{
       text-align: center;
       margin-bottom: 20px;
@@ -133,15 +144,22 @@ $green: #80c400;
   }
 }
 
+#wazo-platform-nav {
+  margin-top: 8px;
+  width: 150px;
+  height: auto;
+  .home & {
+    opacity: 0;
+  }
+  .home.navbar-fixed-top &{
+    opacity: 1;
+  }
+  transition: opacity .2s linear;
+}
+
 header{
   .main &.header{ padding: 0 };
-  #wazo-platform-nav {
-    margin-top: 8px;
-    width: 150px;
-    height: auto;
-    opacity: 0;
-    transition: opacity .2s linear;
-  }
+  
   .main-nav .nav .nav-item .nav-link {
     color: #fff !important;
     text-transform: uppercase;
@@ -152,14 +170,19 @@ header{
   }
 }
 
+
+
+body.documentation {
+  .main-nav .nav .nav-item .nav-link[href="/documentation"] {
+    background: rgba(0,0,0,.1) !important;
+  }
+}
+
 .navbar-fixed-top{
   header{
     box-shadow: none !important;
   }
   #wazo-platform {
     opacity: 0;
-  }
-  #wazo-platform-nav{
-    opacity: 1;
   }
 }

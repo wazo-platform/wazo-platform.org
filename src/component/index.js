@@ -1,16 +1,11 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import LogoSquare from '../assets/logo.square.svg';
 
 import Layout from './Layout';
 
 export default () => (
-  <Layout>
-    <Helmet bodyAttributes={{ class: 'landing-page' }}>
-      <title>Wazo Platform</title>
-    </Helmet>
-
+  <Layout isHome>
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
       <div className="container text-center">
@@ -31,7 +26,7 @@ export default () => (
     <section id="about" className="about section">
       <div className="container">
         <h2 className="title text-center">What is Wazo Platform?</h2>
-        <p className="intro">
+        <div className="intro">
           Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
           infrastructure. You can pick and choose the components you need to build class 5 features like audio and video
           calls, chat, call centers, conferences, voicemail, etc., and class 4 features like security, routing, load
@@ -60,8 +55,9 @@ export default () => (
               <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
           </ul>
-          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or containers.
-        </p>
+          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
+          containers.
+        </div>
         <h2 className="title text-center">Why Wazo Platform?</h2>
         <p className="intro">
           There was no building blocks to create programmable Telecom infrastructure so we evolved our own telecom stack

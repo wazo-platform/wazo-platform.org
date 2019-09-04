@@ -12,13 +12,22 @@ import '../styles/elegant-font.css';
 import '../styles/pretty-docs.scss';
 import '../styles/documentation-styles.scss';
 
-import { PageHeader as DocPageHeader, HomeHeader as DocHomeHeader } from './documentation/Layout';
+import { PageHeader as DocPageHeader, HomeHeader as DocHomeHeader } from './documentation/components';
 
 import '../styles/main-styles.scss';
 
-export default ({ children, isDoc, isDocHome, className, breadcrumbs = []}) => (
+export default ({ children, isDoc, isDocHome, isHome, className, breadcrumbs = []}) => {
+  const bodyAttributes = {};
+  if (isHome) {
+    bodyAttributes.class = 'home';
+  }
+  if (isDoc) {
+    bodyAttributes.class = 'documentation';
+  }
+  return (
     <div className="main">
-      <Helmet bodyAttributes={isDoc ? { class: 'documentation' } : {}}>
+      <Helmet bodyAttributes={bodyAttributes}>
+        <title>Wazo Platform</title>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet"
@@ -107,3 +116,4 @@ export default ({ children, isDoc, isDocHome, className, breadcrumbs = []}) => (
       </footer>
     </div>
   );
+}

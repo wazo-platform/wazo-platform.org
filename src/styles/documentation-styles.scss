@@ -1,7 +1,7 @@
 
 .doc-main-header{
   padding: 90px 0 20px;
-  background: #555;
+  background: linear-gradient(to bottom, #555, #222);
   color: #fff;
   h2{
     margin: 0;
@@ -30,6 +30,10 @@
   
   .doc-wrapper {
     padding: 60px 0;
+  }
+
+  .doc-content{
+    padding-bottom: 80px;
   }
 
   a.snippet-link {
