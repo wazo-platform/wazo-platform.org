@@ -1,8 +1,33 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink} from 'gatsby';
 
 import Layout from '../Layout';
+
+const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
+  // Tailor the following test to your environment.
+  // This example assumes that any internal link (intended for Gatsby)
+  // will start with exactly one slash, and that anything else is external.
+  const internal = /^\/(?!\/)/.test(to)
+  // Use Gatsby Link for internal links, and <a> for others
+  if (internal) {
+    return (
+      <GatsbyLink
+        to={to}
+        activeClassName={activeClassName}
+        partiallyActive={partiallyActive}
+        {...other}
+      >
+        {children}
+      </GatsbyLink>
+    )
+  }
+  return (
+    <a href={to} {...other}>
+      {children}
+    </a>
+  )
+}
 
 export const Module = ({ moduleName, module }) => (
   <div className={`item item-blue col-lg-4 col-6`}>
@@ -54,7 +79,7 @@ export const Module = ({ moduleName, module }) => (
 export default ({ pageContext: { sections } }) => (
   <Layout isDocHome isDoc className="landing-page">
     <Helmet>
-      <title>Wazo project documentation for developers</title>
+      <title>Wazo Platform - Documentation for developers</title>
     </Helmet>
     <section className="cards-section text-center">
       {sections.map(section => (
