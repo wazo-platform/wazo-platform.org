@@ -1,8 +1,24 @@
-body {
-  margin: 0;
+
+.doc-main-header{
+  padding: 90px 0 20px;
+  background: #555;
+  color: #fff;
+  h2{
+    margin: 0;
+    font-weight: normal;
+  }
+  .subtitle{
+    color: #bbb;
+    .fas{
+      color: #e55;
+    }
+  }
 }
 
 .documentation {
+  .page-wrapper{
+    padding-top: 0;
+  }
   h1 .icon_documents_alt {
     padding-right: 5px;
   }
@@ -10,6 +26,10 @@ body {
   /* Search */
   div.main-search-box ul li.ais-Hits-item a {
     color: #494d55;
+  }
+  
+  .doc-wrapper {
+    padding: 60px 0;
   }
 
   a.snippet-link {
@@ -55,14 +75,17 @@ body {
   .cards-section ul.links {
     list-style-type: none;
     margin-top: 30px;
-    padding: 0 20px;
+    // padding: 0 20px;
   }
 
   .cards-section ul.links li {
-    float: left;
-    width: 50%;
+    /* float: left;
+    width: 50%;*/
     padding-bottom: 5px;
     text-align: left;
+    .fas{
+      width: 20px;
+    }
   }
 
   .cards-section .bottom-links {
@@ -70,11 +93,12 @@ body {
     border-top: 1px solid #eee;
   }
 
-  .cards-section .bottom-links a.left {
+  .cards-section .bottom-links a { display: block; margin-bottom: 5px; }
+  /* .cards-section .bottom-links a.left {
     float: left;
   }
 
   .cards-section .bottom-links a.right {
     float: right;
-  }
+  } */
 }

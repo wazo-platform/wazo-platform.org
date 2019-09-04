@@ -3,6 +3,7 @@ $green: #80c400;
   
   #header {
     background: $green;
+    z-index: 11;
     .main-nav .navbar-toggler {
       background: rgba(0,0,0,.1);
     }

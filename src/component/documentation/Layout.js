@@ -14,29 +14,17 @@ import '../../styles/pretty-docs.scss';
 import '../../styles/documentation-styles.scss';
 import Search from './search';
 
-const HomeHeader = () => (
-  <header className="header text-center">
+export const HomeHeader = () => (
+  <div className="doc-main-header text-center">
     <div className="container">
-      <div className="branding">
-        <h1 className="logo">
-          <span aria-hidden="true" className="icon_documents_alt icon" />
-          <span className="text-highlight">Wazo</span>
-          <span className="text-bold">Docs</span>
-        </h1>
-      </div>
-      <div className="tagline">
-        <p>Developers Wazo documentation</p>
-        <p>
-          Created with <i className="fas fa-heart" /> for developers
-        </p>
-      </div>
-
-      <Search />
+      <h2>Wazo Platform Documentation</h2>
+      <div className="subtitle">Created with <i className="fas fa-heart"></i> for developers</div>
     </div>
-  </header>
+    <Search />
+  </div>
 );
 
-const Breadcrumbs = ({ breadcrumbs }) => {
+export const Breadcrumbs = ({ breadcrumbs }) => {
   if (!breadcrumbs.length) {
     return <li className="breadcrumb-item active">Quick Start</li>;
   }
@@ -52,20 +40,12 @@ const Breadcrumbs = ({ breadcrumbs }) => {
   );
 };
 
-const PageHeader = ({ breadcrumbs }) => (
-  <header id="header" className="header">
+export const PageHeader = ({ breadcrumbs }) => (
+  <div className="doc-main-header">
     <div className="container">
-      <div className="branding">
-        <h1 className="logo">
-          <Link to="/">
-            <span aria-hidden="true" className="icon_documents_alt icon" />
-            <span className="text-highlight">Wazo</span>
-            <span className="text-bold">Documentation</span>
-          </Link>
-        </h1>
-      </div>
+      <h2>Wazo Platform Documentation</h2>
 
-      <ol className="breadcrumb">
+      {/* <ol className="breadcrumb">
         <li className="breadcrumb-item">
           <Link to="/">Home</Link>
         </li>
@@ -74,11 +54,11 @@ const PageHeader = ({ breadcrumbs }) => (
 
       <div className="top-search-box">
         <Search />
-      </div>
+      </div> */}
     </div>
-  </header>
+  </div>
 );
-
+/* 
 export default ({ children, className, isHome, breadcrumbs = [] }) => (
   <div className={`page-wrapper ${className}`}>
     <Helmet bodyAttributes={{ class: 'documentation' }}>
@@ -106,4 +86,4 @@ export default ({ children, className, isHome, breadcrumbs = [] }) => (
       </div>
     </footer>
   </div>
-);
+); */

@@ -20,20 +20,16 @@ html, body {
   height: 100%;
 }
 
-.documentation {
-  &.page-wrapper {
-    min-height: 100%;
-    /* equal to footer height */
-    margin-bottom: -50px;
-  }
+.documentation .page-wrapper{
+  padding-top: 70px;
 
-  &.page-wrapper:after {
+  min-height: 100%;
+    /* equal to footer height */
+  margin-bottom: -50px;
+
+  &:after {
     content: "";
     display: block;
-    height: 50px;
-  }
-
-  .footer {
     height: 50px;
   }
 
@@ -901,7 +897,7 @@ html, body {
     position: -ms-sticky;
     position: -o-sticky;
     position: sticky;
-    top: 0;
+    top: 100px !important;
   }
 
   .doc-menu {

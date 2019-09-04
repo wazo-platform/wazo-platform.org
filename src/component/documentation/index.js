@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 
-import Layout from './Layout';
+import Layout from '../Layout';
 
 export const Module = ({ moduleName, module }) => (
   <div className={`item item-${module.color} col-lg-4 col-6`}>
@@ -52,7 +52,7 @@ export const Module = ({ moduleName, module }) => (
 );
 
 export default ({ pageContext: { sections } }) => (
-  <Layout isHome className="landing-page">
+  <Layout isDocHome isDoc className="landing-page">
     <Helmet>
       <title>Wazo project documentation for developers</title>
     </Helmet>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import handleViewport from 'react-in-viewport';
 
-import Layout from './Layout';
+import Layout from '../Layout';
 
 const flatten = (text, child) =>
   typeof child === 'string' ? text + child : React.Children.toArray(child.props.children).reduce(flatten, text);
@@ -98,7 +98,7 @@ export default ({ pageContext: { moduleName, module, overview } }) => {
   };
 
   return (
-    <Layout className="body-green">
+    <Layout isDoc className="body-green">
       <div className="doc-wrapper">
         <div className="container">
           <div id="doc-header" className="doc-header text-center">
