@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Helmet from 'react-helmet';
 
-import Layout from './Layout';
+import Layout from '../Layout';
 
 export default ({ pageContext: { content, id, link, label }}) => (
   <Layout breadcrumbs={[{ link, label, active: true }]} className="body-green">
