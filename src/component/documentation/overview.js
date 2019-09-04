@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import handleViewport from 'react-in-viewport';
+import Helmet from 'react-helmet';
 
 import Layout from '../Layout';
 
@@ -99,10 +100,13 @@ export default ({ pageContext: { moduleName, module, overview } }) => {
 
   return (
     <Layout isDoc className="body-green">
+      <Helmet>
+        <title>Wazo Platform - Documentation: {moduleName}</title>
+      </Helmet>
       <div className="doc-wrapper">
         <div className="container">
           <div id="doc-header" className="doc-header text-center">
-            <h1 className="doc-title">{module.title}</h1>
+            <h1>{module.title}</h1>
           </div>
 
           <div className="doc-body row">
