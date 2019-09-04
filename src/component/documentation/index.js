@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Layout from '../Layout';
 
 export const Module = ({ moduleName, module }) => (
-  <div className={`item item-${module.color} col-lg-4 col-6`}>
+  <div className={`item item-blue col-lg-4 col-6`}>
     <div className="item-inner">
       <Link to={module.url || `/documentation/overview/${moduleName}.html`}>
         <div className="icon-holder">
