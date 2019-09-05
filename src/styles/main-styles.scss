@@ -163,6 +163,10 @@ pre {
 
 header{
   .main &.header{ padding: 0 };
+
+  .navbar-collapse{
+    background: $green !important;
+  }
   
   .main-nav {
     @media(min-width: 968px){
@@ -170,7 +174,6 @@ header{
     }
 
     .nav{
-      padding-top: 60px;
       @media(min-width: 968px){
         padding-top: 0px;
       }
