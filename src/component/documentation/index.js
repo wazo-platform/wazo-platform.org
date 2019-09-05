@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link as GatsbyLink} from 'gatsby';
+import { HomeHeader } from './components';
+
 
 import Layout from '../Layout';
 
@@ -81,6 +83,9 @@ export default ({ pageContext: { sections } }) => (
     <Helmet>
       <title>Wazo Platform - Documentation for developers</title>
     </Helmet>
+
+    <HomeHeader />
+
     <section className="cards-section text-center">
       {sections.map(section => (
         <div key={section.name}>

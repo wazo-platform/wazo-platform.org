@@ -12,8 +12,6 @@ import '../styles/elegant-font.css';
 import '../styles/pretty-docs.scss';
 import '../styles/documentation-styles.scss';
 
-import { PageHeader as DocPageHeader, HomeHeader as DocHomeHeader } from './documentation/components';
-
 import '../styles/main-styles.scss';
 
 export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, breadcrumbs = []}) => {
@@ -33,14 +31,14 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
           rel="stylesheet"
           type="text/css"
         />
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+        {/* <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
         <script type="text/javascript" src="/prism.js" />
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script
           type="text/javascript"
           src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
         />
-        <script type="text/javascript" src="/main.js" defer />
+        <script type="text/javascript" src="/main.js" defer /> */}
       </Helmet>
 
       <header id="header" className="header">
@@ -97,13 +95,10 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
         </div>
       </header>
 
-      {/* isDoc && isDocHome && <DocHomeHeader />}
-      {isDoc && !isDocHome && <DocPageHeader breadcrumbs={breadcrumbs} /> */}
-
       <div className={`page-wrapper ${className}`}>
 
         {pageTitle && 
-          <div class="page-title">
+          <div className="page-title">
             <div className="container">
               <h1>
                 {pageTitle}
