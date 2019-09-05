@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import LogoSquare from '../assets/logo.square.svg';
+import TechnicalLayersImg from '../assets/Technical_Layers_2019_V2.png';
 
 import Layout from './Layout';
 
@@ -25,15 +26,29 @@ export default () => (
     {/*About*/}
     <section id="about" className="about section">
       <div className="container">
+        <div className="intro">
+        <h2 className="title text-center">Why Wazo Platform?</h2>
+        <p className="intro">
+          Programmable is the new paradigm in the Telecom industry. Programmable telecom allows you to build the solution
+          you need, aligned with your business and technical constraints, not the one vendors want you to buy. However,
+          it's today impossible to find the perfect platform to rely on. Based on core Open Source components, Wazo Platform
+          aims to provide all the building blocks to create a full-featured, carrier grade, Programmable Telecom Infrastructure.
+        </p>
+        </div>
         <h2 className="title text-center">What is Wazo Platform?</h2>
         <div className="intro">
+        <p className="intro">
           Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
-          infrastructure. You can pick and choose the components you need to build class 5 features like audio and video
-          calls, chat, call centers, conferences, voicemail, etc., and class 4 features like security, routing, load
-          balancing, etc., coupled with subscription and billing capabilities.
+          infrastructures. You can pick and choose the components you need to build your infrastructures with
+          class 5 features like audio and video calls, chat, call centers, conferences, voicemail, etc.,
+          and class 4 features like security, routing, load balancing, etc. You can augment the platform and
+          integrate it with your subscription and billing capabilities or any value-added services like
+          Speech to Text, A.I. or sentiment analysis. These communication infrastructures can be deployed and
+          scaled on bare metal, virtual machines or containers.
           <br />
           <br />
           Wazo Platform is defined by 4 layers:
+          <img src={TechnicalLayersImg} alt="Technical Layers" id="technical-layers" />
           <ul>
             <li>
               App layer: an SDK to build mobile and web apps
@@ -55,15 +70,8 @@ export default () => (
               <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
           </ul>
-          These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
-          containers.
-        </div>
-        <h2 className="title text-center">Why Wazo Platform?</h2>
-        <p className="intro">
-          There was no building blocks to create programmable Telecom infrastructure so we evolved our own telecom stack
-          based on Asterisk to make it fully programmable, multi-tenant and user centric. The target use cases were
-          Unified Communications, Chat server, Call centers, IoT, Fax services in Distributed or all-in-one setups.
         </p>
+        </div>
         <div className="row">
           <div className="clearfix visible-md" />
           <div className="item col-lg-4 col-md-6 col-12">
@@ -107,27 +115,6 @@ export default () => (
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    {/* Features */}
-    <section id="features" className="features section">
-      <div className="container text-center">
-        <h2 className="title">Features</h2>
-        <ul className="feature-list list-unstyled">
-          <li>
-            <i className="fas fa-check" /> Full Web/Mobile interfaces: REST API, websocket and webhooks.
-          </li>
-          <li>
-            <i className="fas fa-check" /> Class 5 capabilities:
-          </li>
-          <li>
-            <i className="fas fa-check" /> Class 4 capabilities:
-          </li>
-          <li>
-            <i className="fas fa-check" /> Fully Open Source under the GPL-3 license.
-          </li>
-        </ul>
       </div>
     </section>
 
