@@ -31,14 +31,14 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
           rel="stylesheet"
           type="text/css"
         />
-        {/* <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
         <script type="text/javascript" src="/prism.js" />
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script
           type="text/javascript"
           src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
         />
-        <script type="text/javascript" src="/main.js" defer /> */}
+        <script type="text/javascript" src="/main.js" defer />
       </Helmet>
 
       <header id="header" className="header">
