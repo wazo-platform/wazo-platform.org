@@ -33,7 +33,7 @@ setup, do the following steps:
 ```
 # Use the REST API
 
-You may now use the REST API from outside your virtual machine (here `wazo.example.com`).
+You may now use the REST API from outside your system (here `wazo.example.com`).
 
 1. Get an authentication token for 1 hour:
 
