@@ -1,7 +1,10 @@
+// imported from main
+$fakeDarkGray: #414444;
+$fakeBlack: #303333;
 
 .doc-main-header{
-  padding: 90px 0 20px;
-  background: #555;
+  padding: 20px 0;
+  background: $fakeBlack;
   color: #fff;
   h2{
     margin: 0;
@@ -13,6 +16,10 @@
       color: #e55;
     }
   }
+}
+
+.doc-wrapper {
+  padding: 60px 0;
 }
 
 .documentation {
@@ -28,8 +35,10 @@
     color: #494d55;
   }
   
-  .doc-wrapper {
-    padding: 60px 0;
+
+
+  .doc-content{
+    padding-bottom: 80px;
   }
 
   a.snippet-link {

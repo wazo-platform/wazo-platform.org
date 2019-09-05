@@ -15,7 +15,7 @@ import { Link } from 'gatsby';
 const config = require('../../../config');
 const indexName = 'wazo-doc-overview';
 
-const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
+const Root = props => <div className="main-search-box pt-3 pb-3 d-inline-block">{props.children}</div>;
 
 const list = css`
   position: absolute;

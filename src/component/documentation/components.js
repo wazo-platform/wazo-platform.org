@@ -1,5 +1,4 @@
 import React from 'react';
-// import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 
 // duplicated from ../Layout
@@ -16,10 +15,6 @@ import Search from './search';
 
 export const HomeHeader = () => (
   <div className="doc-main-header text-center">
-    <div className="container">
-      <h2>Wazo Platform Documentation</h2>
-      <div className="subtitle">Created with <i className="fas fa-heart"></i> for developers</div>
-    </div>
     <Search />
   </div>
 );
