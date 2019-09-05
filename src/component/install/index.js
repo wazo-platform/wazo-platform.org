@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import Helmet from 'react-helmet';
 
 import Layout from '../Layout';
 
