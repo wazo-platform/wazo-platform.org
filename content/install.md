@@ -3,14 +3,12 @@
 To install the Unified Communication use case in an all-in-one
 setup, do the following steps:
 
-1. Install a Debian 9 Stretch system
-2. Run the following commands on the Debian system to provision git and Ansible 2.7.9: 
+1. Install a Debian 10 Buster system
+2. Run the following commands as root on the Debian system to
+   provision git and Ansible:
 
 ```shell
-# apt-get install -yq virtualenv python3-pip python git
-# virtualenv /var/lib/wazo-ansible-venv
-# source /var/lib/wazo-ansible-venv/bin/activate
-# pip install 'ansible==2.7.9'
+# apt-get install -yq git ansible
 ```
 
 4. Extract the Wazo Platform installer
