@@ -1,13 +1,46 @@
-$green: #80c400;
+$green: #98c451;
+$fakeDarkGray: #414444;
+$fakeBlack: #303333;
+
+
+ul{
+  padding-left: 16px;
+}
+
+body{
+  background: #f9f9fb;
+}
+
+/* may be overriding too aggressively */
+pre {
+  background: #272822;
+  border-radius: .3em;
+  padding: 20px;
+  white-space: normal;
+}
+
 .main {
   
   h1, h2, h3{
     font-weight: normal;
   }
 
+  .page-title {
+    padding: 80px 0 20px;
+    background: #ddd;
+    h1 {
+      font-size: 2em;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   #header {
     background: $green;
     z-index: 11;
+    .container{
+      position: relative;
+    }
     .main-nav .navbar-toggler {
       margin-top: 15px;
       margin-bottom: 15px;
@@ -17,12 +50,12 @@ $green: #80c400;
 
   #promo{
     .btn-cta-secondary {
-      color: #444;
+      color: $fakeDarkGray;
       background: #FC0;
       border: none;
     }
     .btn-cta-primary {
-      background: #444;
+      background: $fakeDarkGray;
       border: none;
     }
   }
@@ -104,47 +137,17 @@ $green: #80c400;
     background: transparent;
   }
 
-  #contact {
-    background: #444;
-    h2{
-      color: #fff;
-    }
-    h3 {
-      font-size: 1.2em;
-      color: #aaa;
-      font-weight: normal;
-    }
-    h4{
-      margin-top: 30px;
-      color: #fff;
-    }
-    font-size: 16px;
-    a {
-      font-weight: bold;
-      color: $green;
-    }
-
-    .contact-inner {
-      max-width: 968px;
-    }
-  }
-
   #contact li.list-inline-item i {
     padding-top: 12px;
     display: block;
     color: white;
   }
-
-  .footer {
-    background: #222;
-    a {
-      color: $green;
-      font-weight: bold;
-    }
-  }
 }
 
 #wazo-platform-nav {
+  position: absolute;
+  top: 0; 
+  left: 15px;
   margin-top: 8px;
   width: 150px;
   height: auto;
@@ -160,12 +163,30 @@ $green: #80c400;
 header{
   .main &.header{ padding: 0 };
   
-  .main-nav .nav .nav-item .nav-link {
-    color: #fff !important;
-    text-transform: uppercase;
-    padding: 20px 10px !important;
-    &.active{
-      background: rgba(0,0,0,.1) !important;
+  .main-nav {
+    @media(min-width: 968px){
+      float: right;
+    }
+
+    .nav{
+      padding-top: 60px;
+      @media(min-width: 968px){
+        padding-top: 0px;
+      }
+      .nav-item{
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        @media(min-width: 968px){
+          border-bottom: 0 none;
+        }
+        .nav-link {
+          color: #fff !important;
+          text-transform: uppercase;
+          padding: 20px 10px !important;
+          &.active{
+            background: rgba(0,0,0,.1) !important;
+          }
+        }
+      }
     }
   }
 }
@@ -184,5 +205,31 @@ body.documentation {
   }
   #wazo-platform {
     opacity: 0;
+  }
+}
+
+.footer{
+  a, #contact a {
+    color: $green;
+    font-weight: bold;
+  }
+  h2{
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  background: $fakeBlack;
+  text-align: left;
+  padding: 0 !important;
+  #contact{
+    background: $fakeDarkGray;
+  }
+  .small-print{
+    padding: 10px 0;
+    background: $fakeBlack;
+    color: #999;
+    .container{
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
