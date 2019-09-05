@@ -1,6 +1,6 @@
 $green: #98c451;
-$fakeDarkGray: #414444;
-$fakeBlack: #303333;
+$fakeDarkGray: #515454;
+$fakeBlack: #404343;
 
 
 ul{
@@ -27,8 +27,9 @@ pre {
 
   .page-title {
     padding: 80px 0 20px;
-    background: #ddd;
+    background: $fakeDarkGray;
     h1 {
+      color: #fff;
       font-size: 2em;
       padding: 0;
       margin: 0;
@@ -233,3 +234,4 @@ body.documentation {
     }
   }
 }
+

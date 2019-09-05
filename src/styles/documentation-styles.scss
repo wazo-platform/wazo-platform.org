@@ -1,7 +1,10 @@
+// imported from main
+$fakeDarkGray: #414444;
+$fakeBlack: #303333;
 
 .doc-main-header{
-  padding: 90px 0 20px;
-  background: linear-gradient(to bottom, #555, #222);
+  padding: 20px 0;
+  background: $fakeBlack;
   color: #fff;
   h2{
     margin: 0;
