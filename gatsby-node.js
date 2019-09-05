@@ -122,13 +122,9 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Create doc page
   await newPage('/documentation', 'documentation/index', { sections, overviews });
   // Create install page
-  await newPage('/install', 'documentation/page', { content: installDoc, link: '/install', label: 'Install' });
+  await newPage('/install', 'install/index', { installDoc });
   // Create contribute page
-  await newPage('/contribute', 'documentation/page', {
-    content: contributeDoc,
-    link: '/contribute',
-    label: 'Contribute',
-  });
+  await newPage('/contribute', 'contribute/index', { contributeDoc });
 
   // Create api pages
   sections.forEach(section =>
