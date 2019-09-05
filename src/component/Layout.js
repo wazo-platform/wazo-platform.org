@@ -67,6 +67,11 @@ export default ({ children, isDoc, isDocHome, className, breadcrumbs = []}) => (
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/contribute" activeClassName="active">
+                    Contribute
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link scrollto" href="/#license">
                     License
                   </a>
