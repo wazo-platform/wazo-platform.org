@@ -73,6 +73,11 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/install" activeClassName="active">
+                    Install
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/contribute" activeClassName="active">
                     Contribute
                   </Link>
