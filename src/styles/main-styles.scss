@@ -61,7 +61,7 @@ pre {
     }
   }
 
-  #about, #features, #license{
+  #three, #why, #about, #features, #license{
     .fas{
       font-size: 36px;
     }
@@ -115,27 +115,43 @@ pre {
     background: linear-gradient(to bottom, $green 100px, #509400 100%);
   }
 
+  #why {
+    background:$fakeDarkGray;
+    padding: 60px 0 20px;
+    color: #ccc;
+    h2{
+      color: #fff
+    }
+  }
+
   #about {
+    padding: 70px 0 30px;
+    background: #fff;
+    #technical-layers{
+      text-align: center;
+      padding: 30px 0; 
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  #three {
+    background: #e4e4e4;
     h3{
       font-weight: bold;
       font-size: 1.4em;
       color: #666 !important;
     }
-    .icon-holdr{
-      text-align: center;
-      margin-bottom: 20px;
-      .fas {
-        font-size: 48px;
-      }
+    p {
+      margin-bottom: 0
     }
   }
 
-  #features {
-    background: #ddd;
-  }
-
   #license {
-    background: transparent;
+    background: #ccc;
   }
 
   #contact li.list-inline-item i {

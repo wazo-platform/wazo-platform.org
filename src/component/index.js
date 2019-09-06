@@ -24,9 +24,8 @@ export default () => (
     </section>
 
     {/*About*/}
-    <section id="about" className="about section">
+    <section id="why" className="about">
       <div className="container">
-        <div className="intro">
         <h2 className="title text-center">Why Wazo Platform?</h2>
         <p className="intro">
           Programmable is the new paradigm in the Telecom industry. Programmable telecom allows you to build the solution
@@ -34,9 +33,11 @@ export default () => (
           it's today impossible to find the perfect platform to rely on. Based on core Open Source components, Wazo Platform
           aims to provide all the building blocks to create a full-featured, carrier grade, Programmable Telecom Infrastructure.
         </p>
-        </div>
+      </div>
+    </section>
+    <section id="about" className="about section">
+      <div className="container">
         <h2 className="title text-center">What is Wazo Platform?</h2>
-        <div className="intro">
         <p className="intro">
           Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
           infrastructures. You can pick and choose the components you need to build your infrastructures with
@@ -48,7 +49,9 @@ export default () => (
           <br />
           <br />
           Wazo Platform is defined by 4 layers:
-          <img src={TechnicalLayersImg} alt="Technical Layers" id="technical-layers" />
+          <div id="technical-layers">
+            <img src={TechnicalLayersImg} alt="Technical Layers" />
+          </div>
           <ul>
             <li>
               App layer: an SDK to build mobile and web apps
@@ -72,6 +75,10 @@ export default () => (
           </ul>
         </p>
         </div>
+    </section>
+    <section id="three" className="about section">
+      <div className="container">
+
         <div className="row">
           <div className="clearfix visible-md" />
           <div className="item col-lg-4 col-md-6 col-12">
@@ -120,16 +127,14 @@ export default () => (
 
     <section id="license" className="license section">
       <div className="container">
-        <div className="license-inner">
-          <h2 className="title text-center">License</h2>
-          <div className="info">
-            <p>
-              You may copy, distribute and modify the software as long as you track changes/dates in source files. Any
-              modifications to or software including (via compiler) GPL-licensed code must also be made available under
-              the GPL along with build & install instructions. More details at{' '}
-              <a href="https://tldrlegal.com/l/gpl-3.0">tldrlegal.com</a>
-            </p>
-          </div>
+        <h2 className="title text-center">License</h2>
+        <div className="info">
+          <p>
+            You may copy, distribute and modify the software as long as you track changes/dates in source files. Any
+            modifications to or software including (via compiler) GPL-licensed code must also be made available under
+            the GPL along with build & install instructions. More details at{' '}
+            <a href="https://tldrlegal.com/l/gpl-3.0">tldrlegal.com</a>
+          </p>
         </div>
       </div>
     </section>

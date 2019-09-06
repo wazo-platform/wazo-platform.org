@@ -26,19 +26,22 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
         <title>Wazo Platform</title>
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet"
           type="text/css"
         />
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-        <script type="text/javascript" src="/prism.js" />
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script
-          type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
-        />
-        <script type="text/javascript" src="/main.js" defer />
+        {process.env.NODE_ENV === 'production' && <> 
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+          <script type="text/javascript" src="/prism.js" />
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <script
+            type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
+          />
+          <script type="text/javascript" src="/main.js" defer />
+          </>}
       </Helmet>
 
       <header id="header" className="header">
