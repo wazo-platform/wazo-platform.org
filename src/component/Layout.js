@@ -26,19 +26,22 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
         <title>Wazo Platform</title>
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet"
           type="text/css"
         />
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-        <script type="text/javascript" src="/prism.js" />
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script
-          type="text/javascript"
-          src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
-        />
-        <script type="text/javascript" src="/main.js" defer />
+        {process.env.NODE_ENV === 'production' && <> 
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
+          <script type="text/javascript" src="/prism.js" />
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <script
+            type="text/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
+          />
+          <script type="text/javascript" src="/main.js" defer />
+          </>}
       </Helmet>
 
       <header id="header" className="header">
@@ -65,13 +68,13 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link scrollto" href="/#features">
-                    Features
-                  </a>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/documentation" activeClassName="active">
                     Documentation
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/install" activeClassName="active">
+                    Install
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -115,14 +118,10 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
           <div className="container">
           <div className="col-wrapper one">
             <div className="coll">
-              <h2>Contact</h2>
-                <ul>
-                  <li><a href="https://projects.wazo.community/projects/1/boards">Forum</a></li>
-                  <li><a href="https://wazo-dev.atlassian.net/">Bug tracking</a></li>
-                  <li><a href="mailto:contact@wazo.community">E-Mail</a></li>
-                  <li><a href="https://mm.wazo.community/wazo-platform/">Mattermost</a></li>
-                  <li>IRC: #wazo on irc.freenode.net</li>
-                </ul>
+              <h2>Support</h2>
+              <p>
+                The Wazo Platform project is supported by its community. Use the various channels bellow to reach out to us.
+              </p>
             </div>
             <div className="coll">
               <div>
@@ -131,25 +130,29 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
                 </p>
                 <p>
-                  Video at the Telecom Application Development Summit 2018:{' '}
+                  Video @ the Telecom Application Development Summit 2018:{' '}
                   <a href="https://youtu.be/JxKlxPDDnsk">What can you do with Wazo?</a>
                 </p>
                 <p>
-                  Video at the Telecom Application Development Summit 2017:{' '}
+                  Video @ the Telecom Application Development Summit 2017:{' '}
                   <a href="https://youtu.be/vh43Vt40myY">WAZO Keynote: xCPaaS</a>
                 </p>
               </div>
             </div>
           </div>
           <div className="col-wrapper">
+            <div className="coll">
+              <h2>Contact</h2>
+              <ul>
+                <li><a href="https://projects.wazo.community/projects/1/boards">Forum</a></li>
+                <li><a href="https://wazo-dev.atlassian.net/">Bug tracking</a></li>
+                <li><a href="mailto:contact@wazo.community">E-Mail</a></li>
+                <li><a href="https://mm.wazo.community/wazo-platform/">Mattermost</a></li>
+                <li>IRC: #wazo on irc.freenode.net</li>
+              </ul>
+            </div>
               <div className="coll">
-                <h2>Support</h2>
-                <p>
-                  The Wazo Platform project is supported by its community. Use the various channels above to reach out to us.
-                </p>
-              </div>
-              <div className="coll">
-                <h2>Get Connected</h2>
+                <h2>Get Connected! Contribute! Build value!</h2>
                   <ul className="social-icons list-inline">
                     <li className="list-inline-item">
                       <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">

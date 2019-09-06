@@ -143,27 +143,29 @@ export default class Search extends Component {
     }
 
     return (
-      <InstantSearch
-        searchClient={this.searchClient}
-        indexName={indexName}
-        onSearchStateChange={this.updateState}
-        root={{ Root }}
-      >
-        <Input onFocus={this.focus} {...{ collapse, focused }} />
-        <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
-          <Index indexName={indexName}>
-            <Results>
-              <Hits hitComponent={PageHit(this.disableHits)} />
-            </Results>
-          </Index>
-          <By>
-            Powered by{' '}
-            <a href="https://www.algolia.com">
-              <i className="fab fa-algolia" /> Algolia
-            </a>
-          </By>
-        </HitsWrapper>
-      </InstantSearch>
+      <div className="doc-main-header text-center">
+        <InstantSearch
+          searchClient={this.searchClient}
+          indexName={indexName}
+          onSearchStateChange={this.updateState}
+          root={{ Root }}
+        >
+          <Input onFocus={this.focus} {...{ collapse, focused }} />
+          <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
+            <Index indexName={indexName}>
+              <Results>
+                <Hits hitComponent={PageHit(this.disableHits)} />
+              </Results>
+            </Index>
+            <By>
+              Powered by{' '}
+              <a href="https://www.algolia.com">
+                <i className="fab fa-algolia" /> Algolia
+              </a>
+            </By>
+          </HitsWrapper>
+        </InstantSearch>
+      </div>
     );
   }
 }
