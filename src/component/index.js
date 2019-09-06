@@ -14,10 +14,13 @@ export default () => (
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
           <Link className="btn btn-cta-secondary" to="documentation">
-            API Docs
+            Documentation
           </Link>
           <Link className="btn btn-cta-primary" to="install">
             Install
+          </Link>
+          <Link className="btn btn-cta-secondary" to="contribute">
+            Contribute
           </Link>
         </div>
       </div>
@@ -68,9 +71,9 @@ export default () => (
               <span className="small">Services: asterisk, confd, agid, amid, provd, kamailio, rtpengine</span>
             </li>
             <li>
-              Technical layer: the internal services for HTTP, internal messaging, database, ...
+              Technical layer: the internal services for the Operating System, HTTP, internal messaging, database, ...
               <br />
-              <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
+              <span className="small">Debian and Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
           </ul>
         </p>
