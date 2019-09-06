@@ -27,8 +27,8 @@ export default () => (
       <div className="container">
         <h2 className="title text-center">What is Wazo Platform?</h2>
         <div className="intro">
-          Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
-          infrastructure. You can pick and choose the components you need to build class 5 features like audio and video
+          Wazo Platform is an Open Source project allowing to build carrier-grade programmable IP communication
+          infrastructures. You can pick and choose the components you need to build class 5 features like audio and video
           calls, chat, call centers, conferences, voicemail, etc., and class 4 features like security, routing, load
           balancing, etc., coupled with subscription and billing capabilities.
           <br />
@@ -36,7 +36,7 @@ export default () => (
           Wazo Platform is defined by 4 layers:
           <ul>
             <li>
-              App layer: an SDK to build mobile and web apps
+              App layer: SDK to build mobile and web apps
               <br />
             </li>
             <li>
@@ -45,12 +45,12 @@ export default () => (
               <span className="small">Services: calld, confd, agentd</span>
             </li>
             <li>
-              Engine layer: the internal services for audio/video, provisioning, ...
+              Engine layer: internal services for audio/video, provisioning, ...
               <br />
               <span className="small">Services: asterisk, confd, agid, amid, provd, kamailio, rtpengine</span>
             </li>
             <li>
-              Technical layer: the internal services for HTTP, internal messaging, database, ...
+              Technical layer: internal services for HTTP, internal messaging, database, ...
               <br />
               <span className="small">Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
             </li>
@@ -60,9 +60,9 @@ export default () => (
         </div>
         <h2 className="title text-center">Why Wazo Platform?</h2>
         <p className="intro">
-          There was no building blocks to create programmable Telecom infrastructure so we evolved our own telecom stack
-          based on Asterisk to make it fully programmable, multi-tenant and user centric. The target use cases were
-          Unified Communications, Chat server, Call centers, IoT, Fax services in Distributed or all-in-one setups.
+          There were no building blocks to create programmable telecom infrastructures so we evolved our own telecom stack
+          based on Asterisk to make it fully programmable, multi-tenant and user-centric. The target use cases were
+          Unified Communications, chat servers, call centers, IoT and fax services in distributed or in all-in-one setups.
         </p>
         <div className="row">
           <div className="clearfix visible-md" />
@@ -85,7 +85,7 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Easy to consume</h3>
               <p>
-                Building blocks are micro-services developed in Python. All API are described in{' '}
+                Building blocks are micro-services developed in Python. All APIs are described using{' '}
                 <a href="https://www.openapis.org/">OpenAPI</a>.
               </p>
             </div>
@@ -97,12 +97,12 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Battlefield tested</h3>
               <p>
-                The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,
+                The core telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,
                 &nbsp;
                 <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp;{' '}
                 <a href="https://www.kamailio.org/">Kamailio</a> projects. The technical core engine is based on{' '}
                 <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://www.consul.io/">Consul</a>,{' '}
-                <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PosgreSQL</a>.
+                <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PostgreSQL</a>.
               </p>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default () => (
             <p>
               You may copy, distribute and modify the software as long as you track changes/dates in source files. Any
               modifications to or software including (via compiler) GPL-licensed code must also be made available under
-              the GPL along with build & install instructions. More details at{' '}
+              the GPL along with build &amp; install instructions. More details at{' '}
               <a href="https://tldrlegal.com/l/gpl-3.0">tldrlegal.com</a>
             </p>
           </div>
