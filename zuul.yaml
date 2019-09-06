@@ -14,13 +14,12 @@
     check:
       jobs:
         - yarn-build-copy:
-            nodeset: debian9-vm
+            nodeset: debian10-vm
     gate:
       jobs:
         - yarn-build-copy:
-            nodeset: debian9-vm
-
+            nodeset: debian10-vm
     post:
       jobs:
         - yarn-build-publish:
-            nodeset: debian9-vm
+            nodeset: debian10-vm
