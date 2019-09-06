@@ -57,7 +57,7 @@ export default () => (
           </div>
           <ul>
             <li>
-              App layer: an SDK to build mobile and web apps
+              App layer: SDK to build mobile and web apps
               <br />
             </li>
             <li>
@@ -103,7 +103,7 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Easy to consume</h3>
               <p>
-                Building blocks are micro-services developed in Python. All API are described in{' '}
+                Building blocks are micro-services developed in Python. All APIs are described in{' '}
                 <a href="https://www.openapis.org/">OpenAPI</a>.
               </p>
             </div>
@@ -115,12 +115,11 @@ export default () => (
             <div className="content">
               <h3 className="sub-title">Battlefield tested</h3>
               <p>
-                The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,
-                &nbsp;
-                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and &nbsp;{' '}
+                The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,{' '}
+                <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and{' '}
                 <a href="https://www.kamailio.org/">Kamailio</a> projects. The technical core engine is based on{' '}
                 <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://www.consul.io/">Consul</a>,{' '}
-                <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PosgreSQL</a>.
+                <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PostgreSQL</a>.
               </p>
             </div>
           </div>
