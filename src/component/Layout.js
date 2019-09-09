@@ -26,7 +26,7 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
         <title>Wazo Platform</title>
-        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet"
