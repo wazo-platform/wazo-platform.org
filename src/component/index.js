@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import LogoSquare from '../assets/logo.square.svg';
-import TechnicalLayersImg from '../assets/Technical_Layers_2019_V2.png';
+import TechnicalLayersImg from '../assets/Technical_Layers_2019_V3.png';
 
 import Layout from './Layout';
 
