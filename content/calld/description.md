@@ -28,6 +28,6 @@ The bus events are defined [here](https://github.com/wazo-platform/wazo-calld/bl
 
 ## Related
 
+* [wazo-amid](amid.html)
 * [wazo-auth](authentication.html)
 * [wazo-confd](configuration.html)
-* [xivo-amid](amid.html)
