@@ -1,17 +1,25 @@
-const { getSections, getAllModules, getOverviews, getModuleName } = require('./utils');
+const { getSections, getAllModules, getOverviews, readFileContent } = require('./utils');
 
 module.exports = async newPage => {
   const sections = getSections();
   const allModules = getAllModules();
-  const overviews = await getOverviews();
+  const installDoc = readFileContent('install.md');
+  const contributeDoc = readFileContent('contribute.md');
+  const overviews = getOverviews();
 
   // Create homepage
   newPage('/', 'index', { sections });
+  // Create doc page
+  newPage('/documentation', 'documentation/index', { sections, overviews });
+  // Create install page
+  newPage('/install', 'install/index', { installDoc });
+  // Create contribute page
+  newPage('/contribute', 'contribute/index', { contributeDoc });
 
   // Create api pages
   sections.forEach(section =>
     Object.keys(section.modules).forEach(moduleName =>
-      newPage(`/api/${moduleName}.html`, 'api', {
+      newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
         moduleName,
         module: section.modules[moduleName],
       })
@@ -19,16 +27,15 @@ module.exports = async newPage => {
   );
 
   // Create overview pages
-  Object.keys(overviews).forEach(repoName => {
-    const moduleName = getModuleName(repoName);
-    if (!moduleName) {
+  Object.keys(allModules).forEach(moduleName => {
+    const module = allModules[moduleName];
+    const repoName = module.repository;
+    if (!repoName) {
       return;
     }
 
-    const module = allModules[moduleName];
-
-    newPage(`/overview/${moduleName}.html`, 'overview', {
-      overview: overviews[repoName],
+    newPage(`/documentation/overview/${moduleName}.html`, 'documentation/overview', {
+      overview: overviews[repoName.split('-')[1]],
       moduleName,
       module,
     });

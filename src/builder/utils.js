@@ -1,91 +1,89 @@
 const fs = require('fs');
-const { exec } = require('child_process');
-const path = require('path');
 const yaml = require('js-yaml');
-const github = require('octonode');
+const path = require('path');
+const { execSync } = require('child_process');
 
-const config = require('../../config');
-
-const ghClient = github.client(config.githubToken);
 let cachedOverviews = null;
 let cachedSections = null;
 let cachedModules = null;
 let cachedPlugins = null;
 
-const getRepo = name => ghClient.repo(name);
+const walk = (basePath, regexp, encoding = 'utf8') => {
+  const files = fs.readdirSync(basePath);
+  const dirname = basePath.split('/').pop();
+  let results = { [dirname]: {} };
 
-const retrieveGithubFiles = async (repo, basePath = '/', regexp, branch = 'master', encoding = 'utf-8') => {
-  const files = await repo.contentsAsync(basePath, branch);
+  files.forEach(file => {
+    const filePath = basePath + '/' + file;
+    const stat = fs.lstatSync(filePath);
 
-  const results = await Promise.all(
-    files[0].map(async file => {
-      const results = { [basePath]: {} };
-      if (file.type === 'dir') {
-        return retrieveGithubFiles(repo, file.path, regexp, branch, encoding);
-      }
+    // Do not follow symlinks to avoid max recursion on OSX with filename in different case
+    // eg: Ringlist.xml symlink to RINGLIST.XML
+    if (stat.isSymbolicLink()) {
+      return;
+    }
 
-      if (file.name.match(regexp)) {
-        const contentResponse = await repo.contentsAsync(file.path, branch);
-        results[basePath][file.name] = Buffer.from(contentResponse[0].content, 'base64').toString(encoding);
-      }
+    if (stat.isDirectory()) {
+      results = { ...results, ...walk(filePath, regexp, encoding) };
+    } else if (file.match(regexp)) {
+      results[dirname][file] = fs.readFileSync(filePath, encoding);
+    }
+  });
 
-      return results;
-    })
-  );
-
-  return results.reduce((acc, obj) => {
-    obj &&
-      Object.keys(obj).forEach(basePath => {
-        Object.keys(obj[basePath]).forEach(fileName => {
-          if (!(basePath in acc)) {
-            acc[basePath] = {};
-          }
-          acc[basePath][fileName] = obj[basePath][fileName];
-        });
-      });
-
-    return acc;
-  }, {});
+  return results;
 };
 
-const getOverviews = async () => {
+const getOverviews = () => {
   if (cachedOverviews) {
     return cachedOverviews;
   }
 
-  cachedOverviews = await retrieveGithubFiles(getRepo('wazo-pbx/wazo-doc-ng'), '/', /description\.md/);
+  cachedOverviews = walk('content', /description\.md/);
+
   Object.keys(cachedOverviews).forEach(basePath => {
     const repoName = basePath.split('/')[0];
-    cachedOverviews[repoName] = cachedOverviews[basePath]['description.md'];
+    if ('description.md' in cachedOverviews[basePath]) {
+      cachedOverviews[repoName] = cachedOverviews[basePath]['description.md'];
+    }
   });
 
   return cachedOverviews;
 };
 
-const getProvisioningPlugins = async () => {
+const getProvisioningPlugins = () => {
   if (cachedPlugins) {
     return cachedPlugins;
   }
 
-  const provdRepo = getRepo('wazo-pbx/xivo-provd-plugins');
-  const pluginInfoFiles = await retrieveGithubFiles(provdRepo, '/', /plugin-info/, 'WAZO-428-gigaset-N870');
+  // Clone the repo
+  const repoPath = '/tmp/wazo-provd-plugins';
+  execSync(`
+    rm -rf ${repoPath};
+    git clone https://github.com/wazo-platform/wazo-provd-plugins.git ${repoPath};
+  `);
+
+  const pluginInfoFiles = walk(repoPath, /plugin-info/);
   cachedPlugins = {};
 
   // Parse plugin-info files
   Object.keys(pluginInfoFiles).forEach(basePath => {
     Object.keys(pluginInfoFiles[basePath]).forEach(fileName => {
-      const content = JSON.parse(pluginInfoFiles[basePath][fileName]);
-      Object.keys(content.capabilities).forEach(capabilityName => {
-        const [vendor, phone, firmware] = capabilityName.split(', ');
-        if (!(vendor in cachedPlugins)) {
-          cachedPlugins[vendor] = {};
-        }
-        if (!(phone in cachedPlugins[vendor])) {
-          cachedPlugins[vendor][phone] = {};
-        }
+      try {
+        const content = JSON.parse(pluginInfoFiles[basePath][fileName]);
+        Object.keys(content.capabilities).forEach(capabilityName => {
+          const [vendor, phone, firmware] = capabilityName.split(', ');
+          if (!(vendor in cachedPlugins)) {
+            cachedPlugins[vendor] = {};
+          }
+          if (!(phone in cachedPlugins[vendor])) {
+            cachedPlugins[vendor][phone] = {};
+          }
 
-        cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
-      });
+          cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
+        });
+      } catch (error) {
+        console.log('json error in ', basePath, fileName, error);
+      }
     });
   });
 
@@ -94,12 +92,15 @@ const getProvisioningPlugins = async () => {
   return cachedPlugins;
 };
 
+const readFileContent = filePath =>
+  fs.readFileSync(path.resolve(__dirname + `../../../content/${filePath}`), { encoding: 'utf-8' });
+
 const getSections = () => {
   if (cachedSections) {
     return cachedSections;
   }
 
-  cachedSections = yaml.safeLoad(fs.readFileSync('./data/sections.yaml', { encoding: 'utf-8' }));
+  cachedSections = yaml.safeLoad(readFileContent('sections.yaml'));
 
   return cachedSections;
 };
@@ -140,6 +141,6 @@ module.exports = {
   getSections,
   getOverviews,
   getProvisioningPlugins,
-  retrieveGithubFiles,
-  getRepo,
+  readFileContent,
+  walk,
 };

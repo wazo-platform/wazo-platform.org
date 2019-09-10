@@ -5,6 +5,7 @@ const showdown = require('showdown');
 const config = require('../../config');
 const { getAllModules, getModuleName, getOverviews } = require('./utils');
 
+let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 const markdownConverter = new showdown.Converter();
 
 const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
@@ -18,16 +19,24 @@ overviewIndex.setSettings({
 });
 
 module.exports = async () => {
+  if (!hasSearch) {
+    console.info('⚠️️ No search configuration, skipping ...');
+    return;
+  }
   // Reset algolia index
   await new Promise(resolve => overviewIndex.clearIndex(resolve));
 
-  const overviews = await getOverviews();
-  const allModules = await getAllModules();
+  const overviews = getOverviews();
+  const allModules = getAllModules();
 
   const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
     const moduleName = getModuleName(repoName);
+    if (!moduleName) {
+      return acc;
+    }
+
     const module = allModules[moduleName];
-    const htmlContent = markdownConverter.makeHtml(overviews[repoName]['description.md']);
+    const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
     const content = striptags(htmlContent);
 
     acc.push({

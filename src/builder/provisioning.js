@@ -2,25 +2,23 @@ const fs = require('fs');
 const { exec } = require('child_process');
 const path = require('path');
 
-const { getProvisioningPlugins } = require('./utils');
+const { getProvisioningPlugins, walk } = require('./utils');
 const { slugify } = require('../utils');
 
 module.exports = async newPage => {
-  const plugins = await getProvisioningPlugins();
+  const plugins = getProvisioningPlugins();
 
   // Retrieve images
   const destPath = path.resolve('./public/provisioning/');
   exec(`mkdir -p ${destPath}`);
-  const repo = getRepo('wazo-pbx/wazo-doc-ng');
-  const images = await retrieveGithubFiles(repo, 'provisioning/static/img', /.png$/, 'provisioning', 'binary');
+  const images = walk('content/provisioning/img', /.png$/, 'binary');
 
   Object.keys(images).forEach(basePath => {
     const vendorName = basePath.split('/').pop();
     const isVendor = vendorName === 'vendors';
 
     Object.keys(images[basePath]).forEach(fileName => {
-      const filePath = `${destPath}/${isVendor ? '': `${vendorName}-`}${fileName}`;
-      console.log('filePath', filePath);
+      const filePath = `${destPath}/${isVendor ? '' : `${vendorName}-`}${fileName}`;
 
       fs.writeFileSync(filePath, images[basePath][fileName], { encoding: 'binary' });
     });
