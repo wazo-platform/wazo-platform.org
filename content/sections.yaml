@@ -70,7 +70,7 @@
         description: Enhance your platform, add and maintain easily plugins you develop to creating your own value.
         icon: fa fa-headset
         color: blue
-        repository: xivo-agentd
+        repository: wazo-agentd
         redocUrl: https://quintana.wazo.community/api/agentd/1.0/api/api.yml
 
       chat:
