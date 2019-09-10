@@ -39,6 +39,7 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
           type="text/javascript"
           src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56722061-8"></script>
         <script type="text/javascript" src="/main.js" defer />
       </Helmet>
 
