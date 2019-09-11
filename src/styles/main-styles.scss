@@ -254,3 +254,55 @@ body.documentation {
   }
 }
 
+.blog {
+  min-height: 60vh;
+  .filter{
+    font-style: italic;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    a{
+      margin-left: 20px;
+    }
+  }
+  .articles {
+    .item {
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+      .hilite {
+        color: #444;
+      }
+      a.title{
+        color: #333;
+        font-size: 1.8em;
+      }
+      .summary{
+        margin: 10px 0 15px;
+      }
+      .head {
+        color: #999;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.article{
+  .head{
+    color: #999;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+  }
+  .container.main{
+    p{
+      font-size: 1.2em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

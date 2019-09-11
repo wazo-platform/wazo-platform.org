@@ -82,9 +82,9 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link scrollto" href="/#license">
-                    License
-                  </a>
+                  <Link className="nav-link" to="/blog" activeClassName="active">
+                    Blog
+                  </Link>
                 </li>
                 <li className="nav-item last">
                   <a className="nav-link scrollto" href="/#contact">
