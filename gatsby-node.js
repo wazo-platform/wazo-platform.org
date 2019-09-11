@@ -51,7 +51,7 @@ const walk = dir => {
 };
 
 const getArticles = async createPage => {
-  const dir = './blog/articles';
+  const dir = './content/blog/articles';
   const articles = [];
   const files = fs.readdirSync(dir);
   console.info('generating articles');
@@ -67,7 +67,7 @@ const getArticles = async createPage => {
     });
 
     const summaryNumWords = 40;
-    options.summary = markdownConverter.makeHtml(body).replace(/<[^>]*>?/gm, '').split(' ').splice(0, summaryNumWords).join(' ');
+    options.summary = striptags(markdownConverter.makeHtml(body)).split(' ').splice(0, summaryNumWords).join(' ');
 
     const url = `/blog/${options.slug}`;
     
