@@ -96,11 +96,19 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => !forDeveloper ? !section.developer : true);
-
+  const contributeDocs = fs.readdirSync('./content/contribute').reduce(function(acc, file) {
+    if (file.split('.').pop() === 'md') {
+      var p = './content/contribute/' + file;
+      acc[p] = fs.readFileSync(p, 'utf8');
+    }
+    return acc;
+  }, {});
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
+
+  console.log('contributeDocs ' + contributeDocs);
 
   const getModuleName = repoName =>
     Object.keys(allModules).find(moduleName => {
@@ -118,11 +126,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Helper to generate page
   const newPage = (modulePath, component, context) =>
-    createPage({
-      path: modulePath,
-      component: path.resolve(`src/component/${component}.js`),
-      context,
-    });
+        createPage({
+          path: modulePath,
+          component: path.resolve(`src/component/${component}.js`),
+          context,
+        });
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
@@ -172,6 +180,14 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await newPage('/contribute', 'contribute/index', { contributeDoc });
   // Create blog page
   await newPage('/blog', 'blog/index', { articles });
+
+  // Create contribute pages
+  Object.keys(contributeDocs).forEach(fileName => {
+    var content = contributeDocs[fileName];
+    var p = '/contribute/' + path.basename(fileName, '.md');
+    console.log('generating ' + p);
+    newPage(p, 'contribute/index', { content });
+  });
 
   // Create api pages
   sections.forEach(section =>
