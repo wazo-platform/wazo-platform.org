@@ -14,7 +14,7 @@ System_Boundary(provd_system, "Provisioning") {
     Container(asterisk, "Asterisk", "C", "Media server")
     Container(confd, "wazo-confd", "Python", "Configuration service") [["../documentation/overview/configuration.html"]]
     Container(agid, "wazo-agid", "Python", "AGI service")
-    Container(amid, "xivo-amid", "Python", "AMI proxy service") [["../documentation/overview/amid.html"]]
+    Container(amid, "wazo-amid", "Python", "AMI proxy service") [["../documentation/overview/amid.html"]]
     ContainerDb(filesystem, "File System", "/var/lib/wazo-provd", "JSON database and provisioning plugins")
 }
 Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]

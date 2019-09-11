@@ -165,5 +165,5 @@
         description: Add REST API for Asterisk Manager interface.
         icon: fa fa-code
         color: orange
-        repository: xivo-amid
+        repository: wazo-amid
         redocUrl: https://quintana.wazo.community/api/amid/1.0/api/api.yml
