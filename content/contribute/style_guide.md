@@ -11,11 +11,13 @@ blank line should separate the license from the imports
 
 Example:
 
-    # -*- coding: utf-8 -*-
-    # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
-    # SPDX-License-Identifier: GPL-3.0-or-later
+```python
+# -*- coding: utf-8 -*-
+# Copyright 2019 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0-or-later
 
-    import argparse
+import argparse
+```
 
 ### Spacing
 
@@ -27,15 +29,17 @@ Example:
 
 Example:
 
-    import argparse
-    import datetime
-    import os
-    import re
-    import shutil
-    import tempfile
+```python
+import argparse
+import datetime
+import os
+import re
+import shutil
+import tempfile
 
-    from StringIO import StringIO
-    from urllib import urlencode
+from StringIO import StringIO
+from urllib import urlencode
+```
 
 ### PEP8
 
@@ -52,17 +56,21 @@ When possible, avoid using backslashes to separate lines.
 
 Bad Example:
 
-    user = session.query(User).filter(User.firstname == firstname)\
-                              .filter(User.lastname == lastname)\
-                              .filter(User.number == number)\
-                              .all()
+```python
+user = session.query(User).filter(User.firstname == firstname)\
+                          .filter(User.lastname == lastname)\
+                          .filter(User.number == number)\
+                          .all()
+```
 
 Good Example:
 
-    user = (session.query(User).filter(User.firstname == firstname)
-                               .filter(User.lastname == lastname)
-                               .filter(User.number == number)
-                               .all())
+```python
+user = (session.query(User).filter(User.firstname == firstname)
+                           .filter(User.lastname == lastname)
+                           .filter(User.number == number)
+                           .all())
+```
 
 ### Strings
 
@@ -71,11 +79,15 @@ interpolation instead.
 
 Bad Example:
 
-    phone_interface = "SIP" + "/" + username + "-" + password
+```python
+phone_interface = "SIP" + "/" + username + "-" + password
+```
 
 Good Example:
 
-    phone_interface = "SIP/%s-%s" % (username, password)
+```python
+phone_interface = "SIP/%s-%s" % (username, password)
+```
 
 ### Comments
 
@@ -84,18 +96,22 @@ making the code clearer.
 
 Bad Example:
 
-    #Add the meeting to the calendar only if it was created on a week day
-    #(monday to friday)
-    if meeting.day > 0 and meeting.day < 7:
-        calendar.add(meeting)
+```python
+#Add the meeting to the calendar only if it was created on a week day
+#(monday to friday)
+if meeting.day > 0 and meeting.day < 7:
+    calendar.add(meeting)
+```
 
 Good Example:
 
-    def created_on_week_day(meeting):
-        return meeting.day > 0 and meeting.day < 7
+```python
+def created_on_week_day(meeting):
+    return meeting.day > 0 and meeting.day < 7
 
-    if created_on_week_day(meeting):
-        calendar.add(meeting)
+if created_on_week_day(meeting):
+    calendar.add(meeting)
+```
 
 ### Conditions
 
@@ -104,46 +120,54 @@ expands on multiple lines or you need to nest your conditions.
 
 Bad Examples:
 
-    if(x == 3):
-        print "condition is true"
+```python
+if(x == 3):
+    print "condition is true"
 
-    if(x == 3 and y == 4):
-        print "condition is true"
+if(x == 3 and y == 4):
+    print "condition is true"
+```
 
 Good Examples:
 
-    if x == 3:
-        print "condition is true"
+```python
+if x == 3:
+    print "condition is true"
 
-    if x == 3 and y == 4:
-        print "condition is true"
+if x == 3 and y == 4:
+    print "condition is true"
 
-    if (extremely_long_variable == 3
-        and another_long_variable == 4
-        and yet_another_variable == 5):
+if (extremely_long_variable == 3
+    and another_long_variable == 4
+    and yet_another_variable == 5):
 
-        print "condition is true"
+    print "condition is true"
 
-    if (2 + 3 + 4) - (1 + 1 + 1) == 6:
-        print "condition is true"
+if (2 + 3 + 4) - (1 + 1 + 1) == 6:
+    print "condition is true"
+```
 
 Consider refactoring your statement into a function if it becomes too
 long, or the meaning isn\'t clear.
 
 Bad Example:
 
-    if price * tax - bonus / reduction + fee < money:
-        product.pay(money)
+```python
+if price * tax - bonus / reduction + fee < money:
+    product.pay(money)
+```
 
 Good Example:
 
-    def calculate_price(price, tax, bonus, reduction, fee):
-        return price * tax - bonus / reduction + fee
+```python
+def calculate_price(price, tax, bonus, reduction, fee):
+    return price * tax - bonus / reduction + fee
 
-    final_price = calculate_price(price, tax, bonus, reduction, fee)
+final_price = calculate_price(price, tax, bonus, reduction, fee)
 
-    if final_price < money:
-        product.pay(money)
+if final_price < money:
+    product.pay(money)
+```
 
 Naming
 ------
@@ -159,14 +183,16 @@ Conventions for functions prefixed by \`find\`:
 
 Example:
 
-    def find_by_username(username):
-        users = [user1, user2, user3]
-        user_search = [user for user in users if user.username == username]
+```python
+def find_by_username(username):
+    users = [user1, user2, user3]
+    user_search = [user for user in users if user.username == username]
 
-        if len(user_search) == 0:
-            return None
+    if len(user_search) == 0:
+        return None
 
-        return user_search[0]
+    return user_search[0]
+```
 
 Conventions for functions prefixed by \`get\`:
 
@@ -176,14 +202,16 @@ Conventions for functions prefixed by \`get\`:
 
 Example:
 
-    def get_user(userid):
-        users = [user1, user2, user3]
-        user_search = [user for user in users if user.userid == userid]
+```python
+def get_user(userid):
+    users = [user1, user2, user3]
+    user_search = [user for user in users if user.userid == userid]
 
-        if len(user_search) == 0:
-            raise UserNotFoundError(userid)
+    if len(user_search) == 0:
+        raise UserNotFoundError(userid)
 
-        return user_search[0]
+    return user_search[0]
+```
 
 Conventions for functions prefixed by \`find\_all\`:
 
@@ -192,11 +220,13 @@ Conventions for functions prefixed by \`find\_all\`:
 
 Example:
 
-    def find_all_users_by_username(username):
-        users = [user1, user2, user3]
-        user_search = [user for user in users if user.username == username]
+```python
+def find_all_users_by_username(username):
+    users = [user1, user2, user3]
+    user_search = [user for user in users if user.username == username]
 
-        return user_search
+    return user_search
+```
 
 ### Magic numbers
 
@@ -205,29 +235,33 @@ variables with a clear name
 
 Bad example:
 
-    class TestRanking(unittest.TestCase):
+```python
+class TestRanking(unittest.TestCase):
 
-        def test_ranking(self):
-            rank = Rank(1, 2, 3)
+    def test_ranking(self):
+        rank = Rank(1, 2, 3)
 
-            self.assertEquals(rank.position, 1)
-            self.assertEquals(rank.grade, 2)
-            self.assertEquals(rank.session, 3)
+        self.assertEquals(rank.position, 1)
+        self.assertEquals(rank.grade, 2)
+        self.assertEquals(rank.session, 3)
+```
 
 Good example:
 
-    class TestRanking(unittest.TestCase):
+```python
+class TestRanking(unittest.TestCase):
 
-        def test_ranking(self):
-            position = 1
-            grade = 2
-            session = 3
+    def test_ranking(self):
+        position = 1
+        grade = 2
+        session = 3
 
-            rank = Rank(position, grade, session)
+        rank = Rank(position, grade, session)
 
-            self.assertEquals(rank.position, position)
-            self.assertEquals(rank.grade, grade)
-            self.assertEquals(rank.session, session)
+        self.assertEquals(rank.position, position)
+        self.assertEquals(rank.grade, grade)
+        self.assertEquals(rank.session, session)
+```
 
 Tests
 -----
@@ -262,35 +296,37 @@ should be split into smaller functions.
 
 Example:
 
-    class UserTestCase(unittest.TestCase):
+```python
+class UserTestCase(unittest.TestCase):
 
-        def test_fullname(self):
-            user = User(firstname='Bob', lastname='Marley')
-            expected = 'Bob Marley'
+    def test_fullname(self):
+        user = User(firstname='Bob', lastname='Marley')
+        expected = 'Bob Marley'
 
-            fullname = user.fullname()
+        fullname = user.fullname()
 
-            self.assertEquals(expected, fullname)
+        self.assertEquals(expected, fullname)
 
-        def _prepare_expected_user(self, firstname, lastname, number):
-            user = User()
-            user.firstname = firstname
-            user.lastname = lastname
-            user.number = number
+    def _prepare_expected_user(self, firstname, lastname, number):
+        user = User()
+        user.firstname = firstname
+        user.lastname = lastname
+        user.number = number
 
-            return user
+        return user
 
-        def _assert_users_are_equal(expected_user, actual_user):
-            self.assertEquals(expected_user.firstname, actual_user.firstname)
-            self.assertEquals(expected_user.lastname, actual_user.lastname)
-            self.assertEquals(expected_user.number, actual_user.number)
+    def _assert_users_are_equal(expected_user, actual_user):
+        self.assertEquals(expected_user.firstname, actual_user.firstname)
+        self.assertEquals(expected_user.lastname, actual_user.lastname)
+        self.assertEquals(expected_user.number, actual_user.number)
 
-        def test_create_user(self):
-            expected = self._prepare_expected_user('Bob', 'Marley', '4185551234')
+    def test_create_user(self):
+        expected = self._prepare_expected_user('Bob', 'Marley', '4185551234')
 
-            user = create_user('Bob', 'Marley', '4185551234')
+        user = create_user('Bob', 'Marley', '4185551234')
 
-            self._assert_users_are_equal(expected, user)
+        self._assert_users_are_equal(expected, user)
+```
 
 Exceptions
 ----------
@@ -300,28 +336,32 @@ for edge cases, or when something that isn\'t usually expected happens.
 
 Bad Example:
 
-    def is_user_available(user):
-        if user.available():
-            return True
-        else:
-            raise Exception("User isn't available")
+```python
+def is_user_available(user):
+    if user.available():
+        return True
+    else:
+        raise Exception("User isn't available")
 
-    try:
-        is_user_available(user)
-    except Exception:
-        disable_user(user)
+try:
+    is_user_available(user)
+except Exception:
+    disable_user(user)
+```
 
 Good Example:
 
-    def is_user_available(user):
-        if user.available():
-            return True
-        else:
-            return False
+```python
+def is_user_available(user):
+    if user.available():
+        return True
+    else:
+        return False
 
 
-    if not is_user_available(user):
-        disable_user(user)
+if not is_user_available(user):
+    disable_user(user)
+```
 
 Avoid throwing `Exception`. Use one of Python\'s built-in Exceptions, or
 create your own custom Exception. A list of exceptions is available on
@@ -330,25 +370,29 @@ website](http://docs.python.org/2/library/exceptions.html#exception-hierarchy).
 
 Bad Example:
 
-    def get_user(userid):
-        user = session.query(User).get(userid)
+```python
+def get_user(userid):
+    user = session.query(User).get(userid)
 
-        if not user:
-            raise Exception("User not found")
+    if not user:
+        raise Exception("User not found")
+```
 
 Good Example:
 
-    class UserNotFoundError(LookupError):
+```python
+class UserNotFoundError(LookupError):
 
-        def __init__(self, userid):
-            message = "user with id %s not found" % userid
-            LookupError.__init__(self, message)
+    def __init__(self, userid):
+        message = "user with id %s not found" % userid
+        LookupError.__init__(self, message)
 
-    def get_user(userid):
-        user = session.query(User).get(userid)
+def get_user(userid):
+    user = session.query(User).get(userid)
 
-        if not user:
-            raise UserNotFoundError(userid)
+    if not user:
+        raise UserNotFoundError(userid)
+```
 
 Never use `except:` without specifying any exception type. The reason is
 that it will also catch important exceptions, such as
@@ -357,15 +401,19 @@ unstoppable or continuously failing, instead of stopping when wanted.
 
 Bad Example:
 
-    try:
-        get_user(user_id)
-    except:
-        logger.exception("There was an error")
+```python
+try:
+    get_user(user_id)
+except:
+    logger.exception("There was an error")
+```
 
 Good Example:
 
-    try:
-        get_user(user_id)
-    except UserNotFoundError as e:
-        logger.error(e.message)
-        raise
+```python
+try:
+    get_user(user_id)
+except UserNotFoundError as e:
+    logger.error(e.message)
+    raise
+```
