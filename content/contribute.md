@@ -46,7 +46,7 @@ environment in the same state, no files laying around.
 You can execute unittests with the following command
 
 ``` {.sourceCode .sh}
-tox -epy35
+tox -epy37
 ```
 
 ## Integration tests
