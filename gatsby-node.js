@@ -66,11 +66,16 @@ const getArticles = async createPage => {
       options[key.toLowerCase()] = value;
     });
 
+    const summaryNumWords = 40;
+    options.summary = markdownConverter.makeHtml(body).replace(/<[^>]*>?/gm, '').split(' ').splice(0, summaryNumWords).join(' ');
+
     const url = `/blog/${options.slug}`;
     
     if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
       console.info(`generating article ${key}`);
+
       articles.push(options);
+
       createPage({
         path: url,
         component: path.resolve(`src/component/blog/article.js`),

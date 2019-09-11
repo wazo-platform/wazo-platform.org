@@ -50,19 +50,20 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
       <div className="container">
         {filter.type && <div className="filter">Filtering by {filter.type}: {filter.value} <a href="#" onClick={() => setFilter({})}>Reset filter</a></div>}
         <div className="articles">
-          {articles.map(({ title, slug, date: dateRaw, author, category, tags: tagsRaw }) => {
+          {articles.map(({ title, slug, date: dateRaw, author, category, tags: tagsRaw, summary }) => {
             const date = new Date(dateRaw);
             const formattedDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
             const tags = tagsRaw && tagsRaw.split(',');
  
             return <div key={slug} className="item">
               <Link to={`/blog/${slug}`} className="title">{title}</Link>
+              <div className="summary">{summary}...</div>
               <div className="head">
                 Posted on {formattedDate}  {" "}
-                in <a className="hilite" href="#" onClick={() => setFilter({ type: 'category', value: category})}>{category}</a> {" "}
-                by <a className="hilite" href="#" onClick={() => setFilter({ type: 'author', value: author})}>{author}</a>  {" "}
+                in <Link className="hilite" to="/blog" state={{ filter: { type: 'category', value: category }}}>{category}</Link> {" "}
+                by <Link className="hilite" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>  {" "}
                 {tags && tags.length &&
-                  <span className="tags"> * Tagged with {tags.map(item => <a key={item} className="hilite" href="#" onClick={() => setFilter({ type: 'tag', value: item})}>{item}</a>)}</span>}
+                  <span className="tags"> * Tagged with {tags.map(item => <Link key={item} className="hilite" to="/blog" state={{ filter: { type: 'tag', value: item }}}>{item}</Link>)}</span>}
               </div> 
             </div>; 
           })}
