@@ -50,6 +50,40 @@ const walk = dir => {
   });
 };
 
+const getArticles = async createPage => {
+  const dir = './blog/articles';
+  const articles = [];
+  const files = fs.readdirSync(dir);
+  console.info('generating articles');
+  files.forEach((file, key) => {
+    const filePath = `${dir}/${file}`;
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    const body = content.split("\n").splice(8).join("\n");
+    const options = {};
+    content.split("\n").splice(0, 7).forEach(row => {
+      const [key, value] = row.split(': ');
+      options[key.toLowerCase()] = value;
+    });
+
+    const url = `/blog/${options.slug}`;
+    
+    if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
+      console.info(`generating article ${key}`);
+      articles.push(options);
+      createPage({
+        path: url,
+        component: path.resolve(`src/component/blog/article.js`),
+        context: {
+          ...options,
+          body,
+        },
+      })
+    }
+  });
+  return articles;
+};
+
 exports.createPages = async ({ actions: { createPage } }) => {
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
@@ -116,6 +150,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
     algoliaIndex.addObjects(algoliaObjects);
   }
 
+  const articles = await getArticles(createPage);
+
   // Create homepage
   await newPage('/', 'index');
 
@@ -125,6 +161,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await newPage('/install', 'install/index', { installDoc });
   // Create contribute page
   await newPage('/contribute', 'contribute/index', { contributeDoc });
+  // Create blog page
+  await newPage('/blog', 'blog/index', { articles });
 
   // Create api pages
   sections.forEach(section =>
