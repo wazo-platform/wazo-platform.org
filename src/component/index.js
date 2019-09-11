@@ -6,7 +6,7 @@ import TechnicalLayersImg from '../assets/Technical_Layers_2019_V3.png';
 import Layout from './Layout';
 
 export default () => (
-  <Layout isHome>
+  <Layout section="home">
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
       <div className="container text-center">

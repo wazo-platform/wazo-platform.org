@@ -79,7 +79,7 @@ export const Module = ({ moduleName, module }) => (
 );
 
 export default ({ pageContext: { sections } }) => (
-  <Layout isDocHome isDoc className="landing-page" pageTitle="Documentation">
+  <Layout section="documentation" className="landing-page" pageTitle="Documentation">
     <Helmet>
       <title>Wazo Platform - Documentation for developers</title>
     </Helmet>

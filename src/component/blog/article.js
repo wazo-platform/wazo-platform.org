@@ -10,7 +10,7 @@ export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, ca
   const tags = tagsRaw && tagsRaw.split(',');
     
   return (
-    <Layout pageTitle={title} className="article">
+    <Layout pageTitle={title} className="article" section="blog">
       <Helmet>
         <title>{title} - Wazo Platform</title>
       </Helmet>
