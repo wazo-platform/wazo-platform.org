@@ -177,16 +177,20 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Create install page
   await newPage('/install', 'install/index', { installDoc });
   // Create contribute page
-  await newPage('/contribute', 'contribute/index', { contributeDoc });
+  await newPage('/contribute', 'contribute/index', { content: contributeDoc });
   // Create blog page
   await newPage('/blog', 'blog/index', { articles });
 
   // Create contribute pages
   Object.keys(contributeDocs).forEach(fileName => {
-    var content = contributeDocs[fileName];
+    const rawContent = contributeDocs[fileName].split("\n");
+    const title = rawContent[0];
+    rawContent.shift();
+    rawContent.shift();
+    const content = rawContent.join("\n");
     var p = '/contribute/' + path.basename(fileName, '.md');
     console.log('generating ' + p);
-    newPage(p, 'contribute/index', { content });
+    newPage(p, 'contribute/index', { content, title });
   });
 
   // Create api pages
