@@ -27,7 +27,7 @@ en présentant le rôle de Québec International : les activités de
 l'agence comme acteur de développement économique, des services aux
 entreprises dont l'accompagnement sur les dossiers de financement.
 
-![022015-QI-Quebec-02-TChampagne.png](/public/022015-QI-Quebec-02-TChampagne.png "022015-QI-Quebec-02-TChampagne.png, fév. 2015")Photo:
+![022015-QI-Quebec-02-TChampagne.png](/images/blog/022015-QI-Quebec-02-TChampagne.png "022015-QI-Quebec-02-TChampagne.png, fév. 2015")Photo:
 T.Champagne et les entreprises partenaires, dont Avencall. Picture:
 T.Champagne, Québec International. Avencall partner of the meeting.
 
@@ -45,7 +45,7 @@ prospérité du fait des transferts technologiques. Les analyses de QI
 permettent de faire remonter des avis auprès du gouvernement (Ex : pour
 le Forum de Davos).
 
-![022015-QI-Quebec-L.Bergeron\_et\_JCarrierAccueil.png](/public/022015-QI-Quebec-L.Bergeron_et_JCarrierAccueil.png "022015-QI-Quebec-L.Bergeron_et_JCarrierAccueil.png, fév. 2015")Photo:
+![022015-QI-Quebec-L.Bergeron\_et\_JCarrierAccueil.png](/images/blog/022015-QI-Quebec-L.Bergeron_et_JCarrierAccueil.png "022015-QI-Quebec-L.Bergeron_et_JCarrierAccueil.png, fév. 2015")Photo:
 L.Bergeron et J.Carrier qui anime la rencontre, Québec International
 
 -   **Annie Lessard et Pierre Larouche du cabinet RCGT, Raymont Chabot
@@ -72,7 +72,7 @@ Face à certains décideurs qui ne veulent pas prendre de risque car
 « innovation » renvoit à de l'incertitude, il est possible d'étudier les
 projets pour proposer des solutions concrètes.
 
-![022015-QI-Quebec-ALessard\_et\_PLarouche\_RCGT.png](/public/022015-QI-Quebec-ALessard_et_PLarouche_RCGT.png "022015-QI-Quebec-ALessard_et_PLarouche_RCGT.png, fév. 2015")Photo:
+![022015-QI-Quebec-ALessard\_et\_PLarouche\_RCGT.png](/images/blog/022015-QI-Quebec-ALessard_et_PLarouche_RCGT.png "022015-QI-Quebec-ALessard_et_PLarouche_RCGT.png, fév. 2015")Photo:
 Annie Lessard - Pierre Larouche, RCGT, Raymont Chabot Grant Tornton
 
 -   **Martine Lessard de Québec International a présenté comment
@@ -86,7 +86,7 @@ dossiers: prévision sur les besoins de main-d’œuvre, immigration, etc. 1
 entreprise sur 2 va se lancer dans le recrutement suite aux réunions
 organisées par QI.
 
-![022015-QI-Quebec-MLessard\_QI.png](/public/022015-QI-Quebec-MLessard_QI.png "022015-QI-Quebec-MLessard_QI.png, fév. 2015")Photo:
+![022015-QI-Quebec-MLessard\_QI.png](/images/blog/022015-QI-Quebec-MLessard_QI.png "022015-QI-Quebec-MLessard_QI.png, fév. 2015")Photo:
 Martine Lessard, Québec International
 
 L'équipe présente de [XiVO](xivo.io) remercie les organisateurs pour

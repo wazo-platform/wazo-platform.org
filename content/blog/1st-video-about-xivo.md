@@ -15,7 +15,7 @@ Status: published
 -   This video is in english and under creative commons licence (cc by
     sa 4.0). We used Kdenlive, a free software.
 
-![XIVO-VIDEO-ENG-2015.png](/public/XIVO-VIDEO-ENG-2015.png "XIVO-VIDEO-ENG-2015.png, juil. 2015")
+![XIVO-VIDEO-ENG-2015.png](/images/blog/XIVO-VIDEO-ENG-2015.png "XIVO-VIDEO-ENG-2015.png, juil. 2015")
 
 -   **The video from the "Blog des Telecoms" website** here:
     <http://www.blog-des-telecoms.com/xivo-video-de-presentation-de-lipbx-libre>

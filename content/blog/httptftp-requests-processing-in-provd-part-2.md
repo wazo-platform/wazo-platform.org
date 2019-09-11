@@ -45,7 +45,7 @@ Let's see in more details what happens in this "device retriever"
 object:
 
 [![Device
-retriever](/public/provd/.device-retriever_m.jpg "Device retriever, avr. 2012")](/public/provd/device-retriever.png "Device retriever")
+retriever](/images/blog/provd/.device-retriever_m.jpg "Device retriever, avr. 2012")](/images/blog/provd/device-retriever.png "Device retriever")
 
 The device retriever will ask one at a time the different other device
 retrievers until one returns something. In our example, since the provd

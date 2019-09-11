@@ -17,7 +17,7 @@ more than 400 participants were treated to 2 days full of conferences
 and hacking games like Lockpicking, Cyber warfare and Capture The Flag.
 
 ![Hackfest
-cyberwar](/public/HackFest2012/.hackfest_cyberwar_m.jpg "Hackfest cyberwar, Nov 2012")
+cyberwar](/images/blog/HackFest2012/.hackfest_cyberwar_m.jpg "Hackfest cyberwar, Nov 2012")
 
 XiVO also participated in the Hackfest by giving a conference and
 organising the XiVO pwn2own hacking game.
@@ -42,7 +42,7 @@ find the most exploits possible. As the game went on, clues were given
 out through our twitter feed.
 
 ![XiVO twitter
-feed](/public/HackFest2012/.xivo_twitter_feed_m.jpg "XiVO twitter feed, Nov 2012")
+feed](/images/blog/HackFest2012/.xivo_twitter_feed_m.jpg "XiVO twitter feed, Nov 2012")
 
 Once a hacker found an exploit, he could submit it to our scoreboard to
 win points. At the end of the game, the top 3 teams with the most points
@@ -50,7 +50,7 @@ won cash prizes. Here's a screenshot of the scoreboard at the end of the
 game.
 
 ![XiVO
-Scoreboard](/public/HackFest2012/.xivo_score_board_m.jpg "XiVO Scoreboard, Nov 2012")
+Scoreboard](/images/blog/HackFest2012/.xivo_score_board_m.jpg "XiVO Scoreboard, Nov 2012")
 
 ### So what happened ? Did you get hacked ?!
 

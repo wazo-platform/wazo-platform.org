@@ -22,7 +22,7 @@ master node on the master and enter the slave's IP address in the remote
 address field. On the slave, choose slave node and enter the master's IP
 address in the remote address field.
 
-![ha\_master.png](/public/.ha_master_m.jpg "ha_master.png, mar. 2012")
+![ha\_master.png](/images/blog/.ha_master_m.jpg "ha_master.png, mar. 2012")
 
 There is no way to trigger a synchronization between master and slave
 from the web interface, a work around is to launch

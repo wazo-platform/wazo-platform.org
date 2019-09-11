@@ -6,7 +6,7 @@ Slug: presenting-the-xivo-ipbx-openhardware-at-fosdem2011-opensourcetelephony-de
 Status: published
 
 ![FOSDEM2011
-logo](/public/.logofosdem2_m.jpg "FOSDEM2011 logo, janv. 2011")  
+logo](/images/blog/.logofosdem2_m.jpg "FOSDEM2011 logo, janv. 2011")  
   
 This is a great pleasure to announce that we will presenting the XiVO
 IPBX OpenHardware project at [FOSDEM 2011](http://fosdem.org/2011/)
@@ -18,7 +18,7 @@ telecommunications and hardware field.We will be presenting the talk
 among other topics related to the telephony system during the devroom.  
   
 ![FOSDEM 2011
-brain](/public/.FOSDEM-2011_reduced_medium_m.jpg "FOSDEM 2011 brain, janv. 2011")  
+brain](/images/blog/.FOSDEM-2011_reduced_medium_m.jpg "FOSDEM 2011 brain, janv. 2011")  
   
   
 The OpenSource telephony devroom is organized by Russel Bryant from

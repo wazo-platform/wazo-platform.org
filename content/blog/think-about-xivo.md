@@ -8,7 +8,7 @@ Status: published
 ... for your holiday ! Have fun for this summer and keep eyes on XiVO.  
   
 
-![](/public/.20120707_175714_m.jpg "20120707_175714.jpg, juil. 2012")
+![](/images/blog/.20120707_175714_m.jpg "20120707_175714.jpg, juil. 2012")
 
 </p>
 

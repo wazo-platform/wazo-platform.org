@@ -20,10 +20,10 @@ Select « Beginner » mode (you can choose expert mode if want more
 options).  
 Select « 1-2-mdisks » to restore the XiVO iso file.  
   
-![Clonezilla-mode-select](/public/.clonezilla-select-mode_m.jpg "Clonezilla-mode-select, juin 2012")  
+![Clonezilla-mode-select](/images/blog/.clonezilla-select-mode_m.jpg "Clonezilla-mode-select, juin 2012")  
 Use the image to restore and select drives that you want to clone.  
   
-![clonezilla-add-hdd](/public/.clonezilla-add-hdd_m.jpg "clonezilla-add-hdd, juil. 2012")  
+![clonezilla-add-hdd](/images/blog/.clonezilla-add-hdd_m.jpg "clonezilla-add-hdd, juil. 2012")  
 To finish : y (for yes) and y (yes)  
   
 After waiting, (5-20min) it's finished : drives are cloned.  

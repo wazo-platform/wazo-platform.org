@@ -39,7 +39,7 @@ What plugind does is wrap the plugin into a Debian package to be able to install
 
 If plugins are not part of plugind and plugins are Debian packages, what does plugind do then? Plugind makes operations on plugins available using a REST API. This makes operations available to the administration UI.
 
-![admin_ui_plugins.png](/public/admin_ui_plugins.png "Interface example")
+![admin_ui_plugins.png](/images/blog/admin_ui_plugins.png "Interface example")
 
 At the moment plugins can be:
 

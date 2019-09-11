@@ -20,7 +20,7 @@ alive but on hold.You can then toggle between the calls to pickup any of
 them. Which will put the current active call on hold,and will set the
 selected call as active.
 
-[![7960-multi-instance1](/public/libsccp/.IMG_20120501_092831_s.jpg "7960-multi-instance1, mai 2012")](/public/libsccp/IMG_20120501_092831.jpg "7960-multi-instance1")
+[![7960-multi-instance1](/images/blog/libsccp/.IMG_20120501_092831_s.jpg "7960-multi-instance1, mai 2012")](/images/blog/libsccp/IMG_20120501_092831.jpg "7960-multi-instance1")
 
 We still have a long list of features we want to write and make
 available directly through XiVO.Even though we are still in early

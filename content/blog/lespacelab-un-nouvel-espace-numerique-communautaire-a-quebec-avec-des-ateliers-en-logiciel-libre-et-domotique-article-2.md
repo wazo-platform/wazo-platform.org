@@ -75,7 +75,7 @@ Astrophysique du
 Québec](http://www2.ulaval.ca/fileadmin/ulaval_ca/Images/recherche/bd/projet/fiche/90177.html)
 (CRAQ).
 
-![EspaceLab-02-Quebec-13122014-Texte.png](/public/EspaceLab-02-Quebec-13122014-Texte.png "EspaceLab-02-Quebec-13122014-Texte.png, déc. 2014")
+![EspaceLab-02-Quebec-13122014-Texte.png](/images/blog/EspaceLab-02-Quebec-13122014-Texte.png "EspaceLab-02-Quebec-13122014-Texte.png, déc. 2014")
 
 **Daniel nous parle du « board arduino » pour faire un modulateur vocal.
 Sur le projet de plante intelligente**, Josée était très concentrée avec

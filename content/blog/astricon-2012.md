@@ -5,7 +5,7 @@ Category: Software
 Slug: astricon-2012
 Status: published
 
-[![astricon.JPG](/public/Astricon2012/.astricon_m.jpg "astricon.JPG, nov. 2012")](/public/Astricon2012/astricon.JPG "astricon.JPG")
+[![astricon.JPG](/images/blog/Astricon2012/.astricon_m.jpg "astricon.JPG, nov. 2012")](/images/blog/Astricon2012/astricon.JPG "astricon.JPG")
 
 For a second year, Avencall was present on the biggest Asterisk
 conference in the world: Astricon.This year, the conference was held in
@@ -27,7 +27,7 @@ XiVO project and the XiVO Open Hardware. All the gizmos we had on our
 table really attracted may people, especially the raspberry pi that was
 running XiVO.
 
-[![conf-xav.jpg](/public/Astricon2012/.conf-xav_s.jpg "conf-xav.jpg, nov. 2012")](/public/Astricon2012/conf-xav.jpg "conf-xav.jpg")
+[![conf-xav.jpg](/images/blog/Astricon2012/.conf-xav_s.jpg "conf-xav.jpg, nov. 2012")](/images/blog/Astricon2012/conf-xav.jpg "conf-xav.jpg")
 
 To communicate further about us, we also gave a conference to present
 Avencall and the XiVO telephony system.

@@ -89,7 +89,7 @@ le site a-brest.
     Hacking](http://hacking.fsg.ulaval.ca/) à 500m de l'EspaceLab! De
     nouveaux échanges en perspective.
 
-![EspaceLab-Quebec-17012015-RS.png](/public/EspaceLab-Quebec-17012015-RS.png "EspaceLab-Quebec-17012015-RS.png, janv. 2015")
+![EspaceLab-Quebec-17012015-RS.png](/images/blog/EspaceLab-Quebec-17012015-RS.png "EspaceLab-Quebec-17012015-RS.png, janv. 2015")
 
 **Sources:**
 

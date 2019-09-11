@@ -22,7 +22,7 @@ Why do we wanted to do this change ?
 Diagram of the migration of the git repository:
 
 [![XiVO REPOSITORY GIT
-ARCHITECTURE](/public/git/.xivo-git-architecture_m.jpg "XiVO REPOSITORY GIT ARCHITECTURE, janv. 2012")](/public/git/xivo-git-architecture.png "XiVO REPOSITORY GIT ARCHITECTURE")
+ARCHITECTURE](/images/blog/git/.xivo-git-architecture_m.jpg "XiVO REPOSITORY GIT ARCHITECTURE, janv. 2012")](/images/blog/git/xivo-git-architecture.png "XiVO REPOSITORY GIT ARCHITECTURE")
 
 The large circle on the left is our warehouse with all the components
 together.

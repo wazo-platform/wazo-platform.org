@@ -26,13 +26,13 @@ The ISDN connection from the CPU EVB to the ISDN EVB chip (XHFC-4SU - a
 4 T1 lines ISDN frame buffers on-chip from CologneChip) is done using
 the following PCB (XHFC-4SU-Protoboard) ;
 
-![XHFC-4SU-Protoboard](/public/.XHFC-4SU_Protoboard_m.jpg "XHFC-4SU-Protoboard, mai 2010")
+![XHFC-4SU-Protoboard](/images/blog/.XHFC-4SU_Protoboard_m.jpg "XHFC-4SU-Protoboard, mai 2010")
 
 The FXO/FXS connection from the CPU EVB to the FXO/FXS EVB chip (VE890
 EVB from Zarlink implementing 2 FXS and 1 FXO) is done using the
 following PCB (Zarlink-VE890-Protoboard) ;
 
-![Zarlink-VE890-Protoboard](/public/.Zarlink_VE890_Protoboard_m.jpg "Zarlink-VE890-Protoboard, mai 2010")
+![Zarlink-VE890-Protoboard](/images/blog/.Zarlink_VE890_Protoboard_m.jpg "Zarlink-VE890-Protoboard, mai 2010")
 
 Next posts will be presenting the results and the signal obtained on the
 SPI and TDM buses from a Digital Oscilloscope and from a Logic Analyzer

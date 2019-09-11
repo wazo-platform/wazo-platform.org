@@ -8,7 +8,7 @@ Status: published
 <div>
 
 ![Measurement of radiated
-disturbances](/public/XIOHv5/.MeasurementRadiatedDisturbances_m.jpg "Measurement of radiated disturbances, mar. 2013")
+disturbances](/images/blog/XIOHv5/.MeasurementRadiatedDisturbances_m.jpg "Measurement of radiated disturbances, mar. 2013")
 
 </div>
 

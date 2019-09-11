@@ -48,7 +48,7 @@ script
 method](http://documentation.xivo.io/en/stable/installation/installsystem.html#installing-from-a-minimal-debian-installation)
 and executing the script as "bash xivo\_install\_current.sh -d".
 
-![Asterisk13.png](/public/Asterisk13.png "Asterisk13.png, juil. 2015")
+![Asterisk13.png](/images/blog/Asterisk13.png "Asterisk13.png, juil. 2015")
 
 </p>
 

@@ -18,7 +18,7 @@ up to allow us to build a new Mac version of the XiVO Client.
 Here's what it looks like :
 
 [![XiVO Client Mac
-OS](/public/xivosoft/.xivoclient-macos_m.jpg "XiVO Client Mac OS, avr. 2012")](/public/xivosoft/xivoclient-macos.png "XiVO Client Mac OS")
+OS](/images/blog/xivosoft/.xivoclient-macos_m.jpg "XiVO Client Mac OS, avr. 2012")](/images/blog/xivosoft/xivoclient-macos.png "XiVO Client Mac OS")
 
 The stable version will be released at the same time as other platforms,
 by the end of the week, with the XiVO 1.2.5 release.

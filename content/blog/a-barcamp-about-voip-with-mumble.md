@@ -5,7 +5,7 @@ Category: XiVO Community
 Slug: a-barcamp-about-voip-with-mumble
 Status: published
 
-![BarCampVoIPopensource-With-Mumble-June2015.png](/public/BarCampVoIPopensource-With-Mumble-June2015.png "BarCampVoIPopensource-With-Mumble-June2015.png, juin 2015")
+![BarCampVoIPopensource-With-Mumble-June2015.png](/images/blog/BarCampVoIPopensource-With-Mumble-June2015.png "BarCampVoIPopensource-With-Mumble-June2015.png, juin 2015")
 
 **A new BarCamp about VoIP:What** Write directly your questions or
 topics on the [wiki
@@ -24,11 +24,11 @@ vdagrain\*\*\*@\*\*\*avencall.com
 > SESSION \#1 : 15 april 2015 - the website is
 > [here](http://barcamp.org/w/page/94666184/BarCampIRC-Qu%C3%A9bec). The
 > summary about the topics and meeting are
-> [here](/public/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf).SESSION \#2
+> [here](/images/blog/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf).SESSION \#2
 > : 29 april 2015 - the website is
 > [here](http://barcamp.org/w/page/95337185/BarCampIRC-VoIP-opensource).
 > The report is
-> [here](/public/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf).
+> [here](/images/blog/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf).
 > Session with more LUG!!
 
 **Next activities:**
@@ -51,7 +51,7 @@ H323 and Skype? ; Which solutions to speak with lot of people, as in
 Mumble? ; What about Atlassian, like Jira, Confluence and HipChat? and
 BlueJimp (Jitsi) Your advices about a cartoon with XiVO 1,2,3...
 go!Reading [the report (FR) about the 2nd
-BarCampIRC](/public/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf)
+BarCampIRC](/images/blog/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf)
 about VoIP and open source telephony system.
 
 </p>

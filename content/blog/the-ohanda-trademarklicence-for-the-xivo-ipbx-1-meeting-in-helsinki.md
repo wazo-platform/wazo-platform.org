@@ -6,7 +6,7 @@ Slug: the-ohanda-trademarklicence-for-the-xivo-ipbx-1-meeting-in-helsinki
 Status: published
 
 ![Helsinki Harbour in
-March](/public/.Helsinki_Harbour_28032010_m.jpg "Helsinki Harbour in March, mar. 2010")
+March](/images/blog/.Helsinki_Harbour_28032010_m.jpg "Helsinki Harbour in March, mar. 2010")
 
 **I just got back from the Pixelache Festival in Helsinki** (1) where we
 had a OHANDA (2) meeting with the founding members of the OHANDA
@@ -26,7 +26,7 @@ relations between hardware designer and users/clients as described below
 :
 
 ![OHANDA Step
-5](/public/.OHANDA_Trademark_Step5_m.jpg "OHANDA Step 5, mar. 2010")
+5](/images/blog/.OHANDA_Trademark_Step5_m.jpg "OHANDA Step 5, mar. 2010")
 
 This is a great opportunity for the **XiVO IPBX OpenHardware project to
 apply this up-coming licence/trademark** to the future product (product

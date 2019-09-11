@@ -6,7 +6,7 @@ Tags: barcamp, free software, mumble, voip
 Slug: summary-about-the-voip-meeting-with-mumble-about-telephony-system-and-free-software
 Status: published
 
-![June-2015-BarCamp-Mumble-voIP-Libre-Invert.png](/public/June-2015-BarCamp-Mumble-voIP-Libre-Invert.png "June-2015-BarCamp-Mumble-voIP-Libre-Invert.png, juin 2015")
+![June-2015-BarCamp-Mumble-voIP-Libre-Invert.png](/images/blog/June-2015-BarCamp-Mumble-voIP-Libre-Invert.png "June-2015-BarCamp-Mumble-voIP-Libre-Invert.png, juin 2015")
 
 The BarCamp summary about VoIP meeting, organised with Mumble, is [on
 line](http://barcamp.org/w/page/97007235/BarCampMumble-VoIP-OpenSource).
@@ -14,12 +14,12 @@ line](http://barcamp.org/w/page/97007235/BarCampMumble-VoIP-OpenSource).
 -   The [web site, logos and
     schedule](http://barcamp.org/w/page/97007235/BarCampMumble-VoIP-OpenSource).
 -   Download [the
-    summary](/public/BarCampIRC-3-Meeting-VoIP-Mumble-Libre-2015-CRv01.pdf)
+    summary](/images/blog/BarCampIRC-3-Meeting-VoIP-Mumble-Libre-2015-CRv01.pdf)
     We shared news, tips and our favorite documentations *(in french)*.
 -   The audio meeting in .ogg (soon)
 -   To organise your own meeting, you can read our feedback during the
     last events and in
-    [here](/public/BarCampIRC-3-Meeting-VoIP-Mumble-Libre-2015-CRv01.pdf)
+    [here](/images/blog/BarCampIRC-3-Meeting-VoIP-Mumble-Libre-2015-CRv01.pdf)
     *(in french)*.
 -   Last events - BarCamp \#1 et \#2
     [websites](http://barcamp.org/w/page/94666184/BarCampIRC-Qu%C3%A9bec)

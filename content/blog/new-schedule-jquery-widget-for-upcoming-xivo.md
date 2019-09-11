@@ -27,7 +27,7 @@ intervals (months, month days, week days and hours)**.
 
 Lets see with a quick example:  
   
-[![example.png](/public/xivo-schedule/.example_s.jpg "example.png, mar. 2011")](/public/xivo-schedule/example.png "example.png")
+[![example.png](/images/blog/xivo-schedule/.example_s.jpg "example.png, mar. 2011")](/images/blog/xivo-schedule/example.png "example.png")
 
 We have selected workdays from January to April, 8AM to 7PM.
 

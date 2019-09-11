@@ -5,7 +5,7 @@ Category: Software
 Slug: xivo-12-and-asterisk-dialplan
 Status: published
 
-![xivodialplan.jpg](/public/xivosoft/xivodialplan.jpg "xivodialplan.jpg, déc. 2011")
+![xivodialplan.jpg](/images/blog/xivosoft/xivodialplan.jpg "xivodialplan.jpg, déc. 2011")
 
 To route a call from origin to destination,
 [Asterisk](http://www.asterisk.org/) relies on a so called dialplan. In

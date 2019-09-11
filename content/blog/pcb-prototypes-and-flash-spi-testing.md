@@ -18,7 +18,7 @@ photos.
 We recently received our first PCB prototypes for our motherboard:
 
 ![XIOH motherboard
-prototype](/public/.xioh_motherboard_proto_m.jpg "XIOH motherboard prototype, oct. 2011")
+prototype](/images/blog/.xioh_motherboard_proto_m.jpg "XIOH motherboard prototype, oct. 2011")
 
 To prepare for testing the first assembled prototypes, we wanted to
 somehow test the communication between the EP80579 and the SPI flash.
@@ -31,7 +31,7 @@ probably not really necessary, but now we have a perfect signal quality
 :)
 
 ![Heavily hacked flash prototype
-board](/public/.heavily_hacked_flash_proto_m.jpg "Heavily hacked flash prototype board, oct. 2011")
+board](/images/blog/.heavily_hacked_flash_proto_m.jpg "Heavily hacked flash prototype board, oct. 2011")
 
 The next step was to do the same test, this time using one of our spare
 naked PCBs dedicated to that kind of testing.We first soldered the flash
@@ -42,17 +42,17 @@ perfect replacement, but we can't do much better...)
 Here is a photo of the header being soldered:
 
 ![Soldering an SPI header at SoC
-position](/public/.soldering_an_SPI_header_at_SoC_position_m.jpg "Soldering an SPI header at SoC position, oct. 2011")
+position](/images/blog/.soldering_an_SPI_header_at_SoC_position_m.jpg "Soldering an SPI header at SoC position, oct. 2011")
 
 Here is the soldered result, connected to the programmer:
 
 ![Testing flash
-communication](/public/.testing_flash_communication_m.jpg "Testing flash communication, oct. 2011")
+communication](/images/blog/.testing_flash_communication_m.jpg "Testing flash communication, oct. 2011")
 
 And here is the result:
 
 ![SPI flash communication test
-results](/public/.flash_comm_test_result_m.jpg "SPI flash communication test results, oct. 2011")
+results](/images/blog/.flash_comm_test_result_m.jpg "SPI flash communication test results, oct. 2011")
 
 So we are now hopeful that at least the SPI flash communication will
 work on our assembled board \\\\o/

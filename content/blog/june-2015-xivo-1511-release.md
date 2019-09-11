@@ -17,7 +17,7 @@ They also enable the development of third-party features.
 -   Read the full article here.
     [http://blog.xivo.io/index.php?post/2015/06/12/Sprint-review-15.11](/index.php?post/2015/06/12/Sprint-review-15.11)
 
-![JUNE2015-XIVO-RELEASED.png](/public/JUNE2015-XIVO-RELEASED.png "JUNE2015-XIVO-RELEASED.png, juin 2015")
+![JUNE2015-XIVO-RELEASED.png](/images/blog/JUNE2015-XIVO-RELEASED.png "JUNE2015-XIVO-RELEASED.png, juin 2015")
 
 </p>
 

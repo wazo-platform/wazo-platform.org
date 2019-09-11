@@ -43,7 +43,7 @@ for personal data storage.
 The following sequence diagram show the interaction when a user
 connectsto its XiVO client.
 
-![login.png](/public/architecture/login_cti_via_xivo_auth.png "login.png, mai 2015")
+![login.png](/images/blog/architecture/login_cti_via_xivo_auth.png "login.png, mai 2015")
 
 After this step, xivo-ctid has a token with a limited lifetime for this
 user.
@@ -52,7 +52,7 @@ When a logged-in user performs a lookup in its XiVO client, the user's
 token isforwarded to xivo-dird which can return the appropriate results
 for this user.
 
-![lookup.png](/public/architecture/lookup_cti_via_dird_xivo_auth.png "lookup.png, mai 2015")
+![lookup.png](/images/blog/architecture/lookup_cti_via_dird_xivo_auth.png "lookup.png, mai 2015")
 
 Stay tuned for more information as we implement xivo-auth and the
 firstauthentication plugins.

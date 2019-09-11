@@ -11,7 +11,7 @@ Dear XIOH followers,
 label that we will have on our product with the revelant informations
 necessary to identify the product once on the market :**
 
-![XIOH\_Label](/public/XIOHv5/.P1070110_m.jpg "XIOH_Label, mar. 2013")
+![XIOH\_Label](/images/blog/XIOHv5/.P1070110_m.jpg "XIOH_Label, mar. 2013")
 
 -   **"XIOH - version 5"** : the name of the product and the hardware
     version

@@ -23,10 +23,10 @@ transparent to the end ~~user~~ admin.The goal being to stay as SIMPLE
 as possible!
 
 Too many people are stressed by their IPBX upgrades!![Stress
-Man](/public/human_pro/.file0001382919230_s.jpg "Stress Man, mar. 2012")
+Man](/images/blog/human_pro/.file0001382919230_s.jpg "Stress Man, mar. 2012")
 
 But not with
-XiVO!![Congratulation](/public/human_pro/.file6741271974648_s.jpg "Congratulation, mar. 2012")
+XiVO!![Congratulation](/images/blog/human_pro/.file6741271974648_s.jpg "Congratulation, mar. 2012")
 
 No one should be afraid of the side effects of an upgrade!
 

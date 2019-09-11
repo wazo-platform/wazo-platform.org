@@ -122,7 +122,7 @@ between the threads. The generated graph is then fed to
 this:
 
 [![Asterisk
-Deadlock](/public/.graph-locks_m.jpg "Asterisk Deadlock, oct. 2012")](/public/graph-locks.png "Asterisk Deadlock")
+Deadlock](/images/blog/.graph-locks_m.jpg "Asterisk Deadlock, oct. 2012")](/images/blog/graph-locks.png "Asterisk Deadlock")
 
 Each node represents a thread, labeled with its thread ID, and edges
 represent a "is waiting for" relation.

@@ -18,7 +18,7 @@ networks connectivities, storage interfaces and configuration/debugging
 interfaces.
 
 ![XiVO Hardware
-specificatons](/public/.XiVO_Appliance_Hardware_Specifications_m.jpg "XiVO Hardware specificatons, janv. 2010")
+specificatons](/images/blog/.XiVO_Appliance_Hardware_Specifications_m.jpg "XiVO Hardware specificatons, janv. 2010")
 
 -   The CPU is purposely chosen with a x86 architecture to allow a
     smooth porting from the existing XiVO framework into the hardware.

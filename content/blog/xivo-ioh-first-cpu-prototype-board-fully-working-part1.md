@@ -18,7 +18,7 @@ First we had our **PCB pick-and-placed in our PCB factory** (mainly on a
 Fuji machine) and you can see below a screenshot from the precision
 placement camera on the machine
 
-![XIOH\_CPU\_Factory\_Cabling\_Screenshot](/public/.20111006_014_m.jpg "XIOH_CPU_Factory_Cabling_Screenshot, déc. 2011")
+![XIOH\_CPU\_Factory\_Cabling\_Screenshot](/images/blog/.20111006_014_m.jpg "XIOH_CPU_Factory_Cabling_Screenshot, déc. 2011")
 
 The main concerns of a PCB design when one wants to first test the just
 "pick-and-placed" board is to follow different steps to prevent
@@ -44,7 +44,7 @@ Please find below, a picture of the lab deployment of the board powered
 by external power-supplies and connected to a bus-pirate for the
 flashing of our bootloader through SPI connexions.
 
-![XIOH\_CPU\_P4\_test\_1](/public/.20111118_001_m.jpg "XIOH_CPU_P4_test_1, déc. 2011")
+![XIOH\_CPU\_P4\_test\_1](/images/blog/.20111118_001_m.jpg "XIOH_CPU_P4_test_1, déc. 2011")
 
 Once this smoke-test and bring-up test were fully positive and allowing
 us to move to next step with some stress-tests :
@@ -64,7 +64,7 @@ us to move to next step with some stress-tests :
 Please find below, a picture of our lab w/ 2 XIOH CPU boards running our
 test-program and 3xGbE interfaces connected together one-by-one
 
-![XIOH\_CPU\_P4\_test\_2](/public/.20111125_002_m.jpg "XIOH_CPU_P4_test_2, déc. 2011")
+![XIOH\_CPU\_P4\_test\_2](/images/blog/.20111125_002_m.jpg "XIOH_CPU_P4_test_2, déc. 2011")
 
 We will update our different tests on the CPU boards and keep you update
 on the follow-ups of our design steps.

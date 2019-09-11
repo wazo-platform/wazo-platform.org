@@ -92,7 +92,7 @@ label squeeze-i386
 You can now test your modification by booting a computer on your subnet,
 herethe screen that you should view if your configuration is ok
 
-![pxe\_screen.png](/public/pxe_screen.png "pxe_screen.png, mar. 2012")
+![pxe\_screen.png](/images/blog/pxe_screen.png "pxe_screen.png, mar. 2012")
 
 In the next post, I will explain an advanced pxe configuration and how
 to usepreseeding to execute an automatic installation.

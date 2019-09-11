@@ -131,7 +131,7 @@ asia:
 The resulting architecture used for the test would look like the
 following diagram.
 
-![architecture.png](/public/architecture/architecture.png "architecture.png, déc. 2014")
+![architecture.png](/images/blog/architecture/architecture.png "architecture.png, déc. 2014")
 
 Since xivo-confd is not docker ready at the moment, we mocked the confd
 serverwith a python SimpleHTTPServer and some static files. This allowed

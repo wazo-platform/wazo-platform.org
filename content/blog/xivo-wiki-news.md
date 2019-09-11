@@ -9,7 +9,7 @@ As you may already know, all the documentation of the XiVO project is on
 the [XiVo wiki](http://wiki.xivo.io/ "XiVO wiki") let's summarize what
 has been edited or added recently.
 
-![xivowiki](/public/xivosoft/xivo_wiki.png "xivowiki, oct. 2011")
+![xivowiki](/images/blog/xivosoft/xivo_wiki.png "xivowiki, oct. 2011")
 
 -   New links has been added to the main page, direct access to [recent
     changes](https://wiki.xivo.io/index.php/Special:RecentChanges "recent changes")

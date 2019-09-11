@@ -15,11 +15,11 @@ aussi et nous avons eu quelques photos de voyages sympathique. Nous
 sommes donc passés par la Grèce, le Mont Blanc en France puis le Lac
 Saint Jean sur le Québec.  
 
-![xivo\_grece.png](/public/xivo_grece.png "xivo_grece.png, août 2010")  
+![xivo\_grece.png](/images/blog/xivo_grece.png "xivo_grece.png, août 2010")  
 
-![xivo\_mntblanc.png](/public/xivo_mntblanc.png "xivo_mntblanc.png, août 2010")  
+![xivo\_mntblanc.png](/images/blog/xivo_mntblanc.png "xivo_mntblanc.png, août 2010")  
 
-![xivo\_lacsaintjean.png](/public/xivo_lacsaintjean.png "xivo_lacsaintjean.png, août 2010")
+![xivo\_lacsaintjean.png](/images/blog/xivo_lacsaintjean.png "xivo_lacsaintjean.png, août 2010")
 
   
 A bientôt.

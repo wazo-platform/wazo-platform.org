@@ -8,7 +8,7 @@ Status: published
 The association Asterisk France is continuing. Please reading the press
 document (in french).
 
-[info\_presse\_asterisk-france.pdf](/public/info_presse_asterisk-france.pdf)
+[info\_presse\_asterisk-france.pdf](/images/blog/info_presse_asterisk-france.pdf)
 
 </p>
 

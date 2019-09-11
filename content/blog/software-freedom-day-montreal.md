@@ -15,7 +15,7 @@ the hardware, and Nicolas Hicher the packaging. It was also an
 opportunity to introduce the team.Thank you to Michaël Faille and Fabian
 Rodriguez for the organization.
 
-![SFD 2011](/public/.IMG_20110917_142412_m.jpg "SFD 2011, sept. 2011")
+![SFD 2011](/images/blog/.IMG_20110917_142412_m.jpg "SFD 2011, sept. 2011")
 
 Last presentation was done at the pub :)
 

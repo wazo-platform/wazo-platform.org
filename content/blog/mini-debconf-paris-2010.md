@@ -5,7 +5,7 @@ Category: General
 Slug: mini-debconf-paris-2010
 Status: published
 
-![Mini-Deb-Conf-Paris-2010](/public/.mini-debconf-paris_m.jpg "Mini-Deb-Conf-Paris-2010, nov. 2010")
+![Mini-Deb-Conf-Paris-2010](/images/blog/.mini-debconf-paris_m.jpg "Mini-Deb-Conf-Paris-2010, nov. 2010")
 
 We wanted to blog this post to report the first event of this kind
 organized by [debian france](france.debian.net) (french debian

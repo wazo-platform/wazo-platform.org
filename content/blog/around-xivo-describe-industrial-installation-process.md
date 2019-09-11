@@ -31,7 +31,7 @@ to centralize pxe configuration.
 
 Here is our architecture :
 
-![xivo\_pxe\_arch](/public/.pxe_arch_s.jpg "xivo_pxe_arch, janv. 2012").
+![xivo\_pxe\_arch](/images/blog/.pxe_arch_s.jpg "xivo_pxe_arch, janv. 2012").
 
 You can find debian pxe documentation on
 http://d-i.alioth.debian.org/manual/en.i386/ch04s05.html, however you

@@ -123,7 +123,7 @@ ainsi on pourrait téléphoner directement à partir d'une page web.
 -   Site officiel de
     [Technocentre](http://www.technocentre-tic.com/images/tctic14%20Programmation%20et%20inscription.pdf#TIC-Programmation-Conferences-Ateliers.indd%3A.6058%3A28)
 
-![XIVO-G-Sanderson-11-2014.png](/public/XIVO-G-Sanderson-11-2014.png "XIVO-G-Sanderson-11-2014.png, nov. 2014")
+![XIVO-G-Sanderson-11-2014.png](/images/blog/XIVO-G-Sanderson-11-2014.png "XIVO-G-Sanderson-11-2014.png, nov. 2014")
 
 </p>
 

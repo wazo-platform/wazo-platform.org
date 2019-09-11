@@ -40,7 +40,7 @@ XiVO solutions and making sure the usage of XiVO grows within Indonesia
 year by year. Wolter and I have are responsible for sales and marketing.
 Juned is more concerned with technical support".
 
-![IndonesianInParis-XiVO-March2015-RS.jpg](/public/IndonesianInParis-XiVO-March2015-RS.jpg "IndonesianInParis-XiVO-March2015-RS.jpg, march. 2015")Picture:
+![IndonesianInParis-XiVO-March2015-RS.jpg](/images/blog/IndonesianInParis-XiVO-March2015-RS.jpg "IndonesianInParis-XiVO-March2015-RS.jpg, march. 2015")Picture:
 meeting in Paris - 02.2015
 
 -   **How did you become interested in telephony solutions and XiVO?**

@@ -13,7 +13,7 @@ further and try to flood a few data pipes with non-european Unicode
 characters, to see if potentially anything could flow in those pipes.
 
 Here's the result :![Japanese XiVO
-Client](/public/xivosoft/xivoclient-japanese.png "Japanese XiVO Client, déc. 2011")
+Client](/images/blog/xivosoft/xivoclient-japanese.png "Japanese XiVO Client, déc. 2011")
 
 We translated a few text fields in Japanese, even though it's probably
 not perfect Japanese, it's a little better than plain stupid automatic

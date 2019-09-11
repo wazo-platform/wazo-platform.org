@@ -8,7 +8,7 @@ Status: published
 I'm very proud to announce our **new statistics module for XiVO**.
 Please see a first screenshot of this module below :
 
-![stats.png](/public/.stats_m.jpg "stats.png, fév. 2011")
+![stats.png](/images/blog/.stats_m.jpg "stats.png, fév. 2011")
 
 As you can see, we have integrated a full statistic module for our next
 major version, Skaro. All existing statistics queues in Asterisk (GPLv3)

@@ -16,7 +16,7 @@ containing one month of statistics in JSON format) was not easy to
 exploit and required more work while viewing daily statistics that would
 use raw data instead of the pre generated cache for speed reasons.
 
-![statistic\_queue.png](/public/.statistic_queue_m.jpg "statistic_queue.png, août 2012")
+![statistic\_queue.png](/images/blog/.statistic_queue_m.jpg "statistic_queue.png, août 2012")
 
 To fix the problems we had with this first version, we decided to
 rewrite the cache generation that is not dependent on statistic

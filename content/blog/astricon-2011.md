@@ -5,7 +5,7 @@ Category: General
 Slug: astricon-2011
 Status: published
 
-![nib-xivo](/public/astricon2011/.nib-xivo_s.jpg "nib-xivo, nov. 2011")
+![nib-xivo](/images/blog/astricon2011/.nib-xivo_s.jpg "nib-xivo, nov. 2011")
 
 Avencall was present at the world famous Asterisk conference:
 **Astricon2011**. This year the conferencewas held in Denver, Colorado
@@ -17,7 +17,7 @@ and much more. During AstriDevCon, a special day for developers only,we
 discussed with Asterisk main developers about technical aspect of the
 software and what next is coming into Asterisk.
 
-![xav-pres2.JPG](/public/astricon2011/.xav-pres2_s.jpg "xav-pres2.JPG, nov. 2011")
+![xav-pres2.JPG](/images/blog/astricon2011/.xav-pres2_s.jpg "xav-pres2.JPG, nov. 2011")
 
 The second day was marked by fellow developers delivering presentations
 about the internal mechanic of thecore and subsystems of asterisk. We
@@ -32,7 +32,7 @@ discussion about the technical side and also the business model
 surrounding the XiVO open platform. **All this curiosity and eager was
 just another proof that we are going in the right direction.**
 
-![photo.JPG](/public/astricon2011/.photo_s.jpg "photo.JPG, nov. 2011")
+![photo.JPG](/images/blog/astricon2011/.photo_s.jpg "photo.JPG, nov. 2011")
 
 All in all, it was much fun to meet other enthusiasts from many
 different horizon gathering around a powerful technology: Asterisk, and
@@ -40,7 +40,7 @@ to share our passion about technology.
 
 **We are already looking forward the next Astricon !**
 
-![nick-astricon](/public/astricon2011/.nick-astricon_s.jpg "nick-astricon, nov. 2011")
+![nick-astricon](/images/blog/astricon2011/.nick-astricon_s.jpg "nick-astricon, nov. 2011")
 
 Nicolas Bouliane, Xavier Carcelle
 

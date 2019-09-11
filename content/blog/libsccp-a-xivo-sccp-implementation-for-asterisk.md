@@ -11,7 +11,7 @@ basic support called chan\_skinny and is one of the first open source
 implementation available. There is also a more featured implementation
 called chan\_sccp-B, which is a fork of chan\_skinny.
 
-![agile-dashboard.jpg](/public/libsccp/.agile-dashboard_s.jpg "agile-dashboard.jpg, déc. 2011")
+![agile-dashboard.jpg](/images/blog/libsccp/.agile-dashboard_s.jpg "agile-dashboard.jpg, déc. 2011")
 
 Then, why writing another one ? Well, simply because chan\_skinny is
 too... skinny! and that chan\_sccp-B is full of bugs, have no clear
@@ -25,7 +25,7 @@ often. In that, you're encouraged to actively participate by playing
 with the code, reporting errors and sharing your ideas and needs with
 us.
 
-![sccpp.jpg](/public/libsccp/.sccpp_s.jpg "sccpp.jpg, déc. 2011")
+![sccpp.jpg](/images/blog/libsccp/.sccpp_s.jpg "sccpp.jpg, déc. 2011")
 
 In parallel of the libsccp development, we're building an automated test
 environment. Asterisk has a built-in unit-test framework that allow us
@@ -40,7 +40,7 @@ to replay all the different level of test automatically everytime
 something is modified in the code. All of this is still at an early
 stage, and is evolving everyday.
 
-![phone-tested.jpg](/public/libsccp/.phone-tested_s.jpg "phone-tested.jpg, déc. 2011")
+![phone-tested.jpg](/images/blog/libsccp/.phone-tested_s.jpg "phone-tested.jpg, déc. 2011")
 
 For those eager to dig into the code and start using it, you can find
 here how to get started and more:<https://wiki.xivo.io/index.php/Sccp>

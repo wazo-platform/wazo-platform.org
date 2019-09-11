@@ -46,7 +46,7 @@ Voici les ateliers du 24 jan.2015:
     avoir des conseils concernant du matériel de son, par exemple, pour
     connaître leur interopérabilité.
 
-![Kano-LINUQ2015.JPG](/public/Kano-LINUQ2015.JPG "Kano-LINUQ2015.JPG, janv. 2015")
+![Kano-LINUQ2015.JPG](/images/blog/Kano-LINUQ2015.JPG "Kano-LINUQ2015.JPG, janv. 2015")
 
 Merci au trésorier pour m'avoir présenter les ateliers. Je rencontre
 enfin G.Cossette dont les publications régulières sur les projets Libres
@@ -56,7 +56,7 @@ Montréal. Des membres de LinuQ transmettent: <ins>des remerciements à
 G.Sanderson, S.Duthil et S.Boily pour leur intervention l'an dernier,
 sur un atelier [XiVO](http://www.xivo.io/), dans la téléphonie Libre,
 basé sur
-[Asterisk](http://www.asterisk.org/).</ins>![LinuQ.png](/public/LinuQ.png "LinuQ.png, janv. 2015")
+[Asterisk](http://www.asterisk.org/).</ins>![LinuQ.png](/images/blog/LinuQ.png "LinuQ.png, janv. 2015")
 
 **Le programme du site LinuQ annonce à 13h, pour le 7 février:**
 

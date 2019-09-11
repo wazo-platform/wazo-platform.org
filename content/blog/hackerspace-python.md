@@ -18,13 +18,13 @@ Il y a 6 rencontres par an environ et la plupart sont au collège St Foy
 (Québec), dans le pavillon P.Les sessions sont pour des publics
 débutants à averti en informatique...
 
-![01.png](/public/01.png "01.png, juin 2015")
+![01.png](/images/blog/01.png "01.png, juin 2015")
 
 -   **atelier du jour**.
 -   Lien vers le dépôt github:
 -   Contact:
 
-![03.png](/public/03.png "03.png, juin 2015")
+![03.png](/images/blog/03.png "03.png, juin 2015")
 
 </p>
 

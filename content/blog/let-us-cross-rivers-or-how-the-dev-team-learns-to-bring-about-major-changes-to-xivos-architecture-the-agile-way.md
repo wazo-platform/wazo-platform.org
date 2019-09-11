@@ -47,7 +47,7 @@ issue is still a major one and we'll adress how we handled it in a later
 post.
 
 Now if you remember the [schema of XiVO's
-architecture](/public/xivosoft/xivo_architecture.png) in our [previously
+architecture](/images/blog/xivosoft/xivo_architecture.png) in our [previously
 cited post](/index.php?post/2012/06/11/XiVO-Architecture), you can see
 an interconnection between the CTId and the AGI. This relation handled
 mainly the reverse directory lookups, used to display a callerID of

@@ -40,7 +40,7 @@ different steps to go to the production of the XiVO IPBX OpenHardware
 product.
 
 ![XiVO IPBX OpenHardware
-EcoSystem](/public/.XiVO_IPBX_OpenHardware_EcoSystem_m.jpg "XiVO IPBX OpenHardware EcoSystem, juin 2010")
+EcoSystem](/images/blog/.XiVO_IPBX_OpenHardware_EcoSystem_m.jpg "XiVO IPBX OpenHardware EcoSystem, juin 2010")
 
 The next posts will describe the validation of the communication between
 the CPU[1](1 "1") and the ISDN[2](2 "2") and the FXO-FXS[3](3 "3").

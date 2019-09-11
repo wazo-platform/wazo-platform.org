@@ -80,7 +80,7 @@ Links:
 -   Raspivo:
     [http://raspivo.io/installation-depu...](http://raspivo.io/installation-depuis-nos-depots-en.html "http://raspivo.io/installation-depuis-nos-depots-en.html")
 
-![XIVO-RELEASE-15.13-July-August2015.png](/public/XIVO-RELEASE-15.13-July-August2015.png "XIVO-RELEASE-15.13-July-August2015.png, juil. 2015")
+![XIVO-RELEASE-15.13-July-August2015.png](/images/blog/XIVO-RELEASE-15.13-July-August2015.png "XIVO-RELEASE-15.13-July-August2015.png, juil. 2015")
 
 </p>
 

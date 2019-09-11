@@ -9,7 +9,7 @@ ASTRICON 2014, Las Vegas (version française plus bas)
 
 Interview with Sylvain Boily, [XiVO](http://www.xivo.io/)'s founder
 
-![lasvegasRS.jpg](/public/lasvegasRS.jpg "lasvegasRS.jpg, nov. 2014")
+![lasvegasRS.jpg](/images/blog/lasvegasRS.jpg "lasvegasRS.jpg, nov. 2014")
 
 **Sylvain, you attended AstriCon this year. Can you give us an overview
 of the atmosphere, the planning and people involved in the event?**
@@ -121,7 +121,7 @@ shared a part of the AstriCon
 -   <http://openstack.org>
 -   <http://docker.com>
 
-![astridevconRS.jpg](/public/astridevconRS.jpg "astridevconRS.jpg, nov. 2014")
+![astridevconRS.jpg](/images/blog/astridevconRS.jpg "astridevconRS.jpg, nov. 2014")
 
 ASTRICON 2014, Las VegasInterview de Sylvain Boily, Fondateur de
 [XiVO](http://documentation.xivo.io)

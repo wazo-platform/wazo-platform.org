@@ -42,7 +42,7 @@ Eeschema to implement the TDM connexion between the CPU and the ISDN
 chip:
 
 ![XiVO ISDN TDM Connexions
-Prototyping](/public/.KiCAD_XiVO_PCB_Prototyping_XHFC_4SU_TDM_Bus_m.jpg "XiVO ISDN TDM Connexions Prototyping, mai 2010")
+Prototyping](/images/blog/.KiCAD_XiVO_PCB_Prototyping_XHFC_4SU_TDM_Bus_m.jpg "XiVO ISDN TDM Connexions Prototyping, mai 2010")
 
 The right-side toolbar is for selecting the object to include in the
 schematic (component, power, ground, wires ...), the top part toolbar is

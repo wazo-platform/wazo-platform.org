@@ -108,7 +108,7 @@ apt-get install pf-xivo
 
 
 It was then possible to connect to the XiVO web interface:![alternate
-XiVO](/public/.Screenshot-5_m.jpg "alternate XiVO, May 2011")
+XiVO](/images/blog/.Screenshot-5_m.jpg "alternate XiVO, May 2011")
 
 #### gallifrey reference
 

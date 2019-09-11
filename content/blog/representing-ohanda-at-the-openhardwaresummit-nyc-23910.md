@@ -5,9 +5,9 @@ Category: Hardware
 Slug: representing-ohanda-at-the-openhardwaresummit-nyc-23910
 Status: published
 
-![OpenHardwareSummit](/public/.OHS_site_logo_m.jpg "OpenHardwareSummit, août 2010")
+![OpenHardwareSummit](/images/blog/.OHS_site_logo_m.jpg "OpenHardwareSummit, août 2010")
 
-![OHANDA Logo](/public/.OHANDA_Logo_m.jpg "OHANDA Logo, août 2010")
+![OHANDA Logo](/images/blog/.OHANDA_Logo_m.jpg "OHANDA Logo, août 2010")
 
 We are very pleased to announce that we will be participating to the
 **OpenHardwareSummit** ^\[<span

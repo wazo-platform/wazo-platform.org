@@ -32,7 +32,7 @@ Who is going to glue this all together? Our trusted friend
 [http://jenkins.xivo.io](http://jenkins.xivo.io)) is the perfect candidate.
 Here's the summary of [his job](http://jenkins.xivo.io/job/daily-acceptance-ha):
 
-![The steps of the Jenkins job: clone, terraform, configure, test](/public/jenkins-terraform.svg)
+![The steps of the Jenkins job: clone, terraform, configure, test](/images/blog/jenkins-terraform.svg)
 
 1. Jenkins will fetch the latest code from our
    [Github repositories](https://github.com/xivo-pbx) (and [xivo-terraform](https://github.com/sboily/xivo-terraform), because tests or the deploying scripts might change

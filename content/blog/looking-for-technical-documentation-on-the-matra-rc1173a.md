@@ -10,7 +10,7 @@ RC1173A
   
 
 ![RC1173A
-connector](/public/.P1050040_m.jpg "RC1173A connector, mar. 2011")
+connector](/images/blog/.P1050040_m.jpg "RC1173A connector, mar. 2011")
 
 After some studies, it seems that device is a "pupitre" from MATRA that
 sould be connected to a PABX Matracom (45xx series) of CGCT type.The

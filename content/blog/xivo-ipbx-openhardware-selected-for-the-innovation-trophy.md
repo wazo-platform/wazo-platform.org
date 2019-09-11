@@ -6,7 +6,7 @@ Slug: xivo-ipbx-openhardware-selected-for-the-innovation-trophy
 Status: published
 
 ![IPConvergence
-2010](/public/.IPConvergence_2010_m.jpg "IPConvergence 2010, oct. 2010")  
+2010](/images/blog/.IPConvergence_2010_m.jpg "IPConvergence 2010, oct. 2010")  
   
 
 We are very pleased to announce that the **XiVO IPBX OpenHardware
@@ -24,7 +24,7 @@ We will be presenting the XiVO IPBX OpenHardware during this trade-show
 using our **brand new logo for the project**.
 
 ![Logo XiVO IPBX
-OpenHardware](/public/.XiVO_IPBX_OpenHardware_Logo_s.jpg "Logo XiVO IPBX OpenHardware, sept. 2010")
+OpenHardware](/images/blog/.XiVO_IPBX_OpenHardware_Logo_s.jpg "Logo XiVO IPBX OpenHardware, sept. 2010")
 
 </p>
 

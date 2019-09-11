@@ -5,7 +5,7 @@ Category: Hardware
 Slug: xivo-openhardware-ipbx-presented-at-solutionslinux2010-paris
 Status: published
 
-![SolutionsLinux2010](/public/SolutionsLinux2010_logo.jpg "SolutionsLinux2010, mar. 2010")
+![SolutionsLinux2010](/images/blog/SolutionsLinux2010_logo.jpg "SolutionsLinux2010, mar. 2010")
 
 It was a great pleasure to present the XiVO IPBX OpenHardware project at
 SolutionsLinux2010 (the largest Linux fair in France yearly) on last

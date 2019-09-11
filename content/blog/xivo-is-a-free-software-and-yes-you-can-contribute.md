@@ -10,7 +10,7 @@ They have enhanced the features (eg. do not disturb, call forward ...)
 by creating a new python script. They released the script under the
 GPLv3 license. The result of this script is :
 
-![aastra\_resultat.jpg](/public/.aastra_resultat_m.jpg "aastra_resultat.jpg, juin 2012")
+![aastra\_resultat.jpg](/images/blog/.aastra_resultat_m.jpg "aastra_resultat.jpg, juin 2012")
 
 To activate this new function, simply change the aastra template in your
 provisioning server.

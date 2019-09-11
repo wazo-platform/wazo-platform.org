@@ -149,7 +149,7 @@ status update from the CTI server. The old list is then destroyed and a
 new one is created from scratch.
 
 ![Channel List
-xlet](/public/new_xlet/.channellist_small_m.jpg "Channel List xlet, déc. 2011")
+xlet](/images/blog/new_xlet/.channellist_small_m.jpg "Channel List xlet, déc. 2011")
 
 The channellist.cpp and channellist.h files are available as attachment
 

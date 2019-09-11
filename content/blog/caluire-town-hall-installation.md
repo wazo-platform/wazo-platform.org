@@ -5,7 +5,7 @@ Category: Services
 Slug: caluire-town-hall-installation
 Status: published
 
-![installcaluire](/public/.IMAG0870_m.jpg "installcaluire, juin 2011")
+![installcaluire](/images/blog/.IMAG0870_m.jpg "installcaluire, juin 2011")
 
 I had the chance to participate to
 [Caluire](http://www.ville-caluire.fr/) town hall installation a couple

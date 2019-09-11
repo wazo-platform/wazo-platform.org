@@ -108,7 +108,7 @@ Join the [community
 Hackfest](http:%20//www.hackfest.ca/hackfest-community).-
 [XiVO](http://www.xivo.io/)\] Add telephony
 
-![HackfestQuebec2014-byVDagrain.JPG](/public/HackfestQuebec2014-byVDagrain.JPG "HackfestQuebec2014-byVDagrain.JPG, November 2014")
+![HackfestQuebec2014-byVDagrain.JPG](/images/blog/HackfestQuebec2014-byVDagrain.JPG "HackfestQuebec2014-byVDagrain.JPG, November 2014")
 
 ------------------------------------------------------------------------
 

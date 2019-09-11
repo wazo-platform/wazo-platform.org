@@ -89,7 +89,7 @@ Links:
 -   64-bit ISO download:
     [http://mirror.xivo.io/iso/xivo-late...](http://mirror.xivo.io/iso/xivo-latest-beta-amd64.iso "http://mirror.xivo.io/iso/xivo-latest-beta-amd64.iso")
 
-![2015-07-XIVO-15-12-RELEASED-SHARE-IT.png](/public/2015-07-XIVO-15-12-RELEASED-SHARE-IT.png "2015-07-XIVO-15-12-RELEASED-SHARE-IT.png, juil. 2015")
+![2015-07-XIVO-15-12-RELEASED-SHARE-IT.png](/images/blog/2015-07-XIVO-15-12-RELEASED-SHARE-IT.png "2015-07-XIVO-15-12-RELEASED-SHARE-IT.png, juil. 2015")
 
 </p>
 

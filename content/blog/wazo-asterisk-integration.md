@@ -24,7 +24,7 @@ to add new extensions to your dial plan. New contexts can also be added using th
 [Asterisk dialplan](http://the-asterisk-book.com/1.6/dialplan-grundlagen.html)
 syntax.
 
-![Customizing asterisk configuration files](/public/wazo-asterisk-integration/xivo-extrafeatures.png)
+![Customizing asterisk configuration files](/images/blog/wazo-asterisk-integration/xivo-extrafeatures.png)
 
 Extra dialplan files can be added in `/etc/asterisk/extensions_extra.d/`.
 
@@ -55,7 +55,7 @@ same = n,Return()
 If a user has the `aastra-autoanswer` subroutine, his phone will answer
 automatically, instead of ringing.
 
-![User preprocess subroutine](/public/wazo-asterisk-integration/subroutine.png)
+![User preprocess subroutine](/images/blog/wazo-asterisk-integration/subroutine.png)
 
 
 ## Configuration files
@@ -124,7 +124,7 @@ files will be read on Wazo. Thanks to J Az from the
 [Wazo forum](http://projects.wazo.community/projects/xivo/boards) for this
 diagram!
 
-![Asterisk configuration read flow](/public/wazo-asterisk-integration/asterisk-read-config.svg)
+![Asterisk configuration read flow](/images/blog/wazo-asterisk-integration/asterisk-read-config.svg)
 
 If you do these kinds of customizations on your own, make sure you read the Wazo
 upgrade notes before upgrading: major updates of Asterisk can break your custom

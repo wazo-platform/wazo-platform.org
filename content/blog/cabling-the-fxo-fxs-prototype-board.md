@@ -6,9 +6,9 @@ Slug: cabling-the-fxo-fxs-prototype-board
 Status: published
 
 ![Cabling FXv5 prototype PCB
-2](/public/.P1040816_m.jpg "Cabling FXv5 prototype PCB 2, janv. 2011")![Cabling
+2](/images/blog/.P1040816_m.jpg "Cabling FXv5 prototype PCB 2, janv. 2011")![Cabling
 FXv5 prototype PCB
-1](/public/.P1040817_m.jpg "Cabling FXv5 prototype PCB 1, janv. 2011")
+1](/images/blog/.P1040817_m.jpg "Cabling FXv5 prototype PCB 1, janv. 2011")
 
 As we are developing an OpenHardware projects/products, it's important
 to give some feedbacks of our prototyping process.We are now cabling our

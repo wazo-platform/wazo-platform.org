@@ -74,7 +74,7 @@ XiVO Client. It does not have many buttons for now, but they are
 functional and their number is growing.
 
 [![XiVO Client remote
-control](/public/xivosoft/.xivoclient-remotecontrol_m.jpg "XiVO Client remote control, janv. 2012")](/public/xivosoft/xivoclient-remotecontrol.png "XiVO Client remote control")
+control](/images/blog/xivosoft/.xivoclient-remotecontrol_m.jpg "XiVO Client remote control, janv. 2012")](/images/blog/xivosoft/xivoclient-remotecontrol.png "XiVO Client remote control")
 
 Of course this remote control "feature" is not released with official
 XiVO Client versions. It is only activated when the XiVO Client is

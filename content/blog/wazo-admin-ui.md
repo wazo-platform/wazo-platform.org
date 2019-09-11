@@ -15,11 +15,11 @@ So, you can try this admin interface by visiting `https://<wazo_ip>/admin`.
 
 Once you enter the same credentials as the other admin interface, you'll see a small Plugins menu on the left: this is where you choose what you want to see in the admin interface: no more frighteningly long list of menus, you can select only what you need.
 
-![login.png](/public/wazo-admin-ui/login.png "Login screenshot")
+![login.png](/images/blog/wazo-admin-ui/login.png "Login screenshot")
 
 # Plugins
 
-![plugins.png](/public/wazo-admin-ui/plugins.png "Plugins screenshot")
+![plugins.png](/images/blog/wazo-admin-ui/plugins.png "Plugins screenshot")
 
 The recommended minimal plugins at this time are:
 
@@ -40,8 +40,8 @@ REST API released in [16.10](sprint-review-1610.html)
 
 Until now, users created with the admin interface could only have one line, and one device... The new form for users allows you to add multiple lines to the same user, so that multiple devices ring at the same time, or to mix web-based phones (WebRTC), software phones and conventional physical phones. This kind of setup required the use of call groups, which brought its share of pain for integrators, and multi-line users was a recurrent need.
 
-![user-list.png](/public/wazo-admin-ui/user-list.png "User list screenshot")
-![user-edit.png](/public/wazo-admin-ui/user-edit.png "User screenshot with multiple lines")
+![user-list.png](/images/blog/wazo-admin-ui/user-list.png "User list screenshot")
+![user-edit.png](/images/blog/wazo-admin-ui/user-edit.png "User screenshot with multiple lines")
 
 ## IVR
 
@@ -49,7 +49,7 @@ REST API released in [16.16](sprint-review-1616.html)
 
 Another feature request we've heard often is a graphical form to create simple IVR... Here it is:
 
-![ivr.png](/public/wazo-admin-ui/ivr.png "IVR screenshot")
+![ivr.png](/images/blog/wazo-admin-ui/ivr.png "IVR screenshot")
 
 ## Parking lots
 
@@ -57,7 +57,7 @@ REST API released in [17.01](sprint-review-1701.html)
 
 Parking lots is the same feature as the previous parking: put an incoming call on hold in a defined extension, so that someone else can pick up the incoming call later. Except that we can now have multiple ranges of extensions: there was previously only one range (default was 701-749), and we can now create multiple ranges.
 
-![parking_lot-edit.png](/public/wazo-admin-ui/parking_lot-edit.png "Parking Lot Screenshot")
+![parking_lot-edit.png](/images/blog/wazo-admin-ui/parking_lot-edit.png "Parking Lot Screenshot")
 
 ## CDR
 
@@ -65,7 +65,7 @@ REST API released in [17.06](sprint-review-1706.html)
 
 The current interface is really insufficient for reading call logs: there was only a small CSV file with very few details that is quite hard to query, when looking for a specific call. The CDR plugin brings a clearer view of call logs.
 
-![cdr.png](/public/wazo-admin-ui/cdr.png "CDR screenshot")
+![cdr.png](/images/blog/wazo-admin-ui/cdr.png "CDR screenshot")
 
 # Limitations (as of 17.07)
 

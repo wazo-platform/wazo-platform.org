@@ -53,7 +53,7 @@ modulaire, de fabriquer un mini-maker pour le printemps 2015 (événement
 Montreal](http://www.makerfairemontreal.ca/?lang=fr)).Sources :
 [espacelab2014.wordpress.com](https://espacelab2014.wordpress.com)
 
-![EspaceLab-Quebec-29112014rs500.png](/public/EspaceLab-Quebec-29112014rs500.png "EspaceLab-Quebec-29112014rs500.png, déc. 2014")
+![EspaceLab-Quebec-29112014rs500.png](/images/blog/EspaceLab-Quebec-29112014rs500.png "EspaceLab-Quebec-29112014rs500.png, déc. 2014")
 
 ### **Témoignages des activités ouverts et participatifs de ce samedi 29.nov 2014:**
 

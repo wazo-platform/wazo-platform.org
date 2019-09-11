@@ -27,7 +27,7 @@ order on the ISDN hook-up.
 The standard ISDN line/hookup architecture looks like:
 
 ![ISDN Hookup overview
-architecture](/public/.ISDN_1_m.jpg "ISDN Hookup overview architecture, fév. 2010")
+architecture](/images/blog/.ISDN_1_m.jpg "ISDN Hookup overview architecture, fév. 2010")
 
 TE: Terminal Equipment
 
@@ -58,7 +58,7 @@ pathes with a clock processing unit each, the clock distribution unit.
 The block diagram for a standard ISDN port module looks like:
 
 ![ISDN Universal ISDN Port
-Module](/public/.ISDN_2_m.jpg "ISDN Universal ISDN Port Module, fév. 2010")
+Module](/images/blog/.ISDN_2_m.jpg "ISDN Universal ISDN Port Module, fév. 2010")
 
 TE Mode: Terminal Equipment mode, the TE is always taken as
 synchronisation source for ISDN applications (like the CLK is delivered

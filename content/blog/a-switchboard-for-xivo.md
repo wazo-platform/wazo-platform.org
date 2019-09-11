@@ -10,7 +10,7 @@ interface. We havebeen working on a new switchboard profile for the XiVO
 client and this post isan overview of what you might expect in the next
 few releases.
 
-![switchboard.png](/public/.switchboard_m.jpg "switchboard.png, déc. 2012")
+![switchboard.png](/images/blog/.switchboard_m.jpg "switchboard.png, déc. 2012")
 
 As we've said before, we are now releasing a new version every two weeks
 andeach release must succeed our test suite before being sent into

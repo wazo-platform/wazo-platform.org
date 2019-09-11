@@ -19,7 +19,7 @@ interfaces to allow these data and voice applications.
 -   Please find below the Koln cathedral that you can find on the
     XHFC-4SU chip:  
 
-![Koln Cathedral](/public/.P1040583_m.jpg "Koln Cathedral, nov. 2010")  
+![Koln Cathedral](/images/blog/.P1040583_m.jpg "Koln Cathedral, nov. 2010")  
 
 -   The entrance of the CologneChip AG offices below:
 
@@ -31,7 +31,7 @@ interfaces to allow these data and voice applications.
 
 
 ![cologneChip
-offices](/public/.CologneChip_AG_Offices_m.jpg "cologneChip offices, nov. 2010")  
+offices](/images/blog/.CologneChip_AG_Offices_m.jpg "cologneChip offices, nov. 2010")  
 
 </p>
 

@@ -12,7 +12,7 @@ Status: published
     french](/index.php?post/2015/04/07/Les-contributeurs-de-la-communaut%C3%A9-XiVO))
     and a meeting with the [1st BarCampIRC about VoIP open
     source](barcamp.org/w/page/94666184/BarCampIRC-Québec) with a
-    [report](/public/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf). During
+    [report](/images/blog/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf). During
     this meetings, some contributors send their opinions about "Why I
     chose XiVO". This is the debriefing from d\_raven, a
     XiVO contributor. This is the summary. The full document following
@@ -33,7 +33,7 @@ organisé [un sondage sur les contributeurs
 XiVO](/index.php?post/2015/04/07/Les-contributeurs-de-la-communaut%C3%A9-XiVO)
 et [une 1ère rencontre avec un BarCampIRC sur la VoIP open
 source](barcamp.org/w/page/94666184/BarCampIRC-Québec) dont voici le
-[compte-rendu](/public/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf).
+[compte-rendu](/images/blog/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf).
 Durant ces rencontres, les contributeurs ont échangé leurs avis, dont
 "Pourquoi j'ai choisi XiVO". Ceci est le témoignage de d-raven, un
 contributeur.

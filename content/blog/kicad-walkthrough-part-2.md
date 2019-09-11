@@ -18,14 +18,14 @@ and the board won't look exactly the same in each case (the traces won't
 end at the same places).
 
 ![DIL20 to 50 mils spaced
-traces](/public/dil20.png "DIL20 to 50 mils spaced traces, sept. 2010")
+traces](/images/blog/dil20.png "DIL20 to 50 mils spaced traces, sept. 2010")
 ![SSOP20 to 50 mils spaced
-traces](/public/ssop20.png "SSOP20 to 50 mils spaced traces, sept. 2010")
+traces](/images/blog/ssop20.png "SSOP20 to 50 mils spaced traces, sept. 2010")
 
 The two images above represent 20 traces (50 mils spaced) ending on a
 DIL20 package (left) and on a SSOP20 package (right).
 
-![CVpcb icon](/public/cvpcb.png "CVpcb icon, août 2010") In
+![CVpcb icon](/images/blog/cvpcb.png "CVpcb icon, août 2010") In
 [KiCad](http://www.kicad-eda.org/), this assignment between schematic
 components and module footprint is done with the program named CVpcb.
 
@@ -45,7 +45,7 @@ The netlist and which footprint to use for each component will later be
 the input of the PCB design done with PCBnew. To automatically generate
 the netlist with EESchema, click on the generate netlist button
 ![Generate netlist
-button](/public/generate_netlist_button.png "Generate netlist button, sept. 2010")
+button](/images/blog/generate_netlist_button.png "Generate netlist button, sept. 2010")
 in the top toolbar: a "Netlist" window appears, in which you just have
 to click on the button "Netlist" in the tab Pcbnew while the "Default
 format" option is selected. You are then presented with a "Save Netlist
@@ -55,7 +55,7 @@ project directory.
 
 Now that the netlist is generated, we can use CVpcb. Launch it for
 example by clicking on its icon ![Run CVpcb
-button](/public/run_cvpcb_button.png "Run CVpcb button, sept. 2010")
+button](/images/blog/run_cvpcb_button.png "Run CVpcb button, sept. 2010")
 also in the top toolbar of EESchema.When no affectation has been done
 before for the current project, CVpcb immediatly warns that a
 &lt;project\_name&gt;.cmp file does not exist -- this is not a problem,
@@ -78,7 +78,7 @@ For our clock buffer, the affectation in CVpcb looks like the following
 screen-shoot.
 
 ![Clock buffer CVpcb footprint assignment
-screenshoot](/public/cvpcb_sshoot.png "Clock buffer CVpcb footprint assignment screenshoot, sept. 2010")
+screenshoot](/images/blog/cvpcb_sshoot.png "Clock buffer CVpcb footprint assignment screenshoot, sept. 2010")
 
 The corresponding .net and .cmp files are attached to this post.
 

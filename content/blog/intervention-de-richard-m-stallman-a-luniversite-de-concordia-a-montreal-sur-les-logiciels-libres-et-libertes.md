@@ -150,7 +150,7 @@ relevant today.
 
 ### Photos
 
-![DSCF4499.JPG](/public/rms/DSCF4499.JPG "DSCF4499.JPG, Oct 2014")![DSCF4513.JPG](/public/rms/DSCF4513.JPG "DSCF4513.JPG, Oct 2014")![DSCF4515.JPG](/public/rms/DSCF4515.JPG "DSCF4515.JPG, Oct 2014")
+![DSCF4499.JPG](/images/blog/rms/DSCF4499.JPG "DSCF4499.JPG, Oct 2014")![DSCF4513.JPG](/images/blog/rms/DSCF4513.JPG "DSCF4513.JPG, Oct 2014")![DSCF4515.JPG](/images/blog/rms/DSCF4515.JPG "DSCF4515.JPG, Oct 2014")
 
 </p>
 

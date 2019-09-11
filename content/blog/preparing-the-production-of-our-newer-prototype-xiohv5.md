@@ -18,7 +18,7 @@ RS232 to an RJ45 connector)
 Please find below a screenshot of our BRD file (board file in Eagle 6.2)
 showing the PCB and displaying the polygons for certain layers
 
-![XIOHv5-BRD-Polygons](/public/XIOHv5/.XIOHv5_PCB_m.jpg "XIOHv5-BRD-Polygons, juil. 2012")
+![XIOHv5-BRD-Polygons](/images/blog/XIOHv5/.XIOHv5_PCB_m.jpg "XIOHv5-BRD-Polygons, juil. 2012")
 
 Polygons are signal, power and ground wires that assemble zone of wire
 to simplify the design and have wires to handle some currents needs on
@@ -39,7 +39,7 @@ below you can see the picture of our PCB on top of a stack of PCBs ready
 to be assembled with the 1000+ components and 150+ different references
 of parts.
 
-![XIOHv5-PCB-Stickers](/public/XIOHv5/.P1050963_m.jpg "XIOHv5-PCB-Stickers, juil. 2012")
+![XIOHv5-PCB-Stickers](/images/blog/XIOHv5/.P1050963_m.jpg "XIOHv5-PCB-Stickers, juil. 2012")
 
 Prior to do the assembling in factory, we need check the package for
 each of our references and do a BoM (Bill of Materials) optimization to

@@ -9,7 +9,7 @@ The architecture of XiVO is still too complicated. As you can see, the
 components are virtually all related to each other.
 
 [![XiVO
-Architecture](/public/xivosoft/.xivo_architecture_m.jpg "XiVO Architecture, juin 2012")](/public/xivosoft/xivo_architecture.png "XiVO Architecture")
+Architecture](/images/blog/xivosoft/.xivo_architecture_m.jpg "XiVO Architecture, juin 2012")](/images/blog/xivosoft/xivo_architecture.png "XiVO Architecture")
 
 We especially have too many requests from different services to the DB.
 Since so many components have direct access to the database, there are

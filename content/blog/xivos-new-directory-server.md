@@ -6,7 +6,7 @@ Slug: xivos-new-directory-server
 Status: published
 
 Some of you may know that a new version of the [XiVO
-client](/public/xivo-client/Contacts.jpg "XiVO client") is being worked
+client](/images/blog/xivo-client/Contacts.jpg "XiVO client") is being worked
 on at the moment. The newlook and feel require some work behind the
 scenes to merge all kindof contacts a XiVO user might have into a single
 source of information.
@@ -41,7 +41,7 @@ that it may be used by many XiVOs simultaneously. For example:Avencall
 has one xivo per office but could use the same xivo-dird proxy for all
 offices.
 
-![archi-xivo-dird.svg](/public/architecture/archi-xivo-dird.svg "archi-xivo-dird.svg, sept. 2014")
+![archi-xivo-dird.svg](/images/blog/architecture/archi-xivo-dird.svg "archi-xivo-dird.svg, sept. 2014")
 
 ### Architecture
 

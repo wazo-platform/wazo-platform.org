@@ -44,7 +44,7 @@ l'[EspaceLab](https://espacelab2014.wordpress.com).
 -   Jeudi 26 février 2015: Rencontre [Open Street Map
     Québec](http://www.osmqc.ca/).
 
-![QuebecOpenSource2015.png](/public/QuebecOpenSource2015.png "QuebecOpenSource2015.png, mar. 2015")
+![QuebecOpenSource2015.png](/images/blog/QuebecOpenSource2015.png "QuebecOpenSource2015.png, mar. 2015")
 
 **Des activités à venir:**
 

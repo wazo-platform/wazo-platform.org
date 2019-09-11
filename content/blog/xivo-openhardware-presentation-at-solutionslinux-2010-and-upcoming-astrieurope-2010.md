@@ -5,7 +5,7 @@ Category: Hardware
 Slug: xivo-openhardware-presentation-at-solutionslinux-2010-and-upcoming-astrieurope-2010
 Status: published
 
-![AstriEurope](/public/.AstriEurope_Logo_s.jpg "AstriEurope, avr. 2010")
+![AstriEurope](/images/blog/.AstriEurope_Logo_s.jpg "AstriEurope, avr. 2010")
 
 Following the presentation we did at SolutionsLinux 2010 in Paris (**the
 presentation we made is now available at (1)** and had been made in

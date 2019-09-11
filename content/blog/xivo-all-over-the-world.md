@@ -8,7 +8,7 @@ Status: published
 From ISO download statistics, you may see that XiVO is used in a lot of
 countries over the world :
 
-![xivoworld.png](/public/xivoworld.png "xivoworld.png, mai 2012")
+![xivoworld.png](/images/blog/xivoworld.png "xivoworld.png, mai 2012")
 
 France, Algeria, Argentina, Austria, Belgium, Brazil, Canada, Colombia,
 Croatia, Czech Republic, Finland, Germany, Great Britain,

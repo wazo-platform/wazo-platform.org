@@ -8,7 +8,7 @@ Status: published
 
 Nous sommes très fiers de vous dévoiler notre nouveau logo pour Wazo ! Sans plus attendre le voici :)
 
-![wazo-logo-full.png](/public/wazo-new-logo/wazo-logo-full.png "Wazo logo")
+![wazo-logo-full.png](/images/blog/wazo-new-logo/wazo-logo-full.png "Wazo logo")
 
 # Son histoire
 

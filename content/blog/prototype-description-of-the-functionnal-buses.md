@@ -27,7 +27,7 @@ demonstrate the functionnalities of each blocks for our software
 development on the Linux kernel modules:
 
 ![XiVO IPBX Prototype
-WishBoard-108](/public/.20100802_002_m.jpg "XiVO IPBX Prototype WishBoard-108, août 2010")
+WishBoard-108](/images/blog/.20100802_002_m.jpg "XiVO IPBX Prototype WishBoard-108, août 2010")
 
 We have been using the large prototyping breaboard from Wisher (at
 farnell.com on:

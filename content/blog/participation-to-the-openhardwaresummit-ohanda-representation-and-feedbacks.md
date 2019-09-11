@@ -28,7 +28,7 @@ Some discussions panels attracted my attention :
 **\* PRODUCTIZING: Scaling/ Manufacturing/ Moving beyond DIY :**
 
 ![OHS2010 - Production
-panel](/public/.P1040509_m.jpg "OHS2010 - Production panel, oct. 2010")  
+panel](/images/blog/.P1040509_m.jpg "OHS2010 - Production panel, oct. 2010")  
 
 This talk was a great opportunity to have the feedbacks of a production
 facilities (Clint Cooley from Circuit Co) that supports OpenHardware
@@ -41,7 +41,7 @@ bigger PCBs (more layers, 200-500-1000 components-BOM...).
 **\* BUSINESS: Open hardware business models :**
 
 ![OHS2010 - Marketing
-panel](/public/.P1040507_m.jpg "OHS2010 - Marketing panel, oct. 2010")  
+panel](/images/blog/.P1040507_m.jpg "OHS2010 - Marketing panel, oct. 2010")  
 
 This talk gives the occasion to hear several business model of
 OpenHardware companies ("yes" there is a business model for OpenHardware
@@ -56,7 +56,7 @@ conclusion of this panel discussion.
 **\* LAW: Open hardware licenses and norms :**
 
 ![OHS LawPanel
-1](/public/.OHS_LawPanel_1_m.jpg "OHS LawPanel 1, oct. 2010")  
+1](/images/blog/.OHS_LawPanel_1_m.jpg "OHS LawPanel 1, oct. 2010")  
 
 This panel discussion was the occasion to have around the table several
 legal opinions (with lawyers, Peter Brown from the FSF, a hardware

@@ -15,7 +15,7 @@ on the BarCamp wiki website,
 this meetings, some contributors send their opinions about "[Why they
 chose XiVO](/index.php?post/2015/04/13/Pourquoi-j-ai-choisi-XiVO)".
 
-![VoIP-OpenSource-Session2-Open4All.png](/public/VoIP-OpenSource-Session2-Open4All.png "VoIP-OpenSource-Session2-Open4All.png, avr. 2015")
+![VoIP-OpenSource-Session2-Open4All.png](/images/blog/VoIP-OpenSource-Session2-Open4All.png "VoIP-OpenSource-Session2-Open4All.png, avr. 2015")
 
 The news: a [2nd BarCampIRC about VoIP and open source telephony
 system](http://barcamp.org/w/page/95337185/BarCampIRC-VoIP-opensource)
@@ -34,7 +34,7 @@ Atlassian, like Jira, Confluence and HipChat? and BlueJimp (Jitsi) Your
 advices about a cartoon with XiVO 1,2,3... go!
 
 Reading [the report about the 2nd
-BarCampIRC](/public/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf)
+BarCampIRC](/images/blog/BarCampIRC-2ndMeeting-VoIP-OpenSource-2015-CRv01.pdf)
 about VoIP and open source telephony system.
 
 </p>

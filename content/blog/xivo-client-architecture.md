@@ -12,7 +12,7 @@ in XiVO.
 
 Here is what the XiVO Client looks like from a developer point of
 view:![XiVO Client
-architecture](/public/.xivoclient_m.jpg "XiVO Client architecture, sept. 2011")
+architecture](/images/blog/.xivoclient_m.jpg "XiVO Client architecture, sept. 2011")
 
 This is the new architecture that will be included in our new
 development iteration beginning on Monday, 3rd October.The main change

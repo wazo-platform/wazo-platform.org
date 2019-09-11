@@ -100,7 +100,7 @@ virsh start skaro.xivo.vm.test
 
 
 it will show the following and be ready to boot from the
-network.![d-i](/public/.i_m.jpg "d-i, May 2011")A new entry has been
+network.![d-i](/images/blog/.i_m.jpg "d-i, May 2011")A new entry has been
 added to the menu displayed:
 
 ~~~

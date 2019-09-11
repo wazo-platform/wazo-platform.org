@@ -5,7 +5,7 @@ Category: General
 Slug: journee-portes-ouvertes
 Status: published
 
-[![portesouvertes](/public/.portes_ouvertes-1_m.jpg "portesouvertes, juin 2012")](/public/portes_ouvertes-1.png "portesouvertes")
+[![portesouvertes](/images/blog/.portes_ouvertes-1_m.jpg "portesouvertes, juin 2012")](/images/blog/portes_ouvertes-1.png "portesouvertes")
 
 </p>
 

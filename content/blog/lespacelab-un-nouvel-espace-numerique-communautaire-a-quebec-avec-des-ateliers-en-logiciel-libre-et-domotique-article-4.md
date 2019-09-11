@@ -131,7 +131,7 @@ et
     le sujet sur la modélisation. Mickaël avait préparé une maquettes
     pour son drone et d'autres conceptions en argile.
 
-![EspaceLab-Quebec-24012015-RS.png](/public/EspaceLab-Quebec-24012015-RS.png "EspaceLab-Quebec-24012015-RS.png, janv. 2015")
+![EspaceLab-Quebec-24012015-RS.png](/images/blog/EspaceLab-Quebec-24012015-RS.png "EspaceLab-Quebec-24012015-RS.png, janv. 2015")
 
 **Ateliers de jeux de rôle grandeurs nature et ateliers bidouillage**
 :Durant les ateliers, nous avions parlé de modélisation, maquettes et

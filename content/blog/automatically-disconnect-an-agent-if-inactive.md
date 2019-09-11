@@ -28,12 +28,12 @@ I. Standard operation
 Agent's point of view
 ---------------------------
 
-![photo 1]({filename}/public/agent_disconnect/photo1.png)
+![photo 1]({filename}/images/blog/agent_disconnect/photo1.png)
 
 Point of view on the XiVO Server
 --------------------------------
 
-![photo 2]({filename}/public/agent_disconnect/photo2.png)
+![photo 2]({filename}/images/blog/agent_disconnect/photo2.png)
 
 II. Anomaly
 ===========
@@ -43,7 +43,7 @@ Agent's point of view
 
 Let us simulate the anomaly. For this simulation, the softphone has been forcefully disconnected.
 
-![photo 3]({filename}/public/agent_disconnect/photo3.png)
+![photo 3]({filename}/images/blog/agent_disconnect/photo3.png)
 
 **We can see that our agent is still logged in and no other information about the disconnection is
 displayed**
@@ -51,7 +51,7 @@ displayed**
 Point of view on the XiVO Server
 --------------------------------
 
-![photo 4]({filename}/public/agent_disconnect/photo4.png)
+![photo 4]({filename}/images/blog/agent_disconnect/photo4.png)
 
 We can see that the state of extension 741 is ```UNKNOWN```, but agent 6002 (extension 728) is still
 connected.
@@ -62,11 +62,11 @@ III. Execution of the script
 The script will find out that the SIP account is disconnected and will automatically log out the
 agent associated to the extension.
 
-![photo 5]({filename}/public/agent_disconnect/photo5.png)
+![photo 5]({filename}/images/blog/agent_disconnect/photo5.png)
 
 Accordingly, the agent now knows that he is logged out:
 
-![photo 6]({filename}/public/agent_disconnect/photo6.png)
+![photo 6]({filename}/images/blog/agent_disconnect/photo6.png)
 
 This script has been deployed in production and has been working successfully since Oct 1st 2015.
 You can download this script on [github](https://github.com/h4wk3r/XIVO-Agentoff_if_sipoff).

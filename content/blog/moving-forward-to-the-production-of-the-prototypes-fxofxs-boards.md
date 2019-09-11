@@ -12,7 +12,7 @@ the IPBX that are routed from the XHFC-4SU controller :
   
 
 ![XiVO IOH FXOFXSv5
-PCB](/public/.XiVO_IOH_PCB_FXOFXSv5_Interfaces_m.jpg "XiVO IOH FXOFXSv5 PCB, déc. 2010")  
+PCB](/images/blog/.XiVO_IOH_PCB_FXOFXSv5_Interfaces_m.jpg "XiVO IOH FXOFXSv5 PCB, déc. 2010")  
   
 
 When one designs a PCB, it's requires to create two files in order to

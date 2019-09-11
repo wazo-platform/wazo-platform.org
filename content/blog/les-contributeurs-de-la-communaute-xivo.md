@@ -64,7 +64,7 @@ Les 20 répondants ont présenté 4 sources où ils ont découvert XiVO:
 -   par le réseau de connaissance, de confiance et de proximité;
 -   par l'accès à des ressources documentaires.
 
-![Comment\_Avez\_vous\_connu\_XiVO-Mars2015.png](/public/Comment_Avez_vous_connu_XiVO-Mars2015.png "Comment_Avez_vous_connu_XiVO-Mars2015.png, avr. 2015")
+![Comment\_Avez\_vous\_connu\_XiVO-Mars2015.png](/images/blog/Comment_Avez_vous_connu_XiVO-Mars2015.png "Comment_Avez_vous_connu_XiVO-Mars2015.png, avr. 2015")
 
 **Q.3 Pourquoi avez-vous installé XiVO et quand l'avez-vous testé pour
 la première fois ? Quels téléphones utilisez-vous ?**
@@ -99,7 +99,7 @@ réponses révèlent 4 groupes :
     interne de leur entreprise et qui proposent de les mettre à
     disposition (10%).
 
-![Les\_supports\_les\_plus\_utilisees\_XiVO-Mars2015.png](/public/Les_supports_les_plus_utilisees_XiVO-Mars2015.png "Les_supports_les_plus_utilisees_XiVO-Mars2015.png, avr. 2015")
+![Les\_supports\_les\_plus\_utilisees\_XiVO-Mars2015.png](/images/blog/Les_supports_les_plus_utilisees_XiVO-Mars2015.png "Les_supports_les_plus_utilisees_XiVO-Mars2015.png, avr. 2015")
 
 **Q.5 Quels bénéfices vous a apporté XiVO ? Vous recommanderiez XiVO à
 qui et pourquoi ?**Les 20 répondants présentent :

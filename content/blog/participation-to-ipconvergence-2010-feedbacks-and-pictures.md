@@ -12,18 +12,18 @@ telecommunications fair and present the XiVO IPBX OpenHardware project.
     demonstrations and presentations of the project:  
 
 ![XiVO OIH 0.1 cased in 1U
-rack](/public/.XiVO_IOH_Casing_rack_1U_m.jpg "XiVO OIH 0.1 cased in 1U rack, nov. 2010")  
+rack](/images/blog/.XiVO_IOH_Casing_rack_1U_m.jpg "XiVO OIH 0.1 cased in 1U rack, nov. 2010")  
 
 -   Below is a picture of the booth at IPConvergence fair:  
 
 ![IPConvergence XiVO
-booth](/public/.P1040544_m.jpg "IPConvergence XiVO booth, nov. 2010")  
+booth](/images/blog/.P1040544_m.jpg "IPConvergence XiVO booth, nov. 2010")  
 
 -   Finally, for vintage telephony geeks, the famous french Socotel S63
     in orange (XiVO color):  
 
 ![FT Socotel S63 orange
-1983](/public/.P1040592_m.jpg "FT Socotel S63 orange 1983, nov. 2010")
+1983](/images/blog/.P1040592_m.jpg "FT Socotel S63 orange 1983, nov. 2010")
 
 </p>
 

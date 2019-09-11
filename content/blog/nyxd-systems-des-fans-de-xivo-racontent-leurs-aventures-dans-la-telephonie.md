@@ -17,7 +17,7 @@ meeting, NyXD wrote a tutorial to share their achievements.
 
 #### **Bonjour NyXD Systems, pouvez-vous présenter comment a débuté votre aventure dans la téléphonie?**
 
-![logo2015\_200\_100.png](/public/logo2015_200_100.png "logo2015_200_100.png, janv. 2015")
+![logo2015\_200\_100.png](/images/blog/logo2015_200_100.png "logo2015_200_100.png, janv. 2015")
 
 **"Bonjour Valérie, NyXD Systems est un collectif de jeunes passionnés
 d'informatique, télécommunications et T.I, fondé en 2006, près de Paris
@@ -72,7 +72,7 @@ compte que XiVO (système de téléphonie open-source) était très
 accessible pour un néophyte en terme d'installation de système IPBX",
 précise Thomas.
 
-![2015-XiVO-Remercie-NyXDSystems-01-400.png](/public/2015-XiVO-Remercie-NyXDSystems-01-400.png "2015-XiVO-Remercie-NyXDSystems-01-400.png, fév. 2015")
+![2015-XiVO-Remercie-NyXDSystems-01-400.png](/images/blog/2015-XiVO-Remercie-NyXDSystems-01-400.png "2015-XiVO-Remercie-NyXDSystems-01-400.png, fév. 2015")
 
 #### **Avec quel matériel de téléphonie avez-vous commencé?**
 
@@ -97,7 +97,7 @@ découvert [XiVO](http://www.xivo.io/),
 [Elastix](/index.php?tag/Elastix), [FreePBX](/index.php?tag/FreePBX),
 etc.
 
-![NyXD-400.JPG](/public/NyXD-400.JPG "NyXD-400.JPG, janv. 2015")
+![NyXD-400.JPG](/images/blog/NyXD-400.JPG "NyXD-400.JPG, janv. 2015")
 
 - J'ai commencé avec [XiVO](http://www.xivo.io/) à la toute fin 2013
 mais certains détails de fonctionnement étaient encore obscurs pour moi
@@ -186,7 +186,7 @@ ce qui est appréciable pour tout le monde". Découvrir [le
 tutoriel](http://retroplace.nyxd.org/2015/01/28/xivo-auto-hebergement-telephonie-pfsense-ovh/).
 
 ~~~
-<img src="/public/Capture_d_e_cran_2015-01-28_a__09.19.44.png" alt="Capture_d_e_cran_2015-01-28_a__09.19.44.png" title="Capture_d_e_cran_2015-01-28_a__09.19.44.png, janv. 2015" />
+<img src="/images/blog/Capture_d_e_cran_2015-01-28_a__09.19.44.png" alt="Capture_d_e_cran_2015-01-28_a__09.19.44.png" title="Capture_d_e_cran_2015-01-28_a__09.19.44.png, janv. 2015" />
 ~~~
 
 
@@ -208,7 +208,7 @@ depuis n'importe quel autre site.
 découlerait assurément une synergie importante pour nos apprentissages
 futurs et notre capacité à maintenir une infrastructure d'entreprise.".
 
-![2015-XiVO-Remercie-NyXDSystems-02-400.png](/public/2015-XiVO-Remercie-NyXDSystems-02-400.png "2015-XiVO-Remercie-NyXDSystems-02-400.png, fév. 2015")
+![2015-XiVO-Remercie-NyXDSystems-02-400.png](/images/blog/2015-XiVO-Remercie-NyXDSystems-02-400.png "2015-XiVO-Remercie-NyXDSystems-02-400.png, fév. 2015")
 
 **Toute l'équipe XiVO vous remercie, pour votre tout [nouveau tutoriel
 sur

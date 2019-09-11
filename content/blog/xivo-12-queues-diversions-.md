@@ -34,7 +34,7 @@ calls are diverted if some of queue agents have required statuses.I.e,
 if we have more than 50 agents with \*inline\* status, new incoming
 calls are transfered to our \*indian\* call center
 
-[![queue-diversion-cti-presences.png](/public/queue-diversions/.queue-diversion-cti-presences_m.jpg "queue-diversion-cti-presences.png, avr. 2011")](/public/queue-diversions/queue-diversion-cti-presences.png "queue-diversion-cti-presences.png")  
+[![queue-diversion-cti-presences.png](/images/blog/queue-diversions/.queue-diversion-cti-presences_m.jpg "queue-diversion-cti-presences.png, avr. 2011")](/images/blog/queue-diversions/queue-diversion-cti-presences.png "queue-diversion-cti-presences.png")  
 2. *CTI status absence*.  
 On the contrary, we may want to divert calls when no agents have a
 required status.  
@@ -42,7 +42,7 @@ I.e, if less than 5 agents with status \*ready to hold\* are logged in
 the queue, we considered it to be closed, and redirect calls to a
 voicemail
 
-[![queue-diversion-cti-nonpresences.png](/public/queue-diversions/.queue-diversion-cti-nonpresences_m.jpg "queue-diversion-cti-nonpresences.png, avr. 2011")](/public/queue-diversions/queue-diversion-cti-nonpresences.png "queue-diversion-cti-nonpresences.png")  
+[![queue-diversion-cti-nonpresences.png](/images/blog/queue-diversions/.queue-diversion-cti-nonpresences_m.jpg "queue-diversion-cti-nonpresences.png, avr. 2011")](/images/blog/queue-diversions/queue-diversion-cti-nonpresences.png "queue-diversion-cti-nonpresences.png")  
 3. *Estimated waiting time*.  
 When the estimated wait time is exceeding a threshold value, we do not
 want new calls to enter into the queue (callers do not like to wait!),
@@ -50,7 +50,7 @@ It is then possible to redirect them to another destination.
 I.e if the wait time is higher than 5 minutes, redirect incalls to an
 IVR
 
-[![queue-diversion-waittime.png](/public/queue-diversions/.queue-diversion-waittime_m.jpg "queue-diversion-waittime.png, avr. 2011")](/public/queue-diversions/queue-diversion-waittime.png "queue-diversion-waittime.png")  
+[![queue-diversion-waittime.png](/images/blog/queue-diversions/.queue-diversion-waittime_m.jpg "queue-diversion-waittime.png, avr. 2011")](/images/blog/queue-diversions/queue-diversion-waittime.png "queue-diversion-waittime.png")  
 4. *Waiting calls/Available agents* ratio.  
 If there are more calls waiting in the queue that available agents can
 handle in a relative short delay, new calls will only increase
@@ -58,7 +58,7 @@ congestion. With this diversion, you can reroute incoming calls when
 this situation arises.I.e, if there is less than 1 agent for 2 waiting
 calls, hangup!
 
-[![queue-diversion-ratio.png](/public/queue-diversions/.queue-diversion-ratio_m.jpg "queue-diversion-ratio.png, avr. 2011")](/public/queue-diversions/queue-diversion-ratio.png "queue-diversion-ratio.png")
+[![queue-diversion-ratio.png](/images/blog/queue-diversions/.queue-diversion-ratio_m.jpg "queue-diversion-ratio.png, avr. 2011")](/images/blog/queue-diversions/queue-diversion-ratio.png "queue-diversion-ratio.png")
 
 **NOTE: the ratio is a percent**.
 

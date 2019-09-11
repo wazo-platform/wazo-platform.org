@@ -21,7 +21,7 @@ ways of building software, our vision of what a software is and we will
 continue in that direction. We still have a long way to go but it only
 makes XiVO better for everyone.
 
-![xivo-web-1-2.png](/public/.xivo-web-1-2_m.jpg "xivo-web-1-2.png, fév. 2012")
+![xivo-web-1-2.png](/images/blog/.xivo-web-1-2_m.jpg "xivo-web-1-2.png, fév. 2012")
 
 In this new release we have upgraded the operating system from Lenny to
 Squeeze, updated Asterisk by installing and using the last “Long Term

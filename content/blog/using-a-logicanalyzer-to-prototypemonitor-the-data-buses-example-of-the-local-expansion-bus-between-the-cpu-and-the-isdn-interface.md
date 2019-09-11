@@ -69,13 +69,13 @@ As one can see in the screenshot below, the A8 line is set on "0" + "1"
 which means the triggering is done on upper edge from this signal.
 
 ![LEB CPU ISDN LogicAnalyzer
-traces](/public/.XiVO_IPBX_LEB_BUS_CPU_ISDN_Snapshot1_m.jpg "LEB CPU ISDN LogicAnalyzer traces, juin 2010")
+traces](/images/blog/.XiVO_IPBX_LEB_BUS_CPU_ISDN_Snapshot1_m.jpg "LEB CPU ISDN LogicAnalyzer traces, juin 2010")
 
 The view below is a zoomed view of the above screenshot with a focus on
 the triggering on A8 line
 
 ![LEB CPU ISDN LogicAnalyzer traces
-zoom](/public/.XiVO_IPBX_LEB_BUS_CPU_ISDN_Snapshot2_m.jpg "LEB CPU ISDN LogicAnalyzer traces zoom, juin 2010")
+zoom](/images/blog/.XiVO_IPBX_LEB_BUS_CPU_ISDN_Snapshot2_m.jpg "LEB CPU ISDN LogicAnalyzer traces zoom, juin 2010")
 
 <div class="footnotes">
 

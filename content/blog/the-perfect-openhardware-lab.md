@@ -39,7 +39,7 @@ lab at Proformatique.
 descrived above:**
 
 ![Proformatique - XiVO - Hardware
-Lab](/public/.P1030609_m.jpg "Proformatique - XiVO - Hardware Lab, mai 2010")
+Lab](/images/blog/.P1030609_m.jpg "Proformatique - XiVO - Hardware Lab, mai 2010")
 
 This is important to get also small tools like cutting tools, small
 wires (like the precious HIRSCHMANN MKL0,64/25-0,25 - reference

@@ -6,10 +6,10 @@ Tags: Asterisk, open source, telephony
 Slug: 1st-barcampirc-about-asterisk-and-open-source-telephony-system
 Status: published
 
-![BarCampVoIP.png](/public/BarCampVoIP.png "BarCampVoIP.png, avr. 2015")
+![BarCampVoIP.png](/images/blog/BarCampVoIP.png "BarCampVoIP.png, avr. 2015")
 
 -   DOWNLOAD THE REPORT about this \#1 meeting:
--   [BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf](/public/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf)
+-   [BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf](/images/blog/BarCampIRC-1ereRencontreSurVoIP-CRv01.pdf)
 
 **About**: A BarCamp is an ad-hoc unconference born from the desire for
 people to share and learn in an open environment. It is an intense event
@@ -39,7 +39,7 @@ and different skills.The stake is to speak about the differents topics
 coming from participants, to present your skills or your needs, to share
 documents or news.
 
-![2015-Flyer-BarCampIRC-Telephony-OpenSource.png](/public/2015-Flyer-BarCampIRC-Telephony-OpenSource.png "2015-Flyer-BarCampIRC-Telephony-OpenSource.png, avr. 2015")
+![2015-Flyer-BarCampIRC-Telephony-OpenSource.png](/images/blog/2015-Flyer-BarCampIRC-Telephony-OpenSource.png "2015-Flyer-BarCampIRC-Telephony-OpenSource.png, avr. 2015")
 
 </p>
 

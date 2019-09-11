@@ -80,7 +80,7 @@ Technical features
 happy new year ! May your spirits remain joyous until the end of the year and throughout 2016.
 May the freedom of XiVO bless your communications across the vast VoIP expanse.*
 
-![XiVO Christmas Tree]({filename}/public/xivo_xmas_tree_2015.jpg)
+![XiVO Christmas Tree]({filename}/images/blog/xivo_xmas_tree_2015.jpg)
 
 Sources:
 

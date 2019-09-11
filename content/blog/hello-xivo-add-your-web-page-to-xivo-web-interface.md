@@ -35,7 +35,7 @@ world", doesn't remind you something ?
 
 #### XiVO Actions, Applications and Objects.
 
-![webi\_src.png](/public/xivosoft/webi_src.png "webi_src.png, oct. 2012")XiVO
+![webi\_src.png](/images/blog/xivosoft/webi_src.png "webi_src.png, oct. 2012")XiVO
 web interface is mainly composed of three types of elements :
 
 -   actions, this is kind of controller, and will route the action to be
@@ -93,7 +93,7 @@ host&gt;/service/ipbx/index.php/call\_management/helloxivo.
 Create a XiVO user (menu Configuration-&gt; Management -&gt; Users) and
 check the authorizations for this user (click on the small key icon next
 to the user) and you will see that a new item appears under call
-management.![webi\_acl.png](/public/xivosoft/.webi_acl_m.jpg "webi_acl.png, oct. 2012")
+management.![webi\_acl.png](/images/blog/xivosoft/.webi_acl_m.jpg "webi_acl.png, oct. 2012")
 
 ### Translation
 
@@ -165,7 +165,7 @@ $array['service/ipbx/call_management/helloxivo'] = 'service/ipbx/index.php/call_
 Now you may click on the new menu entry and display the Hello XiVO world
 page
 
-![webi\_hello\_menu.png](/public/xivosoft/webi_hello_menu.png "webi_hello_menu.png, oct. 2012")As
+![webi\_hello\_menu.png](/images/blog/xivosoft/webi_hello_menu.png "webi_hello_menu.png, oct. 2012")As
 you may notice this page is not displayed using XiVO look and feel, but
 that's another story.
 

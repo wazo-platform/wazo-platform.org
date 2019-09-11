@@ -7,11 +7,11 @@ Status: published
 
 As a reminder, this is what the CTI world looks like in XiVO 1.1 :
 
-[![cti1.1](/public/.external_cti_architecture_xivo_1.1_m.jpg "cti1.1, mai 2011")](/public/external_cti_architecture_xivo_1.1.png "cti1.1")
+[![cti1.1](/images/blog/.external_cti_architecture_xivo_1.1_m.jpg "cti1.1, mai 2011")](/images/blog/external_cti_architecture_xivo_1.1.png "cti1.1")
 
 The XiVO 1.2 part will be more like :
 
-[![cti1.2](/public/.external_cti_architecture_xivo_1.2_m.jpg "cti1.2, mai 2011")](/public/external_cti_architecture_xivo_1.2.png "cti1.2")
+[![cti1.2](/images/blog/.external_cti_architecture_xivo_1.2_m.jpg "cti1.2, mai 2011")](/images/blog/external_cti_architecture_xivo_1.2.png "cti1.2")
 
 namely :
 

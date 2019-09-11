@@ -12,7 +12,7 @@ the IPBX that are routed from the XHFC-4SU controller :
   
 
 ![XiVO IOH PCB ISDN
-interfaces](/public/.XiVO_IOH_PCB_ISDN_Interfaces_m.jpg "XiVO IOH PCB ISDN interfaces, déc. 2010")  
+interfaces](/images/blog/.XiVO_IOH_PCB_ISDN_Interfaces_m.jpg "XiVO IOH PCB ISDN interfaces, déc. 2010")  
   
 
 When one designs a PCB, it's requires to create two files in order to

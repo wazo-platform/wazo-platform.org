@@ -52,7 +52,7 @@ You will find how to contribute
 Have fun !!
 
 ![XiVO documentation tool
-chain](/public/xivosoft/.doc_process_m.jpg "XiVO documentation tool chain, fév. 2012")
+chain](/images/blog/xivosoft/.doc_process_m.jpg "XiVO documentation tool chain, fév. 2012")
 
 </p>
 
