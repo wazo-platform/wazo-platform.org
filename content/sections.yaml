@@ -1,5 +1,6 @@
 ---
   - name: Programmable platform
+    developer: false
     modules:
       authentication:
         title: Authentication
@@ -89,6 +90,7 @@
         repository: wazo-websocketd
 
   - name: Management platform
+    developer: true
     modules:
       nestbox-authentication:
         title: Authentication
@@ -115,6 +117,7 @@
         redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
 
   - name: Wazo Client SDK - Demo
+    developer: false
     modules:
       javascript:
         title: Javascript
