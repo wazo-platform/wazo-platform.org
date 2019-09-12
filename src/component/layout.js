@@ -6,20 +6,45 @@ import '../styles/fontawesome.css';
 import '../styles/elegant-font.css';
 import '../styles/pretty-docs.css';
 import '../styles/styles.css';
+import { Link } from 'gatsby';
 import Search from './search';
 
+const WazoHeader = () => {
+  return <>
+    <div className="wazo-header container">
+      <div className="site-logo">
+        <a href="http://wazo.io" title="Wazo" rel="home">
+          <img className="header-image" alt="Wazo" src="http://dev.digitalcreativelab.co/wazolight/wp-content/uploads/2019/09/wazo-logo-white-45pxh-1.png" title="Wazo" />
+        </a>
+      </div>
+    
+      <nav id="site-navigation" className="has-sticky-branding main-navigation stuckElement" itemtype="https://schema.org/SiteNavigationElement">
+        <div className="inside-navigation grid-container grid-parent">
+              
+          <div id="primary-menu" className="main-nav">
+            <ul id="menu-nav_light" className=" menu sf-menu">
+                <li id="menu-item-1285" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="http://wazo.io/company/">Company</a></li>
+                <li id="menu-item-1286" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1286"><a href="http://developers.wazo.io/">Developers</a></li>
+                <li id="menu-item-1287" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1287"><a href="https://support.wazo.io/hc/en-us">Documentation</a></li>
+                <li id="menu-item-1435" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1435"><a href="http://contact@wazo.community">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </>;
+}
+
 const HomeHeader = () => (
-  <header className="header text-center">
-    <div className="container">
+  <header className="header">
+    <WazoHeader />
+    <div className="container text-center" style={{ marginTop: 20 }}>
       <div className="branding">
         <h1 className="logo">
-          <span aria-hidden="true" className="icon_documents_alt icon" />
-          <span className="text-highlight">Wazo</span>
-          <span className="text-bold">Docs</span>
+          <span className="text-bold">Documentation</span>
         </h1>
       </div>
       <div className="tagline">
-        <p>Developers Wazo documentation</p>
         <p>
           Created with <i className="fas fa-heart" /> for developers
         </p>
@@ -31,33 +56,32 @@ const HomeHeader = () => (
 );
 
 const PageHeader = () => (
-  <header id="header" className="header">
-    <div className="container">
-      <div className="branding">
-        <h1 className="logo">
-          <a href="/">
-            <span aria-hidden="true" className="icon_documents_alt icon" />
-            <span className="text-highlight">Wazo</span>
-            <span className="text-bold">Documentation</span>
-          </a>
-        </h1>
-      </div>
+  <header className="header">
+    <WazoHeader />
+    <div className="container sub">
+      <div>
+        <div className="branding">
+          <h1 className="logo">
+            <Link to="/">
+              <span className="text-bold">Documentation</span>
+            </Link>
+          </h1>
+        </div>
 
-      <ol className="breadcrumb">
-        <li className="breadcrumb-item">
-          <a href="/">Home</a>
-        </li>
-        <li className="breadcrumb-item active">Quick Start</li>
-      </ol>
-
-      <div className="top-search-box">
-        <Search />
-      </div>
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="breadcrumb-item active">Quick Start</li>
+        </ol>
+     </div>
+    
+    <Search />
     </div>
   </header>
 );
-
-export default ({ children, isHome }) => (
+      
+export default ({children, isHome}) => (
   <div className="page-wrapper">
     <Helmet>
       <link
@@ -78,10 +102,16 @@ export default ({ children, isHome }) => (
         <small className="copyright">
           Designed with <i className="fas fa-heart" /> by{' '}
           <a href="https://themes.3rdwavemedia.com/" target="_blank" rel="noopener noreferrer">
-            Xiaoying Riley
+                  Xiaoying Riley
           </a>{' '}
-          for developers
+                for developers
         </small>
+
+        <div>
+          <small className="copyright">
+            &copy; 2019 <a href="https://wazo.io">Wazo Communication</a>
+          </small>
+        </div>
       </div>
     </footer>
   </div>

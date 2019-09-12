@@ -76,3 +76,52 @@ section.cards-section > div > h3 {
 .cards-section .bottom-links a.right {
   float: right;
 }
+
+.wazo-header {
+  background: #323699;
+}
+.wazo-header.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.wazo-header .header-image{
+  width: 110px;
+}
+
+.header .sub{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wazo-header ul {
+  margin-bottom: 0;
+}
+.wazo-header ul li {
+  padding: 0 8px;
+  display: inline-block;
+}
+
+.wazo-header ul li a{
+  font-size: 1.1em;
+  display: block;
+  padding: 12px 10px;
+  color: #fff;
+  transition: color .2s linear;
+}
+.wazo-header ul li a:hover {
+  color: #e62b40;
+  text-decoration: none;
+}
+
+.footer a{
+  color: #fff;
+}
+
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

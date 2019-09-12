@@ -1,26 +1,26 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-
+import { Link } from 'gatsby';
 import Layout from './layout';
 
 export const Module = ({ moduleName, module }) => (
-  <div className={`item item-${module.color} col-lg-4 col-6`}>
+  <div className={`item item-red col-lg-4 col-6`}>
     <div className="item-inner">
-      <a href={module.url || `/overview/${moduleName}.html`}>
+      <Link to={module.url || `/overview/${moduleName}.html`}>
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
         <h3 className="title">{module.title}</h3>
-      </a>
+      </Link>
 
       <p className="intro">{module.description}</p>
       {!module.url && (
         <>
           <ul className="links clearfix">
             <li>
-              <a href={`/overview/${moduleName}.html`}>
+              <Link to={`/overview/${moduleName}.html`}>
                 <i className="fas fa-home" /> Overview
-              </a>
+              </Link>
             </li>
             <li>
               <i className="fas fa-book" /> Guides
@@ -35,9 +35,9 @@ export const Module = ({ moduleName, module }) => (
 
           <div className="bottom-links clearfix">
             {module.redocUrl && (
-              <a href={`/api/${moduleName}.html`} className="api-reference left">
+              <Link to={`/api/${moduleName}.html`} className="api-reference left">
                 API Reference
-              </a>
+              </Link>
             )}
 
             <a href={`https://github.com/wazo-pbx/${module.repository}`} className="right">

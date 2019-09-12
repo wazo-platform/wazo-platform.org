@@ -100,7 +100,7 @@ export default ({ pageContext: { moduleName, module, overview } }) => {
 
   return (
     <Layout>
-      <Helmet bodyAttributes={{ class: 'body-green' }} />
+      <Helmet bodyAttributes={{ class: 'body-red' }} />
       <div className="doc-wrapper">
         <div className="container">
           <div id="doc-header" className="doc-header text-center">
