@@ -24,7 +24,9 @@ So There is a Problem with Asterisk. Now What ?
     1.  The command `grep segfault /var/log/syslog` should return a line
         such as the following:
 
-            Oct 16 16:12:43 xivo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e ip b751aa6b sp b5ef14d4 error 4 in libc-2.11.3.so[b74ad000+140000]
+```ShellSession
+Oct 16 16:12:43 xivo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e ip b751aa6b sp b5ef14d4 error 4 in libc-2.11.3.so[b74ad000+140000]
+```
 
     2.  Note the exact time of the incident from the segfault line.
     3.  Follow the [Debugging Asterisk Crash](#debugging-asterisk-crash)

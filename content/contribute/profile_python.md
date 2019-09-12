@@ -8,29 +8,37 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 
 1.  Stop the monit daemon:
 
-        service monit stop
+```ShellSession
+service monit stop
+```
 
 2.  Stop the process you want to profile, i.e. wazo-auth:
 
-        service wazo-auth stop
+```ShellSession
+service wazo-auth stop
+```
 
 3.  Start the service in foreground mode running with the profiler:
 
-        python -m cProfile -o test.profile /usr/bin/xivo-auth -f
+```ShellSession
+python -m cProfile -o test.profile /usr/bin/xivo-auth -f
+```
 
-    This will create a file named `test.profile` when the process
-    terminates.
+This will create a file named `test.profile` when the process
+terminates.
 
-    To profile xivo-confgend, you must use this command instead of the
-    one above:
+To profile xivo-confgend, you must use this command instead of the
+one above:
 
-        twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/xivo-confgend
+```ShellSession
+twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/xivo-confgend
+```
 
-    Note that profiling multi-threaded program (wazo-agid, wazo-confd)
-    doesn\'t work reliably.
+Note that profiling multi-threaded program (wazo-agid, wazo-confd)
+doesn\'t work reliably.
 
-    The [debug-daemons]{role="ref"} section documents how to launch the
-    various Wazo services in foreground/debug mode.
+The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
+various Wazo services in foreground/debug mode.
 
 4.  Examine the result of the profiling:
 
@@ -54,11 +62,15 @@ want to have additional information about it.
 
 1.  Install the following packages:
 
-        apt-get install python-pip build-essential python-dev
+```ShellSession
+apt-get install python-pip build-essential python-dev
+```
 
 2.  Install coverage via pip:
 
-        pip install coverage
+```ShellSession
+pip install coverage
+```
 
 3.  Run the program in foreground mode with `coverage run`:
 
@@ -75,7 +87,9 @@ various Wazo service in foreground/debug mode.
 4.  After the process terminates, use `coverage html` to generate an
     HTML coverage report:
 
-        coverage html --include='*wazo_calld*'
+```ShellSession
+coverage html --include='*wazo_calld*'
+```
 
 This will generate an [htlmcov]{role="file"} directory in the
 current directory.
@@ -85,12 +99,16 @@ current directory.
 Either copy the directory onto your computer and open it with a web
 browser, or start a web server on the Wazo:
 
-        cd htmlcov
-        python -m SimpleHTTPServer
+```ShellSession
+cd htmlcov
+python -m SimpleHTTPServer
+```
 
 Then open the page from your computer (i.e. not on the Wazo):
 
-        firefox http://<wazo-hostname>:8000
+```ShellSession
+firefox http://<wazo-hostname>:8000
+```
 
 External Links
 --------------
