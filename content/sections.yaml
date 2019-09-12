@@ -67,7 +67,7 @@
 
       agent:
         title: Call Center Agent
-        description: Enhance your platform, add and maintain easily plugins you develop to creating your own value.
+        description: Get, manage and search agents.
         icon: fa fa-headset
         color: blue
         repository: xivo-agentd
