@@ -1,8 +1,6 @@
-Wazo Guidelines
-===============
+# Wazo Guidelines
 
-Inter-process communication
----------------------------
+## Inter-process communication
 
 Our current goal is to use only two means of communication between Wazo
 processes:
@@ -14,8 +12,7 @@ Each component should have its own REST API and its own events and can
 communicate with every other component from across a network only via
 those means.
 
-Service API
------------
+## Service API
 
 The current [xivo-dao](https://github.com/wazo-platform/xivo-dao) Git
 repository contains the basis of the future services Python API. The API
@@ -36,8 +33,7 @@ groups, schedules\... For each resource, there are different modules :
 -   validator: private, it checks input parameters from the service
     module.
 
-Definition of Wazo Daemon
--------------------------
+## Definition of a Wazo Daemon
 
 The goal is to make Wazo as elastic as possible, i.e. the Wazo services
 need to be able to run on separate machines and still talk to each
@@ -58,6 +54,36 @@ To be in accordance with our goal, a Wazo daemon must (if applicable):
 -   Not run with system privileges
 -   Be installable from source
 -   Service discovery with consul
+
+## Database
+
+### Adding a Migration Script
+
+The database migration is handled by [alembic](http://alembic.readthedocs.org).
+
+The Wazo migration scripts can be found in the
+[xivo-manage-db](https://github.com/wazo-platform/xivo-manage-db)
+repository.
+
+On the Wazo Platform, they are located in the
+[/usr/share/xivo-manage-db]{role="file"} directory.
+
+To add a new migration script from your developer machine, go into the
+root directory of the xivo-manage-db repository. There should be an
+[alembic.ini]{role="file"} file in this directory. You can then use the
+following command to create a new migration script:
+
+    alembic revision -m "<description>"
+
+This will create a file in the `alembic/versions`
+directory, which you\'ll have to edit.
+
+When the migration scripts are executed, they use a connection to the
+database with the role/user `asterisk`. This means that new objects that
+are created in the migration scripts will be owned by the `asterisk`
+role and it is thus not necessary (nor recommended) to explicitly grant
+access to objects to the asterisk role (i.e. no \"GRANT ALL\" command
+after a \"CREATE TABLE\" command).
 
 ## Wazo Package File Structure
 
