@@ -7,7 +7,7 @@ Precondition
 To debug asterisk crashes or freezes, you need the following debug
 packages on your Wazo Platform (using the 19.14 version as an example):
 
-```shell
+```ShellSession
 # wazo-dist wazo-19.14
 # apt-get update
 # apt-get install gdb libc6-dbg
@@ -40,7 +40,7 @@ So There is a Problem with Asterisk. Now What ?
 4.  Fetch Asterisk logs for the day of the crash (make sure file was not
     already logrotated):
 
-```shell
+```ShellSession
 # cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
 ```
 
@@ -70,7 +70,7 @@ When asterisk crashes, it usually leaves a core file in
 
 You can create a backtrace from a core file named `core_file` with:
 
-```shell
+```ShellSession
 # gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file > bt-threads.txt
 ```
 
@@ -79,14 +79,14 @@ Debugging Asterisk Freeze
 
 You can create a backtrace of a running asterisk process with:
 
-```shell
+```ShellSession
 # gdb -batch -ex "thread apply all bt" /usr/sbin/asterisk $(pidof asterisk) > bt-threads.txt
 ```
 
 If your version of asterisk has been compiled with the DEBUG\_THREADS
 flag, you can get more information about locks with:
 
-```shell
+```ShellSession
 # asterisk -rx "core show locks" > core-show-locks.txt
 ```
 
@@ -115,13 +115,13 @@ The steps are:
 
 1.  Uncomment the `deb-src` line for the Wazo sources:
 
-```shell
+```ShellSession
 # sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 ```
 
 2.  Fetch the asterisk source package:
 
-```shell
+```ShellSession
 # mkdir -p ~/ast-rebuild
 # cd ~/ast-rebuild
 # apt-get update
@@ -131,26 +131,26 @@ The steps are:
 
 3.  Install the build dependencies:
 
-```shell
+```ShellSession
 # apt-get build-dep -y asterisk
 ```
 
 4.  Enable the DEBUG\_THREADS and DONT\_OPTIMIZE flag:
 
-```shell
+```ShellSession
 # cd <asterisk-source-folder>
 # vim debian/rules
 ```
 
 5.  Update the changelog by appending `+debug1` in the package version:
 
-```shell
+```ShellSession
 # vim debian/changelog
 ```
 
 6.  Rebuild the asterisk binary packages:
 
-```shell
+```ShellSession
 # dpkg-buildpackage -us -uc
 ```
 
@@ -179,7 +179,7 @@ to Wazo. The removed features include:
 To install the vanilla version of Asterisk (replace 19.14 with your
 current version of Wazo):
 
-```shell
+```ShellSession
 # xivo-dist wazo-19.14
 # apt-get update
 # apt-get install -t wazo-19.14 asterisk-vanilla asterisk-vanilla-dbg
@@ -197,7 +197,7 @@ to file a bug report to Asterisk.
 To revert this modification, reinstall `asterisk` (replace 19.14 with
 your current version of Wazo):
 
-```shell
+```ShellSession
 # xivo-dist wazo-19.14
 # apt-get update
 # apt-get install -t wazo-19.14 asterisk
@@ -210,7 +210,7 @@ Running Asterisk under Valgrind
 
 1.  Install valgrind:
 
-```shell
+```ShellSession
 # apt-get install valgrind
 ```
 
@@ -223,7 +223,7 @@ Running Asterisk under Valgrind
     `highpriority` option. This step is optional.
 5.  Stop monit and asterisk:
 
-```shell
+```ShellSession
 # monit quit
 # service asterisk stop
 ```
@@ -235,7 +235,7 @@ Running Asterisk under Valgrind
     located in the contrib directory of the asterisk source code.
 8.  Execute valgrind in the /tmp directory:
 
-```shell
+```ShellSession
 # cd /tmp
 # valgrind --leak-check=full --log-file=valgrind.txt --suppressions=valgrind.supp --vgdb=no asterisk -G asterisk -U asterisk -fnc
 ```

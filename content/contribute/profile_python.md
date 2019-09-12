@@ -34,7 +34,7 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 
 4.  Examine the result of the profiling:
 
-```shell
+```ShellSession
 $ python -m pstats test.profile
 Welcome to the profile statistics browser.
 % sort time
@@ -62,7 +62,7 @@ want to have additional information about it.
 
 3.  Run the program in foreground mode with `coverage run`:
 
-```shell
+```ShellSession
 service monit stop
 service wazo-auth stop
 coverage erase
