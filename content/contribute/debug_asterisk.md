@@ -25,7 +25,7 @@ So There is a Problem with Asterisk. Now What ?
         such as the following:
 
 ```ShellSession
-Oct 16 16:12:43 xivo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e ip b751aa6b sp b5ef14d4 error 4 in libc-2.11.3.so[b74ad000+140000]
+Oct 16 16:12:43 wazo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e ip b751aa6b sp b5ef14d4 error 4 in libc-2.11.3.so[b74ad000+140000]
 ```
 
     2.  Note the exact time of the incident from the segfault line.
@@ -47,7 +47,7 @@ Oct 16 16:12:43 xivo-1 kernel: [10295061.047120] asterisk[1255]: segfault at e i
 ```
 
 5.  Open a new issue on the
-    [bugtracker](https://projects.wazo.community/projects/xivo/issues/new)
+    [bugtracker](https://wazo-dev.atlassian.net/)
     with following information
     -   Tracker: Bug
     -   Status: New
@@ -92,14 +92,10 @@ flag, you can get more information about locks with:
 # asterisk -rx "core show locks" > core-show-locks.txt
 ```
 
-::: {.note}
-::: {.admonition-title}
 Note
-:::
 
 Debugging freeze without this information is usually a lot more
 difficult.
-:::
 
 Optionally, other information that can be interesting:
 
@@ -118,7 +114,7 @@ The steps are:
 1.  Uncomment the `deb-src` line for the Wazo sources:
 
 ```ShellSession
-# sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
+# sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/wazo*
 ```
 
 2.  Fetch the asterisk source package:
@@ -182,11 +178,11 @@ To install the vanilla version of Asterisk (replace 19.14 with your
 current version of Wazo):
 
 ```ShellSession
-# xivo-dist wazo-19.14
+# wazo-dist wazo-19.14
 # apt-get update
 # apt-get install -t wazo-19.14 asterisk-vanilla asterisk-vanilla-dbg
 # xivo-fix-paths-rights
-# xivo-dist phoenix
+# wazo-dist phoenix
 ```
 
 This command should replace the `asterisk` package with
@@ -200,11 +196,11 @@ To revert this modification, reinstall `asterisk` (replace 19.14 with
 your current version of Wazo):
 
 ```ShellSession
-# xivo-dist wazo-19.14
+# wazo-dist wazo-19.14
 # apt-get update
 # apt-get install -t wazo-19.14 asterisk
 # xivo-fix-paths-rights
-# xivo-dist phoenix
+# wazo-dist phoenix
 ```
 
 Running Asterisk under Valgrind
