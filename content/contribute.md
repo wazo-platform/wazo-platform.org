@@ -29,7 +29,9 @@ Most of the Wazo Platform is written in Python, our code follows the
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
 validate that you code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
-command tox -e linters.
+command `tox -e linters`. Mode details in the [Style Guide](/contribute/style_guide)
+
+Follow the [Guidelines](/contribute/guidelines) to create or improve services.
 
 Respecting coding standards is not sufficient to warrant quality code.
 Your contribution should not break any existing tests and when possible,
@@ -88,7 +90,7 @@ After writing your code and checking that it does not break any tests,
 you should try it. The \"easiest\" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
-engine follow the [install]{/install} documentation.
+engine follow the [install](/install) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be
@@ -99,6 +101,13 @@ your test platform.
 The installation instructions for wdk are contained in its
 [README](https://github.com/wazo-pbx/wazo-sdk/blob/master/README.md) as
 well as its usage instructions.
+
+## Debugging and profiling
+
+To debug Asterisk follow [this guide](/contribute/debug_asterisk). To
+debug daemons follow [this guide](/contribute/debug_daemon).
+
+To profile python code follow [this guide](/contribute/profile_python).
 
 # Contributing your code
 
