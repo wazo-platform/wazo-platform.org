@@ -90,7 +90,7 @@ After writing your code and checking that it does not break any tests,
 you should try it. The \"easiest\" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
-engine follow the [install]{/install} documentation.
+engine follow the [install](/install) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be
