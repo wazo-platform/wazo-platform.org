@@ -102,10 +102,12 @@ The installation instructions for wdk are contained in its
 [README](https://github.com/wazo-pbx/wazo-sdk/blob/master/README.md) as
 well as its usage instructions.
 
-## Debugging
+## Debugging and profiling
 
 To debug Asterisk follow [this guide](/contribute/debug_asterisk). To
 debug daemons follow [this guide](/contribute/debug_daemon).
+
+To profile python code follow [this guide](/contribute/profile_python).
 
 # Contributing your code
 
