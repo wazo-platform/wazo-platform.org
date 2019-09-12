@@ -10,6 +10,7 @@ const config = require('./config');
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
+const forDeveloper = !!process.env.FOR_DEVELOPER;
 let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 
 let algoliaIndex = null;
@@ -92,7 +93,10 @@ const getArticles = async createPage => {
 exports.createPages = async ({ actions: { createPage } }) => {
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
-  const sections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
+  const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
+  // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
+  const sections = rawSections.filter(section => !forDeveloper ? !section.developer : true);
+
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
