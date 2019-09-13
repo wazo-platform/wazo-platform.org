@@ -3,15 +3,40 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import Layout from './layout';
 
+const ExternalOrInternalLink = ({ children, to, activeClassName, partiallyActive, ...other }) => {
+  // Tailor the following test to your environment.
+  // This example assumes that any internal link (intended for Gatsby)
+  // will start with exactly one slash, and that anything else is external.
+  const internal = /^\/(?!\/)/.test(to)
+  // Use Link for internal links, and <a> for others
+  if (internal) {
+    return (
+      <Link
+        to={to}
+        activeClassName={activeClassName}
+        partiallyActive={partiallyActive}
+        {...other}
+      >
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href={to} {...other}>
+      {children}
+    </a>
+  )
+}
+
 export const Module = ({ moduleName, module }) => (
   <div className={`item item-red col-lg-4 col-6`}>
     <div className="item-inner">
-      <Link to={module.url || `/overview/${moduleName}.html`}>
+      <ExternalOrInternalLink to={module.url || `/overview/${moduleName}.html`}>
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
         <h3 className="title">{module.title}</h3>
-      </Link>
+      </ExternalOrInternalLink>
 
       <p className="intro">{module.description}</p>
       {!module.url && (
