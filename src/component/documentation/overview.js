@@ -99,7 +99,7 @@ export default ({ pageContext: { moduleName, module, overview } }) => {
   };
 
   return (
-    <Layout isDoc className="body-green" pageTitle={module.title}>
+    <Layout section="documentation" className="body-green" pageTitle={module.title}>
       <Helmet>
         <title>Wazo Platform - Documentation: {module.title}</title>
       </Helmet>

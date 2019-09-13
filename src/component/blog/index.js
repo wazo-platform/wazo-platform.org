@@ -42,7 +42,7 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
   }, [filter])
 
   return (
-    <Layout pageTitle="Blog" className="blog">
+    <Layout pageTitle="Blog" section="blog" className="blog">
       <Helmet>
         <title>Wazo Platform - Blog</title>
       </Helmet>

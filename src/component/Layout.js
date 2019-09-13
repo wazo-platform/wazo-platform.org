@@ -14,14 +14,8 @@ import '../styles/documentation-styles.scss';
 
 import '../styles/main-styles.scss';
 
-export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, breadcrumbs = []}) => {
-  const bodyAttributes = {};
-  if (isHome) {
-    bodyAttributes.class = 'home';
-  }
-  if (isDoc) {
-    bodyAttributes.class = 'documentation';
-  }
+export default ({ children, section, className, pageTitle, breadcrumbs = []}) => {
+  const bodyAttributes = { class: section };
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
@@ -67,7 +61,7 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/documentation" activeClassName="active">
+                  <Link className="nav-link" to="/documentation" activeClassName="active" partiallyActive>
                     Documentation
                   </Link>
                 </li>
@@ -77,12 +71,12 @@ export default ({ children, isDoc, isDocHome, isHome, className, pageTitle, brea
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contribute" activeClassName="active">
+                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
                     Contribute
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/blog" activeClassName="active">
+                  <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
                     Blog
                   </Link>
                 </li>

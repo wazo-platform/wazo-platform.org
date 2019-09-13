@@ -52,7 +52,7 @@ const walk = dir => {
 };
 
 const getArticles = async createPage => {
-  const dir = './content/blog/articles';
+  const dir = './content/blog';
   const articles = [];
   const files = fs.readdirSync(dir);
   console.info('generating articles');
