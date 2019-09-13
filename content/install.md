@@ -5,10 +5,10 @@ setup, do the following steps:
 
 1. Install a Debian 10 Buster system
 2. Run the following commands as root on the Debian system to
-   provision git and Ansible:
+   provision sudo, git and Ansible:
 
 ```ShellSession
-# apt-get install -yq git ansible
+# apt-get install -yq sudo git ansible
 ```
 
 4. Extract the Wazo Platform installer
