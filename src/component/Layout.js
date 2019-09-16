@@ -139,9 +139,8 @@ export default ({ children, section, className, pageTitle, breadcrumbs = []}) =>
               <ul>
                 <li><a href="https://projects.wazo.community/projects/1/boards">Forum</a></li>
                 <li><a href="https://wazo-dev.atlassian.net/">Bug tracking</a></li>
-                <li><a href="mailto:contact@wazo.community">E-Mail</a></li>
                 <li><a href="https://mm.wazo.community/wazo-platform/">Mattermost</a></li>
-                <li>IRC: #wazo on irc.freenode.net</li>
+                <li><a href="https://kiwiirc.com/client/irc.freenode.net/?#wazo">IRC: #wazo on irc.freenode.net</a></li>
               </ul>
             </div>
               <div className="coll">
