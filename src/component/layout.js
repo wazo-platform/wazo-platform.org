@@ -26,7 +26,7 @@ const WazoHeader = () => {
                 <li id="menu-item-1285" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="http://wazo.io/company/">Company</a></li>
                 <li id="menu-item-1286" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1286"><a href="http://developers.wazo.io/">Developers</a></li>
                 <li id="menu-item-1287" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1287"><a href="https://support.wazo.io/hc/en-us">Documentation</a></li>
-                <li id="menu-item-1435" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1435"><a href="http://contact@wazo.community">Contact Us</a></li>
+                <li id="menu-item-1435" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1435"><a href="https://www.welcometothejungle.co/fr/companies/wazo">Jobs</a></li>
             </ul>
           </div>
         </div>
