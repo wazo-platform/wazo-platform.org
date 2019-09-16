@@ -41,12 +41,12 @@ const HomeHeader = () => (
     <div className="container text-center" style={{ marginTop: 20 }}>
       <div className="branding">
         <h1 className="logo">
-          <span className="text-bold">Documentation</span>
+          <span className="text-bold">Welcome to Wazo Developers Center</span>
         </h1>
       </div>
       <div className="tagline">
         <p>
-          Created with <i className="fas fa-heart" /> for developers
+        A rich library of 450+ APIs & SDKs
         </p>
       </div>
 
