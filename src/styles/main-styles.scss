@@ -104,7 +104,7 @@ pre {
   #wazo-platform {
     transition: opacity .2s linear;
     width: 50%;
-    @media (min-width: 767px) {
+    @media (min-width: 768px) {
       width: 25%;
     }
     height: auto; 
@@ -184,19 +184,25 @@ header{
   .navbar-collapse{
     background: $green !important;
   }
+
+  @media (min-width: 576px) {
+    .container {
+        max-width: none;
+    }
+  }
   
   .main-nav {
-    @media(min-width: 968px){
+    @media(min-width: 992px){
       float: right;
     }
 
     .nav{
-      @media(min-width: 968px){
+      @media(min-width: 992px){
         padding-top: 0px;
       }
       .nav-item{
         border-bottom: 1px solid rgba(255,255,255,.2);
-        @media(min-width: 968px){
+        @media(min-width: 992px){
           border-bottom: 0 none;
         }
         .nav-link {
@@ -219,7 +225,8 @@ body.documentation {
 }
 
 .contribute .container.principal{
-  padding: 40px 0 70px;
+  padding-top: 40px;
+  padding-bottom: 70px;
 }
 
 .navbar-fixed-top{
