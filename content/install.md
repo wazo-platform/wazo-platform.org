@@ -49,12 +49,12 @@ Using the `api_client_name` and `api_client_password` you defined in
 your inventory, you can execute from the Debian system:
 
 ```ShellSession
-wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_client_password>
+$ wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_client_password>
 ```
 Or with curl from anywhere:
 
 ```ShellSession
-curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
+$ curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
 ```
 
 2. Use any REST API you want, for example, to list the telephony users configured on the system:
@@ -63,7 +63,7 @@ Note: You should replace the following values:
 * `my-token` with the authentication token
 
 ```ShellSession
-curl -k -X GET -H 'X-Auth-Token: <my-token>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
+$ curl -k -X GET -H 'X-Auth-Token: <my-token>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
 ```
 
 Note: the token that you have now only has permissions for configuration REST API (wazo-confd).
