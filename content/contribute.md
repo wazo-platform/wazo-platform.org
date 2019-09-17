@@ -47,8 +47,8 @@ environment in the same state, no files laying around.
 
 You can execute unittests with the following command
 
-``` {.sourceCode .sh}
-tox -epy37
+```ShellSession
+$ tox -epy37
 ```
 
 ## Integration tests
@@ -61,17 +61,17 @@ integration\_tests directory of most repository. Executing the following
 command from the root directory of a project should execute all
 integration tests.
 
-``` {.sourceCode .sh}
-tox -eintegration
+```ShellSession
+$ tox -eintegration
 ```
 
 If tox is not configured to execute integration tests, you can execute
 the following commands.
 
-``` {.sourceCode .sh}
-cd integration_tests
-make test-setup
-make test
+```ShellSession
+$ cd integration_tests
+$ make test-setup
+$ make test
 ```
 
 ## Acceptance tests

@@ -7,24 +7,32 @@ file. The output will be available in the daemon\'s log file.
 It is also possible to run the Wazo daemon, in command line. This will
 allow to run in foreground and debug mode. To see how to use it, type:
 
-    xivo-{name} -h
+```ShellSession
+$ xivo-{name} -h
+```
 
 Note that it\'s usually a good idea to stop monit before running a
 daemon in foreground:
 
-    systemctl stop monit.service
+```ShellSession
+# systemctl stop monit.service
+```
 
 xivo-confgend
 -------------
 
-    twistd -no -u xivo-confgend -g xivo-confgend --python=/usr/bin/xivo-confgend --logger xivo_confgen.bin.daemon.twistd_logs
+```ShellSession
+$ twistd -no -u xivo-confgend -g xivo-confgend --python=/usr/bin/xivo-confgend --logger xivo_confgen.bin.daemon.twistd_logs
+```
 
-No debug mode in confgend.
+Note: no debug mode in confgend.
 
 wazo-provd
 ----------
 
-    twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
+```ShellSession
+$ twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
+```
 
 -   -s for logging to stderr
 -   -v for verbose
@@ -32,13 +40,15 @@ wazo-provd
 consul
 ------
 
-    sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
+```ShellSession
+$ sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
+```
 
 Consul logs its output to `/var/log/syslog` to get the output of consul
 only use consul monitor:
 
 ```ShellSession
-consul monitor -ca-file=/usr/share/xivo-certs/server.crt -http-addr=https://localhost:8500
+$ consul monitor -ca-file=/usr/share/xivo-certs/server.crt -http-addr=https://localhost:8500
 
 2015/08/03 09:48:25 [INFO] consul: cluster leadership acquired
 2015/08/03 09:48:25 [INFO] consul: New leader elected: this-xivo
