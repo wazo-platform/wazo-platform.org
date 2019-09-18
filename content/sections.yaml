@@ -38,7 +38,7 @@
         description: Provisioning and configuration of phone devices.
         icon: fa fa-phone
         color: primary
-        repository: xivo-provd
+        repository: wazo-provd
         redocUrl: https://quintana.wazo.community/api/provd/0.2/api/api.yml
 
       webhook:
@@ -70,7 +70,7 @@
         description: Get, manage and search agents.
         icon: fa fa-headset
         color: blue
-        repository: xivo-agentd
+        repository: wazo-agentd
         redocUrl: https://quintana.wazo.community/api/agentd/1.0/api/api.yml
 
       chat:
@@ -165,5 +165,5 @@
         description: Add REST API for Asterisk Manager interface.
         icon: fa fa-code
         color: orange
-        repository: xivo-amid
+        repository: wazo-amid
         redocUrl: https://quintana.wazo.community/api/amid/1.0/api/api.yml
