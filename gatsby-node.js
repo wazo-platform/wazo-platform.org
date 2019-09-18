@@ -65,11 +65,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
       return (
         repository &&
-        repoName ===
-          repository
-            .split('-')
-            .splice(1)
-            .join('-')
+        repoName === repository.replace('wazo-', '')
       );
     });
 
@@ -138,7 +134,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     }
 
     newPage(`/overview/${moduleName}.html`, 'overview', {
-      overview: overviews[repoName.split('-')[1]],
+      overview: overviews[repoName.replace('wazo-', '')],
       moduleName,
       module,
     });
