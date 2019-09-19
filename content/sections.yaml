@@ -1,5 +1,6 @@
 ---
   - name: Programmable platform
+    slug: programmable-platform
     developer: false
     modules:
       authentication:
@@ -90,6 +91,7 @@
         repository: wazo-websocketd
 
   - name: Management platform
+    slug: management-platform
     developer: true
     modules:
       nestbox-authentication:
@@ -117,6 +119,7 @@
         redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
 
   - name: Wazo Client SDK - Demo
+    slug: wazo-client-sdk
     developer: false
     modules:
       javascript:
@@ -162,6 +165,7 @@
         url: https://github.com/wazo-platform/wazo-sdk
 
   - name: Internal platform
+    slug: internal-platform
     modules:
       amid:
         title: Asterisk Manager

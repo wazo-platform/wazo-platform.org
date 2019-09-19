@@ -88,7 +88,7 @@ export default ({ pageContext: { sections } }) => (
 
     <section className="cards-section text-center">
       {sections.map(section => (
-        <div key={section.name}>
+        <div key={section.name} id={section.slug} style={{paddingTop: 70}}>
           <h3>{section.name}</h3>
           <div className="container">
             <div className="cards-wrapper row">
