@@ -44,7 +44,7 @@ Wazo plugins allow a third party to add almost anything to Wazo. Most of our ser
   * wazo-calld
   * wazo-confd
   * wazo-dird
-  * xivo-confgend
+  * wazo-confgend
 
 ## How it works
 

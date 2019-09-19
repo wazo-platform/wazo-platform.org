@@ -18,11 +18,11 @@ daemon in foreground:
 # systemctl stop monit.service
 ```
 
-xivo-confgend
+wazo-confgend
 -------------
 
 ```ShellSession
-$ twistd -no -u xivo-confgend -g xivo-confgend --python=/usr/bin/xivo-confgend --logger xivo_confgen.bin.daemon.twistd_logs
+$ twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
 ```
 
 Note: no debug mode in confgend.

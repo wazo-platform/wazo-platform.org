@@ -27,11 +27,11 @@ $ python -m cProfile -o test.profile /usr/bin/xivo-auth -f
 This will create a file named `test.profile` when the process
 terminates.
 
-To profile xivo-confgend, you must use this command instead of the
+To profile wazo-confgend, you must use this command instead of the
 one above:
 
 ```ShellSession
-$ twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/xivo-confgend
+$ twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
 ```
 
 Note that profiling multi-threaded program (wazo-agid, wazo-confd)
