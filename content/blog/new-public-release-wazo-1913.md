@@ -27,7 +27,7 @@ Wazo’s vision is that no single communication system can address appropriately
 
 Our mission is to provide the world with a communication platform on which organizations can freely design and build the communication systems that they need to fit with their process requirements.
 
-Our commitment to open source software is the most convenient lever to have the greater impact and put the platform in the hands of the largest number of organizations.
+Our commitment to open source software is the most convenient lever to have the greatest impact and put the platform in the hands of the largest number of organizations.
 
 In this perspective, we have decided to share the needed building blocks to build tailored communication solutions. These building blocks can be assembled, improved and packaged to create as many diverse applications as you want.
 
