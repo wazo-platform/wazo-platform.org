@@ -22,9 +22,7 @@ setup, do the following steps:
 5. Edit the Ansible inventory in `inventories/uc-engine` to add your
    preferences and passwords. The various variables that can be
    customized are described at
-   <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>. Be
-   sure to set `engine_api_configure_wizard` to `true` if you want to
-   provision the needed resources to use the REST API right away.
+   <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
 
 If you want to install the web user interface, activate the following
 in your inventory:
@@ -34,11 +32,21 @@ in your inventory:
 uc-engine-host
 ```
 
+To create the `root` account at installation time and be able to use the web user interface
+and REST APIs, you need to add the following variables:
+
+```Ini
+[uc-engine:vars]
+engine_api_configure_wizard = true
+engine_api_root_password = ****
+```
+
 6. Launch the installation by running the following command:
 
 ```ShellSession
 # ansible-playbook -i inventories/uc-engine uc-engine.yml
 ```
+
 # Use the REST API
 
 You may now use the REST API from outside your system (here `wazo.example.com`).
