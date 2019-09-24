@@ -81,7 +81,7 @@ The interface will then be available at `https://<your-engine-ip>/`. Be sure to 
 
 ## What if I have a question?
 
-You can always reach us via [Mattermost](https://mm.wazo.community/wazo-platform/channels/town-square) or on the [forums](https://projects.wazo.community/projects/1/boards):
+You can always reach us via [Mattermost](https://mm.wazo.community/wazo-platform/channels/town-square) or on the [forums](https://projects.wazo.community/projects/1/boards).
 
 --
 The Wazo team.
