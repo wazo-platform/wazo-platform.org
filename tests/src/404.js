@@ -9,12 +9,12 @@ const checkUrl = async (page, url) => {
   try {
     let response = null;
     page.on('response', res => {
-      if (res.url.indexOf('favicon.ico') === -1) {
+      if (res.url().indexOf('favicon.ico') === -1) {
         response = res;
       }
     });
 
-    await page.goto(url, { waitUntil: 'networkidle' });
+    await page.goto(url, { waitUntil: 'networkidle2' });
 
     if (response && !response.ok) {
       throw new Error(`status ${response.status}`);
@@ -33,11 +33,11 @@ const crawlLinks = async (page, url) => {
 
   let hasError = !(await checkUrl(page, url));
 
-  const links = await page.evaluate(() => {
-    return Array.from(document.getElementsByTagName('a')).map(node => node.href);
-  });
+  const links = await page.evaluate(() =>
+    Array.from(document.getElementsByTagName('a')).map(node => node.href).map(url => url.split('#')[0]));
 
-  const localLinks = Array.from(new Set(links.filter(link => link.indexOf(baseUrl) !== -1)));
+  const localLinks = Array.from(new Set(links.filter(link =>
+    link.indexOf(baseUrl) !== -1 && link.indexOf('/blog') === -1)));
 
   for (let i = 0; i < localLinks.length; i++) {
     const link = localLinks[i];
