@@ -9,8 +9,7 @@
     "develop": "./node_modules/.bin/gatsby develop",
     "format": "./node_modules/.bin/prettier --write src/**/*.{js,jsx} tests/*.js gatsby-node.js",
     "start": "npm run develop",
-    "serve": "./node_modules/.bin/gatsby serve",
-    "test": "for filename in tests/*.js; do node $filename localhost:8000; done"
+    "serve": "./node_modules/.bin/gatsby serve"
   },
   "dependencies": {
     "algoliasearch": "^3.33.0",
