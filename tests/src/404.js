@@ -16,8 +16,8 @@ const checkUrl = async (page, url) => {
 
     await page.goto(url, { waitUntil: 'networkidle2' });
 
-    if (response && !response.ok) {
-      throw new Error(`status ${response.status}`);
+    if (response && !response.ok()) {
+      throw new Error(`status ${response.status()}`);
     }
 
     return true;
