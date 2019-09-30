@@ -81,7 +81,7 @@ from end-to-end. These tests are usually longer to execute and require a
 dedicated Wazo Platform. As a contributor you are not expected to
 execute these tests if you are not contributing to them. Some of the
 acceptance tests are automatic
-[wazo-acceptance](http://github.com/wazo-pbx/wazo-acceptance) and other
+[wazo-acceptance](http://github.com/wazo-platform/wazo-acceptance) and other
 are executed manually at the end of each sprint.
 
 ## Trying your code
@@ -95,11 +95,11 @@ engine follow the [install](/install) documentation.
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be
 able to come back to a clean install whenever needed. Then you can use
-[wdk](http://github.com/wazo-pbx/wazo-sdk) to update the code running on
+[wdk](http://github.com/wazo-platform/wazo-sdk) to update the code running on
 your test platform.
 
 The installation instructions for wdk are contained in its
-[README](https://github.com/wazo-pbx/wazo-sdk/blob/master/README.md) as
+[README](https://github.com/wazo-platform/wazo-sdk/blob/master/README.md) as
 well as its usage instructions.
 
 ## Debugging and profiling
