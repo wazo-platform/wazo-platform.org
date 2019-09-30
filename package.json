@@ -40,6 +40,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wazo-pbx/wazo-doc-api"
+    "url": "https://github.com/wazo-platform/wazo-doc-api"
   }
 }
