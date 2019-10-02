@@ -87,7 +87,7 @@ are executed manually at the end of each sprint.
 ## Trying your code
 
 After writing your code and checking that it does not break any tests,
-you should try it. The \"easiest\" way to do so is to use a virtual
+you should try it. The "easiest" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
 engine follow the [install](/install) documentation.

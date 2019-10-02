@@ -266,7 +266,7 @@ class TestRanking(unittest.TestCase):
 Tests
 -----
 
-Tests for a package are placed in their own folder named \"tests\"
+Tests for a package are placed in their own folder named `tests`
 inside the package.
 
 Example:

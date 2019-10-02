@@ -8,7 +8,7 @@ Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/
 Phone Analysis
 --------------
 
-Here\'s a non-exhaustive list of what a phone may or may not support:
+Here's a non-exhaustive list of what a phone may or may not support:
 
 -   Language
 -   Timezone
