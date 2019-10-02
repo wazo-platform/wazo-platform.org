@@ -24,3 +24,11 @@ The REST API for wazo-agentd is available [here](http://developers.wazo.io/api/a
 ## Related
 
 * [wazo-auth](authentication.html)
+
+```python
+def main():
+   if toto:
+      pass
+   else:
+      pass
+```
