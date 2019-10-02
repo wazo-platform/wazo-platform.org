@@ -10,7 +10,7 @@ the code to the Git repository.
 
 The source code for Wazo Platform is available on
 [GitHub](https://github.com/wazo-platform). Our GitHub organization contains
-over 200 repositories. Finding the one you want to contribute can be a
+over 200 repositories. Finding the one you want to contribute to can be a
 daunting task.
 
 The [documentation page](/documentation) can help you find
@@ -24,21 +24,21 @@ desired repositories on you hard drive and start coding.
 
 # Editing the code
 
-Most of Wazo Platform is written in Python, our code follows the
+Most of Wazo Platform is written in Python, following the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
-validate that you code respects the standards. Some repositories also
+validate that your code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
-command `tox -e linters`. Mode details in the [Style Guide](/contribute/style_guide)
+command `tox -e linters`. More details in the [Style Guide](/contribute/style_guide)
 
 Follow the [Guidelines](/contribute/guidelines) to create or improve services.
 
 Respecting coding standards is not sufficient to warrant quality code.
 Your contribution should not break any existing tests and when possible,
 it should add tests for the code you are adding. We use 3 kind of tests.
-Unittests, Integration tests and acceptance tests.
+unit tests, integration tests and acceptance tests.
 
-## Unittests
+## Unit tests
 
 Unittests are small tests that exercise a function or method in your
 code. These tests should be fast and should not depend on other services
@@ -53,13 +53,13 @@ $ tox -epy37
 
 ## Integration tests
 
-Integration tests exercise a service as a black box. It uses the public
-API of the service and use the API to assert that the test passes. Our
+Integration tests exercise a service as a black box. Each test uses
+the public API of the service to assert that it passes. Our
 integration tests use docker to avoid installing too many dependencies
 on your system. You can find the integration tests in the
-integration\_tests directory of most repository. Executing the following
-command from the root directory of a project should execute all
-integration tests.
+integration\_tests directory of most repositories. Executing the
+following command from the root directory of a project should execute
+all integration tests.
 
 ```ShellSession
 $ tox -eintegration
@@ -93,7 +93,7 @@ environment to avoid outage for you and your users. To install your test
 engine follow the [install](/install) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
-starting I suggest you make a snapshot of your virtual machine to be
+starting I suggest you take a snapshot of your virtual machine to be
 able to come back to a clean install whenever needed. Then you can use
 [wdk](http://github.com/wazo-platform/wazo-sdk) to update the code running on
 your test platform.
