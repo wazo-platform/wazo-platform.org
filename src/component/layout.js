@@ -14,7 +14,7 @@ const WazoHeader = () => {
     <div className="wazo-header container">
       <div className="site-logo">
         <a href="http://wazo.io" title="Wazo" rel="home">
-          <img className="header-image" alt="Wazo" src="http://dev.digitalcreativelab.co/wazolight/wp-content/uploads/2019/09/wazo-logo-white-45pxh-1.png" title="Wazo" />
+          <img className="header-image" alt="Wazo" src="http://corporate-website.lan.wazo.io/wp-content/uploads/2019/09/wazo-logo-white-45pxh-1.png" title="Wazo" />
         </a>
       </div>
     
