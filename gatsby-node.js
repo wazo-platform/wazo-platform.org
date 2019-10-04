@@ -201,6 +201,16 @@ exports.createPages = async ({ actions: { createPage } }) => {
     )
   );
 
+  // Create api pages
+  sections.forEach(section =>
+    Object.keys(section.modules).forEach(moduleName =>
+      newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+        moduleName,
+        module: section.modules[moduleName],
+      })
+    )
+  );
+
   // Create overview pages
   Object.keys(allModules).forEach(moduleName => {
     const module = allModules[moduleName];

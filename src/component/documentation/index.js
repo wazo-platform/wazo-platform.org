@@ -67,6 +67,11 @@ export const Module = ({ moduleName, module }) => (
                 API Reference
               </Link>
             )}
+            {module.redocUrl && (
+              <Link to={`/documentation/console/${moduleName}`} className="api-reference left">
+                Console (Swagger)
+              </Link>
+            )}
 
             <a href={`https://github.com/wazo-platform/${module.repository}`} className="right">
               <i className="fab fa-github" /> {module.repository}
