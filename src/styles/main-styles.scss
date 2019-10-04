@@ -218,6 +218,12 @@ header{
   }
 }
 
+section.console{
+  pre{
+    background: rgba(0,0,0,.05)
+  }
+}
+
 body.documentation {
   .main-nav .nav .nav-item .nav-link[href="/documentation"] {
     background: rgba(0,0,0,.1) !important;

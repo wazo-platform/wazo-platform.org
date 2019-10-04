@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
 
-
 import Layout from '../Layout';
 
 export default ({ pageContext: { moduleName, module }}) => {
