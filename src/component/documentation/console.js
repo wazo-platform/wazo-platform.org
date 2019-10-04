@@ -14,10 +14,10 @@ export default ({ pageContext: { moduleName, module }}) => {
 
       <section id="console" className="console section">
         <div className="container">
-          <SwaggerUI
+         {!!window && <SwaggerUI
             url={module.redocUrl}
             deepLinking
-          />
+          />}
         </div>
       </section>
 
