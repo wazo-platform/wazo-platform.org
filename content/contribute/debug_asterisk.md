@@ -157,7 +157,7 @@ you can install via dpkg.
 
 ### Recompiling a vanilla version of Asterisk
 
-It is sometimes useful to produce a \"vanilla\" version of Asterisk,
+It is sometimes useful to produce a "vanilla" version of Asterisk,
 i.e. a version of Asterisk that has none of the Wazo patches applied, to
 make sure that the problem is present in the original upstream code.
 This is also sometimes necessary before opening a ticket on the
@@ -240,7 +240,7 @@ Running Asterisk under Valgrind
 
 Note that when you terminate asterisk with Control-C, asterisk does not
 unload the modules before exiting. What this means is that you might
-have lots of \"possibly lost\" memory errors due to that. If you already
+have lots of "possibly lost" memory errors due to that. If you already
 know which modules is responsible for the memory leak/bug, you should
 explicitly unload it before terminating asterisk.
 
