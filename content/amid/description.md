@@ -2,7 +2,7 @@
 
 ## Description
 
-A daemon for interacting with Asterisk's AMI:
+A daemon for interacting with (Asterisk's AMI)[https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239]:
 
 * forward AMI events to RabbitMQ ;
 * expose HTTP JSON interface for AMI actions.
@@ -17,7 +17,7 @@ The `amid` service also proxies the AMI event to our event bus.
 
 ## API documentation
 
-The REST API for wazo-ami is available [here](http://developers.wazo.io/api/ami.html)
+The REST API for wazo-ami is available [here](/documentation/api/amid.html)
 
 ## Related
 
