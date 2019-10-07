@@ -1,6 +1,5 @@
----
 How to contribute to Wazo Platform code base
----
+============================================
 
 In order to contribute to Wazo Platform you need to be able to
 retrieve the source code, edit the code, try your changes and contribute
