@@ -207,6 +207,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
       newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
         moduleName,
         module: section.modules[moduleName],
+        modules: section.modules
       })
     )
   );

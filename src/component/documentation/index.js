@@ -69,7 +69,7 @@ export const Module = ({ moduleName, module }) => (
             )}
             {module.redocUrl && (
               <Link to={`/documentation/console/${moduleName}`} className="api-reference left">
-                Console (Swagger)
+                API Console
               </Link>
             )}
 
