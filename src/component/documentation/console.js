@@ -6,25 +6,36 @@ import 'swagger-ui-react/swagger-ui.css';
 
 import Layout from '../Layout';
 
-const inputStyle = {
-  width: '100%',
-  padding: '5px 8px',
-  marginRight: 10
-};
+
+
+const styles = {
+  input: {
+    width: '100%',
+    padding: '5px 8px',
+    marginRight: 10
+  },
+
+  button: {
+    display: 'block',
+    borderBottom: '1px solid #ddd',
+    padding: '8px 0',
+    minWidth: 160,
+    color: '#000',
+    marginRight: 20
+  },
+
+  subtitle: {
+    fontSize: '.8em',
+    color: '#999',
+  }
+}
 
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [tempBaseUrl, setTempBaseUrl] = useState(module.redocUrl);
   const [apiKey, setApiKey] = useState('');
 
-  const buttonStyle = {
-    display: 'block',
-    borderBottom: '1px solid #ddd',
-    padding: '8px 0',
-    width: 160,
-    color: '#000',
-    marginRight: 20
-  }
+
 
   const getServiceName = () => {
     const url = new URL(tempBaseUrl);
@@ -59,7 +70,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             id="input_baseUrl"
             name="baseUrl"
             type="text"
-            style={inputStyle}
+            style={styles.input}
             value={tempBaseUrl}
             />
           <input
@@ -67,7 +78,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             id="input_apiKey"
             name="apiKey"
             type="text"
-            style={inputStyle}
+            style={styles.input}
             onChange={e => setApiKey(e.target.value)}
             value={apiKey}
           />
@@ -77,7 +88,10 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           <div style={{ margin: '60px 0' }}>
             {Object.keys(modules).map(m => {
               
-              return <Link to={`/documentation/console/${m}`} style={{ ...buttonStyle, color: m === moduleName ? '#ccc' : '#000' }}>{modules[m].title}</Link>
+              return <Link to={`/documentation/console/${m}`} style={{ ...styles.button, color: m === moduleName ? '#ccc' : '#000' }}>
+                {modules[m].title}
+                <div style={styles.subtitle}>{modules[m].repository}</div>
+              </Link>
             })}
           </div>
           <div style={{ position: 'relative', flex: 1 }}>
