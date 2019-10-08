@@ -24,7 +24,7 @@ wazo-auth is used to:
 
 ## API documentation
 
-The REST API for wazo-auth is available [here](http://developers.wazo.io/api/authentication.html).
+The REST API for wazo-auth is available [here](/documentation/api/authentication.html).
 
 The bus events are defined [here](https://github.com/wazo-platform/xivo-bus/blob/master/xivo_bus/resources/auth/events.py).
 

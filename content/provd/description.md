@@ -12,7 +12,7 @@ wazo-provd is the phone provisioning service for the Wazo platform. It generates
 
 ## API documentation
 
-The REST API for wazo-provd is available [here](http://developers.wazo.io/api/provisionning.html)
+The REST API for wazo-provd is available [here](/documentation/api/provisioning.html)
 
 ## Plugins
 

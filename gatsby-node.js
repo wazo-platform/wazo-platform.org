@@ -60,18 +60,27 @@ const getArticles = async createPage => {
     const filePath = `${dir}/${file}`;
 
     const content = fs.readFileSync(filePath, 'utf8');
-    const body = content.split("\n").splice(8).join("\n");
+    const body = content
+      .split('\n')
+      .splice(8)
+      .join('\n');
     const options = {};
-    content.split("\n").splice(0, 7).forEach(row => {
-      const [key, value] = row.split(': ');
-      options[key.toLowerCase()] = value;
-    });
+    content
+      .split('\n')
+      .splice(0, 7)
+      .forEach(row => {
+        const [key, value] = row.split(': ');
+        options[key.toLowerCase()] = value;
+      });
 
     const summaryNumWords = 40;
-    options.summary = striptags(markdownConverter.makeHtml(body)).split(' ').splice(0, summaryNumWords).join(' ');
+    options.summary = striptags(markdownConverter.makeHtml(body))
+      .split(' ')
+      .splice(0, summaryNumWords)
+      .join(' ');
 
     const url = `/blog/${options.slug}`;
-    
+
     if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
       console.info(`generating article ${key}`);
 
@@ -84,7 +93,7 @@ const getArticles = async createPage => {
           ...options,
           body,
         },
-      })
+      });
     }
   });
   return articles;
@@ -95,7 +104,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
-  const sections = rawSections.filter(section => !forDeveloper ? !section.developer : true);
+  const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
   const contributeDocs = fs.readdirSync('./content/contribute').reduce(function(acc, file) {
     if (file.split('.').pop() === 'md') {
       var p = './content/contribute/' + file;
@@ -114,20 +123,16 @@ exports.createPages = async ({ actions: { createPage } }) => {
     Object.keys(allModules).find(moduleName => {
       const { repository } = allModules[moduleName];
 
-      return (
-        repository &&
-        repoName ===
-          repository.replace('wazo-', '')
-      );
+      return repository && repoName === repository.replace('wazo-', '');
     });
 
   // Helper to generate page
   const newPage = (modulePath, component, context) =>
-        createPage({
-          path: modulePath,
-          component: path.resolve(`src/component/${component}.js`),
-          context,
-        });
+    createPage({
+      path: modulePath,
+      component: path.resolve(`src/component/${component}.js`),
+      context,
+    });
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
@@ -181,11 +186,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Create contribute pages
   Object.keys(contributeDocs).forEach(fileName => {
-    const rawContent = contributeDocs[fileName].split("\n");
+    const rawContent = contributeDocs[fileName].split('\n');
     const title = rawContent[0];
     rawContent.shift();
     rawContent.shift();
-    const content = rawContent.join("\n");
+    const content = rawContent.join('\n');
     var p = '/contribute/' + path.basename(fileName, '.md');
     console.log('generating ' + p);
     newPage(p, 'contribute/index', { content, title });

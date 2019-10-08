@@ -4,52 +4,71 @@ process.setMaxListeners(Infinity);
 
 const baseUrl = process.argv[2];
 const testedUrl = [];
+// Chrome headless can't open these format:
+const EXCLUDED_EXTENSIONS = ['yml'];
 
-const checkUrl = async (page, url) => {
+const checkUrl = async (browserPage, url, fromUrl) => {
+  const extensionParts = url.split('.');
+  const extension = extensionParts[extensionParts.length -1];
+  if (EXCLUDED_EXTENSIONS.indexOf(extension) !== -1) {
+    return true;
+  }
+
+  // Don't check for mail URLs and we got 403s on tldrlegal.com ...
+  if (url.indexOf('mailto:') !== -1 || url.indexOf('tldrlegal') !== -1) {
+    return true;
+  }
+
   try {
     let response = null;
-    page.on('response', res => {
+    browserPage.on('response', res => {
       if (res.url().indexOf('favicon.ico') === -1) {
         response = res;
       }
     });
 
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    await browserPage.goto(url, { waitUntil: 'networkidle2' });
 
-    if (response && response.status() >= 400) {
+    if (response && response.status() > 401) {
       throw new Error(`status ${response.status()}`);
     }
 
     return true;
   } catch (err) {
-    console.error(`Error in page: ${url}: ${err}`);
+    console.error(`Error in page: ${url} (from ${fromUrl}): ${err}`);
     return false;
   }
 };
 
-const crawlLinks = async (page, url) => {
+const crawlLinks = async (browserPage, url, fromUrl) => {
+  const isUrlLocal = url.indexOf(baseUrl) !== -1;
   testedUrl.push(url);
-  console.log(`Checking 404s in ${url} ...`);
+  console.log(`Checking 404s in ${url} (from: ${fromUrl}) ...`);
 
-  let hasError = !(await checkUrl(page, url));
+  let hasError = !(await checkUrl(browserPage, url, fromUrl));
 
-  const links = await page.evaluate(() =>
-    Array.from(document.getElementsByTagName('a')).map(node => node.href).map(url => url.split('#')[0]));
+  const links = await browserPage.evaluate(() =>
+    Array.from(document.getElementsByTagName('a')).map(node => node.href));
 
-  const localLinks = Array.from(new Set(links.filter(link =>
-    link.indexOf(baseUrl) !== -1 && link.indexOf('/blog') === -1)));
+  const filteredLinks = Array.from(new Set(links.filter(link =>
+    link.indexOf('/blog') === -1)));
 
-  for (let i = 0; i < localLinks.length; i++) {
-    const link = localLinks[i];
+  for (let i = 0; i < filteredLinks.length; i++) {
+    const link = filteredLinks[i];
     if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
       continue;
     }
 
-    if (!(await checkUrl(page, link))) {
+    // Do not crawl external link in external url
+    if (!isUrlLocal && link.indexOf(baseUrl) === -1) {
+      continue;
+    }
+
+    if (!(await checkUrl(browserPage, link, url))) {
       hasError = true;
     }
 
-    hasError = hasError || (await crawlLinks(page, link));
+    hasError = hasError || (await crawlLinks(browserPage, link, url));
   }
 
   return hasError;
@@ -60,9 +79,8 @@ const crawlLinks = async (page, url) => {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
-  const page = await browser.newPage();
-
-  const hasError = await crawlLinks(page, baseUrl);
+  const browserPage = await browser.newPage();
+  const hasError = await crawlLinks(browserPage, baseUrl, baseUrl);
 
   await browser.close();
   const errorCode = hasError ? 1 : 0;

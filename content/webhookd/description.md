@@ -16,4 +16,4 @@ Configurable via REST API.
 
 ## API documentation
 
-The REST API for wazo-webhookd is available [here](http://developers.wazo.io/api/webhooks.html)
+The REST API for wazo-webhookd is available [here](/documentation/api/webhook.html)
