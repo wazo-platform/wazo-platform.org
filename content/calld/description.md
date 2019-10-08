@@ -16,7 +16,7 @@ It manages the following resources:
 
 The REST API for wazo-calld is available [here](http://developers.wazo.io/api/application.html#tag/applications).
 
-The bus events are defined [here](https://github.com/wazo-platform/wazo-calld/blob/master/wazo_calld/plugins/calls/events.yml) and [here](https://github.com/wazo-pbx/wazo-calld/blob/master/wazo_calld/plugins/switchboards/events.yml).
+The bus events are defined [here](https://github.com/wazo-platform/wazo-calld/blob/master/wazo_calld/plugins/calls/events.yml) and [here](https://github.com/wazo-platform/wazo-calld/blob/master/wazo_calld/plugins/switchboards/events.yml).
 
 ## Schema
 
