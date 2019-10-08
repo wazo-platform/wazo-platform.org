@@ -90,14 +90,21 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
                   if (url.pathname.indexOf('/api') === -1) {
                     req.url = `${url.origin}/api/${getServiceName()}${url.pathname}`;
                   }
-
+                  // if there's content in the apiKey field, let's use it
                   if(apiKey) {
-                    req.headers['X-Auth-Token'] = apiKey;
+                    const parts = apiKey.split(":", 2);
+                    if(parts.length > 1) {
+                        const auth = "Basic " + btoa(apiKey);
+                        req.headers['Authorization'] = auth;
+                        delete req.headers['X-Auth-Token'];
+                      } else if (apiKey != "") {
+                        req.headers['X-Auth-Token'] = apiKey;
+                        delete req.headers['Authorization'];
+                    }
                   } 
                   console.log('req', req, url, module);
                   return req;
                 }}
-                // deepLinking
               />
             )}
           </div>
