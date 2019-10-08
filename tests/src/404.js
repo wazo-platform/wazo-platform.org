@@ -16,7 +16,7 @@ const checkUrl = async (page, url) => {
 
     await page.goto(url, { waitUntil: 'networkidle2' });
 
-    if (response && !response.ok()) {
+    if (response && response.status() >= 400) {
       throw new Error(`status ${response.status()}`);
     }
 
@@ -65,5 +65,8 @@ const crawlLinks = async (page, url) => {
   const hasError = await crawlLinks(page, baseUrl);
 
   await browser.close();
+  const errorCode = hasError ? 1 : 0;
+
+  console.log(`Checking 404s exiting : ${errorCode}`);
   process.exit(hasError ? 1 : 0);
 })();
