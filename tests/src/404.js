@@ -8,11 +8,19 @@ const testedUrl = [];
 const EXCLUDED_EXTENSIONS = ['yml'];
 
 const checkUrl = async (browserPage, url, fromUrl) => {
+  if (testedUrl.indexOf(url) !== -1) {
+    return true;
+  }
+  testedUrl.push(url);
+
   const extensionParts = url.split('.');
   const extension = extensionParts[extensionParts.length -1];
+
   if (EXCLUDED_EXTENSIONS.indexOf(extension) !== -1) {
     return true;
   }
+
+  console.log(`Checking ${url} (from: ${fromUrl}) ...`);
 
   // Don't check for mail URLs and we got 403s on tldrlegal.com ...
   if (url.indexOf('mailto:') !== -1 || url.indexOf('tldrlegal') !== -1) {
@@ -35,20 +43,28 @@ const checkUrl = async (browserPage, url, fromUrl) => {
 
     return true;
   } catch (err) {
-    console.error(`Error in page: ${url} (from ${fromUrl}): ${err}`);
+    console.error(`Error in ${url} (from ${fromUrl}): ${err}`);
     return false;
   }
 };
 
+const getLinks = async (browserPage, url) => {
+  try {
+    return await browserPage.evaluate(
+      () =>
+        Array.from(document.getElementsByTagName('a')).map(node => node.href));
+  } catch (err) {
+    console.error(`Unable to parse ${url}`);
+    return []
+  }
+}
 const crawlLinks = async (browserPage, url, fromUrl) => {
   const isUrlLocal = url.indexOf(baseUrl) !== -1;
-  testedUrl.push(url);
-  console.log(`Checking 404s in ${url} (from: ${fromUrl}) ...`);
+  console.log(`Checking URLs in ${url} (from: ${fromUrl}) ...`);
 
   let hasError = !(await checkUrl(browserPage, url, fromUrl));
 
-  const links = await browserPage.evaluate(() =>
-    Array.from(document.getElementsByTagName('a')).map(node => node.href));
+  const links = await getLinks(browserPage, url);
 
   const filteredLinks = Array.from(new Set(links.filter(link =>
     link.indexOf('/blog') === -1)));
