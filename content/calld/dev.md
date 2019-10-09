@@ -2,7 +2,7 @@
 
 ```
 pip install tox
-tox --recreate -e py35
+tox --recreate -e py37
 ```
 
 ## Running integration tests
