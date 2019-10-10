@@ -96,7 +96,7 @@
         icon: fa fa-key
         color: green
         repository: wazo-auth
-        redocUrl: https://nestbox.dev.wazo.io/api/auth/0.1/api/api.yml
+        redocUrl: https://nestbox-test.dev.wazo.io/api/auth/0.1/api/api.yml
 
       nestbox-configuration:
         title: Configuration
@@ -104,7 +104,7 @@
         icon: fa fa-cogs
         color: red
         repository: wazo-confd
-        redocUrl: https://nestbox.dev.wazo.io/api/confd/1.0/api/api.yml
+        redocUrl: https://nestbox-test.dev.wazo.io/api/confd/1.0/api/api.yml
 
       nestbox-deployd:
         title: Deployment
@@ -112,7 +112,7 @@
         icon: fa fa-server
         color: orange
         repository: wazo-deployd
-        redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
+        redocUrl: https://nestbox-test.dev.wazo.io/api/deployd/0.1/api/api.yml
 
   - name: Wazo Client SDK - Demo
     modules:
