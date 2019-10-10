@@ -8,8 +8,6 @@ Status: published
 
 *French/Français: La [version française](#french) suit la version anglaise.*
 
-&nbsp;
-
 Hi everyone, long time no see!
 
 We've been quite busy the last few days, but we are pleased to announce the birth of a new project in the world of communications, introducing: [Wazo](http://www.wazo.community).
@@ -61,8 +59,8 @@ We released the first version Wazo 16.16 in December 2016. We release a new vers
 
 &nbsp;
 
-<a name="french"></a>Version française
-======================================
+Version française
+=================
 
 Salut tout le monde, ça fait longtemps!
 
