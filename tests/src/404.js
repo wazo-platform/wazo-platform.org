@@ -66,11 +66,8 @@ const crawlLinks = async (browserPage, url, fromUrl) => {
 
   const links = await getLinks(browserPage, url);
 
-  const filteredLinks = Array.from(new Set(links.filter(link =>
-    link.indexOf('/blog') === -1)));
-
-  for (let i = 0; i < filteredLinks.length; i++) {
-    const link = filteredLinks[i];
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
     if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
       continue;
     }

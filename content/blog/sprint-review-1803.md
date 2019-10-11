@@ -20,7 +20,7 @@ Status: published
 
 ## Technical features
 
-**Asterisk**: Asterisk was updated from 15.2.0 to [15.2.2](https://downloads.asterisk.org/pub/telephony/asterisk/ChangeLog-15.2.2), fixing 6 security issues.
+**Asterisk**: Asterisk was updated from 15.2.0 to 15.2.2, fixing 6 security issues.
 
 
 ## Ongoing features
