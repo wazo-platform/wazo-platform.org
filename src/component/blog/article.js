@@ -15,7 +15,7 @@ export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, ca
         <title>{title} - Wazo Platform</title>
       </Helmet>
 
-      <div className="container main" style={{ padding: '50px 0 70px' }}>
+      <div className="container main" style={{ padding: '50px 15px 70px' }}>
         <div className="head">
           Posted on {formattedDate}  {" "}
           in <Link className="hilite" to="/blog" state={{ filter: { type: 'category', value: category }}}>{category}</Link> {" "}
