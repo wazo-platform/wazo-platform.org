@@ -80,13 +80,11 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
 
   if(!baseUrl) return null;
 
-  let buttonLabel = '';
+  let buttonLabel = 'Validate';
   if (loading) {
     buttonLabel = 'Loading...';
   }else if(apiKey && apiKey.indexOf(':') === -1){
     buttonLabel = 'Reset';
-  } else if(apiKey){
-    buttonLabel = 'Validate';
   }
 
   return (
@@ -167,7 +165,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           <div className="list-group" style={{ margin: '60px 20px 60px 0' }}>
             {Object.keys(modules).map(m => {
               
-              return <Link key={m} to={`/documentation/console/${m}`} className={`list-group-item list-group-item-action ${m === moduleName ? 'disabled' : ''}`}>
+              return modules[m].redocUrl && <Link key={m} to={`/documentation/console/${m}`} className={`list-group-item list-group-item-action ${m === moduleName ? 'disabled' : ''}`}>
                 {modules[m].title}
                 <div style={styles.subtitle}>{modules[m].repository}</div>
               </Link>
