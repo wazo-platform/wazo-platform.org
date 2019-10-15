@@ -7,7 +7,7 @@ const testedUrl = [];
 // Chrome headless can't open these format:
 const EXCLUDED_EXTENSIONS = ['yml'];
 
-const checkUrl = async (browserPage, url, fromUrl) => {
+const checkUrl = async (browser, url, fromUrl) => {
   if (testedUrl.indexOf(url) !== -1) {
     return true;
   }
@@ -15,6 +15,7 @@ const checkUrl = async (browserPage, url, fromUrl) => {
 
   const extensionParts = url.split('.');
   const extension = extensionParts[extensionParts.length -1];
+  const isUrlLocal = url.indexOf(baseUrl) !== -1;
 
   if (EXCLUDED_EXTENSIONS.indexOf(extension) !== -1) {
     return true;
@@ -29,6 +30,9 @@ const checkUrl = async (browserPage, url, fromUrl) => {
 
   try {
     let response = null;
+    const browserPage = await browser.newPage();
+    let result = true;
+
     browserPage.on('response', res => {
       if (res.url().indexOf('favicon.ico') === -1) {
         response = res;
@@ -41,50 +45,31 @@ const checkUrl = async (browserPage, url, fromUrl) => {
       throw new Error(`status ${response.status()}`);
     }
 
-    return true;
+    let links = await browserPage.evaluate(
+      () =>
+        Array.from(document.getElementsByTagName('a')).map(node => node.href));
+
+    for (let i = 0; i < links.length; i++) {
+      const link = links[i];
+      if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
+        continue;
+      }
+
+      // Do not crawl external link in external url
+      if (!isUrlLocal && link.indexOf(baseUrl) === -1) {
+        continue;
+      }
+
+      result = await checkUrl(browser, link, url) && result;
+    }
+
+    browserPage.close();
+
+    return result;
   } catch (err) {
     console.error(`Error in ${url} (from ${fromUrl}): ${err}`);
     return false;
   }
-};
-
-const getLinks = async (browserPage, url) => {
-  try {
-    return await browserPage.evaluate(
-      () =>
-        Array.from(document.getElementsByTagName('a')).map(node => node.href));
-  } catch (err) {
-    console.error(`Unable to parse ${url}`);
-    return []
-  }
-}
-const crawlLinks = async (browserPage, url, fromUrl) => {
-  const isUrlLocal = url.indexOf(baseUrl) !== -1;
-  console.log(`Checking URLs in ${url} (from: ${fromUrl}) ...`);
-
-  let hasError = !(await checkUrl(browserPage, url, fromUrl));
-
-  const links = await getLinks(browserPage, url);
-
-  for (let i = 0; i < links.length; i++) {
-    const link = links[i];
-    if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
-      continue;
-    }
-
-    // Do not crawl external link in external url
-    if (!isUrlLocal && link.indexOf(baseUrl) === -1) {
-      continue;
-    }
-
-    if (!(await checkUrl(browserPage, link, url))) {
-      hasError = true;
-    }
-
-    hasError = hasError || (await crawlLinks(browserPage, link, url));
-  }
-
-  return hasError;
 };
 
 (async () => {
@@ -92,8 +77,7 @@ const crawlLinks = async (browserPage, url, fromUrl) => {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
-  const browserPage = await browser.newPage();
-  const hasError = await crawlLinks(browserPage, baseUrl, baseUrl);
+  const hasError = await checkUrl(browser, baseUrl, baseUrl);
 
   await browser.close();
   const errorCode = hasError ? 1 : 0;
