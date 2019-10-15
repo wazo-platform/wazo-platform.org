@@ -24,7 +24,7 @@ New features in this sprint
 Technical features
 ------------------
 
-**Asterisk**: Asterisk was updated from 14.4.0 to [14.5.0](https://downloads.asterisk.org/pub/telephony/asterisk/ChangeLog-14.5.0)
+**Asterisk**: Asterisk was updated from 14.4.0 to 14.5.0
 
 Ongoing features
 ----------------

@@ -115,5 +115,5 @@ External Links
 
 -   [Official python
     documentation](http://docs.python.org/library/profile.html)
--   [PyMOTW](http://blog.doughellmann.com/2008/08/pymotw-profile-cprofile-pstats.html)
+-   [PyMOTW](https://doughellmann.com/blog/2008/08/31/pymotw-profile-cprofile-pstats/)
 -   [coverage.py](http://nedbatchelder.com/code/coverage/)

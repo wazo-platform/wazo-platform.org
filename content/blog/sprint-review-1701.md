@@ -24,7 +24,7 @@ Technical features
 
 **Consul**: Consul was upgraded to [0.7.2](https://github.com/hashicorp/consul/blob/v0.7.2/CHANGELOG.md). We also removed the management of authentication tokens from Consul and used good old PostgreSQL instead. So Consul now only serves for service discovery, which is useful when connecting multiple Wazo together.
 
-**LibPRI**: LibPRI was upgraded to [1.5.0](http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.5.0-summary.html).
+**LibPRI**: LibPRI was upgraded to 1.5.0
 
 ---
 

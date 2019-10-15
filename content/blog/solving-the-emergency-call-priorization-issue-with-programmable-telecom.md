@@ -53,13 +53,13 @@ Our initial plan was that, during a call, we would:
 Unfortunately, it was not possible to do this, based directly on Asterisk. Still, there were existing alternative ways to proceed: 
 
 - through EAGI;
-- through a project that can be found on GitHub: <https://github.com/CyCoreSystems/audiosocket>;
-- through Freeswitch: <https://github.com/Nexmo/wsbridge>;
+- through a project that can be found on GitHub: https://github.com/CyCoreSystems/audiosocket;
+- through Freeswitch: https://github.com/Nexmo/wsbridge;
 
 We were not happy with these ways to proceed because it was using the dialplan, and because the offered solutions were not in line with the spirit of the Wazo programmable platform. We decided to write a module in Asterisk to retrieve the voice feed in a websocket.
-For those who can’t wait, this module can be found here: <https://github.com/sboily/wazo-hackathon-asterisk-stream-module>
+For those who can’t wait, this module can be found here: https://github.com/sboily/wazo-hackathon-asterisk-stream-module
 
-Meanwhile, the other team was looking for the right transcription engine. Google Speech appeared as a fine solution for our purpose. We had to detail here to the team some Wazo components and explain how to insert the module. The impatient person can find the module source here: <https://github.com/sboily/wazo-hackathon-wazo-ctid-module>
+Meanwhile, the other team was looking for the right transcription engine. Google Speech appeared as a fine solution for our purpose. We had to detail here to the team some Wazo components and explain how to insert the module. The impatient person can find the module source here: https://github.com/sboily/wazo-hackathon-wazo-ctid-module
 
 We then regrouped to draw this wonderful Miró-style piece of art:
 
