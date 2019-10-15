@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
-import SwaggerUI from 'swagger-ui-react';
 import { Link } from 'gatsby';
 import 'swagger-ui-react/swagger-ui.css';
 import { useCookies } from 'react-cookie';
@@ -78,7 +77,12 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if(!baseUrl) return null;
+  let SwaggerUI = null;
+  if (typeof window !== `undefined`) {
+    SwaggerUI = require('swagger-ui-react').default;
+  }
+
+  if(!baseUrl || !SwaggerUI) return <div>Empety</div>;
 
   let buttonLabel = 'Validate';
   if (loading) {
@@ -172,7 +176,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             })}
           </div>
           <div style={{ position: 'relative', flex: 1 }}>
-            {!!window && (
+            {SwaggerUI && (
               <SwaggerUI
                 url={`${baseUrl}${url.pathname}`}
                 responseInterceptor={res => {
