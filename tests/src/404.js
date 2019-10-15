@@ -49,6 +49,8 @@ const checkUrl = async (browser, url, fromUrl) => {
       () =>
         Array.from(document.getElementsByTagName('a')).map(node => node.href));
 
+    await browserPage.close();
+
     for (let i = 0; i < links.length; i++) {
       const link = links[i];
       if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
@@ -63,8 +65,6 @@ const checkUrl = async (browser, url, fromUrl) => {
       result = await checkUrl(browser, link, url) && result;
     }
 
-    browserPage.close();
-
     return result;
   } catch (err) {
     console.error(`Error in ${url} (from ${fromUrl}): ${err}`);
@@ -77,11 +77,11 @@ const checkUrl = async (browser, url, fromUrl) => {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
-  const hasError = await checkUrl(browser, baseUrl, baseUrl);
+  const ok = await checkUrl(browser, baseUrl, baseUrl);
 
   await browser.close();
-  const errorCode = hasError ? 1 : 0;
+  const errorCode = ok ? 0 : 1;
 
   console.log(`Checking 404s exiting : ${errorCode}`);
-  process.exit(hasError ? 1 : 0);
+  process.exit(errorCode);
 })();
