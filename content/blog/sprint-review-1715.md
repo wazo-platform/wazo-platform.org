@@ -17,7 +17,7 @@ We are looking for beta testers for the Wazo Zapier plugin. You can click this [
 
 ## Important bug fix
 
-**Web client**: Wazo servers installed or upgraded on 17.14 between October 10 and October 24 2017 are incompatible with Web clients such as [Unicom](https://phone.wazo.communiy). We released a fixed version on October 24 to fix Wazo 17.14. Wazo 17.15 also fixes the issue.
+**Web client**: Wazo servers installed or upgraded on 17.14 between October 10 and October 24 2017 are incompatible with Web clients such as [Unicom](https://phone.wazo.community). We released a fixed version on October 24 to fix Wazo 17.14. Wazo 17.15 also fixes the issue.
 
 
 ## New features in this sprint

@@ -11,7 +11,7 @@ Hello Wazo community! Here comes the release of Wazo 17.07!
 New features in this sprint
 ---------------------------
 
-**Admin UI**: The new web interface based on our REST API is now available for preview. See [Wazo admin UI](wazo-admin-ui.html)
+**Admin UI**: The new web interface based on our REST API is now available for preview. See [Wazo admin UI](wazo-admin-ui)
 
 **Admin UI**: IVR can now be managed from the admin UI
 

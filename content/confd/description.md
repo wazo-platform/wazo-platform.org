@@ -47,7 +47,7 @@ Configuring and managing PBX part of Wazo Platform.
 
 ## API documentation
 
-The REST API for wazo-confd is available [here](http://developers.wazo.io/api/configuration.html)
+The REST API for wazo-confd is available [here](/documentation/api/configuration.html)
 
 ## Related
 

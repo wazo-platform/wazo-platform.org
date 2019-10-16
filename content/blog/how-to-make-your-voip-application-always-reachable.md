@@ -23,7 +23,7 @@ This solution is a first good step, but the user experience is very poor. Notifi
 
 ## Apple and Google to the Rescue
 
-Hopefully, mobile application framework providers see the lack of features and introduced [CallKit](https://developer.apple.com/videos/play/wwdc2016/230/) for iOS and ConnectionService for Android. These frameworks can be used to display the native incoming call UI of the system, interact with Bluetooth and phone systems in cars (Android Auto and CarPlay).
+Hopefully, mobile application framework providers see the lack of features and introduced [CallKit](https://developer.apple.com/documentation/callkit) for iOS and [ConnectionService](https://developer.android.com/reference/android/telecom/ConnectionService) for Android. These frameworks can be used to display the native incoming call UI of the system, interact with Bluetooth and phone systems in cars (Android Auto and CarPlay).
 
 At Wazo we use React Native to build our mobile application, the community of developers is very large and we easily found a library called [react-native-callkit](https://github.com/ianlin/react-native-callkit) to handle CallKit on iOS but there was nothing to deal with ConnectionService.
 
@@ -31,7 +31,7 @@ At Wazo we use React Native to build our mobile application, the community of de
 
 A thing I love with Wazo, it's the commitment to its values around FOSS. We use open source everyday and contribute to it. We've [open sourced](https://github.com/wazo-platform/) everything since the beginning of our journey. When we saw the opportunity of developing a software that the community can benefit we've opened our IDE and start coding.
 
-Developing a react-native module in Java is very easy, even if Java was not preferred language, and after 3 days we ended with a working module that integrates all features of ConnectionService. 
+Developing a react-native module in Java is very easy, even if Java was not our preferred language, and after 3 days we ended with a working module that integrates all features of ConnectionService. 
 
 ![ConnectionService](https://user-images.githubusercontent.com/2076632/54477272-c7161080-47dc-11e9-939e-f6d1faa49840.png)
 

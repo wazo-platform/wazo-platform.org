@@ -18,3 +18,6 @@ build:
 
 test:
 	docker-compose up --exit-code-from test test
+
+clean:
+	docker-compose down

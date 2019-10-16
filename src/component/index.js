@@ -31,10 +31,11 @@ export default () => (
       <div className="container">
         <h2 className="title text-center">Why Wazo Platform?</h2>
         <p className="intro">
-          Programmable is the new paradigm in the Telecom industry. Programmable telecom allows you to build the solution
-          you need, aligned with your business and technical constraints, not the one vendors want you to buy. However,
-          it's today impossible to find the perfect platform to rely on. Based on core Open Source components, Wazo Platform
-          aims to provide all the building blocks to create a full-featured, carrier grade, Programmable Telecom Infrastructure.
+          Programmable is the new paradigm in the Telecom industry. Programmable telecom allows you to build the
+          solution you need, aligned with your business and technical constraints, not the one vendors want you to buy.
+          However, it's today impossible to find the perfect platform to rely on. Based on core Open Source components,
+          Wazo Platform aims to provide all the building blocks to create a full-featured, carrier grade, Programmable
+          Telecom Infrastructure.
         </p>
       </div>
     </section>
@@ -43,12 +44,12 @@ export default () => (
         <h2 className="title text-center">What is Wazo Platform?</h2>
         <p className="intro">
           Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
-          infrastructures. You can pick and choose the components you need to build your infrastructures with
-          class 5 features like audio and video calls, chat, call centers, conferences, voicemail, etc.,
-          and class 4 features like security, routing, load balancing, etc. You can augment the platform and
-          integrate it with your subscription and billing capabilities or any value-added services like
-          Speech to Text, A.I. or sentiment analysis. These communication infrastructures can be deployed and
-          scaled on bare metal, virtual machines or containers.
+          infrastructures. You can pick and choose the components you need to build your infrastructures with class 5
+          features like audio and video calls, chat, call centers, conferences, voicemail, etc., and class 4 features
+          like security, routing, load balancing, etc. You can augment the platform and integrate it with your
+          subscription and billing capabilities or any value-added services like Speech to Text, A.I. or sentiment
+          analysis. These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
+          containers.
           <br />
           <br />
           Wazo Platform is defined by 4 layers:
@@ -73,15 +74,16 @@ export default () => (
             <li>
               Technical layer: the internal services for the Operating System, HTTP, internal messaging, database, ...
               <br />
-              <span className="small">Debian and Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd</span>
+              <span className="small">
+                Debian and Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd
+              </span>
             </li>
           </ul>
         </p>
-        </div>
+      </div>
     </section>
     <section id="three" className="about section">
       <div className="container">
-
         <div className="row">
           <div className="clearfix visible-md" />
           <div className="item col-lg-4 col-md-6 col-12">
@@ -135,7 +137,7 @@ export default () => (
             You may copy, distribute and modify the software as long as you track changes/dates in source files. Any
             modifications to or software including (via compiler) GPL-licensed code must also be made available under
             the GPL along with build & install instructions. More details at{' '}
-            <a href="https://tldrlegal.com/l/gpl-3.0">tldrlegal.com</a>
+            <a href="https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)">tldrlegal.com</a>
           </p>
         </div>
       </div>

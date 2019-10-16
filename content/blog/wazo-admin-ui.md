@@ -36,7 +36,7 @@ This new admin interface also brings its share of features, that were only avail
 
 ## Users with multiline
 
-REST API released in [16.10](sprint-review-1610.html)
+REST API released in 16.10
 
 Until now, users created with the admin interface could only have one line, and one device... The new form for users allows you to add multiple lines to the same user, so that multiple devices ring at the same time, or to mix web-based phones (WebRTC), software phones and conventional physical phones. This kind of setup required the use of call groups, which brought its share of pain for integrators, and multi-line users was a recurrent need.
 
@@ -45,7 +45,7 @@ Until now, users created with the admin interface could only have one line, and 
 
 ## IVR
 
-REST API released in [16.16](sprint-review-1616.html)
+REST API released in [16.16](sprint-review-1616)
 
 Another feature request we've heard often is a graphical form to create simple IVR... Here it is:
 
@@ -53,7 +53,7 @@ Another feature request we've heard often is a graphical form to create simple I
 
 ## Parking lots
 
-REST API released in [17.01](sprint-review-1701.html)
+REST API released in [17.01](sprint-review-1701)
 
 Parking lots is the same feature as the previous parking: put an incoming call on hold in a defined extension, so that someone else can pick up the incoming call later. Except that we can now have multiple ranges of extensions: there was previously only one range (default was 701-749), and we can now create multiple ranges.
 
@@ -61,7 +61,7 @@ Parking lots is the same feature as the previous parking: put an incoming call o
 
 ## CDR
 
-REST API released in [17.06](sprint-review-1706.html)
+REST API released in [17.06](sprint-review-1706)
 
 The current interface is really insufficient for reading call logs: there was only a small CSV file with very few details that is quite hard to query, when looking for a specific call. The CDR plugin brings a clearer view of call logs.
 

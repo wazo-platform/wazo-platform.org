@@ -10,6 +10,12 @@
     pre-run: pre.yaml
     run: run.yaml
 
+- job:
+    name: yarn-build-test
+    description: Build and publish
+    pre-run: pre.yaml
+    run: run-test.yaml
+
 - project:
     check:
       jobs:
@@ -18,6 +24,10 @@
     gate:
       jobs:
         - yarn-build-copy:
+            nodeset: debian10-vm
+    experimental:
+      jobs:
+        - yarn-build-test:
             nodeset: debian10-vm
     post:
       jobs:
