@@ -222,6 +222,12 @@ section.console{
   pre{
     background: rgba(0,0,0,.05)
   }
+  .loading {
+    height: 50vh;
+    display: flex;
+    align-items: 50%;
+    justify-content: 50%;
+  }
 }
 
 body.documentation {

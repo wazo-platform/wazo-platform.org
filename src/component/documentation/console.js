@@ -45,7 +45,13 @@ const styles = {
   },
   normal: {
     ...shared,
-  }
+  },
+  loading: {
+    height: '50vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }
 
 const getServiceName = (raw) => {
@@ -57,7 +63,7 @@ const getServiceName = (raw) => {
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
-  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl);
+  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || url);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [scrollPos, setScrollPos] = useState(null);
@@ -78,11 +84,9 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   }, []);
 
   let SwaggerUI = null;
-  if (typeof window !== `undefined`) {
+  if (typeof window !== `undefined` && !SwaggerUI) {
     SwaggerUI = require('swagger-ui-react').default;
   }
-
-  if(!baseUrl || !SwaggerUI) return <div>Empety</div>;
 
   let buttonLabel = 'Validate';
   if (loading) {
@@ -97,7 +101,13 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
         <title>Console - {module.title}</title>
       </Helmet>
 
-      <section id="console" className="console section">
+      {!baseUrl && <div style={styles.loading}>
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>}
+
+      {baseUrl && <section id="console" className="console section">
         <div
           style={scrollPos > 60 ? styles.fixed : styles.normal}
         >
@@ -213,7 +223,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             )}
           </div>
         </div>
-      </section>
+      </section>}
     </Layout>
   );
 }
