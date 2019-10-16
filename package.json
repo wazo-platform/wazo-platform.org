@@ -22,6 +22,7 @@
     "js-yaml": "^3.13.1",
     "mobx": "^4.2.0",
     "react": "^16.8.6",
+    "react-cookie": "^4.0.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-in-viewport": "0.0.37",
@@ -31,7 +32,8 @@
     "showdown": "^1.9.0",
     "stickyfill": "^1.1.1-strict",
     "striptags": "^3.1.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "swagger-ui-react": "^3.23.11"
   },
   "devDependencies": {
     "gatsby-plugin-sass": "^2.1.0",

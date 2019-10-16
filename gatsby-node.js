@@ -206,6 +206,17 @@ exports.createPages = async ({ actions: { createPage } }) => {
     )
   );
 
+  // Create console pages
+  sections.forEach(section =>
+    Object.keys(section.modules).forEach(moduleName =>
+      !!section.modules[moduleName].redocUrl && newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+        moduleName,
+        module: section.modules[moduleName],
+        modules: section.modules
+      })
+    )
+  );
+
   // Create overview pages
   Object.keys(allModules).forEach(moduleName => {
     const module = allModules[moduleName];

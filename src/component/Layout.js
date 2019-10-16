@@ -92,7 +92,6 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </div>
           </div>
         )}
-
         {children}
       </div>
 
