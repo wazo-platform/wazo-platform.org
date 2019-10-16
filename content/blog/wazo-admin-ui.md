@@ -36,7 +36,7 @@ This new admin interface also brings its share of features, that were only avail
 
 ## Users with multiline
 
-REST API released in [16.10](sprint-review-1610)
+REST API released in 16.10
 
 Until now, users created with the admin interface could only have one line, and one device... The new form for users allows you to add multiple lines to the same user, so that multiple devices ring at the same time, or to mix web-based phones (WebRTC), software phones and conventional physical phones. This kind of setup required the use of call groups, which brought its share of pain for integrators, and multi-line users was a recurrent need.
 
