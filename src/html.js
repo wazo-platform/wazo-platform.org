@@ -13,14 +13,14 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-        <script type="text/javascript" src="/prism.js" />
+        <script type="text/javascript" src="/js/prism.js" />
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossOrigin="anonymous"></script>
         <script
           type="text/javascript"
           src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56722061-8"></script>
-        <script type="text/javascript" src="/main.js" defer />
+        <script type="text/javascript" src="/js/main.js" defer />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

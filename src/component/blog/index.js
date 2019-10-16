@@ -39,7 +39,7 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
     }
 
     setArticles(a);
-  }, [filter])
+  }, [filter, articlesRaw])
 
   return (
     <Layout pageTitle="Blog" section="blog" className="blog">
@@ -48,7 +48,7 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
       </Helmet>
 
       <div className="container">
-        {filter.type && <div className="filter">Filtering by {filter.type}: {filter.value} <a href="#" onClick={() => setFilter({})}>Reset filter</a></div>}
+        {filter.type && <div className="filter">Filtering by {filter.type}: {filter.value} <div onClick={() => setFilter({})}>Reset filter</div></div>}
         <div className="articles">
           {articles.map(({ title, slug, date: dateRaw, author, category, tags: tagsRaw, summary }) => {
             const date = new Date(dateRaw);
