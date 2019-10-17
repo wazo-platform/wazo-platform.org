@@ -191,8 +191,8 @@ Standard files:
 
 ### File naming
 
--   PID file: `/var/run/wazo-confd/wazo-confd.pid`
--   WSGI socket file: `/var/run/wazo-confd/wazo-confd.sock`
+-   PID file: `/run/wazo-confd/wazo-confd.pid`
+-   WSGI socket file: `/run/wazo-confd/wazo-confd.sock`
 -   Config file: `/etc/wazo-confd/config.yml`
 -   Log file: `/var/log/wazo-confd.log`
 -   Static data files: `/usr/share/wazo-confd`
