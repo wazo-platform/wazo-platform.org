@@ -63,7 +63,7 @@ const getServiceName = (raw) => {
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
-  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || url);
+  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || url.origin);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [scrollPos, setScrollPos] = useState(null);
