@@ -60,10 +60,16 @@ const getServiceName = (raw) => {
   return path[2];
 }
 
+const defaultBaseUrl = 'http://openapi.wazo.community';
+
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
-  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || url.origin);
+
+  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl);
+  const [tempPathname, setTempPathname] = useState(url.pathname);
+  const [pathname, setPathname] = useState(tempPathname);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [scrollPos, setScrollPos] = useState(null);
@@ -71,12 +77,6 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   const handleScroll = () => {
     setScrollPos(window.scrollY);
   }
-
-  useEffect(() => {
-    if (!baseUrl) {
-      setCookie('baseUrl', url.origin);
-    }
-  }, [baseUrl, setCookie, url.origin]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -101,21 +101,16 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
         <title>Console - {module.title}</title>
       </Helmet>
 
-      {!baseUrl && <div style={styles.loading}>
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>}
-
-      {baseUrl && <section id="console" className="console section">
+      <section id="console" className="console section">
         <div
           style={scrollPos > 60 ? styles.fixed : styles.normal}
         >
             <input
               onChange={e => setTempBaseUrl(e.target.value)}
-              onBlur={() => setCookie('baseUrl', tempBaseUrl || url.origin)}
+              onBlur={() => setCookie('baseUrl', tempBaseUrl)}
               id="input_baseUrl"
               name="baseUrl"
+              placeholder="https://<YOUR_WAZO_IP>"
               type="text"
               className="form-control"
               style={styles.input}
@@ -123,12 +118,14 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             />
 
             <input
+              onChange={e => setTempPathname(e.target.value)}
+              onBlur={() => setPathname(tempPathname)}
               id="input_pathname"
               name="pathname"
               className="form-control"
               type="text"
               style={styles.input}
-              value={url.pathname}
+              value={tempPathname}
               disabled
             />
 
@@ -141,39 +138,46 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
               style={styles.input}
               onChange={e => setCookie('apiKey', e.target.value)}
               value={apiKey}
+              disabled={!tempBaseUrl}
             />
-          <button className="btn btn-primary btn-sm" type="button" id="explore" disabled={apiKey === '' || loading} onClick={() => {
-            if(apiKey.indexOf(':') === -1) {
-              setError(null);
-              setCookie('apiKey', '');
-              return;
-            };
-            const authURL = new URL(modules.authentication.redocUrl);
-            const auth = authURL.pathname.split('/'); 
-            setLoading(true);
-            fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
-              method: 'POST',
-              headers: {
-                Authorization: "Basic " + btoa(apiKey),
-                accept: 'application/json',
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ expiration: 3600 }),
-            }).then(d => d.json()).then(response => {
-              if(response.data && response.data.token) {
-                setCookie('apiKey', response.data.token);
+          <button
+            className="btn btn-primary btn-sm"
+            type="button"
+            id="explore"
+            disabled={apiKey === '' || loading || !tempBaseUrl}
+            onClick={() => {
+              if(apiKey.indexOf(':') === -1) {
+                setError(null);
+                setCookie('apiKey', '');
+                return;
+              };
+              const authURL = new URL(modules.authentication.redocUrl);
+              const auth = authURL.pathname.split('/'); 
+              setLoading(true);
+              fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
+                method: 'POST',
+                headers: {
+                  Authorization: "Basic " + btoa(apiKey),
+                  accept: 'application/json',
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ expiration: 3600 }),
+              }).then(d => d.json()).then(response => {
+                if(response.data && response.data.token) {
+                  setCookie('apiKey', response.data.token);
+                  setLoading(false);
+                } else {
+                  throw new Error((response.reason && response.reason[0]) || 'Unknown Error')
+                }
+              })
+              .catch(e => {
+                console.warn(e);
                 setLoading(false);
-              } else {
-                throw new Error((response.reason && response.reason[0]) || 'Unknown Error')
-              }
-            })
-            .catch(e => {
-              console.warn(e);
-              setLoading(false);
-              setCookie('apiKey', '');
-              setError(e);
-            });
-          }}>{buttonLabel}</button>
+                setCookie('apiKey', '');
+                setError(e);
+              });
+            }}
+          >{buttonLabel}</button>
         </div>
         <div className="container" style={{ display: 'flex' }}>
           <div className="list-group" style={{ margin: '60px 20px 60px 0' }}>
@@ -188,7 +192,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           <div style={{ position: 'relative', flex: 1 }}>
             {SwaggerUI && (
               <SwaggerUI
-                url={`${baseUrl}${url.pathname}`}
+                url={baseUrl ? `${baseUrl}${pathname}` : `${defaultBaseUrl}/${module.repository}.yml`}
                 responseInterceptor={res => {
                   if (!res.ok) {
                     if(res.body.details && res.body.details.invalid_token){
@@ -202,7 +206,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
                 requestInterceptor={req => {
                   // make sure it starts with /api
                   const url = new URL(req.url);
-                  if (url.pathname.indexOf('/api') === -1) {
+                  if (baseUrl && url.pathname.indexOf('/api') === -1) {
                     req.url = `${url.origin}/api/${getServiceName(module.redocUrl)}${url.pathname}`;
                   }
                   // if there's content in the apiKey field, let's use it
@@ -223,7 +227,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
             )}
           </div>
         </div>
-      </section>}
+      </section>
     </Layout>
   );
 }
