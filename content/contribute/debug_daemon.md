@@ -41,7 +41,7 @@ consul
 ------
 
 ```ShellSession
-$ sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /var/run/consul/consul.pid
+$ sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /run/consul/consul.pid
 ```
 
 Consul logs its output to `/var/log/syslog` to get the output of consul
