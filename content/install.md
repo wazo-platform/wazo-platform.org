@@ -1,9 +1,16 @@
 # Install the Wazo Platform UC use case
 
+## Requirements
+
+- Memory: 2 GiB of memory is a tight minimum
+- Storage: 2.5 GiB of storage is a very tight minimum, 8 GiB is comfortable
+
+## Procedure
+
 To install the Unified Communication use case in an all-in-one
 setup, do the following steps:
 
-1. Install a Debian 10 Buster system
+1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset.
 2. Run the following commands as root on the Debian system to
    provision sudo, git and Ansible:
 
@@ -47,7 +54,7 @@ engine_api_root_password = ****
 # ansible-playbook -i inventories/uc-engine uc-engine.yml
 ```
 
-# Use the REST API
+## Use the REST API
 
 You may now use the REST API from outside your system (here `wazo.example.com`).
 
