@@ -1,37 +1,37 @@
 # wazo-tester - an introduction to our SIP testing tool
 
 ## Introduction
-In a complex microservice VoIP architecture testing the functionalities or stress testing the whole system becomes a complex task especially if we want to run multiple tests and have a sterile environment for every test run without restarting the whole infrastructure every time. Also there is a need for testing the architecture under heavy load but in a randomic way, much more close to the real life usage.
+In a complex microservice VoIP architecture testing the functionalities or stress testing the whole system becomes a complex task especially if we want to run multiple tests and have a sterile environment for every test run without restarting the whole infrastructure every time. Also, there is a need for testing the architecture under heavy load but in a random way, much more close to real-life usage.
 
 With our experience with scalable VoIP infrastructure and a lot of trials and errors, creating a mess with a lot of bash scripts doing different things preparing the environment for launching sipp tests and scenarios we decided to start from a clean slate and redesign or way to do tests.
 
 
 ## The scenario files
-We wanted to have a descriptive method for defining procedures and running tests and came up with simple YAML configuration file with the following root keys:
+We wanted to have a descriptive method for defining procedures and running tests and came up with a simple YAML configuration file with the following root keys:
 * setup
 * teardown
 * workers
 
 ### setup
-Contains a list of actions to perform before the real testing. The parameters are the following:
+It contains a list of actions to perform before the real testing. The parameters are the following:
 - **type**: for now only `api` is implemented which makes a REST API calls towards our `wazo-router-confd`
 
 ### teardown
-Contains a list of actions to perform after the SIP tests. As for the setup key, teardown for now implements only REST API calls. The delete method of the tenant deletes also the other corresponding elements, that's why we use in our example only the deletion for the tenant.
+Contains a list of actions to perform after the SIP tests. As for the setup key, teardown, for now, implements only REST API calls. The delete method of the tenant deletes also the other corresponding elements, that's why we use in our example only the deletion for the tenant.
 
 ### workers
-Contains the list of workers to be created to perform the tests. It supports the following configuration parameters:
+It contains the list of workers to be created to perform the tests. It supports the following configuration parameters:
 
 * **number**: the number of instances to run (defaults to `1`)
 * **repeat**: the number of times this worker should run (defaults to `1`)
 * **timeout**: maximum number of seconds the worker can run before being killed, defaults to `None` (no timeout is enforced)
-* **scenario**: path to the XML sipp scenario to run relative to the YAML configuration file
+* **scenario**: the path to the XML sipp scenario to run relative to the YAML configuration file
 * **delay**: number of ms of delay before running the workers (defaults to `0`)
 * **call_limit**: maximum number of concurrent active calls (`-l` parameter of sipp), defaults to `1`
 * **call_number**: maximum number of calls (`-m` parameter of sipp) (defaults to `1`)
 * **call_rate**: call rate increment (`-r` parameter of sipp) (defaults to `1`)
 * **call\_rate\_period**: call rate period in ms (`-rp` parameter of sipp) (/(defaults to `1000`)
-* **values**: key/value map of numerical or string values to be replaced in the XML tempalte.
+* **values**: key/value map of numerical or string values to be replaced in the XML template.
 
 The parameters which accept numerical values have support for random values expressed as follows:
 ```
@@ -40,7 +40,7 @@ delay:
   max: 2000
 ```
 
-Random values are calculated based on the random machine seed number printed by `wazotester` and configurabile through the `-s` option to make random tests reproducibles.
+Random values are calculated based on the random machine seed number printed by `wazotester` and configurable through the `-s` option to make random tests reproducible.
 
 ### Example
 This is an example YAML file for running a DID test onto our C4 infrastructure testing the routing:
@@ -128,11 +128,11 @@ workers:
 
 As you can observe we launch a bunch of API calls to define a `tenant`, a `domain`, an `ipbx` machine we will route the traffic to and at the end we create a `did` to match all the calls with this regexp `^39040[0-9]+` and route them to our ipbx.
 
-The `worker` part uses a sipp scenario and basically calls a user on this number `39040123456` which will match our did rule and with our Kamailio C4 routing will route the call to our ipbx. The `ipbx` will then respond with a predefined scenario and make the sipp test pass.
+The `worker` part uses a sipp scenario and calls a user on this number `39040123456` which will match our did rule and with our Kamailio C4 routing will route the call to our ipbx. The `ipbx` will then respond with a predefined scenario and make the sipp test pass.
 
 The `scenario` file is a template sipp XML file which we parse with python and substitute the `values` defined in the `workers` part of our YAML. 
 
-For example the `%(to_user)s` in our XML example is changed into `39040123456` and only then sipp is run with the generated XML file.
+For example, the `%(to_user)s` in our XML example is changed into `39040123456` and only then sipp is run with the generated XML file.
 
 In this way we avoid using CSV files with sipp `-inf` argument.
 
@@ -144,9 +144,9 @@ In this way we avoid using CSV files with sipp `-inf` argument.
 Or from our repository [wazo-tester](https://github.com/wazo-platform/wazo-tester) using `make venv`, entering the environment with `source venv/bin/activate` and then running `make setup`. `wazotester` is then run within the python3 virtual environment.
 
 
-## Preparing a testing envioronment
+## Preparing a testing environment
   
-The best way to try wazotester is with the Wazo C4 is to run Wazo C4 from our repository [wazo-kamailio-config](https://github.com/wazo-platform/wazo-kamailio-config) using `Docker` with `docker-compose` which runse different containers defined in the `docker-compose.yaml` file.
+The best way to try wazotester is with the Wazo C4 is to run Wazo C4 from our repository [wazo-kamailio-config](https://github.com/wazo-platform/wazo-kamailio-config) using `Docker` with `docker-compose` which runs different containers defined in the `docker-compose.yaml` file.
 
 
 ## Running tests
