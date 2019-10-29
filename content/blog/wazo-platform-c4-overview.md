@@ -1,4 +1,4 @@
-Title: Wazo C4 platform overview
+Title: Wazo Platform C4 overview
 Date: 2019-10-28
 Author: Aleksandar Sosic and Fabio Tranchitella
 Category: Wazo C4
@@ -6,10 +6,10 @@ Tags: wazo
 Slug: wazo-c4-platform-overview
 Status: published
 
-# Wazo C4 platform overview
+# Wazo Platform C4 overview
 
 ## Introduction
-The Wazo platform was thought of as an IPBX programmable solution, built around the famous open source Asterisk framework. To fulfill our vision to bring a complete, open-source, cloud-ready solution for the telecommunication world we knew that the C4 (Class 4) routing and SBC were needed to scale, secure and load balance the traffic to our IPBX solution. Keeping in mind our microservice architecture we also wanted to further strip down some of the Asterisk dependant functionalities and try to use different tools.
+The Wazo project was thought of as an IPBX programmable solution, built around the famous open source Asterisk framework. To fulfill Wazo Platform's vision to bring a complete, open-source, cloud-ready solution for the telecommunication world we knew that the C4 (Class 4) routing and SBC were needed to scale, secure and load balance the traffic to our IPBX solution. Keeping in mind our microservice architecture we also wanted to further strip down some of the Asterisk dependant functionalities and try to use different tools.
 
 ## What is a C4?
 Basically, a C4 soft switch routes traffic between C5 soft switches.
@@ -75,4 +75,4 @@ Our `wazo-kamailio-config` repo uses `wazo-tester` for testing the correct routi
 
 
 ## What still needs to be done?
-We have a long way to go from here. As said this is the first working instance of our C4 for the Wazo platform. Our next steps will be regarding HA and service auto-discovery. We're focused on delivering a cloud-ready solution with all the bells and whistles in the next months. Also, we are working hard with our partners to go in production and gather more feedback from real-word scenarios and user needs.
+We have a long way to go from here. As said this is the first working instance of our C4 for the Wazo Platform. Our next steps will be regarding HA and service auto-discovery. We're focused on delivering a cloud-ready solution with all the bells and whistles in the next months. Also, we are working hard with our partners to go in production and gather more feedback from real-word scenarios and user needs.
