@@ -66,7 +66,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
 
-  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl);
+  const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || '');
   const [tempPathname, setTempPathname] = useState(url.pathname);
   const [pathname, setPathname] = useState(tempPathname);
 
@@ -95,6 +95,46 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
     buttonLabel = 'Reset';
   }
 
+  const validate = () => {
+    if(apiKey && apiKey.indexOf(':') === -1) {
+      setError(null);
+      setCookie('apiKey', '');
+      return;
+    };
+    const authURL = new URL(modules.authentication.redocUrl);
+    const auth = authURL.pathname.split('/'); 
+    setLoading(true);
+    fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
+      method: 'POST',
+      headers: {
+        Authorization: "Basic " + btoa(apiKey),
+        accept: 'application/json',
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ expiration: 3600 }),
+    }).then(d => d.json()).then(response => {
+      if(response.data && response.data.token) {
+        setCookie('apiKey', response.data.token);
+        setLoading(false);
+      } else {
+        throw new Error((response.reason && response.reason[0]) || 'Unknown Error')
+      }
+    })
+    .catch(e => {
+      console.warn(e);
+      setLoading(false);
+      setCookie('apiKey', '');
+      setError(e);
+    });
+  };
+
+  const setBaseUrl = () => {
+    if (tempBaseUrl === '') {
+      setCookie('apiKey', '');
+    }
+    setCookie('baseUrl', tempBaseUrl);
+  }
+
   return (
     <Layout pageTitle={`Console - ${module.title}`} breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
       <Helmet>
@@ -107,7 +147,11 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
         >
             <input
               onChange={e => setTempBaseUrl(e.target.value)}
-              onBlur={() => setCookie('baseUrl', tempBaseUrl)}
+              onBlur={() => setBaseUrl()}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  setBaseUrl();
+                }}}
               id="input_baseUrl"
               name="baseUrl"
               placeholder="https://<YOUR_WAZO_IP>"
@@ -137,46 +181,17 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
               className="form-control"
               style={styles.input}
               onChange={e => setCookie('apiKey', e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  validate();
+                }}}
               value={apiKey}
-              disabled={!tempBaseUrl}
             />
           <button
             className="btn btn-primary btn-sm"
             type="button"
             id="explore"
-            disabled={apiKey === '' || loading || !tempBaseUrl}
-            onClick={() => {
-              if(apiKey.indexOf(':') === -1) {
-                setError(null);
-                setCookie('apiKey', '');
-                return;
-              };
-              const authURL = new URL(modules.authentication.redocUrl);
-              const auth = authURL.pathname.split('/'); 
-              setLoading(true);
-              fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
-                method: 'POST',
-                headers: {
-                  Authorization: "Basic " + btoa(apiKey),
-                  accept: 'application/json',
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ expiration: 3600 }),
-              }).then(d => d.json()).then(response => {
-                if(response.data && response.data.token) {
-                  setCookie('apiKey', response.data.token);
-                  setLoading(false);
-                } else {
-                  throw new Error((response.reason && response.reason[0]) || 'Unknown Error')
-                }
-              })
-              .catch(e => {
-                console.warn(e);
-                setLoading(false);
-                setCookie('apiKey', '');
-                setError(e);
-              });
-            }}
+            onClick={() => validate()}
           >{buttonLabel}</button>
         </div>
         <div className="container" style={{ display: 'flex' }}>
