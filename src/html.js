@@ -20,6 +20,7 @@ export default function HTML(props) {
           src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56722061-8"></script>
+        <meta name="google-site-verification" content="VfXUU25hamqC0zHjgxvyVDPk8CqGiWjLSRFE8BZ1mmE" />
         <script type="text/javascript" src="/js/main.js" defer />
       </head>
       <body {...props.bodyAttributes}>
