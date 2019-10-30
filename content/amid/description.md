@@ -22,4 +22,4 @@ The REST API for wazo-ami is available [here](/documentation/api/amid.html)
 ## Related
 
 * [wazo-amid](https://github.com/wazo-platform/wazo-amid)
-* [xivo-amid-client](https://github.com/wazo-platform/xivo-amid-client)
+* [wazo-amid-client](https://github.com/wazo-platform/wazo-amid-client)
