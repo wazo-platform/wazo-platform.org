@@ -1,12 +1,12 @@
-Title: Wazo C4 platform overview
+Title: Wazo Platform C4 overview
 Date: 2019-10-28
 Author: Aleksandar Sosic and Fabio Tranchitella
 Category: Wazo C4
 Tags: wazo
-Slug: wazo-c4-platform-overview
+Slug: wazo-platform-c4-overview
 Status: published
 
-# Wazo C4 platform overview
+# Wazo Platform C4 overview
 
 ## Introduction
 
@@ -39,7 +39,7 @@ C4 softswiches provide intelligent call routing, which reduces congestion, laten
 
 Wazo Platform aims to offer to service providers, entreprises and digital natives a coherent and complete reference platform for the design, deployment and management of a telecom infrastructure that can support very large volumes of simultaneous calls by interconnecting millions of users.
 
-The solution must be to handle mission-critical needs by providing robust and efficient mechanisms for availability and scalability.
+The solution must be able to handle mission-critical needs by providing robust and efficient mechanisms for availability and scalability.
 
 
 
