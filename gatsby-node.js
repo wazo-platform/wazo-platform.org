@@ -143,7 +143,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // Generate puml to svg
   console.info(`generating svg diagrams in ${diagramOutputDir}...`);
   execSync(
-    `set -e; for f in $(find content -name '*.puml'); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
+    `set -e; cp content/plantuml/* ${diagramOutputDir}/; for f in $(find content -name '*.puml'|grep -v /plantuml/); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
   );
   console.info(`done generating svg diagrams`);
 
