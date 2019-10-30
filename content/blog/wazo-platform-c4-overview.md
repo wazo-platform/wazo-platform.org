@@ -10,7 +10,7 @@ Status: published
 
 ## Introduction
 
-Wazo Platform allows you to build your own IP communication infrastructure and deliver innovative communication services. Fully open-source, API-centric, Cloud-native & multi-tenant, the project is designed around the famous open-source frameworks Asterisk & Kamailio. 
+Wazo Platform allows you to build your own IP communication infrastructure and deliver innovative communication services. Fully open-source, API-centric, Cloud-native & multi-tenant, the project is designed around the famous open-source frameworks [Asterisk](https://www.asterisk.org/) & [Kamailio](https://www.kamailio.org/w/). 
 
 If you want to know more about Wazo Platform, we encourage you to discover [Frédéric Lepied's presentation introduced at the Astricon 2019](https://www.slideshare.net/flepied/wazo-platform-astricon19?ref=https://cards-frame.twitter.com/i/cards/tfw/v1/uc/1189258475924328449).
 
