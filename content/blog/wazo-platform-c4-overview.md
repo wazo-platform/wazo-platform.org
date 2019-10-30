@@ -67,7 +67,6 @@ Fraud represents a serious threat to the telecommunication industry. It refers t
 
 One of the key features for our users was to have active protection on denial of service attacks, limit the number of scanners and consequently guarantee adequate resources to provide the basic services.
 
-complete
 
 #### NAT management
 
@@ -93,7 +92,7 @@ Our C4 should support all inbound and outbound media flows in the network infras
 * broadcasting
 * recording
 
-  The SDP protocol ensures the negotiation of codecs.
+ The SDP protocol ensures the negotiation of codecs.
 
 #### Administration and Reporting
 
