@@ -1,5 +1,3 @@
-.PHONY: build
-
 builder:
 	docker-compose build
 
@@ -21,3 +19,8 @@ test:
 
 clean:
 	docker-compose down
+
+import:
+	./import-plantuml.sh
+
+.PHONY: builder build develop format test clean import
