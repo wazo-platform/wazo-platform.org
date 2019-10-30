@@ -1,3 +1,11 @@
+Title: wazo-tester - an introduction to our SIP testing tool
+Date: 2019-10-29
+Author: Aleksandar Sosic
+Category: Wazo C4
+Tags: wazo
+Slug: wazo-tester-introduction
+Status: published
+
 # wazo-tester - an introduction to our SIP testing tool
 
 ## Introduction
