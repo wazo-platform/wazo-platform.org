@@ -33,3 +33,7 @@
       jobs:
         - yarn-build-publish:
             nodeset: debian10-vm
+    periodic:
+      jobs:
+        - yarn-build-test:
+            nodeset: debian10-vm
