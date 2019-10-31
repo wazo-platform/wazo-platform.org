@@ -60,7 +60,7 @@ const getServiceName = (raw) => {
   return path[2];
 }
 
-const defaultBaseUrl = 'http://openapi.wazo.community';
+const defaultBaseUrl = 'https://openapi.wazo.community';
 
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
