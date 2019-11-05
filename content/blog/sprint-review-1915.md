@@ -16,7 +16,7 @@ Here is a short review of the Wazo Platform 19.15 release.
 
 ## Bug fixes
 
-* Presence status: There were some scenarios where the presence status was incorrect, e.g. hanging up a held call. They are now fixed.
+* Presence status: There were some scenarios where the presence status was incorrect, e.g. hanging up a hold call. They are now fixed.
 * Call interception: Up until Wazo Platform 19.15, call interception was enabled for every user through the extension `*8`, e.g. `*81001` for intercepting user 1001. This setting is now disabled by default. The preferred way to setup call interception is to use Interception groups, which define which user can intercept which other user.
 * Call reliance: We fixed a problem with WebRTC calls: sometimes, the call was hungup before even ringing the destination.
 
