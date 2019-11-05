@@ -37,6 +37,8 @@ Your contribution should not break any existing tests and when possible,
 it should add tests for the code you are adding. We use 3 kind of tests.
 unit tests, integration tests and acceptance tests.
 
+If you need to create a new REST API, follow [the REST API guidelines](/contribute/rest).
+
 ## Unit tests
 
 Unittests are small tests that exercise a function or method in your
