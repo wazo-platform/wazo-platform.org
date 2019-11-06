@@ -69,7 +69,7 @@ $ wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_
 Or with curl from anywhere:
 
 ```ShellSession
-$ curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": "3600"}' https://wazo.example.com/api/auth/0.1/token
+$ curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": 3600}' https://wazo.example.com/api/auth/0.1/token
 ```
 
 2. Use any REST API you want, for example, to list the telephony users configured on the system:
