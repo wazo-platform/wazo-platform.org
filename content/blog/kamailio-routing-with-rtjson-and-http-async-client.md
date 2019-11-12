@@ -28,7 +28,7 @@ In order to parse `JSON` response provided by the `API` we use the ubiquitous [`
 
 The [Wazo C4 Router](https://github.com/wazo-platform/wazo-c4-router) is the component responsible for routing SIP messages in the Wazo `class4` infrastructure. The relay of the SIP messages to be routed is managed by the `RELAY_API` route, defined as follows:
 
-```
+```Javascript
 route[RELAY_API] {
     $http_req(all) = $null;
     $http_req(suspend) = 1;
@@ -59,7 +59,7 @@ We specify the current request shall be suspended (`$http_req(suspend) = 1`) and
 
 The response route is straightforward:
 
-```
+```Javascript
 route[RELAY_API_RESPONSE] {
     if ($http_ok && $http_rs == 200) {
         xlog("L_INFO","API ROUTING RESPONSE: $http_rb\n");
@@ -85,7 +85,7 @@ If the status code of the response is `200 Ok` and the response is a valid `JSON
 
 We also support `rtjson`-based routing in outgoing branches thanks to the following `branch_route`:
 
-```
+```Javascript
 branch_route[MANAGE_BRANCH] {
     xdbg("new branch [$T_branch_idx] to $ru\n");
     rtjson_update_branch();
@@ -94,7 +94,7 @@ branch_route[MANAGE_BRANCH] {
 
 In case of branch failure, if the `rtjson` response contained more than one possible destination and we are using `serial routing` (as we do), we can try the next destination:
 
-```
+```Javascript
 failure_route[MANAGE_FAILURE] {
     if (t_is_canceled()) {
         exit;
@@ -116,7 +116,7 @@ The [Wazo Router Confd](https://github.com/wazo-platform/wazo-router-confd) web 
 
 Here you can find an example of the response returned by the API:
 
-```
+```Javascript
 {
   "rtjson": {
     "success": true,
