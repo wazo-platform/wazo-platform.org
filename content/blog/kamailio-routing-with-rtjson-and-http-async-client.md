@@ -2,7 +2,7 @@ Title: Kamailio routing with rtjson and http_async_client
 Date: 2019-11-11
 Author: Fabio Tranchitella
 Category: Wazo C4
-Tags: wazo
+Tags: wazo kamailio routing
 Slug: kamailio-routing-with-rtjson-and-http-async-client
 Status: published
 
