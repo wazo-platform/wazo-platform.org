@@ -39,7 +39,7 @@ modparam("dispatcher", "ds_probing_mode", 1)
 We define the location of the `dispatcher.list` file, which contains the list of routers, managed using XHTTP calls to Kamailio to update the list and reload it, but we omit this part because it is outside the scope of this article. We also define several settings related to the dispatcher module, most notably:
 
 * `flags = 2`, to support failover
-* `force_dst = 1` to overwrite the destinatio URI, even if it is already set
+* `force_dst = 1` to overwrite the destination URI, even if it is already set
 * `ds_ping_interval = 5` to ping the routers every 5 seconds using an `OPTIONS` message as Keep-Alive
 * `xavp_dst` and `xavp_ctx` are the `xavp` variables used to store the result of the selection of destinations by the dispatcher module
 * `ds_probing_mode = 1` to run health checks on all the routers
@@ -109,7 +109,7 @@ For further reference, you can read the complete configuration file of our SBC c
 
 ## Sharing dialogs and htables across the routers using DMQ
 
-In order to be able to failover SIP messages and in-dialog messages across different routers we needed a system to synchronize dialogs, the data structured used by Kamailio to store in-dialog information, as well as the htables vars we use to store the global state of the calls.
+In order to be able to failover SIP messages and in-dialog messages across different routers we needed a system to synchronize dialogs, the data structures used by Kamailio to store in-dialog information, as well as the htables vars we use to store the global state of the calls.
 
 Instead of using an external database to store these pieces of information, we decided to use the [DMQ module](https://kamailio.org/docs/modules/stable/modules/dmq.html). It implements a distributed message bus between Kamailio instances to enable the replication of data between them, allowing the DMQ nodes to communicate with each other by sending/receiving messages (either by broadcast or directly to a specific node). The system transparently deals with node discovery, consistency, retransmissions, etc.
 
@@ -180,3 +180,9 @@ These are the hosts involved in the call:
 The `Router 1` dies during the call and the `BYE` message sent by the carrier times out as the router doesn't `ACK` it.
 After a few tries, the `SBC` triggers failover and forwards the `BYE` message to `Router 2` which handles the termination of the call.
 The whole failover process is totally transparent from both the `Carrier` and the `Termination IPBX` point of view.
+
+# Conclusions
+
+As we're focused on delivering a cloud-native telecom solution with all the bells and whistles in the next months, scalability and high availability represent some of the fundamental features in our roadmap.
+
+We are going to publish new articles about the HA features of the Wazo Platform C4 in the next weeks. Stay tuned!
