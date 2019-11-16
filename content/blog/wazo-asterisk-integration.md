@@ -121,7 +121,7 @@ configuration and these files will not be modified during an upgrade.
 
 Here's a summary of what happens when Asterisk starts, and what configuration
 files will be read on Wazo. Thanks to J Az from the
-[Wazo forum](http://projects.wazo.community/projects/xivo/boards) for this
+[Wazo forum](https://wazo-platform.discourse.group) for this
 diagram!
 
 ![Asterisk configuration read flow](/images/blog/wazo-asterisk-integration/asterisk-read-config.svg)

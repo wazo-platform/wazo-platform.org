@@ -47,7 +47,7 @@ Ngrok also allows you to inspect traffic going through the tunnel from its manag
 
 You can now discover and enjoy the simplicity of Wazo and Ngrok.
 
-Do not be shy and get in touch with us to give your feedback [on our forums](https://projects.wazo.community/projects/1/boards/1).
+Do not be shy and get in touch with us to give your feedback [on our forums](https://wazo-platform.discourse.group).
 
 Keep your Wazo squeaking!
 

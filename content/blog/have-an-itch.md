@@ -29,7 +29,7 @@ to see how we can work together and contribute to the future of Wazo.
 
 No taboos, everything can be discussed...
 
-Join us on the [forum](https://projects.wazo.community/boards/1/topics/8911)
+Join us on the [forum](https://wazo-platform.discourse.group)
 or in private: contact@wazo.community
 
 
@@ -57,5 +57,5 @@ pour contribuer au futur de Wazo.
 
 Il n'y a pas de tabous, tous les sujets peuvent êtres abordés...
 
-Joignez-nous sur le [forum](https://projects.wazo.community/boards/8/topics/8915)
+Joignez-nous sur le [forum](https://wazo-platform.discourse.group)
 ou en privé: contact@wazo.community
