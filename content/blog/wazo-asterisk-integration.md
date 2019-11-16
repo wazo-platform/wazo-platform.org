@@ -2,7 +2,7 @@ Title: How to configure Asterisk when Wazo does not implement a functionality
 Date: 2017-02-22
 Author: The Wazo Authors
 Category: Wazo IPBX
-Tags: wazo asterisk
+Tags: wazo, asterisk
 Slug: wazo-asterisk-integration
 Status: published
 
