@@ -109,6 +109,6 @@ Exemple avancé:
 
 J'espère que cette information vous sera utile et vous permettra de mieux comprendre ce que vous allez pouvoir faire avec Wazo très bientôt !
 
-N'hésitez pas à communiquer avec nous et nous remonter vos remarques sur [le forum Wazo](https://projects.wazo.community/projects/1/boards/8).
+N'hésitez pas à communiquer avec nous et nous remonter vos remarques sur [le forum Wazo](https://wazo-platform.discourse.group).
 
 /sylvain

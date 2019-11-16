@@ -128,7 +128,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
                 <h2>Contact</h2>
                 <ul>
                   <li>
-                    <a href="https://projects.wazo.community/projects/1/boards">Forum</a>
+                    <a href="https://wazo-platform.discourse.group">Forum</a>
                   </li>
                   <li>
                     <a href="https://wazo-dev.atlassian.net/">Bug tracking</a>

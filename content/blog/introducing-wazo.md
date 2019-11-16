@@ -43,7 +43,7 @@ Be sure that Wazo will keep the spirit of the original XiVO project:
 * a totally free software, pure [GNU GPL](https://www.gnu.org/licenses/gpl-3.0.en.html) project,
 * stable release every 3 weeks,
 * developers can answer your questions,
-* and the most important, an incredible community on the [forums](http://projects.wazo.community/projects/xivo/boards), IRC (#wazo on Freenode) and [Github](https://github.com/wazo-platform)
+* and the most important, an incredible community on the [forums](https://wazo-platform.discourse.group), IRC (#wazo on Freenode) and [Github](https://github.com/wazo-platform)
 
 
 What's next?
@@ -96,7 +96,7 @@ Bien sûr, Wazo garde l'esprit du projet original XiVO:
 * un projet complètement libre en [GNU GPL](https://www.gnu.org/licenses/gpl-3.0.fr.html),
 * une nouvelle version stable toutes les 3 semaines,
 * les développeurs peuvent répondre à vos questions
-* et le plus important, une super communauté sur les [forums](http://projects.wazo.community/projects/xivo/boards), IRC (#wazo sur Freenode) et [Github](https://github.com/wazo-platform)
+* et le plus important, une super communauté sur les [forums](https://wazo-platform.discourse.group), IRC (#wazo sur Freenode) et [Github](https://github.com/wazo-platform)
 
 
 C'est quoi la suite?
