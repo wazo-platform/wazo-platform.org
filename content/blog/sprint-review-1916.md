@@ -12,17 +12,11 @@ Here is a short review of the Wazo Platform 19.16 release.
 
 ## New features in this sprint
 
-
-## Bug fixes
-
-
-## Technical features
-
 * Directories: lookups are now insensitive to accented characters.
 
 ## Ongoing features
 
-* Switchboard: We are working to improve the switchboard call flow response time, because the switchboard user needs the most reactivity from its application. These improvements may also have a positive outcome on non-switchboard calls reactivity as well.
+* Switchboard: We are working to improve the switchboard call flow response time.
 * BLF: The Busy Lamp Field (BLF) of Do Not Disturb mode, call forwards and call filtering are being reimplemented to restore the behavior of Wazo 18.03.
 * Call logs: We are handling more scenarios in the Wazo Platform CDR. We are focused on the call forwarding scenarios, in order to present the correct numbers to users.
 * SBC: We are adding new blocks in Wazo Platform to handle more calls and improve security. Kamailio is the core of those new features and will serve as a Session Border Controller (SBC) and SIP router to multiple Asterisk instances.
@@ -41,4 +35,4 @@ Resources:
 Sources:
 
 * [Upgrade notes](http://documentation.wazo.community/en/stable/upgrade/upgrade_notes.html)
-* [Wazo Platform 19.16 Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10047)
+* [Wazo Platform 19.16 Release notes](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10047)
