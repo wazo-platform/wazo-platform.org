@@ -1,5 +1,5 @@
-Title: Development environment of Wazo-Platform and acceptance tests
-Date: 2019-11-19
+Title: Development environment for Wazo Platform and acceptance tests
+Date: 2019-11-20
 Author: Mehdi Abaakouk
 Category: Wazo Platform
 Tags: wazo-platform, development
@@ -10,24 +10,26 @@ Status: published
 # Run acceptance tests on freshly installed virtual machine
 
 This guide will show how to quickly get a development environment of
-Wazo-Platform inside a virtual machine to run the acceptance tests. To do so,
-we will use libvirt, virt-installer and the Wazo-Platform iso.
+Wazo Platform inside a virtual machine to run the acceptance tests. To do so,
+we will use libvirt, virt-installer and the Wazo Platform iso.
 
 ## Requirements
 
-I currently running Debian buster and installed the following packages:
+I'm currently running Debian Buster and installed the following packages:
 
-```shell
+```ShellSession
 $ sudo apt install libvirt-daemon libvirt-client git virtinst
 ```
 
-## Create a dedicated network for your Wazo-Platform
+Do the equivalent commands for your Linux distribution.
 
-This creates a isolated network, the outgoing traffic will go through my `eno1`
+## Create a dedicated network for your Wazo Platform instance
+
+This creates an isolated network, the outgoing traffic will go through my `eno1`
 network interfaces (don't forget to replace it with your own) thanks to the NAT
 automatically configured by libvirtd.
 
-```shell
+```ShellSession
 cat > wazo-network.xml <<EOF
 <network>
   <name>wazo</name>
@@ -66,9 +68,9 @@ $ sudo virsh net-list --all
 
 ## Install the virtual machine
 
-Download this [preseed.cfg](/blog/preseed.cfg) file to automatically install Debian 10 and run:
+Download this [preseed.cfg](../misc/preseed.cfg) file to automatically install Debian 10 and run:
 
-```
+```ShellSession
 $ sudo virt-install \
      --virt-type kvm \
      --name wazo-acceptance \
@@ -87,18 +89,18 @@ The default login/password are wazo/superpass
 
 Then the Debian installation is finished, the server reboot.
 
-You can retrieve the ip address of the your virtual machine with:
+You can retrieve the IP address of the your virtual machine with:
 
-```
+```ShellSession
 $ sudo virsh net-dhcp-leases wazo
  Expiry Time           MAC address         Protocol   IP address        Hostname          Client ID or DUID
 ----------------------------------------------------------------------------------------------------------------
  2019-07-15 16:48:18   52:54:00:de:45:05   ipv4       10.10.10.150/24   debian            01:52:54:00:de:45:05
 ```
 
-You can continue the installation :
+You can continue the installation:
 
-```
+```ShellSession
 $ ssh wazo@10.10.10.150
 
 # git clone https://github.com/wazo-platform/wazo-ansible.git
@@ -108,14 +110,14 @@ $ ssh wazo@10.10.10.150
 ...
 ```
 
-The Wazo engine is now ready.
+The Wazo Platform engine is now ready.
 
 ## Run acceptance tests
 
-Acceptance tests need the wazo-platform to be configured and some resources
-need to be created, to do so:
+Acceptance tests need the Wazo Platform engine to be configured and
+some resources need to be created, to do so:
 
-```
+```ShellSession
 $ git clone https://github.com/wazo-pbx/wazo-acceptance
 $ cd wazo-acceptance
 $ tox -e setup -- <virtual_machine_ip>
@@ -123,12 +125,12 @@ $ tox -e setup -- <virtual_machine_ip>
 
 Now everything is ready you can run just one test like this:
 
-```
+```ShellSession
 $ tox -e behave -- features/daily/line.feature
 ```
 
 Or run all of them with:
 
-```
+```ShellSession
 $ tox -e behave
 ```
