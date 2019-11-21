@@ -3,9 +3,8 @@ Date: 2019-11-21
 Author: Rémy Garrigue
 Category: Wazo Platform
 Tags: wazo-platform, community
-Slug: community-forum
-Status: draft
-
+Slug: new-community-forum
+Status: published
 
 # New community forum
 
