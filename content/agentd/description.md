@@ -19,7 +19,7 @@ It can do the following actions:
 
 ## API documentation
 
-The REST API for wazo-agentd is available [here](/documentation/api/agent.html)
+The REST API for wazo-agentd is available [here](../documentation/api/agent.html)
 
 ## Related
 
