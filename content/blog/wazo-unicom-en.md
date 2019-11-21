@@ -8,7 +8,7 @@ Status: published
 
 I am asked quite regularly the difference between XiVO and Wazo in terms of features. There are now many, but one of the first that we implemented was simply to provide a completely user-oriented web interface to manage your day to day telephony. The development of this interface was completely web-based, using our APIs and meant to be "cloud" based. It had to be simple to use, easy to set up and mobility was a requirement. Finally Unicom was born.
 
-![unicom.png](/images/blog/wazo-unicom/unicom.png "Unicom")
+![unicom.png](../images/blog/wazo-unicom/unicom.png "Unicom")
 
 # Unicom
 
@@ -23,17 +23,17 @@ Getting started with Unicom is quite simple, visit the [Unicom website](https://
 
 Once on the page, you will be able to simply configure your connection to your Wazo server.
 
-![unicom-menu-configuration.png](/images/blog/wazo-unicom/unicom-menu-configuration.png "Unicom configuration menu")
+![unicom-menu-configuration.png](../images/blog/wazo-unicom/unicom-menu-configuration.png "Unicom configuration menu")
 
 Select the small yellow pen after moving your mouse over the small blue gear at the bottom.
 
-![unicom-configuration.png](/images/blog/wazo-unicom/unicom-configuration.png "Unicom configuration")
+![unicom-configuration.png](../images/blog/wazo-unicom/unicom-configuration.png "Unicom configuration")
 
 In the settings you will simply put the address of your Wazo (`10.41.0.2` in the example). One important point: you can put the public address or the local network address. Unicom is simply a web interface that allows your web browser to communicate directly with your Wazo. No data passes through the machine serving Unicom. Regarding the port, simply put the 443, except if you decide for example to open a specific port from the outside. For example, 8443.
 
 Once your configuration is complete you will only have to connect.
 
-![unicom-login.png](/images/blog/wazo-unicom/unicom-login.png "Unicom login")
+![unicom-login.png](../images/blog/wazo-unicom/unicom-login.png "Unicom login")
 
 The interface is in a single web page and offers all the features expected by a modern telephone system:
 
@@ -47,7 +47,7 @@ The interface is in a single web page and offers all the features expected by a 
 - Call center agent
 - etc.
 
-![unicom-vue.png](/images/blog/wazo-unicom/unicom-vue.png "Unicom view")
+![unicom-vue.png](../images/blog/wazo-unicom/unicom-vue.png "Unicom view")
 
 There are many subtleties in the software. The first being that we support two ways to use your phone. The first way is that Unicom comes to complement your VoIP phone connected to your Wazo. When you are connected to Unicom, if you simply have an X-brand IP phone, you will have all the functionality with the difference that your calls will be controlled and not directly in the interface. (more on that later)
 
@@ -61,7 +61,7 @@ That being said, it's still possible to work in hybrid mode. Well here is anothe
 
 So, how does that work in Unicom? Again it's simple, when you log in, Unicom will detect that you have multiple lines and will ask which one you want to use. If you want to switch to another line, simply reload the page and select another line.
 
-![unicom-choice-lines.png](/images/blog/wazo-unicom/unicom-choice-lines.png "Unicom line selection")
+![unicom-choice-lines.png](../images/blog/wazo-unicom/unicom-choice-lines.png "Unicom line selection")
 
 Finally, in the details that are not visible, but which are of importance, Unicom also supports the chat / presence sharing between your different Wazo servers. If you have two Wazos, for example one in France and one in Canada, you can connect them together and make sure that your users do not feel that there are two systems but only one.
 

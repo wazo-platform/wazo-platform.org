@@ -11,7 +11,7 @@ Mais nous avons encore quelques surprises pour vous au cours des prochains mois 
 
 J'ai donc commencé un travail d'un connecteur sur une plateforme appelée Zapier. Pour ceux qui ne connaissent pas rendez-vous directement sur leur [site web](http://zapier.com) et créez vous un compte pour tester, c'est gratuit.
 
-![zapier.png](/images/blog/wazo-webhook/zapier.png "Zapier website")
+![zapier.png](../images/blog/wazo-webhook/zapier.png "Zapier website")
 
 # Zapier
 
@@ -29,15 +29,15 @@ Le fonctionnement sera alors le suivant: toutes les X minutes, Zapier fera une r
 
 Donc comment cela se configure ? Premièrement vous devez avoir une compte sur la plateforme Zapier, vous allez simplement cliquer sur "MAKE A ZAP" puis vous allez choisir votre application "IN", c'est à dire votre "trigger".
 
-![zapier-trigger.png](/images/blog/wazo-webhook/zapier-trigger.png "Zapier trigger")
+![zapier-trigger.png](../images/blog/wazo-webhook/zapier-trigger.png "Zapier trigger")
 
 Une fois votre choix fait, vous allez simplement choisir les "triggers" disponible.
 
-![zapier-trigger-choice.png](/images/blog/wazo-webhook/zapier-trigger-choice.png "Zapier trigger choice")
+![zapier-trigger-choice.png](../images/blog/wazo-webhook/zapier-trigger-choice.png "Zapier trigger choice")
 
 Puis vous allez créer un compte de connexion entre Zapier et votre Wazo. Attention, un prérequis important: votre Wazo doit être accessible par Zapier sur le port 443 pour accéder aux APIs de Wazo.
 
-![zapier-account.png](/images/blog/wazo-webhook/zapier-account.png "Zapier account")
+![zapier-account.png](../images/blog/wazo-webhook/zapier-account.png "Zapier account")
 
 Une fois votre connexion établie vous n'aurez plus qu'à choisir votre application "OUT", c'est à dire l'action souhaitée. À partir du moment où votre "ZAP" est créé, vous n'avez plus rien à faire: Zapier et Wazo travailleront ensemble et automatiseront votre export. Bien sûr ceci est simplement un exemple, je vous laisse parcourir les centaines d'applications et trouver ce qui vous intéresse le plus.
 
@@ -47,13 +47,13 @@ Il est aussi intéressant d'avoir d'autres ouvertures possibles. Cela m'a amené
 
 Si vous souhaitez avoir plus d'informations sur Mattermost, je vous invite à consulter leur site web [directement](http://mattermost.org). Nous utilisons de notre côté la version communautaire et nous sommes globalement toujours à jour.
 
-![mattermost.png](/images/blog/wazo-webhook/mattermost.png "Mattermost screenshot")
+![mattermost.png](../images/blog/wazo-webhook/mattermost.png "Mattermost screenshot")
 
 Mattermost offre la possibilité comme dans SLACK de faire des webhooks de type "IN" ou "OUT", ça ressemble à Zapier un peu ;). Le webhook de type "IN" est simplement une interface HTTP où l'on va envoyer un message en format JSON. C'est assez basique, mais très simple à mettre en oeuvre.
 
 Pour ce faire, il suffit d'aller dans la console de Mattermost, de choisir "intégrations" et de créer un webhook de type incoming. Vous choisirez alors le canal où vous souhaitez recevoir le message.
 
-![mattermost-webhook.png](/images/blog/wazo-webhook/mattermost-webhook.png "Mattermost webhook")
+![mattermost-webhook.png](../images/blog/wazo-webhook/mattermost-webhook.png "Mattermost webhook")
 
 Un exemple assez simple du message à poster dans votre requête:
 
@@ -68,11 +68,11 @@ Facile :)
 
 Revenons à Wazo ! Comme toujours, quand on développe dans Wazo, il est obligatoire d'offrir une interface REST pour cette fonctionnalité, ce qui permet aussi d'ajouter simplement un plugin dans notre nouvelle interface de gestion.
 
-![wazo-webhook-api.png](/images/blog/wazo-webhook/wazo-webhook-api.png "Wazo webhook API")
+![wazo-webhook-api.png](../images/blog/wazo-webhook/wazo-webhook-api.png "Wazo webhook API")
 
 Dans le cas de Wazo, voici à quoi cela va ressembler.
 
-![wazo-webhook.png](/images/blog/wazo-webhook/wazo-webhook.png "Wazo webhook")
+![wazo-webhook.png](../images/blog/wazo-webhook/wazo-webhook.png "Wazo webhook")
 
 Comment cela fonctionne ? Nous avons pris l'habitude depuis plusieurs années d'envoyer un évènement dans notre bus (basé sur RabbitMQ) à chaque évènement. Ce qui veut dire par exemple que lorsqu'on reçoit un appel sur son téléphone, nous avons un évènement qui est envoyé dans le bus avec comme nom "call_created".
 
@@ -86,7 +86,7 @@ Ouf on y arrive.
 
 Créer le wekhook sur Wazo, il faut le plugin wehbook de Wazo, puis appuyer sur le petit plus pour en ajouter un nouveau.
 
-![wazo-webhook-create.png](/images/blog/wazo-webhook/wazo-webhook-create.png "Wazo webhook create")
+![wazo-webhook-create.png](../images/blog/wazo-webhook/wazo-webhook-create.png "Wazo webhook create")
 
 Vous allez entrer un nom, par exemple "Mattermost call created" puis:
 
@@ -97,7 +97,7 @@ Vous allez entrer un nom, par exemple "Mattermost call created" puis:
 - Users: Vous allez choisir de quel utilisateur vous souhaitez faire un webhook.
 - Template: Notre fameux JSON du dessus.
 
-![wazo-webhook-edit.png](/images/blog/wazo-webhook/wazo-webhook-edit.png "Wazo webhook edit")
+![wazo-webhook-edit.png](../images/blog/wazo-webhook/wazo-webhook-edit.png "Wazo webhook edit")
 
 Les templates sont basés sur des templates Jinja et vous pouvez donc récupérer les informations du message dans votre template en utilisant la syntaxe `{{ payload }}`. Example: `{{ payload.user_uuid }}`.
 
@@ -105,7 +105,7 @@ Une fois votre webhook terminé, il suffira de recevoir et d'émettre un appel e
 
 Exemple avancé:
 
-![mattermost-webhook-example.png](/images/blog/wazo-webhook/mattermost-webhook-example.png "Mattermost webhook example")
+![mattermost-webhook-example.png](../images/blog/wazo-webhook/mattermost-webhook-example.png "Mattermost webhook example")
 
 J'espère que cette information vous sera utile et vous permettra de mieux comprendre ce que vous allez pouvoir faire avec Wazo très bientôt !
 

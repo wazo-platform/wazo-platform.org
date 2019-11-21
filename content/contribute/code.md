@@ -12,7 +12,7 @@ The source code for Wazo Platform is available on
 over 200 repositories. Finding the one you want to contribute to can be a
 daunting task.
 
-The [documentation page](/documentation) can help you find
+The [documentation page](../documentation) can help you find
 which repository you should be working on.
 [Asking for help](#asking-for-help) is always an option when looking at the
 less popular corners of the source code.
@@ -28,16 +28,16 @@ Most of Wazo Platform is written in Python, following the
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
 validate that your code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
-command `tox -e linters`. More details in the [Style Guide](/contribute/style_guide)
+command `tox -e linters`. More details in the [Style Guide](../contribute/style_guide)
 
-Follow the [Guidelines](/contribute/guidelines) to create or improve services.
+Follow the [Guidelines](guidelines) to create or improve services.
 
 Respecting coding standards is not sufficient to warrant quality code.
 Your contribution should not break any existing tests and when possible,
 it should add tests for the code you are adding. We use 3 kind of tests.
 unit tests, integration tests and acceptance tests.
 
-If you need to create a new REST API, follow [the REST API guidelines](/contribute/rest).
+If you need to create a new REST API, follow [the REST API guidelines](rest).
 
 ## Unit tests
 
@@ -91,7 +91,7 @@ After writing your code and checking that it does not break any tests,
 you should try it. The "easiest" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
-engine follow the [install](/install) documentation.
+engine follow the [install](../install) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you take a snapshot of your virtual machine to be
@@ -105,10 +105,10 @@ well as its usage instructions.
 
 ## Debugging and profiling
 
-To debug Asterisk follow [this guide](/contribute/debug_asterisk). To
-debug daemons follow [this guide](/contribute/debug_daemon).
+To debug Asterisk follow [this guide](debug_asterisk). To
+debug daemons follow [this guide](debug_daemon).
 
-To profile python code follow [this guide](/contribute/profile_python).
+To profile python code follow [this guide](profile_python).
 
 # Contributing your code
 

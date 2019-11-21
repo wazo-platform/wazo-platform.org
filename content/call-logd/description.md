@@ -14,7 +14,7 @@ This is service accessible via REST API.
 
 ## API documentation
 
-The REST API for wazo-call-logd is available [here](/documentation/api/cdr.html)
+The REST API for wazo-call-logd is available [here](../documentation/api/cdr.html)
 
 ## Related
 

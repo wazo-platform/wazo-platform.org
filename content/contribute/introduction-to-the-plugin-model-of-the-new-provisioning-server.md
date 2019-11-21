@@ -65,7 +65,7 @@ And to make thing a bit more clear, here's a high level view of what
 happens when an HTTP request is made to the provisioning server:
 
 [![Example HTTP request
-flow](/images/blog/provd/.provd-http-request-flow_m.jpg "Example HTTP request flow, avr. 2011")](/images/blog/provd/provd-http-request-flow.png "Example HTTP request flow")
+flow](../images/blog/provd/.provd-http-request-flow_m.jpg "Example HTTP request flow, avr. 2011")](/images/blog/provd/provd-http-request-flow.png "Example HTTP request flow")
 
 1.  An Aastra 6730i using firmware 2.6.0.2019, with MAC
     XX:XX:XX:XX:XX:XX and IP Y.Y.Y.Y, does an HTTP GET request for

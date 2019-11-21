@@ -23,7 +23,7 @@ It can:
 
 ## API documentation
 
-The REST API for wazo-plugind is available [here](/documentation/api/plugins.html).
+The REST API for wazo-plugind is available [here](../documentation/api/plugins.html).
 
 The bus events are defined [here](https://github.com/wazo-platform/xivo-bus/blob/master/xivo_bus/resources/plugins/events.py).
 
