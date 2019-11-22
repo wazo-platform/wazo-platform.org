@@ -15,7 +15,7 @@ This is service accessible via REST API.
 
 ## API documentation
 
-The REST API for wazo-chatd is available [here](../documentation/api/chat.html)
+The REST API for wazo-chatd is available [here](../api/chat.html)
 
 ## Related
 

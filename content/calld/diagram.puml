@@ -9,10 +9,10 @@ Person(phone, "Phone")
 System_Boundary(calld_system, "Call application") {
     Container(calld_app, "wazo-calld", "Python", "Call application service")
     Container(asterisk, "Asterisk", "C", "Media server")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
-    Container(amid, "wazo-amid", "Python", "AMI proxy service") [["../documentation/overview/amid.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../overview/authentication.html"]]
+    Container(amid, "wazo-amid", "Python", "AMI proxy service") [["../overview/amid.html"]]
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
-    Container(confd, "wazo-confd", "Python", "Configuration service") [["../documentation/overview/configuration.html"]]
+    Container(confd, "wazo-confd", "Python", "Configuration service") [["../overview/configuration.html"]]
 }
 
 ' Relationships

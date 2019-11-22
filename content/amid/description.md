@@ -17,7 +17,7 @@ The `amid` service also proxies the AMI event to our event bus.
 
 ## API documentation
 
-The REST API for wazo-ami is available [here](../documentation/api/amid.html)
+The REST API for wazo-ami is available [here](../api/amid.html)
 
 ## Related
 

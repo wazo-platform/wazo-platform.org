@@ -7,10 +7,10 @@ System_Boundary(chatd_platform, "chatd application"){
     Container(chatd, "wazo-chatd", "Python", "Presentiel and Chat service")
     Container(db, "Postgresql", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../overview/authentication.html"]]
 
-    Container(amid, "wazo-amid", "Python", "") [["../documentation/overview/ami.html"]]
-    Container(confd, "wazo-confd", "Python", "") [["../documentation/overview/configuration.html"]]
+    Container(amid, "wazo-amid", "Python", "") [["../overview/ami.html"]]
+    Container(confd, "wazo-confd", "Python", "") [["../overview/configuration.html"]]
 }
 
 actor User

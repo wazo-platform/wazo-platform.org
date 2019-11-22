@@ -11,7 +11,7 @@ System_Boundary(call_logd_platform, "Call-logd application"){
     Container(call_logd, "wazo-call-logd", "Python", "Call-log service")
     Container(db, "Postgresql", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../overview/authentication.html"]]
 }
 
 actor User
