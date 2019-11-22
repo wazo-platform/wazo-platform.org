@@ -41,9 +41,21 @@ Configuring and managing PBX part of Wazo Platform.
 
 ![confd schema](diagram.svg)
 
-## Example
+## First example
 
 ![confd schema](sequence-diagram.svg)
+
+## Second example: Create a user with a phone and a voicemail
+
+Setup workflow, details to create resources as described afterward:
+
+* First, associate a `line` to an `extension ;
+* Then, associate an `user` to the `line` ;
+* Then associate an `endpoint` with the `line` ;
+* Then associate a `device` with the `line` ;
+* Finally, associate `voicemail` to the `user`.
+
+![confd example sequence schema](use-case-user-with-phone-and-voicemail.svg)
 
 ## API documentation
 
@@ -61,3 +73,7 @@ Create a user with a phone and a voicemail
 * [wazo-confd-client](https://github.com/wazo-platform/wazo-confd-client)
 * [wazo-provd](https://github.com/wazo-platform/wazo-provd)
 * [xivo-sysconfd](https://github.com/wazo-platform/xivo-sysconfd)
+
+## See also
+
+* [Dev notes](configuration-core.html)

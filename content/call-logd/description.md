@@ -19,3 +19,7 @@ The REST API for wazo-call-logd is available [here](../api/cdr.html)
 ## Related
 
 * [wazo-auth](https://github.com/wazo-platform/wazo-auth)
+
+## See also
+
+* [Admin notes](cdr-admin.html)

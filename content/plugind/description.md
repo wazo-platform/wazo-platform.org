@@ -58,3 +58,7 @@ The generated Debian packages have the following names `wazo-plugind-<plugin nam
 ## Related
  
 [wazo-auth](authentication.html)
+
+## See also
+
+* [Admin notes](plugins-admin.html)

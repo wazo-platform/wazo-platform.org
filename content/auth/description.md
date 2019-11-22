@@ -101,3 +101,8 @@ add a schema here http://documentation.wazo.community/en/latest/_images/service_
 
 Wazo services directly use this system to communicate with each other, as you can see in their Web
 Services Access.
+
+## See also
+
+* [Admin notes](authentication-admin.html)
+* [Dev notes](authentication-admin.html)

@@ -71,3 +71,7 @@ it anyway, you must delete the device and restart it manually.
 * [wazo-amid](amid.html)
 * [wazo-auth](authentication.html)
 * [wazo-confd](configuration.html)
+
+## See also
+
+* [Admin notes](provisioning-admin.html)

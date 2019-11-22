@@ -249,7 +249,7 @@ of fail2ban. See the fail2ban(1) man page for more information.
 Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
 of official plugins which are compatible:
 
-```
+```ShellSession
 +------------------|---------+
 | Plugin family    | Version |
 +==================+=========+
