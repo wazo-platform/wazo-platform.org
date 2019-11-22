@@ -39,7 +39,7 @@ Backend capabilities:
 
 ## API documentation
 
-The REST API for wazo-dird is available [here](../documentation/api/contact.html)
+The REST API for wazo-dird is available [here](../api/contact.html)
 
 The database tables are defined [here](https://github.com/wazo-platform/wazo-dird/blob/master/wazo_dird/database/models.py)
 

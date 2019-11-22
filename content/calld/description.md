@@ -14,7 +14,7 @@ It manages the following resources:
 
 ## API documentation
 
-The REST API for wazo-calld is available [here](../documentation/api/application.html#tag/applications).
+The REST API for wazo-calld is available [here](../api/application.html#tag/applications).
 
 The bus events are defined [here](https://github.com/wazo-platform/wazo-calld/blob/master/wazo_calld/plugins/calls/events.yml) and [here](https://github.com/wazo-platform/wazo-calld/blob/master/wazo_calld/plugins/switchboards/events.yml).
 

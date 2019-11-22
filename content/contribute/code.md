@@ -12,7 +12,7 @@ The source code for Wazo Platform is available on
 over 200 repositories. Finding the one you want to contribute to can be a
 daunting task.
 
-The [documentation page](../documentation) can help you find
+The [documentation page](../) can help you find
 which repository you should be working on.
 [Asking for help](#asking-for-help) is always an option when looking at the
 less popular corners of the source code.
