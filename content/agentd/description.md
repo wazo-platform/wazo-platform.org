@@ -24,3 +24,7 @@ The REST API for wazo-agentd is available [here](../api/agent.html)
 ## Related
 
 * [wazo-auth](authentication.html)
+
+## See also
+
+* [Dev notes](agent-core.html)

@@ -11,3 +11,7 @@ This ease in building dynamic web applications that are using events from your W
 ## Usage example
 
 ![Sequence diagram](sequence-diagram.svg)
+
+## See also
+
+* [Dev notes](websocket-app.html)

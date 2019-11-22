@@ -217,7 +217,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     )
   );
 
-  // Create overview pages
+  // Create overview and extra pages
   Object.keys(allModules).forEach(moduleName => {
     const module = allModules[moduleName];
     const repoName = module.repository;
@@ -230,5 +230,21 @@ exports.createPages = async ({ actions: { createPage } }) => {
       moduleName,
       module,
     });
+
+    const dir = 'content/' + repoName.replace('wazo-', '');
+    const files = fs.readdirSync(dir);
+    files.forEach(
+      (file, key) =>
+        {
+          if (file.endsWith('.md') && file != 'description.md') {
+            const filePath = `${dir}/${file}`;
+            const baseName = file.replace('.md', '');
+            const content = fs.readFileSync(filePath, 'utf8');
+            console.log(`generating /documentation/overview/${moduleName}-${baseName}.html`);
+            newPage(`/documentation/overview/${moduleName}-${baseName}.html`, 'documentation/overview',
+                    { overview: content, moduleName, module});
+          };
+        }
+    );
   });
 };

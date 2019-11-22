@@ -55,3 +55,7 @@ The database is used to store:
 
 * [wazo-auth](authentication.html)
 * [wazo-confd](configuration.html)
+
+## See also
+
+* [Gloassary](contact-glossary.html)
