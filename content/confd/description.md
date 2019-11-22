@@ -49,6 +49,12 @@ Configuring and managing PBX part of Wazo Platform.
 
 The REST API for wazo-confd is available [here](../api/configuration.html)
 
+## REST API example
+
+Create a user with a phone and a voicemail
+
+![rest api schema](use-case-user-with-phone-and-voicemail.svg)
+
 ## Related
 
 * [wazo-auth](https://github.com/wazo-platform/wazo-auth)
