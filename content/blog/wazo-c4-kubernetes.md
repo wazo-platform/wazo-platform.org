@@ -4,7 +4,7 @@ Author: Fabio Tranchitella and Aleksandar Sosic
 Category: Wazo C4
 Tags: wazo, kubernetes, docker, cloud
 Slug: wazo-platform-c4-on-kubernetes
-Status: draft
+Status: published
 
 
 # Wazo's Platform C4 now deployable on Kubernetes
