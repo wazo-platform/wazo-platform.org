@@ -75,7 +75,7 @@ Helm is composed of a client and an in-cluster server component:
 
 
 ## Wazo's C4 Helm chart and templates
-We've recently published a [Helm chart repository](https://github.com/wazo-platform/wazo-c4-helm) that enables our users to deploy our C4 solution in a Kubernetes cloud easily.
+We've recently published a [Helm chart](https://github.com/wazo-platform/wazo-c4-helm) that enables our users to deploy our C4 solution in a Kubernetes cloud easily.
 
 This repository ties together of all our C4 components as in our Docker Compose repository with the addition of all the advantages Kubernetes and its associated ecosystem of tools provide to address key concerns of any microservice architecture.
 
