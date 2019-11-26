@@ -1,13 +1,13 @@
-Title: Wazo's Platform C4 now deployable on Kubernetes
+Title: Wazo Platform C4 now deployable on Kubernetes
 Date: 2019-11-26
 Author: Fabio Tranchitella and Aleksandar Sosic 
-Category: Wazo C4
-Tags: wazo, kubernetes, docker, cloud
+Category: Wazo Platform C4
+Tags: wazo-platform, c4, kubernetes, docker, cloud
 Slug: wazo-platform-c4-on-kubernetes
 Status: published
 
 
-# Wazo's Platform C4 now deployable on Kubernetes
+# Wazo Platform C4 now deployable on Kubernetes
 
 
 ## Introduction
@@ -15,15 +15,15 @@ As already mentioned We're focused on delivering a Cloud-Native telecom solution
 
 ```Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach.```
 
-In our pursuit of enabling companies to build their IP communication infrastructure and deliver innovative communication services with our open-source, API-centric solutions we could not avoid enabling our users to deploy Wazo on a cloud solution as easy as possible.
+In our pursuit of enabling companies to build their IP communication infrastructure and deliver innovative communication services with our open-source, API-centric solutions we could not avoid enabling our users to deploy Wazo Platform on a cloud solution as easy as possible.
 
 We started with a deployment of our C4 (Class 4) SBC and routing solution on a Kubernetes Cluster through a Helm chart.
 
 
-## Wazo C4 solution
-We've already introduced our C4 platform in a recent [blog post](https://wazo-platform.org/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales. It is a fairly new project of ours but we've done giant leaps toward a complete C4 solution just in the last weeks.
+## Wazo Platform C4 solution
+We've already introduced our C4 platform in a recent [blog post](wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales. It is a fairly new project of ours but we've done giant leaps toward a complete C4 solution just in the last weeks.
 
-Our [Docker Compose repository](https://github.com/wazo-platform/wazo-c4) that ties these components together has received a cleanup and improvement and at this point, we knew we could run Wazo's C4 in a Kubernetes Cluster.
+Our [Docker Compose repository](https://github.com/wazo-platform/wazo-c4) that ties these components together has received a cleanup and improvement and at this point, we knew we could run Wazo Platform C4 in a Kubernetes Cluster.
 
 
 ## What is Kubernetes?
@@ -74,13 +74,13 @@ Helm is composed of a client and an in-cluster server component:
 * **Helm Client:** A command-line interface is needed for users to work with Helm Charts. This client is interacting with the Tiller Server to perform various operations like install, upgrade and rollback charts.
 
 
-## Wazo's C4 Helm chart and templates
+## Wazo Platform C4 Helm chart and templates
 We've recently published a [Helm chart](https://github.com/wazo-platform/wazo-c4-helm) that enables our users to deploy our C4 solution in a Kubernetes cloud easily.
 
 This repository ties together all of our C4 components in a Kubernetes environment and its associated ecosystem of tools to address key concerns of a microservice architecture.
 
 ## Conclusions
-To wrap it up Wazo's C4 is now easily deployable on a Kubernetes cluster. It is scalable and cloud-ready. We will work hard in the next months to test and improve our C4 infrastructure and can't wait for our users to deploy our solution in the cloud. The future of telecommunications is here and it's open-source!
+To wrap it up Wazo Platform C4 is now easily deployable on a Kubernetes cluster. It is scalable and cloud-ready. We will work hard in the next months to test and improve our C4 infrastructure and can't wait for our users to deploy our solution in the cloud. The future of telecommunications is here and it's open-source!
 
 
 ## References
