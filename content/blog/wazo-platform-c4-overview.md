@@ -2,7 +2,7 @@ Title: Wazo Platform C4 overview
 Date: 2019-10-28
 Author: Aleksandar Sosic and Fabio Tranchitella
 Category: Wazo C4
-Tags: wazo
+Tags: wazo-platform, c4
 Slug: wazo-platform-c4-overview
 Status: published
 
