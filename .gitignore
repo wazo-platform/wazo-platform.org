@@ -58,6 +58,7 @@ typings/
 .cache/
 public
 config.js
+config-wazo.js
 
 # Mac files
 .DS_Store
