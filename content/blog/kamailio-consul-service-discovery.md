@@ -10,17 +10,17 @@ Status: published
 
 ## Introduction
 
-As we started with the deployment of our C4 (Class 4) SBC and routing solution on a Kubernetes Cluster through a Helm Chart, we knew that scaling would be a core feature.
+As we started with the deployment of our C4 (Class 4) [SBC and routing solution on a Kubernetes Cluster through a Helm Chart](wazo-platform-c4-on-kubernetes), we knew that scaling would be a core feature.
 
 Dynamic scaling brought additional complexity in the configuration of our Kamailio components. Having a cloud-native solution meant that we had to find a way to make SBCs and routers auto-configure themselves without human intervention or static configurations, which will bound the size of our architecture.
 
-We wanted to deploy Wazo on different kinds of platforms, not only containerized with Kubernetes but also with Docker compose or on Virtual machines using Ansible recipes. We had to choose a tool that will help us in service discovery and the flexible configuration of our components. That's where we decided that [HashiCorp Consul](www.consul.io) was the right tool to use.
+We wanted to deploy Wazo on different kinds of platforms, not only containerized with Kubernetes but also with Docker compose or on Virtual machines using Ansible recipes. We had to choose a tool that will help us in service discovery and the flexible configuration of our components. That's where we decided that [HashiCorp Consul](https://www.consul.io) was the right tool to use.
 
 ## What is Consul?
 
-The [official](www.consul.io) definition of Consul is:
+The [official](https://www.consul.io) definition of Consul is:
 
-```Consul is a service networking solution to connect and secure services across any runtime platform and public or private cloud```
+`Consul is a service networking solution to connect and secure services across any runtime platform and public or private cloud`
 
 Consul is a distributed,  highly available, and datacenter-aware service discovery and configuration system. It provides different features to provide consistent and detailed information regarding your infrastructure. Among the most relevant features:
 
@@ -52,28 +52,32 @@ All of our services use HTTP API requests towards Consul for registering and de 
 
 An example of a service registration request follows:
 
-```Shell
-$ curl -i -X PUT HTTP://${CONSUL_URI}/v1/agent/service/register -d '{
-    "ID": "'$HOSTNAME'",
+```ShellSession
+$ cat > data.json <<EOF
+{
+    "ID": "$HOSTNAME",
     "Name": "sbc",
     "Tags": ["sbc", "kamailio"],
-    "Address": "'$IP_ADDRESS'",
-    "Port": '$SIP_PORT',
+    "Address": "$IP_ADDRESS",
+    "Port": $SIP_PORT,
     "Check": {
         "ID": "XHTTP",
         "Name": "XHTTP API on port 8000",
         "DeregisterCriticalServiceAfter": "10m",
         "Method": "GET",
-        "HTTP": "HTTP://'$IP_ADDRESS':8000/status",
+        "HTTP": "HTTP://$IP_ADDRESS:8000/status",
         "Timeout": "1s",
         "Interval": "10s"
     }
-}'
+}
+EOF
+
+$ curl -i -X PUT -H "Content-Type: application/json" HTTP://${CONSUL_URI}/v1/agent/service/register -d "@data.json"
 ```
 
 We run that service registration at startup, and in case the service dies, a de-registration call is triggered upon exit as simple as this:
 
-```Shell
+```ShellSession
 $ curl -X PUT HTTP://${CONSUL_URI}/v1/agent/service/deregister/$HOSTNAME
 ```
 
@@ -93,11 +97,11 @@ An example of a template for the dispatcher list on our SBC node follows:
 
 It queries the consul API for services defined as `router` then lists them in a Kamailio dispatcher format. The format of the template is standard [GoLang templating](HTTPs://golang.org/pkg/text/template/) with the addition of several [functions](HTTPs://github.com/hashicorp/consul-template/blob/master/template/funcs.go).
 
-To run consul-template daemon, we use the following command:
+To run the consul-template daemon, we use the following command:
 
-```Shell
-$ consul-template
-    -consul-addr "%(ENV_CONSUL_URI)s"
+```ShellSession
+$ consul-template \
+    -consul-addr "%(CONSUL_URI)s" \
     -template "/consul-templates/dispatcher-list.tpl:/etc/kamailio/dispatcher.list:kamcmd dispatcher.reload"
 ```
 
