@@ -31,6 +31,15 @@ setup, do the following steps:
    customized are described at
    <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
 
+By default, Wazo Platform will install the development version. To install
+the latest stable version, activate the following settings in your inventory:
+
+```Ini
+[uc-engine:vars]
+wazo_distribution = pelican-buster
+wazo_distribution_upgrade = pelican-buster
+```
+
 If you want to install the web user interface, activate the following
 in your inventory:
 
