@@ -167,7 +167,7 @@ For further reference, you can read the complete configuration file of our route
 
 A picture is worth a thousand words! This is the screenshot of a `sngrep` capture of a successfully closed call which experienced failover of the router component managing the dialog:
 
-![sngrep](../images/blog/kamailio-ha-dispatcher-and-dmq/1.png){ width=100% }
+![sngrep](../images/blog/kamailio-ha-dispatcher-and-dmq/1.png)
 
 These are the hosts involved in the call:
 
