@@ -30,7 +30,7 @@ By solving this issue, our hidden objective was to demonstrate how easy it is to
 
 The team gathered in an apartment that we rented on the famous place of the Opera, in Paris downtown.
 
-![opera](../images/blog/hackathon/2.png){ width=50% }
+![opera](../images/blog/hackathon/2.png)
 
 
 The first morning was dedicated to get to know each other and also to share and explain the Wazo programmable platform, its ambition, its purpose and how it works.
@@ -64,15 +64,15 @@ Meanwhile, the other team was looking for the right transcription engine. Google
 We then regrouped to draw this wonderful Miró-style piece of art:
 
 
-![postit](../images/blog/hackathon/3.png){ width=30%; float: left; }
-![miro](../images/blog/hackathon/4.png){ width=33.5%; float: right; }
+![postit](../images/blog/hackathon/3.png)
+![miro](../images/blog/hackathon/4.png)
 
 
 So, the decision was made to build an Asterisk module where a given channel would get the voice feed in a websocket, for any incoming call within the Wazo voice programmable application.
 
 Then a JavaScript module would display the ongoing calls as well as the live text transcription. If a preselected keyword was found, it would be highlighted and the call itself would be prioritized.
 
-![interface](../images/blog/hackathon/1.png){ width=80% }
+![interface](../images/blog/hackathon/1.png)
 
 Source of this interface could be found here : <https://github.com/wazo-platform/frontend-hackathon-emergency >
 
