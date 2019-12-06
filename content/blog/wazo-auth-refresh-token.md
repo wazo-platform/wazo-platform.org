@@ -1,7 +1,7 @@
 Title: Refresh Token in Wazo
 Date: 2019-12-02
 Author: Pascal Cadotte Michaud
-Category: Wazo
+Category: Wazo Platform
 Slug: wazo-auth-refresh-token
 tags: wazo-platform, api, authentication
 Status: published
@@ -9,13 +9,13 @@ Status: published
 
 # Introduction
 
-As a consumer of the API on wazo-platform the first step you need to do before
-almost anything else is to authenticate. The process of authentication on Wazo
+As a consumer of the API on Wazo Platform the first step you need to do before
+almost anything else is to authenticate. The process of authentication on Wazo Platform
 is basically creating a token using your username and password. This can be done
 using the `/token` API of wazo-auth. Here's an example from the command line.
 
-```sh
-curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600}'
+```ShellSession
+$ curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600}'
 ```
 
 Let's break that down a little to understand what's going on. This is an HTTP
@@ -29,7 +29,7 @@ The response from this request looks like this. The value in `data` `token` is
 your access token. You will use it on any subsequent queries using the
 `X-Auth-Token` header.
 
-```javascript
+```Javascript
 {
   "data": {
     "token": "dc93c753-6ced-4433-9abf-fde629a69a07",
@@ -67,8 +67,8 @@ having to commit its password to memory.
 Creating a refresh token is just like creating an access token with a few more
 arguments.
 
-```sh
-curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600, "client_id": "example", "access_type": "offline"}'
+```ShellSession
+$ curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600, "client_id": "example", "access_type": "offline"}'
 ```
 
 The only change from the access token creation is that two fields are added to
@@ -78,7 +78,7 @@ triggers the creation of the refresh token.
 
 Here's the response you'll get from that requesting
 
-```javascript
+```Javascript
 {
   "data": {
     "token": "88204f50-0fe8-4163-a90f-9ff867468997",
@@ -103,8 +103,8 @@ Now that you've created and stored a refresh token you want to be able to use
 it. The URL to create an access token from a refresh token is the same again,
 with different arguments.
 
-```sh
-curl -k -XPOST -H "Content-Type: application/json" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600, "client_id": "example", "refresh_token": "353fefa1-d013-4633-a7d3-c6cb574ddc26"}'
+```ShellSession
+$ curl -k -XPOST -H "Content-Type: application/json" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600, "client_id": "example", "refresh_token": "353fefa1-d013-4633-a7d3-c6cb574ddc26"}'
 ```
 
 The body when creating an access token from a refresh token must contain the
@@ -135,5 +135,5 @@ known to the user when creating the refresh token.
 
 # Conclusion
 
-If you are developing a long lived application that uses Wazo's API use refresh
+If you are developing a long lived application that uses Wazo Platform's API use refresh
 tokens to offer a nice user experience and avoid storing sensible user data.
