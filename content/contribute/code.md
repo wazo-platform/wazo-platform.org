@@ -39,10 +39,6 @@ unit tests, integration tests and acceptance tests.
 
 If you need to create a new REST API, follow [the REST API guidelines](rest).
 
-# Add new service
-
-If you need to create a new service, follow [the new service guidelines](new_service).
-
 ## Unit tests
 
 Unittests are small tests that exercise a function or method in your
@@ -121,6 +117,10 @@ request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork
 At this point you should watch your pull request to see if anyone or
 anything comments on it and respond to comments to eventually get your
 contribution merged.
+
+## Add new service
+
+If you need to create a new service, follow [the new service guidelines](new_service).
 
 ## Asking for help
 
