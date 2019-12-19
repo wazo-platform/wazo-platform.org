@@ -2,7 +2,7 @@
 
 ## Rationale
 
-When writing new service, you need to follow our guidelines to be sure all services in Wazo are in the same vision.
+When writing new service, you need to follow our guidelines to be sure all services in Wazo Platform are in the same vision.
 
 Before writing a new service please add a [wpep](https://github.com/wazo-platform/wpep) to discuss about the service.
 
@@ -37,7 +37,7 @@ Checklist of things to remember when adding a new service to Wazo Platform:
 - The OpenAPI/Swagger spec is offered at `http://<service_root_api>/<version>/api/api.yml`
 - The REST API is accessible via GET `https://wazo/api/<service>`
   - Add an entry to the acceptance test: `daily/http/http.feature`
-- The service is has packaging instructions for the latest Debian stable
+- The service has packaging instructions for the latest Debian stable
 - The versions of the service dependencies are available as Debian packages in Debian stable or Wazo Platform
   - requirements.txt pins package versions equal to Debian packages
   - If a package is not available in Debian, we need to package the version in our repo like the other wazo-<name_dependencies>-packaging.
