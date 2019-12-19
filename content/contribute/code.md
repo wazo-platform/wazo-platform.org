@@ -39,6 +39,10 @@ unit tests, integration tests and acceptance tests.
 
 If you need to create a new REST API, follow [the REST API guidelines](rest).
 
+# Add new service
+
+If you need to create a new service, follow [the new service guidelines](new_service).
+
 ## Unit tests
 
 Unittests are small tests that exercise a function or method in your
