@@ -118,6 +118,10 @@ At this point you should watch your pull request to see if anyone or
 anything comments on it and respond to comments to eventually get your
 contribution merged.
 
+## Add new service
+
+If you need to create a new service, follow [the new service guidelines](new_service).
+
 ## Asking for help
 
 The Wazo Platform developers can be contacted on our
