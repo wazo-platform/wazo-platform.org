@@ -90,6 +90,14 @@
         color: purple
         repository: wazo-websocketd
 
+      router-confd:
+        title: C4 Router API
+        description: Configuration API for C4 router component.
+        icon: fa fa-code
+        color: orange
+        repository: wazo-router-confd
+        redocUrl: https://raw.githubusercontent.com/wazo-platform/wazo-router-confd/master/docs/api.yaml
+
   - name: Management platform
     slug: management-platform
     developer: true
@@ -174,3 +182,24 @@
         color: orange
         repository: wazo-amid
         redocUrl: https://quintana.wazo.community/api/amid/1.0/api/api.yml
+
+      c4-sbc:
+        title: C4 SBC
+        description: Session Border Controller, based on Kamailio.
+        icon: fa fa-lock
+        color: orange
+        repository: wazo-c4-sbc
+
+      c4-router:
+        title: C4 Router
+        description: Routing component, based on Kamailio.
+        icon: fa fa-code-branch
+        color: orange
+        repository: wazo-c4-router
+
+      rtpe-config:
+        title: C4 RTPEngine
+        description: Media Proxy, based on Sipwise RTPEngine.
+        icon: fa fa-headphones
+        color: orange
+        repository: wazo-rtpe-config
