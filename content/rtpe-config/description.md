@@ -2,6 +2,10 @@
 
 This is the Media proxy component of the Wazo Platform C4 (Class 4).
 
+## Schema
+
+![C4 schema](diagram-c4.svg)
+
 ## Features of the Media Proxy
 
 Our C4 should support all inbound and outbound media flows in the network infrastructure. The media handling falls in these three categories:

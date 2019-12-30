@@ -13,6 +13,10 @@ This is the configuration, management, and routing API server of the Wazo Platfo
 
 It exposes the end-points used by the Wazo Router as well.
 
+## Schema
+
+![C4 schema](diagram-c4.svg)
+
 ## Part of the Wazo Platform C4
 
 A Class 4 Softswitch routes large volumes of usually long-distance VoIP calls. For businesses that want to interconnect their VoIP servers, a Class 4 Softswitch is used to relay VoIP traffic and services over multiple IP networks. C4 soft switches provide intelligent call routing, which reduces congestion, latency, and costs while improving the quality of VoIP calls. They have several security features to protect the C5 switches.

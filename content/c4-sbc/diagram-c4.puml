@@ -1,0 +1,37 @@
+@startuml
+!include C4_Container.puml
+
+hide stereotype
+
+Container(rtpengine, "Media Proxy", "RTPEngine", "Media Proxy, based on RTPEngine")
+
+System_Boundary(users, "Users") {
+    Person(carrier, "Carrier Trunk", "Routes inbound traffic to and terminates outbound traffic from the C5 infrastructure.")
+    Person(ipbx, "IPBX", "CLASS 5 infrastructure, one or multiple PBX running CLASS 5 services.")
+    Person(subscriber, "Subscriber", "Generic SIP account of the platform using the CLASS 5 services.")
+}
+
+System_Boundary(class4, "CLASS 4") {
+    Container(sbc, "SBC", "Kamailio", "Session Board Controller, protects the C4 infrastructure from abuses, attacks and overloads.")
+    Container(router, "Router", "Kamailio", "Dynamically routes the traffic based on configuration rules and settings.")
+    Container(router_confd, "Router confd API", "FastAPI", "Router Configuration API, exposes a REST webservice.")
+    Container(redis, "Redis Cache", "Redis", "Redis Cache for C4 components.")
+    Container(postgresql, "Database", "PostgreSQL", "Relational database for C4 components.")
+}
+
+
+' Relationships
+
+Rel_R(users, sbc, " ", "SIP")
+Rel_R(users, rtpengine, " ", "MEDIA")
+
+Rel_D(sbc, router, " ", "SIP")
+Rel_D(router, router_confd, " ", "REST")
+Rel_D(router_confd, postgresql, " ", "SQL")
+Rel_D(router, rtpengine, " ", "RTPEngine")
+
+Rel_R(sbc, redis, " ", "REDIS")
+Rel_R(router, redis, " ", "REDIS")
+Rel_R(router_confd, redis, " ", "REDIS")
+
+@enduml

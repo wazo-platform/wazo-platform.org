@@ -2,6 +2,10 @@
 
 This is the SIP router component of the Wazo Platform C4 (Class 4).
 
+## Schema
+
+![C4 schema](diagram-c4.svg)
+
 ## Features of the SIP Router
 
 * Authentication
