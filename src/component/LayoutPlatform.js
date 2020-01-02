@@ -10,6 +10,7 @@ import '../styles/platform/styles.scss';
 
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const bodyAttributes = { class: section };
+  const now = new Date();
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
@@ -165,7 +166,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </small>
 
             <small className="copyright">
-              Copyright &copy; 2019 <a href="https://wazo.io">Wazo</a>
+              Copyright &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
             </small>
           </div>
         </div>

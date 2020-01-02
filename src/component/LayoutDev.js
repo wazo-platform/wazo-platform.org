@@ -81,7 +81,9 @@ const PageHeader = () => (
   </header>
 );
       
-export default ({children, isHome}) => (
+export default ({children, isHome}) => {
+  const now = new Date();
+  return (
   <div className="page-wrapper">
     <Helmet>
       <link
@@ -109,10 +111,11 @@ export default ({children, isHome}) => (
 
         <div>
           <small className="copyright">
-            &copy; 2019 <a href="https://wazo.io">Wazo Communication</a>
+            &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
           </small>
         </div>
       </div>
     </footer>
   </div>
-);
+  );
+};
