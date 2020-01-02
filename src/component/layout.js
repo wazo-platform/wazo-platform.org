@@ -9,6 +9,8 @@ import '../styles/styles.css';
 import { Link } from 'gatsby';
 import Search from './search';
 
+const now = new Date();
+
 const WazoHeader = () => {
   return <>
     <div className="wazo-header container">
@@ -109,7 +111,7 @@ export default ({children, isHome}) => (
 
         <div>
           <small className="copyright">
-            &copy; 2019 <a href="https://wazo.io">Wazo Communication</a>
+            &copy; { now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
           </small>
         </div>
       </div>
