@@ -35,6 +35,7 @@ The main characteristics of a C4 Softswitch are:
 * billing interface
 * security management
 * call authentication
+* call authorization
 
 Wazo Platform aims to offer to service providers, enterprises, and digital natives a coherent and complete reference platform for the design, deployment, and management of a telecom infrastructure that can support massive volumes of simultaneous calls by interconnecting millions of users.
 

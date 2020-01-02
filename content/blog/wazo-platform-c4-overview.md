@@ -32,6 +32,7 @@ So the main characteristics of a C4 softswitch are:
 * billing interface
 * security management
 * call authentication
+* call authorization
 
 C4 softswiches provide intelligent call routing, which reduces congestion, latency, and costs while improving the quality of VoIP calls. They have several security features to protect the C5 switches.
 
