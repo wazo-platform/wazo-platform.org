@@ -11,14 +11,14 @@ Status: published
 At Astridevcon 2018, the developer conference that happens just before Astricon
 every year, there was a lot of interest around the streaming of audio outside of
 Asterisk. During the following year, we decided to tackle that problem and see
-what we could come up with to get started experimenting.
+what we could come up with.
 
 During a Hackaton in January 2019, we developed an Asterisk module that adds a
 way to connect to the Asterisk websocket and receive the audio from the selected
 channel over the websocket. The code for that module can be found
 [here](https://github.com/sboily/wazo-hackathon-asterisk-stream-module).
 
-At Astricon 2019 we presented that module. Unfortunatly, the presentations at
+At Astricon 2019 we presented that module. Unfortunately, the presentations at
 Astricon have not been recorded. This article will get you started playing with
 our Asterisk module.
 
@@ -36,15 +36,12 @@ fraud detection, call prioritization in call centers or to route a call in an IV
 The module we developed is pretty simple. When connecting to the Asterisk
 websocket, you specify the channel you wish to connect to using the `Channel-ID`
 header and the `stream-channel` sub-protocol. At that point you will start
-receiving audio in 16 bits signed linear format.
-
-As the consumer of the data you can then leverage external tools to do what you
-want with that audio stream.
+receiving audio in 16 bits signed linear PCM format (a.k.a SLIN16).
 
 
 ## Usage
 
-The "hello world" for that feature is probably to write the audio stream to a
+The equivalent of a "hello world" for that feature is to write the audio stream to a
 file. Here's a commented Python snippet that does just that.
 
 ```python
@@ -64,6 +61,9 @@ with open("out.wav", "wb") as f:  # Open the output file
 ```
 
 This could hardly get any simpler.
+
+As the consumer of the data you can then leverage external tools to do what you
+want with that audio stream.
 
 
 ## Resources
