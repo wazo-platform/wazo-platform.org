@@ -245,7 +245,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     });
 
     const dir = 'content/' + repoName.replace('wazo-', '');
-    const files = fs.readdirSync(dir);
+    const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
     files.forEach(
       (file, key) =>
         {
