@@ -63,7 +63,12 @@ with open("out.wav", "wb") as f:  # Open the output file
 This could hardly get any simpler.
 
 As the consumer of the data you can then leverage external tools to do what you
-want with that audio stream.
+want with that audio stream: you can send it to a Speech-To-Text engine but you
+can also record it for later use, or analyze it to find voice quality issues, for example.
+
+Have a look to my [presentation
+slides](https://www.slideshare.net/PascalCadotteMichaud/getting-a-livetranscriptofyourcallusingtheari)
+for a comparison between existing solutions for streaming audio from Asterisk.
 
 
 ## Resources
