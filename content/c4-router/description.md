@@ -10,6 +10,8 @@ This is the SIP router component of the Wazo Platform C4 (Class 4).
 
 * Authentication
 * Routing
+* SIP headers normalization
+* High availability
 
 ### Authentication
 
@@ -21,12 +23,29 @@ We support the following authentication methods:
 
 ### Routing
 
-Class 4 equipments are located at the periphery of the network; it is necessary to implement routing mechanisms sometimes simple, sometimes sophisticated. The mechanism will depend on the desired services and may be different depending on the targets. Wazo C4 Router supports both inbound and outbound routing based on routing rules:
+Class 4 equipments are located at the periphery of the network; it is necessary to implement routing mechanisms sometimes simple, sometimes sophisticated. The mechanism will depend on the desired services and may be different depending on the targets. Wazo C4 Router supports both inbound and outbound routing based on both source and destination routing rules:
 
 * Authentication details
 * Source IP and port
-* Destination DID
+* Inbound routing
+* Outbound routing
+
+#### Inbound routing
+
+Wazo C4 Router supports the following inbound routing rules:
+
+* Destination DID with regular expression matching
 * Destination Domain
+
+#### Outbound routing
+
+Wazo C4 Router supports the following outbound routing rules:
+
+* Destination DID with regular expression matching
+
+### SIP headers normalization
+
+While SIP is a standard protocol, the configurations of the SIP agents are not standardized. They include different headers, or format in different ways the data contained in the headers (e.g., the URIs). Wazo C4 Router processes and normalizes the headers of the SIP messages to ensure the maximum compatibility between the IPBX and the carrier trunks interconnected, based on normalization rules and regular expressions. It also supports Caller-ID and P-Asserted-Identity.
 
 ### High availability
 
@@ -44,7 +63,14 @@ The main characteristics of a C4 Softswitch are:
 * billing interface
 * security management
 * call authentication
+* call authorization
 
 Wazo Platform aims to offer to service providers, enterprises, and digital natives a coherent and complete reference platform for the design, deployment, and management of a telecom infrastructure that can support massive volumes of simultaneous calls by interconnecting millions of users.
 
 The solution must be able to handle mission-critical needs by providing robust and efficient mechanisms for availability and scalability.
+
+## Related
+
+* [wazo-router-confd](router-confd.html)
+* [wazo-c4-sbc](c4-sbc.html)
+* [wazo-rtpe](rtpe-config.html)

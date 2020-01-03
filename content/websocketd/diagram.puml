@@ -6,7 +6,7 @@ hide stereotype
 System_Boundary(websocketd_platform, "Websocketd application"){
     Container(websocketd, "wazo-websocketd", "Python", "Websocketd service")
     Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["../overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
 }
 
 actor User

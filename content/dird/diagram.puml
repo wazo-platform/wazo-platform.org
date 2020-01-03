@@ -8,7 +8,7 @@ Person(phone, "Phone")
 
 System_Boundary(dird_system, "Directory") {
     Container(dird_app, "wazo-dird", "Python", "Directory service")
-    Container(auth, "wazo-auth", "Python", "Authentication service") [["../overview/authentication.html"]]
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
     ContainerDb(pgsql, "PostgreSQL", "C", "Database")
     Container(bus, "RabbitMQ", "Erlang", "Message bus")
     Container(agid, "wazo-agid", "Python", "AGI service")
@@ -17,7 +17,7 @@ System_Boundary(dird_system, "Directory") {
 }
 
 Container_Boundary(extern, "Sources") {
-    Container(confd, "wazo-confd", "Python", "Configuration service") [["../overview/configuration.html"]]
+    Container(confd, "wazo-confd", "Python", "Configuration service") [["../documentation/overview/configuration.html"]]
     System_Ext(ldap, "LDAP server")
     System_Ext(google, "Google")
     System_Ext(microsoft, "Microsoft Office 365")
