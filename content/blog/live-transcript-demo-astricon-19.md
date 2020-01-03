@@ -1,5 +1,5 @@
 Title: Live Conversation Transcript
-Date: 2019-01-03
+Date: 2020-01-03
 Author: Pascal Cadotte Michaud
 Category: Wazo Platform
 Tags: wazo-platform, asterisk, stt, astricon
