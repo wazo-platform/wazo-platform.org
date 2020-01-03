@@ -100,9 +100,12 @@ const getArticles = async createPage => {
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  const isDev = process.env.WAZO_VERSION === 'dev';
-  console.log(`Building ${isDev ? 'developers.wazo.io' : 'wazo-platform.org'}`)
-  fs.writeFile('config-wazo.js', `export const isDev = ${isDev ? 'true' : 'false'};`);
+  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
+  try {
+    fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
+  }catch (e) {
+    console.error(e);
+  }
 
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
   const installUCDoc = fs.readFileSync('./content/install-uc.md', 'utf8');
@@ -179,7 +182,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const articles = await getArticles(createPage);
 
   // Create homepage
-  await newPage('/', isDev ? 'dev/index' : 'home/index', isDev ? { sections, overviews } : null);
+  await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
 
   // Create doc page
   await newPage('/documentation', 'documentation/index', { sections, overviews });

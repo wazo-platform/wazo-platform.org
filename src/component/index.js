@@ -1,8 +1,8 @@
 import DevIndex from './dev';
 import PlatformIndex from './home';
 
-import { isDev } from '../../config-wazo';
+import { forDeveloper } from '../../config-wazo';
 
-const Index = isDev ? DevIndex : PlatformIndex;
+const Index = forDeveloper ? DevIndex : PlatformIndex;
 
 export default Index;
