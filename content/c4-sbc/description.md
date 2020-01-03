@@ -65,3 +65,9 @@ The main characteristics of a C4 Softswitch are:
 Wazo Platform aims to offer to service providers, enterprises, and digital natives a coherent and complete reference platform for the design, deployment, and management of a telecom infrastructure that can support massive volumes of simultaneous calls by interconnecting millions of users.
 
 The solution must be able to handle mission-critical needs by providing robust and efficient mechanisms for availability and scalability.
+
+## Related
+
+* [wazo-router-confd](router-confd.html)
+* [wazo-c4-router](c4-router.html)
+* [wazo-rtpe](rtpe-config.html)

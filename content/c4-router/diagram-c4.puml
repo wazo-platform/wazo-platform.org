@@ -3,7 +3,7 @@
 
 hide stereotype
 
-Container(rtpengine, "Media Proxy", "RTPEngine", "Media Proxy, based on RTPEngine")
+Container(rtpengine, "Media Proxy", "RTPEngine", "Media Proxy, based on RTPEngine") [["../documentation/overview/rtpe-config.html"]]
 
 System_Boundary(users, "Users") {
     Person(carrier, "Carrier Trunk", "Routes inbound traffic to and terminates outbound traffic from the C5 infrastructure.")
@@ -12,9 +12,9 @@ System_Boundary(users, "Users") {
 }
 
 System_Boundary(class4, "CLASS 4") {
-    Container(sbc, "SBC", "Kamailio", "Session Board Controller, protects the C4 infrastructure from abuses, attacks and overloads.")
+    Container(sbc, "SBC", "Kamailio", "Session Board Controller, protects the C4 infrastructure from abuses, attacks and overloads.") [["../documentation/overview/c4-sbc.html"]]
     Container(router, "Router", "Kamailio", "Dynamically routes the traffic based on configuration rules and settings.")
-    Container(router_confd, "Router confd API", "FastAPI", "Router Configuration API, exposes a REST webservice.")
+    Container(router_confd, "Router confd API", "FastAPI", "Router Configuration API, exposes a REST webservice.") [["../documentation/overview/router-confd.html"]]
     Container(redis, "Redis Cache", "Redis", "Redis Cache for C4 components.")
     Container(postgresql, "Database", "PostgreSQL", "Relational database for C4 components.")
 }
