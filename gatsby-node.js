@@ -101,6 +101,8 @@ const getArticles = async createPage => {
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
+  const installUCDoc = fs.readFileSync('./content/install-uc.md', 'utf8');
+  const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
@@ -179,6 +181,10 @@ exports.createPages = async ({ actions: { createPage } }) => {
   await newPage('/documentation', 'documentation/index', { sections, overviews });
   // Create install page
   await newPage('/install', 'install/index', { installDoc });
+  // Create install-uc page
+  await newPage('/install/unified-communication', 'install_uc/index', { installUCDoc });
+  // Create install-uc page
+  await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
   // Create contribute page
   await newPage('/contribute', 'contribute/index', { content: contributeDoc });
   // Create blog page
