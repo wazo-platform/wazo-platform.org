@@ -19,7 +19,7 @@ The Wazo Platform Class 4 is made of several components:
 5. PostgreSQL
 6. Redis
 
-If you use the Ansible recipes you need at lest two hosts as you cannot run the SBC and the Router on the same machine.
+If you use the Ansible recipes you need at least two hosts as you cannot run the SBC and the Router on the same machine.
 
 To install the Wazo Platform Class 4 in an all-in-one setup, do the following steps:
 
