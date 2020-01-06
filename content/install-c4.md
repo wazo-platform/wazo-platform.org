@@ -144,8 +144,8 @@ the latest stable version, activate the following settings in your inventory:
 
 ```Ini
 [c4:vars]
-wazo_distribution = wazo-dev-buster
-wazo_distribution_upgrade = wazo-dev-buster
+wazo_distribution = pelican-buster
+wazo_distribution_upgrade = pelican-buster
 ```
 
 5. Launch the installation by running the following command:
