@@ -4,8 +4,8 @@ Wazo Platform is an Open Source project allowing to build carrier grade programm
 
 ## Unified Communication
 
-Follow [our guide to install the Wazo Platform Unified Communication engine](https://wazo-platform.org/install/unified-communication).
+Follow [our guide to install the Unified Communication engine](install/unified-communication).
 
 ## Class 4
 
-Follow [our guide to install the Wazo Platform Class 4](https://wazo-platform.org/install/class-4).
+Follow [our guide to install the Class 4 engine](install/class-4).

@@ -1,8 +1,8 @@
-# Install the Wazo Platform Class 4
+# Install the Class 4 engine
 
 ## Supported environments
 
-Wazo Platform Class 4 supports the following deployment environments:
+The Class 4 engine supports the following deployment environments:
 
 - **Ansible-based deployment**: install the platform on a set of Debian Buster machines, either bare-metal or virtual machines, using our Ansible recipes.
 - **Docker compose**: run the platform on a single machine using the Docker images together with docker-compose.
@@ -10,7 +10,7 @@ Wazo Platform Class 4 supports the following deployment environments:
 
 ## Ansible-based deployment
 
-The Wazo Platform Class 4 is made of several components:
+The Class 4 engine is made of several components:
 
 1. SBC (Kamailio)
 2. Router (Kamailio)
@@ -21,7 +21,7 @@ The Wazo Platform Class 4 is made of several components:
 
 If you use the Ansible recipes you need at least two hosts as you cannot run the SBC and the Router on the same machine.
 
-To install the Wazo Platform Class 4 in an all-in-one setup, do the following steps:
+To install the Class 4 engine in an all-in-one setup, do the following steps:
 
 1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset on each host you want to use, either bare metal or virtual machine.
 
@@ -105,7 +105,7 @@ database
 redis
 ```
 
-Configure your Wazo Platform Class 4 with your deployment-specific settings, as follows:
+Configure your Class 4 engine with your deployment-specific settings, as follows:
 
 ```Ini
 [database:vars]
@@ -154,7 +154,7 @@ wazo_distribution_upgrade = wazo-dev-buster
 # ansible-playbook -i inventories/c4 c4.yml
 ```
 
-If you want to test the Wazo Platform Class 4 on a single host, you can use Vagrant to provision two virtual machines using the provided `Vagrantfile`: 
+If you want to test the Class 4 engine on a single host, you can use Vagrant to provision two virtual machines using the provided `Vagrantfile`: 
 
 ```Ruby
 # -*- mode: ruby -*-
@@ -190,9 +190,9 @@ $ ansible-playbook -i inventories/c4-router-vagrant c4-router.yaml
 The Wazo Project provides Docker containers for all the components of the Class 4 platform.
 You can run a full instance of the platform on a single host using docker-compose.
 
-To run the Wazo Platform Class 4 using docker-compose, do the following steps:
+To run the Class 4 engine using docker-compose, do the following steps:
 
-1. Get the Wazo Platform Class 4 docker-compose git repository:
+1. Get the Class 4 engine docker-compose git repository:
 
 ```ShellSession
 $ git clone https://github.com/wazo-platform/wazo-c4.git
