@@ -45,34 +45,34 @@ Define one or more SBCs:
 
 ```Ini
 [sbc_host]
-sbc_1 ansible_ssh_host=10.0.1.1 ansible_ssh_port=22
-sbc_2 ansible_ssh_host=10.0.1.1 ansible_ssh_port=22
+sbc_1 ansible_ssh_host=192.0.2.1 ansible_ssh_port=22
+sbc_2 ansible_ssh_host=192.0.2.2 ansible_ssh_port=22
 ```
 
 Define one or more routers:
 
 ```Ini
 [router_host]
-router_1 ansible_ssh_host=10.0.2.1 ansible_ssh_port=22
-router_2 ansible_ssh_host=10.0.2.2 ansible_ssh_port=22
+router_1 ansible_ssh_host=192.0.2.3 ansible_ssh_port=22
+router_2 ansible_ssh_host=192.0.2.4 ansible_ssh_port=22
 ```
 
 Define one or more Media Proxies:
 
 ```Ini
 [rtpengine_host]
-rtpengine_1 ansible_ssh_host=10.0.3.1 ansible_ssh_port=22
-rtpengine_2 ansible_ssh_host=10.0.3.2 ansible_ssh_port=22
+rtpengine_1 ansible_ssh_host=192.0.2.5 ansible_ssh_port=22
+rtpengine_2 ansible_ssh_host=192.0.2.6 ansible_ssh_port=22
 ```
 
 Define, optionally, additional hosts for the database services:
 
 ```Ini
 [database_host]
-database_1 ansible_ssh_host=10.0.4.1 ansible_ssh_port=22
+database_1 ansible_ssh_host=192.0.2.7 ansible_ssh_port=22
 
 [redis_host]
-redis_1 ansible_ssh_host=10.0.4.2 ansible_ssh_port=22
+redis_1 ansible_ssh_host=192.0.2.8 ansible_ssh_port=22
 ```
 
 Assign the roles to the aforementioned hosts assigning them to the following groups:
@@ -112,29 +112,29 @@ Configure your Class 4 engine with your deployment-specific settings, as follows
 postgresql_listen_addresses = *
 
 [router:vars]
-router_api_db_host = 10.0.4.1
-router_api_redis_host = 10.0.4.2
-router_dburl_dialog = redis://10.0.4.2:6379/2
+router_api_db_host = 192.0.2.7
+router_api_redis_host = 192.0.2.8
+router_dburl_dialog = redis://192.0.2.8:6379/2
 
 [sbc:vars]
 sbc_advertise_address = c4.wazo.cloud:5060
-sbc_dispatcher_list = "1 sip:10.0.2.1:5060 16 10\n1 sip:10.0.2.2:5060 16 10"
-sbc_dburl_dialog = redis://10.0.4.2:6379/2
+sbc_dispatcher_list = "1 sip:192.0.2.3:5060 16 10\n1 sip:192.0.2.4:5060 16 10"
+sbc_dburl_dialog = redis://192.0.2.8:6379/2
 
 [sbc_1_host:vars]
-sbc_advertise_address = <PUBLIC IP ADDRESS OF THE SBC> # example: 1.2.3.4
+sbc_advertise_address = <PUBLIC IP ADDRESS OF THE SBC> # example: 198.51.100.2
 sbc_advertise_port = 5060
-rtpengine_public_address = 3.8.157.6
+rtpengine_public_address = 198.51.100.1
 
 [sbc_2_host:vars]
-sbc_advertise_address = <PUBLIC IP ADDRESS OF THE SBC> # example: 1.2.3.4
+sbc_advertise_address = <PUBLIC IP ADDRESS OF THE SBC> # example: 198.51.100.3
 sbc_advertise_port = 5060
 
 [rtpengine_1]
-rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 1.2.3.4
+rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198.51.100.1
 
 [rtpengine_2]
-rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 1.2.3.4
+rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198.51.100.2
 ```
 
 The various variables that can be customized are described at <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
