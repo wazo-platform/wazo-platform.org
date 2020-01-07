@@ -122,7 +122,7 @@ export default class Search extends Component {
   disableHits = () => this.setState({ focused: false });
 
   handleClickOutside = event => {
-    if (!!this.list.current || !this.list.current.contains(event.target)) {
+    if (!this.list.current || !this.list.current.contains(event.target)) {
       this.setState({ focused: false });
     }
   };
