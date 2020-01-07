@@ -6,6 +6,6 @@ Wazo Platform is an Open Source project allowing to build carrier grade programm
 
 Follow [our guide to install the Unified Communication engine](install/unified-communication).
 
-## Class 4
+## SBC and SIP Router
 
-Follow [our guide to install the Class 4 engine](install/class-4).
+Follow [our guide to install our SBC and SIP Router](install/class-4).
