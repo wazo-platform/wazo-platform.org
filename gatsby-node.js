@@ -100,6 +100,13 @@ const getArticles = async createPage => {
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
+  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
+  try {
+    fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
+  }catch (e) {
+    console.error(e);
+  }
+
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
   const installUCDoc = fs.readFileSync('./content/install-uc.md', 'utf8');
   const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
@@ -175,7 +182,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const articles = await getArticles(createPage);
 
   // Create homepage
-  await newPage('/', 'index');
+  await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
 
   // Create doc page
   await newPage('/documentation', 'documentation/index', { sections, overviews });
@@ -238,7 +245,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     });
 
     const dir = 'content/' + repoName.replace('wazo-', '');
-    const files = fs.readdirSync(dir);
+    const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
     files.forEach(
       (file, key) =>
         {

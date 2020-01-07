@@ -2,7 +2,7 @@ builder:
 	docker-compose build
 
 develop:
-	docker-compose run --service-ports doc yarn develop -H 0.0.0.0
+	docker-compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
 format:
 	docker-compose run doc yarn format
@@ -10,7 +10,7 @@ format:
 build:
 	rm -rf public
 	docker-compose up -d doc
-	docker-compose exec -T doc yarn build
+	docker-compose exec -T doc env $(ENV) yarn build
 	docker cp "$$(docker-compose ps -q doc)":/app/public public
 	docker-compose down
 
