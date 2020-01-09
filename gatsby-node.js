@@ -168,8 +168,8 @@ const walk_md_files = (dir, path, acc, index) => {
   return acc;
 };
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  console.info(`Building ${siteUrl}`);
+exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
+  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
   } catch (e) {
@@ -427,5 +427,37 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           : path.resolve(__dirname, 'src/styles/platform'),
       },
     },
+  });
+
+  // Generate redirect 301
+  console.log("Generating 301 redirects");
+  ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
+    newPage(fromPath, '404', {})
+    createRedirect({
+      fromPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: `/documentation/api/euc-deployd.html`,
+    })
+  });
+
+  ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach(fromPath => {
+    newPage(fromPath, '404', {})
+    createRedirect({
+      fromPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: `/documentation/api/euc-configuration.html`,
+    })
+  });
+
+  ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach(fromPath => {
+    newPage(fromPath, '404', {})
+    createRedirect({
+      fromPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath: `/documentation/api/euc-authentication.html`,
+    })
   });
 };

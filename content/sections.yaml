@@ -102,7 +102,7 @@
     slug: management-platform
     developer: true
     modules:
-      nestbox-authentication:
+      euc-authentication:
         title: Authentication
         description: Authentication in the Nestbox platform.
         icon: fa fa-key
@@ -111,7 +111,7 @@
         repository: wazo-auth
         redocUrl: https://nestbox.dev.wazo.io/api/auth/0.1/api/api.yml
 
-      nestbox-configuration:
+      euc-configuration:
         title: Configuration
         description: Manage your resellers, customers, instances on Nestbox.
         icon: fa fa-cogs
@@ -120,7 +120,7 @@
         repository: nestbox-confd
         redocUrl: https://nestbox.dev.wazo.io/api/confd/1.0/api/api.yml
 
-      nestbox-deployd:
+      euc-deployd:
         title: Deployment
         description: Deploy your instances from Nestbox.
         icon: fa fa-server
