@@ -1,11 +1,14 @@
 import React from 'react';
 import { RedocStandalone } from 'redoc';
 
-const defaultBaseUrl = 'https://openapi.wazo.community/wazo-platform';
-
+const baseUrl = 'https://openapi.wazo.community'
 const defaultOptions = { pathInMiddlePanel: true, };
+
+const getSpecPrefix = module => module.coporate ? 'nestbox' : 'wazo-platform'
+
+const getSpecUrl = module => `${baseUrl}/${getSpecPrefix(module)}/${module.repository}.yml`
 
 export default ({ pageContext: { module } }) => <RedocStandalone
   options={defaultOptions}
-  specUrl={`${defaultBaseUrl}/${module.repository}.yml`}
+  specUrl={getSpecUrl(module)}
 />;
