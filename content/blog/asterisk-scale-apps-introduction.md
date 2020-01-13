@@ -114,7 +114,7 @@ All the work presented in the blog post is available in the following Git reposi
 * https://github.com/safchain/asyncio-ari-ast-id
   Asyncio ARI library supporting extra parameter in order to handle communication with the API Gateway
 
-* https://gitub.com/lebauce/consul-c
+* https://github.com/lebauce/consul-c
   C library to talk with Consul API
 
 * https://github.com/lebauce/asterisk-res-consul/tree/scale
