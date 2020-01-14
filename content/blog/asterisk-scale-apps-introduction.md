@@ -26,7 +26,7 @@ The difficulty we have here is that we have to deal with multiple Asterisk insta
 
 Let’s see how the applications and the different components interact :
 
-![High level overview](../images/blog/scale-apps/scale-app-high-level-overview.png)
+![High level overview](/images/blog/scale-apps/scale-app-high-level-overview.png)
 
 ### Consul
 
@@ -64,7 +64,7 @@ To create our app, we have to do more than redirecting requests to the right Ast
 
 A typical call flow for an application answering a call and then playing a sound would be like this
 
-![Workflow](../images/blog/scale-apps/scale-app-conf-app-workflow.png)
+![Workflow](/images/blog/scale-apps/scale-app-conf-app-workflow.png)
 
 A python code would be like following
 
