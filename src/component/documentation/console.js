@@ -4,6 +4,7 @@ import 'swagger-ui-react/swagger-ui.css';
 import { useCookies } from 'react-cookie';
 
 import Layout from '../Layout';
+import { getModuleSpecUrl } from './helper';
 
 const shared = {
   display: 'flex',
@@ -59,8 +60,6 @@ const getServiceName = (raw) => {
   return path[2];
 }
 
-const defaultBaseUrl = 'https://openapi.wazo.community/wazo-platform';
-
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
@@ -101,7 +100,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
       return;
     };
     const authURL = new URL(modules.authentication.redocUrl);
-    const auth = authURL.pathname.split('/'); 
+    const auth = authURL.pathname.split('/');
     setLoading(true);
     fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
       method: 'POST',
@@ -192,7 +191,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
         <div className="container" style={{ display: 'flex' }}>
           <div className="list-group" style={{ margin: '60px 20px 60px 0' }}>
             {Object.keys(modules).map(m => {
-              
+
               return modules[m].redocUrl && <Link key={m} to={`/documentation/console/${m}`} className={`list-group-item list-group-item-action ${m === moduleName ? 'disabled' : ''}`}>
                 {modules[m].title}
                 <div style={styles.subtitle}>{modules[m].repository}</div>
@@ -202,7 +201,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           <div style={{ position: 'relative', flex: 1 }}>
             {SwaggerUI && (
               <SwaggerUI
-                url={baseUrl ? `${baseUrl}${pathname}` : `${defaultBaseUrl}/${module.repository}.yml`}
+                url={baseUrl ? `${baseUrl}${pathname}` : getModuleSpecUrl(module)}
                 responseInterceptor={res => {
                   if (!res.ok) {
                     if(res.body.details && res.body.details.invalid_token){
