@@ -21,7 +21,7 @@ pre {
 }
 
 .main {
-  
+
   h1, h2, h3{
     font-weight: normal;
   }
@@ -107,7 +107,7 @@ pre {
     @media (min-width: 768px) {
       width: 25%;
     }
-    height: auto; 
+    height: auto;
     padding: 20px 0 60px;
   }
 
@@ -164,7 +164,7 @@ pre {
 
 #wazo-platform-nav {
   position: absolute;
-  top: 0; 
+  top: 0;
   left: 15px;
   margin-top: 8px;
   width: 150px;
@@ -190,7 +190,7 @@ header{
         max-width: none;
     }
   }
-  
+
   .main-nav {
     @media(min-width: 992px){
       float: right;
@@ -306,6 +306,8 @@ body.documentation {
       img {
         max-width: 100%;
         height: auto;
+        display: block;
+        margin: 0 auto;
       }
     }
   }
@@ -322,6 +324,8 @@ body.documentation {
     img {
       max-width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
   }
 }
