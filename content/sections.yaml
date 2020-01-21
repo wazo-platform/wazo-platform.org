@@ -9,7 +9,7 @@
         icon: fa fa-key
         color: green
         repository: wazo-auth
-        redocUrl: https://quintana.wazo.community/api/auth/0.1/api/api.yml
+        redocUrl: https://example.com/api/auth/0.1/api/api.yml
 
       application:
         title: Application
@@ -17,7 +17,7 @@
         icon: fa fa-brain
         color: pink
         repository: wazo-calld
-        redocUrl: https://quintana.wazo.community/api/ctid-ng/1.0/api/api.yml
+        redocUrl: https://example.com/api/ctid-ng/1.0/api/api.yml
 
       configuration:
         title: Configuration
@@ -25,7 +25,7 @@
         icon: fa fa-cogs
         color: blue
         repository: wazo-confd
-        redocUrl: https://quintana.wazo.community/api/confd/1.1/api/api.yml
+        redocUrl: https://example.com/api/confd/1.1/api/api.yml
 
       contact:
         title: Contacts
@@ -33,7 +33,7 @@
         icon: fa fa-users
         color: purple
         repository: wazo-dird
-        redocUrl: https://quintana.wazo.community/api/dird/0.1/api/api.yml
+        redocUrl: https://example.com/api/dird/0.1/api/api.yml
 
       provisioning:
         title: Phone provisioning
@@ -41,7 +41,7 @@
         icon: fa fa-phone
         color: primary
         repository: wazo-provd
-        redocUrl: https://quintana.wazo.community/api/provd/0.2/api/api.yml
+        redocUrl: https://example.com/api/provd/0.2/api/api.yml
 
       webhook:
         title: Webhooks
@@ -49,7 +49,7 @@
         icon: fa fa-globe
         color: orange
         repository: wazo-webhookd
-        redocUrl: https://quintana.wazo.community/api/webhookd/1.0/api/api.yml
+        redocUrl: https://example.com/api/webhookd/1.0/api/api.yml
 
       cdr:
         title: Calls Details Record
@@ -57,7 +57,7 @@
         icon: fa fa-newspaper
         color: green
         repository: wazo-call-logd
-        redocUrl: https://quintana.wazo.community/api/call-logd/1.0/api/api.yml
+        redocUrl: https://example.com/api/call-logd/1.0/api/api.yml
 
       plugins:
         title: Plugins
@@ -65,7 +65,7 @@
         icon: fa fa-puzzle-piece
         color: pink
         repository: wazo-plugind
-        redocUrl: https://quintana.wazo.community/api/plugind/0.2/api/api.yml
+        redocUrl: https://example.com/api/plugind/0.2/api/api.yml
 
       agent:
         title: Call Center Agent
@@ -73,7 +73,7 @@
         icon: fa fa-headset
         color: blue
         repository: wazo-agentd
-        redocUrl: https://quintana.wazo.community/api/agentd/1.0/api/api.yml
+        redocUrl: https://example.com/api/agentd/1.0/api/api.yml
 
       chat:
         title: Presence and Chat
@@ -81,7 +81,7 @@
         icon: fa fa-comment-dots
         color: red
         repository: wazo-chatd
-        redocUrl: https://quintana.wazo.community/api/chatd/1.0/api/api.yml
+        redocUrl: https://example.com/api/chatd/1.0/api/api.yml
 
       websocket:
         title: Websocket
@@ -181,7 +181,7 @@
         icon: fa fa-code
         color: orange
         repository: wazo-amid
-        redocUrl: https://quintana.wazo.community/api/amid/1.0/api/api.yml
+        redocUrl: https://example.com/api/amid/1.0/api/api.yml
 
       c4-sbc:
         title: C4 SBC
