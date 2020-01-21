@@ -126,4 +126,4 @@ class JabraFactory {
 
 ## Conclusion
 
-Jabra would make our life a lot easier if their Web and Desktop APIs were merged into one. Thanks to the Factory pattern, we were able to work around this issues. (** which allowed us to ... do something **)
+Jabra would make our life a lot easier if their Web and Desktop APIs were merged into one. Thanks to the Factory pattern, we were able to work around this issues.
