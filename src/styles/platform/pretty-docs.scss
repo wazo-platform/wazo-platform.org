@@ -54,15 +54,20 @@ html, body {
     text-decoration: none;
   }
 
-  code, pre code {
-    background: #222;
+  code {
+    font-size: 87.5%;
+    color: #e83e8c;
+  }
+
+  pre code {
+    background: #222 !important;
     color: #fff;
     font-size: 14px;
     font-weight: bold;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    padding: 2px 8px;
-    padding-top: 4px;
+    padding: 15px 20px;
     display: inline-block;
+    border-radius: 5px;
   }
 
   .btn, a.btn {
