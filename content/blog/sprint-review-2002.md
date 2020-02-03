@@ -12,22 +12,22 @@ Here is a short review of the Wazo Platform 20.02 release.
 
 ## Security fixes
 
-* A bug https://wazo-dev.atlassian.net/browse/WAZO-1510 has been found has been fixed that allowed the database of the engine to be accessed remotely when the following conditions were met
+* A [security issue](https://wazo-dev.atlassian.net/browse/WAZO-1510) has been fixed that allowed the database of the engine to be accessed remotely when the following conditions were met:
 
   * Engine configured as a slave
   * Engine installed using ansible
   * Engine in version 19.12 to 20.01
 
-  If your installation matches all of these conditions you MUST upgrade or execute the following script on your engine and restart all services https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/pre-start.d/50-restrict-postgres-hba.sh
+  If your installation matches all of these conditions you MUST upgrade or execute [this script](https://mirror.wazo.community/security/WAZO-2020-01.sh) on your engine.
 
 
 ## Technical features
 
-* We have allowed some of our services to serve the REST API using HTTP instead of HTTPS. This will allow us to remove any HTTPS behind Nginx.
+* **REST API**: We have allowed some of our services to serve the REST API using HTTP instead of HTTPS. This will allow us to remove any unnecessary encryption for communication within Wazo Platform.
 
 ## Ongoing features
 
-* **SIP**: We are currently reworking the SIP configuration API to match the PJSIP configuration
+* **SIP**: We are currently changing the SIP configuration API to match the PJSIP configuration
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
