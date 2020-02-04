@@ -12,7 +12,7 @@ Here is a short review of the Wazo Platform 20.02 release.
 
 ## Security fixes
 
-* A [security issue](https://wazo-dev.atlassian.net/browse/WAZO-1510) has been fixed that allowed the database of the engine to be accessed remotely when the following conditions were met:
+* A [security issue](http://mirror.wazo.community/security/WAZO-2020-01.pdf) has been fixed that allowed the database of the engine to be accessed remotely when the following conditions were met:
 
   * Engine configured as a slave
   * Engine installed using ansible
