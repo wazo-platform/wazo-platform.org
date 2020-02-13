@@ -68,7 +68,7 @@ $ sudo virsh net-list --all
 
 ## Install the virtual machine
 
-Download this [preseed.cfg](../misc/preseed.cfg) file to automatically install Debian 10 and run:
+Download this [preseed.cfg](../../misc/preseed.cfg) file to automatically install Debian 10 and run:
 
 ```ShellSession
 $ sudo virt-install \

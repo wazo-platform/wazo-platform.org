@@ -8,7 +8,7 @@ Status: published
 
 On me demande assez régulièrement la différence entre XiVO et Wazo en terme de fonctionnalités. Il en existe maintenant beaucoup, mais une des premières que nous avons mises en œuvre était tout simplement de fournir une interface complètement web orientée utilisateur pour gérer sa téléphonie de tous les jours. Le développement de cette interface se voulait complètement web, utilisant nos APIs et aussi orienté vers l'aspect "CLOUD". Il fallait que cela soit simple à utiliser, simple à mettre en place et que la mobilité soit au rendez-vous. Finalement Unicom est né.
 
-![unicom.png](../images/blog/wazo-unicom/unicom.png "Unicom")
+![unicom.png](../../images/blog/wazo-unicom/unicom.png "Unicom")
 
 # Unicom
 
@@ -23,17 +23,17 @@ Pour utiliser Unicom, rien de plus simple, rendez-vous sur le [site web d'Unicom
 
 Une fois arrivés sur la page, vous allez pouvoir tout simplement configurer votre connexion vers votre Wazo.
 
-![unicom-menu-configuration.png](../images/blog/wazo-unicom/unicom-menu-configuration.png "Unicom menu configuration")
+![unicom-menu-configuration.png](../../images/blog/wazo-unicom/unicom-menu-configuration.png "Unicom menu configuration")
 
 Sélectionner le petit stylo jaune après avoir passé votre souris sur le petit moteur bleu en bas.
 
-![unicom-configuration.png](../images/blog/wazo-unicom/unicom-configuration.png "Unicom configuration")
+![unicom-configuration.png](../../images/blog/wazo-unicom/unicom-configuration.png "Unicom configuration")
 
 Dans les paramétrages vous allez simplement mettre l'adresse de votre Wazo (`10.41.0.2` dans l'exemple). Un point important: vous pouvez mettre l'adresse publique ou celle du réseau local. Unicom est simplement une interface web qui permet à votre navigateur web de communiquer directement avec votre Wazo. Aucune donnée ne passe par le serveur de Unicom. Concernant le port, mettez simplement le 443, excepté si vous décidez par exemple d'ouvrir un port spécifique depuis l'extérieur, par exemple le 8443.
 
 Une fois votre configuration terminée vous n'aurez plus qu'à vous connecter.
 
-![unicom-login.png](../images/blog/wazo-unicom/unicom-login.png "Unicom login")
+![unicom-login.png](../../images/blog/wazo-unicom/unicom-login.png "Unicom login")
 
 L'interface se tient dans une seule page web et vous offre toutes les fonctionnalités attendues par un système téléphonique moderne.
 
@@ -47,7 +47,7 @@ L'interface se tient dans une seule page web et vous offre toutes les fonctionna
 - Agent de centre d'appel
 - etc.
 
-![unicom-vue.png](../images/blog/wazo-unicom/unicom-vue.png "Unicom vue")
+![unicom-vue.png](../../images/blog/wazo-unicom/unicom-vue.png "Unicom vue")
 
 Plusieurs subtilités existent dans le logiciel. La première étant que nous supportons deux façons d'utiliser son téléphone. La première façon est qu'Unicom vient se mettre en complément de votre téléphone VoIP branché sur votre Wazo. Quand vous serez connecté sur Unicom, si vous avez simplement un téléphone IP d'une marque X, vous aurez toutes les fonctionnalités à la différence près que vos appels seront pilotés et non directement dans l'interface. (J'y reviens après)
 
@@ -61,7 +61,7 @@ Ceci étant comme je le détaille en dessus, je parle soit d'avoir un téléphon
 
 Mais donc dans Unicom, comment ça se passe ? Encore une fois c'est simple, lorsque vous allez vous connecter, Unicom va détecter que vous avez plusieurs lignes et vous demandera laquelle vous souhaitez utiliser. Si vous souhaitez passer sur une autre ligne, il suffira de recharger la page et de refaire votre choix.
 
-![unicom-choice-lines.png](../images/blog/wazo-unicom/unicom-choice-lines.png "Unicom choice lines")
+![unicom-choice-lines.png](../../images/blog/wazo-unicom/unicom-choice-lines.png "Unicom choice lines")
 
 Enfin, dans les détails non visibles, mais qui ont de l'importance, Unicom supporte aussi le chat/présence entre vos différents Wazo. Si vous avez par exemple deux Wazo car un en France et un au Canada, vous pourrez les connecter ensemble et faire en sorte que vos utilisateurs puissent ne pas sentir qu'il existe deux systèmes mais simplement un seul.
 
