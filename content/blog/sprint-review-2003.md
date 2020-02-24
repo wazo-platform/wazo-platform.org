@@ -16,6 +16,8 @@ Here is a short review of the Wazo Platform 20.03 release.
 
 * **Calls API**: Until now, a user placing a call always had to answer the ringing line before the call was actually being placed. A user may now ask to auto-answer the call, so that the call is placed directly. In this case, the user would hear the ringback tone directly in his headphones or phone speaker.
 
+* **Calls events**: Until now, when a call was answered, there was only a `call_updated` event sent. This event was not detailed enough to distinguish if the call was answered or if something else happened. This release adds a `call_answered` event, so that applications can know precisely when a call was answered.
+
 ## Bug fixes
 
 * **Function keys**: BLF for DND and call forwards are now fully functional. BLF (Busy Lamp Fields) are small physical LEDs indicating on a physical phone whether the feature (e.g. Do Not Disturb) is currently activated for this phone.
