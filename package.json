@@ -29,6 +29,7 @@
     "react-instantsearch-dom": "^5.6.0",
     "react-markdown": "^4.0.8",
     "redoc": "^2.0.0-rc.8-1",
+    "rss": "^1.2.2",
     "showdown": "^1.9.0",
     "stickyfill": "^1.1.1-strict",
     "striptags": "^3.1.1",
