@@ -44,4 +44,8 @@ Sources:
 
 * [Upgrade notes](http://documentation.wazo.community/en/stable/upgrade/upgrade_notes.html)
 
-* [Wazo Platform 20.03 Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
+* [Summary of JIRA tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
+
+## Discussion
+
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-20-03-released/227).
