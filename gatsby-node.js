@@ -119,10 +119,8 @@ const getArticles = async createPage => {
   });
 
   console.log('generating articles rss feed');
-  fs.writeFile(__dirname + '/static/rss.xml', rssFeed.xml({ indent: true }), function(err) {
-    if (err) {
-      return console.log(err);
-    }
+  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), (err) => {
+    if (err) console.log(err);
   });
 
   return articles;
