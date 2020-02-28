@@ -131,6 +131,28 @@ const getArticles = async createPage => {
   return articles;
 };
 
+const walk_md_files = (dir, acc, index) => {
+  const files = fs.readdirSync(dir);
+  const dirname = dir.split('/').pop();
+
+  console.info('scanning ' + dir);
+
+  files.forEach(file => {
+    const filePath = dir + '/' + file;
+
+    if (fs.statSync(filePath).isDirectory()) {
+      walk_md_files(filePath, acc, index);
+    } else if (file === index) {
+      console.info('processing index ' + dirname);
+      acc[dirname] = fs.readFileSync(filePath, 'utf8');
+    } else if (file.split('.').pop() === 'md') {
+      console.info('processing ' + file);
+      acc[file] = fs.readFileSync(filePath, 'utf8');
+    }
+  });
+  return acc;
+};
+
 exports.createPages = async ({ actions: { createPage } }) => {
   console.log(`Building ${siteUrl}`);
   try {
@@ -146,19 +168,12 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
-  const contributeDocs = fs.readdirSync('./content/contribute').reduce(function(acc, file) {
-    if (file.split('.').pop() === 'md') {
-      var p = './content/contribute/' + file;
-      acc[p] = fs.readFileSync(p, 'utf8');
-    }
-    return acc;
-  }, {});
+  const contributeDocs = walk_md_files('./content/contribute', {}, 'description.md');
+  const docDocs = walk_md_files('./content/doc', {}, 'index.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
-
-  console.log('contributeDocs ' + contributeDocs);
 
   const getModuleName = repoName =>
     Object.keys(allModules).find(moduleName => {
@@ -239,6 +254,18 @@ exports.createPages = async ({ actions: { createPage } }) => {
     var p = '/contribute/' + path.basename(fileName, '.md');
     console.log('generating ' + p);
     newPage(p, 'contribute/index', { content, title });
+  });
+
+  // Create doc pages
+  Object.keys(docDocs).forEach(fileName => {
+    const rawContent = docDocs[fileName].split('\n');
+    const title = rawContent[0];
+    rawContent.shift();
+    rawContent.shift();
+    const content = rawContent.join('\n');
+    var p = '/doc/' + path.basename(fileName, '.md');
+    console.log('generating ' + p);
+    newPage(p, 'doc/index', { content, title });
   });
 
   // Create api pages
