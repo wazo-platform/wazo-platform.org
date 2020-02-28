@@ -5,12 +5,17 @@ const { execSync } = require('child_process');
 const showdown = require('showdown');
 const algoliasearch = require('algoliasearch');
 const striptags = require('striptags');
+const RSS = require('rss');
 
 const config = require('./config');
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
 const forDeveloper = !!process.env.FOR_DEVELOPER;
+
+const siteUrl = forDeveloper ? 'http://developers.wazo.io' : 'https://wazo-platform.org';
+const siteTitle = 'Wazo Platform Blog';
+
 let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
 
 let algoliaIndex = null;
@@ -56,6 +61,14 @@ const getArticles = async createPage => {
   const articles = [];
   const files = fs.readdirSync(dir);
   console.info('generating articles');
+
+  var rssFeed = new RSS({
+    title: siteTitle,
+    description: 'description',
+    feed_url: `${siteUrl}/rss.xml`,
+    site_url: `${siteUrl}/`,
+  });
+
   files.forEach((file, key) => {
     const filePath = `${dir}/${file}`;
 
@@ -79,31 +92,45 @@ const getArticles = async createPage => {
       .splice(0, summaryNumWords)
       .join(' ');
 
-    const url = `/blog/${options.slug}`;
-
+    const blogPath = `/blog/${options.slug}`;
     if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
       console.info(`generating article ${key}`);
 
       articles.push(options);
 
       createPage({
-        path: url,
+        path: blogPath,
         component: path.resolve(`src/component/blog/article.js`),
         context: {
           ...options,
           body,
         },
       });
+
+      rssFeed.item({
+        title: options.title,
+        description: '', // @todo when og:description will be supported
+        url: `${siteUrl}${blogPath}`,
+        author: options.author,
+        categories: [options.category],
+        date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
+      });
     }
   });
+
+  console.log('generating articles rss feed');
+  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), (err) => {
+    if (err) console.log(err);
+  });
+
   return articles;
 };
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
+  console.log(`Building ${siteUrl}`);
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
-  }catch (e) {
+  } catch (e) {
     console.error(e);
   }
 
@@ -221,12 +248,14 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   // Create console pages
   sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName =>
-      !!section.modules[moduleName].redocUrl && newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
-        moduleName,
-        module: section.modules[moduleName],
-        modules: section.modules
-      })
+    Object.keys(section.modules).forEach(
+      moduleName =>
+        !!section.modules[moduleName].redocUrl &&
+        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+        })
     )
   );
 
@@ -246,18 +275,18 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
     const dir = 'content/' + repoName.replace('wazo-', '');
     const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
-    files.forEach(
-      (file, key) =>
-        {
-          if (file.endsWith('.md') && file != 'description.md') {
-            const filePath = `${dir}/${file}`;
-            const baseName = file.replace('.md', '');
-            const content = fs.readFileSync(filePath, 'utf8');
-            console.log(`generating /documentation/overview/${moduleName}-${baseName}.html`);
-            newPage(`/documentation/overview/${moduleName}-${baseName}.html`, 'documentation/overview',
-                    { overview: content, moduleName, module});
-          };
-        }
-    );
+    files.forEach((file, key) => {
+      if (file.endsWith('.md') && file != 'description.md') {
+        const filePath = `${dir}/${file}`;
+        const baseName = file.replace('.md', '');
+        const content = fs.readFileSync(filePath, 'utf8');
+        console.log(`generating /documentation/overview/${moduleName}-${baseName}.html`);
+        newPage(`/documentation/overview/${moduleName}-${baseName}.html`, 'documentation/overview', {
+          overview: content,
+          moduleName,
+          module,
+        });
+      }
+    });
   });
 };
