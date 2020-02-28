@@ -133,7 +133,6 @@ const getArticles = async createPage => {
 
 const walk_md_files = (dir, acc, index) => {
   const files = fs.readdirSync(dir);
-  const dirname = dir.split('/').pop();
 
   console.info('scanning ' + dir);
 
@@ -143,11 +142,17 @@ const walk_md_files = (dir, acc, index) => {
     if (fs.statSync(filePath).isDirectory()) {
       walk_md_files(filePath, acc, index);
     } else if (file === index) {
-      console.info('processing index ' + dirname);
-      acc[dirname] = fs.readFileSync(filePath, 'utf8');
-    } else if (file.split('.').pop() === 'md') {
-      console.info('processing ' + file);
-      acc[file] = fs.readFileSync(filePath, 'utf8');
+      console.info('processing index ' + dir);
+      acc[dir] = fs.readFileSync(filePath, 'utf8');
+    } else {
+      const names = file.split('.');
+      const ext = names.pop();
+      const fname = names.pop();
+      if (ext === 'md') {
+        const p = dir + '/' + fname + '.html';
+        console.info('processing ' + p);
+        acc[p] = fs.readFileSync(filePath, 'utf8');
+      }
     }
   });
   return acc;
@@ -168,8 +173,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
-  const contributeDocs = walk_md_files('./content/contribute', {}, 'description.md');
-  const docDocs = walk_md_files('./content/doc', {}, 'index.md');
+  const contributeDocs = walk_md_files('content/contribute', {}, 'description.md');
+  const docDocs = walk_md_files('content/doc', {}, 'index.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
