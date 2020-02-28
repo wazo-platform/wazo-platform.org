@@ -64,7 +64,9 @@ const getArticles = async createPage => {
 
   var rssFeed = new RSS({
     title: siteTitle,
-    description: 'description',
+    description: 'Wazo Platform - An Open Source project to build your own IP telecom platform.',
+    language: 'en',
+    image_url: `${siteUrl}/images/og-image.jpg`,
     feed_url: `${siteUrl}/rss.xml`,
     site_url: `${siteUrl}/`,
   });
@@ -109,11 +111,14 @@ const getArticles = async createPage => {
 
       rssFeed.item({
         title: options.title,
-        description: '', // @todo when og:description will be supported
+        description: options.summary+'...',
         url: `${siteUrl}${blogPath}`,
         author: options.author,
         categories: [options.category],
         date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
+        enclosure: {
+          url: `${siteUrl}/images/og-image.jpg` // @todo change image, change when og:image per article
+        }
       });
     }
   });
