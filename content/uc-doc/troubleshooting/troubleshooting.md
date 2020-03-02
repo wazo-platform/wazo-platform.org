@@ -494,7 +494,7 @@ To stop *ngrok* hit Ctrl-C.
 The ngrok tunnel will not survive a reboot of the server, you\'ll have
 to set it up again after restart.
 
-:warning:
+#:warning:
 
 This setup is a typical scenario for a [man-in-the-middle
 attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If you
@@ -527,7 +527,7 @@ When troubleshooting a problem, you may need to send logs for analysis.
 daemons, including Asterisk, and bundle them into a tarball. You may
 then send this tarball for analysis.
 
-:warning:
+#:warning:
 
 Be careful before sending the logs in a public place: they may contain
 sensible information, that can be used to connect to your Wazo.
