@@ -16,6 +16,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
       <Helmet bodyAttributes={bodyAttributes}>
         <title>Wazo Platform</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet"
