@@ -290,7 +290,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   }
 
   ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0];
+    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
     newPage(
       pagePath,
       'uc-doc/index',
