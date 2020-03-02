@@ -131,26 +131,28 @@ const getArticles = async createPage => {
   return articles;
 };
 
-const walk_md_files = (dir, acc, index) => {
+const walk_md_files = (dir, path, acc, index) => {
   const files = fs.readdirSync(dir);
 
-  console.info('scanning ' + dir);
+  console.info('scanning dir ' + dir);
 
   files.forEach(file => {
     const filePath = dir + '/' + file;
 
     if (fs.statSync(filePath).isDirectory()) {
-      walk_md_files(filePath, acc, index);
+      if (file !== '.') {
+        walk_md_files(filePath, path + file + '/', acc, index);
+      }
     } else if (file === index) {
-      console.info('processing index ' + dir);
-      acc[dir] = fs.readFileSync(filePath, 'utf8');
+      console.info('storing index ' + path);
+      acc[path] = fs.readFileSync(filePath, 'utf8');
     } else {
       const names = file.split('.');
       const ext = names.pop();
       const fname = names.pop();
       if (ext === 'md') {
-        const p = dir + '/' + fname + '.html';
-        console.info('processing ' + p);
+        const p = path + fname;
+        console.info('storing ' + p);
         acc[p] = fs.readFileSync(filePath, 'utf8');
       }
     }
@@ -173,8 +175,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
-  const contributeDocs = walk_md_files('content/contribute', {}, 'description.md');
-  const docDocs = walk_md_files('content/doc', {}, 'index.md');
+  const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
+  const ucDocs = walk_md_files('content/uc-doc', '', {}, 'index.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
@@ -261,16 +263,18 @@ exports.createPages = async ({ actions: { createPage } }) => {
     newPage(p, 'contribute/index', { content, title });
   });
 
-  // Create doc pages
-  Object.keys(docDocs).forEach(fileName => {
-    const rawContent = docDocs[fileName].split('\n');
-    const title = rawContent[0];
+  // Create uc-doc pages
+  Object.keys(ucDocs).forEach(fileName => {
+    const rawContent = ucDocs[fileName].split('\n');
+    const title = rawContent[1].split(': ')[1];
+    rawContent.shift();
     rawContent.shift();
     rawContent.shift();
     const content = rawContent.join('\n');
-    var p = '/doc/' + path.basename(fileName, '.md');
-    console.log('generating ' + p);
-    newPage(p, 'doc/index', { content, title });
+    const dir = path.dirname(fileName) === '.' ? '' : path.dirname(fileName) + '/';
+    var p = '/uc-doc/' + dir + path.basename(fileName, '.md');
+    console.log('generating ' + p + ' - title="' + title + '"');
+    newPage(p, 'uc-doc/index', { content, title });
   });
 
   // Create api pages

@@ -91,3 +91,7 @@ $ curl -k -X GET -H 'X-Auth-Token: <my-token>' -H 'Content-Type: application/jso
 ```
 
 Note: the token that you have now only has permissions for configuration REST API (wazo-confd).
+
+## Optional post-install steps
+
+You may now follow the [optional post-install steps](/uc-doc/installation/postinstall).
