@@ -40,7 +40,7 @@ incoming (external) call, wait for a number of seconds (4 in this
 example) : if a fax is detected, receive it otherwise route the call
 normally.
 
-:exclamation:
+#:exclamation:
 
 This workaround works only :
 
@@ -115,7 +115,7 @@ Connection:
 
 > 2 T2 \| Wazo \| / / \| PBX \|
 >
-> :   
+> :
 >
 >     +\-\-\-\-\-\-\--+ / / +\-\-\-\-\-\-\-\--+
 >
@@ -251,7 +251,7 @@ and things to know:
 -   the PostgreSQL log file located at
     `/var/log/postgresql/postgresql-11-main.log`
 
-:exclamation:
+#:exclamation:
 
 You can use any locale with Wazo as long as it uses an UTF-8 encoding.
 
@@ -412,7 +412,7 @@ Remote packet capture, streamed to Wireshark via SSH:
 ```ShellSession
 # # install dumpcap on the server wazo.example.com
 # ssh wazo.example.com apt-get install -y wireshark-common
-# 
+#
 # # run the capture on interface eth0, for SIP packets only (UDP port 5060)
 # wireshark -k -i <(ssh wazo.example.com "dumpcap -P -i eth0 -w - -f 'udp port 5060'")
 ```
@@ -489,7 +489,7 @@ means:
 
 To stop *ngrok* hit Ctrl-C.
 
-:exclamation:
+#:exclamation:
 
 The ngrok tunnel will not survive a reboot of the server, you\'ll have
 to set it up again after restart.

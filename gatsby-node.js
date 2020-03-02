@@ -160,7 +160,7 @@ const walk_md_files = (dir, path, acc, index) => {
   return acc;
 };
 
-exports.createPages = async ({ actions: { createPage } }) => {
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
   console.log(`Building ${siteUrl}`);
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
@@ -176,7 +176,6 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
   const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
-  const ucDocs = walk_md_files('content/uc-doc', '', {}, 'index.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
@@ -264,20 +263,48 @@ exports.createPages = async ({ actions: { createPage } }) => {
   });
 
   // Create uc-doc pages
-  Object.keys(ucDocs).forEach(fileName => {
-    const rawContent = ucDocs[fileName].split('\n');
-    const title = rawContent[1].split(': ')[1];
-    rawContent.shift();
-    rawContent.shift();
-    rawContent.shift();
-    const content = rawContent.join('\n');
-    const dir = path.dirname(fileName) === '.' ? '' : path.dirname(fileName) + '/';
-    var p = '/uc-doc/' + dir + path.basename(fileName, '.md');
-    console.log('generating ' + p + ' - title="' + title + '"');
-    newPage(p, 'uc-doc/index', { content, title });
-  });
+  // ---------
+  const ucDocsResult = await graphql(`
+    {
+      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/uc-doc/"} }) {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            frontmatter {
+              title
+              subtitle
+            }
+            html
+            description: excerpt(pruneLength: 200)
+          }
+        }
+      }
+    }
+  `)
+
+  // Handle errors
+  if (ucDocsResult.errors) {
+    reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
+    return;
+  }
+
+  ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0];
+    newPage(
+      pagePath,
+      'uc-doc/index',
+      {
+        content: node.html,
+        title: node.frontmatter.title,
+        pagePath,
+      },
+    )
+  })
+
 
   // Create api pages
+  // ----------
   sections.forEach(section =>
     Object.keys(section.modules).forEach(moduleName =>
       newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
