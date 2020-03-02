@@ -2,30 +2,8 @@
 title: Troubleshooting
 ---
 
--   [Transfers using DTMF](#transfers-using-dtmf)
--   [Fax detection](#fax-detection)
--   [Berofos Integration with PBX](#berofos-integration-with-pbx)
--   [Agents receiving two ACD calls](#agents-receiving-two-acd-calls)
--   [PostgreSQL localization errors](#postgresql_localization_errors)
-    -   [Database cluster is not
-        starting](#database-cluster-is-not-starting)
-    -   [Can\'t connect to the database](#cant-connect-to-the-database)
-    -   [Error during the upgrade](#error-during-the-upgrade)
-    -   [Error while restoring a database
-        backup](#error-while-restoring-a-database-backup)
-    -   [Error during master-slave
-        replication](#error-during-master-slave-replication)
-    -   [Changing the locale (LC\_COLLATE and LC\_CTYPE) of the
-        database](#postgres-change-locale)
--   [Originate a call from the Asterisk
-    console](#originate-a-call-from-the-asterisk-console)
--   [Network packets capture](#network-packets-capture)
--   [Getting help](#getting-help)
--   [Collecting logs](#collecting-logs)
--   [Asterisk crash](#asterisk-crash)
-
-The list of current bugs can be found on [the official Wazo issue
-tracker](https://projects.wazo.community/issues?set_filter=1&tracker_id=1).
+The list of current bugs can be found on [the official Wazo Platform issue
+tracker](https://wazo-dev.atlassian.net/).
 
 Transfers using DTMF
 ====================
@@ -36,14 +14,15 @@ error when dialing the extension.
 The workaround to this problem is to create a preprocess subroutine and
 assign it to the destinations where you have the problem.
 
-Add new file
-`/etc/asterisk/extensions_extra.d/transfer-dtmf.conf`{.interpreted-text
-role="file"} containing the following dialplan:
+Add a new file
+`/etc/asterisk/extensions_extra.d/transfer-dtmf.conf` containing the following dialplan:
 
-    [allow-transfer]
-    exten = s,1,NoOp(## Setting transfer context ##)
-    same = n,Set(__TRANSFER_CONTEXT=<internal-context>)
-    same = n,Return()
+```Ini
+[allow-transfer]
+exten = s,1,NoOp(## Setting transfer context ##)
+same = n,Set(__TRANSFER_CONTEXT=<internal-context>)
+same = n,Return()
+```
 
 Do not forget to substitute \<internal-context\> with your internal
 context.
@@ -61,10 +40,7 @@ incoming (external) call, wait for a number of seconds (4 in this
 example) : if a fax is detected, receive it otherwise route the call
 normally.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+:exclamation:
 
 This workaround works only :
 
@@ -77,27 +53,27 @@ Be aware that this workaround will probably not survive any upgrade.
 :::
 
 1.  Add new file
-    `/etc/asterisk/extensions_extra.d/fax-detection.conf`{.interpreted-text
-    role="file"} containing the following dialplan:
+    `/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following dialplan:
 
-        ;; Fax Detection
-        [pre-user-global-faxdetection]
-        exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
-        same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
-        same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
-        same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
-        same  =   n,Answer()
-        same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
-        same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
-        same  =   n(return),Return()
+```Ini
+;; Fax Detection
+[pre-user-global-faxdetection]
+exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
+same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
+same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
+same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
+same  =   n,Answer()
+same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
+same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
+same  =   n(return),Return()
 
-        exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-        same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
-        same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
-        same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
+same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
+same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
+same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+```
 
-2.  In the file `/etc/xivo/asterisk/xivo_globals.conf`{.interpreted-text
-    role="file"} set the global user subroutine to
+2.  In the file `/etc/xivo/asterisk/xivo_globals.conf` set the global user subroutine to
     `pre-user-global-faxdetection` : this subroutine will be executed
     each time a user is called:
 
@@ -153,8 +129,7 @@ The following describes how to configure your Wazo and your Berofos.
 
 1.  Follow the Berofos general configuration (firmware, IP,
     login/password) described in the the
-    `Berofos Installation and Configuration <berofos-installation-and-configuration>`{.interpreted-text
-    role="ref"} page.
+    `Berofos Installation and Configuration <berofos-installation-and-configuration>` page.
 2.  When done, apply these specific parameters to the berofos:
 
         bnfos --set scenario=1   -h 10.105.2.26 -u admin:berofos
@@ -165,41 +140,44 @@ The following describes how to configure your Wazo and your Berofos.
         bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
 
 3.  Add the following script
-    `/usr/local/sbin/berofos-workaround`{.interpreted-text role="file"}:
+    `/usr/local/sbin/berofos-workaround`:
 
-        #!/bin/bash
-        # Script workaround for berofos integration with a Wazo in front of PABX
+```Shell
+#!/bin/bash
+# Script workaround for berofos integration with a Wazo in front of PABX
 
-        res=$(/usr/sbin/service asterisk status)
-        does_ast_run=$?
-        if [ $does_ast_run -eq 0 ]; then
-            /usr/bin/logger "$0 - Asterisk is running"
-            # If asterisk is running, we (re)enable wdog and (re)set the mode
-            /usr/bin/bnfos --set mode=1 -f fos1 -s
-            /usr/bin/bnfos --set modedef=1 -f fos1 -s
-            /usr/bin/bnfos --set wdog=1 -f fos1 -s
+res=$(/usr/sbin/service asterisk status)
+does_ast_run=$?
+if [ $does_ast_run -eq 0 ]; then
+    /usr/bin/logger "$0 - Asterisk is running"
+    # If asterisk is running, we (re)enable wdog and (re)set the mode
+    /usr/bin/bnfos --set mode=1 -f fos1 -s
+    /usr/bin/bnfos --set modedef=1 -f fos1 -s
+    /usr/bin/bnfos --set wdog=1 -f fos1 -s
 
-            # Now 'kick' berofos ten times each 5 seconds
-            for ((i == 1; i <= 10; i += 1)); do
-                /usr/bin/bnfos --kick -f fos1 -s
-                /bin/sleep 5
-            done
-        else
-            /usr/bin/logger "$0 - Asterisk is not running"
-        fi
+    # Now 'kick' berofos ten times each 5 seconds
+    for ((i == 1; i <= 10; i += 1)); do
+        /usr/bin/bnfos --kick -f fos1 -s
+        /bin/sleep 5
+    done
+else
+    /usr/bin/logger "$0 - Asterisk is not running"
+fi
+```
 
 4.  Add execution rights to script:
 
         chmod +x /usr/local/sbin/berofos-workaround
 
 5.  Create a cron to launch the script every minutes
-    `/etc/cron.d/berofos-cron-workaround`{.interpreted-text
-    role="file"}:
+    `/etc/cron.d/berofos-cron-workaround`:
 
-        # Workaround to berofos integration
-        MAILTO=""
+```Shell
+# Workaround to berofos integration
+MAILTO=""
 
-        */1 * * * * root /usr/local/sbin/berofos-workaround
+*/1 * * * * root /usr/local/sbin/berofos-workaround
+```
 
 Agents receiving two ACD calls
 ==============================
@@ -212,28 +190,30 @@ This behaviour is caused by a bug in asterisk:
 <https://issues.asterisk.org/jira/browse/ASTERISK-16115>
 
 It\'s possible to workaround this bug in Wazo by adding an agent
-`subroutine <subroutine>`{.interpreted-text role="ref"}. The subroutine
+`subroutine <subroutine>`. The subroutine
 can be either set globally or per agent:
 
-    [pre-limit-agentcallback]
-    exten = s,1,NoOp()
-    same  =   n,Set(LOCKED=${LOCK(agentcallback-${XIVO_AGENT_ID})})
-    same  =   n,GotoIf(${LOCKED}?:not-locked,1)
-    same  =   n,Set(GROUP(agentcallback)=${XIVO_AGENT_ID})
-    same  =   n,Set(COUNT=${GROUP_COUNT(${XIVO_AGENT_ID}@agentcallback)})
-    same  =   n,NoOp(${UNLOCK(agentcallback-${XIVO_AGENT_ID})})
-    same  =   n,GotoIf($[ ${COUNT} <= 1 ]?:too-many-calls,1)
-    same  =   n,Return()
+```Ini
+[pre-limit-agentcallback]
+exten = s,1,NoOp()
+same  =   n,Set(LOCKED=${LOCK(agentcallback-${XIVO_AGENT_ID})})
+same  =   n,GotoIf(${LOCKED}?:not-locked,1)
+same  =   n,Set(GROUP(agentcallback)=${XIVO_AGENT_ID})
+same  =   n,Set(COUNT=${GROUP_COUNT(${XIVO_AGENT_ID}@agentcallback)})
+same  =   n,NoOp(${UNLOCK(agentcallback-${XIVO_AGENT_ID})})
+same  =   n,GotoIf($[ ${COUNT} <= 1 ]?:too-many-calls,1)
+same  =   n,Return()
 
-    exten = not-locked,1,NoOp()
-    same  =   n,Log(ERROR,Could not obtain lock)
-    same  =   n,Wait(0.5)
-    same  =   n,Hangup()
+exten = not-locked,1,NoOp()
+same  =   n,Log(ERROR,Could not obtain lock)
+same  =   n,Wait(0.5)
+same  =   n,Hangup()
 
-    exten = too-many-calls,1,NoOp()
-    same  =   n,Log(WARNING,Not calling agent ID/${XIVO_AGENT_ID} because already in use)
-    same  =   n,Wait(0.5)
-    same  =   n,Hangup()
+exten = too-many-calls,1,NoOp()
+same  =   n,Log(WARNING,Not calling agent ID/${XIVO_AGENT_ID} because already in use)
+same  =   n,Wait(0.5)
+same  =   n,Hangup()
+```
 
 This workaround only applies to queues with agent members; it won\'t
 work for queues with user members.
@@ -242,7 +222,7 @@ Also, the subroutine prevent asterisk from calling an agent twice by
 hanguping the second call. In the agent statistics, this will be shown
 as a non-answered call by the agent.
 
-PostgreSQL localization errors {#postgresql_localization_errors}
+PostgreSQL localization errors
 ==============================
 
 The database and the underlying [database
@@ -263,22 +243,17 @@ and things to know:
 -   `grep ^lc_ /etc/postgresql/11/main/postgresql.conf` to see the
     locale configuration of your database cluster
 -   `sudo -u postgres psql -l` to see the locale of your databases
--   the `/etc/locale.gen`{.interpreted-text role="file"} file and the
+-   the `/etc/locale.gen` file and the
     associated `locale-gen` command to configure the available system
     locales
 -   `systemctl restart postgresql.service` to restart your database
     cluster
 -   the PostgreSQL log file located at
-    `/var/log/postgresql/postgresql-11-main.log`{.interpreted-text
-    role="file"}
+    `/var/log/postgresql/postgresql-11-main.log`
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+:exclamation:
 
 You can use any locale with Wazo as long as it uses an UTF-8 encoding.
-:::
 
 Database cluster is not starting
 --------------------------------
@@ -286,46 +261,48 @@ Database cluster is not starting
 If the database cluster doesn\'t start and you have the following errors
 in your log file:
 
-    LOG:  invalid value for parameter "lc_messages": "en_US.UTF-8"
-    LOG:  invalid value for parameter "lc_monetary": "en_US.UTF-8"
-    LOG:  invalid value for parameter "lc_numeric": "en_US.UTF-8"
-    LOG:  invalid value for parameter "lc_time": "en_US.UTF-8"
-    FATAL:  configuration file "/etc/postgresql/11/main/postgresql.conf" contains errors
+```Log
+LOG:  invalid value for parameter "lc_messages": "en_US.UTF-8"
+LOG:  invalid value for parameter "lc_monetary": "en_US.UTF-8"
+LOG:  invalid value for parameter "lc_numeric": "en_US.UTF-8"
+LOG:  invalid value for parameter "lc_time": "en_US.UTF-8"
+FATAL:  configuration file "/etc/postgresql/11/main/postgresql.conf" contains errors
+```
 
 Then this usually means that the locale that is configured in
-`postgresql.conf`{.interpreted-text role="file"} (here `en_US.UTF-8`) is
+`postgresql.conf` (here `en_US.UTF-8`) is
 not currently available on your system, i.e. does not show up the output
 of `locale -a`. You have two choices to fix this issue:
 
 -   either make the locale available by uncommenting it in the
-    `/etc/locale.gen`{.interpreted-text role="file"} file and running
+    `/etc/locale.gen` file and running
     `locale-gen`
 -   or modify the
-    `/etc/postgresql/11/main/postgresql.conf`{.interpreted-text
-    role="file"} file to set the various `lc_*` options to a locale that
+    `/etc/postgresql/11/main/postgresql.conf` file to set the various `lc_*` options to a locale that
     is available on your system
 
 Once this is done, restart your database cluster.
 
-Can\'t connect to the database
+Can't connect to the database
 ------------------------------
 
 If the database cluster is up but you get the following error when
 trying to connect to the `asterisk` database:
 
-    FATAL:  database locale is incompatible with operating system
-    DETAIL:  The database was initialized with LC_COLLATE "en_US.UTF-8",  which is not recognized by setlocale().
-    HINT:  Recreate the database with another locale or install the missing locale.
+```Log
+FATAL:  database locale is incompatible with operating system
+DETAIL:  The database was initialized with LC_COLLATE "en_US.UTF-8",  which is not recognized by setlocale().
+HINT:  Recreate the database with another locale or install the missing locale.
+```
 
 Then this usually means that the database locale is not currently
 available on your system. You have two choices to fix this issue:
 
 -   either make the locale available by uncommenting it in the
-    `/etc/locale.gen`{.interpreted-text role="file"} file, running
+    `/etc/locale.gen` file, running
     `locale-gen` and restarting your database cluster
 -   or
-    `recreate the database using a different locale <postgres-change-locale>`{.interpreted-text
-    role="ref"}
+    `recreate the database using a different locale <postgres-change-locale>`
 
 Error during the upgrade
 ------------------------
@@ -338,42 +315,45 @@ Error while restoring a database backup
 
 If during a database restore, you get the following error:
 
-    pg_restore: [archiver (db)] Error while PROCESSING TOC:
-    pg_restore: [archiver (db)] Error from TOC entry 4203; 1262 24745 DATABASE asterisk asterisk
-    pg_restore: [archiver (db)] could not execute query: ERROR:  invalid locale name: "en_US.UTF-8"
-        Command was: CREATE DATABASE asterisk WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+```Log
+pg_restore: [archiver (db)] Error while PROCESSING TOC:
+pg_restore: [archiver (db)] Error from TOC entry 4203; 1262 24745 DATABASE asterisk asterisk
+pg_restore: [archiver (db)] could not execute query: ERROR:  invalid locale name: "en_US.UTF-8"
+    Command was: CREATE DATABASE asterisk WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
+```
 
 Then this usually means that your database backup has a locale that is
 not currently available on your system. You have two choices to fix this
 issue:
 
 -   either make the locale available by uncommenting it in the
-    `/etc/locale.gen`{.interpreted-text role="file"} file, running
+    `/etc/locale.gen` file, running
     `locale-gen` and restarting your database cluster
 -   or if you want to restore your backup using a different locale (for
     example `fr_FR.UTF-8`), then restore your backup using the following
     commands instead:
 
-        sudo -u postgres dropdb asterisk
-        sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk
-        sudo -u postgres pg_restore -d asterisk asterisk-*.dump
+```ShellSession
+$ sudo -u postgres dropdb asterisk
+$ sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk
+$ sudo -u postgres pg_restore -d asterisk asterisk-*.dump
+```
 
 Error during master-slave replication
 -------------------------------------
 
 Then the slave database is most likely not using an UTF-8 encoding.
 You\'ll need to
-`recreate the database using a different locale <postgres-change-locale>`{.interpreted-text
-role="ref"}
+`recreate the database using a different locale <postgres-change-locale>`
 
-Changing the locale (LC\_COLLATE and LC\_CTYPE) of the database {#postgres-change-locale}
----------------------------------------------------------------
+Changing the locale (LC_COLLATE and LC_CTYPE) of the database
+-------------------------------------------------------------
 
 If you have decided to change the locale of your database, you must:
 
 -   make sure that you have enough space on your hard drive, more
     precisely in the file system holding the
-    `/var/lib/postgresql`{.interpreted-text role="file"} directory.
+    `/var/lib/postgresql` directory.
     You\'ll have, for a moment, two copies of the `asterisk` database.
 -   prepare for a service interruption. The procedure requires the
     services to be restarted twice, and the system performance will be
@@ -385,18 +365,20 @@ If you have decided to change the locale of your database, you must:
 Then use the following commands (replacing `fr_FR.UTF-8` by your
 locale):
 
-    wazo-service restart all
-    sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk_newlocale
-    sudo -u postgres pg_dump asterisk | sudo -u postgres psql -d asterisk_newlocale
-    wazo-service stop
-    sudo -u postgres psql <<'EOF'
-    DROP DATABASE asterisk;
-    ALTER DATABASE asterisk_newlocale RENAME TO asterisk;
-    EOF
-    wazo-service start
+```ShellSession
+$ wazo-service restart all
+$ sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk_newlocale
+$ sudo -u postgres pg_dump asterisk | sudo -u postgres psql -d asterisk_newlocale
+$ wazo-service stop
+$ sudo -u postgres psql <<'EOF'
+$ DROP DATABASE asterisk;
+$ ALTER DATABASE asterisk_newlocale RENAME TO asterisk;
+$ EOF
+$ wazo-service start
+```
 
 You should also modify the
-`/etc/postgresql/11/main/postgresql.conf`{.interpreted-text role="file"}
+`/etc/postgresql/11/main/postgresql.conf`
 file to set the various `lc_*` options to the new locale value.
 
 For more information, consult the [official documentation on PostgreSQL
@@ -420,21 +402,25 @@ etc.)
 
 Local capture, for later analysis:
 
-    # change interface eth0 and filter 'udp port 5060' as you wish
-    tcpdump -i eth0 -w /tmp/wazo.pcap udp port 5060
+```ShellSession
+# # change interface eth0 and filter 'udp port 5060' as you wish
+# tcpdump -i eth0 -w /tmp/wazo.pcap udp port 5060
+```
 
 Remote packet capture, streamed to Wireshark via SSH:
 
-    # install dumpcap on the server wazo.example.com
-    ssh wazo.example.com apt-get install -y wireshark-common
-
-    # run the capture on interface eth0, for SIP packets only (UDP port 5060)
-    wireshark -k -i <(ssh wazo.example.com "dumpcap -P -i eth0 -w - -f 'udp port 5060'")
+```ShellSession
+# # install dumpcap on the server wazo.example.com
+# ssh wazo.example.com apt-get install -y wireshark-common
+# 
+# # run the capture on interface eth0, for SIP packets only (UDP port 5060)
+# wireshark -k -i <(ssh wazo.example.com "dumpcap -P -i eth0 -w - -f 'udp port 5060'")
+```
 
 Getting help
 ============
 
-Sometimes it\'s just not possible to fix a problem by yourself. In that
+Sometimes it's just not possible to fix a problem by yourself. In that
 case, you will most likely need to get help from someone outside your
 network.
 
@@ -449,29 +435,29 @@ To make that possible, you will have to follow these 4 easy steps.
 
 On a 32 bit server:
 
-``` {.sourceCode .sh}
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
-unzip ngrok-stable-linux-386.zip
+```ShellSession
+$ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
+$ unzip ngrok-stable-linux-386.zip
 ```
 
 On a 64 bit server:
 
-``` {.sourceCode .sh}
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
+```ShellSession
+$ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+$ unzip ngrok-stable-linux-amd64.zip
 ```
 
 -   Add your ngrok token (given when you signed up on
     [ngrok](https://dashboard.ngrok.com/user/signup))
 
-``` {.sourceCode .sh}
-./ngrok authtoken <YOUR AUTH TOKEN>
+```ShellSession
+$ ./ngrok authtoken <YOUR AUTH TOKEN>
 ```
 
 -   Add SSH and HTTPS access in your *ngrok* config
 
-``` {.sourceCode .sh}
-cat << EOF >> ~/.ngrok2/ngrok.yml
+```ShellSession
+$ cat << EOF >> ~/.ngrok2/ngrok.yml
 tunnels:
   webi:
     addr: 443
@@ -484,8 +470,8 @@ EOF
 
 -   Start *ngrok*
 
-``` {.sourceCode .sh}
-./ngrok start --all
+```ShellSession
+$ ./ngrok start --all
 ```
 
 The output will show the public URL and ports that are now available to
@@ -503,19 +489,12 @@ means:
 
 To stop *ngrok* hit Ctrl-C.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+:exclamation:
 
 The ngrok tunnel will not survive a reboot of the server, you\'ll have
 to set it up again after restart.
-:::
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
+:warning:
 
 This setup is a typical scenario for a [man-in-the-middle
 attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If you
@@ -538,18 +517,17 @@ When troubleshooting a problem, you may need to send logs for analysis.
 
 `wazo-debug-collect` simplifies the gathering of logs:
 
-    apt-get update
-    apt-get install wazo-debug
-    wazo-debug-collect -o /tmp/logs.tar.gz
+```ShellSession
+# apt-get update
+# apt-get install wazo-debug
+# wazo-debug-collect -o /tmp/logs.tar.gz
+```
 
 `wazo-debug-collect` will gather all the logs of the different Wazo
 daemons, including Asterisk, and bundle them into a tarball. You may
 then send this tarball for analysis.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
+:warning:
 
 Be careful before sending the logs in a public place: they may contain
 sensible information, that can be used to connect to your Wazo.
@@ -558,4 +536,4 @@ sensible information, that can be used to connect to your Wazo.
 Asterisk crash
 ==============
 
-See `debugging_asterisk`{.interpreted-text role="ref"}.
+See [debugging_asterisk](/contribute/debug_asterisk)

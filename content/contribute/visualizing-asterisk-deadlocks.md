@@ -2,14 +2,14 @@ Visualizing asterisk deadlocks
 ==============================
 
 It has recently come to our attention that a freeze would sometimes
-occur in the asterisk application shipped with XiVO.
+occur in the asterisk application shipped with Wazo Platform.
 
 When the freeze happened, no new calls would be accepted and most of the
 current calls would freeze. A manual restart of the asterisk process
 would then be required for the situation to get back to normal.
 
 As you can understand, that's quite an unpleasant situation for a
-telephony system like XiVO.
+telephony system like Wazo Platform.
 
 So we began investigating on what was causing the freeze, knowing it was
 probably some deadlocks occuring in the asterisk process.Fortunately for
@@ -17,15 +17,15 @@ us, asterisk provides some compile time flags that help with debugging
 such conditions. This is documented [on the asterisk
 wiki](https://wiki.asterisk.org/wiki/display/AST/Getting+a+Backtrace).
 
-After recompiling the XiVO version of asterisk with the DEBUG\_THREADS
-and DONT\_OPTIMIZE flags, and with the help of some other people, we
+After recompiling the Wazo Platform version of asterisk with the `DEBUG_THREADS`
+and `DONT_OPTIMIZE` flags, and with the help of some other people, we
 were able to reproduce the freeze and get some information about the
 various locks held by the various threads of the frozen asterisk process
-via the "coreshow locks" command.
+via the `core show locks` command.
 
-The output of the "core show locks" command looks like this:
+The output of the `core show locks` command looks like this:
 
-~~~
+```Log
 =======================================================================
 === Currently Held Locks ==============================================
 =======================================================================
@@ -99,7 +99,7 @@ The output of the "core show locks" command looks like this:
 === --- ---> Locked Here: chan_agent.c line 515 (agent_lock_owner)
 === -------------------------------------------------------------------
 ...
-~~~
+```
 
 
 and it continues this way for a total of 363 lines.
