@@ -112,7 +112,7 @@ wazo-ui.
 
 At the moment, there is no plan to keep the old and new API working together. If
 you do use the SIP configuration API, get in touch with us on the
-[forum](https://wazo-platform.discourse.group/latest)
+[forum](https://wazo-platform.discourse.group/t/blog-a-multi-tenant-api-for-pjsip/248)
 
 
 # Conclusion
@@ -125,4 +125,4 @@ power of `chan_pjsip`.
 
 # Discussion
 
-Comments or questions in [this forum post](https://wazo-platform.discourse.group/latest).
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-a-multi-tenant-api-for-pjsip/248).
