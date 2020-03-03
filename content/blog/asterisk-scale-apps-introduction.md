@@ -131,3 +131,7 @@ All the work presented in the blog post is available in the following Git reposi
 
 * https://github.com/wazo-platform/wazo-res-stasis-amqp/tree/scale
   Asterisk module forwarding Stasis message through AMQP bus
+
+# Discussion
+
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-scaling-asterisk-applications/244).
