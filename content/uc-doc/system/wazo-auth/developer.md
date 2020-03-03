@@ -1,17 +1,6 @@
 ---
-title: 'wazo-auth Developer\''s Guide'
+title: wazo-auth Developer's Guide
 ---
-
--   [Architecture](#architecture)
-    -   [backend\_plugins](#backend_plugins)
-    -   [http\_plugins](#http_plugins)
-    -   [controller](#controller)
-    -   [token](#token)
--   [Plugins](#plugins)
-    -   [Backends](#backends)
-    -   [External Auth](#external-auth)
-        -   [OAuth2 helpers](#oauth2-helpers)
-        -   [Example](#example)
 
 Architecture
 ============
@@ -25,21 +14,21 @@ xivo-user-uuid.
 
 wazo-auth is made of the following modules and packages.
 
-backend\_plugins
+backend_plugins
 ----------------
 
 the plugin package contains the wazo-auth backends that are packaged
 with wazo-auth.
 
-http\_plugins
+http_plugins
 -------------
 
 The http module is the implementation of the HTTP interface.
 
 -   Validate parameters
 -   Calls the backend the check the user authentication
--   Forward instructions to the *token\_manager*
--   Handle exceptions and return the appropriate status\_code
+-   Forward instructions to the *token_manager*
+-   Handle exceptions and return the appropriate status_code
 
 controller
 ----------
@@ -48,7 +37,7 @@ The controller is the plumbin of wazo-auth, it has no business logic.
 
 -   Start the HTTP application
 -   Load all enabled plugins
--   Instanciate the token\_manager
+-   Instanciate the token_manager
 
 token
 -----
@@ -74,7 +63,7 @@ simple.
 
 1.  Create a python module implementing the [backend
     interface](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/interfaces.py).
-2.  Install the python module with an entry point *wazo\_auth.backends*
+2.  Install the python module with an entry point *wazo_auth.backends*
 
 An example backend implementation is available
 [here](http://github.com/wazo-platform/wazo-auth-example-backend).
@@ -88,12 +77,12 @@ appropriate ACL.
 
 An external authentication plugin is made of the following parts.
 
-1.  A setup.py adding the plugin the the [wazo\_auth.http]{.title-ref}
+1.  A setup.py adding the plugin the the [wazo_auth.http]{.title-ref}
     entry point
-2.  A flask\_restful class implementing the route for this plugin
+2.  A flask_restful class implementing the route for this plugin
 3.  A marshmallow model that can filter the stored data to be safe for
     unpriviledged view
-4.  A plugin\_info dictionary with information that should be displayed
+4.  A plugin_info dictionary with information that should be displayed
     in UI concerning this plugin
 
 The restful class should do the following:
@@ -112,7 +101,7 @@ The restful class should do the following:
 ### OAuth2 helpers
 
 If the external service uses OAuth2 it is possible to use some helper
-functions in the external\_auth service.
+functions in the external_auth service.
 
 Those helpers can be used to get notified when the user has accepted
 wazo-auth on the external service.
@@ -121,8 +110,8 @@ The following helpers are available:
 
     external_auth_service.register_oauth2_callback(auth_type, user_uuid, state, callback, *args, **kwargs)
 
--   auth\_type: The name of the authentication backend
--   user\_uuid: The user UUID of the user creating the external auth
+-   auth_type: The name of the authentication backend
+-   user_uuid: The user UUID of the user creating the external auth
 -   state: The state returned from the authorization URL query
 -   callback: the callable that should be triggered when the
     authorization is complete
@@ -132,14 +121,8 @@ The following helpers are available:
 When the callback function gets called, its last args will be the
 message sent to the redirect URL by the external service.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The callback is not executed in the main thread. You should take care of
+#:exclamation: The callback is not executed in the main thread. You should take care of
 thread synchronization when sharing data structures between threads.
-:::
 
 The callback is usually used to create a first token on the external
 service.
@@ -157,7 +140,7 @@ Files:
     setup.py
     src/plugin.py
 
-``` {.sourceCode .python}
+```Python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -177,7 +160,7 @@ setup(
 )
 ```
 
-``` {.sourceCode .python}
+```Python
 # -*- coding: utf-8 -*-
 
 from marshmallow import Schema, fields, pre_load

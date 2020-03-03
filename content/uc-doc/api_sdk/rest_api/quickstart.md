@@ -2,15 +2,6 @@
 title: REST API Quickstart
 ---
 
--   [Introduction](#introduction)
--   [REST API Permissions](#rest-api-permissions)
--   [Swagger UI](#swagger-ui)
--   [HTTPS certificates](#https-certificates)
--   [Authentication token](#authentication-token)
--   [Use the wazo-confd REST API](#use-the-wazo-confd-rest-api)
--   [What\'s next](#whats-next)
--   [Something went wrong\...](#something-went-wrong...)
-
 Introduction
 ============
 
@@ -32,7 +23,7 @@ First of all, you must have permission to use the REST API. Create a
 `PUT /users/{user_uuid}/policies/{policy_uuid}`
 
 -   `acl_templates`: `#` is a wildcard that gives access to every REST
-    API. You may want to delete this account when you\'re done, to
+    API. You may want to delete this account when you're done, to
     reduce risks of unauthorized access.
 
 Save the form, and store the login/password somewhere for later use.
@@ -98,11 +89,11 @@ end:
 Authentication token
 ====================
 
-Let\'s ask wazo-auth for an authentication token:
+Let's ask wazo-auth for an authentication token:
 
 1.  Choose the `wazo-auth` service in the list of REST APIs
-2.  In the top-right text box of the page (left to the \"Explore\"
-    button), fill \"token\" with the `rest-api-test:password`: those
+2.  In the top-right text box of the page (left to the "Explore"
+    button), fill "token" with the `rest-api-test:password`: those
     credentials are the ones from the Web Services Access you created
     earlier.
 3.  Go to the `POST /tokens` section and click on the yellow box to the
@@ -119,7 +110,7 @@ Let\'s ask wazo-auth for an authentication token:
     little string is your authentication token. Save it somewhere, in
     case you need it later.
 7.  Copy-paste the `token` attribute in the top-right input box,
-    replacing the `rest-api-test:password`. Note that you don\'t need to
+    replacing the `rest-api-test:password`. Note that you don't need to
     click the Explore button to accept the change of token.
 
 Use the wazo-confd REST API
@@ -133,33 +124,21 @@ API.
     `users --> GET /users`{.interpreted-text role="menuselection"} and
     click `Try it out`
 
-And that\'s it, you are ready to use any REST API with your
+And that's it, you are ready to use any REST API with your
 authentication token.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Be aware that this token will expire, and that you will need to get a
+#:exclamation: Be aware that this token will expire, and that you will need to get a
 new one when that happens. You can take a look at
 <https://auth.wazo.community> for an easier manual token generation
 process. Note that the `auth.wazo.community` server will never know the
 tokens that you generate, you browser will ask your Wazo directly.
-:::
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Also, note that this authentication token gives **all permissions** to
+#:warning: Also, note that this authentication token gives **all permissions** to
 anyone who knows it. Same goes for the account password we created
 earlier. Remember to delete this account, or at least restrict
-permissions when you\'re done.
-:::
+permissions when you're done.
 
-What\'s next
+What's next
 ============
 
 -   Check our `rest-api-examples`{.interpreted-text role="ref"} for more
@@ -169,7 +148,7 @@ What\'s next
 -   Explore the REST API in Swagger, it also serves as the reference
     documentation for REST API.
 
-Something went wrong\...
+Something went wrong...
 ========================
 
 Check `rest-api-troubleshooting`{.interpreted-text role="ref"}.

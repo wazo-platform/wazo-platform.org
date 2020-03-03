@@ -9,7 +9,7 @@ role="ref"} and
 role="ref"} you can proceed with the card configuration. Follow one of
 the appropriate link below :
 
-::: {.toctree maxdepth="1"}
-bri\_configuration pri\_configuration analog\_configuration
-voice\_compression\_configuration
-:::
+- [bri configuration](bri_configuration)
+- [pri configuration](pri_configuration)
+- [analog configuration](analog_configuration)
+- [voice compression configuration](voice_compression_configuration)

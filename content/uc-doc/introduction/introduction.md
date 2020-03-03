@@ -2,14 +2,11 @@
 title: Introduction
 ---
 
--   [Wazo History](#wazo-history)
+Wazo Platform can be used to build a PABX application based on several
+free existing components including Asterisk and our own developments.
 
-Wazo is a PABX application based on several free existing components
-including Asterisk and our own developments. Wazo provides a solution
-for enterprises who wish to replace or add telephone services (PABX).
-
-Wazo is free software. Most of its distinctive components, and Wazo as a
-whole, are distributed under the GPLv3 license.
+Wazo Platform is free software. Most of its distinctive components,
+and Wazo Platform as a whole, are distributed under the GPLv3 license.
 
 Wazo History
 ============

@@ -2,18 +2,6 @@
 title: User Import and Export
 ---
 
--   [CSV Import](#csv-import)
-    -   [CSV file](#csv-file)
-        -   [User](#user)
-        -   [Phone](#phone)
-        -   [Incoming call](#incoming-call)
-        -   [Voicemail](#voicemail)
-        -   [Call permissions](#call-permissions)
-    -   [Importing a file](#importing-a-file)
-        -   [Examples](#examples)
--   [CSV Update](#csv-update)
--   [CSV Export](#csv-export)
-
 CSV Import
 ==========
 
@@ -202,14 +190,8 @@ phone number (e.g. incoming call):
 CSV Update
 ==========
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The CSV update has been disabled since it does not suport multi-tenants
+#:exclamation: The CSV update has been disabled since it does not suport multi-tenants
 at the moment
-:::
 
 The field list for an update is the same as for an import with the
 addition of the column uuid, which is mandatory. For each line in the

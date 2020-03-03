@@ -2,22 +2,15 @@
 title: 'wazo-dird'
 ---
 
--   [Launching wazo-dird](#wazo-dird-usage)
--   [Terminology](#terminology)
-    -   [Back-end](#back-end)
-    -   [Source](#source)
-    -   [Plugins](#plugins)
--   [API](#api)
-
 wazo-dird is the directory server for Wazo. It offers a simple REST
 interface to query all directories that are configured. wazo-dird is
 extendable with plugins.
 
-::: {.toctree maxdepth="1"}
-configuration developer stock\_plugins
-:::
+- [configuration](configuration)
+- [developer](developer)
+- [stock_plugins](stock_plugins)
 
-Launching wazo-dird {#wazo-dird-usage}
+Launching wazo-dird
 ===================
 
     usage: wazo-dird [-h] [-c CONFIG_FILE] [-d] [-f] [-l LOG_LEVEL] [-u USER]
@@ -68,4 +61,4 @@ of plugins:
 API
 ===
 
-See <http://api.wazo.community>, section Wazo Dird.
+See </documentation/api/contact.html>.

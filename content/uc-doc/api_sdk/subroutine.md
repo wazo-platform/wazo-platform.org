@@ -2,14 +2,6 @@
 title: Subroutine
 ---
 
--   [What is it ?](#what-is-it)
--   [Adding new subroutine](#adding-new-subroutine)
-    -   [Where](#where)
-    -   [What](#what)
--   [Global subroutine](#global-subroutine)
--   [Forward subroutine](#forward-subroutine)
--   [Dialplan variables](#dialplan-variables)
-
 What is it ?
 ============
 
@@ -50,16 +42,10 @@ You can write the subroutine:
 -   add/edit a file directly on the server in
     `/etc/asterisk/extensions_extra.d`{.interpreted-text role="file"}
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Since all configuration files will be merged together in the end, it
+#:exclamation: Since all configuration files will be merged together in the end, it
 does not matter in which file you write your subroutine. The different
 files are only here to find your way back more quickly than one big
 configuration file. So don\'t be afraid to create new files!
-:::
 
 What
 ----

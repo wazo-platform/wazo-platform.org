@@ -2,16 +2,24 @@
 title: Contributors
 ---
 
-General information:
+# General information
 
-::: {.toctree maxdepth="2"}
-contributing\_doc debug\_asterisk debug\_daemon contributing\_to\_wazo
-generate\_custom\_prompts guidelines network plugins/plugins
-profile\_python style\_guide translate xivo\_package\_file\_structure
-:::
+- [contributing_doc](contributing_doc)
+- [debug_asterisk](debug_asterisk)
+- [debug_daemon](debug_daemon)
+- [contributing_to_wazo](contributing_to_wazo)
+- [generate_custom_prompts](generate_custom_prompts)
+- [guidelines](guidelines)
+- [network](network)
+- [plugins/plugins](plugins/plugins)
+- [profile_python](profile_python)
+- [style_guide](style_guide)
+- [translate](translate)
+- [xivo_package_file_structure](xivo_package_file_structure)
 
-Component specific information:
+# Component specific information
 
-::: {.toctree maxdepth="2"}
-database diagrams provisioning/provisioning sccp
-:::
+- [database](database)
+- [diagrams](diagrams)
+- [provisioning/provisioning](provisioning/provisioning)
+- [sccp](sccp)

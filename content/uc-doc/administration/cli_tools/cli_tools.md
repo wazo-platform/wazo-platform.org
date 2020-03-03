@@ -2,16 +2,6 @@
 title: CLI Tools
 ---
 
--   [wazo-auth-cli](#wazo-auth-cli)
--   [wazo-dist-upgrade](#wazo-dist-upgrade)
--   [wazo-plugind-cli](#wazo-plugind-cli)
--   [wazo-service](#wazo-service)
--   [wazo-reset](#wazo_reset)
--   [wazo-upgrade](#wazo-upgrade)
--   [wazo-agentd-cli](#wazo-agentd-cli)
--   [wazo-dist](#wazo_dist)
--   [wazo-provd-cli](#wazo-provd-cli)
-
 Wazo comes with a collection of console (CLI) tools to help administer
 the server.
 
@@ -43,7 +33,7 @@ wazo-service
 `wazo-service` is used to control and print the status of the Wazo
 services.
 
-wazo-reset {#wazo_reset}
+wazo-reset
 ==========
 
 wazo-reset is a tool to reset some of the state of a Wazo installation
@@ -74,7 +64,7 @@ the command `wazo-agentd-cli`. It should prompt you for a password that
 is empty by default. Once in the interactive mode, enter `help` for a
 list of available operations.
 
-wazo-dist {#wazo_dist}
+wazo-dist
 =========
 
 wazo-dist is the wazo repository sources manager. It is used to switch

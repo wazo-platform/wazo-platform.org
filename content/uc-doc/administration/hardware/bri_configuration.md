@@ -31,16 +31,9 @@ Issue the command:
 
     dahdi_genconf
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-it will erase all existing configuration in
+#:warning: it will erase all existing configuration in
 `/etc/dahdi/system.conf`{.interpreted-text role="file"} and
-`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} files
-!
-:::
+`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} files!
 
 Configure
 =========
@@ -55,7 +48,7 @@ role="file"} file:
 -   if needed change the clock source,
 
 See detailed explanations of this file in the
-`system_conf`{.interpreted-text role="ref"} section.
+[system_conf](hardware) section.
 
 Below is **an example** for a typical french BRI line span:
 
@@ -118,16 +111,10 @@ You will find below 3 configurations that we recommend for BRI lines.
 These configurations were tested on different type of french BRI lines
 with success.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The pre-requisites are:
+#:exclamation: The pre-requisites are:
 
 -   Use per-port dahdi interconnection (see the
     `interco_dahdi_conf`{.interpreted-text role="ref"} section)
-:::
 
 If you don\'t know which one to configure we recommend that you try each
 one after the other in this order:
@@ -172,12 +159,7 @@ Follow theses steps to configure:
 
         wazo-service restart
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Expected behavior:
+#:exclamation: Expected behavior:
 
 -   The [dahdi show status]{.title-ref} command should show the BRI
     spans in *RED* status if there is no call,
@@ -187,7 +169,6 @@ Expected behavior:
     the operator,
 -   You can consider that there is *a problem* only if incoming or
     outgoing calls are rejected.
-:::
 
 PTMP with layer1/layer2 persistence {#bri_card_ptmp_wl1l2}
 -----------------------------------
@@ -220,18 +201,12 @@ Follow theses steps to configure:
 
         wazo-service restart
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Expected behavior:
+#:exclamation: Expected behavior:
 
 -   The [dahdi show status]{.title-ref} command should show the BRI
     spans in **OK** status even if there is no call,
 -   In asterisk CLI you may see the spans going Up/Down/Up : it is *a
     problem* only if incoming or outgoing calls are rejected.
-:::
 
 PTP with layer1/layer2 persistence {#bri_card_ptp_wl1l2}
 ----------------------------------
@@ -260,16 +235,10 @@ Follow theses steps to configure:
 
         wazo-service restart
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Expected behavior:
+#:exclamation: Expected behavior:
 
 -   The [dahdi show status]{.title-ref} command should show the BRI
     spans in **OK** status even if there is no call,
 -   In asterisk CLI you should not see the spans going Up and Down : if
     it happens, it is *a problem* only if incoming or outgoing calls are
     rejected.
-:::

@@ -2,11 +2,6 @@
 title: REST API Permissions
 ---
 
--   [Syntax](#syntax)
-    -   [Substitutions](#substitutions)
-    -   [Example](#example)
--   [Available ACLs](#available-acls)
-
 The tokens delivered by `wazo-auth`{.interpreted-text role="ref"} have a
 list of permissions associated (ACL), that determine which REST
 resources are authorized for this token. Each REST resource has an
@@ -19,17 +14,17 @@ Syntax
 
 An ACL contains 3 parts separated by dot (`.`)
 
--   \`service\`: name of service, without prefix `xivo-` (e.g.
-    `wazo-confd` -\> `confd`).
--   \`resource\`: name of resource separated by dot (`.`) (e.g.
-    `/users/17/lines` -\> `users.17.lines`).
--   \`action\`: action performed on resource. Generally, this is the
+-   `service`: name of service, without prefix `xivo-` (e.g.
+    `wazo-confd` -> `confd`).
+-   `resource`: name of resource separated by dot (`.`) (e.g.
+    `/users/17/lines` -> `users.17.lines`).
+-   `action`: action performed on resource. Generally, this is the
     following schema:
 
-    > -   `get` -\> `read`
-    > -   `put` -\> `update`
-    > -   `post` -\> `create`
-    > -   `delete` -\> `delete`
+    > -   `get` -> `read`
+    > -   `put` -> `update`
+    > -   `post` -> `create`
+    > -   `delete` -> `delete`
 
 Substitutions
 -------------
@@ -54,9 +49,9 @@ resources:
     GET /users/{user_id}/lines/{line_id}
     GET /users/{user_id}/voicemail
 
--   \`service\`: `confd`
--   \`resource\`: `users.me.#`
--   \`action\`: `read`
+-   `service`: `confd`
+-   `resource`: `users.me.#`
+-   `action`: `read`
 
 The ACL `confd.users.me.funckeys.*.*` will have access to the following
 REST resources:
@@ -66,9 +61,9 @@ REST resources:
     PUT /users/{user_id}funckeys/{position}
     GET /users/{user_id}funckeys/templates
 
--   \`service\`: `confd`
--   \`resource\`: `users.me.funckeys.*`
--   \`action\`: `*`
+-   `service`: `confd`
+-   `resource`: `users.me.funckeys.*`
+-   `action`: `*`
 
 Where `{user_id}` is the user uuid from the token.
 

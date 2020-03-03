@@ -2,37 +2,13 @@
 title: Stock Plugins Documentation
 ---
 
--   [View Plugins](#view-plugins)
-    -   [default\_json](#default_json)
-    -   [headers](#headers)
-    -   [personal\_view](#personal_view)
-    -   [phonebook\_view](#phonebook_view)
-    -   [aastra\_view](#aastra_view)
-    -   [cisco\_view](#cisco_view)
-    -   [polycom\_view](#polycom_view)
-    -   [snom\_view](#snom_view)
-    -   [thomson\_view](#thomson_view)
-    -   [yealink\_view](#yealink_view)
--   [Service Plugins](#service-plugins)
-    -   [lookup](#lookup)
-        -   [Configuration](#configuration)
-    -   [favorites](#favorites)
-    -   [personal](#dird_services_personal)
-    -   [phonebook](#phonebook)
-        -   [Configuration](#configuration-1)
-    -   [reverse](#reverse)
-        -   [Configuration](#configuration-2)
-    -   [Service Discovery](#service-discovery)
-        -   [Template](#template)
-        -   [Host configuration](#host-configuration)
-
 View Plugins
 ============
 
-default\_json
+default_json
 -------------
 
-View name: default\_json
+View name: default_json
 
 Purpose: present directory entries in JSON format. The format is
 detailed in <http://api.wazo.community>.
@@ -45,66 +21,66 @@ View name: headers
 Purpose: List headers that will be available in results from
 `default_json` view.
 
-personal\_view
+personal_view
 --------------
 
-View name: personal\_view
+View name: personal_view
 
 Purpose: Expose REST API to manage personal contacts (create, delete,
 list).
 
-phonebook\_view
+phonebook_view
 ---------------
 
-View name: phonebook\_view
+View name: phonebook_view
 
-Purpose: Expose REST API to manage wazo-dird\'s internal phonebooks.
+Purpose: Expose REST API to manage wazo-dird's internal phonebooks.
 
-aastra\_view
+aastra_view
 ------------
 
-View name: aastra\_view
+View name: aastra_view
 
 Purpose: Expose REST API to search in configured directories for Aastra
 phone.
 
-cisco\_view
+cisco_view
 -----------
 
-View name: cisco\_view
+View name: cisco_view
 
 Purpose: Expose REST API to search in configured directories for Cisco
 phone (see
-[CiscoIPPhone\_XML\_Objects](http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html)).
+[CiscoIPPhone_XML_Objects](http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html)).
 
-polycom\_view
+polycom_view
 -------------
 
-View name: polycom\_view
+View name: polycom_view
 
 Purpose: Expose REST API to search in configured directories for Polycom
 phone.
 
-snom\_view
+snom_view
 ----------
 
-View name: snom\_view
+View name: snom_view
 
 Purpose: Expose REST API to search in configured directories for Snom
 phone.
 
-thomson\_view
+thomson_view
 -------------
 
-View name: thomson\_view
+View name: thomson_view
 
 Purpose: Expose REST API to search in configured directories for Thomson
 phone.
 
-yealink\_view
+yealink_view
 -------------
 
-View name: yealink\_view
+View name: yealink_view
 
 Purpose: Expose REST API to search in configured directories for Yealink
 phone.
@@ -234,7 +210,7 @@ timeout
 Service Discovery
 -----------------
 
-Service name: service\_discovery
+Service name: service_discovery
 
 Purpose: Creates sources when services are registered using service
 discovery.
@@ -245,16 +221,10 @@ To configure new sources, the service needs the following things:
 2.  A set of configuration that will be applied to the template.
 3.  A set of service and profile that will use the new source.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Service discovery is limited to a single service being discovered. This
+#:exclamation: Service discovery is limited to a single service being discovered. This
 means that discovering a wazo-confd server will assume that wazo-auth
 resides on the same host or that the template is already configured with
 the appropriate hostname.
-:::
 
 ### Template
 
@@ -267,7 +237,7 @@ configuration
 
 Example:
 
-``` {.sourceCode .yaml}
+```YAML
 type: wazo
 name: wazo-{{ uuid }}
 searched_columns:
@@ -296,7 +266,7 @@ format_columns:
 
 Example:
 
-``` {.sourceCode .yaml}
+```YAML
 services:
   service_discovery:
     template_path: /etc/wazo-dird/templates.d
@@ -314,22 +284,22 @@ The following keys are available to use in the templates:
 -   uuid: The Wazo uuid that was in the service registry notification
 -   hostname: The advertised host from the remote service
 -   port: The advertised port from the remote service
--   service\_id: The login used to query wazo-confd
--   service\_key: The password used to query wazo-confd
+-   service_id: The login used to query wazo-confd
+-   service_key: The password used to query wazo-confd
 
 All other fields are configured in the *hosts* section of the
-service\_discovery service.
+service_discovery service.
 
 ### Host configuration
 
 The host section allow the administrator to configure some information
 that are not available in the service discovery to be available in the
-templates. This will typically be the *service\_id* and *service\_key*
+templates. This will typically be the *service_id* and *service_key*
 that are configured with the proper ACL on the remote Wazo.
 
 Example:
 
-``` {.sourceCode .yaml}
+```YAML
 services:
   service_discovery:
     hosts:
@@ -341,9 +311,9 @@ services:
         token: 3f031816-84a6-3960-fcd1-9cca67eacde2
 ```
 
--   uuid: the XIVO\_UUID of the remote Wazo
--   service\_id: the web service login on the remote Wazo
--   service\_key: the secret key of the web service
+-   uuid: the XIVO_UUID of the remote Wazo
+-   service_id: the web service login on the remote Wazo
+-   service_key: the secret key of the web service
 -   datacenter(optional): the name of the consul datacenter on which the
     other Wazo is running
 -   token(optional): the token to access service discovery on the remote

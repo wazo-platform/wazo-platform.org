@@ -3,10 +3,6 @@
     -   [Set the outgoing calls](#set-the-outgoing-calls)
     -   [Set the incoming calls](#set-the-incoming-calls)
 
-::: {.index}
-interconnections
-:::
-
 Interconnect two Wazo directly
 ==============================
 
@@ -98,14 +94,8 @@ Set the incoming calls
 Now that we have calls going out from a Wazo, we need to route incoming
 calls on the Wazo destination.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-This step is only necessary if the trunk is linked to an Incoming calls
+#:exclamation: This step is only necessary if the trunk is linked to an Incoming calls
 context.
-:::
 
 To route an incoming call to the right destination in the right context,
 we will create an incoming call

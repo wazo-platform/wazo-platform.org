@@ -52,10 +52,5 @@ only use consul monitor:
     2015/08/03 09:48:26 [INFO] raft: Disabling EnableSingleNode (bootstrap)
     2015/08/03 11:04:08 [INFO] agent.rpc: Accepted client: 127.0.0.1:41545
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+#:excalamation: The ca-file can be different when using custom HTTPS certificates
 
-The ca-file can be different when using custom HTTPS certificates
-:::

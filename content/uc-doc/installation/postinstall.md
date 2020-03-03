@@ -2,12 +2,6 @@
 title: Post Installation
 ---
 
--   [Display called name on internal
-    calls](#display-called-name-on-internal-calls)
--   [Incoming caller number display](#callerid_num_normalization)
--   [Time and date](#time-and-date)
--   [Codecs](#codecs)
-
 Here are a few configuration options that are commonly changed once the
 installation is completed. Please note that these changes are optional.
 
@@ -23,22 +17,15 @@ number only). To achieve this you must change the following SIP options:
     > -   `trustrpid`: `yes`
     > -   `sendrpid`: `pai`
 
-Incoming caller number display {#callerid_num_normalization}
+Incoming caller number display
 ==============================
 
 The caller ID number on incoming calls depends on what is sent by your
 operator. You can modify it via the file
-`/etc/xivo/asterisk/xivo_in_callerid.conf`{.interpreted-text
-role="file"}.
+`/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The reverse directory lookup use the caller ID number after it has been
-modified by `xivo_in_callerid.conf`{.interpreted-text role="file"}
-:::
+#:exclamation: The reverse directory lookup use the caller ID number after it has been
+modified by `xivo_in_callerid.conf`
 
 Examples:
 

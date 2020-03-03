@@ -1,12 +1,11 @@
 ---
-subtitle: API reference
 title: 'wazo-webhookd REST API'
+subtitle: API reference
 ---
 
-API documentation is available on <http://api.wazo.community>.
+API documentation is available on </documentation>.
 
 More specific documentation:
 
-::: {.toctree maxdepth="2"}
-user\_filter templates
-:::
+- [User Filter](user_filter)
+- [Templates](templates)

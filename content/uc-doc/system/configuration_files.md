@@ -63,11 +63,11 @@ Configuration files for every service running on a Wazo server will
 respect these rules:
 
 -   Default configuration directory in
-    `/etc/xivo-{{service}}/conf.d`{.interpreted-text role="file"} (e.g.
-    `/etc/wazo-agentd/conf.d/`{.interpreted-text role="file"})
+    `/etc/xivo-{{service}}/conf.d` (e.g.
+    `/etc/wazo-agentd/conf.d/`)
 -   Default configuration file in
-    `/etc/xivo-{{service}}/config.yml`{.interpreted-text role="file"}
-    (e.g. `/etc/wazo-agentd/config.yml`{.interpreted-text role="file"})
+    `/etc/xivo-{{service}}/config.yml`
+    (e.g. `/etc/wazo-agentd/config.yml`)
 
 The files `/etc/xivo-{{service}}/config.yml`{.interpreted-text
 role="file"} should not be modified because **they will be overridden
@@ -80,43 +80,43 @@ wazo-auth
 =========
 
 -   Default configuration directory:
-    `/etc/wazo-auth/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-auth/conf.d`
 -   Default configuration file:
-    `/etc/wazo-auth/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-auth/config.yml`
 
 wazo-agentd
 ===========
 
 -   Default configuration directory:
-    `/etc/wazo-agentd/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-agentd/conf.d`
 -   Default configuration file:
-    `/etc/wazo-agentd/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-agentd/config.yml`
 
 wazo-amid
 =========
 
 -   Default configuration directory:
-    `/etc/wazo-amid/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-amid/conf.d`
 -   Default configuration file:
-    `/etc/wazo-amid/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-amid/config.yml`
 
 wazo-confgend
 =============
 
 -   Default configuration directory:
-    `/etc/wazo-confgend/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-confgend/conf.d`
 -   Default configuration file:
-    `/etc/wazo-confgend/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-confgend/config.yml`
 -   Default templates directory:
-    `/etc/wazo-confgend/templates`{.interpreted-text role="file"}
+    `/etc/wazo-confgend/templates`
 
 xivo-dao
 ========
 
 -   Default configuration directory:
-    `/etc/xivo-dao/conf.d`{.interpreted-text role="file"}
+    `/etc/xivo-dao/conf.d`
 -   Default configuration file:
-    `/etc/xivo-dao/config.yml`{.interpreted-text role="file"}
+    `/etc/xivo-dao/config.yml`
 
 This configuration is read by many Wazo programs in order to connect to
 the Postgres database of Wazo.
@@ -125,45 +125,38 @@ wazo-phoned
 ===========
 
 -   Default configuration directory:
-    `/etc/wazo-phoned/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-phoned/conf.d`
 -   Default configuration file:
-    `/etc/wazo-phoned/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-phoned/config.yml`
 
 wazo-provd
 ==========
 
 -   Default configuration directory:
-    `/etc/wazo-provd/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-provd/conf.d`
 -   Default configuration file:
-    `/etc/wazo-provd/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-provd/config.yml`
 
 wazo-websocketd
 ===============
 
 -   Default configuration directory:
-    `/etc/wazo-websocketd/conf.d`{.interpreted-text role="file"}
+    `/etc/wazo-websocketd/conf.d`
 -   Default configuration file:
-    `/etc/wazo-websocketd/config.yml`{.interpreted-text role="file"}
+    `/etc/wazo-websocketd/config.yml`
 
 xivo\_ring.conf
 ===============
 
--   Path: `/etc/xivo/asterisk/xivo_ring.conf`{.interpreted-text
-    role="file"}
+-   Path: `/etc/xivo/asterisk/xivo_ring.conf`
 -   Purpose: This file can be used to change the ringtone played by the
     phone depending on the origin of the call.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Note that this feature has not been tested for all phones and all call
+#:warning: Note that this feature has not been tested for all phones and all call
 flows. This page describes how you can customize this file but does not
 intend to list all validated call flows or phones.
-:::
 
-This file `xivo_ring.conf`{.interpreted-text role="file"} consists of :
+This file `xivo_ring.conf` consists of :
 
 -   profiles of configuration (some examples for different brands are
     already included: `[aastra]`, `[snom]` etc.)

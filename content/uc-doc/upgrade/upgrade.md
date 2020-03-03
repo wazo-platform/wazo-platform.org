@@ -2,21 +2,6 @@
 title: Upgrading
 ---
 
--   [Upgrade procedure](#upgrade-procedure)
--   [Version-specific upgrade procedures](#version_specific_upgrade)
-    -   [Upgrading from XiVO 16.13 and
-        before](#upgrading-from-xivo-16.13-and-before)
--   [Upgrading a cluster](#upgrading-a-cluster)
--   [Upgrading to a specific version of
-    Wazo](#upgrading-to-a-specific-version-of-wazo)
--   [Upgrading from i386 (32 bits) to amd64 (64
-    bits)](#upgrading-from-i386-32-bits-to-amd64-64-bits)
--   [Unsupported versions](#unsupported-versions)
--   [Troubleshooting](#troubleshooting)
-    -   [Postgresql](#postgresql)
-    -   [wazo-upgrade](#wazo-upgrade)
--   [Upgrade notes](#upgrade-notes)
-
 Upgrading a Wazo is done by executing commands through a terminal on the
 server. You can connect to the server either through SSH or with a
 physical console.
@@ -26,19 +11,12 @@ To upgrade your Wazo to the latest version, you **must** use the
 
     wazo-upgrade
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-\* You can\'t use wazo-upgrade if you have not run the wizard yet \*
-Upgrading from a
-`deprecated version<deprecated_versions>`{.interpreted-text role="ref"}
-is not supported. \* When upgrading Wazo, you **must** also upgrade
-**all** associated Wazo Clients. There is currently no
+#:exclamation: **You can't use wazo-upgrade if you have not run the wizard yet
+Upgrading from a [deprecated version](deprecated_versions)
+is not supported. When upgrading Wazo, you must also upgrade
+all associated Wazo Clients. There is currently no
 retro-compatibility on older Wazo Client versions. The only exception is
-Wazo 16.16, which is compatible with Wazo Client 16.13.
-:::
+Wazo 16.16, which is compatible with Wazo Client 16.13.**
 
 This script will update Wazo and restart all services.
 
@@ -57,7 +35,7 @@ There are 2 options you can pass to wazo-upgrade:
 Upgrade procedure
 =================
 
--   Read all existing `upgrade-notes`{.interpreted-text role="ref"}
+-   Read all existing [upgrade notes](upgrade_notes)
     starting from your version to the latest version.
 -   For custom setups, follow the required procedures described below
     (e.g. HA cluster).
@@ -72,29 +50,27 @@ Upgrade procedure
     ISDN link status, internal/incoming/outgoing calls, Wazo Client
     connections etc.
 
-Version-specific upgrade procedures {#version_specific_upgrade}
+Version-specific upgrade procedures
 ===================================
 
 Upgrading from XiVO 16.13 and before
 ------------------------------------
 
 When upgrading from XiVO 16.13 or before, you must use the special
-`XiVO to Wazo upgrade
-procedure <upgrading-to-wazo>`{.interpreted-text role="ref"} instead of
+[XiVO to Wazo upgrade procedure](upgrading-to-wazo) instead of
 simply running `xivo-upgrade`.
 
 Upgrading a cluster
 ===================
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
-`high-availability`{.interpreted-text role="ref"}:
+[high-availability](high-availability):
 
 1.  On the master : deactivate the database replication by commenting
-    the cron in `/etc/cron.d/xivo-ha-master`{.interpreted-text
-    role="file"}
+    the cron in `/etc/cron.d/xivo-ha-master`
 2.  On the slave, deactivate the xivo-check-master-status script cronjob
     by commenting the line in
-    `/etc/cron.d/xivo-ha-slave`{.interpreted-text role="file"}
+    `/etc/cron.d/xivo-ha-slave`
 3.  On the slave, start the upgrade:
 
         xivo-slave:~$ wazo-upgrade
@@ -112,23 +88,17 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
 Upgrading to a specific version of Wazo
 =======================================
 
-::: {.toctree maxdepth="1"}
-archives
-:::
+- [archives](archives)
 
 Upgrading from i386 (32 bits) to amd64 (64 bits)
 ================================================
 
-::: {.toctree maxdepth="1"}
-migrate\_i386\_to\_amd64
-:::
+- [Migrate from i386 to amd64](migrate_i386_to_amd64)
 
 Unsupported versions
 ====================
 
-::: {.toctree maxdepth="1"}
-version\_deprecation\_policy
-:::
+- [Version Deprecation Policy](version_deprecation_policy)
 
 Troubleshooting
 ===============
@@ -137,15 +107,14 @@ Postgresql
 ----------
 
 When upgrading Wazo, if you encounter problems related to the system
-locale, see `postgresql_localization_errors`{.interpreted-text
-role="ref"}.
+locale, see `postgresql_localization_errors`.
 
 wazo-upgrade
 ------------
 
 If wazo-upgrade fails or aborts in mid-process, the system might end up
 in a faulty condition. If in doubt, run the following command to check
-the current state of xivo\'s firewall rules:
+the current state of xivo's firewall rules:
 
     iptables -nvL
 
@@ -164,6 +133,4 @@ Repeat this command until no more unwanted rules are left.
 Upgrade notes
 =============
 
-::: {.toctree maxdepth="2"}
-upgrade\_notes
-:::
+- [upgrade_notes](upgrade_notes)

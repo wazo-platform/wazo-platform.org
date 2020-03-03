@@ -49,22 +49,16 @@ Available categories are:
     Only 1 audio channel must be present per file, i.e. files must be in
     mono.
 
-    If your music on hold files don\'t seem to work, you should look for
+    If your music on hold files don't seem to work, you should look for
     errors in the asterisk logs.
 
     The on-hold music will always play from the start.
 
 -   mp3: play MP3 files.
 
-    ::: {.warning}
-    ::: {.admonition-title}
-    Warning
-    :::
-
-    The mp3 mode is deprecated and you should not use it. Instead, you
+    #:warning: The mp3 mode is deprecated and you should not use it. Instead, you
     should convert your MP3 files to another format and use the
-    \"files\" mode.
-    :::
+    "files" mode.
 
     The on-hold music will play from an arbitrary position on the track,
     it will not play from the start.
@@ -76,14 +70,8 @@ Available categories are:
     Example process:
     `/usr/bin/mpg123 -s --mono -y -f 8192 -r 8000 http://streaming.example.com/stream.mp3`{.sourceCode}
 
-    ::: {.note}
-    ::: {.admonition-title}
-    Note
-    :::
-
-    Processes run by custom categories are started as soon as the
+    #:exclamation: Processes run by custom categories are started as soon as the
     category is created and will only stop when the category is deleted.
     This means that on-hold music fed from online streaming will
     constantly be receiving network traffic, even when there are no
     calls.
-    :::

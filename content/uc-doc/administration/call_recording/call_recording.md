@@ -85,15 +85,11 @@ The following variables can be used in the file name:
     dialplan
 -   tenant\_uuid: The tenant UUID of the user or the outgoing call
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+#:exclamation: You **must** restart wazo-agid to take any config change into effect:
 
-You **must** restart wazo-agid to take any config change into effect:
-
-systemctl restart wazo-agid
-:::
+```ShellSession
+# systemctl restart wazo-agid
+```
 
 Example 1:
 
@@ -109,19 +105,17 @@ call_recording:
 ```
 
 This configuration would write the files in
-`/var/spool/asterisk/monitor/<tenant_uuid>/`{.interpreted-text
-role="file"}. The name of the files would be
-`<utc_time>-<srcnum>-<dstnum>.wav`{.interpreted-text role="file"}
+`/var/spool/asterisk/monitor/<tenant_uuid>/`. The name of the files would be
+`<utc_time>-<srcnum>-<dstnum>.wav`
 
 Example 2:
 
 Creating recording in another directory
 
 A file with the following content in
-`/etc/wazo-agid/conf.d/call_recording.yml`{.interpreted-text
-role="file"}:
+`/etc/wazo-agid/conf.d/call_recording.yml`:
 
-``` {.sourceCode .yaml}
+```YAML
 call_recording:
   filename_template: "/home/pcm/call/user-{{ srcnum }}-{{ dstnum }}-{{ timestamp }}"
 ```
@@ -132,24 +126,12 @@ the files would be
 `user-<srcnum>-<dstnum>-<timestamp>.wav`{.interpreted-text role="file"}.
 Which is the default with another location.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-recording that are not directly in
+#:exclamation: recording that are not directly in
 `/var/spool/asterisk/monitor`{.interpreted-text role="file"} will not be
 shown in the web interface.
-:::
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Asterisk needs write permission to be able to write the recordings in
+#:exclamation: Asterisk needs write permission to be able to write the recordings in
 the configured directory.
-:::
 
 The filename for online call recording cannot be configured from the
 configuration file but can be modified using a pre-process subroutine.
@@ -172,7 +154,7 @@ Example:
 Add a file names `/etc/wazo-agid/conf.d/recording.yml`{.interpreted-text
 role="file"} with the following content:
 
-``` {.sourceCode .yaml}
+```YAML
 call-recording:
   filename_extension: wav
 ```

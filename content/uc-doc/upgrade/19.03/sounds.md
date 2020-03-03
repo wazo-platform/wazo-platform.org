@@ -2,8 +2,6 @@
 title: Migration of sound files to tenants
 ---
 
--   [How to migrate](#how-to-migrate)
-
 In Wazo 19.03, sound files are now segregated by tenant (a.k.a entity).
 However, Wazo has no way to know which entity owns which sound file.
 Thus a manual intervention is required to make those sound files
@@ -21,10 +19,9 @@ Sound files include:
 How to migrate
 ==============
 
-The sound files are stored in `/var/lib/xivo/sounds`{.interpreted-text
-role="file"}, for example:
+The sound files are stored in `/var/lib/xivo/sounds`, for example:
 
-``` {.sourceCode .shell}
+```ShellSession
 root@wazo:~# tree /var/lib/xivo/sounds
 /var/lib/xivo/sounds
 ├── acd
@@ -42,7 +39,7 @@ In order to make the sound files available to tenants, you need to move
 the files in a `tenants`{.interpreted-text role="file"} subdirectory,
 like this:
 
-``` {.sourceCode .shell}
+```ShellSession
 root@wazo:~# tree /var/lib/xivo/sounds
 /var/lib/xivo/sounds
 └── tenants
@@ -74,7 +71,7 @@ Each subdirectory of the `tenants`{.interpreted-text role="file"}
 directory must be named like the UUID of each tenant. In order to know
 the UUID of tenants, you can use the `wazo-auth-cli` command:
 
-``` {.sourceCode .shell}
+```ShellSession
 root@wazo:~# wazo-auth-cli tenant list -c uuid -c name
 +--------------------------------------+----------------+
 | uuid                                 | name           |
@@ -92,8 +89,8 @@ Wazo.
 You should move sounds files of each tenant for the following
 directories:
 
--   `acd`{.interpreted-text role="file"}
--   `features`{.interpreted-text role="file"}
--   `monitor`{.interpreted-text role="file"}
--   `playback`{.interpreted-text role="file"}
--   `recordings`{.interpreted-text role="file"}
+-   `acd`
+-   `features`
+-   `monitor`
+-   `playback`
+-   `recordings`

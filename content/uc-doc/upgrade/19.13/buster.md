@@ -1,11 +1,6 @@
 ---
-title: 'Debian 10 (Buster) Upgrade Notes'
+title: Debian 10 (Buster) Upgrade Notes
 ---
-
--   [Before the upgrade](#before-the-upgrade)
--   [Upgrade](#upgrade)
--   [After the upgrade](#after-the-upgrade)
--   [External Links](#external-links)
 
 The upgrade to Wazo 19.13 or later will take longer than usual, because
 the whole Debian system will be upgraded.
@@ -23,11 +18,11 @@ Before the upgrade
     `wazo-upgrade` to check the version currently installed. If your
     version of Wazo is older that 18.01, you should first upgrade your
     Wazo to Debian Stretch, following the procedure described in
-    `upgrade-notes-stretch`{.interpreted-text role="ref"}.
+    [upgrade-notes-stretch](upgrade-notes-stretch).
 -   Make sure your have sufficient space for the upgrade. You might run
     into trouble if you have less than 2 GiB available in the file
-    system that holds the `/var`{.interpreted-text role="file"} and
-    `/`{.interpreted-text role="file"} directories.
+    system that holds the `/var` and
+    `/` directories.
 -   Remove the `freeradius` package. If you have recompiled Asterisk on
     you server you most likely installed the `libfreeradius-dev`
     package, which pulled `freeradius`. This package cannot be
@@ -39,8 +34,8 @@ Before the upgrade
     release notes](https://www.debian.org/releases/buster/releasenotes)
     before the upgrade. Most importantly, you should:
     -   Make sure you don\'t have any unofficial sources in your
-        `/etc/apt/sources.list`{.interpreted-text role="file"} or
-        `/etc/apt/sources.list.d`{.interpreted-text role="file"}
+        `/etc/apt/sources.list` or
+        `/etc/apt/sources.list.d`
         directory. If you were using the `stretch-backports` source, you
         must remove it.
     -   Remove packages that were automatically installed and are not
@@ -73,8 +68,10 @@ You may need to reboot your machine before running `wazo-dist-upgrade`.
 To minimize the downtime, you can pre-download the packages required for
 the upgrade with:
 
-    wazo-upgrade -d
-    wazo-dist-upgrade -d
+```ShellSession
+# wazo-upgrade -d
+# wazo-dist-upgrade -d
+```
 
 After the upgrade
 =================
@@ -85,14 +82,14 @@ After the upgrade
     During the upgrade, new version of configuration files are going to
     be installed, and these might override your local customization. For
     example, the vim package provides a new
-    `/etc/vim/vimrc`{.interpreted-text role="file"} file. If you have
+    `/etc/vim/vimrc` file. If you have
     customized this file, after the upgrade you\'ll have both a
-    `/etc/vim/vimrc`{.interpreted-text role="file"} and
-    `/etc/vim/vimrc.dpkg-old`{.interpreted-text role="file"} file, the
+    `/etc/vim/vimrc` and
+    `/etc/vim/vimrc.dpkg-old` file, the
     former containing the new version of the file shipped by the vim
     package while the later is your customized version. You should merge
     back your customization into the new file, then delete the
-    `.dpkg-old`{.interpreted-text role="file"} file.
+    `.dpkg-old` file.
 
     You can see a list of affected files by running
     `find /etc -name '*.dpkg-old'`. If some files show up that you

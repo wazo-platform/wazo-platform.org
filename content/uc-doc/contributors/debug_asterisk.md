@@ -138,14 +138,8 @@ flag, you can get more information about locks with:
 
     asterisk -rx "core show locks" > core-show-locks.txt
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Debugging freeze without this information is usually a lot more
+#:exclamation: Debugging freeze without this information is usually a lot more
 difficult.
-:::
 
 Optionally, other information that can be interesting:
 

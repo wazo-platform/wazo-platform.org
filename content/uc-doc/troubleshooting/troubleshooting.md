@@ -40,9 +40,7 @@ incoming (external) call, wait for a number of seconds (4 in this
 example) : if a fax is detected, receive it otherwise route the call
 normally.
 
-#:exclamation:
-
-This workaround works only :
+#:exclamation: This workaround works only :
 
 -   on incoming calls towards an User (and an User only),
 -   if the incoming trunk is a DAHDI or a SIP trunk,
@@ -50,7 +48,6 @@ This workaround works only :
     field filled
 
 Be aware that this workaround will probably not survive any upgrade.
-:::
 
 1.  Add new file
     `/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following dialplan:
@@ -251,9 +248,7 @@ and things to know:
 -   the PostgreSQL log file located at
     `/var/log/postgresql/postgresql-11-main.log`
 
-#:exclamation:
-
-You can use any locale with Wazo as long as it uses an UTF-8 encoding.
+#:exclamation: You can use any locale with Wazo as long as it uses an UTF-8 encoding.
 
 Database cluster is not starting
 --------------------------------
@@ -489,14 +484,10 @@ means:
 
 To stop *ngrok* hit Ctrl-C.
 
-#:exclamation:
-
-The ngrok tunnel will not survive a reboot of the server, you\'ll have
+#:exclamation: The ngrok tunnel will not survive a reboot of the server, you\'ll have
 to set it up again after restart.
 
-#:warning:
-
-This setup is a typical scenario for a [man-in-the-middle
+#:warning: This setup is a typical scenario for a [man-in-the-middle
 attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If you
 don\'t trust the Ngrok servers, you should ensure that:
 
@@ -508,7 +499,6 @@ don\'t trust the Ngrok servers, you should ensure that:
         fingerprint
 -   the SSH key fingerprint of the server is correct, when SSH asks you
     upon the first connection (TOFU)
-:::
 
 Collecting logs
 ===============
@@ -527,11 +517,8 @@ When troubleshooting a problem, you may need to send logs for analysis.
 daemons, including Asterisk, and bundle them into a tarball. You may
 then send this tarball for analysis.
 
-#:warning:
-
-Be careful before sending the logs in a public place: they may contain
+#:warning: Be careful before sending the logs in a public place: they may contain
 sensible information, that can be used to connect to your Wazo.
-:::
 
 Asterisk crash
 ==============

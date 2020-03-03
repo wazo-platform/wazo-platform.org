@@ -2,19 +2,6 @@
 title: Fax
 ---
 
--   [Fax reception](#fax-reception)
-    -   [Adding a fax reception DID](#adding-a-fax-reception-did)
-    -   [Changing the email body](#changing-the-email-body)
-    -   [Changing the email subject](#changing-the-email-subject)
-    -   [Changing the email from](#changing-the-email-from)
-    -   [Changing the email realname](#changing-the-email-realname)
-    -   [Using the advanced features](#using-the-advanced-features)
-        -   [Using the FTP backend](#fax-ftp)
-        -   [Using the printer backend](#using-the-printer-backend)
-        -   [Using the mail backend](#using-the-mail-backend)
--   [Fax detection](#fax-detection)
--   [Using analog gateways](#fax-analog-gateway)
-
 Fax reception
 =============
 
@@ -108,31 +95,33 @@ The way it works is the following:
     you only want the `mail` backend to be run.
 
 Here\'s an example of a valid
-`/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"}
+`/etc/xivo/asterisk/xivo_fax.conf`
 configuration file:
 
-    [general]
-    tiff2pdf = /usr/bin/tiff2pdf
-    mutt = /usr/bin/mutt
-    lp = /usr/bin/lp
+```Ini
+[general]
+tiff2pdf = /usr/bin/tiff2pdf
+mutt = /usr/bin/mutt
+lp = /usr/bin/lp
 
-    [mail]
-    subject = FAX reception to %(dstnum)s
-    content_file = /etc/xivo/mail.txt
-    email_from = no-reply+fax@wazo.community
-    email_realname = Service Fax
+[mail]
+subject = FAX reception to %(dstnum)s
+content_file = /etc/xivo/mail.txt
+email_from = no-reply+fax@wazo.community
+email_realname = Service Fax
 
-    [ftp_example_org]
-    host = example.org
-    username = foo
-    password = bar
-    directory = /foobar
+[ftp_example_org]
+host = example.org
+username = foo
+password = bar
+directory = /foobar
 
-    [dstnum_default]
-    dest = mail
+[dstnum_default]
+dest = mail
 
-    [dstnum_100]
-    dest = mail, ftp_example_org
+[dstnum_100]
+dest = mail, ftp_example_org
+```
 
 The section named `dstnum_default` will be used only if no DID-specific
 actions are defined.
@@ -151,13 +140,15 @@ FTP server.
 An FTP backend is always defined in a section beginning with the `ftp`
 prefix. Here\'s an example for a backend named `ftp_example_org`:
 
-    [ftp_example_org]
-    host = example.org
-    port = 2121
-    username = foo
-    password = bar
-    directory = /foobar
-    convert_to_pdf = 0
+```Ini
+[ftp_example_org]
+host = example.org
+port = 2121
+username = foo
+password = bar
+directory = /foobar
+convert_to_pdf = 0
+```
 
 The `port` option is optional and defaults to 21.
 
@@ -183,9 +174,11 @@ A printer backend is always defined in a section beginning with the
 `printer` prefix. Here\'s an example for a backend named
 `printer_office`:
 
-    [printer_office]
-    name = office
-    convert_to_pdf = 1
+```Ini
+[printer_office]
+name = office
+convert_to_pdf = 1
+```
 
 When a fax will be received, the system command `lp -d office <faxfile>`
 will be executed.
@@ -193,13 +186,7 @@ will be executed.
 The `convert_to_pdf` option is optional and defaults to 1. If it is set
 to 0, the TIFF file will not be converted to PDF before being printed.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-You need a CUPS server set up somewhere on your network.
-:::
+#:warning: You need a CUPS server set up somewhere on your network.
 
 ### Using the mail backend
 
@@ -211,9 +198,9 @@ Fax detection
 =============
 
 Wazo **does not currently support Fax Detection**. A workaround is
-described in the `fax-detection`{.interpreted-text role="ref"} section.
+described in the `fax-detection` section.
 
-Using analog gateways {#fax-analog-gateway}
+Using analog gateways
 =====================
 
 Wazo is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and
@@ -221,23 +208,12 @@ SPA8000 analog gateways which can be used to connect fax equipments.
 This section describes the creation of custom template *for SPA3102*
 which modifies several parameters.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-**With SPA ATA plugins \>= v0.8**, you **should not need** to follow
+#:exclamation: **With SPA ATA plugins >= v0.8**, you **should not need** to follow
 this section anymore since all of these parameters are now set in the
-base templates of all, except for Echo\_Canc\_Adapt\_Enable,
-Echo\_Supp\_Enable, Echo\_Canc\_Enable.
-:::
+base templates of all, except for Echo_Canc_Adapt_Enable,
+Echo_Supp_Enable, Echo_Canc_Enable.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Be aware that most of the parameters are or could be country specific,
+#:exclamation: Be aware that most of the parameters are or could be country specific,
 i.e. :
 
 -   Preferred Codec,
@@ -248,64 +224,71 @@ i.e. :
 -   Ring Frequency,
 -   Ring Voltage,
 -   FXS Port Impedance
-:::
 
 1.  Create a custom template for the SPA3102 base template:
 
-        cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
-        cp ../../templates/base.tpl .
+```ShellSession
+# cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
+# cp ../../templates/base.tpl .
+```
 
 2.  Add the following content before the `</flat-profile>` tag:
 
-        <!-- CUSTOM TPL - for faxes - START -->
+```Ini
+<!-- CUSTOM TPL - for faxes - START -->
 
-        {% for line_no, line in sip_lines.iteritems() %}
-        <!-- Dial Plan: L{{ line_no }} -->
-        <Dial_Plan_{{ line_no }}_ ua="na">([x*#].)</Dial_Plan_{{ line_no }}_>
+{% for line_no, line in sip_lines.iteritems() %}
+<!-- Dial Plan: L{{ line_no }} -->
+<Dial_Plan_{{ line_no }}_ ua="na">([x*#].)</Dial_Plan_{{ line_no }}_>
 
-        <Call_Waiting_Serv_{{ line_no }}_ ua="na">No</Call_Waiting_Serv_{{ line_no }}_>
-        <Three_Way_Call_Serv_{{ line_no }}_ ua="na">No</Three_Way_Call_Serv_{{ line_no }}_>
+<Call_Waiting_Serv_{{ line_no }}_ ua="na">No</Call_Waiting_Serv_{{ line_no }}_>
+<Three_Way_Call_Serv_{{ line_no }}_ ua="na">No</Three_Way_Call_Serv_{{ line_no }}_>
 
-        <Preferred_Codec_{{ line_no }}_ ua="na">G711a</Preferred_Codec_{{ line_no }}_>
-        <Silence_Supp_Enable_{{ line_no }}_ ua="na">No</Silence_Supp_Enable_{{ line_no }}_>
-        <Echo_Canc_Adapt_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Adapt_Enable_{{ line_no }}_>
-        <Echo_Supp_Enable_{{ line_no }}_ ua="na">No</Echo_Supp_Enable_{{ line_no }}_>
-        <Echo_Canc_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Enable_{{ line_no }}_>
-        <Use_Pref_Codec_Only_{{ line_no }}_ ua="na">yes</Use_Pref_Codec_Only_{{ line_no }}_>
-        <DTMF_Tx_Mode_{{ line_no }}_ ua="na">Normal</DTMF_Tx_Mode_{{ line_no }}_>
+<Preferred_Codec_{{ line_no }}_ ua="na">G711a</Preferred_Codec_{{ line_no }}_>
+<Silence_Supp_Enable_{{ line_no }}_ ua="na">No</Silence_Supp_Enable_{{ line_no }}_>
+<Echo_Canc_Adapt_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Adapt_Enable_{{ line_no }}_>
+<Echo_Supp_Enable_{{ line_no }}_ ua="na">No</Echo_Supp_Enable_{{ line_no }}_>
+<Echo_Canc_Enable_{{ line_no }}_ ua="na">No</Echo_Canc_Enable_{{ line_no }}_>
+<Use_Pref_Codec_Only_{{ line_no }}_ ua="na">yes</Use_Pref_Codec_Only_{{ line_no }}_>
+<DTMF_Tx_Mode_{{ line_no }}_ ua="na">Normal</DTMF_Tx_Mode_{{ line_no }}_>
 
-        <FAX_Enable_T38_{{ line_no }}_ ua="na">Yes</FAX_Enable_T38_{{ line_no }}_>
-        <FAX_T38_Redundancy_{{ line_no }}_ ua="na">1</FAX_T38_Redundancy_{{ line_no }}_>
-        <FAX_Passthru_Method_{{ line_no }}_ ua="na">ReINVITE</FAX_Passthru_Method_{{ line_no }}_>
-        <FAX_Passthru_Codec_{{ line_no }}_ ua="na">G711a</FAX_Passthru_Codec_{{ line_no }}_>
-        <FAX_Disable_ECAN_{{ line_no }}_ ua="na">yes</FAX_Disable_ECAN_{{ line_no }}_>
-        <FAX_Tone_Detect_Mode_{{ line_no }}_ ua="na">caller or callee</FAX_Tone_Detect_Mode_{{ line_no }}_>
+<FAX_Enable_T38_{{ line_no }}_ ua="na">Yes</FAX_Enable_T38_{{ line_no }}_>
+<FAX_T38_Redundancy_{{ line_no }}_ ua="na">1</FAX_T38_Redundancy_{{ line_no }}_>
+<FAX_Passthru_Method_{{ line_no }}_ ua="na">ReINVITE</FAX_Passthru_Method_{{ line_no }}_>
+<FAX_Passthru_Codec_{{ line_no }}_ ua="na">G711a</FAX_Passthru_Codec_{{ line_no }}_>
+<FAX_Disable_ECAN_{{ line_no }}_ ua="na">yes</FAX_Disable_ECAN_{{ line_no }}_>
+<FAX_Tone_Detect_Mode_{{ line_no }}_ ua="na">caller or callee</FAX_Tone_Detect_Mode_{{ line_no }}_>
 
-        <Network_Jitter_Level_{{ line_no }}_ ua="na">very high</Network_Jitter_Level_{{ line_no }}_>
-        <Jitter_Buffer_Adjustment_{{ line_no }}_ ua="na">disable</Jitter_Buffer_Adjustment_{{ line_no }}_>
-        {% endfor %}
+<Network_Jitter_Level_{{ line_no }}_ ua="na">very high</Network_Jitter_Level_{{ line_no }}_>
+<Jitter_Buffer_Adjustment_{{ line_no }}_ ua="na">disable</Jitter_Buffer_Adjustment_{{ line_no }}_>
+{% endfor %}
 
-        <!-- SIP Parameters -->
-        <RTP_Packet_Size ua="na">0.020</RTP_Packet_Size>
-        <RTP-Start-Loopback_Codec ua="na">G711a</RTP-Start-Loopback_Codec>
+<!-- SIP Parameters -->
+<RTP_Packet_Size ua="na">0.020</RTP_Packet_Size>
+<RTP-Start-Loopback_Codec ua="na">G711a</RTP-Start-Loopback_Codec>
 
-        <!-- Regional parameters -->
-        <Ring_Waveform ua="rw">Sinusoid</Ring_Waveform> <!-- options: Sinusoid/Trapezoid -->
-        <Ring_Frequency ua="rw">50</Ring_Frequency>
-        <Ring_Voltage ua="rw">85</Ring_Voltage>
+<!-- Regional parameters -->
+<Ring_Waveform ua="rw">Sinusoid</Ring_Waveform> <!-- options: Sinusoid/Trapezoid -->
+<Ring_Frequency ua="rw">50</Ring_Frequency>
+<Ring_Voltage ua="rw">85</Ring_Voltage>
 
-        <FXS_Port_Impedance ua="na">600+2.16uF</FXS_Port_Impedance>
-        <Caller_ID_Method ua="na">Bellcore(N.Amer,China)</Caller_ID_Method>
-        <Caller_ID_FSK_Standard ua="na">bell 202</Caller_ID_FSK_Standard>
+<FXS_Port_Impedance ua="na">600+2.16uF</FXS_Port_Impedance>
+<Caller_ID_Method ua="na">Bellcore(N.Amer,China)</Caller_ID_Method>
+<Caller_ID_FSK_Standard ua="na">bell 202</Caller_ID_FSK_Standard>
 
-        <!-- CUSTOM TPL - for faxes - END -->
+<!-- CUSTOM TPL - for faxes - END -->
+```
 
 3.  Reconfigure the devices with:
 
-        wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
+```ShellSession
+# wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
+```
 
 4.  Then reboot the devices:
 
-        wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
+```ShellSession
+# wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
+```
 
 Most of this template can be copy/pasted for a SPA2102 or SPA8000.

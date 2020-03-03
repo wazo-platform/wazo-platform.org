@@ -4,10 +4,6 @@
     -   [Outgoing calls](#outgoing-calls)
     -   [Incoming calls](#incoming-calls)
 
-::: {.index}
-interconnections/simonics
-:::
-
 Simon Telephonics
 =================
 

@@ -2,15 +2,6 @@
 title: SCCP Configuration
 ---
 
--   [Provisioning](#provisioning)
-    -   [Auto-provisioning support](#auto-provisioning-support)
--   [SCCP General Settings](#sccp-general-settings)
--   [User creation](#user-creation)
--   [Function keys](#function-keys)
--   [Direct Media](#direct-media)
--   [Features](#sccp-features)
--   [Telephone](#telephone)
-
 Provisioning
 ============
 
@@ -26,15 +17,9 @@ provides IP address to your phones. Depending on what type of CISCO
 phone you have, you need to install the plugin sccp-legacy, sccp-9.4 or
 both.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Please refer to the
-`Provisioning page <cisco-provisioning>`{.interpreted-text role="ref"}
+#:exclamation: Please refer to the
+[Provisioning page](cisco-provisioning)
 for more information on how to install CISCO firmwares.
-:::
 
 Once your plugin is installed, you\'ll be able to edit which firmwares
 and locales you need. If you are unsure, you can choose all without any

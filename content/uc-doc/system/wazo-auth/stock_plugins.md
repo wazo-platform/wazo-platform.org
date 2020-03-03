@@ -1,15 +1,9 @@
 ---
-subtitle: Backends Plugins
 title: Stock Plugins Documentation
+subtitle: Backends Plugins
 ---
 
--   [wazo\_user](#wazo_user)
-    -   [Supported policy variables](#supported-policy-variables)
--   [LDAP](#auth-backends-ldap)
-    -   [Configuration](#configuration)
-    -   [Supported policy variables](#supported-policy-variables-1)
-
-wazo\_user
+wazo_user
 ==========
 
 Backend name: `wazo_user`
@@ -35,16 +29,16 @@ Supported policy variables
 -   voicemails: a list of voicemail ID associated to this user
 -   lines: a list of line ID associated to this user
 -   extensions: a list of extension ID associated to this user
--   endpoint\_sip: a list of SIP endpoint ID associated to this user
--   endpoing\_sccp: a list of SCCP endpoint ID associated to this user
--   endpoint\_custom: a list of custum endpoint ID associated to this
+-   endpoint_sip: a list of SIP endpoint ID associated to this user
+-   endpoing_sccp: a list of SCCP endpoint ID associated to this user
+-   endpoint_custom: a list of custum endpoint ID associated to this
     user
--   agent: a dictionnary containing the agent\'s property, may be none
+-   agent: a dictionnary containing the agent's property, may be none
     and should be tested with an if before accessing its fields
 -   agent.id: an agent id if the user is an agent
 -   agent.number: an agent number if the user is an agent
 
-LDAP {#auth-backends-ldap}
+LDAP
 ====
 
 Backend name: `ldap_user`
@@ -69,23 +63,23 @@ When an authentication request is received for username `alice` and
 password `userpass`, the backend will:
 
 1.  Connect to the LDAP server at example.org
-2.  Do an LDAP \"bind\" operation with bind DN
+2.  Do an LDAP "bind" operation with bind DN
     `cn=wazo,dc=example,dc=org` and password `bindpass`
-3.  Do an LDAP \"search\" operation to find an LDAP user matching
+3.  Do an LDAP "search" operation to find an LDAP user matching
     `alice`, using:
     -   the base DN `ou=people,dc=example,dc=org`
     -   the filter `(uid=alice)`
     -   a SUBTREE scope
-4.  If the search returns exactly 1 LDAP user, do an LDAP \"bind\"
-    operation with the user\'s DN and the password `userpass`
-5.  If the LDAP \"bind\" operation is successful, search in Wazo a user
+4.  If the search returns exactly 1 LDAP user, do an LDAP "bind"
+    operation with the user's DN and the password `userpass`
+5.  If the LDAP "bind" operation is successful, search in Wazo a user
     with an email matching the `mail` attribute of the LDAP user
 6.  If a Wazo user is found, success
 
 To use an anonymous bind instead, the following configuration would be
 used:
 
-``` {.sourceCode .yaml}
+```YAML
 ldap:
     uri: ldap://example.org
     bind_anonymous: True
@@ -94,10 +88,10 @@ ldap:
     user_email_attribute: mail
 ```
 
-The backend can also works in a \"no search\" mode, for example with the
+The backend can also works in a "no search" mode, for example with the
 following configuration:
 
-``` {.sourceCode .yaml}
+```YAML
 ldap:
     uri: ldap://example.org
     user_base_dn: ou=people,dc=example,dc=org
@@ -106,17 +100,12 @@ ldap:
 ```
 
 When the server receives the same authentication request as above, it
-will directly do an LDAP \"bind\" operation with the DN
+will directly do an LDAP "bind" operation with the DN
 `uid=alice,ou=people,dc=example,dc=org` and password `userpass`, and
 continue at step 5.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-User\'s email and voicemail\'s email are two separate things. This
-plugin only use the user\'s email.
+#:exclamation: User's email and voicemail's email are two separate things. This
+plugin only use the user's email.
 :::
 
 Configuration
@@ -137,7 +126,7 @@ Configuration
 
 `user_email_attribute` (optional)
 
-:   the attribute to match with the Wazo user\'s email (default: mail)
+:   the attribute to match with the Wazo user's email (default: mail)
 
 `bind_dn` (optional)
 
@@ -159,11 +148,11 @@ Supported policy variables
 -   voicemails: a list of voicemail ID associated to this user
 -   lines: a list of line ID associated to this user
 -   extensions: a list of extension ID associated to this user
--   endpoint\_sip: a list of SIP endpoint ID associated to this user
--   endpoing\_sccp: a list of SCCP endpoint ID associated to this user
--   endpoint\_custom: a list of custum endpoint ID associated to this
+-   endpoint_sip: a list of SIP endpoint ID associated to this user
+-   endpoing_sccp: a list of SCCP endpoint ID associated to this user
+-   endpoint_custom: a list of custum endpoint ID associated to this
     user
--   agent: a dictionnary containing the agent\'s property, may be none
+-   agent: a dictionnary containing the agent's property, may be none
     and should be tested with an if before accessing its fields
 -   agent.id: an agent id if the user is an agent
 -   agent.number: an agent number if the user is an agent

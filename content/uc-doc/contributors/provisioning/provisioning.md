@@ -4,7 +4,8 @@ title: Provisioning
 
 This section describes the informations and tools for wazo-provd.
 
-::: {.toctree maxdepth="1"}
-managing\_dhcp\_server\_configuration managing\_plugins
-testing\_new\_sip\_phone nat\_environment developing\_plugins
-:::
+- [managing_dhcp_server_configuration](managing_dhcp_server_configuration)
+- [managing_plugins](managing_plugins)
+- [testing_new_sip_phone](testing_new_sip_phone)
+- [nat_environment](nat_environment)
+- [developing_plugins](developing_plugins)

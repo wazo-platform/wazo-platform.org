@@ -27,7 +27,7 @@ objectives :
 
 -   Screen Pop-up
 
-::: {.toctree maxdepth="2"}
-agents/agents queues/queues skillbasedrouting/skillbasedrouting
-reporting/reporting
-:::
+- [Agents](agents/agents)
+- [Queues](queues/queues)
+- [Skill Based Routing](skillbasedrouting/skillbasedrouting)
+- [Reporting](reporting/reporting)

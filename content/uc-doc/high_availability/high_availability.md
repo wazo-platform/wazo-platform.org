@@ -2,18 +2,7 @@
 title: 'High Availability (HA)'
 ---
 
--   [Prerequisites](#prerequisites)
--   [Quick Summary](#quick-summary)
--   [Configuration Details](#configuration-details)
-    -   [Master node](#master-node)
-    -   [Slave node](#slave-node)
-    -   [Replication Configuration](#replication-configuration)
--   [Internals](#internals)
--   [Limitations](#limitations)
--   [Berofos Integration](#berofos-integration)
--   [Troubleshooting](#troubleshooting)
-
-The `HA (High Availability)`{.interpreted-text role="abbr"} solution in
+The `HA (High Availability)` solution in
 Wazo makes it possible to maintain basic telephony function whether your
 main Wazo server is running or not. When running a Wazo HA cluster,
 users are guaranteed to never experience a downtime of more than 5
@@ -75,15 +64,9 @@ Configuration Details
 First thing to do is to
 `install 2 Wazo <installation>`{.interpreted-text role="ref"}.
 
-::: {.important}
-::: {.admonition-title}
-Important
-:::
-
-When you upgrade a node of your cluster, you must also upgrade the other
+#:exclamation: When you upgrade a node of your cluster, you must also upgrade the other
 so that they both are running the same version of Wazo. Otherwise, the
 replication might not work properly.
-:::
 
 You must configure the `HA (High Availability)`{.interpreted-text
 role="abbr"} with `PUT /ha`
@@ -103,14 +86,8 @@ slave. The following directories will then be rsync\'ed every hour:
 -   /var/lib/asterisk/moh
 -   /var/lib/wazo/sounds/tenants
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-When the HA is configured, some changes will be automatically made to
+#:warning: When the HA is configured, some changes will be automatically made to
 the configuration of Wazo.
-:::
 
 SIP expiry value on master and slave will be automatically updated:
 
@@ -126,23 +103,11 @@ order to allow phones to switch from Wazo power failure.
 
     `registrar_backup`: \<slave ip\> `proxy_backup`: \<slave ip\>
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Do not change these values when the HA is configured, as this may cause
+#:warning: Do not change these values when the HA is configured, as this may cause
 problems. These values will be reset to blank when the HA is disabled.
-:::
 
-::: {.important}
-::: {.admonition-title}
-Important
-:::
-
-For the telephony devices to take the new proxy/registrar settings into
+#:exclamation: For the telephony devices to take the new proxy/registrar settings into
 account, you must resynchronize the devices or restart them manually.
-:::
 
 Master node
 -----------
@@ -150,14 +115,8 @@ Master node
 In choosing the `node_type: master` you must enter the `remote_address`
 **of the VoIP interface** of the slave node.
 
-::: {.important}
-::: {.admonition-title}
-Important
-:::
-
-You have to restart all services (wazo-service restart) once the master
+#:exclamation: You have to restart all services (wazo-service restart) once the master
 node is configured.
-:::
 
 Slave node
 ----------
@@ -174,8 +133,10 @@ replicated from the master node to the slave every hour (:00).
 Replication can be started manually by running the replication scripts
 on the master:
 
-    xivo-master-slave-db-replication <slave_ip>
-    xivo-sync
+```ShellSession
+# xivo-master-slave-db-replication <slave_ip>
+# xivo-sync
+```
 
 The replication does not copy the full Wazo configuration of the master.
 Notably, these are excluded:
@@ -199,13 +160,13 @@ Internals
 
 4 scripts are used to manage services and data replication.
 
--   xivo-master-slave-db-replication \<slave\_ip\> is used on the master
-    to replicate the master\'s data on the slave server. It runs on the
+-   xivo-master-slave-db-replication <slave_ip> is used on the master
+    to replicate the master's data on the slave server. It runs on the
     master.
 -   xivo-manage-slave-services {start,stop} is used on the slave to
-    start, stop monit and asterisk. The services won\'t be restarted
+    start, stop monit and asterisk. The services won't be restarted
     after an upgrade or restart.
--   xivo-check-master-status \<master\_ip\> is used to check the status
+-   xivo-check-master-status <master_ip> is used to check the status
     of the master and enable or disable services accordingly.
 -   xivo-sync is used to sync directories from master to slave.
 
@@ -226,7 +187,7 @@ behave a bit differently. This includes:
 
 Note that, on failover and on failback:
 
--   DND, call forwards, call filtering, \..., statuses may be lost if
+-   DND, call forwards, call filtering, ..., statuses may be lost if
     changed recently.
 -   If you are connected as an agent, then you might need to reconnect
     as an agent when the master goes down.
@@ -235,27 +196,25 @@ Additionally, only on failback:
 
 -   Voicemail messages are not copied from the slave to the master, i.e.
     if someone left a message on your voicemail when the master was
-    down, you won\'t be able to consult it once the master is up again.
+    down, you won't be able to consult it once the master is up again.
 -   More generally, custom sounds are not copied back. This includes
     recordings.
 
-Here\'s the list of limitations that are more relevant on an
+Here's the list of limitations that are more relevant on an
 administrator standpoint:
 
--   The master status is up or down, there\'s no middle status. This
+-   The master status is up or down, there's no middle status. This
     mean that if Asterisk is crashed the Wazo is still up and the
     failover will NOT happen.
 
 Berofos Integration
 ===================
 
-::: {.toctree maxdepth="2"}
-berofos
-:::
+- [berofos](berofos)
 
 Troubleshooting
 ===============
 
 When replicating the database between master and slave, if you encounter
 problems related to the system locale, see
-`postgresql_localization_errors`{.interpreted-text role="ref"}.
+`postgresql_localization_errors`

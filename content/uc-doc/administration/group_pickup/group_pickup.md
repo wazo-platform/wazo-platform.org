@@ -2,13 +2,6 @@
 title: Group Pickup
 ---
 
--   [Quick Summary](#quick-summary)
--   [Creating a Pickup Group](#creating-a-pickup-group)
--   [Enabling an Interception
-    Extension](#enabling-an-interception-extension)
--   [Adding a Function Key to an
-    Interceptor](#adding-a-function-key-to-an-interceptor)
-
 Pickup groups allow users to intercept calls directed towards other
 users of the group. This is done either by dialing a special extension
 or by pressing a function key.
@@ -41,14 +34,8 @@ The pickup extension can be defined with:
 
 The default value for group pickup is *\*8*.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-The directed pickup extension must be enabled when a function key is
+#:warning: The directed pickup extension must be enabled when a function key is
 used.
-:::
 
 If you decide to not use a directed pickup extension, only *\*8* alone
 will work (without specifying the extension to pickup). In this case,

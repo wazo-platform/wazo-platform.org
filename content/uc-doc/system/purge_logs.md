@@ -1,17 +1,6 @@
 ---
-title: 'wazo-purge-db'
+title: wazo-purge-db
 ---
-
--   [Records Purged](#records-purged)
--   [Configuration File](#purge_logs_config_file)
--   [Manual Purge](#manual-purge)
--   [Maintenance](#maintenance)
--   [Archive Plugins](#archive-plugins)
--   [Archive Plugins (for Developers)](#archive-plugins-for-developers)
-    -   [Example](#example)
-        -   [Activate Plugin](#activate-plugin)
-        -   [sample.py](#sample.py)
-        -   [Install sample plugin](#install-sample-plugin)
 
 Keeping records of personal communications for long periods may be
 subject to local legislation, to avoid personal data retention. Also,
@@ -24,14 +13,8 @@ By default, wazo-purge-db removes all logs older than a year (365 days),
 except for webhookd logs where only 30 days are kept. wazo-purge-db is
 run nightly.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Please check the laws applicable to your country and modify
+#:exclamation: Please check the laws applicable to your country and modify
 `days_to_keep` (see below) in the configuration file accordingly.
-:::
 
 Records Purged
 ==============
@@ -68,14 +51,8 @@ setting `days_to_keep_per_plugin` for example:
     days_to_keep_per_plugin:
         webhookd-logs: 30
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Setting `days_to_keep` to 0 will NOT disable `wazo-purge-db`, and will
+#:warning: Setting `days_to_keep` to 0 will NOT disable `wazo-purge-db`, and will
 remove ALL logs from your system.
-:::
 
 See `configuration-priority`{.interpreted-text role="ref"} and
 `/etc/wazo-purge-db/config.yml` for more details.
@@ -118,14 +95,8 @@ decreased), some administrator may want to perform a
 [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL
 to recover disk space.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-VACUUM FULL will require a service interruption. This may take several
+#:warning: VACUUM FULL will require a service interruption. This may take several
 hours depending on the size of purged database.
-:::
 
 You need to:
 

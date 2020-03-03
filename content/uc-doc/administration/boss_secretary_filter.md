@@ -2,11 +2,6 @@
 title: Boss Secretary Filter
 ---
 
--   [Quick Summary](#quick-summary)
--   [Creating a Filter](#creating-a-filter)
--   [Usage](#usage)
--   [Function Keys](#function-keys)
-
 The boss secretary filter allow to set a secretary or a boss role to a
 user. Filters can then be created to filter calls directed to a boss
 using different strategies.
@@ -47,7 +42,7 @@ Usage
 =====
 
 The call filter function can be activated and deactivated by the boss or
-the secretary using the \*37 extension. The extension is defined with
+the secretary using the *37 extension. The extension is defined with
 `/extensions/features` endpoint.
 
 The call filter has to be activated for each secretary if more than one
@@ -66,19 +61,13 @@ Function Keys
 =============
 
 A more convenient way to active the boss secretary filter is to assign a
-function key on the boss\' phone or the secretary\'s phone. In the
-user\'s configuration under `Func Keys`. A function key can be added for
+function key on the boss' phone or the secretary's phone. In the
+user's configuration under `Func Keys`. A function key can be added for
 each secretaries of a boss.
 
 If supervision is activated, the key will light up when filter is
 activated for this secretary. If a secretary also has a function key on
-the same boss/secretary combination the function key\'s BLF will be in
+the same boss/secretary combination the function key's BLF will be in
 sync between each phones.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-With SCCP phones, you must configure a custom `Func Keys`.
-:::
+#:warning: With SCCP phones, you must configure a custom `Func Keys`.

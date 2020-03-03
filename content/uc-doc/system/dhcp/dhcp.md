@@ -2,19 +2,6 @@
 title: DHCP Server
 ---
 
--   [Activating DHCP on another
-    interface](#activating-dhcp-on-another-interface)
--   [Changing default DHCP gateway](#changing-default-dhcp-gateway)
--   [Configuring DHCP server to serve unknown
-    hosts](#configuring-dhcp-server-to-serve-unknown-hosts)
--   [DHCP-Relay](#dhcp-relay)
--   [Configuring DHCP server for other
-    subnets](#configuring-dhcp-server-for-other-subnets)
-    -   [Creating \"extra subnet\" configuration
-        files](#creating-extra-subnet-configuration-files)
-    -   [Adjusting Options of the DHCP
-        server](#adjusting-options-of-the-dhcp-server)
-
 Wazo includes a DHCP server used for assisting in the provisioning of
 phones and other devices. (See
 `Basic Configuration <dhcpd-config>`{.interpreted-text role="ref"} for
@@ -35,11 +22,11 @@ example : `eth0`
 Changing default DHCP gateway
 =============================
 
-By default, the Wazo DHCP server uses the Wazo\'s IP address as the
+By default, the Wazo DHCP server uses the Wazo's IP address as the
 routing address. To change this you must create a custom-template:
 
 1.  Create a custom template for the
-    `dhcpd_subnet.conf.head`{.interpreted-text role="file"} file:
+    `dhcpd_subnet.conf.head` file:
 
         mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
         cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
@@ -72,13 +59,13 @@ By default, the Wazo DHCP server serves only known hosts. That is:
 -   or hosts which Vendor Identifier is known
 
 Known OUIs and Vendor Class Identifiers are declared in
-`/etc/dhcp/dhcpd_update/*`{.interpreted-text role="file"} files.
+`/etc/dhcp/dhcpd_update/*` files.
 
 If you want your Wazo DHCP server to serve also unknown hosts (like PCs)
 follow these instructions:
 
 1.  Create a custom template for the
-    `dhcpd_subnet.conf.tail`{.interpreted-text role="file"} file:
+    `dhcpd_subnet.conf.tail` file:
 
         mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
         cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
@@ -102,34 +89,28 @@ equipments.
 DHCP-Relay
 ==========
 
-If your telephony devices aren\'t located on the same site and the same
+If your telephony devices aren't located on the same site and the same
 broadcast domain as the Wazo DHCP server, you will have to add the
-option *DHCP Relay* to the site\'s router. This parameter will allow the
+option *DHCP Relay* to the site's router. This parameter will allow the
 DHCP requests from distant devices to be transmitted to the IP address
 you specify as DHCP Relay.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Please make sure that the IP address used as DHCP Relay is the same as
-one of Wazo\'s interfaces, and that this interface is configured to
+#:warning: Please make sure that the IP address used as DHCP Relay is the same as
+one of Wazo's interfaces, and that this interface is configured to
 listen to DHCP requests (as decribed in previous part). Also verify that
 routing is configured between the distant router and the choosen
 interface, otherwise DHCP requests will never reach the Wazo server.
-:::
 
 Configuring DHCP server for other subnets
 =========================================
 
 This section describes how to configure Wazo to serve other subnets that
-the VOIP subnet. As you can\'t use the Web Interface to declare other
+the VOIP subnet. As you can't use the Web Interface to declare other
 subnets (for example to address DATA subnet, or a VOIP subnet that
-isn\'t on the same site that Wazo server), you\'ll have to do the
+isn't on the same site that Wazo server), you'll have to do the
 following configuration on the Command Line Interface.
 
-Creating \"extra subnet\" configuration files
+Creating "extra subnet" configuration files
 ---------------------------------------------
 
 First thing to do is to create a directory and to copy into it the
@@ -139,22 +120,15 @@ configuration files:
     cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf
     cp /etc/dhcp/dhcpd_subnet.conf /etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-In this case we\'ll create 2 files for 2 differents subnets. You can
+#:exclamation: In this case we'll create 2 files for 2 differents subnets. You can
 change the name of the files, and create as many files as you want in
-the folder `/etc/dhcp/dhcpd_sites/`{.interpreted-text role="file"}. Just
+the folder `/etc/dhcp/dhcpd_sites/`. Just
 adapt this procedure by changing the name of the file in the different
 links.
-:::
 
-After creating one or several files in
-`/etc/dhcp/dhcpd_sites/`{.interpreted-text role="file"}, you have to
-edit the file `/etc/dhcp/dhcpd_extra.conf`{.interpreted-text
-role="file"} and add the according include statement like:
+After creating one or several files in `/etc/dhcp/dhcpd_sites/`, you
+have to edit the file `/etc/dhcp/dhcpd_extra.conf` and add the
+according include statement like:
 
     include "/etc/dhcp/dhcpd_sites/dhcpd_siteXXX.conf";
     include "/etc/dhcp/dhcpd_sites/dhcpd_lanDATA.conf";
@@ -164,7 +138,7 @@ Adjusting Options of the DHCP server
 
 Once you have created the subnet in the DHCP server, you must edit each
 configuration file (the files in
-`/etc/dhcp/dhcpd_sites/`{.interpreted-text role="file"}) and modify the
+`/etc/dhcp/dhcpd_sites/`) and modify the
 different parameters. In section **subnet**, write the IP subnet and
 change the following options (underlined fields in the example):
 
@@ -196,17 +170,10 @@ In section **pool**, modify the options:
 
         range 172.30.8.10 172.30.8.200;
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Wazo only answers to DHCP requests from
+#:warning: Wazo only answers to DHCP requests from
 `supported devices <devices>`{.interpreted-text role="ref"}. In case of
 you need to address other equipment, use the option *allow
-unknown-clients;* in the `/etc/dhcp/dhcpd_sites/`{.interpreted-text
-role="file"} files
-:::
+unknown-clients;* in the `/etc/dhcp/dhcpd_sites/` files.
 
 At this point, you can apply the changes of the DHCP server with the
 command:
@@ -215,5 +182,5 @@ command:
 
 After that, Wazo will start to serve the DHCP requests of the devices
 located on other sites or other subnets than the VOIP subnet. You will
-see in `/var/log/daemon.log`{.interpreted-text role="file"} all the DHCP
+see in `/var/log/daemon.log` all the DHCP
 requests received and how they are handled by Wazo.

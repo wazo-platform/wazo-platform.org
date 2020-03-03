@@ -2,40 +2,21 @@
 title: PRI card configuration
 ---
 
--   [Verifications](#verifications)
--   [Generate DAHDI configuration](#generate-dahdi-configuration)
--   [Configure](#configure)
-    -   [DAHDI system.conf
-        configuration](#dahdi-system.conf-configuration)
-    -   [Asterisk dahdi-channels.conf
-        configuration](#asterisk-dahdi-channels.conf-configuration)
--   [Next step](#next-step)
--   [Specific configuration](#pri_card_specific_conf)
-    -   [Multiple PRI cards and sync cable](#sync_cable)
-
 Verifications
 =============
 
 Verify that the correct module is configured in
-`/etc/dahdi/modules`{.interpreted-text role="file"} depending on the
+`/etc/dahdi/modules` depending on the
 card you installed in your server.
 
-If it wasn\'t, do again the step `load_dahdi_modules`{.interpreted-text
-role="ref"}
+If it wasn't, do again the step [load dahdi modules](load_module)
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-*TE13x, TE23x, TE43x* cards :
+#:warning: *TE13x, TE23x, TE43x* cards :
 
 -   these cards need a specific dahdi module configuration. See
     `dahdi_linemode_selection`{.interpreted-text role="ref"} paragraph,
 -   you **MUST** install the correct echo-canceller firmware to be able
-    to use these cards. See `hwec_configuration`{.interpreted-text
-    role="ref"} paragraph.
-:::
+    to use these cards. See [hwec_configuration](echo_canceller) paragraph.
 
 Generate DAHDI configuration
 ============================
@@ -44,16 +25,9 @@ Issue the command:
 
     dahdi_genconf
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-it will erase all existing configuration in
-`/etc/dahdi/system.conf`{.interpreted-text role="file"} and
-`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} files
-!
-:::
+#:warning: it will erase all existing configuration in
+`/etc/dahdi/system.conf` and
+`/etc/asterisk/dahdi-channels.conf` files!
 
 Configure
 =========
@@ -61,15 +35,14 @@ Configure
 DAHDI system.conf configuration
 -------------------------------
 
-First step is to check `/etc/dahdi/system.conf`{.interpreted-text
-role="file"} file:
+First step is to check `/etc/dahdi/system.conf` file:
 
 -   check the span numbering,
 -   if needed change the clock source,
 -   usually (at least in France) you should remove the `crc4`
 
 See detailed explanations of this file in the
-`system_conf`{.interpreted-text role="ref"} section.
+[system_conf](hardware) section.
 
 Below is **an example** for a typical french PRI line span:
 
@@ -84,7 +57,7 @@ Asterisk dahdi-channels.conf configuration
 ------------------------------------------
 
 Then you have to modify the
-`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} file:
+`/etc/asterisk/dahdi-channels.conf` file:
 
 -   remove the unused lines like:
 
@@ -120,10 +93,10 @@ Now that you have configured your PRI card:
     `interco_dahdi_conf`{.interpreted-text role="ref"} in the web
     interface.
 
-Specific configuration {#pri_card_specific_conf}
+Specific configuration
 ======================
 
-Multiple PRI cards and sync cable {#sync_cable}
+Multiple PRI cards and sync cable
 ---------------------------------
 
 If you have several PRI cards in your server you should link them with a
@@ -133,9 +106,9 @@ To do this, you need to:
 
 -   use the coding wheel on the Digium cards to give them an order of
     recognition in DAHDI/Asterisk (see
-    [Digium\_telephony\_cards\_support](http://www.digium.com/en/support/telephony-cards)),
+    [Digium_telephony_cards_support](http://www.digium.com/en/support/telephony-cards)),
 -   daisy-chain the cards with a sync cable (see
-    [Digium\_telephony\_cards\_support](http://www.digium.com/en/support/telephony-cards)),
+    [Digium_telephony_cards_support](http://www.digium.com/en/support/telephony-cards)),
 -   load the DAHDI module with the `timingcable=1` option.
 
 Create `/etc/modprobe.d/xivo-timingcable.conf`{.interpreted-text

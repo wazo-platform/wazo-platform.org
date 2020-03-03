@@ -2,28 +2,6 @@
 title: Supported Devices
 ---
 
--   [Aastra](#aastra)
-    -   [6700i series](#i-series)
-    -   [6800i series](#i-series-1)
-    -   [DECT Infrastructure](#dect-infrastructure)
--   [Alcatel-Lucent](#alcatel-lucent)
--   [Avaya](#avaya)
--   [Cisco](#cisco)
-    -   [ATAs](#atas)
-    -   [Cisco 7900 Series](#cisco-7900-series)
--   [Digium](#digium)
--   [Fanvil](#fanvil)
--   [Gigaset](#gigaset)
--   [Jitsi](#jitsi)
--   [Mitel](#mitel)
--   [Patton](#patton)
--   [Panasonic](#panasonic)
--   [Polycom](#polycom)
--   [Snom](#snom)
--   [Technicolor](#technicolor)
--   [Yealink](#yealink)
--   [Zenitel](#zenitel)
-
 `wazo-provd` plugins for these devices can be installed from the
 `"Supported devices" repository <alternative-plugins-repo>`{.interpreted-text
 role="ref"}.
@@ -49,7 +27,7 @@ and compatibility reasons.
 
   Funckeys                           8           26      30         55         26      30
 
-                                     \*\*Suppo   rted    grammabl   e keys\*\*         
+                                     **Suppo   rted    grammabl   e keys**         
                                                  pro                                   
 
   User with supervision function     Y           Y       Y          Y          Y       Y
@@ -157,7 +135,7 @@ Supported expansion modules:
 
   Funckeys                                 0           8       38         68
 
-                                           \*\*Suppo   rted    grammabl   e keys\*\*
+                                           **Suppo   rted    grammabl   e keys**
                                                        pro                
 
   User with supervision function           N           Y       Y          Y
@@ -292,13 +270,7 @@ Cisco Small Business SPA300 series:
   SPA301   No            1            No
   SPA303   No            3            No
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Function keys are shared with line keys for all SPA phones
-:::
+#:exclamation: Function keys are shared with line keys for all SPA phones
 
 Cisco Small Business SPA500 series:
 
@@ -327,14 +299,8 @@ Cisco Small Business IP Phones (previously known as Linksys IP Phones)
   SPA942   Yes           4            No
   SPA962   Yes           6            No
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-You must install the firmware of each SPA9xx phones you are using since
+#:exclamation: You must install the firmware of each SPA9xx phones you are using since
 they reboot in loop when they can't find their firmware.
-:::
 
 The SPA932 expansion module is supported.
 
@@ -350,32 +316,20 @@ ATAs:
 > For best results, activate `dhcp-integration`{.interpreted-text
 > role="ref"} on your Wazo.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-These devices can be used to connect Faxes. For better success with
+#:exclamation: These devices can be used to connect Faxes. For better success with
 faxes some parameters must be changed. You can read the
 `fax-analog-gateway`{.interpreted-text role="ref"} section.
-:::
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-If you want to manually resynchronize the configuration from the ATA
+#:exclamation: If you want to manually resynchronize the configuration from the ATA
 device you should use the following url:
 
 <http://ATA_IP/admin/resync?http://WAZO_IP:8667/CONF_FILE>
-:::
 
 > where :
 >
-> > -   *ATA\_IP* is the IP address of the ATA,
-> > -   *WAZO\_IP* is the IP address of your Wazo,
-> > -   *CONF\_FILE* is one of `spa2102.cfg`, `spa8000.cfg`
+> > -   *ATA_IP* is the IP address of the ATA,
+> > -   *WAZO_IP* is the IP address of your Wazo,
+> > -   *CONF_FILE* is one of `spa2102.cfg`, `spa8000.cfg`
 
 ATAs
 ----
@@ -399,22 +353,16 @@ These devices can be used to connect faxes. For better success with
 faxes some parameters must be changed. You can read the
 `fax-analog-gateway`{.interpreted-text role="ref"} section.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-If you want to manually resynchronize the configuration from the ATA
+#:exclamation: If you want to manually resynchronize the configuration from the ATA
 device you should use the following url:
 
 <http://ATA_IP/admin/resync?http://WAZO_IP:8667/CONF_FILE>
-:::
 
 > where :
 >
-> > -   *ATA\_IP* is the IP address of the ATA,
-> > -   *WAZO\_IP* is the IP address of your Wazo,
-> > -   *CONF\_FILE* is one of `spa3102.cfg`, `spa8000.cfg`
+> > -   *ATA_IP* is the IP address of the ATA,
+> > -   *WAZO_IP* is the IP address of your Wazo,
+> > -   *CONF_FILE* is one of `spa3102.cfg`, `spa8000.cfg`
 
 Cisco 7900 Series
 -----------------
@@ -1116,89 +1064,68 @@ Cisco 7900 Series
 </tbody>
 </table>
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
+#:warning: These phones can only be used in SCCP mode. They are limited to the
+`features supported in Wazo's SCCP implementation <sccp-features>`.
 
-These phones can only be used in SCCP mode. They are limited to the
-`features supported in Wazo's SCCP implementation <sccp-features>`{.interpreted-text
-role="ref"}.
-:::
-
-::: {#cisco-provisioning}
+<!-- ::: {#cisco-provisioning} -->
 To install firmware for xivo-cisco-sccp plugins, you need to manually
 download the firmware files from the Cisco website and save them in the
-`/var/lib/wazo-provd/plugins/$plugin-name/var/cache`{.interpreted-text
-role="file"} directory.
-:::
+`/var/lib/wazo-provd/plugins/$plugin-name/var/cache` directory.
 
 File permissions should be modified to make the files readable to
-\`wazo-provd\`:
+`wazo-provd`:
 
--   [chmod 640 \<filename\>]{.title-ref}
--   [chown wazo-provd:wazo-provd \<filename\>]{.title-ref}
+-   [chmod 640 <filename>]{.title-ref}
+-   [chown wazo-provd:wazo-provd <filename>]{.title-ref}
 
 This directory is created by Wazo when you install the plugin (i.e.
 xivo-cisco-sccp-legacy). If you create the directory manually, the
 installation will fail.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Access to Cisco firmware updates requires a Cisco account with
+#:warning: Access to Cisco firmware updates requires a Cisco account with
 sufficient privileges. The account requires paying for the service and
 remains under the responsibility of the client or partner. The Wazo
 authors is not responsible for these firmwares and does not offer any
 updates.
-:::
 
 For example, if you have installed the `xivo-cisco-sccp-legacy` plugin
 and you want to install the `7940-7960-fw`, `networklocale` and
 `userlocale_fr_FR` package, you must:
 
 -   Go to <http://www.cisco.com>
--   Click on \"Log In\" in the top right corner of the page, and then
+-   Click on "Log In" in the top right corner of the page, and then
     log in
--   Click on the \"Support\" menu
--   Click on the \"Downloads\" tab, then on \"Voice & Unified
-    Communications\"
--   Select \"IP Telephony\", then \"Unified Communications Endpoints\",
+-   Click on the "Support" menu
+-   Click on the "Downloads" tab, then on "Voice & Unified
+    Communications"
+-   Select "IP Telephony", then "Unified Communications Endpoints",
     then the model of your phone (in this example, the 7940G)
--   Click on \"Skinny Client Control Protocol (SCCP) software\"
+-   Click on "Skinny Client Control Protocol (SCCP) software"
 -   Choose the same version as the one shown in the plugin
--   Download the file with an extension ending in \".zip\", which is
+-   Download the file with an extension ending in ".zip", which is
     usually the last file in the list
--   In the Wazo web interface, you\'ll then be able to click on the
-    \"install\" button for the firmware
+-   In the Wazo web interface, you'll then be able to click on the
+    "install" button for the firmware
 
 The procedure is similar for the network locale and the user locale
 package, but:
 
--   Instead of clicking on \"Skinny Client Control Protocol (SCCP)
-    software\", click on \"Unified Communications Manager Endpoints
-    Locale Installer\"
--   Click on \"Linux\"
+-   Instead of clicking on "Skinny Client Control Protocol (SCCP)
+    software", click on "Unified Communications Manager Endpoints
+    Locale Installer"
+-   Click on "Linux"
 -   Choose the same version of the one shown in the plugin
 -   For the network locale, download the file named
-    \"po-locale-combined-network.cop.sgn\"
+    "po-locale-combined-network.cop.sgn"
 -   For the user locale, download the file named
-    \"po-locale-\$locale-name.cop.sgn, for example
-    \"po-locale-fr\_FR.cop.sgn\" for the \"fr\_FR\" locale
+    "po-locale-$locale-name.cop.sgn, for example
+    "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
 -   Both files must be placed in
     `/var/lib/wazo-provd/plugins/$plugin-name/var/cache`{.interpreted-text
     role="file"} directory. Then install them in the Wazo Web Interface.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Currently user and network locale 11.5.1 should be used for plugins
+#:exclamation: Currently user and network locale 11.5.1 should be used for plugins
 xivo-sccp-legacy and xivo-cisco-sccp-9.4
-:::
 
 Digium
 ======
@@ -1289,13 +1216,7 @@ Digium
   Paging                                       Y       NYT     Y
   --------------------------------------------------------------------
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Some function keys are shared with line keys
-:::
+#:exclamation: Some function keys are shared with line keys
 
 Particularities:
 
@@ -1306,9 +1227,9 @@ Particularities:
 -   Does not work reliably with Cisco ESW520 PoE switch. When connected
     to such a switch, the D40 tends to reboot randomly, and the D70 does
     not boot at all.
--   It\'s important to not edit the phone configuration via the phones\'
+-   It's important to not edit the phone configuration via the phones'
     web interface when using these phones with Wazo.
--   Paging doesn\'t work.
+-   Paging doesn't work.
 
 Fanvil
 ======
@@ -1341,7 +1262,7 @@ Jitsi
 
   Model   Tested[^28]   Fkeys[^29]   Wazo HA[^30]
   ------- ------------- ------------ --------------
-  Jitsi   Yes           \-\--        No
+  Jitsi   Yes           ---        No
 
 Mitel
 =====
@@ -1364,12 +1285,12 @@ The following analog VoIP gateways are supported:
 
 Wazo only supports configuring the FXS ports of these gateways. It does
 not support configuring the FXO ports. If you have a gateway on which
-you would like to configure the FXO ports, you\'ll need to write the FXO
+you would like to configure the FXO ports, you'll need to write the FXO
 ports configuration manually by creating a `custom template
 <provd-custom-templates>`{.interpreted-text role="ref"} for your
 gateway.
 
-It\'s only possible to enter a provisioning code on the first FXS port
+It's only possible to enter a provisioning code on the first FXS port
 of a gateway. For example, if you have a gateway with 8 FXS ports, the
 first port can be configured by dialing a provisioning code from it, but
 ports 2 to 7 can only be configured via the Wazo web interface. Also, if
@@ -1386,14 +1307,14 @@ role="ref"}.
 
 Telnet access and web access are enabled by default. You should change
 the default password by setting an administrator password via a Wazo
-\"template device\".
+"template device".
 
 By downloading and installing the Patton firmwares, you agree to the
 [Patton Electronics Company
 conditions](http://www.patton.com/legal/eula.asp).
 
 To provision a gateway that was previously configured manually, use the
-following commands on your gateway (configure mode), replacing WAZO\_IP
+following commands on your gateway (configure mode), replacing WAZO_IP
 by the IP address of your Wazo server:
 
     profile provisioning PF_PROVISIONING_CONFIG
@@ -1411,22 +1332,16 @@ Panasonic KX-HTXXX series:
 +----------+-------------+------------+--------------+
 | Model    | Tested[^31] | Fkeys[^32] | Wazo HA[^33] |
 +==========+=============+============+==============+
-| KX-HT113 | > No        | > \-\--    | > No         |
+| KX-HT113 | > No        | > ---      | > No         |
 +----------+-------------+------------+--------------+
-| KX-HT123 | > No        | > \-\--    | > No         |
+| KX-HT123 | > No        | > ---      | > No         |
 +----------+-------------+------------+--------------+
-| KX-HT133 | > No        | > \-\--    | > No         |
+| KX-HT133 | > No        | > ---      | > No         |
 +----------+-------------+------------+--------------+
-| KX-HT136 | > No        | > \-\--    | > No         |
+| KX-HT136 | > No        | > ---      | > No         |
 +----------+-------------+------------+--------------+
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-This phone is for testing for the moment
-:::
+#:exclamation: This phone is for testing for the moment
 
 Polycom
 =======
@@ -2323,7 +2238,7 @@ Polycom
 Particularities:
 
 -   The latest Polycom firmwares can take a lot of time to download and
-    install due to their size (\~650 MiB). For this reason, these files
+    install due to their size (~650 MiB). For this reason, these files
     are explicitly excluded from the Wazo backups.
 -   For directed call pickup to work via the BLF function keys, you need
     to make sure that the option `notifycid` is `yes` for `wazo-confd`
@@ -2333,7 +2248,7 @@ Particularities:
     the extension number of the supervised user is different from its
     caller ID number.
 
--   Default password is **9486** (i.e. the word \"xivo\" on a telephone
+-   Default password is **9486** (i.e. the word "xivo" on a telephone
     keypad).
 -   On the VVX101 and VVX201, to have the two line keys mapped to the
     same SIP line, create a
@@ -2352,14 +2267,8 @@ Particularities:
     This is especially useful on the VVX101 since it supports a maximum
     of 1 SIP line and does not support function keys.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-(Wazo HA cluster) BLF function key saved on the master node are not
+#:exclamation: (Wazo HA cluster) BLF function key saved on the master node are not
 available.
-:::
 
 Supported expansion modules:
 
@@ -2369,13 +2278,7 @@ Supported expansion modules:
     300/310/400/410/500/600)
 -   Polycom® SoundPoint IP Backlit (for Polycom® SoundPoint 650)
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-Polycom® VVX® Camera are not supported.
-:::
+#:warning: Polycom® VVX® Camera are not supported.
 
   Model     Tested[^34]   Fkeys[^35]   Wazo HA[^36]
   --------- ------------- ------------ --------------
@@ -2407,24 +2310,18 @@ Snom
   ------- ------------- ------------ --------------
   300     No            6            Yes
   320     Yes           12           Yes
-  360     No            \-\--        Yes
+  360     No            ---        Yes
   820     Yes           4            Yes
-  MP      No            \-\--        Yes
+  MP      No            ---        Yes
   PA1     No            0            Yes
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-If you are using Snom phones with HA, you should not assign multiple
+#:warning: If you are using Snom phones with HA, you should not assign multiple
 lines to the same device.
-:::
 
-There\'s a known issue with the provisioning of Snom phones in Wazo:
+There's a known issue with the provisioning of Snom phones in Wazo:
 
 -   After a factory reset of a phone, if no language and timezone are
-    set for the \"default config device\" (`/provd/cfg_mgr/configs`),
+    set for the "default config device" (`/provd/cfg_mgr/configs`),
     you will be forced to select a default language and timezone on the
     phone UI.
 
@@ -3001,15 +2898,9 @@ Supported expansion modules:
 -   Snom® Vision (for Snom® 7xx series and Snom® 8xx series)
 -   Snom® D7 (for Snom® 7xx series)
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+#:exclamation: For some models, function keys are shared with line keys
 
-For some models, function keys are shared with line keys
-:::
-
-There\'s the following known limitations/issues with the provisioning of
+There's the following known limitations/issues with the provisioning of
 Snom phones in Wazo:
 
 -   If you are using Snom phones with
@@ -3018,11 +2909,11 @@ Snom phones in Wazo:
 -   The Snom D745 has limited space for function key labels: long labels
     might be split in a suboptimal way.
 -   When using a D7 expansion module, the function key label will not be
-    shown on the first reboot or resynchronization. You\'ll need to
+    shown on the first reboot or resynchronization. You'll need to
     reboot or resynchronize the phone a second time for the label to be
     shown properly.
 -   After a factory reset of a phone, if no language and timezone are
-    set for the \"default config device\", you will be forced to select
+    set for the "default config device", you will be forced to select
     a default language and timezone on the phone UI.
 
 Technicolor
@@ -3032,16 +2923,10 @@ Previously known as Thomson:
 
   Model    Tested[^46]   Fkeys[^47]   Wazo HA[^48]
   -------- ------------- ------------ --------------
-  ST2022   No            \-\--        \-\--
+  ST2022   No            ---        ---
   ST2030   Yes           10           Yes
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Function keys are shared with line keys
-:::
+#:exclamation: Function keys are shared with line keys
 
 Yealink
 =======
@@ -3886,20 +3771,14 @@ base station will try to upgrade the firmware of an handset over the air
 -   Base station with firmware 25.40.0.15 or later
 -   Handset with hardware 26.0.0.6 or later
 
-Otherwise, you\'ll have to manually upgrade the handset firmware via
+Otherwise, you'll have to manually upgrade the handset firmware via
 USB.
 
 In all cases, you should consult the Yealink documentation on [Upgrading
 W52x Handset
 Firmware](http://www.yealink.com/Upload/W52P/2013124/Upgrading%20W52x%20Handset%20Firmware.zip).
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Some function keys are shared with line keys
-:::
+#:exclamation: Some function keys are shared with line keys
 
 Supported expansion modules:
 
@@ -3909,20 +3788,14 @@ Supported expansion modules:
 
   Model   Tested[^49]   Fkeys[^50]   Wazo HA[^51]   Plugin
   ------- ------------- ------------ -------------- ------------------
-  CP860   No            0            \-\--          xivo-yealink-v72
-  T23P    No            3            \-\--          xivo-yealink-v80
+  CP860   No            0            ---          xivo-yealink-v72
+  T23P    No            3            ---          xivo-yealink-v80
   T23G    Yes           3            Yes            xivo-yealink-v80
   T27P    Yes           21           Yes            xivo-yealink-v80
-  T29G    No            27           \-\--          xivo-yealink-v80
+  T29G    No            27           ---          xivo-yealink-v80
   T49G    Yes           29           Yes            xivo-yealink-v80
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Some function keys are shared with line keys
-:::
+#:exclamation: Some function keys are shared with line keys
 
 Zenitel
 =======

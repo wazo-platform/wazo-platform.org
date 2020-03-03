@@ -2,27 +2,11 @@
 title: 'Hardware Echo-cancellation'
 ---
 
--   [Know which firmware you need](#know-which-firmware-you-need)
--   [Install the firmware](#install-the-firmware)
--   [Activate the Hardware
-    Echo-cancellation](#activate-the-hardware-echo-cancellation)
--   [Apply the configuration](#apply-the-configuration)
--   [Next step](#next-step)
--   [Specific configuration](#echo_can_specific_conf)
-    -   [Use the Hardware Echo-canceller for DTMF
-        detection](#use-the-hardware-echo-canceller-for-dtmf-detection)
-
 It is *recommended* to use telephony cards with an hardware
 echo-canceller module.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-with **TE13x, TE23x and TE43x** cards, you **MUST** install the
+#:warning: with **TE13x, TE23x and TE43x** cards, you **MUST** install the
 echo-canceller firmware. Otherwise the card won\'t work properly.
-:::
 
 Know which firmware you need
 ============================

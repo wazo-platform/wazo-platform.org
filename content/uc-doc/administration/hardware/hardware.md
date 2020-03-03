@@ -2,48 +2,37 @@
 title: 'Server/Hardware'
 ---
 
--   [Notes on configuration files](#notes-on-configuration-files)
-    -   [/etc/dahdi/system.conf](#system_conf)
-    -   [/etc/asterisk/chan\_dahdi.conf](#etcasteriskchan_dahdi.conf)
-    -   [/etc/asterisk/dahdi-channels.conf](#asterisk_dahdi_channel_conf)
--   [Debug](#debug)
-    -   [Check IRQ misses](#check-irq-misses)
-
 This section describes how to configure the telephony hardware on a Wazo
 server.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Currently Wazo supports only Digium Telephony Interface cards
-:::
+#:exclamation: Currently Wazo supports only Digium Telephony Interface cards
 
 The configuration process is the following :
 
-::: {.toctree maxdepth="1"}
-chan\_dahdi load the correct DAHDI modules \<load\_modules\> configure
-and install the echo-canceller \<echo\_canceller\> configure the card,
-\<card\_configuration\> apply the configuration.
-\<apply\_configuration\>
-:::
+- [chan_dahdi](chan_dahdi)
+- [load the correct DAHDI modules](load_modules)
+- [configure and install the echo-canceller](echo_canceller)
+- [configure the card](card_configuration)
+- [apply the configuration](apply_configuration)
+
 
 At the end of this page you will also find some general notes and DAHDI.
 
 Notes on configuration files
 ============================
 
-/etc/dahdi/system.conf {#system_conf}
+/etc/dahdi/system.conf
 ----------------------
 
 A *span* is created for each card port. Below is an example of a
 standard E1 port:
 
-    span=1,1,0,ccs,hdb3
-    dchan=16
-    bchan=1-15,17-31
-    echocanceller=mg2,1-15,17-31
+```Ini
+span=1,1,0,ccs,hdb3
+dchan=16
+bchan=1-15,17-31
+echocanceller=mg2,1-15,17-31
+```
 
 Each span has to be declared with the following information:
 
@@ -69,13 +58,13 @@ Note that the `dahdi_genconf` command should usually give you the
 correct parameters (if you correctly set the cards jumper). All these
 information should be checked with your operator.
 
-/etc/asterisk/chan\_dahdi.conf
-------------------------------
+/etc/asterisk/chan_dahdi.conf
+-----------------------------
 
 This file contains the general parameters of the DAHDI channel. It is
 not generated via the `dahdi_genconf` command.
 
-/etc/asterisk/dahdi-channels.conf {#asterisk_dahdi_channel_conf}
+/etc/asterisk/dahdi-channels.conf
 ---------------------------------
 
 This file contains the parameters of each channel. It is generated via
@@ -83,11 +72,13 @@ the `dahdi_genconf` command.
 
 Below is an example of span definition:
 
-    group=0,11
-    context=from-extern
-    switchtype = euroisdn
-    signalling = pri_cpe
-    channel => 1-15,17-31
+```Ini
+group=0,11
+context=from-extern
+switchtype = euroisdn
+signalling = pri_cpe
+channel => 1-15,17-31
+```
 
 Note that parameters are read from top to bottom in a last match fashion
 and are applied to the given channels when it reads a line `channel =>`.
@@ -111,17 +102,21 @@ with the cards.
 
 Check:
 
-    cat /proc/dahdi/<span number>
+```ShellSession
+# cat /proc/dahdi/<span number>
+```
 
 If the *IRQ misses* counter increments, it\'s not good:
 
-    cat /proc/dahdi/1
-    Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
-    IRQ misses: 1762187
-      1 WCTDM/0/0 FXOKS (In use)
-      2 WCTDM/0/1 FXOKS (In use)
-      3 WCTDM/0/2 FXOKS (In use)
-      4 WCTDM/0/3 FXOKS (In use)
+```ShellSession
+# cat /proc/dahdi/1
+Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
+IRQ misses: 1762187
+  1 WCTDM/0/0 FXOKS (In use)
+  2 WCTDM/0/1 FXOKS (In use)
+  3 WCTDM/0/2 FXOKS (In use)
+  4 WCTDM/0/3 FXOKS (In use)
+```
 
 Digium gives some hints in their *Knowledge Base* here :
 <https://support.digium.com/community/s/search/All/Home/IRQ>

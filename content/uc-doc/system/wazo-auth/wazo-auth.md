@@ -2,17 +2,6 @@
 title: 'wazo-auth'
 ---
 
--   [Usage](#usage)
--   [Usage for services using
-    wazo-auth](#usage-for-services-using-wazo-auth)
--   [Launching wazo-auth](#launching-wazo-auth)
--   [Configuration](#configuration)
-    -   [Policies](#policies)
--   [Policies](#policies-1)
-    -   [ACL templates](#acl-templates)
--   [HTTP API Reference](#http-api-reference)
--   [Development](#development)
-
 wazo-auth is a scalable, extendable and configurable authentication
 service. It uses an HTTP interface to emit tokens to users who can then
 use those tokens to identify and authenticate themselves with other
@@ -20,9 +9,8 @@ services compatible with wazo-auth.
 
 The HTTP API reference is at <http://api.wazo.community>.
 
-::: {.toctree maxdepth="1"}
-developer stock\_plugins
-:::
+- [developer](developer)
+- [stock_plugins](stock_plugins)
 
 Usage
 =====
@@ -112,7 +100,7 @@ appropriate permissions for a token created with this backend.
 To change to policy associated to a backend, add a new configuration
 file in `/etc/wazo-auth/conf.d` with the following content:
 
-``` {.sourceCode .yaml}
+```YAML
 backend_policies:
   <backend_name>: <policy_name>
 ```
@@ -120,15 +108,9 @@ backend_policies:
 -   backend\_name: The name of the backend to associate to a new policy
 -   policy\_name: The name of the policy to assign to the backend
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Each backend may support different variables. A policy tailored for a
+#:exclamation: Each backend may support different variables. A policy tailored for a
 user oriented backend will probably not be usable if assigned to an
 administrator backend.
-:::
 
 Policies
 ========
@@ -147,7 +129,7 @@ rendering.
 
 A backend supplying the following variables:
 
-``` {.sourceCode .javascript}
+```Javascript
 {"uuid": "fd64193f-7260-4299-9bc2-87c0106e5302",
  "lines": [1, 42],
  "agent": {"id": 50, "number": "1001"}}
@@ -155,25 +137,19 @@ A backend supplying the following variables:
 
 With the following ACL templates:
 
-``` {.sourceCode .none}
+```Ini
 confd.users.{{ uuid }}.read
 {% for line in lines %}confd.lines.{{ line }}.#:{% endfor %}
 dird.me.#
 {% if agent %}agentd.agents.by-id.{{ agent.id }}.read{% endif %}
 ```
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-When using `for` loops to create ACL, make sure to add a `:` separator
+#:exclamation: When using `for` loops to create ACL, make sure to add a `:` separator
 at the end of each ACL
-:::
 
 Would create tokens with the following ACL:
 
-``` {.sourceCode .none}
+```Ini
 confd.users.fd64193f-7260-4299-9bc2-87c0106e5302.read
 confd.lines.1.#
 confd.lines.42.#

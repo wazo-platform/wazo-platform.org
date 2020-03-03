@@ -2,11 +2,6 @@
 title: Introduction
 ---
 
--   [How it works](#how-it-works)
--   [Tenant assignation](#tenant-assignation)
--   [Limitations](#limitations)
--   [External links](#external-links)
-
 The auto-provisioning feature found in Wazo make it possible to
 provision, i.e. configure, a lots of telephony devices in an efficient
 and effortless way.
@@ -14,7 +9,7 @@ and effortless way.
 How it works
 ============
 
-Here\'s a simplified view of how auto-provisioning is supported on a
+Here's a simplified view of how auto-provisioning is supported on a
 typical SIP hardphone:
 
 1.  The phone is powered on
@@ -29,15 +24,14 @@ typical SIP hardphone:
 Building on this, configuring one of the supported phone on Wazo is as
 simple as:
 
-1.  `dhcpd-config`{.interpreted-text role="ref"}
-2.  `Installing the required provd plugin <provd-plugins-mgmt>`{.interpreted-text
-    role="ref"}
+1.  [dhcpd-config](basic_configuration)
+2.  [Installing the required provd plugin](adv_configuration)
 3.  Powering on the phone
-4.  Dialing the user\'s provisioning code from the phone
+4.  Dialing the user's provisioning code from the phone
 
 And *voila*, once the phone has rebooted, your user is ready to make and
 receive calls. No manual editing of configuration files nor fiddling in
-the phone\'s web interface.
+the phone's web interface.
 
 Tenant assignation
 ==================

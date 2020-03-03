@@ -2,19 +2,7 @@
 title: REST API Conventions
 ---
 
--   [Authentication](#rest-api-authentication)
--   [HTTP status codes](#http-status-codes)
--   [General URL parameters](#general-url-parameters)
-    -   [Parameters](#parameters)
--   [Data representation](#data-representation)
-    -   [Data retrieved from the REST
-        server](#data-retrieved-from-the-rest-server)
-        -   [Getting object lists](#getting-object-lists)
-        -   [Getting An Object](#getting-an-object)
-    -   [Data sent to the REST server](#data-sent-to-the-rest-server)
-    -   [Errors](#rest_api_errors)
-
-Authentication {#rest-api-authentication}
+Authentication
 ==============
 
 For all REST APIs, the main way to authenticate is to use an access
@@ -25,13 +13,9 @@ example:
     curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<wazo_address>:9486/1.1/users
 
 Also, your token needs to have the right ACLs to give you access to the
-resource you want. See `rest-api-acl`{.interpreted-text role="ref"}.
+resource you want. See [REST API ACL](acl).
 
-::: {.toctree maxdepth="1"}
-acl
-:::
-
-See also `service-authentication`{.interpreted-text role="ref"} for
+See also [service-authentication](../../system/service_authentication) for
 details about the token-based authentication process.
 
 HTTP status codes
@@ -108,15 +92,9 @@ headers are needed:
 
     :   Content-Type = application/json
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Optional properties can be added without changing the protocol version
+#:exclamation: Optional properties can be added without changing the protocol version
 in the main list or in the object list itself. Properties will not be
 removed, type and name will not be modified.
-:::
 
 ### Getting object lists
 
@@ -132,7 +110,7 @@ Other optional properties can be added later.
 
 `Response data format`
 
-``` {.sourceCode .javascript}
+```Javascript
 {
     "total": 2,
 
@@ -179,7 +157,7 @@ are illustrated in the following example:
 
 `Request data format`
 
-``` {.sourceCode .javascript}
+```Javascript
 {
    "id": "1",
    "prop1": "test"
@@ -190,7 +168,7 @@ When updating, only the id and updated properties are needed, omitted
 properties are not updated. Some properties can also be optional when
 creating an object.
 
-Errors {#rest_api_errors}
+Errors
 ------
 
 A request to the web services may return an error. An error will always
@@ -217,6 +195,6 @@ requesting. They are separately described for each of them.
 The error messages are contained in a JSON list, even if there is only
 one error message:
 
-``` {.sourceCode .javascript}
+```Javascript
 [ message_1, message_2, ... ]
 ```

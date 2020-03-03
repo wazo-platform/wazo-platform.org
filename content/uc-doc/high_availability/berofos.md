@@ -2,21 +2,6 @@
 title: Berofos Integration
 ---
 
--   [Installation and
-    Configuration](#berofos-installation-and-configuration)
-    -   [Master Configuration](#master-configuration)
-    -   [Slave Configuration](#slave-configuration)
-    -   [Connection](#connection)
-        -   [Two Wazo](#two-wazo)
-        -   [Two Wazo and one PBX](#two-wazo-and-one-pbx)
-        -   [One Wazo and one PBX](#one-wazo-and-one-pbx)
-    -   [Multiple berofos](#multiple-berofos)
--   [Operation](#operation)
--   [Default mode](#default-mode)
--   [Uninstallation](#uninstallation)
--   [Reset the Berofos](#reset-the-berofos)
--   [External links](#external-links)
-
 Wazo offers the possibility to integrate a [berofos failover
 switch](http://www.beronet.com/gateway/failover-switch/) within a HA
 cluster.
@@ -60,14 +45,8 @@ default, the berofos will try to get an IP address via DHCP. If it is
 not able to get such address from a DHCP server, it will take the
 192.168.0.2/24 IP address.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The DHCP server on Wazo does not offer IP addresses to berofos devices
+#:exclamation: The DHCP server on Wazo does not offer IP addresses to berofos devices
 by default.
-:::
 
 Next step is to create the `/etc/bnfos.conf`{.interpreted-text
 role="file"} file via the following command:
@@ -82,10 +61,12 @@ to explicitly specify the IP address of the berofos via the -h option:
 At this stage, your `/etc/bnfos.conf`{.interpreted-text role="file"}
 file should contains something like this:
 
-    [fos1]
-    mac = 00:19:32:00:12:1D
-    host = 10.34.1.50
-    #login = <user>:<password>
+```Ini
+[fos1]
+mac = 00:19:32:00:12:1D
+host = 10.34.1.50
+#login = <user>:<password>
+```
 
 It is advised to configure your berofos with a static IP address. You
 first need to put your berofos into *flash mode* :
@@ -99,16 +80,12 @@ network configuration with your one:
 
     bnfos --netconf -f fos1 -i 10.34.1.20 -n 255.255.255.0 -g 10.34.1.1 -d 0
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+#:exclamation:
 
 -   `-i` is the IP address
 -   `-n` is the netmask
 -   `-g` is the gateway
 -   `-d 0` is to disable DHCP
-:::
 
 You can then update your berofos firmware to version 1.53:
 
@@ -118,16 +95,17 @@ You can then update your berofos firmware to version 1.53:
 Once this is done, you\'ll have to reboot your berofos in operationnal
 mode (that is in normal mode).
 
-Then you must rewrite the `/etc/bnfos.conf`{.interpreted-text
-role="file"} (mainly if you changed the IP address):
+Then you must rewrite the `/etc/bnfos.conf` (mainly if you changed the IP address):
 
     bnfos --scan -x -h <berofos ip>
 
 Now that your berofos has proper network configuration and an up to date
 firmware, you might want to set a password on your berofos:
 
+```ShellSession
     bnfos --set apwd=<password> -f fos1
     bnfos --set pwd=1 -f fos1
+```
 
 You must then edit the `/etc/bnfos.conf`{.interpreted-text role="file"}
 and replace the login line to something like:
@@ -136,11 +114,13 @@ and replace the login line to something like:
 
 Next, configure your berofos for it to work correctly with the Wazo HA:
 
+```ShellSession
     bnfos --set wdog=0 -f fos1
     bnfos --set wdogdef=0 -f fos1
     bnfos --set scenario=0 -f fos1
     bnfos --set mode=1 -f fos1
     bnfos --set modedef=1 -f fos1
+```
 
 This, among other things, disable the watchdog. The switching from one
 relay mode to the other will be done by the Wazo slave node once it
@@ -158,7 +138,7 @@ Connection
 
 ### Two Wazo
 
-Here\'s how to connect the ISDN lines between your berofos with:
+Here's how to connect the ISDN lines between your berofos with:
 
 -   two Wazo in high availability
 
@@ -166,7 +146,7 @@ In this configuration you can protect **up two 4** ISDN lines. If more
 than 4 ISDN lines to protect, you must set up a [Multiple
 berofos](#multiple-berofos) configuration.
 
-Here\'s an example with 4 ISDN lines coming from your telephony
+Here's an example with 4 ISDN lines coming from your telephony
 provider:
 
     ISDN lines (provider)
@@ -184,7 +164,7 @@ provider:
 
 ### Two Wazo and one PBX
 
-Here\'s how to connect your berofos with:
+Here's how to connect your berofos with:
 
 -   two Wazo in high availability,
 -   one PBX.
@@ -197,15 +177,15 @@ Logical view:
 
     +--------+                            +-----+
 
-> \-- Provider \-\-\--\| wazo-1 \| \-- ISDN Interconnection \--\| PBX \| \-- Phones
+> -- Provider ----| wazo-1 | -- ISDN Interconnection --| PBX | -- Phones
 >
 > :   
 >
->     +\-\-\-\-\-\-\--+ +\-\-\-\--+
+>     +--------+ +-----+
 >
->     :   | wazo-2 \|
+>     :   | wazo-2 |
 >
->         +\-\-\-\-\-\-\--+
+>         +--------+
 >
 This example shows the case where there are 2 ISDN lines coming from
 your telephony provider:
@@ -230,19 +210,19 @@ your telephony provider:
 
 ### One Wazo and one PBX
 
-This case is not currently supported. You\'ll find a workaround in the
+This case is not currently supported. You'll find a workaround in the
 `berofos-integration-with-pbx`{.interpreted-text role="ref"} section.
 
 Multiple berofos
 ----------------
 
-It\'s possible to use more than 1 berofos with Wazo.
+It's possible to use more than 1 berofos with Wazo.
 
 For each supplementary berofos you want to use, you must first configure
 it properly like you did for the first one. The only difference is that
 you need to add a berofos declaration to the
 `/etc/bnfos.conf`{.interpreted-text role="file"} file instead of
-creating/overwriting the file. Here\'s an example of a valid config file
+creating/overwriting the file. Here's an example of a valid config file
 for 2 berofos:
 
     [fos1]
@@ -255,15 +235,9 @@ for 2 berofos:
     host = 10.100.0.202
     login = admin:barfoo
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-berofos name must follow the pattern `fosX` where X is a number starting
-with 1, then 2, etc. The `bnfos` tool won\'t work properly if it\'s not
+#:warning: berofos name must follow the pattern `fosX` where X is a number starting
+with 1, then 2, etc. The `bnfos` tool won't work properly if it's not
 the case.
-:::
 
 Operation
 =========
@@ -280,8 +254,7 @@ together. This behavior is not customizable.
 Uninstallation
 ==============
 
-It is important to remove the `/etc/bnfos.conf`{.interpreted-text
-role="file"} file on the slave node when you don\'t want to use anymore
+It is important to remove the `/etc/bnfos.conf` file on the slave node when you don't want to use anymore
 your berofos with your Wazo.
 
 Reset the Berofos
@@ -298,5 +271,4 @@ You can reset the berofos configuration :
 External links
 ==============
 
--   [berofos user
-    manual](http://www.beronet.com/downloads/docs/berofos/berofos_user_manual.pdf)
+- [berofos user manual](http://www.beronet.com/downloads/docs/berofos/berofos_user_manual.pdf)

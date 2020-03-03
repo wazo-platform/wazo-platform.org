@@ -1,16 +1,8 @@
 ---
-title: Voicemails
+title: Voicemail Configuration
 ---
 
--   [General Configuration](#voicemail_general_configuration)
--   [Deleting a voicemail](#deleting-a-voicemail)
--   [Disable password checking](#disable-password-checking)
--   [Advanced configuration](#advanced-configuration)
-    -   [Remote *wazo-confd*](#remote-wazo-confd)
-
-Voicemail Configuration.
-
-General Configuration {#voicemail_general_configuration}
+General Configuration
 =====================
 
 The global voicemail configuration is provided by `/asterisk/voicemail`
@@ -35,28 +27,16 @@ Unchecking the option `ask_password` field allows you to skip password
 checking for the voicemail only when it is consulted from an internal
 context.
 
--   when calling the voicemail with \*98
--   when calling the voicemail with \*99\<voicemail number\>
+-   when calling the voicemail with *98
+-   when calling the voicemail with *99<voicemail number>
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-If the the \*99 extension is enabled and a user does not have a password
+#:warning: If the the *99 extension is enabled and a user does not have a password
 on its voicemail, anyone from the same context will be able to listen to
 its messages, change its password and greeting messages.
-:::
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-For security reasons, an incoming call with
+#!warning: For security reasons, an incoming call with
 `{"destination": {"appplication: "voicemail"}` with the same context as
 the voicemail should be avoided if a voicemail has no password.
-:::
 
 Advanced configuration
 ======================
@@ -70,9 +50,9 @@ phone.
 
 This configuration should be done:
 
-``` {.sourceCode .sh}
-mkdir -p /etc/systemd/system/asterisk.service.d
-cat >/etc/systemd/system/asterisk.service.d/remote-confd-voicemail.conf <<EOF
+```ShellSession
+# mkdir -p /etc/systemd/system/asterisk.service.d
+# cat >/etc/systemd/system/asterisk.service.d/remote-confd-voicemail.conf <<EOF
 [Service]
 Environment=CONFD_HOST=localhost
 Environment=CONFD_PORT=9486
@@ -80,5 +60,5 @@ Environment=CONFD_HTTPS=true
 Environment=CONFD_USERNAME=<username>
 Environment=CONFD_PASSWORD=<password>
 EOF
-systemctl daemon-reload
+# systemctl daemon-reload
 ```

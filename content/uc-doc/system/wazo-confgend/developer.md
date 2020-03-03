@@ -1,18 +1,15 @@
 ---
-title: 'Wazo confgend developer\''s guide'
+title: Wazo confgend developer's guide
 ---
-
--   [Drivers](#drivers)
--   [Example](#example)
 
 wazo-confgend uses drivers to implement the logic required to generate
 configuration files. It uses
 [stevedore](http://docs.openstack.org/developer/stevedore/) to do the
 driver instantiation and discovery.
 
-Plugins in wazo-confgend use setuptools\' entry points. That means that
+Plugins in wazo-confgend use setuptools' entry points. That means that
 installing a new plugin to wazo-confgend requires an entry point in the
-plugin\'s *setup.py*.
+plugin's *setup.py*.
 
 Drivers
 =======
@@ -22,7 +19,7 @@ configuration file.
 
 The implementation of a plugin should have the following properties.
 
-1.  It\'s `__init__` method should take one argument
+1.  It's `__init__` method should take one argument
 2.  It should have a `generate` method which will return the content of
     the file
 3.  A setup.py adding an entry point
@@ -40,19 +37,19 @@ without prior setup in the driver.
 The namespaces used for entry points in wazo-confgend have the following
 form:
 
-> wazo\_confgend.\<resource\>.\<filename\>
+> wazo_confgend.<resource>.<filename>
 
 as an example, a generator for sip.conf would have the following
 namespace:
 
-> wazo\_confgend.asterisk.sip.conf
+> wazo_confgend.asterisk.sip.conf
 
 Example
 =======
 
 Here is a typical `setup.py`:
 
-``` {.sourceCode .python}
+```Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
@@ -87,7 +84,7 @@ With the following package structure:
 
 `driver.py`:
 
-``` {.sourceCode .python}
+```Python
 # -*- coding: utf-8 -*-
 # Copyright 2016 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later

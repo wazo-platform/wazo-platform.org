@@ -2,13 +2,6 @@
 title: Queues
 ---
 
--   [Timers](#timers)
--   [Fallbacks](#fallbacks)
--   [Diversions](#diversions)
-    -   [`wait_time_threshold`](#wait_time_threshold)
-    -   [`wait_ratio_threshold`](#queue-diversion-waitratio)
--   [Music on Hold](#music-on-hold)
-
 Call queues are used to distribute calls to the agents subscribed to the
 queue. Queues are managed with the `/queues` endpoints
 
@@ -23,33 +16,21 @@ enters the queue. A queue can use one of the following ring strategies:
 >     -   For static members: In definition order
 > -   `leastrecent`: call the member who least recently hung up a call
 > -   `fewestcalls`: call the member with the fewest completed calls
-> -   `rrmemory` (round robin with memory): call the \"next\" member
+> -   `rrmemory` (round robin with memory): call the "next" member
 >     after the one who answered last
 > -   `random`: call a member at random
 > -   `wrandom` (weight random): same as random, but taking the member
 >     penalty into account
 > -   `ringall`: call all members at the same time
 >
-> ::: {.warning}
-> ::: {.admonition-title}
-> Warning
-> :::
->
-> When editing a queue, you can\'t change the ring strategy to linear.
+> #:warning: When editing a queue, you can't change the ring strategy to linear.
 > This is due to an asterisk limitation. Unfortunately, if you want to
-> change the ring strategy of a queue to linear, you\'ll have to delete
+> change the ring strategy of a queue to linear, you'll have to delete
 > it first and then create a new queue with the right strategy.
-> :::
 
-> ::: {.note}
-> ::: {.admonition-title}
-> Note
-> :::
->
-> When an agent is a member of many queues the order of call
+> #:exclamation: When an agent is a member of many queues the order of call
 > distribution between multiple queues is nondeterministic and cannot be
 > configured.
-> :::
 
 Timers
 ======
@@ -58,20 +39,20 @@ You may control how long a call will stay in a queue using different
 timers:
 
 > -   `options: timeout` (Member reachabillity time out): Maximum number
->     of seconds a call will ring on an agent\'s phone. If a call is not
+>     of seconds a call will ring on an agent's phone. If a call is not
 >     answered within this time, the call will be forwarded to another
 >     agent.
 > -   `retry_on_timeout` (Time before retrying a call to a member): Used
->     once a call has reached the \"Member reachability time out\". The
+>     once a call has reached the "Member reachability time out". The
 >     call will be put on hold for the number of seconds allowed before
 >     being redirected to another agent.
 > -   `timeout` (Ringing time): The total time the call will stay in the
 >     queue.
 > -   `options: timeoutpriority` (Timeout priority): Determines which
 >     timeout to use before ending a call. When set to
->     \"configuration\", the call will use the \"Member reachability
->     time out\". When set to \"dialplan\", the call will use the
->     \"Ringing time\".
+>     "configuration", the call will use the "Member reachability
+>     time out". When set to "dialplan", the call will use the
+>     "Ringing time".
 
 ![](queue_timers.jpg)
 
@@ -111,18 +92,13 @@ threshold `wait_time_threshold`.
 Note that if a new call arrives when there are no waiting calls in the
 queue, the call will **always** be allowed to enter the queue.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
+#!exclamation:
 -   this *estimated* waiting time is computed from the **actual hold
     time** of all **answered** calls in the queue (since last asterisk
     restart) according to an [exponential smoothing
     formula](https://en.wikipedia.org/wiki/Exponential_smoothing)
 -   the estimated waiting time of a queue is updated only when a queue
     member answers a call.
-:::
 
 `wait_ratio_threshold` {#queue-diversion-waitratio}
 ----------------------

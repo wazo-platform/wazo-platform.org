@@ -2,20 +2,6 @@
 title: Managing Plugins
 ---
 
--   [Git Repository](#git-repository)
--   [Updating a Plugin](#updating-a-plugin)
-    -   [Use Case: Update Firmwares for a given
-        plugin](#use-case-update-firmwares-for-a-given-plugin)
-    -   [Test your changes](#test-your-changes)
-        -   [Always increase plugin version
-            (easiest)](#always-increase-plugin-version-easiest)
-        -   [Edit directly on Wazo](#edit-directly-on-wazo)
-        -   [Disable plugin caching](#disable-plugin-caching)
-        -   [Uploading to testing](#uploading-to-testing)
-        -   [Mass-install all firmwares related to a given
-            plugin](#mass-install-all-firmwares-related-to-a-given-plugin)
-        -   [Uploading to stable](#uploading-to-stable)
-
 Git Repository
 ==============
 
@@ -31,9 +17,9 @@ We will be using the [xivo-cisco-spa]{.title-ref} plugins family as an
 example on this page
 
 There is one directory per family. Here is the directory structure for
-`xivo-cisco-spa`{.interpreted-text role="file"}:
+`xivo-cisco-spa`:
 
-``` {.sourceCode .javascript}
+```Javascript
 plugins/xivo-cisco-spa/
 +-- model_name_xxx
 +-- model_name_xxx
@@ -41,28 +27,22 @@ plugins/xivo-cisco-spa/
 +-- build.py
 ```
 
-Every plugin has a folder called `common`{.interpreted-text role="file"}
+Every plugin has a folder called `common`
 which regoups common ressources for each model. Every model has its own
 folder with its version number.
 
 After modifying a plugin, you must increment the version number. You can
-modifiy the file `plugin-info`{.interpreted-text role="file"} to change
+modifiy the file `plugin-info` to change
 the version number:
 
-``` {.sourceCode .javascript}
+```Javascript
 plugins/xivo-cisco-spa/
 +-- model_name_xxx
     +-- plugin-info
 ```
 
-::: {.important}
-::: {.admonition-title}
-Important
-:::
-
-If ever you modify the folder `common`{.interpreted-text role="file"},
+#:exclamation: If ever you modify the folder `common`,
 you must increment the version number of all the models.
-:::
 
 Use Case: Update Firmwares for a given plugin
 ---------------------------------------------
@@ -81,9 +61,9 @@ to 8.7.3.25 5. Here are the steps to follow :
     files from snom website)
 6.  Update sizes and sha1sums in
     plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (using helper script
-    xivo-tools/dev-tools/check\_fw)
+    xivo-tools/dev-tools/check_fw)
 7.  Update plugins/xivo-snom/build.py (duplicate and update section
-    8.7.3.25 \> 8.7.3.25.5)
+    8.7.3.25 > 8.7.3.25.5)
 
 Test your changes
 -----------------
@@ -111,15 +91,15 @@ To apply your changes, go in `wazo-provd-cli` and run:
 
 ### Disable plugin caching
 
-Edit `/etc/wazo-provd/config.yml`{.interpreted-text role="file"} and add
+Edit `/etc/wazo-provd/config.yml` and add
 the line:
 
-``` {.sourceCode .yaml}
+```YAML
 general:
   cache_plugin: True
 ```
 
-Empty `/var/cache/wazo-provd`{.interpreted-text role="file"} and restart
+Empty `/var/cache/wazo-provd` and restart
 provd.
 
 Make your changes in provd-plugins, update the plugin version to the new
@@ -147,7 +127,7 @@ with `wazo-provd` endpoint `/provd/configure/plugin_server`.
 > [http://provd.wazo.community/plugins/1/testing/]{.title-ref}
 
 You can then update the list of plugins and check the version number for
-the plugin that you modified. Don\'t forget to install the plugin to
+the plugin that you modified. Don't forget to install the plugin to
 test it.
 
 ### Mass-install all firmwares related to a given plugin
@@ -181,14 +161,14 @@ To download the stable and archive plugins:
     $ make download-stable
     $ make download-archive
 
-Go to the [plugins/\_build]{.title-ref} directory and delete the plugins
+Go to the [plugins/_build]{.title-ref} directory and delete the plugins
 that are going to be updated. Note that if you are not updating a plugin
-but you are instead removing it \"once and for all\", you should instead
+but you are instead removing it "once and for all", you should instead
 move it to the archive directory:
 
     $ rm -fi stable/xivo-cisco-spa*
 
-Copy the files from the directory [testing]{.title-ref} to \`stable\`:
+Copy the files from the directory [testing]{.title-ref} to `stable`:
 
     $ cp testing/xivo-cisco-spa* stable
 
@@ -199,6 +179,6 @@ the stable and archive repo:
     $ make upload-archive
 
 The file are now up to date and you can test by putting back the
-[stable]{.title-ref} url in the web-interface\'s configuration:
+[stable]{.title-ref} url in the web-interface's configuration:
 
     `http://provd.wazo.community/plugins/1/stable/`

@@ -13,14 +13,8 @@ title: Call Logs
 Call logs allow users to see the history of the calls placed and
 received by Wazo.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-The oldest call logs are periodically removed. See
+#:exclamation: The oldest call logs are periodically removed. See
 `purge_logs`{.interpreted-text role="ref"} for more details.
-:::
 
 REST API
 ========

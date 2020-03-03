@@ -2,20 +2,6 @@
 title: Basic Configuration
 ---
 
--   [Configuring the DHCP Server](#dhcpd-config)
--   [Installing `provd` Plugins](#provd-plugins-mgmt)
-    -   [Alternative plugins repository](#alternative-plugins-repo)
--   [How to manually tell the phones to get their
-    configuration](#how-to-manually-tell-the-phones-to-get-their-configuration)
-    -   [Aastra](#aastra)
-    -   [Polycom](#polycom)
-    -   [Snom](#snom)
-    -   [Yealink](#yealink)
--   [Autoprovisioning a Device](#autoprovisioning-a-device)
--   [Resetting a Device](#resetting-a-device)
-    -   [From REST API](#from-rest-api)
-    -   [From a Device](#reset-to-autoprov-device)
-
 You have two options to get your phone to be provisioned:
 
 -   Set up a DHCP server
@@ -29,52 +15,45 @@ You may want to set up a DHCP server if you have a significant number of
 phones to connect, as no manual intervention will be required on each
 phone.
 
-Configuring the DHCP Server {#dhcpd-config}
+Configuring the DHCP Server
 ===========================
 
 Wazo includes a DHCP server that facilitate the auto-provisioning of
 telephony devices. It is *not* activated by default.
 
-There\'s a few things to know about the peculiarities of the included
+There's a few things to know about the peculiarities of the included
 DHCP server:
 
 -   it only answers to DHCP requests from
-    `supported devices <devices>`{.interpreted-text role="ref"}.
+    [supported devices](../../ecosystem/supported_devices).
 -   it only answers to DHCP requests coming from the VoIP subnet (see
-    `network configuration
-    <network_configuration>`{.interpreted-text role="ref"}).
+    [network configuration](network_configuration).
 
 This means that if your phones are on the same broadcast domain than
 your computers, and you would like the DHCP server on your Wazo to
-handle both your phones and your computers, that won\'t do it.
+handle both your phones and your computers, that won't do it.
 
 The DHCP server is configured via `PUT /dhcp`
 
-Installing `provd` Plugins {#provd-plugins-mgmt}
+Installing `provd` Plugins
 ==========================
 
 The installation and management of `provd` plugins is done via
 `wazo-provd` endpoint `/provd/pg_mgr/install`
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-If you uninstall a plugin that is used by some of your devices, they
-will be left in an unconfigured state and won\'t be associated to
+#:warning: If you uninstall a plugin that is used by some of your devices, they
+will be left in an unconfigured state and won't be associated to
 another plugin automatically.
-:::
 
-It\'s possible there will be more than 1 plugin compatible with a given
+It's possible there will be more than 1 plugin compatible with a given
 device. In these cases, the difference between the two plugins is
 usually just the firmware version the plugins target. If you are unsure
 about which version you should install, you should look for more
 information on the vendor website.
 
-It\'s good practice to only install the plugins you need and no more.
+It's good practice to only install the plugins you need and no more.
 
-Alternative plugins repository {#alternative-plugins-repo}
+Alternative plugins repository
 ------------------------------
 
 By default, the list of plugins available for installation are the
@@ -83,14 +62,14 @@ stable plugins for the officially supported devices.
 This can be changed with `wazo-provd` endpoint
 `/provd/configure/plugin_server`
 
--   `http://provd.wazo.community/plugins/1/stable/` \--
+-   `http://provd.wazo.community/plugins/1/stable/` --
     `community supported devices
-    <supported-devices>`{.interpreted-text role="ref"} \"stable\"
+    <supported-devices>`{.interpreted-text role="ref"} "stable"
     repository
--   `http://provd.wazo.community/plugins/1/testing/` \-- officially
-    supported devices \"testing\" repository
--   `http://provd.wazo.community/plugins/1/archive/` \-- officially
-    supported devices \"archive\" repository
+-   `http://provd.wazo.community/plugins/1/testing/` -- officially
+    supported devices "testing" repository
+-   `http://provd.wazo.community/plugins/1/archive/` -- officially
+    supported devices "archive" repository
 
 The difference between the stable and testing repositories is that the
 latter might contain plugins that are not working properly or are still
@@ -174,14 +153,14 @@ currently known by your Wazo
 You can then power on your devices on your LAN. For example, after you
 power on an Aastra 6731i and give it the time to boot and maybe upgrade
 its firmware, you should then see the phone having its first line
-configured as \'autoprov\', and if you `GET /devices`, you should see
+configured as 'autoprov', and if you `GET /devices`, you should see
 that your Wazo now knows about your 6731i with `status: not_configured`
 
 You can then dial from your Aastra 6731i the provisioning code
 associated to a line of one of your user. You will hear a prompt
 thanking you and your device should then reboot in the next few seconds.
 Once the device has rebooted, it will then be properly configured for
-your user to use it. And also, if you `GET /devices`, you\'ll see the
+your user to use it. And also, if you `GET /devices`, you'll see the
 device with with `status: configured`
 
 Resetting a Device
@@ -199,10 +178,10 @@ user: possibilities :
 The phone will restarts and display autoprov, ready to be used for
 another user.
 
-From a Device {#reset-to-autoprov-device}
+From a Device
 -------------
 
--   Dial **\*guest** (\*48378) on the phone dialpad followed by
+-   Dial ***guest** (*48378) on the phone dialpad followed by
     **xivo** (9486) as a password
 
 The phone restarts and display autoprov, ready to be used for another

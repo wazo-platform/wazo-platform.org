@@ -1,11 +1,10 @@
 ---
+title: wazo-confd REST API
 subtitle: API reference
-title: 'wazo-confd REST API'
 ---
 
-API documentation is available on <http://api.wazo.community>. This
+API documentation is available on </documentation>. This
 section contains extended documentation for certain aspects of the API.
 
-::: {.toctree maxdepth="2"}
-func\_keys user\_import
-:::
+- [func keys](func_keys)
+- [user import](user_import)

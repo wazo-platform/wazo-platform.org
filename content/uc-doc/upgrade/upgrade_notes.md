@@ -2,24 +2,6 @@
 title: Upgrade notes
 ---
 
--   [20.03](#section)
--   [20.02](#section-1)
--   [20.01](#section-2)
--   [19.17](#section-3)
--   [19.16](#section-4)
--   [19.15](#section-5)
--   [19.14](#section-6)
--   [19.13](#section-7)
--   [19.12](#section-8)
-    -   [General](#general)
-    -   [Asterisk related](#asterisk-related)
-    -   [Renaming](#renaming)
-    -   [Developers](#developers)
--   [18.03](#section-9)
--   [18.02](#section-10)
--   [18.01](#section-11)
--   [Archives](#archives)
-
 20.03
 =====
 
@@ -34,25 +16,25 @@ title: Upgrade notes
     in the `archive` phone plugin repository.
 
 Consult the [20.03
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
 for more information.
 
 20.02
 =====
 
 Consult the [20.02
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067)
 for more information.
 
 20.01
 =====
 
 -   The default protocol configured for consul is now `HTTP` instead of
-    `HTTPS` since it\'s only available on `localhost`. The `HTTPS`
+    `HTTPS` since it's only available on `localhost`. The `HTTPS`
     remains available via the port `8501`.
 
 Consult the [20.01
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065)
 for more information.
 
 19.17
@@ -111,7 +93,7 @@ for more information.
     -   `res_xmpp`
 
 Consult the [19.17
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061)
 for more information.
 
 19.16
@@ -119,7 +101,7 @@ for more information.
 
 -   `xivo-amid-client` has been renamed to `wazo-amid-client`
 -   `wazo-auth` http configuration section have been moved onto the
-    rest\_api section, eg:
+    rest_api section, eg:
 
         rest_api:
           https:
@@ -143,7 +125,7 @@ for more information.
     `/asterisk/sip/general` endpoint in `wazo-confd` API.
 
 Consult the [19.16
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)
 for more information.
 
 19.15
@@ -151,7 +133,7 @@ for more information.
 
 -   We have standardize the stevedore entry point namespace for our
     python client. If you have custom plugins, Be sure to use the full
-    client name for the namespace. (e.g. `auth_client.commands` \--\>
+    client name for the namespace. (e.g. `auth_client.commands` -->
     `wazo_auth_client.commands`)
 -   The directed call pickup extension `*8XXXX` has been disabled by
     default on new installations, because it made it possible for any
@@ -161,7 +143,7 @@ for more information.
     `/extensions/features` API endpoint.
 
 Consult the [19.15
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046)
 for more information.
 
 19.14
@@ -205,11 +187,11 @@ for more information.
     remove pre-recorded sound files provided by the `xivo-sounds-*`,
     .e.g `xivo-sounds-fr-ca`. If you had installed one of these packages
     manually, you need to install the corresponding `wazo-sounds-*`
-    package manually, e.g. `wazo-sounds-fr-ca`. Upgrades to Wazo \>=
+    package manually, e.g. `wazo-sounds-fr-ca`. Upgrades to Wazo >=
     19.15 are not affected by this bug.
 
 Consult the [19.14
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045)
 for more information.
 
 19.13
@@ -219,9 +201,7 @@ for more information.
     (buster).** Please consult the following detailed upgrade notes for
     more information:
 
-> ::: {.toctree maxdepth="1"}
-> 19.13/buster
-> :::
+- [19.13/buster](19.13/buster)
 
 -   `xivo-amid` has been renamed to `wazo-amid`
     -   The custom configuration has been moved to
@@ -231,7 +211,7 @@ for more information.
         `/etc/nginx/locations/https-enabled/wazo-amid`.
 
 Consult the [19.13
-Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029)
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029)
 for more information.
 
 19.12
@@ -272,9 +252,7 @@ General
         tenant cannot be extracted from call informations, they will be
         associated to the master tenant.
 
-    ::: {.toctree maxdepth="1"}
-    19.03/sounds
-    :::
+- [19.03/sounds](19.03/sounds)
 
     -   We needed to do some guesswork for ambiguous resources that
         shared other resources from different entities. These resources
@@ -310,7 +288,7 @@ General
 -   All agents will have to log out and log back in to receive calls
     from queues. You may use the command
     `wazo-agentd-cli -c "relog all"` to do this.
--   The procedure for custom certificates, especially for Let\'s Encrypt
+-   The procedure for custom certificates, especially for Let's Encrypt
     certificates, has been simplified. See
     `https_certificate`{.interpreted-text role="ref"}.
 -   People using the `xivo-aastra-2.6.0.2019` will have to upgrade to
@@ -319,16 +297,15 @@ General
     overridden in the `/etc/wazo-provd/conf.d/`{.interpreted-text
     role="file"} directory. See `configuration-files`{.interpreted-text
     role="ref"}.
--   The provisioning option `dhcp-integration`{.interpreted-text
-    role="ref"} is now enabled by default. There is no REST API to
+-   The provisioning option `dhcp-integration` is now enabled by default. There is no REST API to
     disable this feature.
 -   Call pickups that have been created using the REST API or
     `wazo-admin-ui` have the interceptors and targets mixed up. Since
-    call pickups created using the \"orange\" web-interface did not have
+    call pickups created using the "orange" web-interface did not have
     that bug, we could not fix the existing configuration automatically.
     Faulty call pickups have to be edited and users moved from
     interceptors to targets and vice versa.
--   Since the feature for managing certificates from the \"orange\"
+-   Since the feature for managing certificates from the "orange"
     web-interface is gone, all certificates must now be managed
     manually. The directory to access to certificates is
     `/var/lib/xivo/certificates`{.interpreted-text role="file"} and is
@@ -340,7 +317,7 @@ General
     changes made via the API or via a web interface may take some time
     to take effect after the action. If you rely on Asterisk being
     reloaded when configuring resources. See
-    `sysconfd-configuration`{.interpreted-text role="ref"} to set the
+    `sysconfd-configuration` to set the
     `synchronous` option to `true`.
 -   Upgrade from version older than 15.01 are not supported anymore.
 -   If a custom context (created using the REST API or wazo-admin-ui)
@@ -349,13 +326,13 @@ General
     characters (i.e. space), then invalid characters are replaced by
     `_`. All custom configuration should be updated to reflect the
     changes.
-    -   [authentication]{.title-ref}
-    -   [general]{.title-ref}
-    -   [global]{.title-ref}
-    -   [globals]{.title-ref}
-    -   [parkedcalls]{.title-ref}
-    -   [xivo-features]{.title-ref}
-    -   [zonemessages]{.title-ref}
+    -   [authentication]
+    -   [general]
+    -   [global]
+    -   [globals]
+    -   [parkedcalls]
+    -   [xivo-features]
+    -   [zonemessages]
 -   The `wazo-google` and `wazo-microsoft` plugins have been copied to
     the `wazo-auth` and `wazo-dird` repo. You **must** uninstall that
     plugin if you installed it manually from source to avoid conflicts
@@ -366,9 +343,7 @@ Asterisk related
 
 -   Asterisk version has been updated:
 
-    ::: {.toctree maxdepth="1"}
-    18.12/asterisk\_16
-    :::
+- [18.12/asterisk_16](18.12/asterisk_16)
 
 -   Wazo now uses `res_pjsip` instead of `chan_sip`.
     -   All custom lines with interface `SIP/something` must be changed
@@ -474,9 +449,9 @@ Developers
     working has been removed.
     -   The `get_ids` method has been removed.
 -   ACL templating has been modified: when generating multiple ACLs with
-    one template, ACL were separated with `\n`. They are now separated
-    with `:` (colon). `\n` is not interpreted anymore. You should hence
-    replace any `\n` with `:` in your ACLs.
+    one template, ACL were separated with `n`. They are now separated
+    with `:` (colon). `n` is not interpreted anymore. You should hence
+    replace any `n` with `:` in your ACLs.
 -   `wazo-provd` now uses `wazo-auth` to authenticate all requests and
     uses HTTPS. It is no longer possible to deactivate authentication.
     Therefore, all calls to the REST API will need to be made using
@@ -525,17 +500,17 @@ Consult the roadmaps for more information:
 18.03
 =====
 
--   If you have a
-    `custom certificate configured<https_certificate>`{.interpreted-text
-    role="ref"}, you will need to add a new symlink for wazo-upgrade:
+-   If you have a [custom certificate configured](https_certificate),
+    you will need to add a new symlink for wazo-upgrade:
 
-        mkdir -p /etc/wazo-upgrade/conf.d
-        ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
+```ShellSession
+# mkdir -p /etc/wazo-upgrade/conf.d
+# ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
+```
 
--   Default passwords for phones\' web interfaces have been changed. You
+-   Default passwords for phones' web interfaces have been changed. You
     can change the password in
-    `Configuration --> Provisioning --> Template device`{.interpreted-text
-    role="menuselection"}.
+    `Configuration --> Provisioning --> Template device`.
 -   The default NAT option in General SIP settings has been
     automatically changed from `auto_force_rport` to
     `auto_force_rport,auto_comedia`. This makes NAT configuration easier
@@ -543,8 +518,8 @@ Consult the roadmaps for more information:
     -   In the rare cases where you want to keep `nat=auto_force_rport`
         you must explicitly change this value in the administation
         interface `Services --> IPBX --> General Settings
-        --> SIP Protocol`{.interpreted-text role="menuselection"} in tab
-        [Default]{.title-ref}. See [Asterisk sip.conf
+        --> SIP Protocol` in tab
+        [Default]. See [Asterisk sip.conf
         sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
         for more informations.
 -   The NAT configuration of every SIP line and SIP trunk has been
@@ -557,11 +532,11 @@ Consult the roadmaps for more information:
 -   For wazo-auth backend developers: The API to implement a wazo-auth
     backend has changed. Old implementations have to be updated. If the
     BaseAuthenticationBackend class was used as a base class for the
-    backend the [get\_metadata]{.title-ref} method from the base class
-    will use [get\_ids]{.title-ref} to generate the result of
-    [get\_metadata]{.title-ref}.
-    -   The [get\_ids]{.title-ref} method has been removed.
-    -   The [get\_metadata]{.title-ref} method has been added.
+    backend the [get_metadata]{.title-ref} method from the base class
+    will use [get_ids]{.title-ref} to generate the result of
+    [get_metadata]{.title-ref}.
+    -   The [get_ids] method has been removed.
+    -   The [get_metadata] method has been added.
 
 18.01
 =====
@@ -570,53 +545,48 @@ Consult the roadmaps for more information:
     Please consult the following detailed upgrade notes for more
     information:
 
-> ::: {.toctree maxdepth="1"}
-> 18.01/stretch
-> :::
+- [18.01/stretch](18.01/stretch)
 
 -   If you *did not* setup a custom X.509 certificate for HTTPS (e.g.
-    from Let\'s Encrypt), the certificate will be regenerated to include
+    from Let's Encrypt), the certificate will be regenerated to include
     SubjectAltName fields. The two main reasons are Chrome compatibility
     and avoiding a lot of log warnings. This implies that you will have
     to add a new exception in your browser to access the Wazo web
     interface or services like [Unicom](https://phone.wazo.community).
 -   If you *did* setup a custom X.509 certificate for HTTPS (e.g. from
-    Let\'s Encrypt), you will have to add a link to the wazo-auth-cli
+    Let's Encrypt), you will have to add a link to the wazo-auth-cli
     configuration using the following command.
 
-    ``` {.sourceCode .sh}
-    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
-    ```
+```ShellSession
+# ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
+```
 
 -   The Python API for xivo-confd plugins has been updated to reflect
     Python API of other daemons. If you have created a custom xivo-confd
     plugin, you must update it:
 
-    ``` {.sourceCode .python}
-    class Plugin(object):
+```Python
+class Plugin(object):
 
-       def load(self, core):
-           api = core.api
-           config = core.config
-    ```
+   def load(self, core):
+       api = core.api
+       config = core.config
+```
 
-    ``` {.sourceCode .python}
-    class Plugin(object):
+```Python
+class Plugin(object):
 
-       def load(self, dependencies):
-           api = dependencies['api']
-           config = dependencies['config']
-    ```
+   def load(self, dependencies):
+       api = dependencies['api']
+       config = dependencies['config']
+```
 
 -   The web interface no longer validates the queue skill rules fields
     added in
-    `Services --> Call Center --> Configuration --> Skill rules`{.interpreted-text
-    role="menuselection"}. If a rule is wrong, it will appear in the
+    `Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear in the
     Asterisk console.
 
 Archives
 ========
 
-::: {.toctree maxdepth="2"}
-old\_upgrade\_notes
-:::
+- [old_upgrade_notes](old_upgrade_notes)

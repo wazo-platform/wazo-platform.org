@@ -2,21 +2,8 @@
 title: SCCP
 ---
 
--   [Installation from the git
-    repository](#installation-from-the-git-repository)
--   [Configuration](#configuration)
--   [FAQ](#faq)
--   [Network Configuration for
-    7920/7921](#network-configuration-for-79207921)
--   [Adding Support for a New Phone](#adding-support-for-a-new-phone)
-    -   [Basic functionality](#basic-functionality)
-    -   [Telephony](#telephony)
-    -   [Function keys](#function-keys)
-    -   [Optional options to test and
-        document](#optional-options-to-test-and-document)
-
 wazo-libsccp is an alternative SCCP channel driver for Asterisk. It was
-originally based on chan\_skinny.
+originally based on chan_skinny.
 
 This page is intended for developers and people interested in using
 wazo-libsccp on something other than Wazo.
@@ -24,14 +11,8 @@ wazo-libsccp on something other than Wazo.
 Installation from the git repository
 ====================================
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-If you just want to use your SCCP phones with Wazo, refer to
-`sccp-configuration`{.interpreted-text role="ref"} instead.
-:::
+#:warning: If you just want to use your SCCP phones with Wazo, refer to
+[sccp-configuration](../administration/sccp/sccp) instead.
 
 The following packages are required to compile wazo-libsccp on Debian.
 
@@ -50,14 +31,8 @@ The following packages are required to compile wazo-libsccp on Debian.
 Configuration
 =============
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-If you just want to use your SCCP phones with Wazo, refer to
+#:warning: If you just want to use your SCCP phones with Wazo, refer to
 `sccp-configuration`{.interpreted-text role="ref"} instead.
-:::
 
 See
 [sccp.conf.sample](https://raw.github.com/wazo-platform/wazo-libsccp/master/configs/sccp.conf.sample)
@@ -85,7 +60,7 @@ FAQ
 Network Configuration for 7920/7921
 ===================================
 
-Here\'s how to to configure a hostapd based AP on a Debian host so that
+Here's how to to configure a hostapd based AP on a Debian host so that
 both a 7920 and 7921 Wi-Fi phone can connect to it.
 
 The 7920 is older than the 7921 and is pretty limited in its Wi-Fi
@@ -99,7 +74,7 @@ Which means that the most secure WLAN you can set up if you want both
 phones to connect to it is not that secure.
 
 1.  Make sure you have a wireless NIC capable of master mode.
-2.  If needed, install the firmware-\<vendor\> package. For example, if
+2.  If needed, install the firmware-<vendor> package. For example, if
     you have a ralink card like I do:
 
         apt-get install firmware-ralink
@@ -109,7 +84,7 @@ phones to connect to it is not that secure.
         apt-get install wireless-tools hostapd bridge-utils
 
 4.  Create an hostapd configuration file in
-    `/etc/hostapd/hostapd.sccp.conf`{.interpreted-text role="file"} with
+    `/etc/hostapd/hostapd.sccp.conf` with
     content:
     `hostapd.sccp.conf<resources/hostapd.sccp.conf>`{.interpreted-text
     role="download"}
@@ -118,9 +93,8 @@ phones to connect to it is not that secure.
     -   interface
     -   ssid
     -   channel
-    -   wpa\_passphrase
-6.  Create a new stanza in `/etc/network/interfaces`{.interpreted-text
-    role="file"}:
+    -   wpa_passphrase
+6.  Create a new stanza in `/etc/network/interfaces`:
 
         iface wlan-sccp inet manual
              hostapd /etc/hostapd/hostapd.sccp.conf
@@ -131,20 +105,20 @@ phones to connect to it is not that secure.
 
 8.  Configure your 7920/7921 to connect to the network.
 
-    To unlock the phone\'s configuration menu on the 7921:
+    To unlock the phone's configuration menu on the 7921:
 
     -   Press the Navigation Button downwards to enter SETTINGS mode
     -   Navigate to and select Network Profiles
-    -   Unlock the IP phone\'s configuration menu by pressing \*\*\#.
+    -   Unlock the IP phone's configuration menu by pressing **#.
         The padlock icon on the top-right of the screen will change from
         closed to open.
 
     When asked for the authentication mode, select something like
-    \"Auto\" or \"AKM\".
+    "Auto" or "AKM".
 
-    You don\'t have to enter anything for the username/password.
+    You don't have to enter anything for the username/password.
 
-9.  You\'ll probably want to bridge your wlan0 interface with another
+9.  You'll probably want to bridge your wlan0 interface with another
     interface, for example a VLAN interface:
 
         brctl addbr br0
@@ -153,8 +127,8 @@ phones to connect to it is not that secure.
         ip link set br0 up
 
 10. If you are using virtualbox and your guest interface is bridged to
-    eth0.341, you\'ll need to change its configuration and bridge it
-    with br0 instead, else it won\'t work properly.
+    eth0.341, you'll need to change its configuration and bridge it
+    with br0 instead, else it won't work properly.
 
 Adding Support for a New Phone
 ==============================
@@ -166,7 +140,7 @@ Basic functionality
 -------------------
 
 -   Register on Asterisk
--   SCCP reset \[restart\]
+-   SCCP reset [restart]
 -   Call history
 -   Date time display
 -   HA
@@ -181,7 +155,7 @@ These test should be done with and without direct media enabled
 -   Receive and transfer a call
 -   Emit a call and transfer the call
 -   Hold and resume a call
--   Features (\*0 and others)
+-   Features (*0 and others)
 -   Receive 2 calls simultaneously
 -   Emit 2 calls simultaneously
 -   DTMF on an external IVR

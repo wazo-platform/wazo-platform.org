@@ -2,31 +2,17 @@
 title: Consul
 ---
 
--   [Variables](#variables)
--   [Agent mode](#agent-mode)
-    -   [Downloading Consul](#downloading-consul)
-    -   [Installing Consul on a new
-        host](#installing-consul-on-a-new-host)
-    -   [Copying the consul configuration from the Wazo to a new
-        host](#copying-the-consul-configuration-from-the-wazo-to-a-new-host)
-    -   [Adding the agent
-        configuration](#adding-the-agent-configuration)
-    -   [Enabling the agent
-        configuration](#enabling-the-agent-configuration)
-
 The default [consul](https://consul.io) installation in Wazo uses the
-configuration file in `/etc/consul/xivo/*.json`{.interpreted-text
-role="file"}. All files in this directory are installed with the package
-and *should not* be modified by the administrator. To use a different
-configuration, the adminstrator can add it\'s own configuration file at
-another location and set the new configuration directory by creating a
-systemd unit drop-in file in the
-`/etc/systemd/system/consul.service.d`{.interpreted-text role="file"}
-directory.
+configuration file in `/etc/consul/xivo/*.json`. All files in this
+directory are installed with the package and *should not* be modified
+by the administrator. To use a different configuration, the
+adminstrator can add it's own configuration file at another location
+and set the new configuration directory by creating a systemd unit
+drop-in file in the `/etc/systemd/system/consul.service.d` directory.
 
-The default installation generates a master token that can be retrieved
-in `/var/lib/consul/master_token`{.interpreted-text role="file"}. This
-master token will not be used if a new configuration is supplied.
+The default installation generates a master token that can be
+retrieved in `/var/lib/consul/master_token`. This master token will
+not be used if a new configuration is supplied.
 
 Variables
 =========
@@ -35,11 +21,10 @@ The following environment variables can be overridden in a systemd unit
 drop-in file:
 
 -   `CONFIG_DIR`: the consul configuration directory
--   `WAIT_FOR_LEADER`: should the \"start\" action wait for a leader ?
+-   `WAIT_FOR_LEADER`: should the "start" action wait for a leader ?
 
 Example, in
-`/etc/systemd/system/consul.service.d/custom.conf`{.interpreted-text
-role="file"}:
+`/etc/systemd/system/consul.service.d/custom.conf`:
 
     [Service]
     Environment=CONFIG_DIR=/etc/consul/agent
@@ -59,34 +44,34 @@ Downloading Consul
 
 For a 32 bits system
 
-``` {.sourceCode .sh}
-wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
+```ShellSession
+# wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
 ```
 
 For a 64 bits system
 
-``` {.sourceCode .sh}
-wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
+```ShellSession
+# wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 ```
 
 Installing Consul on a new host
 -------------------------------
 
-``` {.sourceCode .sh}
-unzip consul_0.5.2_linux_386.zip
+```ShellSession
+# unzip consul_0.5.2_linux_386.zip
 ```
 
 Or
 
-``` {.sourceCode .sh}
-unzip consul_0.5.2_linux_amd64.zip
+```ShellSession
+# unzip consul_0.5.2_linux_amd64.zip
 ```
 
-``` {.sourceCode .sh}
-mv consul /usr/bin/consul
-mkdir -p /etc/consul/xivo
-mkdir -p /var/lib/consul
-adduser --quiet --system --group --no-create-home \
+```ShellSession
+# mv consul /usr/bin/consul
+# mkdir -p /etc/consul/xivo
+# mkdir -p /var/lib/consul
+# adduser --quiet --system --group --no-create-home \
         --home /var/lib/consul consul
 ```
 
@@ -94,35 +79,29 @@ Copying the consul configuration from the Wazo to a new host
 ------------------------------------------------------------
 
 On the new consul host, modify
-`/etc/consul/xivo/config.json`{.interpreted-text role="file"} to include
+`/etc/consul/xivo/config.json` to include
 to following lines.
 
-``` {.sourceCode .javascript}
+```Javascript
 "bind_addr": "0.0.0.0",
 "client_addr": "0.0.0.0",
 "advertise_addr": "<consul-host>"
 ```
 
-``` {.sourceCode .sh}
-# on the consul host
-scp root@<wazo-host>:/lib/systemd/system/consul.service /lib/systemd/system
-systemctl daemon-reload
-scp -r root@<wazo-host>:/etc/consul /etc
-scp -r root@<wazo-host>:/usr/share/xivo-certs /usr/share
-consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
+```ShellSession
+# # on the consul host
+# scp root@<wazo-host>:/lib/systemd/system/consul.service /lib/systemd/system
+# systemctl daemon-reload
+# scp -r root@<wazo-host>:/etc/consul /etc
+# scp -r root@<wazo-host>:/usr/share/xivo-certs /usr/share
+# consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
 ```
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-To start consul with the systemd unit file, you may need to change owner
+#:exclamation: To start consul with the systemd unit file, you may need to change owner
 and group (consul:consul) for all files inside
-`/etc/consul`{.interpreted-text role="file"},
-`/usr/share/xivo-certs`{.interpreted-text role="file"} and
-`/var/lib/consul`{.interpreted-text role="file"}
-:::
+`/etc/consul`,
+`/usr/share/xivo-certs` and
+`/var/lib/consul`
 
 Adding the agent configuration
 ------------------------------
@@ -161,27 +140,26 @@ role="file"} with the following content
     example.
 -   `remote_host`: IP address of your new consul. Be sure the host is
     accessible from your Wazo and check the firewall. See the
-    documentation `here <network_ports>`{.interpreted-text role="ref"}.
+    documentation [here](../contributors/network).
 -   `wazo_address`: IP address of your Wazo.
 
 This file should be owned by consul user.
 
-``` {.sourceCode .sh}
-chown -R consul:consul /etc/consul/agent
+```ShellSession
+# chown -R consul:consul /etc/consul/agent
 ```
 
 Enabling the agent configuration
 --------------------------------
 
 Add or modify
-`/etc/systemd/system/consul.service.d/custom.conf`{.interpreted-text
-role="file"} to include the following lines:
+`/etc/systemd/system/consul.service.d/custom.conf` to include the following lines:
 
     [Service]
     Environment=CONFIG_DIR=/etc/consul/agent
 
 Restart your consul server.
 
-``` {.sourceCode .sh}
-service consul restart
+```ShellSession
+# service consul restart
 ```

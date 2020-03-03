@@ -2,19 +2,6 @@
 title: Analog card configuration
 ---
 
--   [Limitations](#limitations)
--   [Verifications](#verifications)
--   [Generate DAHDI configuration](#generate-dahdi-configuration)
--   [Configure](#configure)
-    -   [DAHDI system.conf
-        configuration](#dahdi-system.conf-configuration)
-    -   [Asterisk dahdi-channels.conf
-        configuration](#asterisk-dahdi-channels.conf-configuration)
--   [Next step](#next-step)
--   [Specific configuration](#analog_card_specific_conf)
-    -   [FXS modules](#fxs-modules)
-    -   [FXO modules](#fxo-modules)
-
 Limitations
 ===========
 
@@ -26,23 +13,17 @@ Verifications
 =============
 
 Verify that one of the `{wctdm,wctdm24xxp}` module is uncommented in
-`/etc/dahdi/modules`{.interpreted-text role="file"} depending on the
+`/etc/dahdi/modules` depending on the
 card you installed in your server.
 
-If it wasn\'t, do again the step `load_dahdi_modules`{.interpreted-text
+If it wasn't, do again the step `load_dahdi_modules`{.interpreted-text
 role="ref"}
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
-
-Analog cards work with card module. You must add the appropriate card
+#:exclamation: Analog cards work with card module. You must add the appropriate card
 module to your analog card. Either:
 
--   an FXS module (for analog equipment - phones, \...),
+-   an FXS module (for analog equipment - phones, ...),
 -   an FXO module (for analog line)
-:::
 
 Generate DAHDI configuration
 ============================
@@ -51,16 +32,9 @@ Issue the command:
 
     dahdi_genconf
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
-
-it will erase all existing configuration in
-`/etc/dahdi/system.conf`{.interpreted-text role="file"} and
-`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} files
-!
-:::
+#:warning: it will erase all existing configuration in
+`/etc/dahdi/system.conf` and
+`/etc/asterisk/dahdi-channels.conf` files!
 
 Configure
 =========
@@ -68,13 +42,12 @@ Configure
 DAHDI system.conf configuration
 -------------------------------
 
-First step is to check `/etc/dahdi/system.conf`{.interpreted-text
-role="file"} file:
+First step is to check `/etc/dahdi/system.conf` file:
 
 -   check the span numbering,
 
 See detailed explanations of this file in the
-`system_conf`{.interpreted-text role="ref"} section.
+[system_conf](hardware) section.
 
 Below is **an example** for a typical FXS analog line span:
 
@@ -86,7 +59,7 @@ Asterisk dahdi-channels.conf configuration
 ------------------------------------------
 
 Then you have to modify the
-`/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} file:
+`/etc/asterisk/dahdi-channels.conf` file:
 
 -   remove the unused lines like:
 
@@ -123,28 +96,28 @@ Now that you have configured your PRI card:
     `interco_dahdi_conf`{.interpreted-text role="ref"} in the web
     interface.
 
-Specific configuration {#analog_card_specific_conf}
+Specific configuration
 ======================
 
 FXS modules
 -----------
 
 If you use **FXS** modules you should create the file
-`/etc/modprobe.d/xivo-tdm`{.interpreted-text role="file"} and insert the
+`/etc/modprobe.d/xivo-tdm` and insert the
 line:
 
     options DAHDI_MODULE_NAME fastringer=1 boostringer=1
 
-Where DAHDI\_MODULE\_NAME is the DAHDI module name of your card (e.g.
+Where DAHDI_MODULE_NAME is the DAHDI module name of your card (e.g.
 wctdm for a TDM400P).
 
 FXO modules
 -----------
 
 If you use **FXO** modules you should create file
-`/etc/modprobe.d/xivo-tdm`{.interpreted-text role="file"}:
+`/etc/modprobe.d/xivo-tdm`:
 
     options DAHDI_MODULE_NAME opermode=FRANCE
 
-Where DAHDI\_MODULE\_NAME is the DAHDI module name of your card (e.g.
+Where DAHDI_MODULE_NAME is the DAHDI module name of your card (e.g.
 wctdm for a TDM400P).
