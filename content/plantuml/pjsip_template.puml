@@ -1,0 +1,79 @@
+@startuml
+package Global {
+object General {
+        allow: !all,g729
+        dtmf_mode: rfc4733
+        set_var: "TENANT_CHANNEL_VARIABLE=foobar"
+}
+object WebRTC {
+        webrtc: yes
+        max_contacts: 10
+}
+object SIP {
+        max_contacts: 1
+        remove_existing: yes
+}
+}
+
+object UserPreference1 {
+        set_var: "PERSONAL=foobar"
+}
+object UserPreference2 {
+        set_var: "PERSONAL=foobaz"
+}
+object Line1 {
+        username: abcdef
+        password: 123abc
+}
+object Line2 {
+        username: bcdefg
+        password: 234bcd
+}
+object Line3 {
+        username: cdefgh
+        password: 345cdr
+}
+object ResultingLine1 {
+        allow: !all,g729
+        dtmf_mode: rfc4733
+        max_contacts: 10
+        password: 123abc
+        set_var: "PERSONAL=foobar"
+        set_var: "TENANT_CHANNEL_VARIABLE=foobar"
+        username: abcdef
+        webrtc: yes
+}
+object ResultingLine2 {
+        allow: !all,g729
+        dtmf_mode: rfc4733
+        max_contacts: 1
+        password: 234bcd
+        remove_existing: yes
+        set_var: "PERSONAL=foobar"
+        set_var: "TENANT_CHANNEL_VARIABLE=foobar"
+        username: bcdefg
+}
+object ResultingLine3 {
+        allow: !all,g729
+        dtmf_mode: rfc4733
+        max_contacts: 10
+        password: 345cdr
+        set_var: "PERSONAL=foobaz"
+        set_var: "TENANT_CHANNEL_VARIABLE=foobar"
+        username: cdefgh
+        webrtc: yes
+}
+
+General <|-- WebRTC
+General <|-- SIP
+Line1 o-- UserPreference1
+Line1 o-- WebRTC
+Line2 o-- UserPreference1
+Line2 o-- SIP
+Line3 o-- UserPreference2
+Line3 o-- WebRTC
+ResultingLine1 *-- Line1
+ResultingLine2 *-- Line2
+ResultingLine3 *-- Line3
+
+@enduml
