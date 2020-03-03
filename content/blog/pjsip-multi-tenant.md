@@ -1,8 +1,8 @@
 Title: A Multi Tenant API for PJSIP
-Date: 2020-03-02 14:00:00
+Date: 2020-03-03 14:00:00
 Author: Pascal Cadotte Michaud
-Category: Wazo Software
-Tags: Asterisk, PJSIP, VOIP, API
+Category: Wazo Platform
+Tags: wazo-platform, asterisk, pjsip, voip, api
 Slug: pjsip-multi-tenant
 Status: published
 
@@ -11,7 +11,7 @@ Status: published
 Asterisk has been switching from the legacy `chan_sip` channel driver to a new SIP
 stack based on the [PJSIP library](https://www.pjsip.org/). We have been using
 the new SIP stack in Wazo Platform for over a year now. The way we configure the
-SIP channel driver as of Wazo 20.03 still relies on the API that existed for
+SIP channel driver as of Wazo Platform 20.03 still relies on the API that existed for
 `chan_sip` with a translation layer in wazo-confgend to convert the `chan_sip`
 configuration to a `chan_pjsip` one.
 
@@ -44,7 +44,7 @@ used to be a single section for a peer in `sip.conf` is now multiple sections in
 values for the whole channel driver.
 
 
-# How Wazo Migrated from `chan_sip` to `chan_pjsip`
+# How Wazo Platform Migrated from `chan_sip` to `chan_pjsip`
 
 To be able to move quickly from `chan_sip` to `chan_pjsip`, we chose to use a
 translation layer to get from a valid `chan_sip` configuration to a valid
@@ -98,7 +98,7 @@ implementation is the need to reload the configuration for each modification.
 The new API will leverage a configuration system named
 [Sorcery](https://wiki.asterisk.org/wiki/display/AST/Sorcery). It will allow
 each configuration to be updated individually. Every time a configuration change
-is done, Wazo will be able to update the modified sections of the configuration
+is done, Wazo Platform will be able to update the modified sections of the configuration
 only for the impacted resources instead of reloading the entire channel driver.
 
 
@@ -122,3 +122,7 @@ productive workflow. It will also save the administrator from doing some manual
 configuration for fields that are not well supported by the SIP to PJSIP
 translation layer. And it will allow users of Wazo Platform to leverage the full
 power of `chan_pjsip`.
+
+# Discussion
+
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/latest).
