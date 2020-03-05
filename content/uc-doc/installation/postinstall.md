@@ -5,8 +5,7 @@ title: Post Installation
 Here are a few configuration options that are commonly changed once the
 installation is completed. Please note that these changes are optional.
 
-Display called name on internal calls
-=====================================
+## Display called name on internal calls
 
 When you call internally another phone of the system you would like your
 phone to display the name of the called person (instead of the dialed
@@ -17,8 +16,7 @@ number only). To achieve this you must change the following SIP options:
     > -   `trustrpid`: `yes`
     > -   `sendrpid`: `pai`
 
-Incoming caller number display
-==============================
+## Incoming caller number display
 
 The caller ID number on incoming calls depends on what is sent by your
 operator. You can modify it via the file
@@ -42,8 +40,8 @@ To enable the changes you have to restart wazo-agid:
 
     service wazo-agid restart
 
-Time and date
-=============
+## Time and date
+
 
 -   Configure your locale and default time zone device template with
     `wazo-provd` endpoint `/provd/cfg_mgr/config` by editing the default
@@ -52,8 +50,7 @@ Time and date
 
         dpkg-reconfigure tzdata
 
-Codecs
-======
+## Codecs
 
 You should also select default codecs. It obviously depends on the telco
 links, the country, the phones, the usage, etc. Here is a typical
