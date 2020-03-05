@@ -1,4 +1,4 @@
-Debugging Asterisk {#debugging_asterisk}
+Debugging Asterisk
 ==================
 
 Precondition
@@ -68,7 +68,7 @@ Debugging Asterisk Crash
 ------------------------
 
 When asterisk crashes, it usually leaves a core file in
-[/var/spool/asterisk/]{role="file"}.
+`/var/spool/asterisk/`.
 
 You can create a backtrace from a core file named `core_file` with:
 
@@ -213,11 +213,11 @@ Running Asterisk under Valgrind
 ```
 
 2.  Recompile asterisk with the DONT\_OPTIMIZE flag.
-3.  Edit [/etc/asterisk/modules.conf]{role="file"} so that asterisk
+3.  Edit `/etc/asterisk/modules.conf` so that asterisk
     doesn\'t load unnecessary modules. This step is optional. It makes
     asterisk start (noticeably) faster and often makes the output of
     valgrind easier to analyze, since there\'s less noise.
-4.  Edit [/etc/asterisk/asterisk.conf]{role="file"} and comment the
+4.  Edit `/etc/asterisk/asterisk.conf` and comment the
     `highpriority` option. This step is optional.
 5.  Stop monit and asterisk:
 

@@ -131,7 +131,36 @@ const getArticles = async createPage => {
   return articles;
 };
 
-exports.createPages = async ({ actions: { createPage } }) => {
+const walk_md_files = (dir, path, acc, index) => {
+  const files = fs.readdirSync(dir);
+
+  console.info('scanning dir ' + dir);
+
+  files.forEach(file => {
+    const filePath = dir + '/' + file;
+
+    if (fs.statSync(filePath).isDirectory()) {
+      if (file !== '.') {
+        walk_md_files(filePath, path + file + '/', acc, index);
+      }
+    } else if (file === index) {
+      console.info('storing index ' + path);
+      acc[path] = fs.readFileSync(filePath, 'utf8');
+    } else {
+      const names = file.split('.');
+      const ext = names.pop();
+      const fname = names.pop();
+      if (ext === 'md') {
+        const p = path + fname;
+        console.info('storing ' + p);
+        acc[p] = fs.readFileSync(filePath, 'utf8');
+      }
+    }
+  });
+  return acc;
+};
+
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
   console.log(`Building ${siteUrl}`);
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
@@ -146,19 +175,11 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
-  const contributeDocs = fs.readdirSync('./content/contribute').reduce(function(acc, file) {
-    if (file.split('.').pop() === 'md') {
-      var p = './content/contribute/' + file;
-      acc[p] = fs.readFileSync(p, 'utf8');
-    }
-    return acc;
-  }, {});
+  const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
-
-  console.log('contributeDocs ' + contributeDocs);
 
   const getModuleName = repoName =>
     Object.keys(allModules).find(moduleName => {
@@ -241,7 +262,49 @@ exports.createPages = async ({ actions: { createPage } }) => {
     newPage(p, 'contribute/index', { content, title });
   });
 
+  // Create uc-doc pages
+  // ---------
+  const ucDocsResult = await graphql(`
+    {
+      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/uc-doc/"} }) {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            frontmatter {
+              title
+              subtitle
+            }
+            html
+            description: excerpt(pruneLength: 200)
+          }
+        }
+      }
+    }
+  `)
+
+  // Handle errors
+  if (ucDocsResult.errors) {
+    reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
+    return;
+  }
+
+  ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
+    newPage(
+      pagePath,
+      'uc-doc/index',
+      {
+        content: node.html,
+        title: node.frontmatter.title,
+        pagePath,
+      },
+    )
+  })
+
+
   // Create api pages
+  // ----------
   sections.forEach(section =>
     Object.keys(section.modules).forEach(moduleName =>
       newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {

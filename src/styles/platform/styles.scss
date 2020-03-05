@@ -21,7 +21,6 @@ pre {
 }
 
 .main {
-  
   h1, h2, h3{
     font-weight: normal;
   }
@@ -107,7 +106,7 @@ pre {
     @media (min-width: 768px) {
       width: 25%;
     }
-    height: auto; 
+    height: auto;
     padding: 20px 0 60px;
   }
 
@@ -164,7 +163,7 @@ pre {
 
 #wazo-platform-nav {
   position: absolute;
-  top: 0; 
+  top: 0;
   left: 15px;
   margin-top: 8px;
   width: 150px;
@@ -190,7 +189,7 @@ header{
         max-width: none;
     }
   }
-  
+
   .main-nav {
     @media(min-width: 992px){
       float: right;
@@ -322,6 +321,100 @@ body.documentation {
     img {
       max-width: 100%;
       height: auto;
+    }
+  }
+}
+
+
+// Basic layout
+// ---------
+.main-content {
+  display: flex;
+  justify-content: space-between;
+
+  // Menu left & content right
+  &.main-content-on-right-side {
+    .main-content-left-col { width: 28.33%; }
+    .main-content-right-col { width: 66.66%; }
+  }
+
+  // Menu right & content left
+  &.main-content-on-left-side {
+    .main-content-left-col { width: 66.66%; }
+    .main-content-right-col { width: 33.33%; }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+
+    &.main-content-on-left-side { flex-direction: column-reverse; }
+
+    // Menu left & content right
+    &.main-content-on-right-side, &.main-content-on-left-side {
+      .main-content-left-col, .main-content-right-col {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Secondary navigation
+// -------
+.secondary-navigation {
+  border: 1px solid $fakeDarkGray;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  overflow: hidden;
+  background: #FFF;
+
+  a { transition: 350ms ease all; }
+
+
+  h2 {
+    font-size: 1.05rem;
+    padding: 10px 15px 0;
+    font-weight: bold;
+    color: #666;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    li {
+      a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+
+      &:first-child a { border-top: 1px solid rgba(0, 0, 0, 0.125); }
+      &:last-child a { border-bottom: none; }
+
+      // Second level
+      ul {
+        li:first-child a { border-top: none; }
+        li:last-child a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+
+        a {
+          background: #F9F9F9;
+          padding-left: 30px;
+        }
+      }
+    }
+
+    a {
+      display: block;;
+      padding: 7px 15px;
+      text-decoration: none !important;
+
+      &:hover, &:active {
+        background: $fakeDarkGray;
+        color: #FFF;
+        border-color: $fakeDarkGray;
+      }
     }
   }
 }
