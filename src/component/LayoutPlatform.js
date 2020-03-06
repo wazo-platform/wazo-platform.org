@@ -69,6 +69,11 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
                     Blog
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="ecosystem" activeClassName="active" partiallyActive>
+                    Ecosystem
+                  </Link>
+                </li>
                 <li className="nav-item last">
                   <a className="nav-link scrollto" href="/#contact">
                     Contact
