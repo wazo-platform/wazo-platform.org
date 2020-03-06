@@ -180,7 +180,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   }
 
   const ecosystemDoc = fs.readFileSync('./content/ecosystem.md', 'utf8');
-  const installDoc = fs.readFileSync('./content/install.md', 'utf8');
+  const installDoc = fs.readFileSync('./content/use-cases.md', 'utf8');
   const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
@@ -245,8 +245,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // Create doc page
     await newPage('/documentation', 'documentation/index', { sections, overviews });
     // Create install page
-    await newPage('/install', 'install/index', { installDoc });
-    // Create install_c4 page
+    await newPage('/use-cases', 'use-cases/index', { installDoc });
+    // Create install-c4 page
     await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
     // Create contribute page
     await newPage('/contribute', 'contribute/index', { content: contributeDoc });

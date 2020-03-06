@@ -97,8 +97,8 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/install" activeClassName="active">
-                    Install
+                  <Link className="nav-link" to="/use-cases" activeClassName="active">
+                    Use Cases
                   </Link>
                 </li>
                 <li className="nav-item">
