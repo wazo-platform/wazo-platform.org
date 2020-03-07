@@ -235,9 +235,12 @@ body.documentation {
   }
 }
 
-.contribute .container.principal{
+.container.principal{
   padding-top: 40px;
   padding-bottom: 70px;
+  &.ecosystem h2{
+    margin: 1.4em auto .8em;
+  }
 }
 
 .navbar-fixed-top{
