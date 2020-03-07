@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import Layout from '../Layout';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'gatsby';
@@ -11,10 +10,6 @@ export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, ca
     
   return (
     <Layout pageTitle={title} className="article" section="blog">
-      <Helmet>
-        <title>{title} - Wazo Platform</title>
-      </Helmet>
-
       <div className="container main" style={{ padding: '50px 15px 70px' }}>
         <div className="head">
           Posted on {formattedDate}  {" "}
