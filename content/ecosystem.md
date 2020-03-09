@@ -9,8 +9,8 @@
 
 ## Commercial Products
 
--   ##### Canyan
-    [Canyan SBC](https://www.canyan.io/products/sbc/) and [Canyan Routing](https://www.canyan.io/products/routing/) are based on Wazo Platform C4 components.
+-   ##### Ottspot
+    [Connect](https://ottspott.co/connect/) by [Ottspot](https://ottspott.co/) is a Chrome extension for integrating your CRM apps to your existing phone system.
 
 
 -   ##### Wazo Communication
