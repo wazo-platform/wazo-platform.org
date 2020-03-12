@@ -27,16 +27,16 @@ export default ({ pageContext: { content, title = 'Home' }}) => (
                   <li><Link to="/uc-doc/installation/postinstall/">Post install</Link></li>
                 </ul>
               </li>
-              <li><Link to="/uc-doc/upgrade/upgrade/">Upgrade</Link></li>
-              <li><Link to="/uc-doc/system/system/">System</Link></li>
+              <li><Link to="/uc-doc/upgrade/">Upgrade</Link></li>
+              <li><Link to="/uc-doc/system/">System</Link></li>
               <li><Link to="/uc-doc/ecosystem/devices/">Devices</Link></li>
-              <li><Link to="/uc-doc/administration/administration/">Administration</Link></li>
-              <li><Link to="/uc-doc/contact_center/contact_center/">Contact Center</Link></li>
-              <li><Link to="/uc-doc/high_availability/high_availability/">High Availability</Link></li>
-              <li><Link to="/uc-doc/api_sdk/api_sdk/">API/SDK</Link></li>
-              <li><Link to="/uc-doc/contributors/contributors/">Contributors</Link></li>
-              <li><Link to="/uc-doc/troubleshooting/troubleshooting/">Troubleshooting</Link></li>
-              <li><Link to="/uc-doc/community/community/">Community Doc</Link></li>
+              <li><Link to="/uc-doc/administration/">Administration</Link></li>
+              <li><Link to="/uc-doc/contact_center/">Contact Center</Link></li>
+              <li><Link to="/uc-doc/high_availability/">High Availability</Link></li>
+              <li><Link to="/uc-doc/api_sdk/">API/SDK</Link></li>
+              <li><Link to="/uc-doc/contributors/">Contributors</Link></li>
+              <li><Link to="/uc-doc/troubleshooting/">Troubleshooting</Link></li>
+              <li><Link to="/uc-doc/community/">Community Doc</Link></li>
               <li><Link to="/uc-doc/attribution/">Attribution</Link></li>
             </ul>
           </div>
