@@ -56,9 +56,9 @@ general rule :
 
 -   Provider *span* - Wazo will get the clock from the provider : the
     `timing` value is to be different from 0 (see
-    [system_conf](hardware) section)
+    [system_conf](/uc-doc/administration/hardware/hardware) section)
 -   PBX *span* - Wazo will provide the clock to the PBX : the `timing`
-    value is to be set to 0 (see [system_conf](hardware) section)
+    value is to be set to 0 (see [system_conf](/uc-doc/administration/hardware/hardware) section)
 
 Below is an example with two provider links and two PBX links:
 

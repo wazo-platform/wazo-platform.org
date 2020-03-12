@@ -9,7 +9,7 @@ role="ref"} and
 role="ref"} you can proceed with the card configuration. Follow one of
 the appropriate link below :
 
-- [bri configuration](bri_configuration)
-- [pri configuration](pri_configuration)
-- [analog configuration](analog_configuration)
-- [voice compression configuration](voice_compression_configuration)
+- [bri configuration](/uc-doc/administration/hardware/bri_configuration)
+- [pri configuration](/uc-doc/administration/hardware/pri_configuration)
+- [analog configuration](/uc-doc/administration/hardware/analog_configuration)
+- [voice compression configuration](/uc-doc/administration/hardware/voice_compression_configuration)
