@@ -25,9 +25,9 @@ There's a few things to know about the peculiarities of the included
 DHCP server:
 
 -   it only answers to DHCP requests from
-    [supported devices](../../ecosystem/supported_devices).
+    [supported devices](/uc-doc/ecosystem/supported_devices).
 -   it only answers to DHCP requests coming from the VoIP subnet (see
-    [network configuration](network_configuration).
+    [network configuration](/uc-doc/system/network/network).
 
 This means that if your phones are on the same broadcast domain than
 your computers, and you would like the DHCP server on your Wazo to

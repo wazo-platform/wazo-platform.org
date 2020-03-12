@@ -2,7 +2,7 @@
 title: Users Configuration
 ---
 
-- [csv_import](csv_import)
+- [csv_import](/uc-doc/administration/users/csv_import)
 
 Function keys
 =============

@@ -48,7 +48,7 @@ role="file"} file:
 -   if needed change the clock source,
 
 See detailed explanations of this file in the
-[system_conf](hardware) section.
+[system_conf](/uc-doc/administration/hardware/hardware) section.
 
 Below is **an example** for a typical french BRI line span:
 

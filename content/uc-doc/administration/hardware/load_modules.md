@@ -61,7 +61,7 @@ Now that you have loaded the correct module for your card you must:
 
 1.  check if you need to follow one of the Specific configuration sections below,
 2.  and continue with the next configuration step which is to
-    [configure the echo canceller](echo_canceller).
+    [configure the echo canceller](/uc-doc/administration/hardware/echo_canceller).
 
 Specific configuration
 ======================

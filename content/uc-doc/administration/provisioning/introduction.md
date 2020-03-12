@@ -24,8 +24,8 @@ typical SIP hardphone:
 Building on this, configuring one of the supported phone on Wazo is as
 simple as:
 
-1.  [dhcpd-config](basic_configuration)
-2.  [Installing the required provd plugin](adv_configuration)
+1.  [dhcpd-config](/uc-doc/administration/provisioning/basic_configuration)
+2.  [Installing the required provd plugin](/uc-doc/administration/provisioning/adv_configuration)
 3.  Powering on the phone
 4.  Dialing the user's provisioning code from the phone
 

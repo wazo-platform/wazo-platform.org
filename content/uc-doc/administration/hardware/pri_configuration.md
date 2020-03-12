@@ -9,14 +9,14 @@ Verify that the correct module is configured in
 `/etc/dahdi/modules` depending on the
 card you installed in your server.
 
-If it wasn't, do again the step [load dahdi modules](load_module)
+If it wasn't, do again the step [load dahdi modules](/uc-doc/administration/hardware/load_modules)
 
 #:warning: *TE13x, TE23x, TE43x* cards :
 
 -   these cards need a specific dahdi module configuration. See
     `dahdi_linemode_selection`{.interpreted-text role="ref"} paragraph,
 -   you **MUST** install the correct echo-canceller firmware to be able
-    to use these cards. See [hwec_configuration](echo_canceller) paragraph.
+    to use these cards. See [hwec_configuration](/uc-doc/administration/hardware/echo_canceller) paragraph.
 
 Generate DAHDI configuration
 ============================
@@ -42,7 +42,7 @@ First step is to check `/etc/dahdi/system.conf` file:
 -   usually (at least in France) you should remove the `crc4`
 
 See detailed explanations of this file in the
-[system_conf](hardware) section.
+[system_conf](/uc-doc/administration/hardware/hardware) section.
 
 Below is **an example** for a typical french PRI line span:
 

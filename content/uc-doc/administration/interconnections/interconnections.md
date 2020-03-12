@@ -2,14 +2,14 @@
 title: Interconnections
 ---
 
-- [two_xivo](two_xivo)
-- [xivo_with_voip_provider](xivo_with_voip_provider)
-- [xivo_with_pbx](xivo_with_pbx)
+- [two_xivo](/uc-doc/administration/interconnections/two_xivo)
+- [xivo_with_voip_provider](/uc-doc/administration/interconnections/xivo_with_voip_provider)
+- [xivo_with_pbx](/uc-doc/administration/interconnections/xivo_with_pbx)
 
 Specific VoIP providers
 =======================
 
-- [simonics](simonics)
+- [simonics](/uc-doc/administration/interconnections/simonics)
 
 Create an interconnection
 =========================

@@ -47,7 +47,7 @@ First step is to check `/etc/dahdi/system.conf` file:
 -   check the span numbering,
 
 See detailed explanations of this file in the
-[system_conf](hardware) section.
+[system_conf](/uc-doc/administration/hardware/analog_configuration) section.
 
 Below is **an example** for a typical FXS analog line span:
 
