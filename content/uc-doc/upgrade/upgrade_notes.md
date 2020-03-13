@@ -15,16 +15,12 @@ title: Upgrade notes
     firmware was nowhere to be found. If you still want to use it, it is
     in the `archive` phone plugin repository.
 
-Consult the [20.03
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
-for more information.
+Consult the [20.03 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069) for more information.
 
 20.02
 =====
 
-Consult the [20.02
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067)
-for more information.
+Consult the [20.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067) for more information.
 
 20.01
 =====
@@ -33,9 +29,7 @@ for more information.
     `HTTPS` since it's only available on `localhost`. The `HTTPS`
     remains available via the port `8501`.
 
-Consult the [20.01
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065)
-for more information.
+Consult the [20.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065) for more information.
 
 19.17
 =====
@@ -92,9 +86,7 @@ for more information.
     -   `res_snmp`
     -   `res_xmpp`
 
-Consult the [19.17
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061)
-for more information.
+Consult the [19.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061) for more information.
 
 19.16
 =====
@@ -124,9 +116,7 @@ for more information.
     stuck. If you wish to modify this value, use the
     `/asterisk/sip/general` endpoint in `wazo-confd` API.
 
-Consult the [19.16
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)
-for more information.
+Consult the [19.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054) for more information.
 
 19.15
 =====
@@ -142,9 +132,7 @@ for more information.
     disable this feature, you can do it with `wazo-confd`
     `/extensions/features` API endpoint.
 
-Consult the [19.15
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046)
-for more information.
+Consult the [19.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046) for more information.
 
 19.14
 =====
@@ -182,17 +170,14 @@ for more information.
     `/var/backups/xivo/dird_sources.yml` during the upgrade to Wazo
     Platform 19.14. The administrator must then recreate the directory
     configuration manually using the API or web interface.
--   There is a [known
-    bug](https://wazo-dev.atlassian.net/browse/WAZO-1254) that will
+-   There is a [known bug](https://wazo-dev.atlassian.net/browse/WAZO-1254) that will
     remove pre-recorded sound files provided by the `xivo-sounds-*`,
     .e.g `xivo-sounds-fr-ca`. If you had installed one of these packages
     manually, you need to install the corresponding `wazo-sounds-*`
     package manually, e.g. `wazo-sounds-fr-ca`. Upgrades to Wazo >=
     19.15 are not affected by this bug.
 
-Consult the [19.14
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045)
-for more information.
+Consult the [19.14 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045) for more information.
 
 19.13
 =====
@@ -201,7 +186,7 @@ for more information.
     (buster).** Please consult the following detailed upgrade notes for
     more information:
 
-- [19.13/buster](19.13/buster)
+- [19.13/buster](/uc-doc/upgrade/19.13/buster)
 
 -   `xivo-amid` has been renamed to `wazo-amid`
     -   The custom configuration has been moved to
