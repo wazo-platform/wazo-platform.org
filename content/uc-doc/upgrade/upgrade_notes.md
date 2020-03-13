@@ -2,6 +2,19 @@
 title: Upgrade notes
 ---
 
+20.04
+=====
+
+-   The PJSIP `Global` and `System` configuration options are now configured
+    using `/1.1/asterisk/pjsip/global` and `/1.1/asterisk/pjsip/system`.
+    Options added to the `/1.1/asterisk/sip/general` that used to be mapped to
+    one of these sections have been migrated to the new API and the mapping
+    from chan_sip to chan_pjsip has been removed for those 2 sections.
+
+Consult the [20.04 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10072)
+for more information.
+
+
 20.03
 =====
 
