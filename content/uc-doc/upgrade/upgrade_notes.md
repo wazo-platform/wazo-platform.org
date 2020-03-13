@@ -2,6 +2,13 @@
 title: Upgrade notes
 ---
 
+20.04
+=====
+
+Consult the [20.04
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10072)
+for more information.
+
 20.03
 =====
 
