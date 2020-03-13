@@ -2,7 +2,7 @@
 title: Administration
 ---
 
-All configurations are done via the [`wazo-confd` REST API](/uc-doc/administration//documentation/overview/configuration.html).
+All configurations are done via the [`wazo-confd` REST API](/documentation/api/configuration.html).
 
 # Table of contents
 

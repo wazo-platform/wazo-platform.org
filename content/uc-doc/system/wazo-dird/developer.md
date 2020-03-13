@@ -12,7 +12,7 @@ title: 'wazo-dird developer\''s guide'
     -   [Implementation details](#implementation-details-2)
     -   [Example](#example-2)
 
-![wazo-dird startup flow](images/startup.png)
+![wazo-dird startup flow](/uc-doc/system/wazo-dird/images/startup.png)
 
 The wazo-dird architecture uses plugins as extension points for most of
 its job. It uses

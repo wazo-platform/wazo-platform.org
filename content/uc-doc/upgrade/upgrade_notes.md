@@ -500,7 +500,7 @@ Consult the roadmaps for more information:
 18.03
 =====
 
--   If you have a [custom certificate configured](https_certificate),
+-   If you have a [custom certificate configured](/uc-doc/system/https_certificate),
     you will need to add a new symlink for wazo-upgrade:
 
 ```ShellSession
@@ -586,7 +586,6 @@ class Plugin(object):
     `Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear in the
     Asterisk console.
 
-Archives
-========
+## Archives
 
-- [old_upgrade_notes](old_upgrade_notes)
+See our [old upgrade notes](/uc-doc/upgrade/old_upgrade_notes)

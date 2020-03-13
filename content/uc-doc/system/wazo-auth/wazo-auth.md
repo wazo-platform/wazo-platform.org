@@ -9,8 +9,8 @@ services compatible with wazo-auth.
 
 The HTTP API reference is at <http://api.wazo.community>.
 
-- [developer](developer)
-- [stock_plugins](stock_plugins)
+- [developer](/uc-doc/system/wazo-auth/developer)
+- [stock_plugins](/uc-doc/system/wazo-auth/stock_plugins)
 
 Usage
 =====

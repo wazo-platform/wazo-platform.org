@@ -2,66 +2,9 @@
 title: Archived Upgrade Notes
 ---
 
--   [2017](#section)
-    -   [17.17](#section-1)
-    -   [17.16](#section-2)
-    -   [17.15](#section-3)
-    -   [17.14](#section-4)
-    -   [17.13](#section-5)
-    -   [17.12](#section-6)
-    -   [17.11](#section-7)
-    -   [17.10](#section-8)
-    -   [17.09](#section-9)
-    -   [17.08](#section-10)
-    -   [17.07](#section-11)
-    -   [17.06](#section-12)
-    -   [17.05](#section-13)
-    -   [17.04](#section-14)
-    -   [17.03](#section-15)
-    -   [17.02](#section-16)
-    -   [17.01](#section-17)
--   [2016](#section-18)
-    -   [16.16](#section-19)
-    -   [16.13](#section-20)
-    -   [16.12](#section-21)
-    -   [16.11](#section-22)
-    -   [16.10](#section-23)
-    -   [16.09](#section-24)
-    -   [16.08](#section-25)
-    -   [16.07](#section-26)
-    -   [16.06](#section-27)
-    -   [16.05](#section-28)
-    -   [16.04](#section-29)
-    -   [16.03](#section-30)
-    -   [16.02](#section-31)
-    -   [16.01](#section-32)
--   [2015](#section-33)
-    -   [15.20](#section-34)
-    -   [15.19](#section-35)
-    -   [15.18](#section-36)
-    -   [15.17](#section-37)
-    -   [15.16](#section-38)
-    -   [15.15](#upgrade_notes_15_15)
-    -   [15.14](#section-40)
-    -   [15.13](#section-41)
-    -   [15.12](#upgrade-note-15.12)
-    -   [15.11](#section-43)
-    -   [15.10](#section-44)
-    -   [15.09](#section-45)
-    -   [15.08](#section-46)
-    -   [15.07](#section-47)
-    -   [15.06](#section-48)
-    -   [15.05](#section-49)
-    -   [15.04](#section-50)
-    -   [15.03](#section-51)
-    -   [15.02](#section-52)
-    -   [15.01](#section-53)
+## 2017
 
-2017
-====
-
-17.17
------
+### 17.17
 
 -   The default NAT option has changed from `no` to `auto_force_rport`.
     This makes NAT configuration easier but has no impact on
@@ -123,8 +66,7 @@ title: Archived Upgrade Notes
     configured `channelvars` already, you will have to manually merge
     the Wazo version with your version for them to work together.
 
-17.16
------
+### 17.16
 
 -   You must update the Wazo Client to 17.16.
 -   The *enabled_plugins* section of the `wazo-auth` service has been
@@ -159,8 +101,7 @@ title: Archived Upgrade Notes
     documentation <https_certificate>`{.interpreted-text role="ref"},
     namely for the config regarding `websocketd`.
 
-17.15
------
+### 17.15
 
 -   `xivo-call-logd` has been renamed `wazo-call-logd`
     -   The custom configuration has been moved to
@@ -177,8 +118,7 @@ Consult the [17.15
 Roadmap](https://projects.wazo.community/versions/268) for more
 information.
 
-17.14
------
+### 17.14
 
 -   `xivo-auth` has been renamed `wazo-auth`
     -   If you have developed a `xivo-auth` authentication backend the
@@ -196,15 +136,13 @@ Consult the [17.14
 Roadmap](https://projects.wazo.community/versions/267) for more
 information.
 
-17.13
------
+### 17.13
 
 Consult the [17.13
 Roadmap](https://projects.wazo.community/versions/266) for more
 information.
 
-17.12
------
+### 17.12
 
 -   Wazo has a new database named `mongooseim`. The
     `backup-restore procedure<backup>`{.interpreted-text role="ref"} has
@@ -214,8 +152,7 @@ Consult the [17.12
 Roadmap](https://projects.wazo.community/versions/265) for more
 information.
 
-17.11
------
+### 17.11
 
 -   wazo-plugind REST API version `0.1` has been deprecated and will be
     removed in Wazo `18.02`. See changelog for version
@@ -225,15 +162,13 @@ Consult the [17.11
 Roadmap](https://projects.wazo.community/versions/263) for more
 information.
 
-17.10
------
+### 17.10
 
 Consult the [17.10
 Roadmap](https://projects.wazo.community/versions/262) for more
 information.
 
-17.09
------
+### 17.09
 
 -   Codecs can now be customized in the
     [/etc/asterisk/codecs.d/]{.title-ref} directory. If you had custom
@@ -262,8 +197,7 @@ Consult the [17.09
 Roadmap](https://projects.wazo.community/versions/261) for more
 information.
 
-17.08
------
+### 17.08
 
 -   The call logs has been improved by adding `date_end` and
     `date_answer` informations. If you want to add these new
@@ -286,15 +220,13 @@ Consult the [17.08
 Roadmap](https://projects.wazo.community/versions/260) for more
 information.
 
-17.07
------
+### 17.07
 
 Consult the [17.07
 Roadmap](https://projects.wazo.community/versions/259) for more
 information.
 
-17.06
------
+### 17.06
 
 -   Upgrade from version older than 13.01 are not supported anymore.
 
@@ -302,8 +234,7 @@ Consult the [17.06
 Roadmap](https://projects.wazo.community/versions/258) for more
 information.
 
-17.05
------
+### 17.05
 
 -   [python-flask-cors]{.title-ref} has been updated from 1.10.3 to
     3.0.2. Configuration files with custom [allow_headers]{.title-ref}
@@ -334,22 +265,19 @@ Consult the [17.05
 Roadmap](https://projects.wazo.community/versions/257) for more
 information.
 
-17.04
------
+### 17.04
 
 Consult the [17.04
 Roadmap](https://projects.wazo.community/versions/256) for more
 information.
 
-17.03
------
+### 17.03
 
 Consult the [17.03
 Roadmap](https://projects.wazo.community/versions/255) for more
 information.
 
-17.02
------
+### 17.02
 
 -   A few more services are now available by default on port TCP/443
     (the complete list is documented in the `nginx`{.interpreted-text
@@ -361,18 +289,15 @@ Consult the [17.02
 Roadmap](https://projects.wazo.community/versions/254) for more
 information.
 
-17.01
------
+### 17.01
 
 Consult the [17.01
 Roadmap](https://projects.wazo.community/versions/253) for more
 information.
 
-2016
-====
+## 2016
 
-16.16
------
+### 16.16
 
 Wazo 16.16 is the *first public release* of the project under the Wazo
 name. It is also the first release of Wazo under the "phoenix"
@@ -419,15 +344,14 @@ codename.
 Please consult the following detailed upgrade notes for more
 information:
 
-- [16.16/xivo_to_wazo](16.16/xivo_to_wazo)
-- [16.16/asterisk_14](16.16/asterisk_14)
+- [XiVO to Wazo Upgrade Notes](/uc-doc/upgrade/16.16/xivo_to_wazo)
+- [Asterisk 13 to 14 Upgrade Notes](/upgrade/16.16/asterisk_14/16.16/asterisk_14)
 
 Consult the [16.16
 Roadmap](https://projects.wazo.community/versions/252) for more
 information.
 
-16.13
------
+### 16.13
 
 XiVO 16.13 is the *last public release* of the project under the name
 XiVO.
@@ -456,15 +380,13 @@ Consult the [16.13
 Roadmap](https://projects.wazo.community/versions/249) for more
 information.
 
-16.12
------
+### 16.12
 
 Consult the [16.12
 Roadmap](https://projects.wazo.community/versions/248) for more
 information.
 
-16.11
------
+### 16.11
 
 -   Fax reception: the "log" backend type has been removed. You should
     remove references to it in your
@@ -476,8 +398,7 @@ Consult the [16.11
 Roadmap](https://projects.wazo.community/versions/247) for more
 information.
 
-16.10
------
+### 16.10
 
 -   The config file `/etc/xivo/xivo-confgend.conf` has been replaced
     with `/etc/xivo-confgend/config.yml` and
@@ -494,8 +415,7 @@ Consult the [16.10
 Roadmap](https://projects.wazo.community/versions/246) for more
 information.
 
-16.09
------
+### 16.09
 
 -   The Wazo Client now uses xivo-ctid-ng to do transfers. Those new
     transfers cannot be cancelled with the `*0` DTMF sequence and there
@@ -512,8 +432,7 @@ Consult the [16.09
 Roadmap](https://projects.wazo.community/versions/245) for more
 information.
 
-16.08
------
+### 16.08
 
 -   cti-protocol is now in version *2.2*
 -   Some
@@ -545,8 +464,7 @@ Consult the [16.08
 Roadmap](https://projects.wazo.community/versions/244) for more
 information.
 
-16.07
------
+### 16.07
 
 -   If you were affected by the [bug
     #6213](http://projects.wazo.community/issues/6213), i.e. if your
@@ -559,15 +477,13 @@ Consult the [16.07
 Roadmap](https://projects.wazo.community/versions/243) for more
 information.
 
-16.06
------
+### 16.06
 
 Consult the [16.06
 Roadmap](https://projects.wazo.community/versions/242) for more
 information.
 
-16.05
------
+### 16.05
 
 -   The `view`, `add`, `edit`, `delete` and `deleteall` actions of the
     "lines" web service provided by the web interface have been
@@ -578,8 +494,7 @@ Consult the [16.05
 Roadmap](https://projects.wazo.community/versions/241) for more
 information.
 
-16.04
------
+### 16.04
 
 -   cti-protocol is now in version *2.1*
 -   The field `Rightcall Code`{.interpreted-text role="guilabel"} from
@@ -595,8 +510,7 @@ Consult the [16.04
 Roadmap](https://projects.wazo.community/versions/240) for more
 information.
 
-16.03
------
+### 16.03
 
 -   The new section
     `Services --> Statistics --> Switchboard`{.interpreted-text
@@ -621,8 +535,7 @@ Consult the [16.03
 Roadmap](https://projects.wazo.community/versions/239) for more
 information.
 
-16.02
------
+### 16.02
 
 -   The experimental *xivo_ldap_voicemail* plugin of *xivo-auth* has
     been removed. Use the new
@@ -643,8 +556,7 @@ Consult the [16.02
 Roadmap](https://projects.wazo.community/versions/238) for more
 information.
 
-16.01
------
+### 16.01
 
 -   The page
     `Configuration --> Management --> Web Services Access --> Acces rights`{.interpreted-text
@@ -671,11 +583,9 @@ Consult the [16.01
 Roadmap](https://projects.wazo.community/versions/237) for more
 information.
 
-2015
-====
+## 2015
 
-15.20
------
+## 15.20
 
 Consult the [15.20
 Roadmap](https://projects.wazo.community/versions/214)
@@ -696,8 +606,7 @@ information:
 - [15.20/jessie](15.20/jessie)
 - [15.20/csv](15.20/csv)
 
-15.19
------
+## 15.19
 
 Consult the [15.19
 Roadmap](https://projects.wazo.community/versions/236)
@@ -747,8 +656,7 @@ information:
 - [15.19/people-xlet-directory](15.19/people-xlet-directory)
 - [15.19/context-separation](15.19/context-separation)
 
-15.18
------
+## 15.18
 
 Consult the [15.18
 Roadmap](https://projects.wazo.community/versions/234)
@@ -802,8 +710,7 @@ modify them accordingly. Consult `network_ports`{.interpreted-text
 role="ref"} for further details on which network services are available
 for each daemon.
 
-15.17
------
+## 15.17
 
 Consult the [15.17
 Roadmap](https://projects.wazo.community/versions/233)
@@ -831,8 +738,7 @@ Roadmap](https://projects.wazo.community/versions/233)
     `xivo-confd changelog <rest-api_changelog>`{.interpreted-text
     role="ref"} for further details
 
-15.16
------
+## 15.16
 
 Consult the [15.16
 Roadmap](https://projects.wazo.community/versions/232)
@@ -847,11 +753,9 @@ Roadmap](https://projects.wazo.community/versions/232)
     updated. No action is required for "normal" installations.
 -   Voicemails can now be deleted even if they are associated to a user.
 
-15.15 {#upgrade_notes_15_15}
------
+## <a name="upgrade_notes_15_15"></a>15.15
 
-Consult the [15.15
-Roadmap](https://projects.wazo.community/versions/231)
+Consult the [15.15 Roadmap](https://projects.wazo.community/versions/231)
 
 **Voicemail Upgrade Notes**
 
@@ -878,11 +782,11 @@ Roadmap](https://projects.wazo.community/versions/231)
   -------------------------------------------------------------------------
   Old name            New name               Required ?  New default value
   ------------------- ---------------------- ----------- ------------------
-  voicemailmailbox    voicemailnumber        yes         
+  voicemailmailbox    voicemailnumber        yes
 
   voicemailskippass   voicemailaskpassword   no          1
 
-                      voicemailcontext       yes         
+                      voicemailcontext       yes
   -------------------------------------------------------------------------
 
 **Directories**
@@ -901,8 +805,7 @@ Roadmap](https://projects.wazo.community/versions/231)
 
 See [wazo-dird-integration]{.title-ref} for more details
 
-15.14
------
+### 15.14
 
 -   Consult the [15.14
     Roadmap](https://projects.wazo.community/versions/230)
@@ -917,8 +820,7 @@ See [wazo-dird-integration]{.title-ref} for more details
     are automatically migrated to the server. Note that the CSV format
     for importing contacts has changed.
 
-15.13
------
+### 15.13
 
 -   Consult the [15.13
     Roadmap](https://projects.wazo.community/versions/229)
@@ -942,10 +844,9 @@ See [wazo-dird-integration]{.title-ref} for more details
 Please consult the following detailed upgrade notes for more
 information:
 
-- [15.13/asterisk_13](15.13/asterisk_13)
+- [15.13/asterisk_13](/uc-doc/upgrade/15.13/asterisk_13)
 
-15.12
------
+### 15.12
 
 -   Consult the [15.12
     Roadmap](https://projects.wazo.community/versions/228)
@@ -964,8 +865,7 @@ information:
     development using these services, update your configuration
     accordingly.
 
-15.11
------
+### 15.11
 
 -   Consult the [15.11
     Roadmap](https://projects.wazo.community/versions/227)
@@ -973,33 +873,28 @@ information:
     The first automatic purge will occur in the night after the upgrade.
     See `purge_logs`{.interpreted-text role="ref"} for more details.
 
-15.10
------
+### 15.10
 
 -   Consult the [15.10
     Roadmap](https://projects.wazo.community/versions/223)
 
-15.09
------
+### 15.09
 
 -   Consult the [15.09
     Roadmap](https://projects.wazo.community/versions/226)
 
-15.08
------
+### 15.08
 
 -   Consult the [15.08
     Roadmap](https://projects.wazo.community/versions/225)
 -   The Dialer Xlet has been integrated in Identity Xlet.
 
-15.07
------
+### 15.07
 
 -   Consult the [15.07
     Roadmap](https://projects.wazo.community/versions/224)
 
-15.06
------
+### 15.06
 
 -   Consult the [15.06
     Roadmap](https://projects.wazo.community/versions/222)
@@ -1018,34 +913,29 @@ information:
     name will be removed in 15.18, so if you have custom scripts
     referencing xivo-agentctl, you'll need to update them.
 
-15.05
------
+### 15.05
 
 -   Consult the [15.05
     Roadmap](https://projects.wazo.community/versions/221)
 -   The Xlet identity has been modified to follow the new Wazo Client
     design which implies the removal of some details.
 
-15.04
------
+### 15.04
 
 -   Consult the [15.04
     Roadmap](https://projects.wazo.community/versions/220)
 
-15.03
------
+### 15.03
 
 -   Consult the [15.03
     Roadmap](https://projects.wazo.community/versions/219)
 
-15.02
------
+### 15.02
 
 -   Consult the [15.02
     Roadmap](https://projects.wazo.community/versions/218)
 
-15.01
------
+### 15.01
 
 -   Consult the [15.01
     Roadmap](https://projects.wazo.community/versions/217)

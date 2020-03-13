@@ -6,9 +6,9 @@ wazo-dird is the directory server for Wazo. It offers a simple REST
 interface to query all directories that are configured. wazo-dird is
 extendable with plugins.
 
-- [configuration](configuration)
-- [developer](developer)
-- [stock_plugins](stock_plugins)
+- [configuration](/uc-doc/system/wazo-dird/configuration)
+- [developer](/uc-doc/system/wazo-dird/developer)
+- [stock_plugins](/uc-doc/system/wazo-dird/stock_plugins)
 
 Launching wazo-dird
 ===================

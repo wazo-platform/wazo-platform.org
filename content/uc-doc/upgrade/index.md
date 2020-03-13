@@ -12,7 +12,7 @@ To upgrade your Wazo to the latest version, you **must** use the
     wazo-upgrade
 
 #:exclamation: **You can't use wazo-upgrade if you have not run the wizard yet
-Upgrading from a [deprecated version](deprecated_versions)
+Upgrading from a [deprecated version](/uc-doc/upgrade/version_deprecation_policy)
 is not supported. When upgrading Wazo, you must also upgrade
 all associated Wazo Clients. There is currently no
 retro-compatibility on older Wazo Client versions. The only exception is
@@ -35,7 +35,7 @@ There are 2 options you can pass to wazo-upgrade:
 Upgrade procedure
 =================
 
--   Read all existing [upgrade notes](upgrade_notes)
+-   Read all existing [upgrade notes](/uc-doc/upgrade/upgrade_notes)
     starting from your version to the latest version.
 -   For custom setups, follow the required procedures described below
     (e.g. HA cluster).
@@ -88,17 +88,17 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
 Upgrading to a specific version of Wazo
 =======================================
 
-- [archives](archives)
+- [archives](/uc-doc/upgrade/archives)
 
 Upgrading from i386 (32 bits) to amd64 (64 bits)
 ================================================
 
-- [Migrate from i386 to amd64](migrate_i386_to_amd64)
+- [Migrate from i386 to amd64](/uc-doc/upgrade/migrate_i386_to_amd64)
 
 Unsupported versions
 ====================
 
-- [Version Deprecation Policy](version_deprecation_policy)
+- [Version Deprecation Policy](/uc-doc/upgrade/version_deprecation_policy)
 
 Troubleshooting
 ===============
@@ -133,4 +133,4 @@ Repeat this command until no more unwanted rules are left.
 Upgrade notes
 =============
 
-- [upgrade_notes](upgrade_notes)
+- [upgrade_notes](/uc-doc/upgrade/upgrade_notes)

@@ -210,7 +210,7 @@ administrator standpoint:
 Berofos Integration
 ===================
 
-- [berofos](berofos)
+- [berofos](/uc-doc/high_availability/berofos)
 
 Troubleshooting
 ===============
