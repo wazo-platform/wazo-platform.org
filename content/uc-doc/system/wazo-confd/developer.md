@@ -22,7 +22,7 @@ Association plugins
 The following diagram outlines the most important parts of a plugin:
 
 ![Plugin architecture of
-wazo-confd](images/wazo-confd-plugin-architecture.png)
+wazo-confd](/images/uc-doc/system/wazo-confd/wazo-confd-plugin-architecture.png)
 
 Resource
 

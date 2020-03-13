@@ -18,7 +18,7 @@ Wazo.
 #:warning: It requires a special call routing configuration on both the Wazo **and
 the PBX**.
 
-![Interconnect a Wazo to a PBX](images/xivo-pbx.png){.align-center}
+![Interconnect a Wazo to a PBX](/images/uc-doc/administration/interconnections/xivo-pbx.png)
 
 Hardware
 --------

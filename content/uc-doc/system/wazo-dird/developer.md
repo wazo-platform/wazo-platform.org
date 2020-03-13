@@ -12,7 +12,7 @@ title: 'wazo-dird developer\''s guide'
     -   [Implementation details](#implementation-details-2)
     -   [Example](#example-2)
 
-![wazo-dird startup flow](/uc-doc/system/wazo-dird/images/startup.png)
+![wazo-dird startup flow](/images/uc-doc/system/wazo-dird/startup.png)
 
 The wazo-dird architecture uses plugins as extension points for most of
 its job. It uses
@@ -35,7 +35,7 @@ plugins in dird.
 2.  `dird-service`{.interpreted-text role="ref"}
 3.  `dird-view`{.interpreted-text role="ref"}
 
-![wazo-dird HTTP query](images/query.png)
+![wazo-dird HTTP query](/images/uc-doc/system/wazo-dird/query.png)
 
 All plugins are instantiated by the core. The core then keeps a
 catalogue of loaded extensions that can be supplied to other extensions.

@@ -186,7 +186,7 @@ Consult the [19.14 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
     (buster).** Please consult the following detailed upgrade notes for
     more information:
 
-- [19.13/buster](/uc-doc/upgrade/19.13/buster)
+- [19.13/buster](/uc-doc/upgrade/19-13/buster)
 
 -   `xivo-amid` has been renamed to `wazo-amid`
     -   The custom configuration has been moved to
@@ -237,7 +237,7 @@ General
         tenant cannot be extracted from call informations, they will be
         associated to the master tenant.
 
-- [19.03/sounds](19.03/sounds)
+- [19.03/sounds](/uc-doc/upgrade/19-03/sounds)
 
     -   We needed to do some guesswork for ambiguous resources that
         shared other resources from different entities. These resources
@@ -328,7 +328,7 @@ Asterisk related
 
 -   Asterisk version has been updated:
 
-- [18.12/asterisk_16](18.12/asterisk_16)
+- [18.12/asterisk_16](/uc-doc/upgrade/18-12/asterisk_16)
 
 -   Wazo now uses `res_pjsip` instead of `chan_sip`.
     -   All custom lines with interface `SIP/something` must be changed
@@ -530,7 +530,7 @@ Consult the roadmaps for more information:
     Please consult the following detailed upgrade notes for more
     information:
 
-- [18.01/stretch](18.01/stretch)
+- [18.01/stretch](/uc-doc/upgrade/18-01/stretch)
 
 -   If you *did not* setup a custom X.509 certificate for HTTPS (e.g.
     from Let's Encrypt), the certificate will be regenerated to include

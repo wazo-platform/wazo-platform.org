@@ -57,14 +57,14 @@ Upgrading from XiVO 16.13 and before
 ------------------------------------
 
 When upgrading from XiVO 16.13 or before, you must use the special
-[XiVO to Wazo upgrade procedure](/uc-doc/upgrade/16.16/xivo_to_wazo#upgrading-to-wazo) instead of
+[XiVO to Wazo upgrade procedure](/uc-doc/upgrade/16-16/xivo_to_wazo#upgrading-to-wazo) instead of
 simply running `xivo-upgrade`.
 
 Upgrading a cluster
 ===================
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
-[high-availability](high-/uc-doc/high_availability/):
+[high-availability](/uc-doc/high_availability/):
 
 1.  On the master : deactivate the database replication by commenting
     the cron in `/etc/cron.d/xivo-ha-master`

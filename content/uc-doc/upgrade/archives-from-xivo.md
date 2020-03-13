@@ -5,8 +5,7 @@ title: Upgrade an older xivo installation
 Those procedures are valid if your xivo installation is older than
 16.08.
 
-Upgrade to Wazo < 18.01
-========================
+## Upgrade to Wazo < 18.01
 
 Example upgrade to Wazo 17.02:
 
@@ -18,8 +17,7 @@ Example upgrade to Wazo 17.02:
 # xivo-dist phoenix
 ```
 
-Upgrade to Wazo >= 18.01
-=========================
+## Upgrade to Wazo >= 18.01
 
 Example upgrade to Wazo 18.02:
 
@@ -32,7 +30,7 @@ Example upgrade to Wazo 18.02:
 
 This will upgrade your xivo to Wazo 17.17. From there:
 
-1.  Read the [upgrade notes](upgrade-notes-stretch)
+1.  Read the [upgrade notes](/uc-doc/upgrade/18-01/stretch)
 2.  upgrade to Wazo 18.02:
 
 ```ShellSession
@@ -42,8 +40,7 @@ This will upgrade your xivo to Wazo 17.17. From there:
 
 #:exclamation: Upgrading to a specific version between 18.03 and 19.12 is not supported
 
-My xivo is stuck in a specific version
-======================================
+## My xivo is stuck in a specific version
 
 Procedures for upgrading to specific versions may freeze the version of
 your xivo. Run the following commands to get the latest updates:

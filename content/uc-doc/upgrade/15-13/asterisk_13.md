@@ -2,11 +2,6 @@
 title: Asterisk 11 to 13 Upgrade Notes
 ---
 
--   [Changes Between Asterisk 11 and
-    13](#changes-between-asterisk-11-and-13)
--   [List of Known Bugs And
-    Limitations](#list-of-known-bugs-and-limitations)
-
 You might be impacted by the upgrade to Asterisk 13 if you have:
 
 -   custom dialplan
@@ -20,7 +15,7 @@ You might be impacted by the upgrade to Asterisk 13 if you have:
 If you find yourself in one of these cases, you should make sure that
 your customizations still work with Asterisk 13.
 
-## Changes Between Asterisk 11 and 13
+## <a name="changes-between-asterisk-11-and-13"></a>Changes Between Asterisk 11 and 13
 
 Some of the more common changes to look for:
 
@@ -80,7 +75,7 @@ you have custom AGI applications, you only need to make sure that the
 dialplan applications and functions you are using from the AGI are still
 valid.
 
-## List of Known Bugs And Limitations
+## <a name="list-of-known-bugs-and-limitations"></a>List of Known Bugs And Limitations
 
 List of known bugs and limitations for Asterisk 13 in XiVO:
 

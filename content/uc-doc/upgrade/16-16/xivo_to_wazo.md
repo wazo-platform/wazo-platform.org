@@ -64,4 +64,4 @@ xivo.io domain on your Wazo. In particular, you should check the
     grep -rF xivo.io /etc
 ```
 There is no release of the Wazo Client 16.16, but Wazo 16.16 is
-compatible with the [Wazo Client 16.13](http://mirror.wazo.community/iso/archives/xivo-16.13/).
+compatible with the Wazo Client 16.13.

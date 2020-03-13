@@ -40,7 +40,7 @@ Use Case: Minimal IVR
 Flowchart
 ---------
 
-![](images/ivr2.png)
+![](/images/uc-doc/administration/ivr/ivr2.png)
 
 Configuration File and Dialplan
 -------------------------------
@@ -141,7 +141,7 @@ when your company is closed.
 Flowchart
 ---------
 
-![](images/ivr5.png)
+![](/images/uc-doc/administration/ivr/ivr5.png)
 
 Create Schedule
 ---------------
@@ -165,7 +165,7 @@ Use Case: IVR with submenu
 Flowchart
 ---------
 
-![](images/ivr7.png)
+![](/images/uc-doc/administration/ivr/ivr7.png)
 
 Configuration File and Dialplan
 -------------------------------

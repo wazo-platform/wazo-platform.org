@@ -46,7 +46,7 @@ This jail has two goals:
 -   protecting against brute force attacks attempting to guess
     configuration file names.
 
-See `provd-security`{.interpreted-text role="ref"} for more details.
+See `provd-security` for more details.
 
 sshd
 ----
@@ -83,7 +83,6 @@ Open ports
 ==========
 
 See the list of network ports that are listening to
-[0.0.0.0]{.title-ref} in the `network_ports`{.interpreted-text
-role="ref"} page. Change the service
-`configurations<configuration-files>`{.interpreted-text role="ref"} for
+[0.0.0.0] in the `network_ports` page. Change the service
+`configurations<configuration-files>` for
 services that do not need to be accessible.

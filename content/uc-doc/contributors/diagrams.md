@@ -17,6 +17,5 @@ role="download"}
 Architecture
 ============
 
-![Relationships between the components of Wazo.
-`(source) <resources/architecture.odg>`{.interpreted-text
-role="download"}](resources/architecture.png)
+Relationships between the components of Wazo.
+![Architecture](/images/uc-doc/contributors/resources/architecture.png)

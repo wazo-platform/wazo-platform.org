@@ -2,39 +2,18 @@
 title: Contributing to the Documentation
 ---
 
--   [Documentation guideline](#documentation-guideline)
-    -   [Language](#language)
-    -   [Sections](#sections)
-    -   [Lists](#lists)
-    -   [Literal blocks](#literal-blocks)
-    -   [Inline markup](#inline-markup)
-    -   [Others](#others)
+Wazo documentation is generated with GatbsyJS. The source code is
+available on GitHub at <https://github.com/wazo-platform/wazo-platform.org>
 
-Wazo documentation is generated with Sphinx. The source code is
-available on GitHub at <https://github.com/wazo-platform/wazo-doc>
-
-Provided you already have Python installed on your system. You need
-first to install [Sphinx](http://sphinx.pocoo.org/) :
-`easy_install -U Sphinx`[^1].
-
-Quick Reference
-
--   <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt>
--   <http://docutils.sourceforge.net/docs/user/rst/quickref.html>
--   <http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html>
-
-Documentation guideline
-=======================
+## <a name="documentation-guideline"></a>Documentation guideline
 
 Here\'s the guideline/conventions to follow for the Wazo documentation.
 
-Language
---------
+### <a name="language"></a>Language
 
 The documentation must be written in english, and only in english.
 
-Sections
---------
+### <a name="sections"></a>Sections
 
 The top section of each file must be capitalized using the following
 rule: capitalization of all words, except for articles, prepositions,
@@ -55,73 +34,52 @@ Use the following punctuation characters:
 -   `-`, for subsections
 -   `^`, for subsubsections
 
-Punctuation characters should be exactly as long as the section text.
-
-Correct:
-
-    Section1
-    ========
-
-Incorrect:
-
-    Section2
-    ==========
-
 There should be 2 empty lines between sections, except when an empty
 section is followed by another section.
 
 Correct:
 
-    Section1
-    ========
+    ## Section1
 
     Foo.
 
 
-    Section2
-    ========
+    ## Section2
 
     Bar.
 
 Correct:
 
-    Section1
-    ========
+    ## Section1
 
     Foo.
 
 
     .. _target:
 
-    Section2
-    ========
+    ## Section2
 
     Bar.
 
 Correct:
 
-    Section1
-    ========
+    ## Section1
 
-    Subsection1
-    -----------
+    ### Subsection1
 
     Foo.
 
 Incorrect:
 
-    Section1
-    ========
+    ## Section1
 
     Foo.
 
-    Section2
-    ========
+    ## Section2
 
     Bar.
 
-Lists
------
+### <a name="lists"></a>Lists
 
 Bullet lists:
 
@@ -133,8 +91,7 @@ Autonumbered lists:
     #. First item
     #. Second item
 
-Literal blocks
---------------
+### <a name="literal-blocks"></a>Literal blocks
 
 Use `::` on the same line as the line containing text when possible.
 
@@ -154,8 +111,7 @@ Incorrect:
 
        apt-get update
 
-Inline markup
--------------
+### <a name="inline-markup"></a>Inline markup
 
 Use the following roles when applicable:
 
@@ -171,8 +127,7 @@ Use the following roles when applicable:
 
         The :guilabel:`Action` column.
 
-Others
-------
+### <a name="others"></a>Others
 
 -   There must be no warning nor error messages when building the
     documentation with `make html`.

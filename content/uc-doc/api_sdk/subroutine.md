@@ -29,7 +29,7 @@ Here is an example of the dialplan execution flow when an external
 incoming call to a user being forwarded to another external number (like
 a forward to a mobile phone):
 
-![Where subroutines are called in dialplan](images/subroutines.png)
+![Where subroutines are called in dialplan](/images/uc-doc/api_sdk/subroutines.png)
 
 Adding new subroutine
 =====================

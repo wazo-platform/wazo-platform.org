@@ -2,16 +2,13 @@
 title: Service Authentication
 ---
 
--   [Call flow](#call-flow)
-
 Wazo services expose more and more resources through REST API, but they
 also ensure that the access is restricted to the authorized programs.
 For this, we use an `authentication daemon
 <wazo-auth>`{.interpreted-text role="ref"} who delivers authorizations
 via tokens.
 
-Call flow
-=========
+## <a name="call-flow></a>Call flow
 
 Here is the call flow to access a REST resource of a Wazo service:
 
@@ -24,8 +21,7 @@ Here is the call flow to access a REST resource of a Wazo service:
     role="ref"} to access the REST resource defined by the
     `ACL <rest-api-acl>`{.interpreted-text role="ref"}.
 
-![Call flow of service
-authentication](images/service_authentication_workflow.png)
+![Call flow of service authentication](/images/uc-doc/system/service_authentification/service_authentication_workflow.png)
 
 Service
 
@@ -38,7 +34,7 @@ xivo-{daemon}
 
 wazo-auth
 
-:   Server that authenticates the [Service]{.title-ref} and validates
+:   Server that authenticates the Service and validates
     the required ACL with the token.
 
 Wazo services directly use this system to communicate with each other,

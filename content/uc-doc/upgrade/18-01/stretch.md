@@ -2,12 +2,6 @@
 title: 'Debian 9 (stretch) Upgrade Notes'
 ---
 
--   [Before the upgrade](#before-the-upgrade)
--   [Upgrade](#upgrade)
--   [After the upgrade](#after-the-upgrade)
--   [Changes](#changes)
--   [External Links](#external-links)
-
 The upgrade to Wazo 18.01 or later will take longer than usual, because
 the whole Debian system will be upgraded.
 
@@ -17,8 +11,7 @@ database used by Wazo. This operation should take at most a few minutes.
 
 After the upgrade, the system will need to be rebooted.
 
-Before the upgrade
-==================
+## <a name="before-the-upgrade"></a>Before the upgrade
 
 -   Make sure your have sufficient space for the upgrade. You might run
     into trouble if you have less than 2 GiB available in the file
@@ -45,8 +38,7 @@ Before the upgrade
         upgrade. You can see a list of these files by running
         `find /etc -name '*.dpkg-old' -o -name '*.dpkg-dist' -o -name '*.dpkg-new'`.
 
-Upgrade
-=======
+## <a name="upgrade"></a>Upgrade
 
 The upgrade must be done with three commands:
 
@@ -66,8 +58,7 @@ the upgrade with:
     wazo-upgrade -d
     wazo-dist-upgrade -d
 
-After the upgrade
-=================
+## <a name="after-the-upgrade"></a>After the upgrade
 
 -   Check that customization to your configuration files is still
     effective.
@@ -94,8 +85,7 @@ After the upgrade
 -   Reboot your system. It is necessary for the new Linux kernel to be
     effective.
 
-Changes
-=======
+## <a name="changes"></a>Changes
 
 Here\'s a non-exhaustive list of changes that comes with Wazo on Debian
 9:
@@ -108,8 +98,7 @@ Here\'s a non-exhaustive list of changes that comes with Wazo on Debian
     and then tries PCI card slot numbers, producing names like `ens0` or
     `enp1s1`.
 
-External Links
-==============
+## <a name="external-links"></a>External Links
 
 -   [Official Debian 9 release
     notes](https://www.debian.org/releases/stretch/releasenotes)

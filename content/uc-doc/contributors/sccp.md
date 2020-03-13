@@ -8,11 +8,10 @@ originally based on chan_skinny.
 This page is intended for developers and people interested in using
 wazo-libsccp on something other than Wazo.
 
-Installation from the git repository
-====================================
+## Installation from the git repository
 
 #:warning: If you just want to use your SCCP phones with Wazo, refer to
-[sccp-configuration](../administration/sccp/sccp) instead.
+[sccp-configuration](/uc-doc/administration/sccp/sccp) instead.
 
 The following packages are required to compile wazo-libsccp on Debian.
 
@@ -28,18 +27,16 @@ The following packages are required to compile wazo-libsccp on Debian.
     make
     make install
 
-Configuration
-=============
+## Configuration
 
 #:warning: If you just want to use your SCCP phones with Wazo, refer to
-`sccp-configuration`{.interpreted-text role="ref"} instead.
+`sccp-configuration` instead.
 
 See
 [sccp.conf.sample](https://raw.github.com/wazo-platform/wazo-libsccp/master/configs/sccp.conf.sample)
 for a configuration file example.
 
-FAQ
-===
+## FAQ
 
     Q. When is this *feature X* will be available?
     A. The order in which we implement features is based on our client needs. Write
@@ -57,8 +54,7 @@ FAQ
     exten => 1000,1,Verbose(2, Paging to external cisco phone)
     same => n,Page(sccp/100/autoanswer&sccp/101/autoanswer,di,120 )
 
-Network Configuration for 7920/7921
-===================================
+## Network Configuration for 7920/7921
 
 Here's how to to configure a hostapd based AP on a Debian host so that
 both a 7920 and 7921 Wi-Fi phone can connect to it.
@@ -86,8 +82,7 @@ phones to connect to it is not that secure.
 4.  Create an hostapd configuration file in
     `/etc/hostapd/hostapd.sccp.conf` with
     content:
-    `hostapd.sccp.conf<resources/hostapd.sccp.conf>`{.interpreted-text
-    role="download"}
+    `hostapd.sccp.conf<resources/hostapd.sccp.conf>`
 5.  Update the following parameters (if applicable) in the configuration
     file:
     -   interface
@@ -130,14 +125,12 @@ phones to connect to it is not that secure.
     eth0.341, you'll need to change its configuration and bridge it
     with br0 instead, else it won't work properly.
 
-Adding Support for a New Phone
-==============================
+## Adding Support for a New Phone
 
 This section describes the requirements to consider that a SCCP phone is
 working with Wazo libsccp.
 
-Basic functionality
--------------------
+### Basic functionality
 
 -   Register on Asterisk
 -   SCCP reset [restart]
@@ -145,8 +138,7 @@ Basic functionality
 -   Date time display
 -   HA
 
-Telephony
----------
+### Telephony
 
 These test should be done with and without direct media enabled
 
@@ -160,8 +152,7 @@ These test should be done with and without direct media enabled
 -   Emit 2 calls simultaneously
 -   DTMF on an external IVR
 
-Function keys
--------------
+### Function keys
 
 -   Redial
 -   DND
@@ -173,8 +164,7 @@ Function keys
 -   Call forward (Disable)
 -   Try each button in each mode (on hook, in progress, etc)
 
-Optional options to test and document
--------------------------------------
+### Optional options to test and document
 
 -   Phone book
 -   Caller ID and other display i18n

@@ -344,8 +344,8 @@ codename.
 Please consult the following detailed upgrade notes for more
 information:
 
-- [XiVO to Wazo Upgrade Notes](/uc-doc/upgrade/16.16/xivo_to_wazo)
-- [Asterisk 13 to 14 Upgrade Notes](/upgrade/16.16/asterisk_14/16.16/asterisk_14)
+- [XiVO to Wazo Upgrade Notes](/uc-doc/upgrade/16-16/xivo_to_wazo)
+- [Asterisk 13 to 14 Upgrade Notes](/uc-doc/upgrade/16-16/asterisk_14)
 
 Consult the [16.16
 Roadmap](https://projects.wazo.community/versions/252) for more
@@ -603,8 +603,8 @@ Roadmap](https://projects.wazo.community/versions/214)
 Please consult the following detailed upgrade notes for more
 information:
 
-- [15.20/jessie](15.20/jessie)
-- [15.20/csv](15.20/csv)
+- [15.20/jessie](/uc-doc/upgrade/15-20/jessie)
+- [15.20/csv](/uc-doc/upgrade/15-20/csv)
 
 ## 15.19
 
@@ -653,8 +653,8 @@ Roadmap](https://projects.wazo.community/versions/236)
 Please consult the following detailed upgrade notes for more
 information:
 
-- [15.19/people-xlet-directory](15.19/people-xlet-directory)
-- [15.19/context-separation](15.19/context-separation)
+- [15.19/people-xlet-directory](/uc-doc/upgrade/15-19/people-xlet-directory)
+- [15.19/context-separation](/uc-doc/upgrade/15-19/context-separation)
 
 ## 15.18
 
@@ -844,7 +844,7 @@ See [wazo-dird-integration]{.title-ref} for more details
 Please consult the following detailed upgrade notes for more
 information:
 
-- [15.13/asterisk_13](/uc-doc/upgrade/15.13/asterisk_13)
+- [15.13/asterisk_13](/uc-doc/upgrade/15-13/asterisk_13)
 
 ### 15.12
 

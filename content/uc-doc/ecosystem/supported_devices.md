@@ -6,15 +6,13 @@ title: Supported Devices
 `"Supported devices" repository <alternative-plugins-repo>`{.interpreted-text
 role="ref"}.
 
-Aastra
-======
+## Aastra
 
 Aastra has been acquired by Mitel in 2014. In Wazo, the 6700 series and
 6800 series phones are still referenced as Aastra phones, for historical
 and compatibility reasons.
 
-6700i series
-------------
+### 6700i series
 
   --------------------------------------------------------------------------------------------
                                      6731i       6735i   6737i      6739i      6755i   6757i
@@ -27,8 +25,8 @@ and compatibility reasons.
 
   Funckeys                           8           26      30         55         26      30
 
-                                     **Suppo   rted    grammabl   e keys**         
-                                                 pro                                   
+                                     **Suppo   rted    grammabl   e keys**
+                                                 pro
 
   User with supervision function     Y           Y       Y          Y          Y       Y
 
@@ -37,9 +35,9 @@ and compatibility reasons.
   Queue                              Y           Y       Y          Y          Y       Y
 
   Conference Room with supervision   Y           Y       Y          Y          Y       Y
-  function                                                                             
+  function
 
-  **General Functions**                                                                
+  **General Functions**
 
   Online call recording              N           N       N          N          N       N
 
@@ -61,34 +59,34 @@ and compatibility reasons.
 
   Filtering Boss - Secretary         Y           Y       Y          Y          Y       Y
 
-  **Transfers Functions**                                                              
+  **Transfers Functions**
 
   Blind transfer                     HK          Y       Y          HK         Y       Y
 
   Indirect transfer                  HK          Y       Y          HK         Y       Y
 
-  **Forwards Functions**                                                               
+  **Forwards Functions**
 
   Disable all forwarding             Y           Y       Y          Y          Y       Y
 
   Enable/Disable forwarding on no    Y           Y       Y          Y          Y       Y
-  answer                                                                               
+  answer
 
   Enable/Disable forwarding on busy  Y           Y       Y          Y          Y       Y
 
   Enable/Disable forwarding          Y           Y       Y          Y          Y       Y
-  unconditional                                                                        
+  unconditional
 
-  **Voicemail Functions**                                                              
+  **Voicemail Functions**
 
   Enable voicemail with supervision  Y           Y       Y          Y          Y       Y
-  function                                                                             
+  function
 
   Reach the voicemail                Y           Y       Y          HK         Y       Y
 
   Delete messages from voicemail     Y           Y       Y          Y          Y       Y
 
-  **Agent Functions**                                                                  
+  **Agent Functions**
 
   Connect/Disconnect a static agent  Y           Y       Y          Y          Y       Y
 
@@ -96,13 +94,13 @@ and compatibility reasons.
 
   Disconnect a static agent          Y           Y       Y          Y          Y       Y
 
-  **Parking Functions**                                                                
+  **Parking Functions**
 
   Parking                            Y           Y       Y          Y          Y       Y
 
   Parking position                   Y           Y       Y          Y          Y       Y
 
-  **Paging Functions**                                                                 
+  **Paging Functions**
 
   Paging                             Y           Y       Y          Y          Y       Y
   --------------------------------------------------------------------------------------------
@@ -121,8 +119,7 @@ Supported expansion modules:
 -   Aastra® M670i (for Aastra® 35i/37i/39i/53i/55i/57i)
 -   Aastra® M675i (for Aastra® 35i/37i/39i/55i/57i)
 
-6800i series
-------------
+### 6800i series
 
   ----------------------------------------------------------------------------------
                                            6863i       6865i   6867i      6869i
@@ -136,7 +133,7 @@ Supported expansion modules:
   Funckeys                                 0           8       38         68
 
                                            **Suppo   rted    grammabl   e keys**
-                                                       pro                
+                                                       pro
 
   User with supervision function           N           Y       Y          Y
 
@@ -145,9 +142,9 @@ Supported expansion modules:
   Queue                                    N           Y       Y          Y
 
   Conference Room with supervision         N           Y       Y          Y
-  function                                                                
+  function
 
-  **General Functions**                                                   
+  **General Functions**
 
   Online call recording                    N           Y       Y          Y
 
@@ -169,13 +166,13 @@ Supported expansion modules:
 
   Filtering Boss - Secretary               N           Y       Y          Y
 
-  **Transfers Functions**                                                 
+  **Transfers Functions**
 
   Blind transfer                           HK          HK      HK         HK
 
   Indirect transfer                        HK          HK      HK         HK
 
-  **Forwards Functions**                                                  
+  **Forwards Functions**
 
   Disable all forwarding                   N           Y       Y          Y
 
@@ -185,16 +182,16 @@ Supported expansion modules:
 
   Enable/Disable forwarding unconditional  N           Y       Y          Y
 
-  **Voicemail Functions**                                                 
+  **Voicemail Functions**
 
   Enable voicemail with supervision        N           Y       Y          Y
-  function                                                                
+  function
 
   Reach the voicemail                      N           Y       Y          Y
 
   Delete messages from voicemail           N           Y       Y          Y
 
-  **Agent Functions**                                                     
+  **Agent Functions**
 
   Connect/Disconnect a static agent        N           Y       Y          Y
 
@@ -202,13 +199,13 @@ Supported expansion modules:
 
   Disconnect a static agent                N           Y       Y          Y
 
-  **Parking Functions**                                                   
+  **Parking Functions**
 
   Parking                                  N           Y       Y          Y
 
   Parking position                         N           Y       Y          Y
 
-  **Paging Functions**                                                    
+  **Paging Functions**
 
   Paging                                   N           Y       Y          Y
   ----------------------------------------------------------------------------------
@@ -218,8 +215,7 @@ Supported expansion modules:
 -   Aastra® M680 (for Aastra® 6865i/6867i/6869i)
 -   Aastra® M685 (for Aastra® 6865i/6867i/6869i)
 
-DECT Infrastructure
--------------------
+### DECT Infrastructure
 
   -------------------------------------
                       RFP35    RFP36
@@ -233,8 +229,7 @@ DECT Infrastructure
   Funckeys            0        0
   -------------------------------------
 
-Alcatel-Lucent
-==============
+## Alcatel-Lucent
 
 IP Touch series:
 
@@ -250,8 +245,7 @@ For the plugin to work fully, you need these additional packages:
 
     apt-get install p7zip python-pexpect telnet
 
-Avaya
-=====
+## Avaya
 
 1200 series IP Deskphones (previously known as Nortel IP Phones):
 
@@ -260,8 +254,7 @@ Avaya
   1220 IP   Yes          0           No
   1230 IP   No           0           No
 
-Cisco
-=====
+## <a name="cisco-provisioning"><a>Cisco
 
 Cisco Small Business SPA300 series:
 
@@ -331,8 +324,7 @@ device you should use the following url:
 > > -   *WAZO_IP* is the IP address of your Wazo,
 > > -   *CONF_FILE* is one of `spa2102.cfg`, `spa8000.cfg`
 
-ATAs
-----
+### ATAs
 
   ------------------------------------------------
                       SPA122   SPA3102   SPA8000
@@ -364,8 +356,7 @@ device you should use the following url:
 > > -   *WAZO_IP* is the IP address of your Wazo,
 > > -   *CONF_FILE* is one of `spa3102.cfg`, `spa8000.cfg`
 
-Cisco 7900 Series
------------------
+### Cisco 7900 Series
 
 <table>
 <colgroup>
@@ -1127,8 +1118,7 @@ package, but:
 #:exclamation: Currently user and network locale 11.5.1 should be used for plugins
 xivo-sccp-legacy and xivo-cisco-sccp-9.4
 
-Digium
-======
+## Digium
 
   --------------------------------------------------------------------
                                                D40     D50     D70
@@ -1141,7 +1131,7 @@ Digium
 
   Funckeys                                     2       14      106
 
-  **Supported programmable keys**                              
+  **Supported programmable keys**
 
   User with supervision function               N       NYT     N
 
@@ -1151,7 +1141,7 @@ Digium
 
   Conference Room with supervision function    Y       NYT     Y
 
-  **General Functions**                                        
+  **General Functions**
 
   Online call recording                        N       NYT     N
 
@@ -1173,13 +1163,13 @@ Digium
 
   Filtering Boss - Secretary                   Y       NYT     Y
 
-  **Transfers Functions**                                      
+  **Transfers Functions**
 
   Blind transfer                               HK      NYT     HK
 
   Indirect transfer                            HK      NYT     HK
 
-  **Forwards Functions**                                       
+  **Forwards Functions**
 
   Disable all forwarding                       Y       NYT     Y
 
@@ -1189,7 +1179,7 @@ Digium
 
   Enable/Disable forwarding unconditional      Y       NYT     Y
 
-  **Voicemail Functions**                                      
+  **Voicemail Functions**
 
   Enable voicemail with supervision function   Y       NYT     Y
 
@@ -1197,7 +1187,7 @@ Digium
 
   Delete messages from voicemail               Y       NYT     Y
 
-  **Agent Functions**                                          
+  **Agent Functions**
 
   Connect/Disconnect a static agent            Y       NYT     Y
 
@@ -1205,13 +1195,13 @@ Digium
 
   Disconnect a static agent                    Y       NYT     Y
 
-  **Parking Functions**                                        
+  **Parking Functions**
 
   Parking                                      N       NYT     N
 
   Parking position                             N       NYT     N
 
-  **Paging Functions**                                         
+  **Paging Functions**
 
   Paging                                       Y       NYT     Y
   --------------------------------------------------------------------
@@ -1231,15 +1221,13 @@ Particularities:
     web interface when using these phones with Wazo.
 -   Paging doesn't work.
 
-Fanvil
-======
+## Fanvil
 
   Model   Tested[^22]   Fkeys[^23]   Wazo HA[^24]
   ------- ------------- ------------ --------------
   C62P    Yes           5            Yes
 
-Gigaset
-=======
+## Gigaset
 
 Also known as Siemens.
 
@@ -1257,21 +1245,18 @@ Also known as Siemens.
   N300A IP      No            0            No
   N510 IP PRO   No            0            No
 
-Jitsi
-=====
+## Jitsi
 
   Model   Tested[^28]   Fkeys[^29]   Wazo HA[^30]
   ------- ------------- ------------ --------------
   Jitsi   Yes           ---        No
 
-Mitel
-=====
+## Mitel
 
 The Mitel 6700 Series and 6800 Series SIP Phones are supported in Wazo.
 See the [Aastra](#aastra) section.
 
-Patton
-======
+## Patton
 
 The following analog VoIP gateways are supported:
 
@@ -1324,8 +1309,7 @@ by the IP address of your Wazo server:
       exit
     provisioning execute PF_PROVISIONING_CONFIG
 
-Panasonic
-=========
+## Panasonic
 
 Panasonic KX-HTXXX series:
 
@@ -1343,8 +1327,7 @@ Panasonic KX-HTXXX series:
 
 #:exclamation: This phone is for testing for the moment
 
-Polycom
-=======
+## Polycom
 
 <table style="width:100%;">
 <colgroup>
@@ -2303,8 +2286,7 @@ Others:
   --------- ------------- ------------ --------------
   VVX1500   No            0            No
 
-Snom
-====
+## Snom
 
   Model   Tested[^43]   Fkeys[^44]   Wazo HA[^45]
   ------- ------------- ------------ --------------
@@ -2916,8 +2898,7 @@ Snom phones in Wazo:
     set for the "default config device", you will be forced to select
     a default language and timezone on the phone UI.
 
-Technicolor
-===========
+## Technicolor
 
 Previously known as Thomson:
 
@@ -2928,8 +2909,7 @@ Previously known as Thomson:
 
 #:exclamation: Function keys are shared with line keys
 
-Yealink
-=======
+## Yealink
 
 <table style="width:100%;">
 <colgroup>
@@ -3797,8 +3777,7 @@ Supported expansion modules:
 
 #:exclamation: Some function keys are shared with line keys
 
-Zenitel
-=======
+## Zenitel
 
   Model        Tested[^52]   Fkeys[^53]   Wazo HA[^54]
   ------------ ------------- ------------ --------------
