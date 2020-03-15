@@ -11,12 +11,12 @@ happen and new resources will be added over time.
 API reference
 =============
 
-- [asterisk voicemail](asterisk_voicemail)
-- [common configuration](common_configuration)
-- [dhcpd configuration](dhcpd_configuration)
-- [ha](ha)
-- [dns](dns)
-- [services](services)
-- [xivo services](xivo_services)
-- [handlers](handlers)
-- [status check](status_check)
+- [asterisk voicemail](/uc-doc/api_sdk/rest_api/sysconfd/asterisk_voicemail)
+- [common configuration](/uc-doc/api_sdk/rest_api/sysconfd/common_configuration)
+- [dhcpd configuration](/uc-doc/api_sdk/rest_api/sysconfd/dhcpd_configuration)
+- [ha](/uc-doc/api_sdk/rest_api/sysconfd/ha)
+- [dns](/uc-doc/api_sdk/rest_api/sysconfd/dns)
+- [services](/uc-doc/api_sdk/rest_api/sysconfd/services)
+- [xivo services](/uc-doc/api_sdk/rest_api/sysconfd/xivo_services)
+- [handlers](/uc-doc/api_sdk/rest_api/sysconfd/handlers)
+- [status check](/uc-doc/api_sdk/rest_api/sysconfd/status_check)

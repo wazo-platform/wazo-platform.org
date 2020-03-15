@@ -23,7 +23,7 @@ procedure as a template :
 General Architecture
 ====================
 
-![Statistics Architecture](images/archi.png)
+![Statistics Architecture](/images/uc-doc/contact_center/reporting/archi.png)
 
 1.  The *queue\_log* table of the *asterisk* database is filled by
     events from Asterisk and by custom dialplan events
@@ -48,12 +48,12 @@ etc.
   --------------------------------------------------------------------------------
   Field       Values      Description
   ----------- ----------- --------------------------------------------------------
-  id          generated   
+  id          generated
 
   callid      numeric     This call id is also used in the CEL table and can be
               value       used to get call detail information
 
-  time        Call time   
+  time        Call time
 
   ringtime                Ringing duration time in seconds
 
@@ -146,7 +146,7 @@ range of hours, days, week, month or year.
   timeout             Number of calls diverted because the maximum time allowed in
                       queue parameter was exceeded
 
-  queue\_id           
+  queue\_id
   --------------------------------------------------------------------------------
 
 stat\_agent

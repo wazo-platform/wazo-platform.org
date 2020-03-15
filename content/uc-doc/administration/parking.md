@@ -8,7 +8,7 @@ all the users of a system, when a call is parked, all the users are able
 to see that some one is waiting for an answer, push the phone key and
 get the call back to the phone.
 
-![](images/parking_intro.png)
+![](/images/uc-doc/administration/parking_intro.png)
 
 You can manage parking with `/parkinglots` endpoints
 

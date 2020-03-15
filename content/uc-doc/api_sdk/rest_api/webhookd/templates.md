@@ -25,15 +25,15 @@ Example
 
 Given a subscription:
 
-![](images/template-subscription.png)
+![](/images/uc-doc/api_sdk/rest_api/webhookd/template-subscription.png)
 
 When an event is emitted:
 
-![](images/template-event.png)
+![](/images/uc-doc/api_sdk/rest_api/webhookd/template-event.png)
 
 Then a HTTP request is sent to <https://example.com>:
 
-![](images/template-request.png)
+![](/images/uc-doc/api_sdk/rest_api/webhookd/template-request.png)
 
 Reference
 =========

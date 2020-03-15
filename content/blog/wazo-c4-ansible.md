@@ -1,6 +1,6 @@
 Title: Installing the Wazo Class 4 engine with Ansible
 Date: 2020-02-18
-Author: Fabio Tranchitella and Aleksandar Sosic 
+Author: Fabio Tranchitella and Aleksandar Sosic
 Category: Wazo Platform C4
 Tags: wazo-platform, c4, ansible
 Slug: install-wazo-c4-with-ansible
@@ -21,7 +21,7 @@ So, beside the fast containerized way with docker-compose or helm chart for Kube
 
 
 ## Wazo Platform C4 solution
-We've already introduced our C4 platform in a previous [blog post](wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales.
+We've already introduced our C4 platform in a previous [blog post](/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales.
 
 The Class 4 engine is made of several components:
 
@@ -190,7 +190,7 @@ Launch the installation by running the following command:
 # ansible-playbook -i inventories/c4 c4.yml
 ```
 
-If you want to test the Class 4 engine on a single host, you can use Vagrant to provision two virtual machines using the provided `Vagrantfile`: 
+If you want to test the Class 4 engine on a single host, you can use Vagrant to provision two virtual machines using the provided `Vagrantfile`:
 
 ```Ruby
 # -*- mode: ruby -*-

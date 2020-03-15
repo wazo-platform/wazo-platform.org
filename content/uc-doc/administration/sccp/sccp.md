@@ -18,7 +18,7 @@ phone you have, you need to install the plugin sccp-legacy, sccp-9.4 or
 both.
 
 #:exclamation: Please refer to the
-[Provisioning page](cisco-provisioning)
+[Provisioning page](/uc-doc/ecosystem/supported_devices#cisco-provisioning)
 for more information on how to install CISCO firmwares.
 
 Once your plugin is installed, you\'ll be able to edit which firmwares
@@ -169,7 +169,7 @@ Telephone
 
   7931          Yes           SCCP31.9-4-2SR1-1      Yes
 
-  7937          Testing                              
+  7937          Testing
 
   7940          Yes           8.1(SR.2)              No
 
@@ -179,7 +179,7 @@ Telephone
 
   7942          Yes           SCCP42.9-4-2SR1-1      Yes
 
-  7945          Testing                              
+  7945          Testing
 
   7960          Yes           8.1(SR.2)              No
 
@@ -187,15 +187,15 @@ Telephone
 
   7962          Yes           SCCP42.9-4-2SR1-1      Yes
 
-  7965          Testing                              
+  7965          Testing
 
-  7970          Testing                              
+  7970          Testing
 
-  7975          Testing                              
+  7975          Testing
 
-  8941          Testing                              
+  8941          Testing
 
-  8945          Testing                              
+  8945          Testing
 
   CIPC          Yes           2.1.2                  Yes
   -------------------------------------------------------------------

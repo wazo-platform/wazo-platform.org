@@ -14,8 +14,7 @@ The default installation generates a master token that can be
 retrieved in `/var/lib/consul/master_token`. This master token will
 not be used if a new configuration is supplied.
 
-Variables
-=========
+## Variables
 
 The following environment variables can be overridden in a systemd unit
 drop-in file:
@@ -30,8 +29,7 @@ Example, in
     Environment=CONFIG_DIR=/etc/consul/agent
     Environment=WAIT_FOR_LEADER=no
 
-Agent mode
-==========
+## Agent mode
 
 It is possible to run consul on another host and have the local consul
 node run as an agent only.
@@ -39,8 +37,7 @@ node run as an agent only.
 To get this kind of setup up and running, you will need to follow the
 following steps.
 
-Downloading Consul
-------------------
+### Downloading Consul
 
 For a 32 bits system
 
@@ -54,8 +51,7 @@ For a 64 bits system
 # wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 ```
 
-Installing Consul on a new host
--------------------------------
+### Installing Consul on a new host
 
 ```ShellSession
 # unzip consul_0.5.2_linux_386.zip
@@ -75,8 +71,7 @@ Or
         --home /var/lib/consul consul
 ```
 
-Copying the consul configuration from the Wazo to a new host
-------------------------------------------------------------
+### Copying the consul configuration from the Wazo to a new host
 
 On the new consul host, modify
 `/etc/consul/xivo/config.json` to include
@@ -103,8 +98,7 @@ and group (consul:consul) for all files inside
 `/usr/share/xivo-certs` and
 `/var/lib/consul`
 
-Adding the agent configuration
-------------------------------
+### Adding the agent configuration
 
 Create the file `/etc/consul/agent/config.json`{.interpreted-text
 role="file"} with the following content
@@ -140,7 +134,7 @@ role="file"} with the following content
     example.
 -   `remote_host`: IP address of your new consul. Be sure the host is
     accessible from your Wazo and check the firewall. See the
-    documentation [here](../contributors/network).
+    documentation [here](/uc-doc/contributors/network).
 -   `wazo_address`: IP address of your Wazo.
 
 This file should be owned by consul user.
@@ -149,8 +143,7 @@ This file should be owned by consul user.
 # chown -R consul:consul /etc/consul/agent
 ```
 
-Enabling the agent configuration
---------------------------------
+### Enabling the agent configuration
 
 Add or modify
 `/etc/systemd/system/consul.service.d/custom.conf` to include the following lines:

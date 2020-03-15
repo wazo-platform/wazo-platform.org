@@ -39,7 +39,7 @@ entering the call distribution system using different incoming call
 numbers, using an IVR to let the caller do his own choice, or by
 requesting to the information system database the customer profile.
 
-![Skills-Based Routing](images/sbr_introduction.png)
+![Skills-Based Routing](/images/uc-doc/contact_center/skillbasedrouting/sbr_introduction.png)
 
 Getting Started
 ===============
@@ -191,7 +191,7 @@ removed in a future Wazo version.
 
 Examples
 
-:   
+:
 
 -   WT \< 60
 
@@ -210,7 +210,7 @@ Then every `$lang` occurrence will be replaced by \'german\'.
 
 Examples
 
-:   
+:
 
 -   english \> 50
 -   technic ! 0 & (\$os \> 29 & \$lang \> 39 \| \$os \> 39 &

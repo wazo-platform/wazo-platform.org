@@ -5,7 +5,7 @@ title: Devices
 The supported devices are expected to work across upgrades and phone
 features should work on the latest version.
 
-- [Supported Devices](supported_devices)
+- [Supported Devices](/uc-doc/ecosystem/supported_devices)
 
 The supported devices page lists, for each vendor, a table that shows
 the various features supported by Wazo. Here\'s an example:

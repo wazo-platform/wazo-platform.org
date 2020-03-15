@@ -54,7 +54,7 @@ timers:
 >     time out". When set to "dialplan", the call will use the
 >     "Ringing time".
 
-![](queue_timers.jpg)
+![](/images/uc-doc/contact_center/queues/queue_timers.jpg)
 
 Fallbacks
 =========

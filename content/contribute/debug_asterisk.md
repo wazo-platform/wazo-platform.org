@@ -251,5 +251,5 @@ External links
 --------------
 
 -   <https://wiki.asterisk.org/wiki/display/AST/Debugging>
--   [Visualizing Asterisk Deadlocks](visualizing-asterisk-deadlocks)
+-   [Visualizing Asterisk Deadlocks](/contribute/visualizing-asterisk-deadlocks)
 -   <https://wiki.asterisk.org/wiki/display/AST/Valgrind>

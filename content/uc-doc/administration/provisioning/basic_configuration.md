@@ -97,7 +97,7 @@ On the web interface of your phone, go to
 server`{.interpreted-text role="menuselection"}, and enter the following
 settings:
 
-![](img/config_server_aastra.png)
+![Configuration Server Aastra](/images/uc-doc/provisioning/config_server_aastra.png)
 
 Polycom
 -------
@@ -123,7 +123,7 @@ On the web interface of your phone, go to
 `Setup --> Advanced --> Update`{.interpreted-text role="menuselection"}
 and enter the following settings:
 
-![](img/config_server_snom.png)
+![Configuration Server SNOM](/images/uc-doc/provisioning/config_server_snom.png)
 
 Yealink
 -------
@@ -134,7 +134,7 @@ and enter the following settings:
 
 -   Server URL: `http://<Wazo IP address>:8667`
 
-![](img/config_server_yealink.png)
+![Configuration Server Yealink](/images/uc-doc/provisioning/config_server_yealink.png)
 
 Save the changes by clicking on the `Confirm`{.interpreted-text
 role="guilabel"} button and then click on the

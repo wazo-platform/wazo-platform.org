@@ -7,7 +7,7 @@ information we were expecting. But what is really happening inside that
 "device info extractor" ? Let's see:
 
 [![Device info extraction
-details](../images/blog/provd/.provd-dev-info-extraction-details_m.jpg "Device info extraction details, fév. 2012")](/images/blog/provd/provd-dev-info-extraction-details.png "Device info extraction details")
+details](/images/blog/provd/provd-dev-info-extraction-details_m.jpg "Device info extraction details, fév. 2012")](/images/blog/provd/provd-dev-info-extraction-details.png "Device info extraction details")
 
 The device info extractor object is in fact only merging results from
 two others device info extractor.
@@ -70,6 +70,3 @@ said, even the worst case doesn't pose a real problem. Next time, if I
 don't get too many death threat following this article, I'll talk about
 the next step of request processing in provd, device retrieving, which
 is quite simpler by the way.
-
-</p>
-

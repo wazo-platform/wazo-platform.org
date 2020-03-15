@@ -11,14 +11,14 @@ After you upgrade your XiVO, your CTI displays in
 Directories --> Displays`{.interpreted-text role="menuselection"} may
 look like this:
 
-![](images/display_before_15_19.png)
+![](/images/uc-doc/upgrade/15-19/display_before_15_19.png)
 
 You should update your displays to make them look like:
 
-![](images/display_after_15_19.png)
+![](/images/uc-doc/upgrade/15-19/display_after_15_19.png)
 
 This will give you a Xlet People looking like this:
 
-![](images/people_xlet_after_15_19_1.png)
+![](/images/uc-doc/upgrade/15-19/people_xlet_after_15_19_1.png)
 
-![](images/people_xlet_after_15_19_2.png)
+![](/images/uc-doc/upgrade/15-19/people_xlet_after_15_19_2.png)

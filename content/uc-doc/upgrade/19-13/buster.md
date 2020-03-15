@@ -1,18 +1,12 @@
 ---
-title: 'Debian 9 (stretch) Upgrade Notes'
+title: Debian 10 (Buster) Upgrade Notes
 ---
 
--   [Before the upgrade](#before-the-upgrade)
--   [Upgrade](#upgrade)
--   [After the upgrade](#after-the-upgrade)
--   [Changes](#changes)
--   [External Links](#external-links)
-
-The upgrade to Wazo 18.01 or later will take longer than usual, because
+The upgrade to Wazo 19.13 or later will take longer than usual, because
 the whole Debian system will be upgraded.
 
 The database management system (postgresql) will also be upgraded from
-version 9.4 to version 9.6 at the same time. This will upgrade the
+version 9.6 to version 11 at the same time. This will upgrade the
 database used by Wazo. This operation should take at most a few minutes.
 
 After the upgrade, the system will need to be rebooted.
@@ -20,18 +14,29 @@ After the upgrade, the system will need to be rebooted.
 Before the upgrade
 ==================
 
+-   Make sure your version of Wazo is at least 18.01. You can run
+    `wazo-upgrade` to check the version currently installed. If your
+    version of Wazo is older that 18.01, you should first upgrade your
+    Wazo to Debian Stretch, following the procedure described in
+    [Debian 9 (stretch) Upgrade Notes](/uc-doc/upgrade/18-01/stretch).
 -   Make sure your have sufficient space for the upgrade. You might run
     into trouble if you have less than 2 GiB available in the file
-    system that holds the `/var`{.interpreted-text role="file"} and
-    `/`{.interpreted-text role="file"} directories.
--   If you have customized the Debian system of your XiVO in some
+    system that holds the `/var` and
+    `/` directories.
+-   Remove the `freeradius` package. If you have recompiled Asterisk on
+    you server you most likely installed the `libfreeradius-dev`
+    package, which pulled `freeradius`. This package cannot be
+    confiugred on Debian Buster under some circunstances that are not
+    under our control. You can remove it with the following command
+    `apt purge freeradius`
+-   If you have customized the Debian system of your Wazo in some
     nontrivial way, you might want to review the [official Debian
-    release notes](https://www.debian.org/releases/stretch/releasenotes)
+    release notes](https://www.debian.org/releases/buster/releasenotes)
     before the upgrade. Most importantly, you should:
     -   Make sure you don\'t have any unofficial sources in your
-        `/etc/apt/sources.list`{.interpreted-text role="file"} or
-        `/etc/apt/sources.list.d`{.interpreted-text role="file"}
-        directory. If you were using the `jessie-backports` source, you
+        `/etc/apt/sources.list` or
+        `/etc/apt/sources.list.d`
+        directory. If you were using the `stretch-backports` source, you
         must remove it.
     -   Remove packages that were automatically installed and are not
         needed anymore, by running `apt-get autoremove --purge`.
@@ -50,12 +55,12 @@ Upgrade
 
 The upgrade must be done with three commands:
 
--   `xivo-dist phoenix`: Ensures your system is not restricted to a
-    specific version
+-   `wazo-dist -m pelican-stretch`: Ensures your system is not
+    restricted to a specific version
 -   `wazo-upgrade`: Installs the `wazo-dist-upgrade` script and makes
     sure the system is up-to-date.
--   `wazo-dist-upgrade`: Upgrade to the latest version of Wazo with
-    Debian 9 (stretch). This upgrade will take longer than usual.
+-   `wazo-dist-upgrade`: Upgrades to the latest version of Wazo with
+    Debian 10 (Buster). This upgrade will take longer than usual.
 
 You may need to reboot your machine before running `wazo-dist-upgrade`.
 `wazo-dist-upgrade` will tell you if a reboot is needed.
@@ -63,8 +68,10 @@ You may need to reboot your machine before running `wazo-dist-upgrade`.
 To minimize the downtime, you can pre-download the packages required for
 the upgrade with:
 
-    wazo-upgrade -d
-    wazo-dist-upgrade -d
+```ShellSession
+# wazo-upgrade -d
+# wazo-dist-upgrade -d
+```
 
 After the upgrade
 =================
@@ -75,14 +82,14 @@ After the upgrade
     During the upgrade, new version of configuration files are going to
     be installed, and these might override your local customization. For
     example, the vim package provides a new
-    `/etc/vim/vimrc`{.interpreted-text role="file"} file. If you have
+    `/etc/vim/vimrc` file. If you have
     customized this file, after the upgrade you\'ll have both a
-    `/etc/vim/vimrc`{.interpreted-text role="file"} and
-    `/etc/vim/vimrc.dpkg-old`{.interpreted-text role="file"} file, the
+    `/etc/vim/vimrc` and
+    `/etc/vim/vimrc.dpkg-old` file, the
     former containing the new version of the file shipped by the vim
     package while the later is your customized version. You should merge
     back your customization into the new file, then delete the
-    `.dpkg-old`{.interpreted-text role="file"} file.
+    `.dpkg-old` file.
 
     You can see a list of affected files by running
     `find /etc -name '*.dpkg-old'`. If some files show up that you
@@ -94,22 +101,8 @@ After the upgrade
 -   Reboot your system. It is necessary for the new Linux kernel to be
     effective.
 
-Changes
-=======
-
-Here\'s a non-exhaustive list of changes that comes with Wazo on Debian
-9:
-
--   **Network interface names (only for new installs, not upgrades)**:
-    Debian Stretch uses the new standard naming scheme for network
-    interfaces instead of `eth0`, `eth1`, etc. The new enumeration
-    method relies on more sources of information, to produce a more
-    repeatable outcome. It uses the firmware/BIOS provided index numbers
-    and then tries PCI card slot numbers, producing names like `ens0` or
-    `enp1s1`.
-
 External Links
 ==============
 
--   [Official Debian 9 release
-    notes](https://www.debian.org/releases/stretch/releasenotes)
+-   [Official Debian 10 release
+    notes](https://www.debian.org/releases/buster/releasenotes)

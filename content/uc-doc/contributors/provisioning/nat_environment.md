@@ -2,9 +2,6 @@
 title: Configuring a NAT Environment
 ---
 
--   [Prerequisite](#prerequisite)
--   [Configuration](#configuration)
-
 This is a configuration example to simulate the case of a hosted Wazo,
 i.e. an environment where:
 
@@ -13,7 +10,7 @@ i.e. an environment where:
 
 In this example, we\'ll reproduce the following environment:
 
-![Phones behind a NAT](nat.png)
+![Phones behind a NAT](/images/uc-doc/contributors/provisioning/nat.png)
 
 Where:
 
@@ -32,8 +29,7 @@ with this setup. What you usually have to do is only to switch your
 phone from the \"Wazo\" VLAN to the \"phones\" VLAN, and reconfiguring
 the lines on your Wazo.
 
-Prerequisite
-============
+## <a name="prerequisite"></a>Prerequisite
 
 On the host machine:
 
@@ -48,8 +44,7 @@ On the guest machine, i.e. on the Wazo:
     In our example, this interface inside the virtual machine will have
     the IP 10.34.1.1/24.
 
-Configuration
-=============
+## <a name="configuration"></a>Configuration
 
 1.  On the host, install the ISC DHCP server:
 

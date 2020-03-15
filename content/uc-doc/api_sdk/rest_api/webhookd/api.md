@@ -7,5 +7,5 @@ API documentation is available on </documentation>.
 
 More specific documentation:
 
-- [User Filter](user_filter)
-- [Templates](templates)
+- [User Filter](/uc-doc/api_sdk/rest_api/webhookd/user_filter)
+- [Templates](/uc-doc/api_sdk/rest_api/webhookd/templates)

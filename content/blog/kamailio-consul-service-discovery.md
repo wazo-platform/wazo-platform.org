@@ -10,7 +10,7 @@ Status: published
 
 ## Introduction
 
-As we started with the deployment of our C4 (Class 4) [SBC and routing solution on a Kubernetes Cluster through a Helm Chart](wazo-platform-c4-on-kubernetes), we knew that scaling would be a core feature.
+As we started with the deployment of our C4 (Class 4) [SBC and routing solution on a Kubernetes Cluster through a Helm Chart](/blog/wazo-platform-c4-on-kubernetes), we knew that scaling would be a core feature.
 
 Dynamic scaling brought additional complexity in the configuration of our Kamailio components. Having a cloud-native solution meant that we had to find a way to make SBCs and routers auto-configure themselves without human intervention or static configurations, which will bound the size of our architecture.
 
@@ -28,7 +28,7 @@ Consul is a distributed,  highly available, and datacenter-aware service discove
 
 * **Health checks:** Consul agent can provide different health checks associated with a given service, for example: "is the web service returning a 200 OK?" or "is the memory utilization below 90%?".
 
-* **Key/value storage:** Applications can use Consul's KV store via HTTP API requests for dynamic configuration, flagging, coordination, and many more. 
+* **Key/value storage:** Applications can use Consul's KV store via HTTP API requests for dynamic configuration, flagging, coordination, and many more.
 
 * **Secure Service Communication:** TLS certificates can be generated and distributed through Consul. Intentions (Access Controls) and service segmentation can be managed and changed in real-time.
 
@@ -40,7 +40,7 @@ Last but not least, it has a flexible and powerful interface that allows users t
 
 Wazo Platform C4 grew from a single Kamailio instance of our PoC to different components, which we define Session Border Controller (SBC), Router, and RTP Engine (RTPe). With a database (PostgreSQL) and a routing API (wazo-router-confd), it started to be a more complex architecture than the one we used for the MVP.
 
-All of those components are interacting in different ways. We have a SIP, an RTP, and a data flow between them. Also, We split the monolithic Kamailio component into two independent parts, the SBC and Router to be able to scale those two different layers independently. 
+All of those components are interacting in different ways. We have a SIP, an RTP, and a data flow between them. Also, We split the monolithic Kamailio component into two independent parts, the SBC and Router to be able to scale those two different layers independently.
 
 We wanted to keep it as simple as possible, which is also our development rule number one at Wazo.
 

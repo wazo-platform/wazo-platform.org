@@ -13,9 +13,9 @@ example:
     curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<wazo_address>:9486/1.1/users
 
 Also, your token needs to have the right ACLs to give you access to the
-resource you want. See [REST API ACL](acl).
+resource you want. See [REST API ACL](/uc-doc/api_sdk/rest_api/acl).
 
-See also [service-authentication](../../system/service_authentication) for
+See also [service-authentication](/uc-doc/system/service_authentication/service_authentication) for
 details about the token-based authentication process.
 
 HTTP status codes
@@ -80,13 +80,13 @@ Data retrieved from the REST server
 JSON is used to encode returned or sent data. Therefore, the following
 headers are needed:
 
--   
+-
 
     when the request is supposed to return JSON:
 
     :   Accept = application/json
 
--   
+-
 
     when the request\'s body contains JSON:
 
@@ -177,7 +177,7 @@ messages. The following errors are common to all web services:
 
   -------------------------------------------------------------------------
   Error   Error     Description
-  code    message   
+  code    message
   ------- --------- -------------------------------------------------------
   406     empty     Accept header missing or contains an unsupported
                     content type

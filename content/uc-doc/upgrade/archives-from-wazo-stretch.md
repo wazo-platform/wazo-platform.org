@@ -43,7 +43,7 @@ Example to upgrade to Wazo 19.13:
 
 This will upgrade your Wazo to 19.12. From there:
 
-1.  Read the [upgrade notes](upgrade_notes_buster)
+1.  Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes)
 2.  Upgrade to Wazo 19.13:
 
 ```ShellSession
