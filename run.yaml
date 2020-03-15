@@ -15,9 +15,9 @@
           module.exports = {
             githubToken: '',
             algolia: {
-              appId: '{{ algolia.appId }}',
-              publicKey: '{{ algolia.publicKey }}',
-              apiKey: '{{ algolia.apiKey }}',
+              appId: '',
+              publicKey: '',
+              apiKey: '',
             },
           };
         dest: "{{ zuul.project.src_dir }}/config.js"
