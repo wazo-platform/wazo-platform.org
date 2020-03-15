@@ -1,3 +1,40 @@
+- secret:
+    name: algolia_secret
+    data:
+      appId: !encrypted/pkcs1-oaep
+        - ET+4kposchs+3O0lL8CHv75BuEvlrlqfNWQrWgwbRwN8o0KJTyk88BXGk1WVmUj3cghFN
+          Uzp0OZ9kU9I0GaxOg675P8dFwLvHI5h4M6UWW+7KXjv5uBtFcpioniB1RAQdFx3UM62DS
+          X+A/JXlHJQEwC/jTvRBZR7d3bNuGzxwAmMZu+S/fbuud5FstA9PKTJ4Af+IYxLTsHtfOK
+          trBgSx2c4rLeu3qspI6Q8rpWyPcXaxfKX4NByVaZZ4DVJoZeSh7VZqsHFU//5+M5qAJM0
+          XyxAXxIj94Pq0/eNDeesSJpgNUodTMQ8YXVR8Pg1uDBfbKHgVoDB3so8mfSEqkc+f2o2P
+          k6nur5uSsNrxz0D5609PoEps0hfigLCI3siDBMzF3M3iCGvtuZteKkDC5S2bVx2cLfqT6
+          aCvVP4h95Hq2CzrvQ63is6nk6LaUWM2xm1koq1wB9XX3IYJqwHX2RGuAqo4G7doYbr57M
+          7hf31eWGE0rGTSdxYh7JxDErUKoo8H6HykM2uQf0OiCJNLZTLfq8oBOgafmbCvuLNg3XN
+          XrclSSkH5hmEeCemayrCet5d2xSiksXaH7YZkLnzFqFn6Vv6waRHQDepfAJMiYFK1AgXv
+          /ZgO1a/h+mx+2Vy2wn0xFgeoISjJuIeU3aQ+XlZQ8PeCJvg88Rtdl1qFPCl/vo=
+      apiKey: !encrypted/pkcs1-oaep
+        - bWoDL6RHxjdSzlKpzD7fso0V4ousS27NyVkwT1l7SDUOo7jSYOBV/8EeF0D+gusNR++Ng
+          O2OKkG6iW8xsTFCiMTcy4QcB9gf7nzTXuxBtdIcHBgH5uG5AFtc47lUCx55UWtpuXGJDi
+          +y3sX5didkRLrFmKYW9iNHSeWyhQaANC9jmbIfQ+EwwE+d9gWYruLxx1OrutjDwtDcUS0
+          7mzjF6L4lheWAUw6fwoWJ+drTL7ItF/T8J12/0u1OKZqx4AYn6jrrYiigVBq3jjAp2Af/
+          dg1qPC7PY6MfhytU1G6XQdnPmPN3iWV5pI6jwrNEprHCzoLu3PMDhzGHQBtledeAUAyeq
+          wDqbTGdQEqgCe4hI9j1Oxt9OnUS7na1Akpxca8jtrJMA/7if3mdVjoHcNe/77eINY7eAU
+          RdT144+Lg7oHCowGIHYmssdNGQ6duf2dx4PVZ72lT1ach20+lQ324D89vHDxOYgigmtl/
+          sWZPfet9G9rqg16+d742S5xs2npejKecoJjJFA/p6I/mTuC1RgEbK1doGkLHTXkOBonyp
+          /f1DqpmBtoQr1Dr7XiTKuANUPzv1d0iNdoLsWBxZwtUyjIUovwW/1o0OUxoHG1asdh4sK
+          ln93g3//v9uG4r5ynbWuV3DNYfaiGU4D1E4SVP+cCUy1wixcmubLM+zkInicR8=
+      publicKey: !encrypted/pkcs1-oaep
+        - AjsG6RElYlm3MMPeSBHpvIK/elE3z++QFJt5QnIZeF53594VjFGKQlRIyODTi1urZtweH
+          5CKBdfRz9rNMz6rRA5vU92I3tkomho2aiLeP6p2oLPIsUJMZ5Sdrp4Qs4+TwfpYCgOUUi
+          mNnf54IjoT4nduZK4HoQhOL794L1xa6mTSxa1xp8xUf9lLmEtRT3QlzougJM0o7xZK9nu
+          1FdXVNE/mNvCszbYpUKwuSw32Smnr/3aHgje0tAvtUPNkmL7Br2NoC+bDeFgzN/uop52a
+          lROn7PsdopG5hWlDYYOpCRpV4ngvutapQCNEpPxKAkKlTU90GMSpZK7MZjyFJurMmrM9Q
+          0TVNLsW6IIH1U651BRHfJGpcqpQxH+IejkqVUafKElU2LUSfwM2GyurwWvoPo/4FtzdMK
+          HDVWRuPKbHeVGfkaVXROsPkwd5B3VOL/Nl2Kzi8hCME3hsaCxjrOpKx3QhaBOdfqyRK6t
+          pmff6x4DsXP1FZ4M8+g0HNekKyzd2gu2uwhWJLRvFM7qUf2OAX/DC7wZX9trFdVAHmjjk
+          m/DR9cmpZrs6Yx+qf1B8peD8mK/hmCd7WVqY/putLXBekfsiGkQIrz5skWYJeclcFYpg+
+          BrGzGO1MtoQh8H52yT6zal1L0qJ36nuUcoMZZdFF78ehOXRIwx1koU9TnDroYY=
+
 - job:
     name: yarn-build-copy
     description: Build and copy
@@ -9,6 +46,9 @@
     description: Build and publish
     pre-run: pre.yaml
     run: run.yaml
+    secrets:
+      - name: algolia
+        secret: algolia_secret
 
 - job:
     name: yarn-build-test
