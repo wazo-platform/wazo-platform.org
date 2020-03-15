@@ -1,6 +1,6 @@
 Title: Wazo Platform C4 now deployable on Kubernetes
 Date: 2019-11-26
-Author: Fabio Tranchitella and Aleksandar Sosic 
+Author: Fabio Tranchitella and Aleksandar Sosic
 Category: Wazo Platform C4
 Tags: wazo-platform, c4, kubernetes, docker, cloud
 Slug: wazo-platform-c4-on-kubernetes
@@ -21,7 +21,7 @@ We started with a deployment of our C4 (Class 4) SBC and routing solution on a K
 
 
 ## Wazo Platform C4 solution
-We've already introduced our C4 platform in a recent [blog post](wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales. It is a fairly new project of ours but we've done giant leaps toward a complete C4 solution just in the last weeks.
+We've already introduced our C4 platform in a recent [blog post](/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales. It is a fairly new project of ours but we've done giant leaps toward a complete C4 solution just in the last weeks.
 
 Our [Docker Compose repository](https://github.com/wazo-platform/wazo-c4) that ties these components together has received a cleanup and improvement and at this point, we knew we could run Wazo Platform C4 in a Kubernetes Cluster.
 
@@ -38,7 +38,7 @@ Kubernetes has established itself as the defacto standard for container orchestr
 
 
 ## Why Kubernetes?
-Companies that move to microservice and cloud-native architectures that make use of containers are looking for strong, proven platforms. And the number of those organizations is ever-growing in the last years. 
+Companies that move to microservice and cloud-native architectures that make use of containers are looking for strong, proven platforms. And the number of those organizations is ever-growing in the last years.
 
 Kubernetes allows efficient distributions of applications across a cluster of nodes with the abstraction of resources like CPU and memory. Kubernetes can run anywhere, from bare metal to any cloud provider infrastructure and it focuses on deploying containers inside the infrastructure instead of directly utilizing hosts/nodes.
 

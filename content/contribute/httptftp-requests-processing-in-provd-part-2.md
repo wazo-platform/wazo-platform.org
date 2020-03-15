@@ -41,7 +41,7 @@ Let's see in more details what happens in this "device retriever"
 object:
 
 [![Device
-retriever](/images/blog/provd/.device-retriever_m.jpg "Device retriever, avr. 2012")](../images/blog/provd/device-retriever.png "Device retriever")
+retriever](/images/blog/provd/device-retriever_m.jpg "Device retriever, avr. 2012")](/images/blog/provd/device-retriever.png "Device retriever")
 
 The device retriever will ask one at a time the different other device
 retrievers until one returns something. In our example, since the provd
@@ -111,6 +111,3 @@ integration". Yes. Just believe me.
 So that's all folks. Next time, if your brain still hasn't suffered from
 an epileptic seizure, get ready because we'll be talking about the
 "device updating" step.
-
-</p>
-

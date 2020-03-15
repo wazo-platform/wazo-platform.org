@@ -8,7 +8,7 @@ Status: published
 
 Hello Wazo community! Here comes the first release of Wazo, Wazo 16.16!
 
-If your are new to the Wazo project, you should take a look at [this blog post](introducing-wazo) that explains why the project was created.
+If your are new to the Wazo project, you should take a look at [this blog post](/blog/introducing-wazo) that explains why the project was created.
 
 We will describe here the changes made since XiVO 16.13, which is the release of XiVO where Wazo starts from. This sprint review is a bit longer than the others, since it includes the equivalent of 3 versions, 16.13 having been released more than 2 months ago. Future releases will come out every 3 weeks, except for quality assurance no-gos.
 

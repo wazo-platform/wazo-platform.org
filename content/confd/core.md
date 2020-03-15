@@ -19,7 +19,7 @@ A plugin for associating or dissociating 2 resources (e.g a `user` and a
 `POST` or `PUT`) and another for dissociating (`DELETE`)
 The following diagram outlines the most important parts of a plugin:
 
-![plugin architecture](http://documentation.wazo.community/en/latest/_images/wazo-confd-plugin-architecture.png)
+![plugin architecture](https://wazo.readthedocs.io/en/latest/_images/wazo-confd-plugin-architecture.png)
 
 ## Resource
 
