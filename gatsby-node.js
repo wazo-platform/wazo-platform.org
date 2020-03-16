@@ -299,11 +299,13 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       return;
     }
 
+    let dynamicUcDocMenu = {}
     ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const pagePath = node.fileAbsolutePath
         .split('content/')[1]
         .split('.')[0]
         .replace('index', '');
+
       newPage(pagePath, 'uc-doc/index', {
         content: node.html,
         title: node.frontmatter.title,
@@ -311,7 +313,33 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         pagePath,
       });
     });
+
+    // Generate json file to make a dynamic submenu in /uc-doc
+    const pathSteps = pagePath.split('/').filter(step => step !== '');
+    dynamicUcDocMenu = pathSteps.reduce((acc, val, index) => {
+      let depthCursor = acc;
+      for (var i = 0; i < index; i++) {
+        depthCursor = depthCursor[pathSteps[i]];
+      }
+      if(!depthCursor[val]) {
+        depthCursor[val] = {};
+      }
+
+      if((pathSteps.length - 1) === index) {
+        depthCursor[val].self = {
+          title: node.frontmatter.title,
+          path: `/${pagePath}`,
+        }
+      }
+
+      return acc;
+    }, dynamicUcDocMenu);
   }
+
+  fs.writeFile(__dirname + '/public/json/uc-doc-submenu.json', JSON.stringify(dynamicUcDocMenu), (err) => {
+    if (err) console.log(err);
+  });
+
 
   // Create api pages
   // ----------
