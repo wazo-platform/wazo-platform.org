@@ -321,25 +321,24 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       for (var i = 0; i < index; i++) {
         depthCursor = depthCursor[pathSteps[i]];
       }
-      if(!depthCursor[val]) {
+      if (!depthCursor[val]) {
         depthCursor[val] = {};
       }
 
-      if((pathSteps.length - 1) === index) {
+      if (pathSteps.length - 1 === index) {
         depthCursor[val].self = {
           title: node.frontmatter.title,
           path: `/${pagePath}`,
-        }
+        };
       }
 
       return acc;
     }, dynamicUcDocMenu);
   }
 
-  fs.writeFile(__dirname + '/public/json/uc-doc-submenu.json', JSON.stringify(dynamicUcDocMenu), (err) => {
+  fs.writeFile(__dirname + '/public/json/uc-doc-submenu.json', JSON.stringify(dynamicUcDocMenu), err => {
     if (err) console.log(err);
   });
-
 
   // Create api pages
   // ----------
