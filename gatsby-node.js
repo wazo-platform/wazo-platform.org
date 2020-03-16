@@ -21,8 +21,9 @@ let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.api
 let algoliaIndex = null;
 
 if (hasSearch) {
+  console.info('enabling Algolia search');
   const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-  algoliaIndex = algoliaClient.initIndex('wazo-doc-overview');
+  algoliaIndex = algoliaClient.initIndex(forDeveloper ? 'wazo-dev-overview' : 'wazo-doc-overview');
   algoliaIndex.setSettings(
     {
       attributeForDistinct: 'title',
@@ -161,11 +162,16 @@ const walk_md_files = (dir, path, acc, index) => {
 };
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  console.log(`Building ${siteUrl}`);
+  console.info(`Building ${siteUrl}`);
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
   } catch (e) {
     console.error(e);
+  }
+
+  // Init algolia index
+  if (hasSearch) {
+    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
   }
 
   const ecosystemDoc = fs.readFileSync('./content/ecosystem.md', 'utf8');
@@ -181,6 +187,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
+  var algoliaObjects = [];
 
   const getModuleName = repoName =>
     Object.keys(allModules).find(moduleName => {
@@ -190,12 +197,23 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     });
 
   // Helper to generate page
-  const newPage = (modulePath, component, context) =>
+  const newPage = (modulePath, component, context) => {
     createPage({
       path: modulePath,
       component: path.resolve(`src/component/${component}.js`),
       context,
     });
+    if (hasSearch) {
+      // TODO FL [Mon Mar 16 10:35:04 2020]
+//       algoliaObjects.push({
+//         repository: repoName,
+//         moduleName,
+//         title: module.title,
+//         description: module.description,
+//         content,
+//      });
+    }
+  }
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
@@ -212,8 +230,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
   // Update algolia index
   if (hasSearch) {
-    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
-    const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
+    algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
       const moduleName = getModuleName(repoName);
       const module = allModules[moduleName];
       const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
@@ -228,46 +245,45 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       });
 
       return acc;
-    }, []);
-
-    algoliaIndex.addObjects(algoliaObjects);
+    }, algoliaObjects);
   }
 
   const articles = await getArticles(createPage);
 
-  // Create homepage
-  await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
+  if (!forDeveloper) {
+    // Create homepage
+    await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
 
-  // Create doc page
-  await newPage('/documentation', 'documentation/index', { sections, overviews });
-  // Create install page
-  await newPage('/install', 'install/index', { installDoc });
-  // Create install-uc page
-  await newPage('/install/unified-communication', 'install_uc/index', { installUCDoc });
-  // Create install-uc page
-  await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
-  // Create contribute page
-  await newPage('/contribute', 'contribute/index', { content: contributeDoc });
-  // Create blog page
-  await newPage('/blog', 'blog/index', { articles });
-  // Create ecosystem page
-  await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
+    // Create doc page
+    await newPage('/documentation', 'documentation/index', { sections, overviews });
+    // Create install page
+    await newPage('/install', 'install/index', { installDoc });
+    // Create install-uc page
+    await newPage('/install/unified-communication', 'install_uc/index', { installUCDoc });
+    // Create install-uc page
+    await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
+    // Create contribute page
+    await newPage('/contribute', 'contribute/index', { content: contributeDoc });
+    // Create blog page
+    await newPage('/blog', 'blog/index', { articles });
+    // Create ecosystem page
+    await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
 
-  // Create contribute pages
-  Object.keys(contributeDocs).forEach(fileName => {
-    const rawContent = contributeDocs[fileName].split('\n');
-    const title = rawContent[0];
-    rawContent.shift();
-    rawContent.shift();
-    const content = rawContent.join('\n');
-    var p = '/contribute/' + path.basename(fileName, '.md');
-    console.log('generating ' + p);
-    newPage(p, 'contribute/index', { content, title });
-  });
+    // Create contribute pages
+    Object.keys(contributeDocs).forEach(fileName => {
+      const rawContent = contributeDocs[fileName].split('\n');
+      const title = rawContent[0];
+      rawContent.shift();
+      rawContent.shift();
+      const content = rawContent.join('\n');
+      var p = '/contribute/' + path.basename(fileName, '.md');
+      console.log('generating ' + p);
+      newPage(p, 'contribute/index', { content, title });
+    });
 
-  // Create uc-doc pages
-  // ---------
-  const ucDocsResult = await graphql(`
+    // Create uc-doc pages
+    // ---------
+    const ucDocsResult = await graphql(`
     {
       allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/uc-doc/"} }) {
         edges {
@@ -286,78 +302,84 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
   `)
 
-  // Handle errors
-  if (ucDocsResult.errors) {
-    reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
-    return;
-  }
-
-  ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
-    newPage(
-      pagePath,
-      'uc-doc/index',
-      {
-        content: node.html,
-        title: node.frontmatter.title,
-        pagePath,
-      },
-    )
-  })
-
-
-  // Create api pages
-  // ----------
-  sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName =>
-      newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
-        moduleName,
-        module: section.modules[moduleName],
-      })
-    )
-  );
-
-  // Create console pages
-  sections.forEach(section =>
-    Object.keys(section.modules).forEach(
-      moduleName =>
-        !!section.modules[moduleName].redocUrl &&
-        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
-          moduleName,
-          module: section.modules[moduleName],
-          modules: section.modules,
-        })
-    )
-  );
-
-  // Create overview and extra pages
-  Object.keys(allModules).forEach(moduleName => {
-    const module = allModules[moduleName];
-    const repoName = module.repository;
-    if (!repoName) {
+    // Handle errors
+    if (ucDocsResult.errors) {
+      reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
       return;
     }
 
-    newPage(`/documentation/overview/${moduleName}.html`, 'documentation/overview', {
-      overview: overviews[repoName.replace('wazo-', '')],
-      moduleName,
-      module,
-    });
+    ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
+      newPage(
+        pagePath,
+        'uc-doc/index',
+        {
+          content: node.html,
+          title: node.frontmatter.title,
+          pagePath,
+        },
+      )
+    })
 
-    const dir = 'content/' + repoName.replace('wazo-', '');
-    const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
-    files.forEach((file, key) => {
-      if (file.endsWith('.md') && file != 'description.md') {
-        const filePath = `${dir}/${file}`;
-        const baseName = file.replace('.md', '');
-        const content = fs.readFileSync(filePath, 'utf8');
-        console.log(`generating /documentation/overview/${moduleName}-${baseName}.html`);
-        newPage(`/documentation/overview/${moduleName}-${baseName}.html`, 'documentation/overview', {
-          overview: content,
-          moduleName,
-          module,
-        });
+    // Create api pages
+    // ----------
+    sections.forEach(section =>
+                     Object.keys(section.modules).forEach(moduleName =>
+                                                          newPage(`/documentation/api/${moduleName}.html`,
+                                                                  'documentation/api', {
+                                                                    moduleName,
+                                                                    module: section.modules[moduleName],
+                                                                  })
+                                                         )
+                    );
+
+    // Create console pages
+    sections.forEach(section =>
+                     Object.keys(section.modules).forEach(
+                       moduleName =>
+                         !!section.modules[moduleName].redocUrl &&
+                         newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+                           moduleName,
+                           module: section.modules[moduleName],
+                           modules: section.modules,
+                         })
+                     )
+                    );
+
+    // Create overview and extra pages
+    Object.keys(allModules).forEach(moduleName => {
+      const module = allModules[moduleName];
+      const repoName = module.repository;
+      if (!repoName) {
+        return;
       }
+
+      newPage(`/documentation/overview/${moduleName}.html`, 'documentation/overview', {
+        overview: overviews[repoName.replace('wazo-', '')],
+        moduleName,
+        module,
+      });
+
+      const dir = 'content/' + repoName.replace('wazo-', '');
+      const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
+      files.forEach((file, key) => {
+        if (file.endsWith('.md') && file != 'description.md') {
+          const filePath = `${dir}/${file}`;
+          const baseName = file.replace('.md', '');
+          const content = fs.readFileSync(filePath, 'utf8');
+          console.log(`generating /documentation/overview/${moduleName}-${baseName}.html`);
+          newPage(`/documentation/overview/${moduleName}-${baseName}.html`, 'documentation/overview', {
+            overview: content,
+            moduleName,
+            module,
+          });
+        }
+      });
     });
-  });
+  };
+
+  // Update algolia index
+  if (hasSearch) {
+    algoliaIndex.addObjects(algoliaObjects);
+  }
 };

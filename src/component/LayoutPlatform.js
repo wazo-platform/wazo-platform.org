@@ -1,6 +1,7 @@
 import Helmet from 'react-helmet';
 import React from 'react';
 import { Link } from 'gatsby';
+import Search from './dev/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
 import '../styles/platform/pretty-docs.scss';
@@ -85,6 +86,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </div>
           </nav>
         </div>
+        <Search/>
       </header>
 
       <div className={`page-wrapper ${className}`}>
