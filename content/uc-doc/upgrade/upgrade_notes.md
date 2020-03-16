@@ -2,8 +2,7 @@
 title: Upgrade notes
 ---
 
-20.04
-=====
+## <a name="20-04"></a>20.04
 
 -   The PJSIP `Global` and `System` configuration options are now configured
     using `/1.1/asterisk/pjsip/global` and `/1.1/asterisk/pjsip/system`.
