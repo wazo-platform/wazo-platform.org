@@ -48,3 +48,7 @@ Sources:
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-04)
 
 * [Wazo Platform 20.04 Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10072)
+
+## Discussion
+
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-20-04-released/258).
