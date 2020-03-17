@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Wazo Documentation
 ---
 
 ## Wazo Documentation
