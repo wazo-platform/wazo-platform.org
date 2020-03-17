@@ -2,31 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 
 const renderLinksRecurse = (linksObject) => {
-  const { self, ...subLinks } = linksObject;
-  if(!self) {
-    // @todo: support upgrade/19-03 folder
-    return <li><Link to="#">@TODOOOO folder without self ?</Link></li>
-  }
+  const subLinksKeys = Object.keys(linksObject);
 
-  const subLinksKeys = Object.keys(subLinks);
-  const itemKey = self.path.replace(/\//g, '-');
+  if(subLinksKeys.length >= 2) {
+    const { self, ...subLinks } = linksObject;
 
-  if(subLinksKeys.length > 0) {
+    if(!self) {
+      console.log(subLinksKeys, linksObject)
+    }
+
     return (
-      <li key={itemKey}>
-        <a href="#">{ self.title }</a>
+      <li>
+        <a href="#">{ self ? self.title : '@todo'  }</a>
         <ul>
-          { subLinksKeys.map(subLinksKey => renderLinksRecurse(subLinks[subLinksKey])) }
+          { Object.keys(subLinks).map(subLinksKey => renderLinksRecurse(linksObject[subLinksKey])) }
         </ul>
       </li>
     )
-  }else{
+
+  }else if(subLinksKeys.length === 1){
     return (
-      <li key={itemKey}>
-        <Link to={self.path}>{ self.title }</Link>
+      <li>
+        <Link to={linksObject[subLinksKeys[0]].path}>{ linksObject[subLinksKeys[0]].title }</Link>
       </li>
     )
   }
+
+  return <li>@todo no sublinke keys ???</li>
 }
 
 export default () => {

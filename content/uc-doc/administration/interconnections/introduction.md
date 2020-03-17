@@ -1,5 +1,5 @@
 ---
-title: Interconnections
+title: Introduction
 ---
 
 - [two_xivo](/uc-doc/administration/interconnections/two_xivo)

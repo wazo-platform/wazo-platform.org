@@ -2,7 +2,7 @@
 title: Contributors
 ---
 
-# General information
+## General information
 
 - [contributing_doc](/uc-doc/contributors/contributing_doc)
 - [debug_asterisk](/uc-doc/contributors/debug_asterisk)
@@ -17,7 +17,7 @@ title: Contributors
 - [translate](/uc-doc/contributors/translate)
 - [xivo_package_file_structure](/uc-doc/contributors/xivo_package_file_structure)
 
-# Component specific information
+## Component specific information
 
 - [database](/uc-doc/contributors/database)
 - [diagrams](/uc-doc/contributors/diagrams)

@@ -1,5 +1,5 @@
 ---
-title: 'wazo-confgend'
+title: Introduction
 ---
 
 wazo-confgend is a configuration file generator. It is mainly used to

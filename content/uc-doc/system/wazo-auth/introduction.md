@@ -1,5 +1,5 @@
 ---
-title: 'wazo-auth'
+title: Introduction
 ---
 
 wazo-auth is a scalable, extendable and configurable authentication

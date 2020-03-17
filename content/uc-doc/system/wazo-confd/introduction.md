@@ -1,5 +1,5 @@
 ---
-title: 'wazo-confd'
+title: Introduction
 ---
 
 wazo-confd is a HTTP server that provides a RESTful API service for
