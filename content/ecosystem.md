@@ -3,7 +3,7 @@
 ## Open Source Projects
 
 -   ##### node-red-contrib-wazo-platform
-    This nodes permit to connect Wazo Platform to [Node-RED](https://nodered.org/):[node-red-contrib-wazo-platform](https://flows.nodered.org/node/node-red-contrib-wazo-platform)
+    This node permits to connect Wazo Platform to [Node-RED](https://nodered.org/):[node-red-contrib-wazo-platform](https://flows.nodered.org/node/node-red-contrib-wazo-platform)
 
 
 
