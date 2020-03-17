@@ -275,7 +275,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // ---------
     const ucDocsResult = await graphql(`
       {
-        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/uc-doc/" } }) {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/uc-doc/" } }
+          sort: { fields: [frontmatter___title], order: ASC }
+        ) {
           edges {
             node {
               id

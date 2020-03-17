@@ -523,7 +523,41 @@ body.documentation {
     padding: 0;
     width: 100%;
 
+    li.seconday-navigation-submenu {
+      &.open {
+        > ul  { max-height: inherit; }
+        > a:after { transform: translate(0, -50%) rotate(180deg); }
+      }
+
+      > ul {
+        overflow: hidden;
+        max-height: 0;
+      }
+
+      // Submenu parent link
+      > a {
+        position: relative;
+        display: block;
+
+        &:after {
+          content: '';
+          background: url(/images/icons/chevron-down-solid.svg) top left no-repeat;
+          background-size: contain;
+          display: block;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+      }
+    }
+
+
     li {
+      &.current > a { font-weight: bold;; }
+
       a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
       &:first-child a { border-top: 1px solid rgba(0, 0, 0, 0.125); }
@@ -531,12 +565,39 @@ body.documentation {
 
       // Second level
       ul {
+        overflow: hidden;
+        max-height: 0;
+
         li:first-child a { border-top: none; }
         li:last-child a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
         a {
-          background: #F9F9F9;
-          padding-left: 30px;
+          background: #FAFAFA;
+          padding-left: 25px;
+        }
+
+        // Third level
+        ul {
+          a {
+            background: #F0F0F0;
+            padding-left: 50px;
+          }
+
+          // Fourth level
+          ul {
+            a {
+              background: #EAEAEA;
+              padding-left: 75px;
+            }
+
+            // Fifth level
+            ul {
+              a {
+                background: #E0E0E0;
+                padding-left: 100px;
+              }
+            }
+          }
         }
       }
     }
@@ -547,10 +608,17 @@ body.documentation {
       text-decoration: none !important;
 
       &:hover, &:active {
-        background: $fakeDarkGray;
-        color: #FFF;
-        border-color: $fakeDarkGray;
+        color: #085b77;
       }
     }
+  }
+}
+
+// UC Doc template
+// ---------
+.template-uc-doc {
+  img {
+    height: auto;
+    max-width: 100%;
   }
 }
