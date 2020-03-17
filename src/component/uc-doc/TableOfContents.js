@@ -59,6 +59,8 @@ export default () => {
     return [currentClass, openClassName, currentClassName].filter(className => Boolean(className)).join(" ");
   }
 
+  const formatLinkTitle = title => title.replace(/\\/g, "");
+
   // Handler
   // ---------
   const handleMenuClick = (e, itemKey) => {
@@ -88,11 +90,19 @@ export default () => {
         undefinedKeyIndex++;
       }
 
+      const titlesSortedKeys = Object.keys(subLinks).sort((a, b) =>  {
+        if(subLinks[a].self.title === "Introduction") {
+          return -2;
+        }
+
+        return subLinks[a].self.title > subLinks[b].self.title ? 1 : -1
+      })
+
       return (
         <li key={itemKey} className={getListItemClasses('seconday-navigation-submenu', itemKey)}>
-          <a href={self.path} onClick={(e) => handleMenuClick(e, itemKey)}>{ self ? self.title : 'More'  }</a>
+          <a href={self.path} onClick={(e) => handleMenuClick(e, itemKey)}>{ self ? formatLinkTitle(self.title) : 'More'  }</a>
           <ul>
-            { Object.keys(subLinks).map(subLinksKey => renderLinksRecurse(linksObject[subLinksKey])) }
+            { titlesSortedKeys.map(subLinksKey => renderLinksRecurse(linksObject[subLinksKey])) }
           </ul>
         </li>
       )
@@ -102,7 +112,7 @@ export default () => {
 
       return (
         <li key={itemKey} className={getListItemClasses('', itemKey)}>
-          <Link to={linksObject[subLinksKeys[0]].path}>{ linksObject[subLinksKeys[0]].title }</Link>
+          <Link to={linksObject[subLinksKeys[0]].path}>{ formatLinkTitle(linksObject[subLinksKeys[0]].title) }</Link>
         </li>
       )
     }

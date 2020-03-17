@@ -526,7 +526,10 @@ body.documentation {
     li.seconday-navigation-submenu {
       &.open {
         > ul  { max-height: inherit; }
-        > a:after { transform: translate(0, -50%) rotate(180deg); }
+        > a {
+          color: #085b77;
+          &:after { transform: translate(0, -50%) rotate(180deg); }
+        }
       }
 
       > ul {
@@ -556,7 +559,10 @@ body.documentation {
 
 
     li {
-      &.current > a { font-weight: bold;; }
+      &.current > a {
+        font-weight: bold;
+        color: #085b77;
+      }
 
       a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
