@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 
+import { tableOfContentLinksOrdering } from './utils'
 
 // Generate openMenu based on the current URL
 const generateDefaultOpenMenu = () => {
@@ -90,17 +91,17 @@ export default () => {
         undefinedKeyIndex++;
       }
 
-      const titlesSortedKeys = Object.keys(subLinks).sort((a, b) =>  {
-        if(subLinks[a].self.path.indexOf('/introduction') !== -1) {
-          return -10;
-        }
-
-        if(subLinks[a].self.path.indexOf('/upgrade_notes_details/1') !== -1) {
+      let titlesSortedKeys = Object.keys(subLinks).sort((a, b) =>  {
+        // Reverse order when version in title
+        if(/\/upgrade_notes_details\/[0-9]/.test(subLinks[a].self.path)) {
           return subLinks[a].self.title > subLinks[b].self.title ? -1 : 1
         }else{
           return subLinks[a].self.title > subLinks[b].self.title ? 1 : -1
         }
       })
+
+      // Extra sorting
+      titlesSortedKeys = tableOfContentLinksOrdering(itemKey, titlesSortedKeys)
 
       return (
         <li key={itemKey} className={getListItemClasses('seconday-navigation-submenu', itemKey)}>
