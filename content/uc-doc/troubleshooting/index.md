@@ -94,34 +94,30 @@ this failover mode. This section describes a workaround.
 
 Logical view:
 
-    +------+                            +-----+
+```
+                +------+                            +-----+
+-- Provider ----| Wazo | -- ISDN Interconnection  --| PBX | -- Phones
+                +------+                            +-----+
+```
 
-> \-- Provider \-\-\--\| Wazo \| \-- ISDN Interconnection \--\| PBX \| \-- Phones
->
-> :   +\-\-\-\-\--+ +\-\-\-\--+
->
 Connection:
 
-    +-------------Bero*fos---------------+
-    | A        B        C        D       |
-    | o o o o  o o o o  o o o o  o o o o |
-    +-+-+------+-+------+-+------+-+-----+
-      | |      | |      | |      | |
-     / /       | |      | |      | |
-    / /    +--------+   / /   +---------+
+```
+  +-------------Bero*fos---------------+
+  | A        B        C        D       |
+  | o o o o  o o o o  o o o o  o o o o |
+  +-+-+------+-+------+-+------+-+-----+
+    | |      | |      | |      | |
+   / /       | |      | |      | |
+  / /    +--------+   / /   +---------+
+2 T2     |  Wazo  |  / /    |   PBX   |
+         +--------+ / /     +---------+
+             | |   / /
+             \ \__/ /
+              \____/
+```
 
-> 2 T2 \| Wazo \| / / \| PBX \|
->
-> :
->
->     +\-\-\-\-\-\-\--+ / / +\-\-\-\-\-\-\-\--+
->
->     :   | \| / /
->
->         \_\_/ /
->
->         :   \_\_\_\_/
->
+
 The following describes how to configure your Wazo and your Berofos.
 
 1.  Follow the Berofos general configuration (firmware, IP,
