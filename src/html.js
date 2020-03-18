@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { forDeveloper } from '../config-wazo';
 
@@ -12,9 +12,9 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="icon" 
-          type="image/png" 
-          href={`/images/${forDeveloper ? 'dev' : 'platform'}/icon.png`} 
+        <link rel="icon"
+          type="image/png"
+          href={`/images/${forDeveloper ? 'dev' : 'platform'}/icon.png`}
         />
         {props.headComponents}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />

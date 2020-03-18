@@ -1,11 +1,24 @@
 import Helmet from 'react-helmet';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import Search from './platform/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
+import '../styles/platform/pretty-docs.scss';
+import '../styles/platform/documentation.scss';
+import '../styles/platform/styles.scss';
+
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
+  useEffect(() => {
+    if (window.location.hash) {
+      setTimeout(function() {
+        const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`).offsetTop;
+        const headerHeight = document.querySelector('#header').offsetHeight;
+        window.scrollTo(0, elementPosition - headerHeight - 15);
+      }, 1);
+    }
+  }, [window.location.hash]);
 
   const bodyAttributes = { class: section };
   const now = new Date();
