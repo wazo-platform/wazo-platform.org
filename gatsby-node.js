@@ -168,6 +168,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     console.error(e);
   }
 
+  const ecosystemDoc = fs.readFileSync('./content/ecosystem.md', 'utf8');
   const installDoc = fs.readFileSync('./content/install.md', 'utf8');
   const installUCDoc = fs.readFileSync('./content/install-uc.md', 'utf8');
   const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
@@ -249,6 +250,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   await newPage('/contribute', 'contribute/index', { content: contributeDoc });
   // Create blog page
   await newPage('/blog', 'blog/index', { articles });
+  // Create ecosystem page
+  await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
 
   // Create contribute pages
   Object.keys(contributeDocs).forEach(fileName => {

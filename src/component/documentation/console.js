@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import 'swagger-ui-react/swagger-ui.css';
 import { useCookies } from 'react-cookie';
@@ -137,10 +136,6 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
 
   return (
     <Layout pageTitle={`Console - ${module.title}`} breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
-      <Helmet>
-        <title>Console - {module.title}</title>
-      </Helmet>
-
       <section id="console" className="console section">
         <div
           style={scrollPos > 60 ? styles.fixed : styles.normal}

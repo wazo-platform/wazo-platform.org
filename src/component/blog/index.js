@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
 import Layout from '../Layout';
 import { Link } from 'gatsby';
 
@@ -43,10 +42,6 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
 
   return (
     <Layout pageTitle="Blog" section="blog" className="blog">
-      <Helmet>
-        <title>Wazo Platform - Blog</title>
-      </Helmet>
-
       <div className="container">
         {filter.type && <div className="filter">Filtering by {filter.type}: {filter.value} <div onClick={() => setFilter({})}>Reset filter</div></div>}
         <div className="articles">

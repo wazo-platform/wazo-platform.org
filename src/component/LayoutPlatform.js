@@ -14,7 +14,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
-        <title>Wazo Platform</title>
+        <title>{pageTitle && `${pageTitle} - `}Wazo Platform</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
@@ -67,6 +67,11 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
                 <li className="nav-item">
                   <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
                     Blog
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="ecosystem" activeClassName="active" partiallyActive>
+                    Ecosystem
                   </Link>
                 </li>
                 <li className="nav-item last">
