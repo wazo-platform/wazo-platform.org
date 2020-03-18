@@ -91,7 +91,7 @@ export default () => {
       }
 
       const titlesSortedKeys = Object.keys(subLinks).sort((a, b) =>  {
-        if(subLinks[a].self.title === "Introduction") {
+        if(subLinks[a].self.path.indexOf('/introduction') !== -1) {
           return -2;
         }
 

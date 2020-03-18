@@ -2,14 +2,6 @@
 title: Deprecated Wazo versions
 ---
 
--   [General policy](#general-policy)
--   [What does it mean to be in a deprecated
-    version?](#what-does-it-mean-to-be-in-a-deprecated-version)
--   [Why are versions being
-    deprecated?](#why-are-versions-being-deprecated)
--   [I have a deprecated version. What are my
-    options?](#i-have-a-deprecated-version.-what-are-my-options)
-
 General policy
 ==============
 
