@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 // Generate openMenu based on the current URL
 const generateDefaultOpenMenu = () => {
-  const pathParts = window.location.pathname.split("/");
+  const pathParts = typeof window === 'object' ? window.location.pathname.split("/") : [];
   const defaultOpenMenus = [];
 
   pathParts.forEach((part, index) => {
