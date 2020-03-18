@@ -8,13 +8,14 @@ import '../styles/platform/pretty-docs.scss';
 import '../styles/platform/documentation.scss';
 import '../styles/platform/styles.scss';
 
-export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
+export default ({ children, section, className, pageTitle, PageTitleComponent = 'h1', breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
   if (typeof window === "object") {
     useEffect(() => {
-      if(window.location.hash) {
+      if (window.location.hash) {
         setTimeout(function() {
-          const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`).offsetTop;
+          const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`)
+            .offsetTop;
           const headerHeight = document.querySelector('#header').offsetHeight;
           window.scrollTo(0, elementPosition - headerHeight - 15);
         }, 1);
@@ -128,7 +129,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
         {pageTitle && (
           <div className="page-title">
             <div className="container">
-              <h1>{pageTitle}</h1>
+              <PageTitleComponent>{pageTitle}</PageTitleComponent>
             </div>
           </div>
         )}
