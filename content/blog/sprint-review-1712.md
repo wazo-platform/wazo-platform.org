@@ -17,11 +17,11 @@ Hello Wazo community! Here comes the release of Wazo 17.12!
 
 ## Technical features
 
-**Web Hooks**: Options have been added to make web hook configuration more usable. These options include, the content type, trusted certificates and [templates for the body and URL](http://documentation.wazo.community/en/latest/api_sdk/rest_api/webhookd/templates.html).
+**Web Hooks**: Options have been added to make web hook configuration more usable. These options include, the content type, trusted certificates and [templates for the body and URL](http://wazo.readthedocs.io/en/latest/api_sdk/rest_api/webhookd/templates.html).
 
 **Plugins**: wazo-plugind memory usage has been improved.
 
-**Chat**: The chat history is now stored in the database and included in backups (see the updated [restore procedure](http://documentation.wazo.community/en/latest/system/backup_restore.html#restoring-the-database)).
+**Chat**: The chat history is now stored in the database and included in backups (see the updated [restore procedure](http://wazo.readthedocs.io/en/latest/system/backup_restore.html#restoring-the-database)).
 
 
 ## Ongoing features
@@ -33,7 +33,7 @@ Hello Wazo community! Here comes the release of Wazo 17.12!
 
 ---
 
-The instructions for [installing Wazo](http://documentation.wazo.community/en/stable/installation/installsystem.html) or [upgrading Wazo](http://documentation.wazo.community/en/stable/upgrade/upgrade.html) are available in the documentation.
+The instructions for [installing Wazo](http://wazo.readthedocs.io/en/stable/installation/installsystem.html) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -41,5 +41,5 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/wazo-17.12/upgrade/upgrade.html#upgrade-notes)
+* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.12/upgrade/upgrade.html#upgrade-notes)
 * [Wazo 17.12 Roadmap](https://projects.wazo.community/versions/265)

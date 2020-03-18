@@ -11,7 +11,7 @@ Hello Wazo community! Here comes the release of Wazo 17.05!
 New features in this sprint
 ---------------------------
 
-**Call recording**: We added some configuration options to control the naming of the call recordings. This allows administrators to dispatch recording files more easily between entities. You can read all about it [in the documentation](http://documentation.wazo.community/en/latest/administration/call_recording/call_recording.html#file-names).
+**Call recording**: We added some configuration options to control the naming of the call recordings. This allows administrators to dispatch recording files more easily between entities. You can read all about it [in the documentation](http://wazo.readthedocs.io/en/latest/administration/call_recording/call_recording.html#file-names).
 
 **REST API**: We added the possibility to pause/unpause an agent from the REST API of xivo-agentd. An agent in pause does not receive any more calls distributed from the call queues. Until now, agents could only enter the pause through the CTI client. Also, it is now possible to specify the reason for the pause. This allows supervisors to have a better understanding of the agents availability. You can see this new feature in action in [Unicom](https://phone.wazo.community).
 
@@ -31,7 +31,7 @@ Contributions
 
 **Translations**: We thank Rafał Perczyński and Ania Perczyńska for making polish sound files available in the web interface and translating the CTI client interface in polish with [Transifex](https://www.transifex.com/wazo/wazo/). The CTI client translations will be shipped in a future version.
 
-**Yealink firware**: We thank Damien Barbier for submitting a new firmware for Yealink phones. The provisioning plugin for firmware v81 is now available in the [testing](http://documentation.wazo.community/en/latest/administration/provisioning/basic_configuration.html#alternative-plugins-repo) plugins repository.
+**Yealink firware**: We thank Damien Barbier for submitting a new firmware for Yealink phones. The provisioning plugin for firmware v81 is now available in the [testing](http://wazo.readthedocs.io/en/latest/administration/provisioning/basic_configuration.html#alternative-plugins-repo) plugins repository.
 
 Ongoing features
 ----------------
@@ -44,7 +44,7 @@ Ongoing features
 
 ---
 
-The instructions for [installing Wazo](http://documentation.wazo.community/en/stable/installation/installsystem.html) or [upgrading Wazo](http://documentation.wazo.community/en/stable/upgrade/upgrade.html) are available in the documentation.
+The instructions for [installing Wazo](http://wazo.readthedocs.io/en/stable/installation/installsystem.html) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -52,5 +52,5 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/wazo-17.05/upgrade/upgrade.html#upgrade-notes)
+* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.05/upgrade/upgrade.html#upgrade-notes)
 * [Wazo 17.05 Roadmap](https://projects.wazo.community/versions/257)

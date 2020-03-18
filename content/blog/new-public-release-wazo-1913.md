@@ -60,7 +60,7 @@ We are releasing Wazo Platform 19.13. The main changes from Wazo 18.03 are:
 
 - The administration web interface is fully multi-tenant
 
-The full list of changes is available in [the upgrade notes](http://documentation.wazo.community/en/latest/upgrade/upgrade_notes.html).
+The full list of changes is available in [the upgrade notes](/uc-doc/upgrade/upgrade_notes).
 
 We will continue releasing public versions of Wazo Platform every 3 weeks.
 

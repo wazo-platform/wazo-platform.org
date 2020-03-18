@@ -93,7 +93,7 @@ Here is the call flow to access a REST resource of a Wazo service:
 2. Create a token with these credentials.
 3. Use this token to access the REST resource requiring the ACL
 
-add a schema here http://documentation.wazo.community/en/latest/_images/service_authentication_workflow.png
+add a schema here http://wazo.readthedocs.io/en/latest/_images/service_authentication_workflow.png
 
 * Service: Service who needs to access a REST resource.
 * wazo-{daemon}: Server that exposes a REST resource. This resource must have a required ACL.

@@ -28,8 +28,8 @@ This release is our birthday release, since the fork! Thanks for following us th
 
 ---
 
-The instructions for [installing Wazo](http://documentation.wazo.community/en/stable/installation/installsystem.html) are available in the documentation.
-The instructions for [upgrading Wazo](http://documentation.wazo.community/en/stable/upgrade/upgrade.html) as also available in the documentation. Be sure to read the [breaking changes](http://documentation.wazo.community/en/stable/upgrade/upgrade_notes.html).
+The instructions for [installing Wazo](http://wazo.readthedocs.io/en/stable/installation/installsystem.html) are available in the documentation.
+The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes).
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -37,5 +37,5 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/stable/upgrade/upgrade_notes.html)
+* [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
 * [Wazo 17.17 Roadmap](https://projects.wazo.community/versions/270)

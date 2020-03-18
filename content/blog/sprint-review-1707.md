@@ -40,7 +40,7 @@ Ongoing features
 
 ---
 
-The instructions for [installing Wazo](http://documentation.wazo.community/en/stable/installation/installsystem.html) or [upgrading Wazo](http://documentation.wazo.community/en/stable/upgrade/upgrade.html) are available in the documentation.
+The instructions for [installing Wazo](http://wazo.readthedocs.io/en/stable/installation/installsystem.html) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -48,5 +48,5 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/wazo-17.07/upgrade/upgrade.html#upgrade-notes)
+* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.07/upgrade/upgrade.html#upgrade-notes)
 * [Wazo 17.07 Roadmap](https://projects.wazo.community/versions/259)

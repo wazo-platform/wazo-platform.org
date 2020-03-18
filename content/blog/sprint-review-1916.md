@@ -30,9 +30,9 @@ See you at the next sprint review!
 Resources:
 
 * [Install Wazo Platform](https://wazo-platform.org/install)
-* [Upgrade Wazo and Wazo Platform](http://documentation.wazo.community/en/stable/upgrade/upgrade.html). Be sure to read the [breaking changes](http://documentation.wazo.community/en/wazo-19.16/upgrade/upgrade_notes.html).
+* [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/introduction). Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-19.16/upgrade/upgrade_notes.html).
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/stable/upgrade/upgrade_notes.html)
+* [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
 * [Wazo Platform 19.16 Release notes](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)

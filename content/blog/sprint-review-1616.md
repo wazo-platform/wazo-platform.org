@@ -15,11 +15,11 @@ We will describe here the changes made since XiVO 16.13, which is the release of
 New features in this sprint
 ---------------------------
 
-**Migration from XiVO infrastructure**: Since the domain xivo.io went down, we spent some time rebuilding everything that was needed to make Wazo work correctly from a XiVO installation. You can find the instruction to migrate from XiVO [on the documentation](http://documentation.wazo.community/en/wazo-16.16/upgrade/16.16/xivo_to_wazo.html). Note that you don't have to upgrade your XiVO to use the new infrastructure. See the documentation for more details.
+**Migration from XiVO infrastructure**: Since the domain xivo.io went down, we spent some time rebuilding everything that was needed to make Wazo work correctly from a XiVO installation. You can find the instruction to migrate from XiVO [on the documentation](http://wazo.readthedocs.io/en/wazo-16.16/upgrade/16.16/xivo_to_wazo.html). Note that you don't have to upgrade your XiVO to use the new infrastructure. See the documentation for more details.
 
 **Codecs**: The Opus codec is now available in Wazo. The Opus codec is a [very efficient codec](http://opus-codec.org/comparison/) that has been around for a while, but is a potential subject for patent-infringement lawsuits. The Asterisk editor Digium came out with [a solution](http://blogs.digium.com/2016/09/30/opus-in-asterisk/) that we deem satisfying, given the great advantages of the Opus codec.
 
-**Documentation**: We have improved the documentation for using REST APIs. You can see the instructions on [this page](http://documentation.wazo.community/en/wazo-16.16/api_sdk/rest_api/quickstart.html)
+**Documentation**: We have improved the documentation for using REST APIs. You can see the instructions on [this page](http://wazo.readthedocs.io/en/wazo-16.16/api_sdk/rest_api/quickstart.html)
 
 **REST API**: A new REST API has been added to manage SIP trunks and outgoing calls. Trunks and outgoing calls were the last missing APIs to be able to control inbound and outbound call routing without the need of the web interface.
 
@@ -31,7 +31,7 @@ New features in this sprint
 
 **Directories**: Until now, XiVO allowed only one phonebook, that was shared across all entities, meaning all users of different entities would see the same contacts that are stored in the phonebook. This was clearly not a good idea, since the purpose of entities is to isolate users from each other while staying on the same server. You may now configure multiple phonebooks on the same Wazo. Phonebooks may be shared across entities or isolated, at your convenience.
 
-**Scalability**: We've made it a bit easier to share contacts between multiple Wazo servers, in that new servers will be auto-discovered, instead of having to manually configure each server to share contacts. See [the updated documentation](http://documentation.wazo.community/en/wazo-16.16/scalability_and_distributed_systems/contact_and_presence_sharing.html) for the new procedure.
+**Scalability**: We've made it a bit easier to share contacts between multiple Wazo servers, in that new servers will be auto-discovered, instead of having to manually configure each server to share contacts. See [the updated documentation](http://wazo.readthedocs.io/en/wazo-16.16/scalability_and_distributed_systems/contact_and_presence_sharing.html) for the new procedure.
 
 Technical features
 ------------------
@@ -50,6 +50,6 @@ Thanks for you support and encouragement and see you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/wazo-16.16/upgrade/upgrade.html#upgrade-notes)
-* [xivo-confd REST API Changelog](http://documentation.wazo.community/en/wazo-16.16/api_sdk/rest_api/confd/changelog.html)
+* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-16.16/upgrade/upgrade.html#upgrade-notes)
+* [xivo-confd REST API Changelog](http://wazo.readthedocs.io/en/wazo-16.16/api_sdk/rest_api/confd/changelog.html)
 * [Wazo 16.16 Roadmap](http://projects.wazo.community/versions/252)
