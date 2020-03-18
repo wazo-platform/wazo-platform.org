@@ -9,8 +9,8 @@
 
 ## Commercial Products
 
--   ##### Ottspot
-    [Connect](https://ottspott.co/connect/) by [Ottspot](https://ottspott.co/) is a Chrome extension for integrating your CRM apps to your existing phone system.
+-   ##### Ottspott
+    [Connect](https://ottspott.co/connect/) by [Ottspott](https://ottspott.co/) is a Chrome extension for integrating your CRM apps to your existing phone system.
 
 
 -   ##### Wazo Communication
