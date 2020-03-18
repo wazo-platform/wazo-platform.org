@@ -1,5 +1,5 @@
 ---
-title: Upgrade Notes for Xivo 15.20
+title: Wazo 15.20
 ---
 
 - [CSV Migration](/uc-doc/upgrade/15-20/csv)

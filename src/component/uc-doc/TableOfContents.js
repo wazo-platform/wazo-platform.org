@@ -95,7 +95,11 @@ export default () => {
           return -2;
         }
 
-        return subLinks[a].self.title > subLinks[b].self.title ? 1 : -1
+        if(subLinks[a].self.path.indexOf('/upgrade_notes_details/1') !== -1) {
+          return subLinks[a].self.title > subLinks[b].self.title ? -1 : 1
+        }else{
+          return subLinks[a].self.title > subLinks[b].self.title ? 1 : -1
+        }
       })
 
       return (

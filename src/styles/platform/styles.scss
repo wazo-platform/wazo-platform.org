@@ -623,8 +623,78 @@ body.documentation {
 // UC Doc template
 // ---------
 .template-uc-doc {
-  img {
-    height: auto;
-    max-width: 100%;
+  .main-content-right-col {
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 23px;
+      margin: 22px 0 10px;
+    }
+
+    h3 {
+      color: #333;
+      font-size: 20px;
+      margin: 15px 0 10px;
+    }
+
+    h4 {
+      color: #333;
+      font-size: 18px;
+      margin: 15px 0 10px;
+    }
+
+    // Inline code
+    li > code, p > code {
+      white-space: nowrap;
+      max-width: 100%;
+      background: #fff;
+      border: 1px solid #e1e4e5;
+      padding: 1px 5px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+
+    ul {
+      list-style-type: circle;
+      padding-left: 19px;
+    }
+
+    table {
+      border: 1px solid #e1e4e5;
+
+      td, th { padding: 5px 10px; }
+
+      thead {
+        color: #000;
+        text-align: left;
+        vertical-align: bottom;
+        white-space: nowrap;
+
+        td, th {
+          background: #FFF;
+          border-bottom: 2px solid #e1e4e5;
+          border-left: 1px solid #e1e4e5;
+        }
+      }
+
+      tbody {
+        td {
+          border-bottom: 1px solid #e1e4e5;
+          border-left: 1px solid #e1e4e5;
+          background: #FFF;
+        }
+
+        tr:nth-child(2n) td { background: #FAFAFA; }
+      }
+    }
   }
 }

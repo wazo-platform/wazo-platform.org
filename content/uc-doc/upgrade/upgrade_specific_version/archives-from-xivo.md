@@ -1,5 +1,5 @@
 ---
-title: Upgrade an older xivo installation
+title: Upgrade an Older Xivo Installation
 ---
 
 Those procedures are valid if your xivo installation is older than

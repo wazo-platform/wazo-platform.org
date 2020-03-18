@@ -1,5 +1,5 @@
 ---
-title: Upgrade Notes for Xivo 15.19
+title: Wazo 15.19
 ---
 
 - [Context Separation](/uc-doc/upgrade/15-19/context-separation)

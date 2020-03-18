@@ -17,14 +17,12 @@ received by Wazo.
 #:exclamation: The oldest call logs are periodically removed. See
 `purge_logs`{.interpreted-text role="ref"} for more details.
 
-REST API
-========
+## REST API
 
 Call logs are also available from
 `wazo-call-logd REST API <rest-api>`{.interpreted-text role="ref"}.
 
-Categorize call logs with custom tags
--------------------------------------
+### Categorize call logs with custom tags
 
 Sometimes, it\'s useful to separate call logs according to a specific
 value (department, city, etc.). It\'s possible with the `userfield` of a
@@ -41,8 +39,7 @@ user to `sales`. Now when a user tagged with `sales` places or receives
 a call, this call will be also tagged `sales`. You can now filter call
 logs by tags `sales`.
 
-Manual generation
-=================
+## Manual generation
 
 Call logs can also be generated manually. To do so, log on to the target
 Wazo server and run:
@@ -60,8 +57,7 @@ generate calls using the 100,000 last unprocessed CEL entries:
 
     wazo-call-logs -c 100000
 
-Regeneration of call logs
-=========================
+## Regeneration of call logs
 
 Since call logs are based on CEL, they can be deleted and generated
 without problems. To regenerate the last month of call logs:
@@ -69,8 +65,7 @@ without problems. To regenerate the last month of call logs:
     wazo-call-logs delete -d 30
     wazo-call-logs generate -d 30  // the default behavior of wazo-call-logs command is `generate`
 
-Technicals
-==========
+## Technicals
 
 Call logs are pre-generated from CEL entries. The generation is done
 automatically by wazo-call-logd. wazo-call-logs is also run nightly to

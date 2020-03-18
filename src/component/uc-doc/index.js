@@ -7,9 +7,9 @@ import TableOfContents from './TableOfContents';
 const breadcrumbs = [{ link: '/uc-doc', label: 'UC Use Case Doc', active: true }]
 
 export default ({ pageContext: { content, title = 'Home' }}) => (
-  <Layout pageTitle={`UC Use Case Doc: ${title}`} breadcrumbs={breadcrumbs} className="template-uc-doc contribute">
+  <Layout pageTitle="Unified Communication Use Cases" breadcrumbs={breadcrumbs} className="template-uc-doc contribute">
     <Helmet>
-      <title>{title} - UC Use Case Doc - Wazo Platform</title>
+      <title>{title} - Unified Communication Use Cases - Wazo Platform</title>
     </Helmet>
 
     <div className="container principal">
@@ -18,7 +18,10 @@ export default ({ pageContext: { content, title = 'Home' }}) => (
           <TableOfContents />
         </div>
 
-        <div className="main-content-right-col" dangerouslySetInnerHTML={{ __html: content}} />
+        <div className="main-content-right-col">
+          <h1>{ title }</h1>
+          <div dangerouslySetInnerHTML={{ __html: content}} />
+        </div>
       </div>
     </div>
   </Layout>

@@ -9,7 +9,9 @@ physical console.
 To upgrade your Wazo to the latest version, you **must** use the
 `wazo-upgrade` script. You can start an upgrade with the command:
 
-    wazo-upgrade
+```
+wazo-upgrade
+```
 
 #:exclamation: **You can't use wazo-upgrade if you have not run the wizard yet
 Upgrading from a [deprecated version](/uc-doc/upgrade/version_deprecation_policy)
@@ -32,8 +34,7 @@ There are 2 options you can pass to wazo-upgrade:
     `HTTP API of wazo-confd <confd-api>`{.interpreted-text role="ref"}
     (default is 9486)
 
-Upgrade procedure
-=================
+## Upgrade procedure
 
 -   Read all existing [upgrade notes](/uc-doc/upgrade/upgrade_notes)
     starting from your version to the latest version.
@@ -50,18 +51,15 @@ Upgrade procedure
     ISDN link status, internal/incoming/outgoing calls, Wazo Client
     connections etc.
 
-Version-specific upgrade procedures
-===================================
+## Version-specific upgrade procedures
 
-Upgrading from XiVO 16.13 and before
-------------------------------------
+### Upgrading from XiVO 16.13 and before
 
 When upgrading from XiVO 16.13 or before, you must use the special
 [XiVO to Wazo upgrade procedure](/uc-doc/upgrade/16-16/xivo_to_wazo#upgrading-to-wazo) instead of
 simply running `xivo-upgrade`.
 
-Upgrading a cluster
-===================
+## Upgrading a cluster
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
 [high-availability](/uc-doc/high_availability/):
@@ -85,43 +83,41 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
 
 6.  Reactivate the cronjobs (see steps 1 and 2)
 
-Upgrading to a specific version of Wazo
-=======================================
+## Upgrading to a specific version of Wazo
 
-- [archives](/uc-doc/upgrade/archives)
+See our recommandation on [how to upgrade to a specific version of Wazo](/uc-doc/upgrade/upgrade_specific_version/introduction)
 
-Upgrading from i386 (32 bits) to amd64 (64 bits)
-================================================
+## Upgrading from i386 (32 bits) to amd64 (64 bits)
 
 - [Migrate from i386 to amd64](/uc-doc/upgrade/migrate_i386_to_amd64)
 
-Unsupported versions
-====================
+## Unsupported versions
 
 - [Version Deprecation Policy](/uc-doc/upgrade/version_deprecation_policy)
 
-Troubleshooting
-===============
+## Troubleshooting
 
-Postgresql
-----------
+### Postgresql
 
 When upgrading Wazo, if you encounter problems related to the system
 locale, see `postgresql_localization_errors`.
 
-wazo-upgrade
-------------
+### wazo-upgrade
 
 If wazo-upgrade fails or aborts in mid-process, the system might end up
 in a faulty condition. If in doubt, run the following command to check
 the current state of xivo's firewall rules:
 
-    iptables -nvL
+```
+iptables -nvL
+```
 
 If, among others, it displays something like the following line (notice
 the DROP and 5060):
 
-    0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
+```
+0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:5060
+```
 
 Then your Wazo will not be able to register any SIP phones. In this
 case, you must delete the DROP rules with the following command:
@@ -130,7 +126,6 @@ case, you must delete the DROP rules with the following command:
 
 Repeat this command until no more unwanted rules are left.
 
-Upgrade notes
-=============
+## Upgrade notes
 
 - [Upgrade Notes](/uc-doc/upgrade/upgrade_notes)
