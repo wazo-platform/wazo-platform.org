@@ -30,7 +30,8 @@ Example upgrade to Wazo 18.02:
 
 This will upgrade your xivo to Wazo 17.17. From there:
 
-1.  Read the [upgrade notes](/uc-doc/upgrade/18-01/stretch)
+1.  Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch)
+
 2.  upgrade to Wazo 18.02:
 
 ```ShellSession

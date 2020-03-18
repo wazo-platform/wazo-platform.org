@@ -18,7 +18,7 @@ Before the upgrade
     `wazo-upgrade` to check the version currently installed. If your
     version of Wazo is older that 18.01, you should first upgrade your
     Wazo to Debian Stretch, following the procedure described in
-    [Debian 9 (stretch) Upgrade Notes](/uc-doc/upgrade/18-01/stretch).
+    [Debian 9 (stretch) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch).
 -   Make sure your have sufficient space for the upgrade. You might run
     into trouble if you have less than 2 GiB available in the file
     system that holds the `/var` and

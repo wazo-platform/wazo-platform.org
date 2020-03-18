@@ -92,7 +92,7 @@ export default () => {
 
       const titlesSortedKeys = Object.keys(subLinks).sort((a, b) =>  {
         if(subLinks[a].self.path.indexOf('/introduction') !== -1) {
-          return -2;
+          return -10;
         }
 
         if(subLinks[a].self.path.indexOf('/upgrade_notes_details/1') !== -1) {
