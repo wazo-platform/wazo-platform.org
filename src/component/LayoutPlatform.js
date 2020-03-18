@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Search from './dev/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
@@ -7,7 +7,6 @@ import LogoHoriz from '../assets/logo.horiz.svg';
 import '../styles/platform/pretty-docs.scss';
 import '../styles/platform/documentation.scss';
 import '../styles/platform/styles.scss';
-
 
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const bodyAttributes = { class: section };
@@ -86,7 +85,6 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </div>
           </nav>
         </div>
-        <Search/>
       </header>
 
       <div className={`page-wrapper ${className}`}>
@@ -94,6 +92,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
           <div className="page-title">
             <div className="container">
               <h1>{pageTitle}</h1>
+              <Search />
             </div>
           </div>
         )}
