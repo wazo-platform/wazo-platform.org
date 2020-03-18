@@ -10,15 +10,17 @@ import '../styles/platform/styles.scss';
 
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
-  useEffect(() => {
-    if (window.location.hash) {
-      setTimeout(function() {
-        const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`).offsetTop;
-        const headerHeight = document.querySelector('#header').offsetHeight;
-        window.scrollTo(0, elementPosition - headerHeight - 15);
-      }, 1);
-    }
-  }, [window.location.hash]);
+  if (typeof window === "object") {
+    useEffect(() => {
+      if(window.location.hash) {
+        setTimeout(function() {
+          const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`).offsetTop;
+          const headerHeight = document.querySelector('#header').offsetHeight;
+          window.scrollTo(0, elementPosition - headerHeight - 15);
+        }, 1);
+      }
+    }, [window.location.hash]);
+  }
 
   const bodyAttributes = { class: section };
   const now = new Date();
