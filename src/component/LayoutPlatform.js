@@ -11,10 +11,12 @@ import '../styles/platform/styles.scss';
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const bodyAttributes = { class: section };
   const now = new Date();
+  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(" - ");
+
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
-        <title>{pageTitle && `${pageTitle} - `}Wazo Platform</title>
+        <title>{headTitle}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
