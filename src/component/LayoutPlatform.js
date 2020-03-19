@@ -105,7 +105,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
               <div className="coll">
                 <h2>Support</h2>
                 <p>
-                  The Wazo Platform project is supported by its community. Use the various channels bellow to reach out
+                  The Wazo Platform project is supported by its community. Use the various channels below to reach out
                   to us.
                 </p>
               </div>

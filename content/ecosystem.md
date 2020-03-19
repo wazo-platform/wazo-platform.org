@@ -1,5 +1,5 @@
 Wazo Platform is used by Open Source projects and commercial
-products. If you want to be added to the list bellow, do not hesitate
+products. If you want to be added to the list below, do not hesitate
 to create a [Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork)
 on [Github](https://github.com/wazo-platform/wazo-platform.org) or to
 [reach out to us](/#contact).
