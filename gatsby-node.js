@@ -8,6 +8,7 @@ const striptags = require('striptags');
 const RSS = require('rss');
 
 const config = require('./config');
+const constants = require('./src/contants')
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
@@ -23,7 +24,7 @@ let algoliaIndex = null;
 if (hasSearch) {
   console.info('Enabling Algolia search');
   const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-  const algoliaKeyIndex = forDeveloper ? config.algolia.indexDeveloper : config.algolia.indexPlatform
+  const algoliaKeyIndex = forDeveloper ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform
   algoliaIndex = algoliaClient.initIndex(algoliaKeyIndex);
 
   algoliaIndex.setSettings(

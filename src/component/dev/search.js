@@ -11,9 +11,9 @@ import {
 } from 'react-instantsearch-dom';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import { algoliaIndexDeveloper as indexName} from '../../contants'
 
 const config = require('../../../config');
-const indexName = config.algolia.indexDeveloper;
 
 const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
 
