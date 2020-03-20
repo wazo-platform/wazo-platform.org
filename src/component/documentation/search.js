@@ -13,7 +13,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 const config = require('../../../config');
-const indexName = 'wazo-doc-overview';
+const indexName = config.algolia.indexDeveloper;
 
 const Root = props => <div className="main-search-box pt-3 pb-3 d-inline-block">{props.children}</div>;
 
