@@ -26,26 +26,37 @@ pre {
   }
 
   .page-title {
-    padding: 80px 0 20px;
+    padding: 80px 0 20px 0;
     background: $fakeDarkGray;
 
+    &:focus-within {
+      h1 { opacity: 0; }
+
+      .main-search-box {
+        width: calc(100% - 30px)
+      }
+    }
 
     .container {
       position: relative;
     }
 
     h1 {
+      transition: 350ms ease opacity;
       color: #fff;
       font-size: 2em;
-      padding: 0;
+      padding: 0 220px 0 0;
       margin: 0;
     }
 
     .main-search-box {
+      transition: 350ms ease width;
       position: absolute;
-      right: 0;
+      right: 15px;
       top: -2px;
       padding: 0 !important;
+      width: 200px;
+      box-sizing: border-box;
 
       .form-control {
         transition: 350ms ease all;
@@ -54,6 +65,7 @@ pre {
         outline: 0;
         box-shadow: none;
         border: none;
+        width: 100%;
 
         &:focus {
           background: #000;
@@ -386,6 +398,26 @@ body.documentation {
     &.main-content-on-right-side, &.main-content-on-left-side {
       .main-content-left-col, .main-content-right-col {
         width: 100%;
+      }
+    }
+  }
+
+  .main {
+    .page-title {
+      &:focus-within {
+        h1 { opacity: 1; }
+        .main-search-box { width: 100%; }
+      }
+
+      h1, h2, h3, p { padding-right: 0; }
+
+      .main-search-box {
+        transition: 350ms ease width;
+        position: relative;
+        right: inherit;
+        top: inherit;
+        width: 100%;
+        margin-top: 15px;
       }
     }
   }
