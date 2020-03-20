@@ -1,6 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import '../styles/bootstrap.css';
+import '../styles/fontawesome.css';
+import '../styles/prism.css';
+import '../styles/dev/devaid.scss';
+import '../styles/elegant-font.css';
 import '../styles/dev/pretty-docs.scss';
 import '../styles/dev/styles.scss';
 
@@ -16,10 +21,10 @@ const WazoHeader = () => {
             <img className="header-image" alt="Wazo" src="http://wazo.io/wp-content/uploads/2019/09/wazo-logo-white-45pxh-1.png" title="Wazo" />
           </a>
         </div>
-      
+
         <nav id="site-navigation" className="has-sticky-branding main-navigation stuckElement" itemtype="https://schema.org/SiteNavigationElement">
           <div className="inside-navigation grid-container grid-parent">
-                
+
             <div id="primary-menu" className="main-nav">
               <ul id="menu-nav_light" className=" menu sf-menu">
                   <li id="menu-item-1285" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="http://wazo.io/company/">Company</a></li>
@@ -75,12 +80,12 @@ const PageHeader = () => (
           <li className="breadcrumb-item active">Quick Start</li>
         </ol>
      </div>
-    
+
     <Search />
     </div>
   </header>
 );
-      
+
 export default ({children, isHome}) => {
   const now = new Date();
   return (
