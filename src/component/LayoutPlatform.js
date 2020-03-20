@@ -11,7 +11,7 @@ import '../styles/platform/styles.scss';
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const bodyAttributes = { class: section };
   const now = new Date();
-  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(" - ");
+  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(' - ');
 
   return (
     <div className="main">
@@ -175,7 +175,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </small>
 
             <small className="copyright">
-              Copyright &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
+              Copyright &copy; 2016-{now.getFullYear()} <a href="https://wazo.io">Wazo Communication</a>
             </small>
           </div>
         </div>

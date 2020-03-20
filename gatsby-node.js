@@ -8,7 +8,7 @@ const striptags = require('striptags');
 const RSS = require('rss');
 
 const config = require('./config');
-const constants = require('./src/contants')
+const constants = require('./src/contants');
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
@@ -24,7 +24,7 @@ let algoliaIndex = null;
 if (hasSearch) {
   console.info('Enabling Algolia search');
   const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-  const algoliaKeyIndex = forDeveloper ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform
+  const algoliaKeyIndex = forDeveloper ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform;
   algoliaIndex = algoliaClient.initIndex(algoliaKeyIndex);
 
   algoliaIndex.setSettings(
@@ -93,7 +93,7 @@ const getArticles = async newPageRef => {
       });
 
     const summaryNumWords = 40;
-    const strippedContent = striptags(markdownConverter.makeHtml(body))
+    const strippedContent = striptags(markdownConverter.makeHtml(body));
     options.summary = strippedContent
       .split(' ')
       .splice(0, summaryNumWords)
@@ -112,25 +112,25 @@ const getArticles = async newPageRef => {
         title: options.title,
         description: options.summary,
         algoliaContent: strippedContent,
-      }
-      newPageRef(blogPath, 'blog/article', articleContext)
+      };
+      newPageRef(blogPath, 'blog/article', articleContext);
 
       rssFeed.item({
         title: options.title,
-        description: options.summary+'...',
+        description: options.summary + '...',
         url: `${siteUrl}${blogPath}`,
         author: options.author,
         categories: [options.category],
         date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
         enclosure: {
-          url: `${siteUrl}/images/og-image.jpg` // @todo change image, change when og:image per article
-        }
+          url: `${siteUrl}/images/og-image.jpg`, // @todo change image, change when og:image per article
+        },
       });
     }
   });
 
   console.log('generating articles rss feed');
-  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), (err) => {
+  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), err => {
     if (err) console.log(err);
   });
 
@@ -213,7 +213,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       const title = context ? (context.module ? context.module.title : context.title) : null;
       const description = context ? (context.module ? context.module.description : context.description) : null;
 
-      if(!title) {
+      if (!title) {
         return;
       }
 
@@ -221,10 +221,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         title,
         description,
         content: context && context.algoliaContent ? context.algoliaContent : null,
-        pagePath
+        pagePath,
       });
     }
-  }
+  };
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
@@ -274,70 +274,68 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // Create uc-doc pages
     // ---------
     const ucDocsResult = await graphql(`
-    {
-      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/uc-doc/"} }) {
-        edges {
-          node {
-            id
-            fileAbsolutePath
-            frontmatter {
-              title
-              subtitle
+      {
+        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/uc-doc/" } }) {
+          edges {
+            node {
+              id
+              fileAbsolutePath
+              frontmatter {
+                title
+                subtitle
+              }
+              html
+              algoliaContent: excerpt(pruneLength: 800)
+              description: excerpt(pruneLength: 200)
             }
-            html
-            algoliaContent: excerpt(pruneLength: 800),
-            description: excerpt(pruneLength: 200)
           }
         }
       }
-    }
-  `)
+    `);
 
     // Handle errors
     if (ucDocsResult.errors) {
-      reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
+      reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`);
       return;
     }
 
     ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
-      newPage(
+      const pagePath = node.fileAbsolutePath
+        .split('content/')[1]
+        .split('.')[0]
+        .replace('index', '');
+      newPage(pagePath, 'uc-doc/index', {
+        content: node.html,
+        title: node.frontmatter.title,
+        algoliaContent: node.algoliaContent,
         pagePath,
-        'uc-doc/index',
-        {
-          content: node.html,
-          title: node.frontmatter.title,
-          algoliaContent: node.algoliaContent,
-          pagePath,
-        },
-      )
-    })
+      });
+    });
   }
 
   // Create api pages
   // ----------
   sections.forEach(section =>
-                    Object.keys(section.modules).forEach(moduleName =>
-                                                        newPage(`/documentation/api/${moduleName}.html`,
-                                                                'documentation/api', {
-                                                                  moduleName,
-                                                                  module: section.modules[moduleName],
-                                                                })
-                                                        )
-                  );
+    Object.keys(section.modules).forEach(moduleName =>
+      newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
+        moduleName,
+        module: section.modules[moduleName],
+      })
+    )
+  );
 
   // Create console pages
   sections.forEach(section =>
-                    Object.keys(section.modules).forEach(
-                      moduleName =>
-                        !!section.modules[moduleName].redocUrl &&
-                        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
-                          moduleName,
-                          module: section.modules[moduleName],
-                          modules: section.modules,
-                        })
-                    )
-                  );
+    Object.keys(section.modules).forEach(
+      moduleName =>
+        !!section.modules[moduleName].redocUrl &&
+        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+        })
+    )
+  );
 
   // Create overview and extra pages
   Object.keys(allModules).forEach(moduleName => {
