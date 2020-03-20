@@ -97,7 +97,7 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
 
 const PageHit = clickHandler => ({ hit }) => (
   <div>
-    <Link to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link to={hit.pagePath} onClick={clickHandler}>
       <h6>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h6>
