@@ -238,8 +238,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   );
   console.info(`done generating svg diagrams`);
 
-  const articles = await getArticles(newPage);
-
   // Create homepage
   await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
 
@@ -255,6 +253,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // Create contribute page
     await newPage('/contribute', 'contribute/index', { content: contributeDoc });
     // Create blog page
+    const articles = await getArticles(newPage);
     await newPage('/blog', 'blog/index', { articles });
     // Create ecosystem page
     await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
