@@ -227,17 +227,17 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   };
 
   // Retrieve all diagrams
-  // const diagramOutputDir = path.resolve('public/diagrams/');
-  // execSync(`mkdir -p ${diagramOutputDir}`);
-  // execSync(`rm -rf ${diagramOutputDir}/*`);
-  // walk('content');
+  const diagramOutputDir = path.resolve('public/diagrams/');
+  execSync(`mkdir -p ${diagramOutputDir}`);
+  execSync(`rm -rf ${diagramOutputDir}/*`);
+  walk('content');
 
-  // // Generate puml to svg
-  // console.info(`generating svg diagrams in ${diagramOutputDir}...`);
-  // execSync(
-  //   `set -e; cp content/plantuml/* ${diagramOutputDir}/; for f in $(find content -name '*.puml'|grep -v /plantuml/); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
-  // );
-  // console.info(`done generating svg diagrams`);
+  // Generate puml to svg
+  console.info(`generating svg diagrams in ${diagramOutputDir}...`);
+  execSync(
+    `set -e; cp content/plantuml/* ${diagramOutputDir}/; for f in $(find content -name '*.puml'|grep -v /plantuml/); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
+  );
+  console.info(`done generating svg diagrams`);
 
   // Create homepage
   await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
