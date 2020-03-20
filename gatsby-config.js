@@ -1,3 +1,5 @@
+const path = require('path');
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -8,6 +10,14 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          mainCSS: !!process.env.FOR_DEVELOPER ? path.resolve(__dirname, 'src/styles/dev') : path.resolve(__dirname, 'src/styles/platform'),
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

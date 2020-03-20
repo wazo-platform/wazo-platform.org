@@ -1,14 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import '../styles/bootstrap.css';
-import '../styles/fontawesome.css';
-import '../styles/prism.css';
-import '../styles/dev/devaid.scss';
-import '../styles/elegant-font.css';
-import '../styles/dev/pretty-docs.scss';
-import '../styles/dev/styles.scss';
-
 import { Link } from 'gatsby';
 import Search from './dev/search';
 

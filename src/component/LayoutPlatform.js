@@ -4,16 +4,6 @@ import { Link } from 'gatsby';
 import Search from './platform/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
-import '../styles/bootstrap.css';
-import '../styles/fontawesome.css';
-import '../styles/prism.css';
-import '../styles/elegant-font.css';
-
-import '../styles/platform/devaid.scss';
-import '../styles/platform/pretty-docs.scss';
-import '../styles/platform/documentation.scss';
-import '../styles/platform/styles.scss';
-
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
 
