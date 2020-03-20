@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link as GatsbyLink} from 'gatsby';
 
-import Search from './search';
+import Search from '../dev/search';
 import { forDeveloper } from '../../../config-wazo';
 import Layout from '../Layout';
 
