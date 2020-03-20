@@ -373,3 +373,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     algoliaIndex.addObjects(algoliaObjects);
   }
 };
+
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        mainCSS: !!process.env.FOR_DEVELOPER ? path.resolve(__dirname, 'src/styles/dev') : path.resolve(__dirname, 'src/styles/platform'),
+      }
+    }
+  })
+}
