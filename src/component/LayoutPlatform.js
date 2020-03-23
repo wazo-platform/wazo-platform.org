@@ -10,16 +10,26 @@ import '../styles/platform/styles.scss';
 
 export default ({ children, section, className, pageTitle, PageTitleComponent = 'h1', breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
+
+  const scrollToAnchor = hash => {
+    if (!hash) {
+      return;
+    }
+    const anchorName = hash.replace('#', '');
+    setTimeout(function() {
+      const element = document.querySelector(`a[name="${anchorName}"]`);
+      if (element === null) {
+        return;
+      }
+      const elementPosition = element.offsetTop;
+      const headerHeight = document.querySelector('#header').offsetHeight;
+      window.scrollTo(0, elementPosition - headerHeight - 15);
+    }, 1);
+  }
+
   if (typeof window === 'object') {
     useEffect(() => {
-      if (window.location.hash) {
-        setTimeout(function() {
-          const elementPosition = document.querySelector(`a[name="${window.location.hash.replace('#', '')}"]`)
-            .offsetTop;
-          const headerHeight = document.querySelector('#header').offsetHeight;
-          window.scrollTo(0, elementPosition - headerHeight - 15);
-        }, 1);
-      }
+      scrollToAnchor(window.location.hash);
     }, [window.location.hash]);
   }
 
