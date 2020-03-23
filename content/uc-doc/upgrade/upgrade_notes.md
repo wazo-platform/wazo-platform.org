@@ -2,6 +2,30 @@
 title: Upgrade notes
 ---
 
+## <a name="20-05"></a>20.05
+
+-   `wazo-amid`, `wazo-plugind` and `wazo-dird` http configuration section have been moved onto the
+    rest_api section, eg:
+
+        rest_api:
+          https:
+            listen: <ip>
+            port: <port>
+            certificate: </path/to/cert>
+            private_key: </path/to/key>
+
+    becomes:
+
+        rest_api:
+          listen: <ip>
+          port: <port>
+          certificate: </path/to/cert>
+          private_key: </path/to/key>
+
+Consult the [20.05
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10077) for
+more information.
+
 ## <a name="20-04"></a>20.04
 
 -   The PJSIP `Global` and `System` configuration options are now configured
