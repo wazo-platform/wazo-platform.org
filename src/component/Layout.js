@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { forDeveloper } from '../../config-wazo';
 
 import '../styles/bootstrap.css';
