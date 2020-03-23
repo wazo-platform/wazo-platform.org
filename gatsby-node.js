@@ -374,13 +374,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   }
 };
 
-
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        mainCSS: !!process.env.FOR_DEVELOPER ? path.resolve(__dirname, 'src/styles/dev') : path.resolve(__dirname, 'src/styles/platform'),
-      }
-    }
-  })
-}
+        mainCSS: !!process.env.FOR_DEVELOPER
+          ? path.resolve(__dirname, 'src/styles/dev')
+          : path.resolve(__dirname, 'src/styles/platform'),
+      },
+    },
+  });
+};
