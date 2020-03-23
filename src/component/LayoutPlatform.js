@@ -10,7 +10,7 @@ import '../styles/platform/styles.scss';
 
 export default ({ children, section, className, pageTitle, PageTitleComponent = 'h1', breadcrumbs = [] }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
-  if (typeof window === "object") {
+  if (typeof window === 'object') {
     useEffect(() => {
       if (window.location.hash) {
         setTimeout(function() {
