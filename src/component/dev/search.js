@@ -11,24 +11,25 @@ import {
 } from 'react-instantsearch-dom';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import { algoliaIndexDeveloper as indexName} from '../../contants'
 
 const config = require('../../../config');
-const indexName = 'wazo-doc-overview';
 
 const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
 
 const list = css`
   position: absolute;
   width: 560px;
-  top: calc(100% - 10px);
   padding: 0.7em 1em 0.4em;
   background: #f9f9fb;
   border: 1px solid #ccc;
   z-index: 2;
+
   > * + * {
     padding-top: 1em !important;
     border-top: 2px solid #ccc;
   }
+
   li + li {
     margin-top: 0.7em;
     padding-top: 0.7em;
@@ -39,20 +40,24 @@ const list = css`
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
   max-height: 80vh;
-  overflow: scroll;
+  overflow-y: scroll;
   ${list};
   color: #616670;
+
   * {
     margin-top: 0;
     padding: 0;
   }
+
   ul {
     list-style: none;
   }
+
   mark {
     color: #494d55;
     background: #58bbee;
   }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -62,6 +67,7 @@ export const HitsWrapper = styled.div`
       padding: 0.1em 0.4em;
     }
   }
+
   h6 {
     margin: 0 0 0.5em;
   }
@@ -91,7 +97,7 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
 
 const PageHit = clickHandler => ({ hit }) => (
   <div>
-    <Link to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link to={hit.pagePath} onClick={clickHandler}>
       <h6>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h6>

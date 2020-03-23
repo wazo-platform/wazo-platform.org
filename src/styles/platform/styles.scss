@@ -26,9 +26,15 @@ pre {
   }
 
   .page-title {
-    padding: 80px 0 20px;
+    padding: 80px 0 20px 0;
     background: $fakeDarkGray;
+
+    .container {
+      position: relative;
+    }
+
     h1 {
+      transition: 350ms ease opacity;
       color: #fff;
       font-size: 2em;
       padding: 0;
@@ -177,42 +183,99 @@ pre {
   transition: opacity .2s linear;
 }
 
-header{
-  .main &.header{ padding: 0 };
+.main header.header{
+  padding: 0;
 
   .navbar-collapse{
     background: $green !important;
   }
 
   @media (min-width: 576px) {
-    .container {
-        max-width: none;
-    }
+    .container { max-width: none; }
   }
 
   .main-nav {
-    @media(min-width: 992px){
-      float: right;
-    }
+    @media(min-width: 989px) { float: right; }
 
-    .nav{
-      @media(min-width: 992px){
-        padding-top: 0px;
-      }
-      .nav-item{
-        border-bottom: 1px solid rgba(255,255,255,.2);
-        @media(min-width: 992px){
-          border-bottom: 0 none;
-        }
-        .nav-link {
-          color: #fff !important;
-          text-transform: uppercase;
-          padding: 20px 10px !important;
-          &.active{
-            background: rgba(0,0,0,.1) !important;
+    // When search is enabled
+    &.main-nav-search-enabled .nav {
+      .nav-item {
+        opacity: 0;
+        pointer-events: none;
+
+        &.nav-item-search {
+          opacity: 1;
+          pointer-events: visible;
+
+          .main-search-box {
+            opacity: 1;
+            pointer-events: visible;
           }
         }
       }
+    }
+
+    .nav{
+      @media(min-width: 992px) {
+        padding-top: 0px;
+      }
+
+
+      .nav-item{
+        transition: 250ms ease opacity !important;
+        margin-right: 0;
+
+        @media(min-width: 992px){
+          border-bottom: 0 none;
+        }
+
+        .nav-link {
+          transition: 250ms ease background !important;
+          color: #fff !important;
+          text-transform: uppercase;
+          padding: 20px 20px !important;
+          text-decoration: none;
+
+          &:hover, &:active { background: rgba(0,0,0,.05) !important; }
+          &.active { background: rgba(0,0,0,.2) !important; }
+        }
+
+        // Search in nav
+        &.nav-item-search {
+          position: relative;
+          text-align: right;
+
+          > i { margin-right: 2px; }
+
+          .main-search-box {
+            transition: 250ms ease opacity;
+            pointer-events: none;
+            position: absolute;
+            left: -415px;
+            width: 400px;
+            top: 50%;
+            padding: 0 !important;
+            box-sizing: border-box;
+            transform: translate(0, -50%);
+            opacity: 0;
+
+            .form-control {
+              transition: 250ms ease all;
+              background: $fakeBlack;
+              color: #FFF;
+              outline: 0;
+              box-shadow: none;
+              border: none;
+              width: 100%;
+
+              &:focus {
+                background: #222;
+              }
+            }
+          }
+        }
+      }
+
     }
   }
 }
@@ -348,6 +411,67 @@ body.documentation {
   }
 }
 
+// Small Desktop
+// ----------
+@media only screen and (max-width: 1199px) {
+  .main header.header{
+    .main-nav .nav .nav-item .nav-link {
+      padding: 20px 15px !important;
+      font-size: 13px;
+    }
+  }
+}
+
+// Mobile
+// ----------
+@media only screen and (max-width: 989px) {
+  .main header.header{
+    .main-nav {
+      // Remove search overlay
+      &.main-nav-search-enabled .nav {
+        .nav-item, &.nav-item-search, &.nav-item-search .main-search-box {
+          opacity: 1;
+          pointer-events: visible;
+        }
+      }
+
+      .nav {
+        display: flex;
+
+
+        &.navbar-nav { margin-left: 0 !important; }
+
+        .nav-item {
+          .nav-link { border-bottom: 1px solid rgba(255,255,255,0.25); }
+
+          // Search item
+          &.nav-item.nav-item-search {
+            order: -1;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+
+            > a { display: none; }
+
+            .main-search-box {
+              opacity: 1;
+              position: relative;
+              left: inherit;
+              top: inherit;
+              width: calc(100% - 30px);
+              transform: none;
+              margin: 20px 15px;
+              box-sizing: border-box;
+              pointer-events: visible;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small Mobile
+// ----------
 @media only screen and (max-width: 767px) {
   .main-content {
     display: flex;

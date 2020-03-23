@@ -1,9 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link as GatsbyLink} from 'gatsby';
-import Search from './search';
 
-
+import Search from '../dev/search';
+import { forDeveloper } from '../../../config-wazo';
 import Layout from '../Layout';
 
 const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
@@ -77,7 +77,8 @@ export default ({ pageContext: { sections } }) => (
       <title>Wazo Platform - Documentation for developers</title>
     </Helmet>
 
-    <Search />
+    {/* Add search here, only if on developer site */}
+    { forDeveloper && <Search /> }
 
     <section className="cards-section text-center">
       {sections.map(section => (

@@ -357,42 +357,6 @@ html, body {
     color: rgba(0, 0, 0, 0.4);
   }
 
-  .search-form {
-    position: relative;
-  }
-
-  .search-form .search-input {
-    font-size: 14px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    border-radius: 20px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    padding-top: 4px;
-  }
-
-  .search-form .search-input:focus {
-    border-color: #616670;
-  }
-
-  .search-form .search-btn {
-    color: #797f8b;
-    background: none;
-    border: none;
-    position: absolute;
-    right: 5px;
-    top: 0px;
-    margin-right: 0;
-  }
-
-  .search-form .search-btn:active, .search-form .search-btn:focus, .search-form .search-btn:hover {
-    outline: none !important;
-    color: #31343a;
-  }
-
   .top-search-box {
     position: absolute;
     right: 15px;
@@ -1429,31 +1393,9 @@ html, body {
     color: #8A40A7;
   }
 
-  @media (max-width: 575.98px) {
-    .main-search-box {
-      width: 100%;
-    }
-    .main-search-box .search-form .search-input {
-      width: 100%;
-    }
-  }
-
   @media (max-width: 767.98px) {
     .cards-section .item-inner {
       padding: 30px 15px;
     }
   }
-
-  @media (min-width: 576px) {
-    .main-search-box .search-form .search-input {
-      width: 400px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .main-search-box .search-form .search-input {
-      width: 560px;
-    }
-  }
-
 }

@@ -1,3 +1,5 @@
+const path = require('path');
+
 /**
  * Configure your Gatsby site with this file.
  *

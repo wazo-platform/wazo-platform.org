@@ -8,6 +8,7 @@ const striptags = require('striptags');
 const RSS = require('rss');
 
 const config = require('./config');
+const constants = require('./src/contants');
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
@@ -21,8 +22,11 @@ let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.api
 let algoliaIndex = null;
 
 if (hasSearch) {
+  console.info('Enabling Algolia search');
   const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-  algoliaIndex = algoliaClient.initIndex('wazo-doc-overview');
+  const algoliaKeyIndex = forDeveloper ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform;
+  algoliaIndex = algoliaClient.initIndex(algoliaKeyIndex);
+
   algoliaIndex.setSettings(
     {
       attributeForDistinct: 'title',
@@ -56,7 +60,7 @@ const walk = dir => {
   });
 };
 
-const getArticles = async createPage => {
+const getArticles = async newPageRef => {
   const dir = './content/blog';
   const articles = [];
   const files = fs.readdirSync(dir);
@@ -89,7 +93,8 @@ const getArticles = async createPage => {
       });
 
     const summaryNumWords = 40;
-    options.summary = striptags(markdownConverter.makeHtml(body))
+    const strippedContent = striptags(markdownConverter.makeHtml(body));
+    options.summary = strippedContent
       .split(' ')
       .splice(0, summaryNumWords)
       .join(' ');
@@ -100,31 +105,32 @@ const getArticles = async createPage => {
 
       articles.push(options);
 
-      createPage({
-        path: blogPath,
-        component: path.resolve(`src/component/blog/article.js`),
-        context: {
-          ...options,
-          body,
-        },
-      });
+      const articleContext = {
+        ...options,
+        body,
+        // Algolia fields
+        title: options.title,
+        description: options.summary,
+        algoliaContent: strippedContent,
+      };
+      newPageRef(blogPath, 'blog/article', articleContext);
 
       rssFeed.item({
         title: options.title,
-        description: options.summary+'...',
+        description: options.summary + '...',
         url: `${siteUrl}${blogPath}`,
         author: options.author,
         categories: [options.category],
         date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
         enclosure: {
-          url: `${siteUrl}/images/og-image.jpg` // @todo change image, change when og:image per article
-        }
+          url: `${siteUrl}/images/og-image.jpg`, // @todo change image, change when og:image per article
+        },
       });
     }
   });
 
   console.log('generating articles rss feed');
-  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), (err) => {
+  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), err => {
     if (err) console.log(err);
   });
 
@@ -161,11 +167,16 @@ const walk_md_files = (dir, path, acc, index) => {
 };
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  console.log(`Building ${siteUrl}`);
+  console.info(`Building ${siteUrl}`);
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
   } catch (e) {
     console.error(e);
+  }
+
+  // Init algolia index
+  if (hasSearch) {
+    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
   }
 
   const ecosystemDoc = fs.readFileSync('./content/ecosystem.md', 'utf8');
@@ -181,6 +192,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
+  var algoliaObjects = [];
 
   const getModuleName = repoName =>
     Object.keys(allModules).find(moduleName => {
@@ -190,12 +202,29 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     });
 
   // Helper to generate page
-  const newPage = (modulePath, component, context) =>
+  const newPage = (pagePath, component, context) => {
     createPage({
-      path: modulePath,
+      path: pagePath,
       component: path.resolve(`src/component/${component}.js`),
       context,
     });
+
+    if (hasSearch) {
+      const title = context ? (context.module ? context.module.title : context.title) : null;
+      const description = context ? (context.module ? context.module.description : context.description) : null;
+
+      if (!title) {
+        return;
+      }
+
+      algoliaObjects.push({
+        title,
+        description,
+        content: context && context.algoliaContent ? context.algoliaContent : null,
+        pagePath,
+      });
+    }
+  };
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
@@ -210,101 +239,79 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   );
   console.info(`done generating svg diagrams`);
 
-  // Update algolia index
-  if (hasSearch) {
-    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
-    const algoliaObjects = Object.keys(overviews).reduce((acc, repoName) => {
-      const moduleName = getModuleName(repoName);
-      const module = allModules[moduleName];
-      const htmlContent = markdownConverter.makeHtml(overviews[repoName]);
-      const content = striptags(htmlContent);
-
-      acc.push({
-        repository: repoName,
-        moduleName,
-        title: module.title,
-        description: module.description,
-        content,
-      });
-
-      return acc;
-    }, []);
-
-    algoliaIndex.addObjects(algoliaObjects);
-  }
-
-  const articles = await getArticles(createPage);
-
   // Create homepage
   await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
 
-  // Create doc page
-  await newPage('/documentation', 'documentation/index', { sections, overviews });
-  // Create install page
-  await newPage('/install', 'install/index', { installDoc });
-  // Create install-uc page
-  await newPage('/install/unified-communication', 'install_uc/index', { installUCDoc });
-  // Create install-uc page
-  await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
-  // Create contribute page
-  await newPage('/contribute', 'contribute/index', { content: contributeDoc });
-  // Create blog page
-  await newPage('/blog', 'blog/index', { articles });
-  // Create ecosystem page
-  await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
+  if (!forDeveloper) {
+    // Create doc page
+    await newPage('/documentation', 'documentation/index', { sections, overviews });
+    // Create install page
+    await newPage('/install', 'install/index', { installDoc });
+    // Create install-uc page
+    await newPage('/install/unified-communication', 'install_uc/index', { installUCDoc });
+    // Create install-uc page
+    await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
+    // Create contribute page
+    await newPage('/contribute', 'contribute/index', { content: contributeDoc });
+    // Create blog page
+    const articles = await getArticles(newPage);
+    await newPage('/blog', 'blog/index', { articles });
+    // Create ecosystem page
+    await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
 
-  // Create contribute pages
-  Object.keys(contributeDocs).forEach(fileName => {
-    const rawContent = contributeDocs[fileName].split('\n');
-    const title = rawContent[0];
-    rawContent.shift();
-    rawContent.shift();
-    const content = rawContent.join('\n');
-    var p = '/contribute/' + path.basename(fileName, '.md');
-    console.log('generating ' + p);
-    newPage(p, 'contribute/index', { content, title });
-  });
+    // Create contribute pages
+    Object.keys(contributeDocs).forEach(fileName => {
+      const rawContent = contributeDocs[fileName].split('\n');
+      const title = rawContent[0];
+      rawContent.shift();
+      rawContent.shift();
+      const content = rawContent.join('\n');
+      var p = '/contribute/' + path.basename(fileName, '.md');
+      console.log('generating ' + p);
+      newPage(p, 'contribute/index', { content, title });
+    });
 
-  // Create uc-doc pages
-  // ---------
-  const ucDocsResult = await graphql(`
-    {
-      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/uc-doc/"} }) {
-        edges {
-          node {
-            id
-            fileAbsolutePath
-            frontmatter {
-              title
-              subtitle
+    // Create uc-doc pages
+    // ---------
+    const ucDocsResult = await graphql(`
+      {
+        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/uc-doc/" } }) {
+          edges {
+            node {
+              id
+              fileAbsolutePath
+              frontmatter {
+                title
+                subtitle
+              }
+              html
+              algoliaContent: excerpt(pruneLength: 800)
+              description: excerpt(pruneLength: 200)
             }
-            html
-            description: excerpt(pruneLength: 200)
           }
         }
       }
+    `);
+
+    // Handle errors
+    if (ucDocsResult.errors) {
+      reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`);
+      return;
     }
-  `)
 
-  // Handle errors
-  if (ucDocsResult.errors) {
-    reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`)
-    return;
-  }
-
-  ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace("index", "");
-    newPage(
-      pagePath,
-      'uc-doc/index',
-      {
+    ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const pagePath = node.fileAbsolutePath
+        .split('content/')[1]
+        .split('.')[0]
+        .replace('index', '');
+      newPage(pagePath, 'uc-doc/index', {
         content: node.html,
         title: node.frontmatter.title,
+        algoliaContent: node.algoliaContent,
         pagePath,
-      },
-    )
-  })
-
+      });
+    });
+  }
 
   // Create api pages
   // ----------
@@ -359,5 +366,22 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         });
       }
     });
+  });
+
+  // Update algolia index
+  if (hasSearch) {
+    algoliaIndex.addObjects(algoliaObjects);
+  }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        mainCSS: !!process.env.FOR_DEVELOPER
+          ? path.resolve(__dirname, 'src/styles/dev')
+          : path.resolve(__dirname, 'src/styles/platform'),
+      },
+    },
   });
 };

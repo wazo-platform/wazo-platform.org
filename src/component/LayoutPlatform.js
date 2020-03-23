@@ -1,17 +1,30 @@
 import Helmet from 'react-helmet';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import Search from './platform/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
-import '../styles/platform/pretty-docs.scss';
-import '../styles/platform/documentation.scss';
-import '../styles/platform/styles.scss';
-
-
 export default ({ children, section, className, pageTitle, breadcrumbs = [] }) => {
+  const [searchEnabled, setSearchEnabled] = useState(false);
+
   const bodyAttributes = { class: section };
   const now = new Date();
-  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(" - ");
+  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(' - ');
+
+  const navigationClasses = ['main-nav', 'navbar-expand-md'];
+  if (searchEnabled) {
+    navigationClasses.push('main-nav-search-enabled');
+  }
+
+  const handleSearch = e => {
+    e.preventDefault();
+    const newStateSearchEnabled = !searchEnabled;
+    setSearchEnabled(newStateSearchEnabled);
+
+    if (newStateSearchEnabled) {
+      document.querySelector('input.form-control.search-input').focus();
+    }
+  };
 
   return (
     <div className="main">
@@ -24,6 +37,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
           rel="stylesheet"
           type="text/css"
         />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
       </Helmet>
 
       <header id="header" className="header">
@@ -31,7 +45,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
           <Link to="/">
             <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
           </Link>
-          <nav id="main-nav" className="main-nav navbar-expand-md" role="navigation">
+          <nav id="main-nav" className={navigationClasses.join(' ')} role="navigation">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar" />
@@ -76,9 +90,17 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
                     Ecosystem
                   </Link>
                 </li>
-                <li className="nav-item last">
+                <li className="nav-item">
                   <a className="nav-link scrollto" href="/#contact">
                     Contact
+                  </a>
+                </li>
+
+                <li className="nav-item nav-item-search last">
+                  <Search />
+                  <a className="nav-link" href="#search" title="Search" onClick={handleSearch}>
+                    {searchEnabled ? <i className="far fa-times-circle"></i> : <i className="fas fa-search"></i>}
+                    &nbsp;Search
                   </a>
                 </li>
               </ul>
@@ -174,7 +196,7 @@ export default ({ children, section, className, pageTitle, breadcrumbs = [] }) =
             </small>
 
             <small className="copyright">
-              Copyright &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
+              Copyright &copy; 2016-{now.getFullYear()} <a href="https://wazo.io">Wazo Communication</a>
             </small>
           </div>
         </div>

@@ -11,48 +11,72 @@ import {
 } from 'react-instantsearch-dom';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import { algoliaIndexPlatform as indexName } from '../../contants'
 
 const config = require('../../../config');
-const indexName = 'wazo-doc-overview';
 
-const Root = props => <div className="main-search-box pt-3 pb-3 d-inline-block">{props.children}</div>;
+const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
 
 const list = css`
   position: absolute;
   width: 560px;
-  top: calc(100% - 10px);
   padding: 0.7em 1em 0.4em;
   background: #f9f9fb;
-  border: 1px solid #ccc;
   z-index: 2;
-  > * + * {
-    padding-top: 1em !important;
-    border-top: 2px solid #ccc;
+  right: 0;
+  top: 40px;
+  border: 1px solid #EEE;
+  box-shadow: 0px 2x 5px rgba(0,0,0,0.75);
+  text-align: left;
+
+  @media only screen and (max-width: 989px) {
+    width: 100%;
   }
-  li + li {
-    margin-top: 0.7em;
-    padding-top: 0.7em;
-    border-top: 1px solid #ddd;
+
+  li {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #ddd;
+
+    div > a:first-child {
+      color: #98c451;
+    }
+
+    .snippet-link {
+      color: #888;
+      font-weight: normal;
+
+    }
+
+    mark {
+      background: rgba(152, 196, 81, 0.5);
+    }
   }
 `;
 
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
   max-height: 80vh;
-  overflow: scroll;
+  overflow-y: scroll;
   ${list};
   color: #616670;
+  border-radius: 4px;
+
+
   * {
     margin-top: 0;
     padding: 0;
   }
+
   ul {
     list-style: none;
   }
+
   mark {
     color: #494d55;
     background: #58bbee;
   }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -62,6 +86,7 @@ export const HitsWrapper = styled.div`
       padding: 0.1em 0.4em;
     }
   }
+
   h6 {
     margin: 0 0 0.5em;
   }
@@ -70,7 +95,7 @@ export const HitsWrapper = styled.div`
 const By = styled.span`
   font-size: 0.6em;
   text-align: end;
-  padding: 0;
+  padding: 20px 0 5px;
   a {
     color: #616670 !important;
   }
@@ -91,12 +116,12 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
 
 const PageHit = clickHandler => ({ hit }) => (
   <div>
-    <Link to={`/documentation/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link to={`/${hit.pagePath}`} onClick={clickHandler}>
       <h6>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h6>
     </Link>
-    <Link className="snippet-link" to={`/documentation/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+    <Link className="snippet-link" to={`/${hit.pagePath}`} onClick={clickHandler}>
       <Snippet attribute="content" hit={hit} tagName="mark" />
     </Link>
   </div>
@@ -113,7 +138,9 @@ export default class Search extends Component {
   state = { query: '', focused: false };
 
   searchClient = config.algolia && !!config.algolia.appId && !!config.algolia.publicKey ?
-    algoliasearch(config.algolia.appId, config.algolia.publicKey) : null;
+    algoliasearch(config.algolia.appId, config.algolia.publicKey, {
+      indexName: 'wazo-platform-development',
+    }) : null;
 
   updateState = state => this.setState(state);
 
@@ -122,7 +149,7 @@ export default class Search extends Component {
   disableHits = () => this.setState({ focused: false });
 
   handleClickOutside = event => {
-    if (this.list.current && !this.list.current.contains(event.target)) {
+    if (!this.list.current || !this.list.current.contains(event.target)) {
       this.setState({ focused: false });
     }
   };
@@ -143,29 +170,27 @@ export default class Search extends Component {
     }
 
     return (
-      <div className="doc-main-header text-center">
-        <InstantSearch
-          searchClient={this.searchClient}
-          indexName={indexName}
-          onSearchStateChange={this.updateState}
-          root={{ Root }}
-        >
-          <Input onFocus={this.focus} {...{ collapse, focused }} />
-          <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
-            <Index indexName={indexName}>
-              <Results>
-                <Hits hitComponent={PageHit(this.disableHits)} />
-              </Results>
-            </Index>
-            <By>
-              Powered by{' '}
-              <a href="https://www.algolia.com">
-                <i className="fab fa-algolia" /> Algolia
-              </a>
-            </By>
-          </HitsWrapper>
-        </InstantSearch>
-      </div>
+      <InstantSearch
+        searchClient={this.searchClient}
+        indexName={indexName}
+        onSearchStateChange={this.updateState}
+        root={{ Root }}
+      >
+        <Input onFocus={this.focus} {...{ collapse, focused }} />
+        <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
+          <Index indexName={indexName}>
+            <Results>
+              <Hits hitComponent={PageHit(this.disableHits)} />
+            </Results>
+          </Index>
+          <By>
+            Powered by{' '}
+            <a href="https://www.algolia.com">
+              <i className="fab fa-algolia" /> Algolia
+            </a>
+          </By>
+        </HitsWrapper>
+      </InstantSearch>
     );
   }
 }
