@@ -38,7 +38,7 @@ support the notion of a primary and backup telephony server.
 -   The slave must have no provisioning plugins installed.
 
 The HA solution is guaranteed to work correctly with
-`the following devices <devices>`{.interpreted-text role="ref"}.
+[the following devices](/uc-doc/administration/security#devices).
 
 Quick Summary
 =============
@@ -62,7 +62,7 @@ Configuration Details
 =====================
 
 First thing to do is to
-`install 2 Wazo <installation>`{.interpreted-text role="ref"}.
+[install 2 Wazo](/uc-doc/installation).
 
 #:exclamation: When you upgrade a node of your cluster, you must also upgrade the other
 so that they both are running the same version of Wazo. Otherwise, the
@@ -212,7 +212,7 @@ Berofos Integration
 
 - [berofos](/uc-doc/high_availability/berofos)
 
-Troubleshooting
+<a name="troubleshooting"></a>Troubleshooting
 ===============
 
 When replicating the database between master and slave, if you encounter

@@ -31,9 +31,9 @@ wazo-dird or installed separately.
 Each kind of plugin does a specific job. There are three kinds of
 plugins in dird.
 
-1.  `dird-back-end`{.interpreted-text role="ref"}
-2.  `dird-service`{.interpreted-text role="ref"}
-3.  `dird-view`{.interpreted-text role="ref"}
+1.  [Back-End](/uc-doc/system/wazo-dird/developer#dird-back-end)
+2.  [Service](/uc-doc/system/wazo-dird/developer#dird-service)
+3.  [View](/uc-doc/system/wazo-dird/developer#dird-view)
 
 ![wazo-dird HTTP query](/images/uc-doc/system/wazo-dird/query.png)
 
@@ -73,7 +73,7 @@ setup(
 )
 ```
 
-Back-End {#dird-back-end}
+<a name="dird-back-end"></a>Back-End
 ========
 
 Back-ends are used to query directories. Each back-end implements a way
@@ -105,19 +105,19 @@ Implementation details
         -   Empty values should be `None`, instead of empty string.
         -   `args` is a dictionary containing:
             -   key `token_infos`: data associated to the authentication
-                token (see `wazo-auth`{.interpreted-text role="ref"})
+                token (see [wazo-auth](/uc-doc/system/configuration_files#wazo-auth))
     -   `first_match(term, args)`: The first\_match method returns a
         dictionary.
         -   Empty values should be `None`, instead of empty string.
         -   `args` is a dictionary containing:
             -   key `token_infos`: data associated to the authentication
-                token (see `wazo-auth`{.interpreted-text role="ref"})
+                token (see [wazo-auth](/uc-doc/system/configuration_files#wazo-auth))
     -   `list(uids, args)`: The list method returns a list of dictionary
         from a list of uids. Each uid is a string identifying a contact
         within the source.
         -   `args` is a dictionary containing:
             -   key `token_infos`: data associated to the authentication
-                token (see `wazo-auth`{.interpreted-text role="ref"})
+                token (see [wazo-auth](/uc-doc/system/configuration_files#wazo-auth))
 
 The implementation of the back-end should take these values into account
 and return results accordingly.
@@ -167,7 +167,7 @@ class DummyBackendPlugin(object):
         return ''.join(random.choice(string.lowercase) for _ in xrange(5))
 ```
 
-Service {#dird-service}
+<a name="dird-service"></a>Service
 =======
 
 Service plugins add new functionality to the dird server. These
@@ -248,7 +248,7 @@ class DummyService(object):
         return []
 ```
 
-View {#dird-view}
+<a name="dird-view"></a>View
 ====
 
 View plugins add new routes to the HTTP application in wazo-dird, in

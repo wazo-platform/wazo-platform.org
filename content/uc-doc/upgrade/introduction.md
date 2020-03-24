@@ -31,7 +31,7 @@ There are 2 options you can pass to wazo-upgrade:
 `wazo-upgrade` uses the following environment variables:
 
 -   `WAZO_CONFD_PORT` to set the port used to query the
-    `HTTP API of wazo-confd <confd-api>`{.interpreted-text role="ref"}
+    [HTTP API of wazo-confd](/uc-doc/api_sdk/rest_api/confd)
     (default is 9486)
 
 ## Upgrade procedure
@@ -51,7 +51,7 @@ There are 2 options you can pass to wazo-upgrade:
     ISDN link status, internal/incoming/outgoing calls, Wazo Client
     connections etc.
 
-## Version-specific upgrade procedures
+## <a name="version_specific_upgrade"></a>Version-specific upgrade procedures
 
 ### Upgrading from XiVO 16.13 and before
 
@@ -59,7 +59,7 @@ When upgrading from XiVO 16.13 or before, you must use the special
 [XiVO to Wazo upgrade procedure](/uc-doc/upgrade/upgrade_notes_details/16-16/xivo_to_wazo#upgrading-to-wazo) instead of
 simply running `xivo-upgrade`.
 
-## Upgrading a cluster
+## <a name="upgrading-a-cluster"></a>Upgrading a cluster
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
 [high-availability](/uc-doc/high_availability/):
@@ -95,7 +95,7 @@ See our recommandation on [how to upgrade to a specific version of Wazo](/uc-doc
 
 - [Version Deprecation Policy](/uc-doc/upgrade/version_deprecation_policy)
 
-## Troubleshooting
+## <a name="troubleshooting"></a>Troubleshooting
 
 ### Postgresql
 
@@ -126,6 +126,6 @@ case, you must delete the DROP rules with the following command:
 
 Repeat this command until no more unwanted rules are left.
 
-## Upgrade notes
+## <a name="upgrade-notes"></a>Upgrade notes
 
 - [Upgrade Notes](/uc-doc/upgrade/upgrade_notes)

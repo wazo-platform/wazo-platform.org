@@ -27,7 +27,7 @@ Alice retrieves a token using her username/password:
 
 In this example Alice used here login `alice` and password `s3cre7`. The
 authentication source is determined by the
-`backend <auth-backends>`{.interpreted-text role="ref"} in the POST
+[backend](/uc-doc/system/wazo-auth/stock_plugins) in the POST
 data.
 
 Alice could also have specified an expiration time on her POST request.
@@ -43,7 +43,7 @@ If Alice wants to revoke her token before its expiration:
 
 See <http://api.wazo.community> for more details about the HTTP API.
 
-See `service-authentication`{.interpreted-text role="ref"} for details
+See [Service Authentication](/uc-doc/system/service_authentication) for details
 about the authentication process.
 
 Usage for services using wazo-auth
@@ -163,10 +163,9 @@ HTTP API Reference
 The complete HTTP API documentation is at <http://api.wazo.community>.
 
 See also the
-`wazo-auth changelog <rest-api_changelog>`{.interpreted-text
-role="ref"}.
+[wazo-auth changelog](/uc-doc/api_sdk/rest_api/changelog).
 
 Development
 ===========
 
-See `wazo-auth-developer`{.interpreted-text role="ref"}.
+See [wazo-auth Developer's Guide](/uc-doc/system/wazo-auth/developer).

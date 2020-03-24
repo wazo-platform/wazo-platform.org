@@ -20,8 +20,7 @@ against Asterisk 14. Not doing so usually leads to major instability
 issues in Asterisk.
 
 If you are upgrading from Asterisk 11, you should also check the
-`Asterisk 11 to 13 upgrade notes
-<asterisk-11-to-13>`{.interpreted-text role="ref"}.
+[Asterisk 11 to 13 upgrade notes](/uc-doc/upgrade/upgrade_notes_details/15-13/asterisk_13).
 
 Changes Between Asterisk 13 and 14
 ==================================

@@ -145,8 +145,8 @@ exhaustive list):
         an Outgoing Call
 
     This variable is used by wazo-agid when
-    `selecting the ringtone <xivo_ring.conf>`{.interpreted-text
-    role="ref"} for ringing a user. This variable is available only in
+    [selecting the ringtone](/uc-doc/system/configuration_files#xivo_ring.conf)
+    for ringing a user. This variable is available only in
     user subroutines.
 
 -   `XIVO_DSTNUM`: the value is the extension dialed, as received by

@@ -6,7 +6,7 @@ title: CSV User Import
 
 Users and common related resources can be imported onto a Wazo server by
 sending a CSV file with a predefined
-`set of fields <user_import>`{.interpreted-text role="ref"}.
+[set of fields](/uc-doc/administration/users/csv_import).
 
 This page only documents additional notes useful for API users. Consult
 the [API documentation](http://api.wazo.community) for more details.

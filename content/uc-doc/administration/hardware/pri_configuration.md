@@ -14,7 +14,7 @@ If it wasn't, do again the step [load dahdi modules](/uc-doc/administration/hard
 #:warning: *TE13x, TE23x, TE43x* cards :
 
 -   these cards need a specific dahdi module configuration. See
-    `dahdi_linemode_selection`{.interpreted-text role="ref"} paragraph,
+    [TE13x, TE23x, TE43x: E1/T1 selection](/uc-doc/administration/hardware/load_modules#dahdi_linemode_selection) paragraph,
 -   you **MUST** install the correct echo-canceller firmware to be able
     to use these cards. See [hwec_configuration](/uc-doc/administration/hardware/echo_canceller) paragraph.
 
@@ -84,19 +84,18 @@ Next step
 Now that you have configured your PRI card:
 
 1.  you must check if you need to follow one of the
-    `pri_card_specific_conf`{.interpreted-text role="ref"} sections
+    [Specific configuration](/uc-doc/administration/hardware/pri_configuration#pri_card_specific_conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
-    to the `configure your card <card_configuration>`{.interpreted-text
-    role="ref"} section,
+    to the [configure your card](/uc-doc/administration/hardware/card_configuration) section,
 3.  if you have configured all your card you have to configure the
-    `interco_dahdi_conf`{.interpreted-text role="ref"} in the web
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-Specific configuration
+<a name="pri_card_specific_conf"></a>Specific configuration
 ======================
 
-Multiple PRI cards and sync cable
+<a name="sync_cable"></a>Multiple PRI cards and sync cable
 ---------------------------------
 
 If you have several PRI cards in your server you should link them with a

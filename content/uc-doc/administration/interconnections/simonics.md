@@ -23,8 +23,8 @@ title: Simonics
 
 ### <a name="outgoing-calls"></a>Outgoing calls
 
-See the `voip_provider_outcall`{.interpreted-text role="ref"} section.
+See the [Set the outgoing calls](/uc-doc/administration/interconnections/xivo_with_voip_provider#voip_provider_outcall) section.
 
 ### <a name="incoming-calls"></a>Incoming calls
 
-See the `voip_provider_incall`{.interpreted-text role="ref"} section.
+See the [Set the incoming calls](/uc-doc/administration/interconnections/xivo_with_voip_provider#voip_provider_incall) section.

@@ -31,7 +31,7 @@ Some places where you might want to add this preprocess subroutine is on
 queues and outgoing calls to be able to transfer the called person to
 another extension.
 
-Fax detection
+<a name="fax-detection"></a>Fax detection
 =============
 
 Wazo **does not currently support Fax detection**. The following
@@ -80,7 +80,7 @@ same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
 
         asterisk -rx 'core reload'
 
-Berofos Integration with PBX
+<a name="berofos-integration-with-pbx"></a>Berofos Integration with PBX
 ============================
 
 You can use a Berofos failover switch to secure the ISDN provider lines
@@ -215,7 +215,7 @@ Also, the subroutine prevent asterisk from calling an agent twice by
 hanguping the second call. In the agent statistics, this will be shown
 as a non-answered call by the agent.
 
-PostgreSQL localization errors
+<a name="postgresql_localization_errors"></a>PostgreSQL localization errors
 ==============================
 
 The database and the underlying [database
@@ -337,7 +337,7 @@ Then the slave database is most likely not using an UTF-8 encoding.
 You\'ll need to
 `recreate the database using a different locale <postgres-change-locale>`
 
-Changing the locale (LC_COLLATE and LC_CTYPE) of the database
+<a name="postgres-change-locale"></a>Changing the locale (LC_COLLATE and LC_CTYPE) of the database
 -------------------------------------------------------------
 
 If you have decided to change the locale of your database, you must:

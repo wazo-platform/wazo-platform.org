@@ -15,7 +15,7 @@ You may want to set up a DHCP server if you have a significant number of
 phones to connect, as no manual intervention will be required on each
 phone.
 
-Configuring the DHCP Server
+<a name="dhcpd-config"></a>Configuring the DHCP Server
 ===========================
 
 Wazo includes a DHCP server that facilitate the auto-provisioning of
@@ -27,7 +27,7 @@ DHCP server:
 -   it only answers to DHCP requests from
     [supported devices](/uc-doc/ecosystem/supported_devices).
 -   it only answers to DHCP requests coming from the VoIP subnet (see
-    [network configuration](/uc-doc/system/network/network).
+    [network configuration](/uc-doc/system/network)).
 
 This means that if your phones are on the same broadcast domain than
 your computers, and you would like the DHCP server on your Wazo to
@@ -53,7 +53,7 @@ information on the vendor website.
 
 It's good practice to only install the plugins you need and no more.
 
-Alternative plugins repository
+<a name="alternative-plugins-repo"></a>Alternative plugins repository
 ------------------------------
 
 By default, the list of plugins available for installation are the
@@ -63,8 +63,7 @@ This can be changed with `wazo-provd` endpoint
 `/provd/configure/plugin_server`
 
 -   `http://provd.wazo.community/plugins/1/stable/` --
-    `community supported devices
-    <supported-devices>`{.interpreted-text role="ref"} "stable"
+    [community supported devices](/uc-doc/ecosystem/supported_devices) "stable"
     repository
 -   `http://provd.wazo.community/plugins/1/testing/` -- officially
     supported devices "testing" repository
@@ -93,8 +92,7 @@ Aastra
 ------
 
 On the web interface of your phone, go to
-`Advanced settings --> Configuration
-server`{.interpreted-text role="menuselection"}, and enter the following
+`Advanced settings --> Configuration server`{.interpreted-text role="menuselection"}, and enter the following
 settings:
 
 ![Configuration Server Aastra](/images/uc-doc/provisioning/config_server_aastra.png)
@@ -103,8 +101,7 @@ Polycom
 -------
 
 On the phone, go to
-`Menu --> Settings --> Advanced --> Admin Settings --> Network
-configuration --> Server Menu`{.interpreted-text role="menuselection"}
+`Menu --> Settings --> Advanced --> Admin Settings --> Network configuration --> Server Menu`{.interpreted-text role="menuselection"}
 and enter the following settings:
 
 -   Server type: HTTP
@@ -178,7 +175,7 @@ user: possibilities :
 The phone will restarts and display autoprov, ready to be used for
 another user.
 
-From a Device
+<a name="reset-to-autoprov-device"></a>From a Device
 -------------
 
 -   Dial ***guest** (*48378) on the phone dialpad followed by

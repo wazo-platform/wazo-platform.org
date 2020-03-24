@@ -2,7 +2,7 @@
 title: Advanced Configuration
 ---
 
-DHCP Integration
+<a name="dhcp-integration"></a>DHCP Integration
 ================
 
 DHCP integration is enabled by default without possibility to disable
@@ -24,7 +24,7 @@ the same IP addresses, for one reason or another. Again, this is useful
 only for some phones, like the Cisco 7900; it has no effect for Aastra
 6700.
 
-Creating Custom Templates
+<a name="provd-custom-templates"></a>Creating Custom Templates
 =========================
 
 Custom templates comes in handy when you have some really specific
@@ -174,7 +174,7 @@ The template to use as the base for a device specific template will vary
 depending on the need. Typically, the model template will be a good
 choice, but it might not always be the case.
 
-Changing the Plugin Used by a Device {#provd-changing-device-plugin}
+<a name="provd-changing-device-plugin"></a>Changing the Plugin Used by a Device
 ====================================
 
 From time to time, new firmwares are released by the devices
@@ -228,8 +228,7 @@ Enabling the NAT option will also improve the performance of the
 provisioning server in this scenario.
 
 If you have many devices behind a NAT equipment, you should also check
-the `security
-<provd-security>`{.interpreted-text role="ref"} section to make sure the
+the [security](/uc-doc/administration/provisioning/adv_configuration#provd-security) section to make sure the
 IP address of your NAT equipment doesn't get banned unintentionally.
 
 Limitations
@@ -251,7 +250,7 @@ For technical information about why other devices are not supported, you
 can look at [this issue](https://projects.wazo.community/issues/5107) on
 the Wazo bug tracker.
 
-Security {#provd-security}
+<a name="provd-security"></a>Security
 ========
 
 By design, the auto-provisioning process is vulnerable to:
@@ -290,7 +289,7 @@ example, reboot all your phones at the same time. Another solution would
 be to add your IP address to the list of ignored IP address of fail2ban.
 See the fail2ban(1) man page for more information.
 
-System Requirements
+<a name="provd-security-requirements"></a>System Requirements
 -------------------
 
 XiVO/Wazo 16.08 or later is required. You also need to use compatible

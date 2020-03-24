@@ -11,8 +11,8 @@ title: Archived Upgrade Notes
     environments without NAT.
     -   In the rare cases where you want to keep `nat=no` you must
         explicitly change this value in the administation interface
-        `Services --> IPBX --> General Settings --> SIP Protocol`{.interpreted-text
-        role="menuselection"} in tab [Default]{.title-ref}. See
+        `Services --> IPBX --> General Settings --> SIP Protocol`{.interpreted-text role="menuselection"} 
+        in tab [Default]{.title-ref}. See
         [Asterisk sip.conf
         sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
         for more informations.
@@ -97,8 +97,7 @@ title: Archived Upgrade Notes
     python3 or wait an available upgrade from the maintainer.
 -   If you have setup a custom X.509 certificate for HTTPS (e.g. from
     Let's Encrypt), you have to update your config in
-    `/etc/xivo/custom/custom-certificate.yml`, according to the `updated
-    documentation <https_certificate>`{.interpreted-text role="ref"},
+    `/etc/xivo/custom/custom-certificate.yml`, according to the [updated documentation](/uc-doc/system/https_certificate),
     namely for the config regarding `websocketd`.
 
 ### 17.15
@@ -145,7 +144,7 @@ information.
 ### 17.12
 
 -   Wazo has a new database named `mongooseim`. The
-    `backup-restore procedure<backup>`{.interpreted-text role="ref"} has
+    [backup-restore procedure](/uc-doc/system/backup_restore#backup) has
     been updated to include this new database.
 
 Consult the [17.12
@@ -156,7 +155,7 @@ information.
 
 -   wazo-plugind REST API version `0.1` has been deprecated and will be
     removed in Wazo `18.02`. See changelog for version
-    `rest-api_changelog`{.interpreted-text role="ref"}
+    [REST API changelog](/uc-doc/api_sdk/rest_api/changelog)
 
 Consult the [17.11
 Roadmap](https://projects.wazo.community/versions/263) for more
@@ -180,15 +179,15 @@ information.
 -   Provd plugins from the addons repository have been merged into the
     main plugin repository. If you were using the addons repository you
     can safely switch back to the stable repository. See
-    `alternative-plugins-repo`{.interpreted-text role="ref"} for more
+    [Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo) for more
     details.
 -   The command `xivo-call-logs` has been deprecated in favor of
     `wazo-call-logs`.
 -   The command `xivo-service` has been deprecated in favor of
     `wazo-service`.
 -   If you have a
-    `custom certificate configured<https_certificate>`{.interpreted-text
-    role="ref"}, you will need to add a new symlink for the new daemon
+    [custom certificate configured](/uc-doc/system/https_certificate),
+    you will need to add a new symlink for the new daemon
     wazo-webhookd:
 
         ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-webhookd/conf.d/010-custom-certificate.yml"
@@ -212,8 +211,7 @@ information.
 
 -   If you have setup a custom X.509 certificate for HTTPS (e.g. from
     Let's Encrypt), you have to update your config in
-    `/etc/xivo/custom/custom-certificate.yml`, according to the `updated
-    documentation <https_certificate>`{.interpreted-text role="ref"},
+    `/etc/xivo/custom/custom-certificate.yml`, according to the [updated documentation](/uc-doc/system/https_certificate),
     namely for the config regarding `plugind`.
 
 Consult the [17.08
@@ -280,8 +278,8 @@ information.
 ### 17.02
 
 -   A few more services are now available by default on port TCP/443
-    (the complete list is documented in the `nginx`{.interpreted-text
-    role="ref"} section). This does not pose any additional security
+    (the complete list is documented in the [Nginx](/uc-doc/system/nginx) 
+    section). This does not pose any additional security
     risk by default, but if you have extra strict requirements about
     security, they can be manually disabled.
 
@@ -303,7 +301,7 @@ Wazo 16.16 is the *first public release* of the project under the Wazo
 name. It is also the first release of Wazo under the "phoenix"
 codename.
 
--   A `special procedure <xivo-to-wazo>`{.interpreted-text role="ref"}
+-   A [special procedure](/uc-doc/upgrade/upgrade_notes_details/16-16/xivo_to_wazo)
     is required to upgrade from XiVO to Wazo.
 -   Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is
     a major Asterisk upgrade.
@@ -372,7 +370,7 @@ XiVO.
     and then create symlinks to them in the
     `/etc/nginx/locations/http-enabled`{.interpreted-text role="file"}
     directory. This also applies to the https directory. See
-    `nginx`{.interpreted-text role="ref"}.
+    [Nginx](/uc-doc/system/nginx).
 -   A regression has been introduced in the switchboard statistics. See
     [issue 6443](http://projects.wazo.community/issues/6443).
 
@@ -408,7 +406,7 @@ information.
     `/etc/xivo/xivo-confgend/asterisk/contexts.conf` has been moved to
     `/etc/xivo-confgend/templates/contexts.conf`, but custom
     modification are left untouched. See also
-    `configuration-files`{.interpreted-text role="ref"} for more details
+    [Configuration Files](/uc-doc/system/configuration_files) for more details
     about configuration files in XiVO.
 
 Consult the [16.10
@@ -436,11 +434,9 @@ information.
 
 -   cti-protocol is now in version *2.2*
 -   Some
-    `security features have been added to the XiVO provisioning server <provd-security>`{.interpreted-text
-    role="ref"}. To benefit from these new features, you'll need to
-    `update your xivo-provd plugins to meet
-    the system requirements <provd-security-requirements>`{.interpreted-text
-    role="ref"}.
+    [security features have been added to the XiVO provisioning server](/uc-doc/administration/provisioning/adv_configuration#provd-security). 
+    To benefit from these new features, you'll need to
+    [update your xivo-provd plugins to meet the system requirements](/uc-doc/administration/provisioning/adv_configuration#provd-security-requirements).
 
     If you have many phones that are connected to your XiVO through a
     NAT equipment, you should review the default configuration to make
@@ -498,12 +494,11 @@ information.
 
 -   cti-protocol is now in version *2.1*
 -   The field `Rightcall Code`{.interpreted-text role="guilabel"} from
-    `Services -> IPBX -> IPBX Settings ->
-    Users`{.interpreted-text role="menuselection"} under
+    `Services -> IPBX -> IPBX Settings -> Users`{.interpreted-text role="menuselection"} under
     `Services`{.interpreted-text role="guilabel"} tab will overwrite all
     password call permissions for the user.
 -   Faxes stored on FTP servers are now converted to PDF by default. See
-    `fax-ftp`{.interpreted-text role="ref"} if you want to keep the old
+    [Using the FTP backend](/uc-doc/administration/fax#fax-ftp) if you want to keep the old
     behavior of storing faxes as TIFF files.
 
 Consult the [16.04
@@ -513,20 +508,17 @@ information.
 ### 16.03
 
 -   The new section
-    `Services --> Statistics --> Switchboard`{.interpreted-text
-    role="menuselection"} in the web interface will only be visible by a
+    `Services --> Statistics --> Switchboard`{.interpreted-text role="menuselection"} in the web interface will only be visible by a
     non-root administrator after adding the corresponding permissions in
     the administrator configuration.
 -   Update the switchboard configuration page for the statistics in
     switchboard_configuration_multi_queues.
 -   The API for associating a line to a device has been replaced.
-    Consult the `xivo-confd
-    changelog <rest-api_changelog>`{.interpreted-text role="ref"} for
+    Consult the [xivo-confd changelog](/uc-doc/api_sdk/rest_api/changelog) for
     further details
 -   The configuration parameters of *xivo_ldap_user* plugin of
     *xivo-auth* has been changed. See
-    `xivo_ldap plugin <auth-backends-ldap>`{.interpreted-text
-    role="ref"}.
+    [xivo_ldap plugin](/uc-doc/system/wazo-auth/stock_plugins#auth-backends-ldap).
 -   The user's email is now a unique constraint. Every duplicate email
     will be deleted during the migration. (This does not apply to the
     voicemail's email)
@@ -539,8 +531,7 @@ information.
 
 -   The experimental *xivo_ldap_voicemail* plugin of *xivo-auth* has
     been removed. Use the new
-    `xivo_ldap plugin <auth-backends-ldap>`{.interpreted-text
-    role="ref"}.
+    [xivo_ldap plugin](/uc-doc/system/wazo-auth/stock_plugins#auth-backends-ldap).
 -   Bus messages in the *xivo* exchange are now sent with the
     content-type [application/json]{.title-ref}. Some libraries already
     do the message conversion based the content-type. Kombu users will
@@ -592,9 +583,9 @@ Roadmap](https://projects.wazo.community/versions/214)
 
 -   Debian has been upgraded from version 7 (wheezy) to 8 (jessie).
 -   CSV webservices in the web interface have been removed. Please use
-    the `confd-api`{.interpreted-text role="ref"} instead.
+    the [wazo-confd REST API](/uc-doc/api_sdk/rest_api/confd) instead.
 -   The CSV import format has been changed. Consult
-    `15_20_csv_import_upgrade_notes`{.interpreted-text role="ref"} for
+    [CSV Migration](/uc-doc/upgrade/upgrade_notes_details/15-20/csv) for
     further details.
 -   xivo-ctid now uses STARTTLS for the client connections.
     -   For users already using the CTIS protocol the client can be
@@ -633,11 +624,10 @@ Roadmap](https://projects.wazo.community/versions/236)
 -   The *Contacts* xlet (aka. *Search*) has been removed in favor of the
     people-xlet. You may need to do some manual configuration in the
     directories for the People Xlet to be fully functional. See
-    `the detailed upgrade notes <15_19_people_xlet_upgrade_notes>`{.interpreted-text
-    role="ref"} for more details.
+    [the detailed upgrade notes](/uc-doc/upgrade/upgrade_notes_details/15-19/people-xlet-directory) for more details.
 -   If you need context separation in the People Xlet, you will have to
     **manually configure** xivo-dird to keep it working, see
-    `15-19-dird-context-separation`{.interpreted-text role="ref"}. This
+    [Context separation](/uc-doc/upgrade/upgrade_notes_details/15-19/context-separation). This
     procedure is only temporary, later versions will handle the context
     separation automatically.
 -   xivo-agentd now uses mandatory token authentication for its REST
@@ -706,8 +696,7 @@ rest_api:
 ```
 
 If you have any custom configuration files for these daemons, please
-modify them accordingly. Consult `network_ports`{.interpreted-text
-role="ref"} for further details on which network services are available
+modify them accordingly. Consult [Network](/uc-doc/contributors/network) for further details on which network services are available
 for each daemon.
 
 ## 15.17
@@ -722,7 +711,7 @@ Roadmap](https://projects.wazo.community/versions/233)
     Dial or Queue application. In these cases, you should modify your
     dialplan to pass the "x" or "X" option instead.
 -   The remote directory service available from
-    `supported phones <supported-devices>`{.interpreted-text role="ref"}
+    [supported phones](/uc-doc/ecosystem/supported_devices)
     is now provided by the new unified directory service, i.e.
     xivo-dird. Additional upgrade steps are required to get the full
     benefit of the new directory service.
@@ -735,8 +724,7 @@ Roadmap](https://projects.wazo.community/versions/233)
     web interface until they have been associated with a line
 -   Due to limitations in the database, only a limited number of
     optional parameters can be configured on a SIP endpoint. Consult the
-    `xivo-confd changelog <rest-api_changelog>`{.interpreted-text
-    role="ref"} for further details
+    [xivo-confd changelog](/uc-doc/api_sdk/rest_api/changelog) for further details
 
 ## 15.16
 
@@ -760,7 +748,7 @@ Consult the [15.15 Roadmap](https://projects.wazo.community/versions/231)
 **Voicemail Upgrade Notes**
 
 > -   Voicemail webservices in the web interface have been removed.
->     Please use the `confd-api`{.interpreted-text role="ref"} instead.
+>     Please use the [wazo-confd REST API](/uc-doc/api_sdk/rest_api/confd) instead.
 > -   Voicemail IMAP configuration has been migrated to the new
 >     `Advanced` tab.
 > -   Voicemail option `Disable password checking` has been converted to
@@ -814,8 +802,7 @@ See [wazo-dird-integration]{.title-ref} for more details
 -   Default password for `xivo-polycom-5.3.0` plugin version >= 1.4 is
     now **9486**.
 -   Caller id management for users in confd has changed. Consult the
-    `xivo-confd changelog <rest-api_changelog>`{.interpreted-text
-    role="ref"}.
+    [xivo-confd changelog](/uc-doc/api_sdk/rest_api/changelog).
 -   The Local Directory Xlet is replaced with the People Xlet. Contacts
     are automatically migrated to the server. Note that the CSV format
     for importing contacts has changed.
@@ -846,7 +833,7 @@ information:
 
 - [15.13/asterisk_13](/uc-doc/upgrade/upgrade_notes_details/15-13/asterisk_13)
 
-### 15.12
+### <a name="upgrade-note-15.12"></a>15.12
 
 -   Consult the [15.12
     Roadmap](https://projects.wazo.community/versions/228)
@@ -854,10 +841,9 @@ information:
     regenerated if the default certificate was used. Your browser will
     complain about the new certificate, and it is safe to accept it (see
     [#3656](http://projects.wazo.community/issues/5636)). See also
-    `https_certificate`{.interpreted-text role="ref"}.
+    [Certificates for HTTPS](/uc-doc/system/https_certificate).
 -   If you have an
-    `HA configuration <high-availability>`{.interpreted-text
-    role="ref"}, then you should run `xivo-sync -i` on the master node
+    [HA configuration](/uc-doc/high_availability), then you should run `xivo-sync -i` on the master node
     to setup file synchronization between the master and the slave. File
     synchronization will then be done automatically every hour via rsync
     and ssh.
@@ -871,7 +857,7 @@ information:
     Roadmap](https://projects.wazo.community/versions/227)
 -   The call records older than 365 days will be periodically removed.
     The first automatic purge will occur in the night after the upgrade.
-    See `purge_logs`{.interpreted-text role="ref"} for more details.
+    See [wazo-purge-db](/uc-doc/system/log_files#purge_logs) for more details.
 
 ### 15.10
 
@@ -939,7 +925,7 @@ information:
 
 -   Consult the [15.01
     Roadmap](https://projects.wazo.community/versions/217)
--   The `confd REST API <confd-api>`{.interpreted-text role="ref"} is
+-   The [confd REST API](/uc-doc/api_sdk/rest_api/confd) is
     now more restrictive on HTTP headers. Particularly, the headers
     Accept and Content-Type must be set to (typically)
     `application/json`.

@@ -19,7 +19,7 @@ title: Configuration Files
 
 This section describes some of the Wazo configuration files.
 
-Configuration priority
+<a name="configuration-priority"></a>Configuration priority
 ======================
 
 Usually, the configuration is read from two locations: a configuration
@@ -73,10 +73,10 @@ The files `/etc/xivo-{{service}}/config.yml`{.interpreted-text
 role="file"} should not be modified because **they will be overridden
 during upgrades**. However, they may be used as examples for creating
 additional configuration files as long as they respect the
-`configuration-priority`{.interpreted-text role="ref"}. Any exceptions
+[Configuration priority](/uc-doc/system/configuration_files#configuration-priority). Any exceptions
 to these rules are documented below.
 
-wazo-auth
+<a name="wazo-auth"></a>wazo-auth
 =========
 
 -   Default configuration directory:
@@ -100,7 +100,7 @@ wazo-amid
 -   Default configuration file:
     `/etc/wazo-amid/config.yml`
 
-wazo-confgend
+<a name="wazo-confgend"></a>wazo-confgend
 =============
 
 -   Default configuration directory:
@@ -121,7 +121,7 @@ xivo-dao
 This configuration is read by many Wazo programs in order to connect to
 the Postgres database of Wazo.
 
-wazo-phoned
+<a name="wazo-phoned"></a>wazo-phoned
 ===========
 
 -   Default configuration directory:
@@ -145,7 +145,7 @@ wazo-websocketd
 -   Default configuration file:
     `/etc/wazo-websocketd/config.yml`
 
-xivo\_ring.conf
+<a name="xivo_ring.conf"></a>xivo\_ring.conf
 ===============
 
 -   Path: `/etc/xivo/asterisk/xivo_ring.conf`
@@ -198,7 +198,7 @@ feature :
 
         service wazo-agid restart
 
-Asterisk configuration files {#asterisk-configuration}
+<a name="asterisk-configuration"></a>Asterisk configuration files
 ============================
 
 Asterisk configuration files are located at [/etc/asterisk]{.title-ref}.
@@ -229,7 +229,7 @@ Asterisk starts. Modifying its content will do nothing as it\'s going to
 be overritten on the next Asterisk restart.
 
 To enable modules in the `modules.conf` file the administrator has to
-configure `wazo-confgend`{.interpreted-text role="ref"} to add the
+configure [wazo-confgend](/uc-doc/contributors/debug_daemon#wazo-confgend) to add the
 required modules to the content of the generated file.
 
 This is done by adding the module name to the

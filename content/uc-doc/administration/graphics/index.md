@@ -24,7 +24,7 @@ available for the following resources :
 Each graphic is available with different time range: `day`, `week`,
 `month`, `year`
 
-Troubleshooting
+<a name="troubleshooting"></a>Troubleshooting
 ===============
 
 Missing graphs

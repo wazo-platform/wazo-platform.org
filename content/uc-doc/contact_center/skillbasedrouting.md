@@ -145,9 +145,9 @@ Each rule set is composed of rules, and each rule has two parts,
 separated by a comma:
 
 -   the first part (optional) is the
-    `"dynamic part" <skill-dynamic-part>`{.interpreted-text role="ref"}
+    ["dynamic part"](/uc-doc/contact_center/skillbasedrouting#skill-dynamic-part)
 -   the second part is the
-    `"skill part" <skill-skill-part>`{.interpreted-text role="ref"}
+    ["skill part"](/uc-doc/contact_center/skillbasedrouting#skill-skill-part)
 
 Each part contains an expression composed of operators, variables and
 integer constants.
@@ -173,7 +173,7 @@ Logical operators:
 the lower priority. You can use parentheses \'()\' to change the
 priority of operations.
 
-Dynamic Part {#skill-dynamic-part}
+<a name="skill-dynamic-part"></a>Dynamic Part
 ------------
 
 The dynamic part can reference the following variables:
@@ -195,7 +195,7 @@ Examples
 
 -   WT \< 60
 
-Skill Part {#skill-skill-part}
+<a name="skill-skill-part"></a>Skill Part
 ----------
 
 The skill part can reference any skills name as variables.
@@ -216,7 +216,7 @@ Examples
 -   technic ! 0 & (\$os \> 29 & \$lang \> 39 \| \$os \> 39 &
     \$lang \> 19)
 
-Evaluation {#skill-evaluation}
+<a name="skill-evaluation"></a>Evaluation
 ----------
 
 Note that the expression:
@@ -271,7 +271,7 @@ following expressions are not accepted:
 -   english \< french (the second operand must be a constant)
 -   10 \< 11 (the first operand must be a variable name)
 
-Apply Skill Rule Sets {#skill-apply}
+<a name="skill-apply"></a>Apply Skill Rule Sets
 =====================
 
 A skill rule set is attached to a call using an incoming call.

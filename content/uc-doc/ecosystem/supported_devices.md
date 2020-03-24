@@ -3,8 +3,7 @@ title: Supported Devices
 ---
 
 `wazo-provd` plugins for these devices can be installed from the
-`"Supported devices" repository <alternative-plugins-repo>`{.interpreted-text
-role="ref"}.
+["Supported devices" repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo).
 
 ## Aastra
 
@@ -306,12 +305,11 @@ ATAs:
   SPA8800   No            0            No
   SPA112    No            0            No
 
-> For best results, activate `dhcp-integration`{.interpreted-text
-> role="ref"} on your Wazo.
+> For best results, activate [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration) on your Wazo.
 
 #:exclamation: These devices can be used to connect Faxes. For better success with
 faxes some parameters must be changed. You can read the
-`fax-analog-gateway`{.interpreted-text role="ref"} section.
+[Using analog gateways](/uc-doc/administration/fax#fax-analog-gateway) section.
 
 #:exclamation: If you want to manually resynchronize the configuration from the ATA
 device you should use the following url:
@@ -338,12 +336,11 @@ device you should use the following url:
   Funckeys            0        0         0
   ------------------------------------------------
 
-For best results, activate `dhcp-integration`{.interpreted-text
-role="ref"} on your Wazo.
+For best results, activate [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration) on your Wazo.
 
 These devices can be used to connect faxes. For better success with
 faxes some parameters must be changed. You can read the
-`fax-analog-gateway`{.interpreted-text role="ref"} section.
+[Using analog gateways](/uc-doc/administration/fax#fax-analog-gateway) section.
 
 #:exclamation: If you want to manually resynchronize the configuration from the ATA
 device you should use the following url:
@@ -1112,8 +1109,8 @@ package, but:
     "po-locale-$locale-name.cop.sgn, for example
     "po-locale-fr_FR.cop.sgn" for the "fr_FR" locale
 -   Both files must be placed in
-    `/var/lib/wazo-provd/plugins/$plugin-name/var/cache`{.interpreted-text
-    role="file"} directory. Then install them in the Wazo Web Interface.
+    `/var/lib/wazo-provd/plugins/$plugin-name/var/cache`{.interpreted-text role="file"} 
+    directory. Then install them in the Wazo Web Interface.
 
 #:exclamation: Currently user and network locale 11.5.1 should be used for plugins
 xivo-sccp-legacy and xivo-cisco-sccp-9.4
@@ -1210,8 +1207,7 @@ xivo-sccp-legacy and xivo-cisco-sccp-9.4
 
 Particularities:
 
--   For best results, activate `dhcp-integration`{.interpreted-text
-    role="ref"} on your Wazo.
+-   For best results, activate [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration) on your Wazo.
 -   Impossible to do directed pickup using a BLF function key.
 -   Only supports DTMF in RFC2833 mode.
 -   Does not work reliably with Cisco ESW520 PoE switch. When connected
@@ -1271,8 +1267,7 @@ The following analog VoIP gateways are supported:
 Wazo only supports configuring the FXS ports of these gateways. It does
 not support configuring the FXO ports. If you have a gateway on which
 you would like to configure the FXO ports, you'll need to write the FXO
-ports configuration manually by creating a `custom template
-<provd-custom-templates>`{.interpreted-text role="ref"} for your
+ports configuration manually by creating a [custom template](/uc-doc/administration/provisioning/adv_configuration#provd-custom-templates) for your
 gateway.
 
 It's only possible to enter a provisioning code on the first FXS port
@@ -1280,15 +1275,13 @@ of a gateway. For example, if you have a gateway with 8 FXS ports, the
 first port can be configured by dialing a provisioning code from it, but
 ports 2 to 7 can only be configured via the Wazo web interface. Also, if
 you dial the
-`"reset to autoprov" extension <reset-to-autoprov-device>`{.interpreted-text
-role="ref"} from any port, the configuration of all the ports will be
+["reset to autoprov" extension](/uc-doc/administration/provisioning/basic_configuration#reset-to-autoprov-device) from any port, the configuration of all the ports will be
 reset, not just the port on which the extension was dialed. These
 limitations might go away in the future.
 
 These gateways are configured with a few regional parameters (France by
 default). These parameters are easy to change by writing a
-`custom template <provd-custom-templates>`{.interpreted-text
-role="ref"}.
+[custom template](/uc-doc/administration/provisioning/adv_configuration#provd-custom-templates).
 
 Telnet access and web access are enabled by default. You should change
 the default password by setting an administrator password via a Wazo
@@ -1313,17 +1306,17 @@ by the IP address of your Wazo server:
 
 Panasonic KX-HTXXX series:
 
-+----------+-------------+------------+--------------+
++----------|-------------|------------|--------------+
 | Model    | Tested[^31] | Fkeys[^32] | Wazo HA[^33] |
 +==========+=============+============+==============+
 | KX-HT113 | > No        | > ---      | > No         |
-+----------+-------------+------------+--------------+
++----------|-------------|------------|--------------+
 | KX-HT123 | > No        | > ---      | > No         |
-+----------+-------------+------------+--------------+
++----------|-------------|------------|--------------+
 | KX-HT133 | > No        | > ---      | > No         |
-+----------+-------------+------------+--------------+
++----------|-------------|------------|--------------+
 | KX-HT136 | > No        | > ---      | > No         |
-+----------+-------------+------------+--------------+
++----------|-------------|------------|--------------+
 
 #:exclamation: This phone is for testing for the moment
 
@@ -2235,8 +2228,7 @@ Particularities:
     keypad).
 -   On the VVX101 and VVX201, to have the two line keys mapped to the
     same SIP line, create a
-    `custom template <provd-custom-templates>`{.interpreted-text
-    role="ref"} with the following content:
+    [custom template](/uc-doc/administration/provisioning/adv_configuration#provd-custom-templates) with the following content:
 
         {% extends 'base.tpl' -%}
 
@@ -2886,7 +2878,7 @@ There's the following known limitations/issues with the provisioning of
 Snom phones in Wazo:
 
 -   If you are using Snom phones with
-    `HA <high-availability>`{.interpreted-text role="ref"}, you should
+    [HA](/uc-doc/high_availability), you should
     not assign multiple lines to the same device.
 -   The Snom D745 has limited space for function key labels: long labels
     might be split in a suboptimal way.
@@ -3793,7 +3785,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^3]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^4]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3805,7 +3797,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^6]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^7]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3817,7 +3809,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^9]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^10]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3829,7 +3821,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^12]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^13]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3841,7 +3833,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^15]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^16]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3853,7 +3845,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^18]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^19]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3865,7 +3857,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^21]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^22]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3877,7 +3869,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^24]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^25]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3889,7 +3881,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^27]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^28]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3901,7 +3893,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^30]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^31]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3913,7 +3905,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^33]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^34]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3925,7 +3917,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^36]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^37]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3937,7 +3929,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^39]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^40]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3949,7 +3941,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^42]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^43]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3961,7 +3953,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^45]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^46]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3973,7 +3965,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^48]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^49]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3985,7 +3977,7 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^51]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).
 
 [^52]: `Tested` means the device has been tested by the Wazo development
     team and that the developers have access to this device.
@@ -3997,4 +3989,4 @@ Supported expansion modules:
     function keys because of the page system).
 
 [^54]: `Wazo HA` means the device is confirmed to work with
-    `Wazo HA <high-availability>`{.interpreted-text role="ref"}.
+    [Wazo HA](/uc-doc/high_availability).

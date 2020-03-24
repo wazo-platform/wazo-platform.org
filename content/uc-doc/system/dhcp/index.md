@@ -4,7 +4,7 @@ title: DHCP Server
 
 Wazo includes a DHCP server used for assisting in the provisioning of
 phones and other devices. (See
-`Basic Configuration <dhcpd-config>`{.interpreted-text role="ref"} for
+[Basic Configuration](/uc-doc/administration/provisioning/basic_configuration#dhcpd-config) for
 the basic setup). This section contains additional notes on how to
 configure more advanced options that may be helpful when integrating the
 server with different VOIP subnets.
@@ -171,7 +171,7 @@ In section **pool**, modify the options:
         range 172.30.8.10 172.30.8.200;
 
 #:warning: Wazo only answers to DHCP requests from
-`supported devices <devices>`{.interpreted-text role="ref"}. In case of
+[supported devices](/uc-doc/administration/security#devices). In case of
 you need to address other equipment, use the option *allow
 unknown-clients;* in the `/etc/dhcp/dhcpd_sites/` files.
 

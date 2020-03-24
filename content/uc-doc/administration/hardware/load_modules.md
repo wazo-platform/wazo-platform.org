@@ -59,17 +59,17 @@ Next step
 
 Now that you have loaded the correct module for your card you must:
 
-1.  check if you need to follow one of the Specific configuration sections below,
+1.  check if you need to follow one of the [Specific configuration](/uc-doc/administration/hardware/load_modules#dahdi_modules_specific_conf) sections below,
 2.  and continue with the next configuration step which is to
     [configure the echo canceller](/uc-doc/administration/hardware/echo_canceller).
 
-Specific configuration
+<a name="dahdi_modules_specific_conf"></a>Specific configuration
 ======================
 
 This section lists some specific configuration. You should not follow
 them unless you have a specific need.
 
-TE13x, TE23x, TE43x: E1/T1 selection
+<a name="dahdi_linemode_selection"></a>TE13x, TE23x, TE43x: E1/T1 selection
 ------------------------------------
 
 With E1/T1 cards you must select the correct *line mode* between:

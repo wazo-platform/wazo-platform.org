@@ -90,7 +90,7 @@ Consult the [20.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
     DAHDI installed if it was configured in
     `/etc/asterisk/dahdi_channels.conf`. Otherwise, DAHDI will be
     removed. To install or remove DAHDI manually, see
-    `chan_dahdi`{.interpreted-text role="ref"}.
+    [Enabling Chan Dahdi](/uc-doc/administration/hardware/chan_dahdi).
 -   Some dependencies have been removed from the `asterisk` package. If
     you used one of the following modules you must install the
     `wazo-asterisk-extra-modules` to keep using those modules. Note that
@@ -167,8 +167,7 @@ Consult the [19.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 ## <a name="19-14"></a>19.14
 
 -   A new version (v2) of websocket protocol has been created. See
-    `Wazo WebSocket
-    <wazo-websocketd>`{.interpreted-text role="ref"} for more
+    [Wazo WebSocket](/uc-doc/api_sdk/websocket) for more
     information
 
     The v1 is now deprecated and should not be used anymore. Also it
@@ -247,7 +246,7 @@ General
     -   Existing devices are migrated automatically to the tenant of
         their first associated line. If a device is in autoprov mode, it
         will be migrated to the default tenant. See
-        `intro-provisioning`{.interpreted-text role="ref"} for more
+        [Introduction](/uc-doc/system/backup_restore#intro-provisioning) for more
         information on how device tenants are handled.
     -   Agents are now multi-tenant. Agents created using the rest API
         that were not logged into a queue and that were not associated
@@ -302,13 +301,11 @@ General
     `wazo-agentd-cli -c "relog all"` to do this.
 -   The procedure for custom certificates, especially for Let's Encrypt
     certificates, has been simplified. See
-    `https_certificate`{.interpreted-text role="ref"}.
+    [Certificates for HTTPS](/uc-doc/system/https_certificate).
 -   People using the `xivo-aastra-2.6.0.2019` will have to upgrade to
     plugin version 1.9.2 or later
 -   `wazo-provd` now uses YAML configuration. The defaults can be
-    overridden in the `/etc/wazo-provd/conf.d/`{.interpreted-text
-    role="file"} directory. See `configuration-files`{.interpreted-text
-    role="ref"}.
+    overridden in the `/etc/wazo-provd/conf.d/`{.interpreted-text role="file"} directory. See [Configuration Files](/uc-doc/system/configuration_files).
 -   The provisioning option `dhcp-integration` is now enabled by default. There is no REST API to
     disable this feature.
 -   Call pickups that have been created using the REST API or
@@ -375,13 +372,12 @@ Asterisk related
     role="file"} directory to use your customized configuration. Files
     named `*.conf.dpkg-old`{.interpreted-text role="file"} will be left
     in `/etc/asterisk`{.interpreted-text role="file"} if this operation
-    is required. See `asterisk-configuration`{.interpreted-text
-    role="ref"} for more details.
+    is required. See [Asterisk configuration files](/uc-doc/system/configuration_files#asterisk-configuration) for more details.
 -   The skill rules internal names have been changed to use the format
     `skillrule-<id>`. If you were using custom dialplan with a
     preprocess subroutine to handle your skill rules, we recommend
     removing it and using the REST API (see
-    `skill-apply`{.interpreted-text role="ref"}). If you really want to
+    [Apply Skill Rule Sets](/uc-doc/contact_center/skillbasedrouting#skill-apply)). If you really want to
     keep it, you must change the name used in the variable
     `XIVO_QUEUESKILLRULESET` to use the new format.
 -   Asterisk logs (`/var/log/asterisk/full`{.interpreted-text
@@ -528,8 +524,7 @@ Consult the roadmaps for more information:
     but has no impact on environments without NAT.
     -   In the rare cases where you want to keep `nat=auto_force_rport`
         you must explicitly change this value in the administation
-        interface `Services --> IPBX --> General Settings
-        --> SIP Protocol` in tab
+        interface `Services --> IPBX --> General Settings --> SIP Protocol` in tab
         [Default]. See [Asterisk sip.conf
         sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
         for more informations.

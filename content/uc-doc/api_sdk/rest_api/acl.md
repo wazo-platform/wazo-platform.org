@@ -2,7 +2,7 @@
 title: REST API Permissions
 ---
 
-The tokens delivered by `wazo-auth`{.interpreted-text role="ref"} have a
+The tokens delivered by [wazo-auth](/uc-doc/system/configuration_files#wazo-auth) have a
 list of permissions associated (ACL), that determine which REST
 resources are authorized for this token. Each REST resource has an
 associated required ACL. When you try to access to a REST resource, this

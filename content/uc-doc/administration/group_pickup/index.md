@@ -42,7 +42,7 @@ will work (without specifying the extension to pickup). In this case,
 you *must* have at least a pickup group with the targets and
 interceptors you want for the interception to work. This will also make
 it impossible for the function keys to work. See
-`directed_pickup`{.interpreted-text role="ref"} for more information.
+[Directed Pickup](/uc-doc/administration/directed_pickup) for more information.
 
 Adding a Function Key to an Interceptor
 =======================================

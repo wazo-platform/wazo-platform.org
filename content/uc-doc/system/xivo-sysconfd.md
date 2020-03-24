@@ -14,7 +14,7 @@ a few different things; here\'s a non exhaustive list:
 -   reloading asterisk configuration
 -   sending some events to components (wazo-agentd)
 
-Configuration File {#sysconfd-configuration}
+<a name="sysconfd-configuration"></a>Configuration File
 ==================
 
 Default location: `/etc/xivo/sysconfd.conf`. Format: INI.

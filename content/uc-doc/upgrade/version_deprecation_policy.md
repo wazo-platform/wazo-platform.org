@@ -52,7 +52,7 @@ There are two main options:
 
 -   upgrade to a Wazo version that is more recent, but not the latest:
     you can use the procedures listed in
-    `archive-upgrade`{.interpreted-text role="ref"}.
+    [Upgrade to a specific version of Wazo](/uc-doc/upgrade/upgrade_specific_version).
 -   install a new server with the latest Wazo version, and reproduce
     your configuration by using the export/import features of Wazo and
     copying files

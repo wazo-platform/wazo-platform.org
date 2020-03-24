@@ -2,13 +2,13 @@
 title: SCCP Configuration
 ---
 
-Provisioning
+<a name="provisioning"></a>Provisioning
 ============
 
 To be able to provision SCCP phones you should :
 
--   activate the `dhcp_configuration`{.interpreted-text role="ref"},
--   activate the `dhcp-integration`{.interpreted-text role="ref"},
+-   activate the [DHCP Server](/uc-doc/system/dhcp),
+-   activate the [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration),
 
 Then install a plugin for SCCP Phone
 
@@ -88,7 +88,7 @@ SCCP Phones support directmedia (direct RTP).
 
 -   `PUT /asterisk/sccp/general` options `directmedia: yes`
 
-Features {#sccp-features}
+<a name="sccp-features"></a>Features
 ========
 
   ------------------------------------------

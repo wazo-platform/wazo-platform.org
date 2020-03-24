@@ -29,22 +29,21 @@ the various features supported by Wazo. Here\'s an example:
 
 The rows have the following meaning:
 
-Provisioning
+<a name="provisioning"></a>Provisioning
 
 :   Is the device supported by the
-    `auto-provisioning <provisioning>`{.interpreted-text role="ref"}
+    [auto-provisioning](/uc-doc/administration/sccp#provisioning)
     system?
 
 H-A
 
 :   Is the device supported by the
-    `high availability <high-availability>`{.interpreted-text
-    role="ref"} system?
+    [high availability](/uc-doc/high_availability) system?
 
 Directory XiVO
 
 :   Is the device supported by the
-    `remote directory <remote-directory>`{.interpreted-text role="ref"}?
+    [remote directory](/uc-doc/administration/provisioning/directory)?
     In other word, is it possible to consult the XiVO\'s remote
     directory from the device?
 

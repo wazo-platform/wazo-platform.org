@@ -16,8 +16,7 @@ Verify that one of the `{wctdm,wctdm24xxp}` module is uncommented in
 `/etc/dahdi/modules` depending on the
 card you installed in your server.
 
-If it wasn't, do again the step `load_dahdi_modules`{.interpreted-text
-role="ref"}
+If it wasn't, do again the step [Load the correct DAHDI modules](/uc-doc/administration/hardware/load_modules)
 
 #:exclamation: Analog cards work with card module. You must add the appropriate card
 module to your analog card. Either:
@@ -87,16 +86,15 @@ Next step
 Now that you have configured your PRI card:
 
 1.  you must check if you need to follow one of the
-    `analog_card_specific_conf`{.interpreted-text role="ref"} sections
+    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#analog_card_specific_conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
-    to the `configure your card <card_configuration>`{.interpreted-text
-    role="ref"} section,
+    to the [configure your card](/uc-doc/administration/hardware/card_configuration) section,
 3.  if you have configured all your card you have to configure the
-    `interco_dahdi_conf`{.interpreted-text role="ref"} in the web
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-Specific configuration
+<a name="analog_card_specific_conf"></a>Specific configuration
 ======================
 
 FXS modules

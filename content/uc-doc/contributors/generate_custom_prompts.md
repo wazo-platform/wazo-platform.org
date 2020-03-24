@@ -51,5 +51,5 @@ Note that this last modification may be erased after running
 
 And that\'s it, you can configure a user to use your new language and he
 will hear the prompts in your language. You may also want to use the
-`wazo-confd HTTP API <rest-api>`{.interpreted-text role="ref"} to
+[wazo-confd HTTP API](/uc-doc/administration/call_logs#rest-api) to
 mass-update your users.

@@ -20,10 +20,9 @@ Wazo : with this equipment the ISDN provider links could be switched to
 the PBX directly if the Wazo goes down.
 
 Wazo **does not offer natively** the possibility to configure Berofos in
-this failover mode. The `berofos-integration-with-pbx`{.interpreted-text
-role="ref"} section describes a workaround.
+this failover mode. The [Berofos Integration with PBX](/uc-doc/troubleshooting#berofos-integration-with-pbx) section describes a workaround.
 
-Installation and Configuration {#berofos-installation-and-configuration}
+<a name="berofos-installation-and-configuration"></a>Installation and Configuration
 ==============================
 
 Master Configuration
@@ -48,8 +47,7 @@ not able to get such address from a DHCP server, it will take the
 #:exclamation: The DHCP server on Wazo does not offer IP addresses to berofos devices
 by default.
 
-Next step is to create the `/etc/bnfos.conf`{.interpreted-text
-role="file"} file via the following command:
+Next step is to create the `/etc/bnfos.conf`{.interpreted-text role="file"} file via the following command:
 
     bnfos --scan -x
 
@@ -211,7 +209,7 @@ your telephony provider:
 ### One Wazo and one PBX
 
 This case is not currently supported. You'll find a workaround in the
-`berofos-integration-with-pbx`{.interpreted-text role="ref"} section.
+[Berofos Integration with PBX](/uc-doc/troubleshooting#berofos-integration-with-pbx) section.
 
 Multiple berofos
 ----------------

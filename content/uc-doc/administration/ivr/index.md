@@ -31,7 +31,7 @@ Introduction
 
 The IVR function is not yet available in graphic mode in Wazo. This
 functionality is currently supported only via the
-`wazo-confd REST API <confd-api>`{.interpreted-text role="ref"} or using
+[wazo-confd REST API](/uc-doc/api_sdk/rest_api/confd) or using
 scripts, also named dialplan.
 
 Use Case: Minimal IVR
