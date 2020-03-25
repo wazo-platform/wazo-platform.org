@@ -21,6 +21,11 @@ title: Upgrade notes
           port: <port>
           certificate: </path/to/cert>
           private_key: </path/to/key>
+- The TLS configuration has been deprecated on the following services. You should always use NGINX
+  to proxy communication with wazo-platform services. To follow this change, the listen has been
+  changed to 127.0.0.1 by default.
+
+  - wazo-amid
 
 Consult the [20.05
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10077) for
