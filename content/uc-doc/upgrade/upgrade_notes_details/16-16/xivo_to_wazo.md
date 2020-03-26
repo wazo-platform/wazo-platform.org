@@ -8,7 +8,7 @@ as to not break backward compatibility. In this regard, upgrading from
 XiVO 16.13 to Wazo 16.16 is not different from upgrading XiVO 16.10 to
 XiVO 16.13, for example.
 
-More information about the Wazo project is available on the [Wazo blog](https://wazo-platform.org/blog/introducing-wazo).
+More information about the Wazo project is available on the [Wazo blog](/blog/introducing-wazo).
 
 ## <a name="using-wazo-infrastructure"></a>Using the Wazo Infrastructure on your XiVO
 

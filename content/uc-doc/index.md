@@ -6,7 +6,7 @@ Wazo is an application suite based on several free existing components including
 
 Wazo is a [free software](http://www.gnu.org/philosophy/free-sw.html). Most of its distinctive components, and Wazo as a whole, are distributed under the *GPLv3 license*.
 
-You may also check the [Wazo blog](https://wazo-platform.org/blog) for more information.
+You may also check the [Wazo blog](/blog) for more information.
 
 Wazo documentation is also available as a downloadable HTML, EPUB or PDF file.
 See the [downloads page](https://readthedocs.org/projects/wazo/downloads/)

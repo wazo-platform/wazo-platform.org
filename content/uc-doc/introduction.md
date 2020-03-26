@@ -20,5 +20,5 @@ the XiVO core development team worked from 2011 until November 2016.
 
 In November 2016, Proformatique Inc. was shut down and the development
 team [forked XiVO to create
-Wazo](https://wazo-platform.org/blog/introducing-wazo). Its first
+Wazo](/blog/introducing-wazo). Its first
 release, Wazo 16.16, was released in December 2016.
