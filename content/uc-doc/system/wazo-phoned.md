@@ -4,7 +4,7 @@ title: 'wazo-phoned'
 
 wazo-phoned is an interface to use directory service with phones. It
 offers a simple REST interface to authenticate phones and to search
-results from `wazo-dird`{.interpreted-text role="ref"}.
+results from [wazo-dird](/uc-doc/system/log_files#wazo-dird).
 
 Usage
 =====
@@ -16,7 +16,7 @@ parameters:
 
 -   `xivo_user_uuid`: The Wazo user uuid that the phone is
     associated. It's used to search through personal contacts (see
-    `dird_services_personal`{.interpreted-text role="ref"}).
+    [personal](/uc-doc/system/wazo-dird/stock_plugins#dird_services_personal)).
 -   `profile`: The profile that the user is associated. It's used to
     format results as configured.
 

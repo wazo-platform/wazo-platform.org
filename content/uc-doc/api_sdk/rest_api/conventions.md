@@ -2,11 +2,11 @@
 title: REST API Conventions
 ---
 
-Authentication
+<a name="rest-api-authentication"></a>Authentication
 ==============
 
 For all REST APIs, the main way to authenticate is to use an access
-token obtained from `wazo-auth`{.interpreted-text role="ref"}. This
+token obtained from [wazo-auth](/uc-doc/system/configuration_files#wazo-auth). This
 token should be given in the `X-Auth-Token` header in your request. For
 example:
 
@@ -33,7 +33,7 @@ definition](http://www.iana.org/assignments/http-status-codes/http-status-codes.
 -   415: Unsupported media type
 -   500: Internal server error
 
-See also `rest_api_errors`{.interpreted-text role="ref"} for general
+See also [Errors](/uc-doc/api_sdk/rest_api/conventions#rest_api_errors) for general
 explanations about error codes.
 
 General URL parameters
@@ -168,7 +168,7 @@ When updating, only the id and updated properties are needed, omitted
 properties are not updated. Some properties can also be optional when
 creating an object.
 
-Errors
+<a name="rest_api_errors"></a>Errors
 ------
 
 A request to the web services may return an error. An error will always

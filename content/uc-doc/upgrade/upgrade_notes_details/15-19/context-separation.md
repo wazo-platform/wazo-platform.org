@@ -13,8 +13,7 @@ filter. For this, you need:
     `/etc/xivo-dird/sources.d`{.interpreted-text role="file"}), so that
     we have a source containing only the contacts from one context
 -   one profile per context (equivalent to
-    `Services --> CTI Server --> Directories -->
-    Direct directories`{.interpreted-text role="menuselection"}) so that
+    `Services --> CTI Server --> Directories --> Direct directories`{.interpreted-text role="menuselection"}) so that
     users in one context only see people from the same context.
 
 Each source should look like this one, e.g. the context is named

@@ -38,4 +38,4 @@ What you can do:
 -   check that the daemon is running: in a console, type:
     `wazo-service status`
 -   check the log files of the daemon in `/var/log/<daemon>.log` (see
-    also: `log-files`{.interpreted-text role="ref"})
+    also: [Log Files](/uc-doc/system/log_files))

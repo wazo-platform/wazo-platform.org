@@ -9,7 +9,7 @@ ones, you\'ll be able to search in your Wazo directory and place call
 directly from your phone.
 
 See the list of
-`supported devices <supported-devices>`{.interpreted-text role="ref"} to
+[supported devices](/uc-doc/ecosystem/supported_devices) to
 know if a model supports the Wazo directory or not.
 
 Configuration

@@ -1,6 +1,6 @@
 ---
-subtitle: Configuration for daemon
 title: Network
+subtitle: Configuration for daemon
 ---
 
 Network Flow table (IN) :

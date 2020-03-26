@@ -38,8 +38,7 @@ If you use two cards, you have to :
 -   Use a cable for clock synchronization between the cards
 -   Configure the *wheel* to define the cards order in the system.
 
-Please refer to the section `Sync cable <sync_cable>`{.interpreted-text
-role="ref"}
+Please refer to the section [Sync cable](/uc-doc/administration/hardware/pri_configuration#sync_cable)
 
 Configuration
 -------------
@@ -90,8 +89,7 @@ echocanceller=mg2,94-108,110-124
 
 ### dahdi-channels.conf
 
-In the file `/etc/asterisk/dahdi-channels.conf`{.interpreted-text
-role="file"} you need to adjust, for each span :
+In the file `/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} you need to adjust, for each span :
 
 -   `group` : the group number (e.g. `0` for provider links, `2` for PBX
     links),
@@ -149,8 +147,7 @@ channel => 94-108,110-124
 We first need to create a route for calls coming from the PBX
 
 # Create a file named `pbx.conf` in the
-directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text
-role="file"}, # Add the following lines in the file:
+directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}, # Add the following lines in the file:
 
 ```Ini
 [from-pabx]

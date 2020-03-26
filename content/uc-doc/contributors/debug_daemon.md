@@ -7,10 +7,8 @@ title: Debugging Daemons
 -   [consul](#consul)
 
 To activate debug mode, add `debug: true` in the daemon
-`configuration file
-<configuration-files>`{.interpreted-text role="ref"}. The output will be
-available in the daemon\'s `log file <log-files>`{.interpreted-text
-role="ref"}.
+[configuration file](/uc-doc/system/configuration_files). The output will be
+available in the daemon\'s [log file](/uc-doc/system/log_files).
 
 It is also possible to run the Wazo daemon, in command line. This will
 allow to run in foreground and debug mode. To see how to use it, type:
@@ -22,7 +20,7 @@ daemon in foreground:
 
     systemctl stop monit.service
 
-wazo-confgend
+<a name="wazo-confgend"></a>wazo-confgend
 =============
 
     twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs

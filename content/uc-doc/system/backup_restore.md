@@ -2,7 +2,7 @@
 title: Backup/Restore
 ---
 
-Backup
+<a name="backup"></a>Backup
 ======
 
 Periodic backup
@@ -97,20 +97,17 @@ The following files/folders are excluded from this backup:
     -   `/var/lib/consul/raft`
     -   `/var/lib/consul/serf`
     -   `/var/lib/consul/services`
-    -   `/var/lib/wazo-provd/plugins/*/var/cache/*`{.interpreted-text
-        role="file"}
+    -   `/var/lib/wazo-provd/plugins/*/var/cache/*`{.interpreted-text role="file"}
     -   `/var/spool/asterisk/monitor/`
     -   `/var/spool/asterisk/meetme/`
 -   files
-    -   `/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`{.interpreted-text
-        role="file"}
+    -   `/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`{.interpreted-text role="file"}
 -   log files, coredump files
 -   audio recordings
 -   and, files greater than 10 MiB or folders containing more than 100
     files if they belong to one of these folders:
     -   `/var/lib/wazo/sounds/`
-    -   `/var/lib/asterisk/sounds/custom/`{.interpreted-text
-        role="file"}
+    -   `/var/lib/asterisk/sounds/custom/`{.interpreted-text role="file"}
     -   `/var/lib/asterisk/moh/`
     -   `/var/spool/asterisk/voicemail/`
     -   `/var/spool/asterisk/monitor/`
@@ -122,7 +119,7 @@ The following databases from PostgreSQL are backed up:
 -   `asterisk`: all the configuration done via the web interface
     (exceptions: High Availability, Provisioning, Certificates)
 
-Creating backup files manually {#manual_backup}
+<a name="manual_backup"></a>Creating backup files manually
 ------------------------------
 
 #:warning: A backup file may take a lot of space on the disk. You should check the
@@ -146,10 +143,10 @@ commands:
 
     xivo-backup data /var/tmp/data-manual
 
-Restore
+<a name="restore"></a>Restore
 =======
 
-Introduction
+<a name="intro-provisioning"></a>Introduction
 ------------
 
 A backup of both the configuration files and the database used by a Wazo
@@ -190,7 +187,7 @@ To restore the file :
     tar xvfp /var/backups/xivo/data.tgz -C /
 
 Once the database and files have been restored, you can
-`finalize the restore <after_restore>`{.interpreted-text role="ref"}
+[finalize the restore](/uc-doc/system/backup_restore#after_restore)
 
 Restoring the Database
 ----------------------
@@ -202,7 +199,7 @@ Restoring the Database
 -   If restoring Wazo >= 18.01 on a different machine, you should not
     restore the system configuration, because of network interface names
     that would change. See
-    `restore_keep_system_config`{.interpreted-text role="ref"}.
+    [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore_keep_system_config).
 
 Database backups are created as `db.tgz`
 files in the `/var/backups/xivo`
@@ -212,8 +209,7 @@ In this example, we'll restore the database from a backup file named
 `db.tgz` placed in the home directory of
 root.
 
-First, extract the content of the `db.tgz`{.interpreted-text
-role="file"} file into the `/var/tmp`
+First, extract the content of the `db.tgz`{.interpreted-text role="file"} file into the `/var/tmp`
 directory and go inside the newly created directory:
 
     tar xvf db.tgz -C /var/tmp
@@ -225,15 +221,14 @@ Drop the asterisk database and restore it with the one from the backup:
     sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
 Once the database and files have been restored, you can
-`finalize the restore <after_restore>`{.interpreted-text role="ref"}
+[finalize the restore](/uc-doc/system/backup_restore#after_restore)
 
-### Troubleshooting
+### <a name="troubleshooting"></a>Troubleshooting
 
 When restoring the database, if you encounter problems related to the
-system locale, see `postgresql_localization_errors`{.interpreted-text
-role="ref"}.
+system locale, see [PostgreSQL localization errors](/uc-doc/troubleshooting#postgresql_localization_errors).
 
-Alternative: Restoring and Keeping System Configuration {#restore_keep_system_config}
+<a name="restore_keep_system_config"></a>Alternative: Restoring and Keeping System Configuration
 -------------------------------------------------------
 
 System configuration like network interfaces is stored in the database.
@@ -261,9 +256,9 @@ hostname, network interfaces, etc. You will need to reapply the network
 configuration if you restore the data.tgz file.
 
 Once the database and files have been restored, you can
-`finalize the restore <after_restore>`{.interpreted-text role="ref"}
+[finalize the restore](/uc-doc/system/backup_restore#after_restore)
 
-After Restoring The System {#after_restore}
+<a name="after_restore"></a>After Restoring The System
 --------------------------
 
 1.  Restore the server UUID:

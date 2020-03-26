@@ -25,5 +25,4 @@ translate them there.
 The prompts used in Wazo are stored in
 [wazo-sounds](https://github.com/wazo-platform/wazo-sounds) git
 repository. You may also want to
-`generate your own sound files <generate_custom_prompts>`{.interpreted-text
-role="ref"}.
+[generate your own sound files](/uc-doc/contributors/generate_custom_prompts).

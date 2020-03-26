@@ -16,7 +16,7 @@ number only). To achieve this you must change the following SIP options:
     > -   `trustrpid`: `yes`
     > -   `sendrpid`: `pai`
 
-## Incoming caller number display
+## <a name="callerid_num_normalization"></a>Incoming caller number display
 
 The caller ID number on incoming calls depends on what is sent by your
 operator. You can modify it via the file

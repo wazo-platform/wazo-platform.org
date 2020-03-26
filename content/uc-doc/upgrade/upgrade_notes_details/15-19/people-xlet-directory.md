@@ -7,8 +7,7 @@ directories that could not be upgraded automatically, because it risked
 breaking some manual configurations.
 
 After you upgrade your XiVO, your CTI displays in
-`Services --> CTI Server -->
-Directories --> Displays`{.interpreted-text role="menuselection"} may
+`Services --> CTI Server --> Directories --> Displays`{.interpreted-text role="menuselection"} may
 look like this:
 
 ![](/images/uc-doc/upgrade/15-19/display_before_15_19.png)

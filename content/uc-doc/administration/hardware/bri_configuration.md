@@ -21,8 +21,7 @@ Verifications
 Verify that the `wcb4xxp` module is uncommented in
 `/etc/dahdi/modules`{.interpreted-text role="file"}.
 
-If it wasn\'t, do again the step `load_dahdi_modules`{.interpreted-text
-role="ref"}.
+If it wasn\'t, do again the step [Load the correct DAHDI modules](/uc-doc/administration/hardware/load_modules).
 
 Generate DAHDI configuration
 ============================
@@ -78,7 +77,7 @@ Then you have to modify the
     -   `bri_cpe_ptmp`
 
 See some explanations of this file in the
-`asterisk_dahdi_channel_conf`{.interpreted-text role="ref"} section.
+[/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk_dahdi_channel_conf) section.
 
 Below is **an example** for a typical french BRI line span:
 
@@ -95,16 +94,15 @@ Next step
 Now that you have configured your BRI card:
 
 1.  you must check if you need to follow one of the
-    `bri_card_specific_conf`{.interpreted-text role="ref"} sections
+    [Specific configuration](/uc-doc/administration/hardware/bri_configuration#bri_card_specific_conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
-    to the `configure your card <card_configuration>`{.interpreted-text
-    role="ref"} section,
+    to the [configure your card](/uc-doc/administration/hardware/card_configuration) section,
 3.  if you have configured all your card you have to configure the
-    `interco_dahdi_conf`{.interpreted-text role="ref"} in the web
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-Specific configuration {#bri_card_specific_conf}
+<a name="bri_card_specific_conf"></a>Specific configuration
 ======================
 
 You will find below 3 configurations that we recommend for BRI lines.
@@ -114,16 +112,16 @@ with success.
 #:exclamation: The pre-requisites are:
 
 -   Use per-port dahdi interconnection (see the
-    `interco_dahdi_conf`{.interpreted-text role="ref"} section)
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) section)
 
 If you don\'t know which one to configure we recommend that you try each
 one after the other in this order:
 
-1.  `bri_card_ptmp_wol1l2`{.interpreted-text role="ref"}
-2.  `bri_card_ptmp_wl1l2`{.interpreted-text role="ref"}
-3.  `bri_card_ptp_wl1l2`{.interpreted-text role="ref"}
+1.  [PTMP without layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptmp_wol1l2)
+2.  [PTMP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptmp_wl1l2)
+3.  [PTP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptp_wl1l2)
 
-PTMP without layer1/layer2 persistence {#bri_card_ptmp_wol1l2}
+<a name="bri_card_ptmp_wol1l2"></a>PTMP without layer1/layer2 persistence
 --------------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -170,7 +168,7 @@ Follow theses steps to configure:
 -   You can consider that there is *a problem* only if incoming or
     outgoing calls are rejected.
 
-PTMP with layer1/layer2 persistence {#bri_card_ptmp_wl1l2}
+<a name="bri_card_ptmp_wl1l2"></a>PTMP with layer1/layer2 persistence
 -----------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -208,7 +206,7 @@ Follow theses steps to configure:
 -   In asterisk CLI you may see the spans going Up/Down/Up : it is *a
     problem* only if incoming or outgoing calls are rejected.
 
-PTP with layer1/layer2 persistence {#bri_card_ptp_wl1l2}
+<a name="bri_card_ptp_wl1l2"></a>PTP with layer1/layer2 persistence
 ----------------------------------
 
 In this mode we will configure asterisk and DAHDI:

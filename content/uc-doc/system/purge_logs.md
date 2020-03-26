@@ -21,7 +21,7 @@ Records Purged
 
 The following features are impacted by wazo-purge-db:
 
--   `call_logs`{.interpreted-text role="ref"}
+-   [Call Logs](/uc-doc/administration/call_logs)
 -   Call center statistics
 
 More technically, `wazo-purge-db` have a set of plugins, each plugin are
@@ -38,7 +38,7 @@ The format of the following list is `plugin-name` (`associated table`) :
 -   `stat-switchboard` (`stat_switchboard_queue`)
 -   `webhookd-logs` (`webhookd_subscription_log`)
 
-Configuration File {#purge_logs_config_file}
+<a name="purge_logs_config_file"></a>Configuration File
 ==================
 
 We recommend to override the setting `days_to_keep` from
@@ -54,7 +54,7 @@ setting `days_to_keep_per_plugin` for example:
 #:warning: Setting `days_to_keep` to 0 will NOT disable `wazo-purge-db`, and will
 remove ALL logs from your system.
 
-See `configuration-priority`{.interpreted-text role="ref"} and
+See [Configuration priority](/uc-doc/system/configuration_files#configuration-priority) and
 `/etc/wazo-purge-db/config.yml` for more details.
 
 Manual Purge
@@ -90,7 +90,7 @@ ANALYZE automatically (after 1 minute). This command marks memory as
 reusable but does not actually free disk space, which is fine if your
 disk is not getting full. In the case when `wazo-purge-db` hasn\'t run
 for a long time (e.g. upgrading to 15.11 or when
-`days_to_keep <purge_logs_config_file>`{.interpreted-text role="ref"} is
+[days_to_keep](/uc-doc/system/purge_logs#purge_logs_config_file) is
 decreased), some administrator may want to perform a
 [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL
 to recover disk space.

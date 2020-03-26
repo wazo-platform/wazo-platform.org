@@ -25,7 +25,7 @@ can be a daunting task.
 
 The [Wazo developers page](http://developers.wazo.io/) can help you find
 which repository you should be working on.
-`asking_for_help`{.interpreted-text role="ref"} is always an option when
+[Asking for help](/uc-doc/contributors/contributing_to_wazo#asking_for_help) is always an option when
 looking at the less popular corners of the source code.
 
 You can then
@@ -103,7 +103,7 @@ After writing your code and checking that it does not break any tests,
 you should try it. The \"easiest\" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
-engine follow the `install`{.interpreted-text role="ref"} documentation.
+engine follow the [Installing the System](/uc-doc/installation/install-system) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
 starting I suggest you make a snapshot of your virtual machine to be
@@ -124,7 +124,7 @@ At this point you should watch your pull request to see if anyone or
 anything comments on it and respond to comments to eventually get your
 contribution merged.
 
-Asking for help {#asking_for_help}
+<a name="asking_for_help"></a>Asking for help
 ===============
 
 The Wazo developers can be contacted on our

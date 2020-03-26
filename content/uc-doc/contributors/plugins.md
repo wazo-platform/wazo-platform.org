@@ -89,7 +89,7 @@ debian_depends:
 rules
 -----
 
-The `rules<contribs_plugins>`{.interpreted-text role="ref"} file is an
+The [rules](/uc-doc/contributors/plugins#contribs_plugins) file is an
 executable that will accept the following commands
 
 -   build
@@ -168,7 +168,7 @@ requirements:
 Version [1]{.title-ref} adds support for the postrm instruction in the
 rules file.
 
-rules commands {#contribs_plugins}
+<a name="contribs_plugins"></a>rules commands
 ==============
 
 build

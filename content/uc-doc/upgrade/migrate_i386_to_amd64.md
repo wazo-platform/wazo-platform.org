@@ -7,15 +7,15 @@ There is no fully automated method to migrate Wazo from `i386` to
 
 The procedure is:
 
-1.  `Upgrade <upgrade>`{.interpreted-text role="ref"} your `i386`
+1.  [Upgrade](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch#upgrade) your `i386`
     machine to XiVO/Wazo \>= 15.13
-2.  `Install <install>`{.interpreted-text role="ref"} a Wazo `amd64`
+2.  [Install](/uc-doc/installation/install-system) a Wazo `amd64`
     **using the same version as the upgraded Wazo i386**
 3.  Make a backup of your Wazo `i386` by following the
-    `backup procedure <manual_backup>`{.interpreted-text role="ref"}
+    [backup procedure](/uc-doc/system/backup_restore#manual_backup)
 4.  Copy the backup tarballs to the Wazo `amd64`
 5.  Restore the backup by following the
-    `restore procedure <restore>`{.interpreted-text role="ref"}
+    [restore procedure](/uc-doc/system/backup_restore#restore)
 
 Before starting the services after restoring the backup on the Wazo
 `amd64`, you should ensure that there won\'t be a conflict between the

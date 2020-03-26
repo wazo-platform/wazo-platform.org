@@ -14,7 +14,7 @@ title: WebSocket Event Service
         -   [Server Messages](#server-messages)
 
 Wazo offers a service to receive messages published on the
-`bus (e.g. RabbitMQ) <message-bus>`{.interpreted-text role="ref"} over
+[bus (e.g. RabbitMQ)](/uc-doc/api_sdk/message_bus) over
 an encrypted [WebSocket](https://en.wikipedia.org/wiki/WebSocket)
 connection. This ease in building dynamic web applications that are
 using events from your Wazo.
@@ -29,22 +29,20 @@ To use the service, you need to:
 1.  connect to it on port 9502 using an encrypted WebSocket connection.
 2.  authenticate to it by providing a wazo-auth token that has the
     `websocketd` ACL. If you don\'t know how to obtain a wazo-auth token
-    from your Wazo, consult the `documentation on
-    wazo-auth <wazo-auth>`{.interpreted-text role="ref"}.
+    from your Wazo, consult the [documentation on wazo-auth](/uc-doc/system/configuration_files#wazo-auth).
 
 For example, if you want to use the service located at `example.org`
 with the token `some-token-id`, you would use the URL
 `wss://example.org:9502/?token=some-token-id&version=2`.
 
-The `SSL/TLS certificate <https_certificate>`{.interpreted-text
-role="ref"} that is used by the WebSocket server is the same as the one
+The [SSL/TLS certificate](/uc-doc/system/https_certificate) that is used by the WebSocket server is the same as the one
 used by the Wazo web interface and the REST APIs. By default, this is a
 self-signed certificate, and web browsers will prevent connections from
 being successfully established for security reasons. On most web
 browsers, this can be circumvented by first visiting the
 `https://<wazo-ip>:9502/` URL and adding a security exception. Other
 solutions to this problem are described in the
-`connection section <ws-connection>`{.interpreted-text role="ref"}.
+[connection section](/uc-doc/api_sdk/websocket#ws-connection).
 
 After a succesful connection and authentication to the service, the
 server will send the following message:
@@ -53,19 +51,16 @@ server will send the following message:
 
 This indicate that the server is ready to accept more commands from the
 client. Had an error happened, the server would have closed the
-connection, possibly with one of the `service
-specific WebSocket close code <ws-status-code>`{.interpreted-text
-role="ref"}.
+connection, possibly with one of the [service specific WebSocket close code](/uc-doc/api_sdk/websocket#ws-status-code).
 
 The message you see is part of the small
-`JSON-based protocol <ws-protocol>`{.interpreted-text role="ref"} that
+[JSON-based protocol](/uc-doc/api_sdk/websocket#ws-protocol) that
 is used for the client/server interaction.
 
 To receive events on your WebSocket connection, you need to tell the
 server which type of events you are interested in, and then tell it to
 start sending you these events. For example, if you are interested in
-the `"call_created" events <bus-call_created>`{.interpreted-text
-role="ref"}, you send the following command:
+the ["call_created" events](/uc-doc/api_sdk/message_bus#bus-call_created), you send the following command:
 
     {"op": "subscribe", "data": {"event_name": "call_created"}}
 
@@ -214,13 +209,11 @@ Reference
 
 The WebSocket service is provided by `wazo-websocketd`, and its
 behaviour can be configured via its
-`configuration files <configuration-files>`{.interpreted-text
-role="ref"} located under the `/etc/wazo-websocketd`{.interpreted-text
-role="file"} directory. After modifying the configuration files, you
+[configuration files](/uc-doc/system/configuration_files) located under the `/etc/wazo-websocketd`{.interpreted-text role="file"} directory. After modifying the configuration files, you
 need to restart `wazo-websocketd` with
 `systemctl restart wazo-websocketd`.
 
-Connection {#ws-connection}
+<a name="ws-connection"></a>Connection
 ----------
 
 The service is available on port 9502 on all network interfaces by
@@ -238,10 +231,10 @@ since the certificate is self-signed, you\'ll have to either:
     the system that access the service
 -   use a trusted certificate
 
-See the `https_certificate`{.interpreted-text role="ref"} section for
+See the [Certificates for HTTPS](/uc-doc/system/https_certificate) section for
 more information on certificate configuration.
 
-Authentication
+<a name="rest-api-authentication"></a>Authentication
 --------------
 
 Authentication is done by passing a wazo-auth token ID in the `token`
@@ -253,7 +246,7 @@ When the token expires, the server close the connection with the status
 code 4003. There is currently no way to change the token of an existing
 connection. A new connection must be made when the token expires.
 
-Events Access Control {#ws-events-acl}
+<a name="ws-events-acl"></a>Events Access Control
 ---------------------
 
 Clients connected to `wazo-websocketd` only receive events that they are
@@ -273,11 +266,11 @@ done when an event is received by the server. This mean a client can
 subscribe to an event \"foo\", but will never receive any of these
 events if it does not have the matching ACL.
 
-See the `bus-events`{.interpreted-text role="ref"} section for more
+See the [Events](/uc-doc/api_sdk/message_bus#bus-events) section for more
 information on the required ACL of events which are available by default
 on Wazo.
 
-Status Code {#ws-status-code}
+<a name="ws-status-code"></a>Status Code
 -----------
 
 The WebSocket connection might be closed by the server using one of
@@ -295,7 +288,7 @@ following status code:
 The server also uses the [pre-defined WebSocket status
 codes](http://tools.ietf.org/html/rfc6455#section-7.4).
 
-Protocol {#ws-protocol}
+<a name="ws-protocol"></a>Protocol
 --------
 
 A JSON-based protocol is used over the WebSocket connection to control
@@ -324,7 +317,7 @@ the \"data\" value is a dictionary with an \"event\_name\" key
 You can subscribe to any event. The special event name `*` can be used
 to match all events.
 
-See the `bus-events`{.interpreted-text role="ref"} section for more
+See the [Events](/uc-doc/api_sdk/message_bus#bus-events) section for more
 information on the events which are available by default on Wazo.
 
 The \"start\" message ask the server to start sending messages from the

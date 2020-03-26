@@ -2,7 +2,7 @@
 title: Voicemail Configuration
 ---
 
-General Configuration
+<a name="voicemail_general_configuration"></a>General Configuration
 =====================
 
 The global voicemail configuration is provided by `/asterisk/voicemail`

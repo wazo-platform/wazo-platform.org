@@ -48,8 +48,7 @@ Activate the Hardware Echo-cancellation
 =======================================
 
 Now that you installed hardware echo-canceller firmware you must
-activate it in `/etc/asterisk/chan_dahdi.conf`{.interpreted-text
-role="file"} file:
+activate it in `/etc/asterisk/chan_dahdi.conf`{.interpreted-text role="file"} file:
 
     echocancel = 1
 
@@ -66,13 +65,12 @@ Next step
 Now that you have loaded the correct module for your card you must:
 
 1.  check if you need to follow one of the
-    `echo_can_specific_conf`{.interpreted-text role="ref"} sections
+    [Specific configuration](/uc-doc/administration/hardware/echo_canceller#echo_can_specific_conf) sections
     below,
 2.  and continue with the next configuration step which is to
-    `configure your card <card_configuration>`{.interpreted-text
-    role="ref"} according to the operator links.
+    [configure your card](/uc-doc/administration/hardware/card_configuration) according to the operator links.
 
-Specific configuration {#echo_can_specific_conf}
+<a name="echo_can_specific_conf"></a>Specific configuration
 ======================
 
 This section describes some specific configuration. You should not

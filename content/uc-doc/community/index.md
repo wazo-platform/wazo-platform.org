@@ -42,7 +42,7 @@ We gladly accept new contributions. There are two ways to contribute:
 -   The preferred way: open a pull request on
     [Github](https://github.com/wazo-platform/wazo-doc) and add a line
     to this page (see:
-    `contributing_to_the_documentation`{.interpreted-text role="ref"}).
+    [Contributing to the Documentation](/uc-doc/contributors/contributing_doc)).
 -   You can also open a contribution ticket on the [bug
     tracker](https://projects.wazo.community/projects/xivo/issues).
 

@@ -373,7 +373,7 @@ Upload the plugin on `provd.wazo.community`
 ===========================================
 
 First, change the source of your plugins (cf.
-`alternative-plugins-repo`{.interpreted-text role="ref"})
+[Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo))
 
 For a development version:
 
@@ -389,5 +389,4 @@ For a stable version:
     cd ..
     make upload-stable
 
-More details about this in `managing-plugins`{.interpreted-text
-role="ref"}.
+More details about this in [Managing Plugins](/uc-doc/contributors/provisioning/managing_plugins).

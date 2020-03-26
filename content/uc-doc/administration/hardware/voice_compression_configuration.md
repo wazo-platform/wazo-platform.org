@@ -14,8 +14,7 @@ Verifications
 Verify that the `wctc4xxp` module is uncommented in
 `/etc/dahdi/modules`{.interpreted-text role="file"}.
 
-If it wasn\'t, do again the step `load_dahdi_modules`{.interpreted-text
-role="ref"}.
+If it wasn\'t, do again the step [Load the correct DAHDI modules](/uc-doc/administration/hardware/load_modules).
 
 Configure
 =========
@@ -41,13 +40,12 @@ Next step
 Now that you have configured your Voice Compression card:
 
 1.  you must check if you need to follow one of the
-    `vc_card_specific_conf`{.interpreted-text role="ref"} sections
+    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#vc_card_specific_conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
-    to the `configure your card <card_configuration>`{.interpreted-text
-    role="ref"} section.
+    to the [configure your card](/uc-doc/administration/hardware/card_configuration) section.
 
-Specific configuration {#vc_card_specific_conf}
+<a name="vc_card_specific_conf"></a>Specific configuration
 ======================
 
 Select the transcoding mode

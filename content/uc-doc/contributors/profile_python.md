@@ -34,7 +34,7 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
     Note that profiling multi-threaded program (wazo-agid, wazo-confd)
     doesn\'t work reliably.
 
-    The `debug-daemons`{.interpreted-text role="ref"} section documents
+    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents
     how to launch the various Wazo services in foreground/debug mode.
 
 4.  Examine the result of the profiling:
@@ -70,7 +70,7 @@ want to have additional information about it.
         coverage erase
         coverage run /usr/bin/wazo-auth -f
 
-    The `debug-daemons`{.interpreted-text role="ref"} section documents
+    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents
     how to launch the various Wazo service in foreground/debug mode.
 
 4.  After the process terminates, use `coverage html` to generate an

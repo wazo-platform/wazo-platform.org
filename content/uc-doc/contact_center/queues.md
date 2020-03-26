@@ -79,7 +79,7 @@ queue is very busy. Calls are redirected using one of the two threshold:
 `wait_ratio_threshold` and `ẁait_time_threshold`
 
 The diversion check is done only once per call, before the
-`preprocess subroutine <subroutine>`{.interpreted-text role="ref"} is
+[preprocess subroutine](/uc-doc/api_sdk/subroutine) is
 executed and before the call enters the queue.
 
 `wait_time_threshold`
@@ -100,7 +100,7 @@ queue, the call will **always** be allowed to enter the queue.
 -   the estimated waiting time of a queue is updated only when a queue
     member answers a call.
 
-`wait_ratio_threshold` {#queue-diversion-waitratio}
+<a name="queue-diversion-waitratio"></a>`wait_ratio_threshold`
 ----------------------
 
 When this scenario is used, the administrator can set a destination for
@@ -145,7 +145,7 @@ example, in the following scenario:
 Even if `wait_ratio_time` (1) is greater than the maximum (0.5), the
 call will still be accepted since there are currently no waiting calls.
 
-Music on Hold
+<a name="moh"></a>Music on Hold
 =============
 
 The `music_on_hold` of the queue will be played:
@@ -161,7 +161,7 @@ hold after being answered, you need to make some more configuration:
     want the caller to hear when he is put on hold by the agent. Save
     this script to e.g. `/usr/local/bin/agi-agent-hold-moh`.
 2.  Add the following
-    `preprocess subroutine <subroutine>`{.interpreted-text role="ref"}
+    [preprocess subroutine](/uc-doc/api_sdk/subroutine)
     on the queue:
 
         [setup-agent-hold-moh]
