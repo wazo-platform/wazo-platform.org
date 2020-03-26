@@ -33,7 +33,7 @@ pre {
       position: relative;
     }
 
-    h1 {
+    h1, h2, h3, p {
       transition: 350ms ease opacity;
       color: #fff;
       font-size: 2em;
@@ -498,6 +498,15 @@ body.documentation {
   overflow: hidden;
   background: #FFF;
 
+  .secondary-navigation-empty {
+    text-align: center;
+    padding: 50px 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    color: #CCC;
+    font-style: italic;
+  }
+
   a { transition: 350ms ease all; }
 
 
@@ -514,7 +523,47 @@ body.documentation {
     padding: 0;
     width: 100%;
 
+    li.seconday-navigation-submenu {
+      &.open {
+        > ul  { max-height: inherit; }
+        > a {
+          color: #085b77;
+          &:after { transform: translate(0, -50%) rotate(180deg); }
+        }
+      }
+
+      > ul {
+        overflow: hidden;
+        max-height: 0;
+      }
+
+      // Submenu parent link
+      > a {
+        position: relative;
+        display: block;
+
+        &:after {
+          content: '';
+          background: url(/images/icons/chevron-down-solid.svg) top left no-repeat;
+          background-size: contain;
+          display: block;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+      }
+    }
+
+
     li {
+      &.current > a {
+        font-weight: bold;
+        color: #085b77;
+      }
+
       a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
       &:first-child a { border-top: 1px solid rgba(0, 0, 0, 0.125); }
@@ -522,12 +571,39 @@ body.documentation {
 
       // Second level
       ul {
+        overflow: hidden;
+        max-height: 0;
+
         li:first-child a { border-top: none; }
         li:last-child a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
 
         a {
-          background: #F9F9F9;
-          padding-left: 30px;
+          background: #FAFAFA;
+          padding-left: 25px;
+        }
+
+        // Third level
+        ul {
+          a {
+            background: #F0F0F0;
+            padding-left: 50px;
+          }
+
+          // Fourth level
+          ul {
+            a {
+              background: #EAEAEA;
+              padding-left: 75px;
+            }
+
+            // Fifth level
+            ul {
+              a {
+                background: #E0E0E0;
+                padding-left: 100px;
+              }
+            }
+          }
         }
       }
     }
@@ -538,9 +614,89 @@ body.documentation {
       text-decoration: none !important;
 
       &:hover, &:active {
-        background: $fakeDarkGray;
-        color: #FFF;
-        border-color: $fakeDarkGray;
+        color: #085b77;
+      }
+    }
+  }
+}
+
+// UC Doc template
+// ---------
+.template-uc-doc {
+  .main-content-right-col {
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 23px;
+      margin: 22px 0 10px;
+    }
+
+    h3 {
+      color: #333;
+      font-size: 19px;
+      margin: 20px 0 10px;
+    }
+
+    h4 {
+      color: #333;
+      font-size: 17px;
+      margin: 15px 0 10px;
+    }
+
+    pre { padding: 20px; }
+    pre code { background: none !important; }
+
+    // Inline code
+    li > code, p > code {
+      white-space: nowrap;
+      max-width: 100%;
+      background: #fff;
+      border: 1px solid #e1e4e5;
+      padding: 1px 5px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+
+    ul {
+      list-style-type: circle;
+      padding-left: 19px;
+    }
+
+    table {
+      border: 1px solid #e1e4e5;
+
+      td, th { padding: 5px 10px; }
+
+      thead {
+        color: #000;
+        text-align: left;
+        vertical-align: bottom;
+        white-space: nowrap;
+
+        td, th {
+          background: #FFF;
+          border-bottom: 2px solid #e1e4e5;
+          border-left: 1px solid #e1e4e5;
+        }
+      }
+
+      tbody {
+        td {
+          border-bottom: 1px solid #e1e4e5;
+          border-left: 1px solid #e1e4e5;
+          background: #FFF;
+        }
+
+        tr:nth-child(2n) td { background: #FAFAFA; }
       }
     }
   }

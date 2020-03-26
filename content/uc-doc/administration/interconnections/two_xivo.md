@@ -1,7 +1,6 @@
--   [Interconnect two Wazo directly](#interconnect-two-wazo-directly)
-    -   [Establish the trunk](#establish-the-trunk)
-    -   [Set the outgoing calls](#set-the-outgoing-calls)
-    -   [Set the incoming calls](#set-the-incoming-calls)
+---
+title: Interconnect two Wazo directly
+---
 
 Interconnect two Wazo directly
 ==============================

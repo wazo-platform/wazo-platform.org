@@ -1,5 +1,5 @@
 ---
-title: User Import and Export
+title: CSV Import and Export
 ---
 
 CSV Import
@@ -46,8 +46,8 @@ required fields for that resource are present.
   email                        string                                User\'s email
 
   language                     string              de\_DE, en\_US,   User\'s language
-                                                   es\_ES, fr\_FR,   
-                                                   fr\_CA            
+                                                   es\_ES, fr\_FR,
+                                                   fr\_CA
 
   mobile\_phone\_number        string                                Mobile phone number
 
@@ -96,7 +96,7 @@ required fields for that resource are present.
   context          string   Yes                 Context
 
   line\_protocol   string   Yes        sip,     Line protocol
-                                       sccp     
+                                       sccp
 
   sip\_username    string                       SIP username
 
@@ -132,7 +132,7 @@ required fields for that resource are present.
   voicemail\_context            string   Yes                       Voicemail context
 
   voicemail\_password           string              A sequence of  Voicemail password
-                                                    digits or \#   
+                                                    digits or \#
 
   voicemail\_email              string                             Email for sending notifications
                                                                    of new messages

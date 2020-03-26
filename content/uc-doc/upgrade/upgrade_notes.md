@@ -38,8 +38,7 @@ Consult the [20.04
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10072)
 for more information.
 
-20.03
-=====
+## <a name="20-03"></a>20.03
 
 -   The email template in wazo-auth now use the incoming HTTP request
     host and port to fill the template instead of the service discovery
@@ -53,13 +52,11 @@ for more information.
 
 Consult the [20.03 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069) for more information.
 
-20.02
-=====
+## <a name="20-02"></a>20.02
 
 Consult the [20.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067) for more information.
 
-20.01
-=====
+## <a name="20-01"></a>20.01
 
 -   The default protocol configured for consul is now `HTTP` instead of
     `HTTPS` since it's only available on `localhost`. The `HTTPS`
@@ -67,8 +64,7 @@ Consult the [20.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 Consult the [20.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065) for more information.
 
-19.17
-=====
+## <a name="19-17"></a>19.17
 
 -   The default Ansible installation installs the development version of
     Wazo Platform. If you have not changed the
@@ -124,8 +120,7 @@ Consult the [20.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 Consult the [19.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061) for more information.
 
-19.16
-=====
+## <a name="19-16"></a>19.16
 
 -   `xivo-amid-client` has been renamed to `wazo-amid-client`
 -   `wazo-auth` http configuration section have been moved onto the
@@ -154,8 +149,7 @@ Consult the [19.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 Consult the [19.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054) for more information.
 
-19.15
-=====
+## <a name="19-15"></a>19.15
 
 -   We have standardize the stevedore entry point namespace for our
     python client. If you have custom plugins, Be sure to use the full
@@ -170,8 +164,7 @@ Consult the [19.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 Consult the [19.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046) for more information.
 
-19.14
-=====
+## <a name="19-14"></a>19.14
 
 -   A new version (v2) of websocket protocol has been created. See
     `Wazo WebSocket
@@ -215,14 +208,13 @@ Consult the [19.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.js
 
 Consult the [19.14 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045) for more information.
 
-19.13
-=====
+## <a name="19-13"></a>19.13
 
 -   **Debian has been upgraded from version 9 (stretch) to 10
     (buster).** Please consult the following detailed upgrade notes for
     more information:
 
-- [19.13/buster](/uc-doc/upgrade/19-13/buster)
+- [Debian 10 (Buster) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/19-13/buster)
 
 -   `xivo-amid` has been renamed to `wazo-amid`
     -   The custom configuration has been moved to
@@ -235,8 +227,7 @@ Consult the [19.13
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029)
 for more information.
 
-19.12
-=====
+## <a name="19-12"></a>19.12
 
 General
 -------
@@ -273,7 +264,7 @@ General
         tenant cannot be extracted from call informations, they will be
         associated to the master tenant.
 
-- [19.03/sounds](/uc-doc/upgrade/19-03/sounds)
+- [Migration of sound files to tenants](/uc-doc/upgrade/upgrade_notes_details/19-03/sounds)
 
     -   We needed to do some guesswork for ambiguous resources that
         shared other resources from different entities. These resources
@@ -364,7 +355,7 @@ Asterisk related
 
 -   Asterisk version has been updated:
 
-- [18.12/asterisk_16](/uc-doc/upgrade/18-12/asterisk_16)
+- [Asterisk 15 to 16 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/18-12/asterisk_16)
 
 -   Wazo now uses `res_pjsip` instead of `chan_sip`.
     -   All custom lines with interface `SIP/something` must be changed
@@ -518,8 +509,7 @@ Consult the roadmaps for more information:
 > -   [19.11](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027)
 > -   [19.12](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028)
 
-18.03
-=====
+## <a name="18-03"></a>18.03
 
 -   If you have a [custom certificate configured](/uc-doc/system/https_certificate),
     you will need to add a new symlink for wazo-upgrade:
@@ -547,8 +537,7 @@ Consult the roadmaps for more information:
     automatically changed from `nat=auto_force_rport` to nothing, so
     that they inherit this setting from the General SIP settings.
 
-18.02
-=====
+## <a name="18-02"></a>18.02
 
 -   For wazo-auth backend developers: The API to implement a wazo-auth
     backend has changed. Old implementations have to be updated. If the
@@ -559,14 +548,13 @@ Consult the roadmaps for more information:
     -   The [get_ids] method has been removed.
     -   The [get_metadata] method has been added.
 
-18.01
-=====
+## <a name="18-01"></a>18.01
 
 -   **Debian has been upgraded from version 8 (jessie) to 9 (stretch).**
     Please consult the following detailed upgrade notes for more
     information:
 
-- [18.01/stretch](/uc-doc/upgrade/18-01/stretch)
+- [Debian 9 (stretch) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch)
 
 -   If you *did not* setup a custom X.509 certificate for HTTPS (e.g.
     from Let's Encrypt), the certificate will be regenerated to include

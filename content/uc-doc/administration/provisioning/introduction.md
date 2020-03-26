@@ -2,6 +2,10 @@
 title: Introduction
 ---
 
+Wazo supports the auto-provisioning of a large number of telephony
+[devices](/uc-doc/ecosystem/supported_devices), including SIP phones, SIP ATAs,
+and even softphones.
+
 The auto-provisioning feature found in Wazo make it possible to
 provision, i.e. configure, a lots of telephony devices in an efficient
 and effortless way.

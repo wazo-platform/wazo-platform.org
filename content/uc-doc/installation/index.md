@@ -2,5 +2,5 @@
 title: Installation
 ---
 
-- [Install System](/install/unified-communication)
+- [Install System](/uc-doc/installation/install-system)
 - [Post install](/uc-doc/installation/postinstall)

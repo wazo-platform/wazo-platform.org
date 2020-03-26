@@ -32,6 +32,6 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://documentation.wazo.community/en/wazo-17.02/upgrade/upgrade.html#upgrade-notes)
-* [xivo-confd REST API Changelog](http://documentation.wazo.community/en/wazo-17.02/api_sdk/rest_api/confd/changelog.html)
+* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.02/upgrade/upgrade.html#upgrade-notes)
+* [xivo-confd REST API Changelog](http://wazo.readthedocs.io/en/wazo-17.02/api_sdk/rest_api/confd/changelog.html)
 * [Wazo 17.02 Roadmap](https://projects.wazo.community/versions/254)

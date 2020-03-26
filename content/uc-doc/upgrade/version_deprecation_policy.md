@@ -2,14 +2,6 @@
 title: Deprecated Wazo versions
 ---
 
--   [General policy](#general-policy)
--   [What does it mean to be in a deprecated
-    version?](#what-does-it-mean-to-be-in-a-deprecated-version)
--   [Why are versions being
-    deprecated?](#why-are-versions-being-deprecated)
--   [I have a deprecated version. What are my
-    options?](#i-have-a-deprecated-version.-what-are-my-options)
-
 General policy
 ==============
 
@@ -18,22 +10,16 @@ years old will be considered as deprecated.
 
 Planned deprecation calendar:
 
-  ----------------------------------------
-  Date               Deprecated versions
-  ------------------ ---------------------
-  2017-01-01         older than 13.01
+| Date         | Deprecated versions |
+|--------------|---------------------|
+| 2017\-01\-01 | older than 13\.01   |
+| 2018\-01\-01 | older than 14\.01   |
+| 2019\-01\-01 | older than 15\.01   |
+| 2020\-01\-01 | older than 16\.01   |
+| 2021\-01\-01 | older than 17\.01   |
 
-  2018-01-01         older than 14.01
 
-  2019-01-01         older than 15.01
-
-  2020-01-01         older than 16.01
-
-  2021-01-01         older than 17.01
-  ----------------------------------------
-
-What does it mean to be in a deprecated version?
-================================================
+## What does it mean to be in a deprecated version?
 
 -   A deprecated Wazo version does not have a supported upgrade path
     directly to the latest Wazo version. This means that running a
@@ -44,8 +30,7 @@ What does it mean to be in a deprecated version?
 -   Binaries (ISO images) for deprecated versions are not available for
     download.
 
-Why are versions being deprecated?
-==================================
+## Why are versions being deprecated?
 
 -   Hosting the binaries of older versions is costly and mostly useless:
     most people install the latest version of Wazo, and the very few
@@ -61,8 +46,7 @@ Why are versions being deprecated?
     upgrade at least once an IPBX. We do not want to hinder development
     for the very few who did not take the time to upgrade.
 
-I have a deprecated version. What are my options?
-=================================================
+## I have a deprecated version. What are my options?
 
 There are two main options:
 

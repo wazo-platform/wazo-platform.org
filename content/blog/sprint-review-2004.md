@@ -41,7 +41,7 @@ See you at the next sprint review!
 
 * [Install Wazo Platform](https://wazo-platform.org/install)
 
-* [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-04)
+* [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/introduction). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-04)
 
 Sources:
 

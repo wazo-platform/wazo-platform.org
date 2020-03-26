@@ -1,5 +1,5 @@
 ---
-title: Users Configuration
+title: Configuration
 ---
 
 - [csv_import](/uc-doc/administration/users/csv_import)
