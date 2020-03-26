@@ -104,7 +104,7 @@ export default () => {
       titlesSortedKeys = tableOfContentLinksOrdering(itemKey, titlesSortedKeys)
 
       return (
-        <li key={itemKey} className={getListItemClasses('seconday-navigation-submenu', itemKey)}>
+        <li key={itemKey} className={getListItemClasses('secondary-navigation-submenu', itemKey)}>
           <a href={self.path} onClick={(e) => handleMenuClick(e, itemKey)}>{ self ? formatLinkTitle(self.title) : 'More'  }</a>
           <ul>
             { titlesSortedKeys.map(subLinksKey => renderLinksRecurse(linksObject[subLinksKey])) }
