@@ -62,7 +62,7 @@ required fields for that resource are present.
   | --- | --- | --- | --- | ---|
   | exten | string | Yes || Number for calling the user. The number must be inside the range of acceptable numbers defined for the context |
   | context | string | Yes || Context |
-  | line_protocol | string | Yes | sip, sccp | Line protocol |
+  | line_protocol | string | Yes | sip, sccp, webrtc | Line protocol |
   | sip_username | string ||| SIP username |
   | sip_secret | string ||| SIP secret |
 
