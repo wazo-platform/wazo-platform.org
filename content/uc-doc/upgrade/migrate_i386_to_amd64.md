@@ -9,7 +9,7 @@ The procedure is:
 
 1.  [Upgrade](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch#upgrade) your `i386`
     machine to XiVO/Wazo \>= 15.13
-2.  [Install](/uc-doc/installation/install-system) a Wazo `amd64`
+2.  [Install](/install/unified-communication) a Wazo `amd64`
     **using the same version as the upgraded Wazo i386**
 3.  Make a backup of your Wazo `i386` by following the
     [backup procedure](/uc-doc/system/backup_restore#manual_backup)
