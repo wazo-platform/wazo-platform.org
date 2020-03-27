@@ -9,8 +9,8 @@ const WazoHeader = () => {
     <div className="wazo-header">
       <div className="container">
         <div className="site-logo">
-          <a href="http://wazo.io" title="Wazo" rel="home">
-            <img className="header-image" alt="Wazo" src="http://wazo.io/wp-content/uploads/2019/09/wazo-logo-white-45pxh-1.png" title="Wazo" />
+          <a href="/" title="Wazo" rel="home">
+            <img className="header-image" alt="Wazo" src="https://i1.wp.com/wazo.io/wp-content/uploads/2020/03/WAZO-LogoWAZO-transparent-2.png?resize=300%2C79&ssl=1" title="Wazo" />
           </a>
         </div>
 
@@ -19,10 +19,8 @@ const WazoHeader = () => {
 
             <div id="primary-menu" className="main-nav">
               <ul id="menu-nav_light" className=" menu sf-menu">
-                  <li id="menu-item-1285" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="http://wazo.io/company/">Company</a></li>
-                  <li id="menu-item-1286" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1286"><a href="http://developers.wazo.io/">Developers</a></li>
+                  <li id="menu-item-1286" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1286"><a href="https://wazo.io/">Corporate Site</a></li>
                   <li id="menu-item-1287" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1287"><a href="https://support.wazo.io/hc/en-us">Documentation</a></li>
-                  <li id="menu-item-1435" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1435"><a href="https://www.welcometothejungle.co/fr/companies/wazo">Jobs</a></li>
               </ul>
             </div>
           </div>
