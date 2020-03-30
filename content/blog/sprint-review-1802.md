@@ -23,7 +23,7 @@ Status: published
 
 ---
 
-The instructions for [installing Wazo](http://wazo.readthedocs.io/en/stable/installation/installsystem.html) are available in the documentation.
+The instructions for [installing Wazo](/uc-doc/installation/install-system) are available in the documentation.
 The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-18.02/upgrade/upgrade_notes.html).
 
 For more details about the aforementioned topics, please see the roadmap linked below.
