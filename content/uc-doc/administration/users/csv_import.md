@@ -36,22 +36,22 @@ required fields for that resource are present.
 
 ### User
 
-  
+
   | Field | Type | Required | Values | Description |
   | --- | --- | --- | --- | --- |
   | firstname | string | Yes || User\'s firstname |
   | lastname | string ||| User\'s lastname |
   | email | string ||| User\'s email |
-  | language | string || de_DE, en_US, es_ES, fr_FR, fr_CA | User\'s language |
-  | mobile_phone_number | string ||| Mobile phone number |
-  | outgoing_caller_id | string ||| Customize outgoing caller id for this user |
+  | language | string || de\_DE, en\_US, es\_ES, fr\_FR, fr\_CA | User\'s language |
+  | mobile\_phone\_number | string ||| Mobile phone number |
+  | outgoing\_caller\_id | string ||| Customize outgoing caller id for this user |
   | enabled | bool ||| Enable/Disable the user |
   | supervision_enabled | bool ||| Enable/Disable supervision |
-  | call_transfer_enabled | bool ||| Enable/Disable call transfers by DTMF |
-  | dtmf_hangup_enabled | bool ||| Enable/Disable hangup by DTMF |
+  | call\_transfer\_enabled | bool ||| Enable/Disable call transfers by DTMF |
+  | dtmf\_hangup\_enabled | bool ||| Enable/Disable hangup by DTMF |
   | simultaneous_calls | int ||| Number of calls a user can have on his phone simultaneously |
   | ring_seconds | int || A multiple of 5 | Seconds a call ring before ending |
-  | call_permission_password | string ||| Overwrite all passwords set in call permissions associated to the user |
+  | call\_permission\_password | string ||| Overwrite all passwords set in call permissions associated to the user |
   | username | string ||| User\'s username to log into applications |
   | password | string ||| User\'s password to log into applications |
   | subscription_type | int ||| The subscription type for this user |
@@ -72,7 +72,7 @@ required fields for that resource are present.
   | --- | --- | --- | --- | ---|
   | incall_exten | string | Yes || Number for calling the user from an incoming call (i.e outside of Wazo). The number must be inside the range of acceptable numbers defined for the context. |
   | incall_context | string | Yes || Context used for calls coming from outside of Wazo |
-  | incall_ring_seconds | int ||| Number of seconds a call will ring before ending |
+  | incall\_ring\_seconds | int ||| Number of seconds a call will ring before ending |
 
 ### Voicemail
 
@@ -83,9 +83,9 @@ required fields for that resource are present.
   | voicemail_context | string | Yes || Voicemail context |
   | voicemail_password | string ||| A sequence of  Voicemail password digits or \# |
   | voicemail_email | string ||| Email for sending notifications of new messages |
-  | voicemail_attach_audio | bool ||| Enable/Disable attaching audio files to email message |
-  | voicemail_delete_messages | bool ||| Enable/Disable deleting message after notification is sent |
-  | voicemail_ask_password | bool ||| Enable/Disable password checking |
+  | voicemail\_attach\_audio | bool ||| Enable/Disable attaching audio files to email message |
+  | voicemail\_delete\_messages | bool ||| Enable/Disable deleting message after notification is sent |
+  | voicemail\_ask\_password | bool ||| Enable/Disable password checking |
 
 ### Call permissions
 
