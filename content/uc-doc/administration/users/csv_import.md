@@ -126,7 +126,7 @@ phone number (e.g. incoming call):
 CSV Update
 ==========
 
-:exclamation: The CSV update has been disabled since it does not suport multi-tenants
+#:exclamation: The CSV update has been disabled since it does not suport multi-tenants
 at the moment
 
 The field list for an update is the same as for an import with the
