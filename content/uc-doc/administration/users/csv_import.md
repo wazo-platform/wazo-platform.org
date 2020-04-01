@@ -36,127 +36,63 @@ required fields for that resource are present.
 
 ### User
 
-  ------------------------------------------------------------------------------------------------
-  Field                        Type     Required   Values            Description
-  ---------------------------- -------- ---------- ----------------- -----------------------------
-  firstname                    string   Yes                          User\'s firstname
 
-  lastname                     string                                User\'s lastname
-
-  email                        string                                User\'s email
-
-  language                     string              de\_DE, en\_US,   User\'s language
-                                                   es\_ES, fr\_FR,
-                                                   fr\_CA
-
-  mobile\_phone\_number        string                                Mobile phone number
-
-  outgoing\_caller\_id         string                                Customize outgoing caller id
-                                                                     for this user
-
-  enabled                      bool                                  Enable/Disable the user
-
-  supervision\_enabled         bool                                  Enable/Disable supervision
-
-  call\_transfer\_enabled      bool                                  Enable/Disable call transfers
-                                                                     by DTMF
-
-  dtmf\_hangup\_enabled        bool                                  Enable/Disable hangup by DTMF
-
-  simultaneous\_calls          int                                   Number of calls a user can
-                                                                     have on his phone
-                                                                     simultaneously
-
-  ring\_seconds                int                 Must be a         Number of seconds a call will
-                                                   multiple of 5     ring before ending
-
-  call\_permission\_password   string                                Overwrite all passwords set
-                                                                     in call permissions
-                                                                     associated to the user
-
-  username                     string                                User\'s username to log into
-                                                                     applications
-
-  password                     string                                User\'s password to log into
-                                                                     applications
-
-  subscription\_type           int                                   The subscription type for
-                                                                     this user
-  ------------------------------------------------------------------------------------------------
+  | Field | Type | Required | Values | Description |
+  | --- | --- | --- | --- | --- |
+  | firstname | string | Yes || User\'s firstname |
+  | lastname | string ||| User\'s lastname |
+  | email | string ||| User\'s email |
+  | language | string || de\_DE, en\_US, es\_ES, fr\_FR, fr\_CA | User\'s language |
+  | mobile\_phone\_number | string ||| Mobile phone number |
+  | outgoing\_caller\_id | string ||| Customize outgoing caller id for this user |
+  | enabled | bool ||| Enable/Disable the user |
+  | supervision_enabled | bool ||| Enable/Disable supervision |
+  | call\_transfer\_enabled | bool ||| Enable/Disable call transfers by DTMF |
+  | dtmf\_hangup\_enabled | bool ||| Enable/Disable hangup by DTMF |
+  | simultaneous_calls | int ||| Number of calls a user can have on his phone simultaneously |
+  | ring_seconds | int || A multiple of 5 | Seconds a call ring before ending |
+  | call\_permission\_password | string ||| Overwrite all passwords set in call permissions associated to the user |
+  | username | string ||| User\'s username to log into applications |
+  | password | string ||| User\'s password to log into applications |
+  | subscription_type | int ||| The subscription type for this user |
 
 ### Phone
 
-  --------------------------------------------------------------------------------------------
-  Field            Type     Required   Values   Description
-  ---------------- -------- ---------- -------- ----------------------------------------------
-  exten            string   Yes                 Number for calling the user. The number must
-                                                be inside the range of acceptable numbers
-                                                defined for the context
-
-  context          string   Yes                 Context
-
-  line\_protocol   string   Yes        sip,     Line protocol
-                                       sccp
-
-  sip\_username    string                       SIP username
-
-  sip\_secret      string                       SIP secret
-  --------------------------------------------------------------------------------------------
+  | Field | Type | Required | Values | Description |
+  | --- | --- | --- | --- | ---|
+  | exten | string | Yes || Number for calling the user. The number must be inside the range of acceptable numbers defined for the context |
+  | context | string | Yes || Context |
+  | line_protocol | string | Yes | sip, sccp, webrtc | Line protocol |
+  | sip_username | string ||| SIP username |
+  | sip_secret | string ||| SIP secret |
 
 ### Incoming call
 
-  -------------------------------------------------------------------------------------------------
-  Field                   Type     Required   Values   Description
-  ----------------------- -------- ---------- -------- --------------------------------------------
-  incall\_exten           string   Yes                 Number for calling the user from an incoming
-                                                       call (i.e outside of Wazo). The number must
-                                                       be inside the range of acceptable numbers
-                                                       defined for the context.
-
-  incall\_context         string   Yes                 context used for calls coming from outside
-                                                       of Wazo
-
-  incall\_ring\_seconds   int                          Number of seconds a call will ring before
-                                                       ending
-  -------------------------------------------------------------------------------------------------
+  | Field | Type | Required | Values | Description |
+  | --- | --- | --- | --- | ---|
+  | incall_exten | string | Yes || Number for calling the user from an incoming call (i.e outside of Wazo). The number must be inside the range of acceptable numbers defined for the context. |
+  | incall_context | string | Yes || Context used for calls coming from outside of Wazo |
+  | incall\_ring\_seconds | int ||| Number of seconds a call will ring before ending |
 
 ### Voicemail
 
-  ------------------------------------------------------------------------------------------------
-  Field                         Type     Required   Values         Description
-  ----------------------------- -------- ---------- -------------- -------------------------------
-  voicemail\_name               string   Yes                       Voicemail name
-
-  voicemail\_number             string   Yes                       Voicemail number
-
-  voicemail\_context            string   Yes                       Voicemail context
-
-  voicemail\_password           string              A sequence of  Voicemail password
-                                                    digits or \#
-
-  voicemail\_email              string                             Email for sending notifications
-                                                                   of new messages
-
-  voicemail\_attach\_audio      bool                               Enable/Disable attaching audio
-                                                                   files to email message
-
-  voicemail\_delete\_messages   bool                               Enable/Disable deleting message
-                                                                   after notification is sent
-
-  voicemail\_ask\_password      bool                               Enable/Disable password
-                                                                   checking
-  ------------------------------------------------------------------------------------------------
+  | Field | Type | Required | Values | Description |
+  | --- | --- | --- | --- | ---|
+  | voicemail_name | string | Yes || Voicemail name |
+  | voicemail_number | string | Yes || Voicemail number |
+  | voicemail_context | string | Yes || Voicemail context |
+  | voicemail_password | string ||| A sequence of  Voicemail password digits or \# |
+  | voicemail_email | string ||| Email for sending notifications of new messages |
+  | voicemail\_attach\_audio | bool ||| Enable/Disable attaching audio files to email message |
+  | voicemail\_delete\_messages | bool ||| Enable/Disable deleting message after notification is sent |
+  | voicemail\_ask\_password | bool ||| Enable/Disable password checking |
 
 ### Call permissions
 
-  ------------------------------------------------------------------------------------------
-  Field               Type     Required   Values                 Description
-  ------------------- -------- ---------- ---------------------- ---------------------------
-  call\_permissions   string              list separated by      Names of the call
-                                          semicolons (`;`)       permissions to assign to
-                                                                 the user
+  | Field | Type | Required | Values | Description |
+  | --- | --- | --- | --- | ---|
+  | call_permissions | string || list separated by semicolons (`;`) | Names of the call permissions to assign to the user |
 
-  ------------------------------------------------------------------------------------------
 
 Importing a file
 ----------------
