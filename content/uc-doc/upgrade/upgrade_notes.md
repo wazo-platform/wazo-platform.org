@@ -27,6 +27,10 @@ title: Upgrade notes
 
   - wazo-amid
 
+- There is now an API to manage SIP transports. This means that the transport of a SIP endpoint is not
+  predefined anymore. If you relied on the fact that a SIP endpoint used the transport `wss` to know
+  whether or not it is a WebRTC endpoint you should change your logic to check if `webrtc` equals to `yes`.
+
 Consult the [20.05
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10077) for
 more information.
