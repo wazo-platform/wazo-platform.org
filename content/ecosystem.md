@@ -18,4 +18,6 @@ on [Github](https://github.com/wazo-platform/wazo-platform.org) or to
 
 
 -   ##### Wazo Communication
-    [Wazo Enterprise Unified Communication](https://wazo.io/) is based on all the Unified Communication components from Wazo Platform with some additional components like web and mobile applications and a web management console.
+    [Wazo Enterprise Unified Communication](https://wazo.io/enterprise-unified-communication/) is based on all the Unified Communication components from Wazo Platform with some additional components like web and mobile applications and a web management console.
+    
+    [Wazo Enterprise programmable Communication](https://wazo.io/enterprise-programmable-communication/) is based on the programmable components from Wazo Platform with an additional web management console.
