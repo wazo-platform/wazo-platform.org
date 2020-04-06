@@ -40,7 +40,7 @@ Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses
 We gladly accept new contributions. There are two ways to contribute:
 
 -   The preferred way: open a pull request on
-    [Github](https://github.com/wazo-platform/wazo-doc) and add a line
+    [Github](https://github.com/wazo-platform/wazo-platform.org) and add a line
     to this page (see:
     [Contributing to the Documentation](/uc-doc/contributors/contributing_doc)).
 -   You can also open a contribution ticket on the [bug
