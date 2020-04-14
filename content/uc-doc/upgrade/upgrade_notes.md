@@ -2,6 +2,18 @@
 title: Upgrade notes
 ---
 
+## <a name="20-06"></a>20.06
+
+- The TLS configuration has been deprecated on the following services. You should always use NGINX
+  to proxy communication with wazo-platform services. To follow this change, the listen address has
+  been changed to 127.0.0.1 by default.
+
+  - wazo-auth
+
+Consult the [20.06
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10084) for
+more information.
+
 ## <a name="20-05"></a>20.05
 
 -   `wazo-amid`, `wazo-plugind` and `wazo-dird` http configuration section have been moved onto the
@@ -22,8 +34,8 @@ title: Upgrade notes
           certificate: </path/to/cert>
           private_key: </path/to/key>
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
-  to proxy communication with wazo-platform services. To follow this change, the listen has been
-  changed to 127.0.0.1 by default.
+  to proxy communication with wazo-platform services. To follow this change, the listen address has
+  been changed to 127.0.0.1 by default.
 
   - wazo-amid
 
