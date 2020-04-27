@@ -17,7 +17,7 @@
         icon: fa fa-brain
         color: pink
         repository: wazo-calld
-        redocUrl: https://example.com/api/ctid-ng/1.0/api/api.yml
+        redocUrl: https://example.com/api/calld/1.0/api/api.yml
 
       configuration:
         title: Configuration
