@@ -24,3 +24,5 @@ The Wazo-Platform project does not accept donations. We think it’s a poor busi
 If you want to help the project financially, you can approach some of the companies offering commercial support for Wazo Enterprise and engage their services. Doing so creates a healthy ecosystem around the project where companies are encouraged to contribute their resources to improve the project to create a larger pool of potential customers wanting their services.
 
 We appreciate positive feedback on our project as well. If you are on Twitter, send us a tweet to @wazocommunity. That helps raise awareness of our project so others can benefit from it as well. Contributions to our blog or to the forum and organizing events around wazo-platform is another great contributions you can do.
+
+Check the [ecosystem page](/ecosystem) if you want more informations about commercial products.
