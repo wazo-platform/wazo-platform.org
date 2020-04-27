@@ -1,6 +1,4 @@
----
-How to contribute to Wazo Platform
----
+## How to contribute to Wazo Platform
 
 There are multiple ways to get involved with the project depending on
 your skills and wills:
@@ -13,4 +11,14 @@ your skills and wills:
 
 Don't forget that Wazo Platform is an Open Source project so the more you give the more you'll get!
 
-Don't hesitate to ask any question on [the MatterMost chan](https://mm.wazo.community/wazo-platform/channels/town-square).
+Don't hesitate to ask any question on [the MatterMost channel](https://mm.wazo.community/wazo-platform/channels/town-square).
+
+## How can I donate money to the project
+
+The Wazo-Platform project does not accept donations. We think it’s a poor business model for running an open source project as it suggests the developers are working for charity.
+
+If you want to help the project financially, you can approach some of the companies offering commercial support for Wazo Enterprise and engage their services. Doing so creates a healthy ecosystem around the project where companies are encouraged to contribute their resources to improve the project to create a larger pool of potential customers wanting their services.
+
+We appreciate positive feedback on our project as well. If you are on Twitter, send us a tweet to [@wazocommunity](https://twitter.com/wazocommunity). That helps raise awareness of our project so others can benefit from it as well. Contributing to our blog, to the forum or organizing events around Wazo Platform is another great contribution you can do.
+
+Check the [ecosystem page](/ecosystem) if you want more information about commercial products.
