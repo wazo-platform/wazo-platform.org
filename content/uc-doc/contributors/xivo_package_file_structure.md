@@ -67,7 +67,7 @@ Sources
 `integration_tests/`
 
 :   Contains the tests bigger than unit-tests. Tests should be runnable
-    simply, e.g. `nosetests integration_tests`.
+    simply, e.g. `pytest integration_tests`.
 
 `README.md`
 
