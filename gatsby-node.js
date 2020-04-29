@@ -247,7 +247,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // Create install page
     await newPage('/use-cases', 'use-cases/index', { installDoc });
     // Create install-c4 page
-    await newPage('/install/class-4', 'install_c4/index', { installC4Doc });
+    await newPage('/use-cases/class-4', 'install_c4/index', { installC4Doc });
     // Create contribute page
     await newPage('/contribute', 'contribute/index', { content: contributeDoc });
     // Create blog page
