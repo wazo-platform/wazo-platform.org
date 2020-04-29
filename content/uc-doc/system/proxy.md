@@ -60,3 +60,25 @@ content:
     Environment=HTTP_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port
     Environment=HTTPS_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port for HTTPS
     Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
+
+Then run the following commands:
+
+    systemctl daemon-reload
+    systemctl restart wazo-auth wazo-dird
+
+wazo-setupd
+===========
+
+*This step is needed in order to connect your Wazo engine to an external management product.*
+
+Add a file `/etc/systemd/system/wazo-setupd.service.d/proxy.conf`:
+
+    [Service]
+    Environment=HTTP_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port
+    Environment=HTTPS_PROXY=myproxy:8000  # replace myproxy with your proxy host and 8000 with your proxy port for HTTPS
+    Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
+
+Then run the following commands:
+
+    systemctl daemon-reload
+    systemctl restart wazo-setupd
