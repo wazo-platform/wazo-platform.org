@@ -70,7 +70,7 @@ Now that you have loaded the correct module for your card you must:
 2.  and continue with the next configuration step which is to
     [configure your card](/uc-doc/administration/hardware/card_configuration) according to the operator links.
 
-<a name="echo_can_specific_conf"></a>Specific configuration
+Specific configuration {#echo_can_specific_conf}
 ======================
 
 This section describes some specific configuration. You should not

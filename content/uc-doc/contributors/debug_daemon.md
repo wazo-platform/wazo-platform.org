@@ -16,20 +16,20 @@ daemon in foreground:
 
     systemctl stop monit.service
 
-## <a name="wazo-confgend"></a>wazo-confgend
+## wazo-confgend {#wazo-confgend}
 
     twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
 
 No debug mode in confgend.
 
-## <a name="wazo-provd"></a>wazo-provd
+## wazo-provd {#wazo-provd}
 
     twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
 
 -   -s for logging to stderr
 -   -v for verbose
 
-## <a name="consul"></a>consul
+## consul {#consul}
 
     sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /run/consul/consul.pid
 

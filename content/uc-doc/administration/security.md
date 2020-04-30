@@ -65,7 +65,7 @@ rules. The only interaction Wazo has with iptables are:
 
 It is highly recommended that you configure firewall rules on your Wazo.
 
-<a name="devices"></a>Devices
+Devices {#devices}
 =======
 
 Your devices, phones and VoIP gateways, should not be accessible from

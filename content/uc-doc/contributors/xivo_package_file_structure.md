@@ -2,7 +2,7 @@
 title: Wazo Package File Structure
 ---
 
-## <a name="package-naming"></a>Package naming
+## Package Naming {#package-naming}
 
 Let\'s assume we want to organise the files for wazo-confd.
 
@@ -39,7 +39,7 @@ Let\'s assume we want to organise the files for wazo-confd.
     `-- wazo_confd
         `-- ...
 
-### <a name="sources"></a>Sources
+### Sources {#sources}
 
 `etc/`
 
@@ -72,7 +72,7 @@ Let\'s assume we want to organise the files for wazo-confd.
 
 :   Travis CI configuration file
 
-### <a name="python"></a>Python
+### Python {#python}
 
 Standard files:
 
@@ -82,13 +82,13 @@ Standard files:
 -   test-requirements.txt
 -   wazo\_confd/ (the main sources)
 
-### <a name="debian"></a>Debian
+### Debian {#debian}
 
 `debian/`
 
 :   Contains the Debian packaging files (`control`, `rules`, \...)
 
-### <a name="docker"></a>Docker
+### Docker {#docker}
 
 `Dockerfile`
 
@@ -104,7 +104,7 @@ Standard files:
 :   Contains the Dockerfile and other files to run wazo-confd inside
     Docker with specific configuration
 
-## <a name="file-naming"></a>File naming
+## File naming {#file-naming}
 
 -   PID file: `/run/wazo-confd/wazo-confd.pid`
 -   WSGI socket file: `/run/wazo-confd/wazo-confd.sock`

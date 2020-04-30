@@ -2,7 +2,7 @@
 title: Backup/Restore
 ---
 
-<a name="backup"></a>Backup
+Backup {#backup}
 ======
 
 Periodic backup
@@ -119,7 +119,7 @@ The following databases from PostgreSQL are backed up:
 -   `asterisk`: all the configuration done via the web interface
     (exceptions: High Availability, Provisioning, Certificates)
 
-<a name="manual_backup"></a>Creating backup files manually
+Creating backup files manually {#manual_backup}
 ------------------------------
 
 #:warning: A backup file may take a lot of space on the disk. You should check the
@@ -143,10 +143,10 @@ commands:
 
     xivo-backup data /var/tmp/data-manual
 
-<a name="restore"></a>Restore
+Restore {#restore}
 =======
 
-<a name="intro-provisioning"></a>Introduction
+Introduction {#intro-provisioning}
 ------------
 
 A backup of both the configuration files and the database used by a Wazo
@@ -223,12 +223,12 @@ Drop the asterisk database and restore it with the one from the backup:
 Once the database and files have been restored, you can
 [finalize the restore](/uc-doc/system/backup_restore#after_restore)
 
-### <a name="troubleshooting"></a>Troubleshooting
+### Troubleshooting {#troubleshooting}
 
 When restoring the database, if you encounter problems related to the
 system locale, see [PostgreSQL localization errors](/uc-doc/troubleshooting#postgresql_localization_errors).
 
-<a name="restore_keep_system_config"></a>Alternative: Restoring and Keeping System Configuration
+Alternative: Restoring and Keeping System Configuration {#restore_keep_system_config}
 -------------------------------------------------------
 
 System configuration like network interfaces is stored in the database.
@@ -258,7 +258,7 @@ configuration if you restore the data.tgz file.
 Once the database and files have been restored, you can
 [finalize the restore](/uc-doc/system/backup_restore#after_restore)
 
-<a name="after_restore"></a>After Restoring The System
+After Restoring The System {#after_restore}
 --------------------------
 
 1.  Restore the server UUID:

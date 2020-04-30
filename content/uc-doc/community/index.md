@@ -5,7 +5,7 @@ title: Community Documentation
 This page provides links to resources on various topics around Wazo.
 They have been generously created by people from the community.
 
-## <a name="tutorials"></a>Tutorials
+## Tutorials
 
 Please note that these resources are provided on an \"as is basis\".
 They have not been reviewed by the Wazo team, therefore the information
@@ -35,7 +35,7 @@ Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses
 | [Wazo star codes (fr)](/images/uc-doc/community/wazo-star-codes-fr.pdf)                                                                                            | French   | Intermediate | Thomas Faure                 | 2017         |
 | [Configuring FOP2 with Wazo](/images/uc-doc/community/fop2.pdf)                                                                                                    | English  | Intermediate | Richard Cantin               | 17.04        |
 
-## <a name="contribute"></a>Contribute
+## Contribute
 
 We gladly accept new contributions. There are two ways to contribute:
 

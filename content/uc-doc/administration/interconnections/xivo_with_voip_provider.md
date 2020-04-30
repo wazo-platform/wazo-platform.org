@@ -48,7 +48,7 @@ parameter:
 At that point, the Asterisk command `sip show registry` should print a
 line showing that you are registered, meaning your trunk is established.
 
-<a name="voip_provider_outcall"></a>Set the outgoing calls
+Set the outgoing calls {#voip_provider_outcall}
 ----------------------
 
 The outgoing calls configuration will allow Wazo to know which
@@ -71,7 +71,7 @@ You can find more details about pattern matching in Asterisk (hence in
 Wazo) on [the Asterisk
 wiki](https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching).
 
-<a name="voip_provider_incall"></a>Set the incoming calls
+Set the incoming calls {#voip_provider_incall}
 ----------------------
 
 Now that we have calls going out, we need to route incoming calls.

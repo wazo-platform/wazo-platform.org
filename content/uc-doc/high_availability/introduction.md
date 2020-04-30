@@ -212,7 +212,7 @@ Berofos Integration
 
 - [berofos](/uc-doc/high_availability/berofos)
 
-<a name="troubleshooting"></a>Troubleshooting
+Troubleshooting {#troubleshooting}
 ===============
 
 When replicating the database between master and slave, if you encounter

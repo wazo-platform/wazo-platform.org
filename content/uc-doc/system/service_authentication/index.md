@@ -7,7 +7,7 @@ also ensure that the access is restricted to the authorized programs.
 For this, we use an [authentication daemon](/uc-doc/system/configuration_files#wazo-auth) who delivers authorizations
 via tokens.
 
-## <a name="call-flow></a>Call flow
+## Call flow {#call-flow}
 
 Here is the call flow to access a REST resource of a Wazo service:
 

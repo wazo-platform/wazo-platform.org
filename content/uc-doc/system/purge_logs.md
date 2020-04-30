@@ -38,7 +38,7 @@ The format of the following list is `plugin-name` (`associated table`) :
 -   `stat-switchboard` (`stat_switchboard_queue`)
 -   `webhookd-logs` (`webhookd_subscription_log`)
 
-<a name="purge_logs_config_file"></a>Configuration File
+Configuration File {#purge_logs_config_file}
 ==================
 
 We recommend to override the setting `days_to_keep` from
@@ -160,7 +160,7 @@ sample_file = '/tmp/wazo_purge_db.sample'
 
 > def sample\_plugin(config):
 >
-> :   
+> :
 >
 >     with open(sample\_file, \'w\') as output:
 >

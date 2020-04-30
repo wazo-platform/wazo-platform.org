@@ -51,7 +51,7 @@ There are 2 options you can pass to wazo-upgrade:
     ISDN link status, internal/incoming/outgoing calls, Wazo Client
     connections etc.
 
-## <a name="version_specific_upgrade"></a>Version-specific upgrade procedures
+## Version-specific upgrade procedures {#version_specific_upgrade}
 
 ### Upgrading from XiVO 16.13 and before
 
@@ -59,7 +59,7 @@ When upgrading from XiVO 16.13 or before, you must use the special
 [XiVO to Wazo upgrade procedure](/uc-doc/upgrade/upgrade_notes_details/16-16/xivo_to_wazo#upgrading-to-wazo) instead of
 simply running `xivo-upgrade`.
 
-## <a name="upgrading-a-cluster"></a>Upgrading a cluster
+## Upgrading a cluster {#upgrading-a-cluster}
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
 [high-availability](/uc-doc/high_availability/):
@@ -95,7 +95,7 @@ See our recommandation on [how to upgrade to a specific version of Wazo](/uc-doc
 
 - [Version Deprecation Policy](/uc-doc/upgrade/version_deprecation_policy)
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 ### Postgresql
 
@@ -126,6 +126,6 @@ case, you must delete the DROP rules with the following command:
 
 Repeat this command until no more unwanted rules are left.
 
-## <a name="upgrade-notes"></a>Upgrade notes
+## Upgrade notes {#upgrade-notes}
 
 - [Upgrade Notes](/uc-doc/upgrade/upgrade_notes)

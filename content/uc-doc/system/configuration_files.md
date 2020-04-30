@@ -2,24 +2,9 @@
 title: Configuration Files
 ---
 
--   [Configuration priority](#configuration-priority)
--   [File configuration structure](#file-configuration-structure)
--   [wazo-auth](#wazo-auth)
--   [wazo-agentd](#wazo-agentd)
--   [wazo-amid](#wazo-amid)
--   [wazo-confgend](#wazo-confgend)
--   [xivo-dao](#xivo-dao)
--   [wazo-phoned](#wazo-phoned)
--   [wazo-provd](#wazo-provd)
--   [wazo-websocketd](#wazo-websocketd)
--   [xivo\_ring.conf](#xivo_ring.conf)
--   [Asterisk configuration files](#asterisk-configuration)
-    -   [Modifying the modules.conf](#modifying-the-modules.conf)
-        -   [Enabling res\_cli\_aliases](#enabling-res_cli_aliases)
-
 This section describes some of the Wazo configuration files.
 
-<a name="configuration-priority"></a>Configuration priority
+Configuration priority {#configuration-priority}
 ======================
 
 Usually, the configuration is read from two locations: a configuration
@@ -76,7 +61,7 @@ additional configuration files as long as they respect the
 [Configuration priority](/uc-doc/system/configuration_files#configuration-priority). Any exceptions
 to these rules are documented below.
 
-<a name="wazo-auth"></a>wazo-auth
+wazo-auth {#wazo-auth}
 =========
 
 -   Default configuration directory:
@@ -100,7 +85,7 @@ wazo-amid
 -   Default configuration file:
     `/etc/wazo-amid/config.yml`
 
-<a name="wazo-confgend"></a>wazo-confgend
+wazo-confgend {#wazo-confgend}
 =============
 
 -   Default configuration directory:
@@ -121,7 +106,7 @@ xivo-dao
 This configuration is read by many Wazo programs in order to connect to
 the Postgres database of Wazo.
 
-<a name="wazo-phoned"></a>wazo-phoned
+wazo-phoned {#wazo-phoned}
 ===========
 
 -   Default configuration directory:
@@ -145,7 +130,7 @@ wazo-websocketd
 -   Default configuration file:
     `/etc/wazo-websocketd/config.yml`
 
-<a name="xivo_ring.conf"></a>xivo\_ring.conf
+conf}xivo\_ring.conf {#xivo_ring.
 ===============
 
 -   Path: `/etc/xivo/asterisk/xivo_ring.conf`
@@ -198,7 +183,7 @@ feature :
 
         service wazo-agid restart
 
-<a name="asterisk-configuration"></a>Asterisk configuration files
+Asterisk configuration files {#asterisk-configuration}
 ============================
 
 Asterisk configuration files are located at [/etc/asterisk]{.title-ref}.

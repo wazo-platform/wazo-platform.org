@@ -10,14 +10,14 @@ have never tested the phone before.
 This guide will help you get through the different steps that are needed
 to add auto-provisioning support for a phone to Wazo.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites {#prerequisites}
 
 Before continuing, you\'ll need the following:
 
 -   a private LAN where only your phones and your test machines are
     connected to it, i.e. a LAN that you fully control.
 
-## <a name="configuring-a-test-environment"></a>Configuring a test environment
+## Configuring a test environment {#configuring-a-test-environment}
 
 Although it\'s possible to do all the testing directly on a Wazo, it\'s
 more comfortable and usually easier to do on a separate, dedicated
@@ -71,7 +71,7 @@ With this configuration, files served via TFTP will be in the
 `/srv/tftp`{.interpreted-text role="file"} directory and those served
 via HTTP in the `/var/www`{.interpreted-text role="file"} directory.
 
-## <a name="testing"></a>Testing
+## Testing {#testing}
 
 Adding auto-provisioning support for a phone is mostly a question of
 finding answers to the following questions.
@@ -221,7 +221,7 @@ how the phone works and how to configure it. Next step would be to start
 the development of a new provd plugin for your phone for a specific
 firmware version.
 
-### <a name="iot-phones"></a>IOT Phones
+### IOT Phones {#iot-phones}
 
 FK = Funckey
 

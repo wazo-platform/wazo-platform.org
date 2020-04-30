@@ -92,10 +92,10 @@ Now that you have configured your PRI card:
     [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-<a name="pri_card_specific_conf"></a>Specific configuration
+Specific configuration {#pri_card_specific_conf}
 ======================
 
-<a name="sync_cable"></a>Multiple PRI cards and sync cable
+Multiple PRI cards and sync cable {#sync_cable}
 ---------------------------------
 
 If you have several PRI cards in your server you should link them with a

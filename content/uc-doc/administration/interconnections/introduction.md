@@ -62,7 +62,7 @@ DAHDI or Local channels:
 
 -   *Context* : currently not relevant
 
-### <a name="interco_dahdi_conf"></a>DAHDI interconnections
+### DAHDI interconnections {#interco_dahdi_conf}
 
 To use your DAHDI links you must create a customized interconnection.
 

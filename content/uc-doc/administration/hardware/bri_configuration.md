@@ -102,7 +102,7 @@ Now that you have configured your BRI card:
     [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-<a name="bri_card_specific_conf"></a>Specific configuration
+Specific configuration {#bri_card_specific_conf}
 ======================
 
 You will find below 3 configurations that we recommend for BRI lines.
@@ -121,7 +121,7 @@ one after the other in this order:
 2.  [PTMP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptmp_wl1l2)
 3.  [PTP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptp_wl1l2)
 
-<a name="bri_card_ptmp_wol1l2"></a>PTMP without layer1/layer2 persistence
+PTMP without layer1/layer2 persistence {#bri_card_ptmp_wol1l2}
 --------------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -168,7 +168,7 @@ Follow theses steps to configure:
 -   You can consider that there is *a problem* only if incoming or
     outgoing calls are rejected.
 
-<a name="bri_card_ptmp_wl1l2"></a>PTMP with layer1/layer2 persistence
+PTMP with layer1/layer2 persistence {#bri_card_ptmp_wl1l2}
 -----------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -206,7 +206,7 @@ Follow theses steps to configure:
 -   In asterisk CLI you may see the spans going Up/Down/Up : it is *a
     problem* only if incoming or outgoing calls are rejected.
 
-<a name="bri_card_ptp_wl1l2"></a>PTP with layer1/layer2 persistence
+PTP with layer1/layer2 persistence {#bri_card_ptp_wl1l2}
 ----------------------------------
 
 In this mode we will configure asterisk and DAHDI:

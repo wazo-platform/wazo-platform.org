@@ -100,7 +100,7 @@ queue, the call will **always** be allowed to enter the queue.
 -   the estimated waiting time of a queue is updated only when a queue
     member answers a call.
 
-<a name="queue-diversion-waitratio"></a>`wait_ratio_threshold`
+`wait_ratio_threshold` {#queue-diversion-waitratio}
 ----------------------
 
 When this scenario is used, the administrator can set a destination for
@@ -145,7 +145,7 @@ example, in the following scenario:
 Even if `wait_ratio_time` (1) is greater than the maximum (0.5), the
 call will still be accepted since there are currently no waiting calls.
 
-<a name="moh"></a>Music on Hold
+Music on Hold {#moh}
 =============
 
 The `music_on_hold` of the queue will be played:

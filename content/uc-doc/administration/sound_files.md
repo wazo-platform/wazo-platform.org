@@ -22,7 +22,7 @@ To install German sounds you have to execute the following command:
 
 Now you may select the newly installed language for your users.
 
-<a name="wav_files"></a>Convert Your Wav File
+Convert Your Wav File {#wav_files}
 =====================
 
 Asterisk will read natively WAV files encoded in wav 8kHz, 16 bits,

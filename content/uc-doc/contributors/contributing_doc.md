@@ -5,15 +5,15 @@ title: Contributing to the Documentation
 Wazo documentation is generated with GatbsyJS. The source code is
 available on GitHub at <https://github.com/wazo-platform/wazo-platform.org>
 
-## <a name="documentation-guideline"></a>Documentation guideline
+## Documentation guideline {#documentation-guideline}
 
 Here\'s the guideline/conventions to follow for the Wazo documentation.
 
-### <a name="language"></a>Language
+### Language {#language}
 
 The documentation must be written in english, and only in english.
 
-### <a name="sections"></a>Sections
+### Sections {#sections}
 
 The top section of each file must be capitalized using the following
 rule: capitalization of all words, except for articles, prepositions,
@@ -79,7 +79,7 @@ Incorrect:
 
     Bar.
 
-### <a name="lists"></a>Lists
+### Lists {#lists}
 
 Bullet lists:
 
@@ -91,7 +91,7 @@ Autonumbered lists:
     #. First item
     #. Second item
 
-### <a name="literal-blocks"></a>Literal blocks
+### Literal blocks {#literal-blocks}
 
 Use `::` on the same line as the line containing text when possible.
 
@@ -111,7 +111,7 @@ Incorrect:
 
        apt-get update
 
-### <a name="inline-markup"></a>Inline markup
+### Inline markup {#inline-markup}
 
 Use the following roles when applicable:
 
@@ -127,7 +127,7 @@ Use the following roles when applicable:
 
         The :guilabel:`Action` column.
 
-### <a name="others"></a>Others
+### Others {#others}
 
 -   There must be no warning nor error messages when building the
     documentation with `make html`.

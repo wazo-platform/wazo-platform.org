@@ -45,7 +45,7 @@ Now that you have configured your Voice Compression card:
 2.  then, if you have another type of card to configure, you can go back
     to the [configure your card](/uc-doc/administration/hardware/card_configuration) section.
 
-<a name="vc_card_specific_conf"></a>Specific configuration
+Specific configuration {#vc_card_specific_conf}
 ======================
 
 Select the transcoding mode

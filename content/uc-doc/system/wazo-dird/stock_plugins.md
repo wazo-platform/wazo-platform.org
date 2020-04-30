@@ -131,7 +131,7 @@ Service name: favorites
 Purpose: Mark/unmark contacts as favorites and get the list of all
 favorites.
 
-<a name="dird_services_personal"></a>personal
+personal {#dird_services_personal}
 --------
 
 Service name: personal
@@ -207,7 +207,7 @@ timeout
 :   The maximum waiting time for an answer from any source. Results from
     sources that take longer to answer are ignored. Default: 1.
 
-<a name="service_discovery"></a>Service Discovery
+Service Discovery {#service_discovery}
 -----------------
 
 Service name: service_discovery

@@ -213,7 +213,7 @@ behaviour can be configured via its
 need to restart `wazo-websocketd` with
 `systemctl restart wazo-websocketd`.
 
-<a name="ws-connection"></a>Connection
+Connection {#ws-connection}
 ----------
 
 The service is available on port 9502 on all network interfaces by
@@ -234,7 +234,7 @@ since the certificate is self-signed, you\'ll have to either:
 See the [Certificates for HTTPS](/uc-doc/system/https_certificate) section for
 more information on certificate configuration.
 
-<a name="rest-api-authentication"></a>Authentication
+Authentication {#rest-api-authentication}
 --------------
 
 Authentication is done by passing a wazo-auth token ID in the `token`
@@ -246,7 +246,7 @@ When the token expires, the server close the connection with the status
 code 4003. There is currently no way to change the token of an existing
 connection. A new connection must be made when the token expires.
 
-<a name="ws-events-acl"></a>Events Access Control
+Events Access Control {#ws-events-acl}
 ---------------------
 
 Clients connected to `wazo-websocketd` only receive events that they are
@@ -270,7 +270,7 @@ See the [Events](/uc-doc/api_sdk/message_bus#bus-events) section for more
 information on the required ACL of events which are available by default
 on Wazo.
 
-<a name="ws-status-code"></a>Status Code
+Status Code {#ws-status-code}
 -----------
 
 The WebSocket connection might be closed by the server using one of
@@ -288,7 +288,7 @@ following status code:
 The server also uses the [pre-defined WebSocket status
 codes](http://tools.ietf.org/html/rfc6455#section-7.4).
 
-<a name="ws-protocol"></a>Protocol
+Protocol {#ws-protocol}
 --------
 
 A JSON-based protocol is used over the WebSocket connection to control

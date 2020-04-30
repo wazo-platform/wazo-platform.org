@@ -38,7 +38,7 @@ Supported policy variables
 -   agent.id: an agent id if the user is an agent
 -   agent.number: an agent number if the user is an agent
 
-<a name="auth-backends-ldap"></a>LDAP
+LDAP {#auth-backends-ldap}
 ====
 
 Backend name: `ldap_user`

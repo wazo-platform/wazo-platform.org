@@ -132,7 +132,7 @@ applied:
 
     service wazo-agid restart
 
-### <a name="fax-ftp"></a>Using the FTP backend
+### Using the FTP backend {#fax-ftp}
 
 The FTP backend is used to send a PDF version of the received fax to an
 FTP server.
@@ -194,13 +194,13 @@ By default, a mail backend named `mail` is defined. You can define more
 mail backends if you want. Just look what the default mail backend looks
 like.
 
-<a name="fax-detection"></a>Fax detection
+Fax detection
 =============
 
 Wazo **does not currently support Fax Detection**. A workaround is
 described in the `fax-detection` section.
 
-<a name="fax-analog-gateway"></a>Using analog gateways
+Using analog gateways {#fax-analog-gateway}
 =====================
 
 Wazo is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and

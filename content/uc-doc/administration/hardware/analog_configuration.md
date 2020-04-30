@@ -94,7 +94,7 @@ Now that you have configured your PRI card:
     [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
     interface.
 
-<a name="analog_card_specific_conf"></a>Specific configuration
+Specific configuration {#analog_card_specific_conf}
 ======================
 
 FXS modules
