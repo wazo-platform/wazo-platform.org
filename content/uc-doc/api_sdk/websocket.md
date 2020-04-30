@@ -60,7 +60,7 @@ is used for the client/server interaction.
 To receive events on your WebSocket connection, you need to tell the
 server which type of events you are interested in, and then tell it to
 start sending you these events. For example, if you are interested in
-the ["call_created" events](/uc-doc/api_sdk/message_bus#bus-call_created), you send the following command:
+the ["call_created" events](/uc-doc/api_sdk/message_bus#bus-call-created), you send the following command:
 
     {"op": "subscribe", "data": {"event_name": "call_created"}}
 

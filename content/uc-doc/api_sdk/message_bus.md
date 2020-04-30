@@ -40,7 +40,7 @@ Example
 -------
 
 Here\'s an example of a simple client, in python, listening for
-[call_created, call_updated, call_ended](/uc-doc/api_sdk/message_bus#bus-call_created) events:
+[call_created, call_updated, call_ended](/uc-doc/api_sdk/message_bus#bus-call-created) events:
 
     import kombu
 
@@ -152,10 +152,10 @@ Changelog {#bus-changelog}
 -----
 
 -   The following messages have been added:
-    -   [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate_initiated)
-    -   [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate_answered)
-    -   [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate_completed)
-    -   [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate_ended)
+    -   [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate-initiated)
+    -   [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate-answered)
+    -   [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate-completed)
+    -   [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate-ended)
 
 17.14
 -----
@@ -167,25 +167,25 @@ Changelog {#bus-changelog}
 17.08
 -----
 
--   The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin_install_progress) bus
+-   The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin-install-progress) bus
     message has been added.
--   The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin_uninstall_progress)
+-   The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin-uninstall-progress)
     bus message has been added.
 
 17.01
 -----
 
--   The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite_added) bus message
+-   The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite-added) bus message
     has been added.
--   The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite_deleted) bus message
+-   The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message
     has been added.
 
 16.08
 -----
 
--   The [call_held](/uc-doc/api_sdk/message_bus#bus-call_held_event) bus message
+-   The [call_held](/uc-doc/api_sdk/message_bus#bus-call-held-event) bus message
     has been added.
--   The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call_resumed_event) bus
+-   The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call-resumed-event) bus
     message has been added.
 -   The user\_status\_update bus message now uses the user\'s UUID
     instead of the user\'s ID.
@@ -193,11 +193,11 @@ Changelog {#bus-changelog}
 16.07
 -----
 
--   The [user_created](/uc-doc/api_sdk/message_bus#bus-user_created) bus message has
+-   The [user_created](/uc-doc/api_sdk/message_bus#bus-user-created) bus message has
     been added.
--   The [user_edited](/uc-doc/api_sdk/message_bus#bus-user_edited) bus message has
+-   The [user_edited](/uc-doc/api_sdk/message_bus#bus-user-edited) bus message has
     been added.
--   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user_deleted) bus message has
+-   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has
     been added.
 
 15.20
@@ -208,8 +208,8 @@ Changelog {#bus-changelog}
 15.17
 -----
 
--   The [service_registered_event](/uc-doc/api_sdk/message_bus#bus-service_registered_event) and
-    [service_deregistered_event](/uc-doc/api_sdk/message_bus#bus-service_deregistered_event) bus
+-   The [service_registered_event](/uc-doc/api_sdk/message_bus#bus-service-registered-event) and
+    [service_deregistered_event](/uc-doc/api_sdk/message_bus#bus-service-deregistered-event) bus
     messages have been added.
 
 Events {#bus-events}
@@ -247,7 +247,7 @@ data
 :   The data specific part of the event. This is documented on a per
     event type; if not this is assumed to be null.
 
-AMI events {#bus-ami_events}
+AMI events {#bus-ami-events}
 ----------
 
 All AMI events are broadcasted on the bus.
@@ -412,7 +412,7 @@ Example:
 }
 ```
 
-call\_form\_result {#bus-call_form_result}
+call\_form\_result {#bus-call-form-result}
 ------------------
 
 The call\_form\_result event is sent when a custom call form is
@@ -438,7 +438,7 @@ Example:
         }
     }
 
-agent\_status\_update {#bus-agent_status_update}
+agent\_status\_update {#bus-agent-status-update}
 ---------------------
 
 The agent\_status\_update is sent when an agent is logged in or logged
@@ -465,7 +465,7 @@ Example:
         }
     }
 
-call\_created, call\_updated, call\_ended {#bus-call_created}
+call\_created, call\_updated, call\_ended {#bus-call-created}
 -----------------------------------------
 
 The events `call_created`, `call_updated`, `call_ended` are sent when a
@@ -496,7 +496,7 @@ Example:
         }
     }
 
-call\_held {#bus-call_held_event}
+call\_held {#bus-call-held-event}
 ----------
 
 This message is sent when a call is placed on hold
@@ -513,7 +513,7 @@ Example:
  "data": {"call_id": "1465572129.31"}}
 ```
 
-call\_resumed {#bus-call_resumed_event}
+call\_resumed {#bus-call-resumed-event}
 -------------
 
 This message is sent when a call is resumed from hold
@@ -673,7 +673,7 @@ Example:
 }
 ```
 
-favorite\_added {#bus-favorite_added}
+favorite\_added {#bus-favorite-added}
 ---------------
 
 The `favorite_added` event is published when a contact is marked as a
@@ -703,7 +703,7 @@ Example:
 }
 ```
 
-favorite\_deleted {#bus-favorite_deleted}
+favorite\_deleted {#bus-favorite-deleted}
 -----------------
 
 The `favorite_deleted` event is published when a favorited contact is
@@ -850,7 +850,7 @@ Example:
 }
 ```
 
-plugin\_install\_progress {#bus-plugin_install_progress}
+plugin\_install\_progress {#bus-plugin-install-progress}
 -------------------------
 
 The [plugin\_install\_progress]{.title-ref} event is published during
@@ -876,7 +876,7 @@ Example:
 }
 ```
 
-plugin\_uninstall\_progress {#bus-plugin_uninstall_progress}
+plugin\_uninstall\_progress {#bus-plugin-uninstall-progress}
 ---------------------------
 
 The [plugin\_uninstall\_progress]{.title-ref} event is published during
@@ -902,7 +902,7 @@ Example:
 }
 ```
 
-relocate\_initiated, relocate\_answered, relocate\_completed, relocate\_ended {#bus-relocate_initiated}
+relocate\_initiated, relocate\_answered, relocate\_completed, relocate\_ended {#bus-relocate-initiated}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Those events are published during the different steps of a relocate
@@ -937,7 +937,7 @@ Example:
 }
 ```
 
-user\_created {#bus-user_created}
+user\_created {#bus-user-created}
 -------------
 
 The [user\_created]{.title-ref} event is published when a new user is
@@ -961,7 +961,7 @@ Example:
 }
 ```
 
-user\_deleted {#bus-user_deleted}
+user\_deleted {#bus-user-deleted}
 -------------
 
 The [user\_deleted]{.title-ref} event is published when a user is
@@ -985,7 +985,7 @@ Example:
 }
 ```
 
-user\_edited {#bus-user_edited}
+user\_edited {#bus-user-edited}
 ------------
 
 The [user\_edited]{.title-ref} event is published when a user is
@@ -1009,10 +1009,10 @@ Example:
 }
 ```
 
-users_forwards\_\<forward\_name\>\_updated {#bus-users_forwards_forward_updated}
+users\_forwards\_FORWARD\_NAME\_updated {#bus-users-forwards-forward-updated}
 ---------------------------------------------
 
-The users\_forwards\_\<forward\_name\>\_updated is sent when a user
+The users\_forwards\_FORWARD\_NAME\_updated is sent when a user
 changes his forward using REST API.
 
 -   forward\_name:
@@ -1041,19 +1041,19 @@ Example:
         }
     }
 
-users\_services\_\<service\_name\>\_updated {#bus-users_services_service_updated}
+users\_services\_SERVICE\_NAME\_updated {#bus-users-services-service-updated}
 ---------------------------------------------
 
-The users\_services\_\<service\_name\>\_updated is sent when a user
+The users\_services\_SERVICE\_NAME\_updated is sent when a user
 changes his service using REST API.
 
 -   service\_name:
     -   dnd
     -   incallfilter
 -   routing key:
-    config.users.\<user\_uuid\>.services.\<service\_name\>.updated
+    config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
 -   required ACL:
-    events.config.users.\<user\_uuid\>.services.\<service\_name\>.updated
+    events.config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
 -   event specific data: a dictionary with 2 keys
     -   user\_uuid: the user uuid
     -   enabled: the state of the service
@@ -1070,12 +1070,12 @@ Example:
         }
     }
 
-service\_registered\_event {#bus-service_registered_event}
+service\_registered\_event {#bus-service-registered-event}
 --------------------------
 
 The service\_registered\_event is sent when a service is started.
 
--   routing key: service.registered.\<service\_name\>
+-   routing key: service.registered.SERVICE\_NAME
 -   event specific data: a dictionary with 5 keys
     -   service\_name: The name of the started service
     -   service\_id: The consul ID of the started service
@@ -1099,12 +1099,12 @@ Example:
 }
 ```
 
-service\_deregistered\_event {#bus-service_deregistered_event}
+service\_deregistered\_event {#bus-service-deregistered-event}
 ----------------------------
 
 The service\_deregistered\_event is sent when a service is stopped.
 
--   routing key: service.deregistered.\<service\_name\>
+-   routing key: service.deregistered.SERVICE\_NAME
 -   event specific data: a dictionary with 3 keys
     -   service\_name: The name of the stopped service
     -   service\_id: The consul ID of the stopped service
