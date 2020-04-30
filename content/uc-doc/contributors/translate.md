@@ -2,13 +2,10 @@
 title: Translating Wazo
 ---
 
--   [Asterisk and Wazo Prompts](#asterisk-and-wazo-prompts)
-
 French and English are maintained by the Wazo authors. Other languages
 are provided by the community.
 
-Asterisk and Wazo Prompts
-=========================
+## <a name="asterisk-and-wazo-prompts"></a>Asterisk and Wazo Prompts
 
 Languages and prompts are recorded by several studios. The information
 for those languages are:
