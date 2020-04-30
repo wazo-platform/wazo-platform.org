@@ -2,27 +2,18 @@
 title: Managing DHCP server configuration
 ---
 
--   [Who modifies the files](#who-modifies-the-files)
--   [How to update the source files](#how-to-update-the-source-files)
-    -   [Ensure your modifications are
-        working](#ensure-your-modifications-are-working)
-    -   [Edit the files](#edit-the-files)
-
 This page considers the configuration files of the DHCP server in
 `/etc/dhcp/dhcpd_update/`{.interpreted-text role="file"}.
 
-Who modifies the files
-======================
+## <a name="who-modifies-the-files"></a>Who modifies the files
 
 The files are updated with the command `dhcpd-update`, which is also run
 when updating the provisioning plugins. This commands fetches
 configurations files from the `provd.wazo.community` server.
 
-How to update the source files
-==============================
+## <a name="how-to-update-the-source-files"></a>How to update the source files
 
-Ensure your modifications are working
--------------------------------------
+## <a name="ensure-your-modifications-are-working"></a>Ensure your modifications are working
 
 -   On a Wazo, edit manually the file
     `/etc/dhcp/dhcpd_update/*.conf`{.interpreted-text role="file"}
@@ -30,8 +21,7 @@ Ensure your modifications are working
 -   If errors are shown in `/var/log/daemon.log`{.interpreted-text
     role="file"}, check your modifications
 
-Edit the files
---------------
+## <a name="edit-the-files"></a>Edit the files
 
 -   Edit the files in the Git repo `wazo-provd-plugins`, directory
     `dhcp/`{.interpreted-text role="file"}

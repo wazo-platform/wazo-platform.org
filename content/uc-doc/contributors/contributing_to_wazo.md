@@ -2,21 +2,12 @@
 title: How to contribute to the Wazo Platform
 ---
 
--   [Getting the code](#getting-the-code)
--   [Editing the code](#editing-the-code)
-    -   [Unittests](#unittests)
-    -   [Integration tests](#integration-tests)
-    -   [Acceptance tests](#acceptance-tests)
--   [Trying your code](#trying-your-code)
--   [Contributing your code](#contributing-your-code)
--   [Asking for help](#asking_for_help)
-
 In order to contribute to the Wazo Platform you need to be able to
 retrieve the source code, edit the code, try your changes and contribute
 the code to the Git repository.
 
-Getting the code
-================
+
+## <a name="getting-the-code"></a>Getting the code
 
 The source code for the Wazo Platform is available on
 [GitHub](https://github.com/wazo-platform). Our GitHub organization
@@ -32,8 +23,8 @@ You can then
 [clone](https://help.github.com/en/articles/cloning-a-repository) the
 desired repositories on you hard drive and start coding.
 
-Editing the code
-================
+
+## <a name="editing-the-code"></a>Editing the code
 
 Most of the Wazo Platform is written in Python, our code follows the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can
@@ -47,8 +38,7 @@ Your contribution should not break any existing tests and when possible,
 it should add tests for the code you are adding. We use 3 kind of tests.
 Unittests, Integration tests and acceptance tests.
 
-Unittests
----------
+### <a name="unittests"></a>Unittests
 
 Unittests are small tests that exercise a function or method in your
 code. These tests should be fast and should not depend on other services
@@ -61,8 +51,7 @@ You can execute unittests with the following command
 tox -e py37
 ```
 
-Integration tests
------------------
+### <a name="integration-tests"></a>Integration tests
 
 Integration tests exercise a service as a black box. It uses the public
 API of the service and use the API to assert that the test passes. Our
@@ -85,8 +74,7 @@ make test-setup
 make test
 ```
 
-Acceptance tests
-----------------
+### <a name="acceptance-tests"></a>Acceptance tests
 
 Acceptance tests are longer tests that uses the Wazo to test a feature
 from end-to-end. These tests are usually longer to execute and require a
@@ -96,8 +84,8 @@ acceptance tests are automatic
 [wazo-acceptance](http://github.com/wazo-platform/wazo-acceptance) and
 other are executed manually at the end of each sprint.
 
-Trying your code
-================
+
+## <a name="trying-your-code"></a>Trying your code
 
 After writing your code and checking that it does not break any tests,
 you should try it. The \"easiest\" way to do so is to use a virtual
@@ -115,8 +103,8 @@ The installation instructions for wdk are contained in its
 [README](https://github.com/wazo-platform/wazo-sdk/blob/master/README.md)
 as well as its usage instructions.
 
-Contributing your code
-======================
+
+## <a name="contributing-your-code"></a>Contributing your code
 
 Once you are satisfied with your modifications, you can submit a [pull
 request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
@@ -124,8 +112,8 @@ At this point you should watch your pull request to see if anyone or
 anything comments on it and respond to comments to eventually get your
 contribution merged.
 
-<a name="asking_for_help"></a>Asking for help
-===============
+
+## <a name="asking_for_help"></a><a name="asking_for_help"></a>Asking for help
 
 The Wazo developers can be contacted on our
 [MatterMost](https://mm.wazo.community/wazo-platform/channels/town-square)

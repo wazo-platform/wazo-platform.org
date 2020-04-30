@@ -4,22 +4,22 @@ title: Contributors
 
 ## General information
 
-- [contributing_doc](/uc-doc/contributors/contributing_doc)
-- [debug_asterisk](/uc-doc/contributors/debug_asterisk)
-- [debug_daemon](/uc-doc/contributors/debug_daemon)
-- [contributing_to_wazo](/uc-doc/contributors/contributing_to_wazo)
-- [generate_custom_prompts](/uc-doc/contributors/generate_custom_prompts)
-- [guidelines](/uc-doc/contributors/guidelines)
-- [network](/uc-doc/contributors/network)
-- [plugins/plugins](/uc-doc/contributors/plugins/plugins)
-- [profile_python](/uc-doc/contributors/profile_python)
-- [style_guide](/uc-doc/contributors/style_guide)
-- [translate](/uc-doc/contributors/translate)
-- [xivo_package_file_structure](/uc-doc/contributors/xivo_package_file_structure)
+- [Contributing Doc](/uc-doc/contributors/contributing_doc)
+- [Debug Asterisk](/uc-doc/contributors/debug_asterisk)
+- [Debug Daemon](/uc-doc/contributors/debug_daemon)
+- [Contributing to Wazo](/uc-doc/contributors/contributing_to_wazo)
+- [Generate Custom Prompts](/uc-doc/contributors/generate_custom_prompts)
+- [Guidelines](/uc-doc/contributors/guidelines)
+- [Network](/uc-doc/contributors/network)
+- [Plugins](/uc-doc/contributors/plugins/plugins)
+- [Profile Python](/uc-doc/contributors/profile_python)
+- [Style Guide](/uc-doc/contributors/style_guide)
+- [Translate](/uc-doc/contributors/translate)
+- [Xivo Package File Structure](/uc-doc/contributors/xivo_package_file_structure)
 
 ## Component specific information
 
-- [database](/uc-doc/contributors/database)
-- [diagrams](/uc-doc/contributors/diagrams)
-- [provisioning/provisioning](/uc-doc/contributors/provisioning/provisioning)
-- [sccp](/uc-doc/contributors/sccp)
+- [Database](/uc-doc/contributors/database)
+- [Diagrams](/uc-doc/contributors/diagrams)
+- [Provisioning](/uc-doc/contributors/provisioning/provisioning)
+- [SCCP](/uc-doc/contributors/sccp)

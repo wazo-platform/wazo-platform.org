@@ -2,12 +2,7 @@
 title: Profiling Python Programs
 ---
 
--   [Profiling CPU/Time Usage](#profiling-cputime-usage)
--   [Measuring Code Coverage](#measuring-code-coverage)
--   [External Links](#external-links)
-
-Profiling CPU/Time Usage
-========================
+## <a name="profiling-cputime-usage"></a>Profiling CPU/Time Usage
 
 Here\'s an example on how to profile wazo-auth for CPU/time usage:
 
@@ -47,8 +42,7 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
         % sort cumulative
         % stats 15
 
-Measuring Code Coverage
-=======================
+## <a name="measuring-code-coverage"></a>Measuring Code Coverage
 
 Here\'s an example on how to measure the code coverage of wazo-auth.
 
@@ -93,8 +87,7 @@ want to have additional information about it.
 
         firefox http://<wazo-hostname>:8000
 
-External Links
-==============
+## <a name="external-links"></a>External Links
 
 -   [Official python
     documentation](http://docs.python.org/library/profile.html)
