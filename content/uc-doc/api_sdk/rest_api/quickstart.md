@@ -74,7 +74,7 @@ end:
     admittedly) you get when the certificate is not trusted.
 
 3.  Copy the URL you see in the text box at the top of the page,
-    something like: `https://wazo:9497/1.1/api/api.yml` and paste it in
+    something like: `https://wazo/api/auth/1.1/api/api.yml` and paste it in
     your browser.
 4.  Accept the HTTPS certificate validation exception.
 5.  You should see a YAML text file describing the wazo-confd API.
