@@ -43,7 +43,7 @@ Network Flow table (IN) :
 | wazo-webhookd    | HTTPS        | TCP       | 9300 | 0.0.0.0   | yes            | yes     |
 | wazo-setupd      | HTTPS        | TCP       | 9302 | 0.0.0.0   | yes            | yes     |
 | wazo-chatd       | HTTPS        | TCP       | 9304 | 0.0.0.0   | yes            | yes     |
-| wazo-confd       | HTTPS        | TCP       | 9486 | 0.0.0.0   | yes            | yes     |
+| wazo-confd       | HTTP         | TCP       | 9486 | 127.0.0.1 | yes            | yes     |
 | wazo-amid        | HTTP         | TCP       | 9491 | 127.0.0.1 | yes            | yes     |
 | wazo-agentd      | HTTPS        | TCP       | 9493 | 0.0.0.0   | yes            | yes     |
 | wazo-phoned      | HTTP         | TCP       | 9498 | 0.0.0.0   | IP filtering   | yes     |
