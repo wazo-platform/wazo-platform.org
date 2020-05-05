@@ -13,13 +13,18 @@ module.exports = async newPage => {
   exec(`mkdir -p ${destPath}`);
   const images = walk('content/provisioning/img', /.png$/, 'binary');
 
+  const imgs = {};
+
   Object.keys(images).forEach(basePath => {
     const vendorName = basePath.split('/').pop();
     const isVendor = vendorName === 'vendors';
-
+  
     Object.keys(images[basePath]).forEach(fileName => {
       const filePath = `${destPath}/${isVendor ? '' : `${vendorName}-`}${fileName}`;
-
+      
+      if (!imgs[vendorName]) imgs[vendorName] = [];
+      imgs[vendorName].push(fileName);
+  
       fs.writeFileSync(filePath, images[basePath][fileName], { encoding: 'binary' });
     });
   });
@@ -32,6 +37,7 @@ module.exports = async newPage => {
     newPage(`/provisioning/${slugify(vendor)}`, 'provisioning/vendor', {
       name: vendor,
       vendor: plugins[vendor],
+      images: imgs[slugify(vendor)],
     })
   );
 
@@ -42,6 +48,7 @@ module.exports = async newPage => {
         name,
         vendor,
         phone: plugins[vendor][name],
+        images: imgs[slugify(vendor)],
       });
     });
   });

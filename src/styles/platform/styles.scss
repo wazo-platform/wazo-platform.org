@@ -32,7 +32,7 @@ pre {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 20vw;
+      min-height: 25vw;
       padding: 20px;
       a {
         display: block;
@@ -54,6 +54,7 @@ pre {
     align-items: stretch;
     .card{
       margin-bottom: 0;
+      width: 100%;
     }
   }
   pre {

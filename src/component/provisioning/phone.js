@@ -3,34 +3,28 @@ import React  from 'react';
 import Layout from '../Layout';
 const slugify = require('../../builder/slugify');
 
-// @KUDOS: https://stackoverflow.com/questions/4810841/pretty-print-json-using-javascript
-function syntaxHighlight(json) {
-  if (typeof json != 'string') {
-       json = JSON.stringify(json, undefined, 2);
-  }
-  json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-      var cls = 'number';
-      if (/^"/.test(match)) {
-          if (/:$/.test(match)) {
-              cls = 'key';
-          } else {
-              cls = 'string';
-          }
-      } else if (/true|false/.test(match)) {
-          cls = 'boolean';
-      } else if (/null/.test(match)) {
-          cls = 'null';
-      }
-      return '<span class="' + cls + '">' + match + '</span>';
-  });
+const buildTable = data => {
+  return Object.keys(data).map(version => {
+    return <table className="table">
+      <thead>
+        <tr>
+          <th colspan="2">
+            {version}
+          </th>
+        </tr>
+      </thead>
+      <tbody>{Object.keys(data[version]).map(key => <tr><td>{key}</td><td>{data[version][key]}</td></tr>)}</tbody>
+    </table>;
+  })
 }
 
-export default ({ pageContext: { name, vendor, phone } }) => {
+export default ({ pageContext: { name, vendor, phone, images } }) => {
   const breadcrumbs = [
     { url: '/provisioning/vendors', label: 'Provd plugins' },
     { url: `/provisioning/${slugify(vendor)}`, label: vendor },
   ];
+
+  console.log('darn', phone);
 
   return (
     <Layout pageTitle={`<a href="/provisioning/vendors">Provd Plugins</a> &gt; <a href="/provisioning/${slugify(vendor)}">${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
@@ -40,11 +34,11 @@ export default ({ pageContext: { name, vendor, phone } }) => {
             <div className="col-card col col-3">
               <div className="card">
                 <div className="body">
-                  <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/>
+                  {images.indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
                 </div>
               </div>
             </div>
-            <pre className="col">{JSON.stringify(phone, null, 2)}</pre>
+            <div className="col col-9">{buildTable(phone)}</div>
           </div>
         </div>
       </div>

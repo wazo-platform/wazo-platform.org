@@ -33,23 +33,6 @@ const walk = (basePath, regexp, encoding = 'utf8') => {
   return results;
 };
 
-const getOverviews = () => {
-  if (cachedOverviews) {
-    return cachedOverviews;
-  }
-
-  cachedOverviews = walk('content', /description\.md/);
-
-  Object.keys(cachedOverviews).forEach(basePath => {
-    const repoName = basePath.split('/')[0];
-    if ('description.md' in cachedOverviews[basePath]) {
-      cachedOverviews[repoName] = cachedOverviews[basePath]['description.md'];
-    }
-  });
-
-  return cachedOverviews;
-};
-
 const getProvisioningPlugins = () => {
   if (cachedPlugins) {
     return cachedPlugins;
@@ -92,55 +75,7 @@ const getProvisioningPlugins = () => {
   return cachedPlugins;
 };
 
-const readFileContent = filePath =>
-  fs.readFileSync(path.resolve(__dirname + `../../../content/${filePath}`), { encoding: 'utf-8' });
-
-const getSections = () => {
-  if (cachedSections) {
-    return cachedSections;
-  }
-
-  cachedSections = yaml.safeLoad(readFileContent('sections.yaml'));
-
-  return cachedSections;
-};
-
-const getAllModules = () => {
-  if (cachedModules) {
-    return cachedModules;
-  }
-
-  cachedModules = getSections().reduce((acc, section) => {
-    Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
-    return acc;
-  }, {});
-
-  return cachedModules;
-};
-
-const getModuleName = repoName => {
-  const allModules = getAllModules();
-
-  return Object.keys(allModules).find(moduleName => {
-    const { repository } = allModules[moduleName];
-
-    return (
-      repository &&
-      repoName ===
-        repository
-          .split('-')
-          .splice(1)
-          .join('-')
-    );
-  });
-};
-
 module.exports = {
-  // getModuleName,
-  // getAllModules,
-  // getSections,
-  // getOverviews,
-  // readFileContent,
   getProvisioningPlugins,
   walk,
 };
