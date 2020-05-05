@@ -20,6 +20,51 @@ pre {
   white-space: normal;
 }
 
+.provisioning-phone,
+.provisioning-vendors,
+.provisioning-vendor {
+  .card {
+    margin-bottom: 20px;
+    a.card-header {
+      color: #777;
+    }
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 20vw;
+      padding: 20px;
+      a {
+        display: block;
+        text-align: center;
+        width: 75%;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+
+.provisioning-phone {
+  .col-card {
+    display: flex;
+    align-items: stretch;
+    .card{
+      margin-bottom: 0;
+    }
+  }
+  pre {
+    white-space: pre;
+    margin-bottom: 0;
+  }
+  .row {
+    align-items: stretch;
+  }
+}
+
 .main {
   h1, h2, h3{
     font-weight: normal;
@@ -39,6 +84,10 @@ pre {
       font-size: 2em;
       padding: 0;
       margin: 0;
+    }
+
+    a {
+      color: #bbb;
     }
   }
 
