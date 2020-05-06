@@ -30,7 +30,7 @@ module.exports = async newPage => {
   });
 
   // Create vendors page
-  newPage('/provisioning/vendors', 'provisioning/vendors', { plugins });
+  newPage('/provisioning/vendors', 'provisioning/vendors', { plugins, images: imgs });
 
   // Create vendor pages
   Object.keys(plugins).forEach(vendor =>

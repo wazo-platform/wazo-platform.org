@@ -3,7 +3,7 @@ import React  from 'react';
 import Layout from '../Layout';
 const slugify = require('../../builder/slugify');
 
-const buildTable = data => {
+export const buildTable = data => {
   return Object.keys(data).map(version => {
     return <table className="table">
       <thead>

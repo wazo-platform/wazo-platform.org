@@ -1,0 +1,110 @@
+
+.provisioning-phone,
+.provisioning-vendors,
+.provisioning-vendor {
+  .card {
+    margin-bottom: 20px;
+    a.card-header {
+      color: #777;
+    }
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 25vw;
+      padding: 20px;
+      a {
+        display: block;
+        text-align: center;
+        width: 75%;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.provisioning-vendors {
+  .vendor {
+    display: flex;
+    width: 100%;
+    .card {
+      flex: 0 25%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .phones {
+      flex: 0 75%;
+      padding: 0 0 0 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      div{
+        flex: 0 20%;
+        &.selected {
+          flex: 0 100%;
+          > a{
+            margin-bottom: 0;
+            color: #fff;
+            background: #999;
+          }
+        }
+
+        > a {
+          color: #666;
+          background: #ddd;
+          display: block;
+          text-align: center;
+          padding: 10px;
+          margin: 5px;
+        }
+
+        .slide {
+          display: flex;
+          align-items: center;
+          flex: 0 100%;
+          background-color: #fff;
+          .image {
+            flex: 0 30%;
+            display: flex;
+            justify-content: center;
+            img{
+              max-width: 100%;
+              height: auto;
+            }
+          }
+          .content {
+            table.table {
+              width: 100%;
+            }
+            flex: 0 100%;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.provisioning-phone {
+  .col-card {
+    display: flex;
+    align-items: stretch;
+    .card{
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+  pre {
+    white-space: pre;
+    margin-bottom: 0;
+  }
+  .row {
+    align-items: stretch;
+  }
+}

@@ -5,6 +5,7 @@ import '../styles/fontawesome.css';
 import '../styles/prism.css';
 import '../styles/elegant-font.css';
 import 'mainCSS/index.scss';
+import '../styles/shared.scss';
 
 const Layout = forDeveloper ? require('./LayoutDev').default : require('./LayoutPlatform').default;
 
