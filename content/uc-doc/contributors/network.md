@@ -39,7 +39,7 @@ Network Flow table (IN) :
 | xivo-sysconfd    | HTTP         | TCP       | 8668 | 127.0.0.1 | no             | yes     |
 | wazo-auth        | HTTP         | TCP       | 9497 | 127.0.0.1 | both           | yes     |
 | wazo-call-logd   | HTTPS        | TCP       | 9298 | 0.0.0.0   | yes            | yes     |
-| wazo-dird        | HTTPS        | TCP       | 9489 | 0.0.0.0   | yes            | yes     |
+| wazo-dird        | HTTP         | TCP       | 9489 | 127.0.0.1 | yes            | yes     |
 | wazo-webhookd    | HTTPS        | TCP       | 9300 | 0.0.0.0   | yes            | yes     |
 | wazo-setupd      | HTTPS        | TCP       | 9302 | 0.0.0.0   | yes            | yes     |
 | wazo-chatd       | HTTPS        | TCP       | 9304 | 0.0.0.0   | yes            | yes     |
