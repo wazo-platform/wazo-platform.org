@@ -9,6 +9,7 @@ title: Upgrade notes
   been changed to 127.0.0.1 by default.
 
   - wazo-confd
+  - wazo-dird
 
 Consult the [20.07
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10088) for
