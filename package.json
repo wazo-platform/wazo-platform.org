@@ -23,6 +23,7 @@
     "gatsby-source-filesystem": "^2.0.34",
     "gatsby-transformer-remark": "^2.6.53",
     "gatsby-transformer-yaml": "^2.1.12",
+    "graphiql": "^0.17.5",
     "js-yaml": "^3.13.1",
     "mobx": "^4.2.0",
     "react": "^16.8.6",
