@@ -10,8 +10,6 @@ title: Upgrade notes
 
   - wazo-confd
   - wazo-dird
-  
-- The API of the service `wazo-phoned` is now available at `http://wazo.example.com/api/phoned/` (and its HTTPS equivalent). It is still available at `http://wazo.example.com:9498/`. You can disable the new endpoint in `/etc/nginx/locations/http{,s}-enabled`.
 
 Consult the [20.07
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10088) for
