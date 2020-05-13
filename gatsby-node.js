@@ -337,6 +337,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       }, dynamicUcDocMenu);
     });
 
+    // custom patch to provisioning
+    dynamicUcDocMenu['uc-doc'].ecosystem.supported_devices = {
+      self: {
+        title: 'Supported Devices',
+        path: '/provisioning/vendors'
+      }
+    }
+
     const jsonFolder = `${__dirname}/public/json`;
     if (!fs.existsSync(jsonFolder)) {
       fs.mkdirSync(jsonFolder);

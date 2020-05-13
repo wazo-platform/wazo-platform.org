@@ -27,6 +27,9 @@
 }
 
 .provisioning-vendors {
+  &.platform {
+    width: 66.66%;
+  }
   .vendor {
     a.title {
       text-align: center;
