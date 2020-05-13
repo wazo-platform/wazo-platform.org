@@ -32,6 +32,9 @@ module.exports = async newPage => {
   // Create vendors page
   newPage('/provisioning/vendors', 'provisioning/vendors', { plugins, images: imgs });
 
+  // Create external page
+  newPage('/provisioning/external', 'provisioning/external/external', { plugins, images: imgs });
+
   // Create vendor pages
   Object.keys(plugins).forEach(vendor =>
     newPage(`/provisioning/${slugify(vendor)}`, 'provisioning/vendor', {
