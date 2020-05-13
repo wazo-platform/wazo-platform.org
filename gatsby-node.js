@@ -341,7 +341,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     dynamicUcDocMenu['uc-doc'].ecosystem.supported_devices = {
       self: {
         title: 'Supported Devices',
-        path: '/provisioning/vendors'
+        path: '/uc-doc/ecosystem/supported_devices'
       }
     }
 

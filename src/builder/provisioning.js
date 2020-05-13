@@ -30,10 +30,10 @@ module.exports = async newPage => {
   });
 
   // Create vendors page
-  newPage('/provisioning/vendors', 'provisioning/vendors', { plugins, images: imgs });
+  newPage('/uc-doc/ecosystem/supported_devices', 'provisioning/vendors', { plugins, images: imgs });
 
   // Create external page
-  newPage('/provisioning/external', 'provisioning/external/external', { plugins, images: imgs });
+  newPage('/provisioning/external', 'provisioning/external', { plugins, images: imgs });
 
   // Create vendor pages
   Object.keys(plugins).forEach(vendor =>
