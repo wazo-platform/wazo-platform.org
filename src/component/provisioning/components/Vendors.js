@@ -29,7 +29,7 @@ export default ({ plugins, images }) => {
                 {id === currentDevice && <div className="slide">
                   <div className="image">
                     <div className="name">{name}</div>
-                    {images[slugify(vendor)].indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
+                    {images[slugify(vendor)] && images[slugify(vendor)].indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
                   </div>
                   <div className="content">{buildTable(plugins[vendor][name])}</div>
             </div>}
