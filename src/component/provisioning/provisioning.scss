@@ -101,6 +101,12 @@
                   border-top: 0 none;
                 }
               }
+              td.key {
+                text-transform: capitalize;
+              }
+              td.value {
+                text-align: center;
+              }
             }
             flex: 0 100%;
             padding: 20px;

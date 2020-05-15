@@ -14,7 +14,19 @@ export const buildTable = data => {
           </th>
         </tr>
       </thead>
-      <tbody>{Object.keys(data[version]).map(key => <tr><td>{key}</td><td>{data[version][key]}</td></tr>)}</tbody>
+      <tbody>{Object.keys(data[version]).map(key => {
+        let value = data[version][key];
+        if (value === true) {
+          value = 'yes';
+        }
+        if (value === false) {
+          value = 'no';
+        }
+        return <tr>
+          <td className="key">{key.replace('_', ' ')}</td>
+          <td className="value">{value}</td>
+        </tr>;
+      })}</tbody>
     </table>;
   })
 }
