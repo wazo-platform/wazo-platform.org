@@ -20,7 +20,7 @@ export default ({ pageContext: { name, vendor, images } }) => (
                   <a className="card-header" href={`/provisioning/${slugify(name)}/${slugify(phoneName)}`}>{phoneName}</a>
                    <div className="body">
                       <a className="phone-picture" href={`/provisioning/${slugify(name)}/${slugify(phoneName)}`}>
-                        {images.indexOf(`${slugify(phoneName)}.png`) !== -1 
+                        {images && images.indexOf(`${slugify(phoneName)}.png`) !== -1 
                           ? <img src={`/provisioning/${slugify(name)}-${slugify(phoneName)}.png`} alt={phoneName} />
                           : <img src={`/provisioning/img-placeholder.png`} alt={phoneName} />}
                       </a>
