@@ -6,23 +6,31 @@ const slugify = require('../../builder/slugify');
 
 export const buildTable = data => {
   return Object.keys(data).map(version => {
-    return <table className="table">
+    const capabilities = data[version];
+    const wazoPlugin = capabilities.wazo_plugin;
+    delete capabilities.wazo_plugin;
+
+    return <table key={version} className="table">
       <thead>
         <tr>
-          <th colspan="2">
-            {version}
+          <th className="key">Firmware <br />
+          Wazo Plugin</th>
+          <th className="value">
+            {version}<br />
+            {wazoPlugin || <>&nbsp;</>}
           </th>
         </tr>
       </thead>
-      <tbody>{Object.keys(data[version]).map(key => {
-        let value = data[version][key];
+      <tbody>
+        {Object.keys(capabilities).map(key => {
+        let value = capabilities[key];
         if (value === true) {
           value = 'yes';
         }
         if (value === false) {
           value = 'no';
         }
-        return <tr>
+        return <tr key={`${version}-${key}`}>
           <td className="key">{key.replace('_', ' ')}</td>
           <td className="value">{value}</td>
         </tr>;
@@ -36,8 +44,6 @@ export default ({ pageContext: { name, vendor, phone, images } }) => {
     { url: '/provisioning/vendors', label: 'Provd plugins' },
     { url: `/provisioning/${slugify(vendor)}`, label: vendor },
   ];
-
-  console.log('darn', phone);
 
   return (
     <Layout pageTitle={`<a href="/provisioning/vendors">Provd Plugins</a> &gt; <a href="/provisioning/${slugify(vendor)}">${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>

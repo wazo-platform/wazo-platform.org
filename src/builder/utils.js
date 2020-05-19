@@ -8,7 +8,7 @@ let cachedSections = null;
 let cachedModules = null;
 let cachedPlugins = null;
 
-const walk = (basePath, regexp, encoding = 'utf8') => {
+const walk = (basePath, regexp, encoding = 'utf8', custom = false) => {
   const files = fs.readdirSync(basePath);
   const dirname = basePath.split('/').pop();
   let results = { [dirname]: {} };
@@ -24,9 +24,15 @@ const walk = (basePath, regexp, encoding = 'utf8') => {
     }
 
     if (stat.isDirectory()) {
-      results = { ...results, ...walk(filePath, regexp, encoding) };
+      results = { ...results, ...walk(filePath, regexp, encoding, custom) };
     } else if (file.match(regexp)) {
-      results[dirname][file] = fs.readFileSync(filePath, encoding);
+      // HEADS UP: hard code
+      const wazo_plugin = `${basePath.split('/')[4]}-${basePath.split('/')[5]}`;
+      const content = fs.readFileSync(filePath, encoding);
+      results[dirname][file] = custom ? {
+          file: content,
+          wazo_plugin,
+        } : content;
     }
   });
 
@@ -45,14 +51,15 @@ const getProvisioningPlugins = () => {
     git clone https://github.com/wazo-platform/wazo-provd-plugins.git ${repoPath};
   `);
 
-  const pluginInfoFiles = walk(repoPath, /plugin-info/);
+  const pluginInfoFiles = walk(repoPath, /plugin-info/, null, true);
   cachedPlugins = {};
 
   // Parse plugin-info files
   Object.keys(pluginInfoFiles).forEach(basePath => {
     Object.keys(pluginInfoFiles[basePath]).forEach(fileName => {
       try {
-        const content = JSON.parse(pluginInfoFiles[basePath][fileName]);
+        const content = JSON.parse(pluginInfoFiles[basePath][fileName].file);
+        const { wazo_plugin } = pluginInfoFiles[basePath][fileName];
         Object.keys(content.capabilities).forEach(capabilityName => {
           const [vendor, phone, firmware] = capabilityName.split(', ');
           if (!(vendor in cachedPlugins)) {
@@ -63,6 +70,7 @@ const getProvisioningPlugins = () => {
           }
 
           cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
+          cachedPlugins[vendor][phone][firmware].wazo_plugin = `${wazo_plugin} (v${content.version})`;
         });
       } catch (error) {
         console.log('json error in ', basePath, fileName, error);
