@@ -15,7 +15,6 @@ Here is a short review of the Wazo Platform 20.07 release.
 * **Phones**: Yealink phones now synchronize the DND status of phones with the DND status of Wazo.
   Before Wazo 20.07, the phone had its own independent DND status, leading to calls being rejected
 without having set the DND option in Wazo.
-
 * **Incoming call**: An incall accepts a new parameter to configure a greeting sound played before
   forwarding the call to the destination.
 
@@ -36,11 +35,13 @@ See you at the next sprint review!
 ## Resources
 
 * [Install Wazo Platform](/install)
-
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-07)
 
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-07)
-
 * [Wazo Platform 20.07 Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10088)
+
+## Discussion
+
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-20-07-released).
