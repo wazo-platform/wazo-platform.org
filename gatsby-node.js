@@ -10,6 +10,8 @@ const RSS = require('rss');
 const config = require('./config');
 const constants = require('./src/contants');
 
+const buildProvisioning = require('./src/builder/provisioning');
+
 const markdownConverter = new showdown.Converter();
 const overviews = {};
 const forDeveloper = !!process.env.FOR_DEVELOPER;
@@ -335,6 +337,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       }, dynamicUcDocMenu);
     });
 
+    // custom patch to provisioning
+    dynamicUcDocMenu['uc-doc'].ecosystem.supported_devices = {
+      self: {
+        title: 'Supported Devices',
+        path: '/uc-doc/ecosystem/supported_devices'
+      }
+    }
+
     const jsonFolder = `${__dirname}/public/json`;
     if (!fs.existsSync(jsonFolder)) {
       fs.mkdirSync(jsonFolder);
@@ -398,6 +408,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       }
     });
   });
+
+  console.info('Building provisioning...');
+  await buildProvisioning(newPage);
 
   // Update algolia index
   if (hasSearch) {
