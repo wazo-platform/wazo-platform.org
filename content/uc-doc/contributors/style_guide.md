@@ -2,23 +2,9 @@
 title: Style Guide
 ---
 
--   [Syntax](#syntax)
-    -   [License](#license)
-    -   [Spacing](#spacing)
-    -   [PEP8](#pep8)
-    -   [Strings](#strings)
-    -   [Comments](#comments)
-    -   [Conditions](#conditions)
--   [Naming](#naming)
-    -   [Magic numbers](#magic-numbers)
--   [Tests](#tests)
--   [Exceptions](#exceptions)
+## <a name="syntax"></a>Syntax
 
-Syntax
-======
-
-License
--------
+### <a name="license"></a>License
 
 Python files start with a UTF8 encoding comment and the GPLv3 license. A
 blank line should separate the license from the imports
@@ -31,8 +17,7 @@ Example:
 
     import argparse
 
-Spacing
--------
+### <a name="spacing"></a>Spacing
 
 -   Lines should not go further than 80 to 100 characters.
 -   In python, indentation blocks use 4 spaces
@@ -52,8 +37,7 @@ Example:
     from StringIO import StringIO
     from urllib import urlencode
 
-PEP8
-----
+### <a name="pep8"></a>PEP8
 
 When possible, use pep8 to validate your code. Generally, the following
 errors are ignored :
@@ -80,8 +64,7 @@ Good Example:
                                .filter(User.number == number)
                                .all())
 
-Strings
--------
+### <a name="strings"></a>Strings
 
 Avoid using the [+]{.title-ref} operator for concatenating strings. Use
 string interpolation instead.
@@ -94,8 +77,7 @@ Good Example:
 
     phone_interface = "SIP/%s-%s" % (username, password)
 
-Comments
---------
+### <a name="comments"></a>Comments
 
 Redundant comments should be avoided. Instead, effort should be put on
 making the code clearer.
@@ -115,8 +97,7 @@ Good Example:
     if created_on_week_day(meeting):
         calendar.add(meeting)
 
-Conditions
-----------
+### <a name="conditions"></a>Conditions
 
 Avoid using parenthesis around if statements, unless the statement
 expands on multiple lines or you need to nest your conditions.
@@ -164,8 +145,7 @@ Good Example:
     if final_price < money:
         product.pay(money)
 
-Naming
-======
+## <a name="naming"></a>Naming
 
 > -   Class names are in `CamelCase`
 > -   File names are in `lower_underscore_case`
@@ -217,8 +197,7 @@ Example:
 
         return user_search
 
-Magic numbers
--------------
+### <a name="magic-numbers"></a>Magic numbers
 
 Magic numbers should be avoided. Arbitrary values should be assigned to
 variables with a clear name
@@ -249,8 +228,7 @@ Good example:
             self.assertEquals(rank.grade, grade)
             self.assertEquals(rank.session, session)
 
-Tests
-=====
+## <a name="tests"></a>Tests
 
 Tests for a package are placed in their own folder named \"tests\"
 inside the package.
@@ -312,8 +290,7 @@ Example:
 
             self._assert_users_are_equal(expected, user)
 
-Exceptions
-==========
+## <a name="exceptions"></a>Exceptions
 
 Exceptions should not be used for flow control. Raise exceptions only
 for edge cases, or when something that isn\'t usually expected happens.

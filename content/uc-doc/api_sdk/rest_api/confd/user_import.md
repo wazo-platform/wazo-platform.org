@@ -21,7 +21,7 @@ must be set and the CSV data must be sent in the body of the request. A
 file may be uploaded using [curl]{.title-ref} as follows:
 
 ``` {.sourceCode .bash}
-curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://wazo:9486/1.1/users/import
+curl -k -H "Content-Type: text/csv; charset=utf-8" -u username:password --data-binary "@file.csv" https://wazo/api/confd/1.1/users/import
 ```
 
 The response can be reindented in a more readable format by piping the

@@ -2,10 +2,6 @@
 title: Debugging Daemons
 ---
 
--   [wazo-confgend](#wazo-confgend)
--   [wazo-provd](#wazo-provd)
--   [consul](#consul)
-
 To activate debug mode, add `debug: true` in the daemon
 [configuration file](/uc-doc/system/configuration_files). The output will be
 available in the daemon\'s [log file](/uc-doc/system/log_files).
@@ -20,23 +16,20 @@ daemon in foreground:
 
     systemctl stop monit.service
 
-<a name="wazo-confgend"></a>wazo-confgend
-=============
+## <a name="wazo-confgend"></a>wazo-confgend
 
     twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
 
 No debug mode in confgend.
 
-wazo-provd
-==========
+## <a name="wazo-provd"></a>wazo-provd
 
     twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
 
 -   -s for logging to stderr
 -   -v for verbose
 
-consul
-======
+## <a name="consul"></a>consul
 
     sudo -u consul /usr/bin/consul agent -config-dir /etc/consul/xivo -pid-file /run/consul/consul.pid
 

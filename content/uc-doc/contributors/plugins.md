@@ -2,32 +2,16 @@
 title: Plugins
 ---
 
--   [What is a plugin](#what-is-a-plugin)
--   [What can be done with a plugin](#what-can-be-done-with-a-plugin)
--   [Creating a plugin](#creating-a-plugin)
-    -   [plugin.yml](#plugin.yml)
-    -   [rules](#rules)
-    -   [Hello World](#hello-world)
--   [Plugin format version](#plugin-format-version)
-    -   [0 (default)](#default)
-    -   [1 (recommended)](#recommended)
--   [rules commands](#contribs_plugins)
--   [Dependencies](#dependencies)
-    -   [depends](#depends)
-    -   [debian\_depends](#debian_depends)
-
 This section cover the preferred way to extend the functionalities of a
 Wazo server. There are many extension point in Wazo, all of them can be
 used in combination to add complete features to you favorite PBX.
 
-What is a plugin
-================
+## <a name="what-is-a-plugin"></a> What is a plugin
 
 A plugin is a set of additions made to a custom Wazo installation to add
 a new functionality.
 
-What can be done with a plugin
-==============================
+## <a name="what-can-be-done-with-a-plugin"></a> What can be done with a plugin
 
 Wazo plugins allow a third party to add almost anything to Wazo. Most of
 our services have extension points that can be used together to create a
@@ -46,16 +30,14 @@ Here\'s a non exhaustive list of what can be done with plugins
     > -   wazo-confd
     > -   wazo-confgend
 
-Creating a plugin
-=================
+## <a name="creating-a-plugin"></a> Creating a plugin
 
 A plugin has the following structure:
 
 -   `wazo/plugin.yml`
 -   `wazo/rules`
 
-plugin.yml
-----------
+### <a name="plugin.yml"></a> plugin.yml
 
 The `plugin.yml` file contains all the metadata of plugin. It should
 contains the following fields:
@@ -86,8 +68,7 @@ debian_depends:
   - golang-go
 ```
 
-rules
------
+### <a name="rules"></a> rules
 
 The [rules](/uc-doc/contributors/plugins#contribs_plugins) file is an
 executable that will accept the following commands
@@ -98,8 +79,7 @@ executable that will accept the following commands
 -   uninstall
 -   postrm
 
-Hello World
------------
+### <a name="hello-world"></a> Hello World
 
 This example will create a plugin that adds an extension
 [\*\*\*42]{.title-ref} that says [Hello World]{.title-ref} when called.
@@ -146,11 +126,9 @@ exten = ***42,1,Playback(hello-world)
 same = n,Return()
 ```
 
-Plugin format version
-=====================
+## <a name="plugin-format-version"></a> Plugin format version
 
-0 (default)
------------
+### <a name="default"></a> 0 (default)
 
 A plugin in version [0]{.title-ref} should implement the following
 requirements:
@@ -162,14 +140,12 @@ requirements:
     -   install
     -   uninstall
 
-1 (recommended)
----------------
+### <a name="recommended"></a> 1 (recommended)
 
 Version [1]{.title-ref} adds support for the postrm instruction in the
 rules file.
 
-<a name="contribs_plugins"></a>rules commands
-==============
+## <a name="contribs_plugins"></a> <a name="contribs_plugins"></a>rules commands
 
 build
 
@@ -211,14 +187,12 @@ postrm (added in version 1)
     package removal. It will be used as the postrm of the generated
     debian package.
 
-Dependencies
-============
+## <a name="dependencies"></a> Dependencies
 
 There are 2 kinds of dependencies that can be added on a plugin,
 \"depends\" and \"debian\_depends\".
 
-depends
--------
+### <a name="depends"></a> depends
 
 The [depends]{.title-ref} section of the [plugin.yml]{.title-ref} file
 contains dependencies that are other plugins built for wazo-plugind.
@@ -241,8 +215,7 @@ Example:
 [depends]{.title-ref} also generate an entry in the
 [debian\_depends]{.title-ref} section.
 
-debian\_depends
----------------
+### <a name="debian_depends"></a> debian\_depends
 
 The [debian\_depends]{.title-ref} section of the
 [plugin.yml]{.title-ref} file contains dependencies that will be added

@@ -1,0 +1,7 @@
+Image : 150px large
+Name in lower case
+File is a png
+
+Convert command (imagemagick):
+
+convert -resize 150 file.jpg file.png

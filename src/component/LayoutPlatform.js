@@ -55,7 +55,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
-        <title>{headTitle}</title>
+        <title>{headTitle.replace(/<\/?[^>]+(>|$)/g, "")}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
@@ -139,7 +139,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
         {pageTitle && (
           <div className="page-title">
             <div className="container">
-              <PageTitleComponent>{pageTitle}</PageTitleComponent>
+              <PageTitleComponent dangerouslySetInnerHTML={{ __html: pageTitle }}/>
             </div>
           </div>
         )}

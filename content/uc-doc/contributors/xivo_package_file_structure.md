@@ -2,15 +2,7 @@
 title: Wazo Package File Structure
 ---
 
--   [Package naming](#package-naming)
-    -   [Sources](#sources)
-    -   [Python](#python)
-    -   [Debian](#debian)
-    -   [Docker](#docker)
--   [File naming](#file-naming)
-
-Package naming
-==============
+## <a name="package-naming"></a>Package naming
 
 Let\'s assume we want to organise the files for wazo-confd.
 
@@ -47,8 +39,7 @@ Let\'s assume we want to organise the files for wazo-confd.
     `-- wazo_confd
         `-- ...
 
-Sources
--------
+### <a name="sources"></a>Sources
 
 `etc/`
 
@@ -67,7 +58,7 @@ Sources
 `integration_tests/`
 
 :   Contains the tests bigger than unit-tests. Tests should be runnable
-    simply, e.g. `nosetests integration_tests`.
+    simply, e.g. `pytest integration_tests`.
 
 `README.md`
 
@@ -81,8 +72,7 @@ Sources
 
 :   Travis CI configuration file
 
-Python
-------
+### <a name="python"></a>Python
 
 Standard files:
 
@@ -92,15 +82,13 @@ Standard files:
 -   test-requirements.txt
 -   wazo\_confd/ (the main sources)
 
-Debian
-------
+### <a name="debian"></a>Debian
 
 `debian/`
 
 :   Contains the Debian packaging files (`control`, `rules`, \...)
 
-Docker
-------
+### <a name="docker"></a>Docker
 
 `Dockerfile`
 
@@ -116,8 +104,7 @@ Docker
 :   Contains the Dockerfile and other files to run wazo-confd inside
     Docker with specific configuration
 
-File naming
-===========
+## <a name="file-naming"></a>File naming
 
 -   PID file: `/run/wazo-confd/wazo-confd.pid`
 -   WSGI socket file: `/run/wazo-confd/wazo-confd.sock`
