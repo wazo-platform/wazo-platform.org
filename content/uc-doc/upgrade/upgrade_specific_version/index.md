@@ -18,7 +18,7 @@ procedures.
 Before starting the upgrade, you must have a xivo or Wazo version
 greater than 14.18.
 
-- [Upgrade an older Xivo installation](/uc-doc/upgrade/archives-from-xivo)
-- [Upgrade from Wazo < 18.01](/uc-doc/upgrade/archives-from-wazo-jessie)
-- [Upgrade from Wazo < 19.04](/uc-doc/upgrade/archives-from-wazo-stretch)
-- [Upgrade from Wazo > 19.12](/uc-doc/upgrade/archives-from-wazo-buster)
+- [Upgrade from Wazo > 19.12](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-buster)
+- [Upgrade from Wazo < 19.04](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-stretch)
+- [Upgrade from Wazo < 18.01](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-jessie)
+- [Upgrade an older Xivo installation](/uc-doc/upgrade/upgrade_specific_version/archives-from-xivo)
