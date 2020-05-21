@@ -10,7 +10,7 @@ token obtained from [wazo-auth](/uc-doc/system/configuration_files#wazo-auth). T
 token should be given in the `X-Auth-Token` header in your request. For
 example:
 
-    curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<wazo_address>:9486/1.1/users
+    curl <options...> -H 'X-Auth-Token: 17496bfa-4653-9d9d-92aa-17def0fa9826' https://<wazo_address>/api/confd/1.1/users
 
 Also, your token needs to have the right ACLs to give you access to the
 resource you want. See [REST API ACL](/uc-doc/api_sdk/rest_api/acl).
@@ -41,7 +41,7 @@ General URL parameters
 
 Example usage of general parameters:
 
-    GET http://<wazo_address>:9486/1.1/voicemails?limit=X&offset=Y
+    GET http://<wazo_address>/api/confd/1.1/voicemails?limit=X&offset=Y
 
 Parameters
 ----------

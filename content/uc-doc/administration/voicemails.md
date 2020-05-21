@@ -37,28 +37,3 @@ its messages, change its password and greeting messages.
 #!warning: For security reasons, an incoming call with
 `{"destination": {"appplication: "voicemail"}` with the same context as
 the voicemail should be avoided if a voicemail has no password.
-
-Advanced configuration
-======================
-
-Remote *wazo-confd*
--------------------
-
-If *wazo-confd* is on a remote host, *wazo-confd-client* configuration
-will be required to be able to change the voicemail passwords using a
-phone.
-
-This configuration should be done:
-
-```ShellSession
-# mkdir -p /etc/systemd/system/asterisk.service.d
-# cat >/etc/systemd/system/asterisk.service.d/remote-confd-voicemail.conf <<EOF
-[Service]
-Environment=CONFD_HOST=localhost
-Environment=CONFD_PORT=9486
-Environment=CONFD_HTTPS=true
-Environment=CONFD_USERNAME=<username>
-Environment=CONFD_PASSWORD=<password>
-EOF
-# systemctl daemon-reload
-```

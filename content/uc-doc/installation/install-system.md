@@ -37,7 +37,7 @@ By default, Wazo Platform will install the development version. To install
 the latest stable version, activate the following settings in your inventory:
 
 ```Ini
-[uc-engine:vars]
+[uc_engine:vars]
 wazo_distribution = pelican-buster
 wazo_distribution_upgrade = pelican-buster
 ```
@@ -46,15 +46,15 @@ If you want to install the web user interface, activate the following
 in your inventory:
 
 ```Ini
-[uc-ui:children]
-uc-engine-host
+[uc_ui:children]
+uc_engine_host
 ```
 
 To create the `root` account at installation time and be able to use the web user interface
 and REST APIs, you need to add the following variables:
 
 ```Ini
-[uc-engine:vars]
+[uc_engine:vars]
 engine_api_configure_wizard = true
 engine_api_root_password = ****
 ```
