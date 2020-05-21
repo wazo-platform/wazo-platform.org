@@ -87,18 +87,13 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link scrollto" href="/#about">
-                    About
-                  </a>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/documentation" activeClassName="active" partiallyActive>
-                    Documentation
+                    API
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/install" activeClassName="active">
-                    Install
+                  <Link className="nav-link" to="/use-cases" activeClassName="active">
+                    Use Cases
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -116,12 +111,6 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
                     Ecosystem
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link scrollto" href="/#contact">
-                    Contact
-                  </a>
-                </li>
-
                 <li className="nav-item nav-item-search last">
                   <Search />
                   <a className="nav-link" href="#search" title="Search" onClick={handleSearch}>

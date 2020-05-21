@@ -4,8 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import Layout from '../Layout';
 
 export default ({ pageContext: { installDoc }}) => (
-  <Layout section="install" pageTitle="Getting started" breadcrumbs={[{ link: '/install', label: 'Install', active: true }]}>
-    <section id="install" className="about section">
+  <Layout section="use-cases" pageTitle="Getting started" breadcrumbs={[{ link: '/use-cases', label: 'Use Cases', active: true }]}>
+    <section id="use-cases" className="about section">
       <div className="container">
         <ReactMarkdown source={installDoc} />
       </div>

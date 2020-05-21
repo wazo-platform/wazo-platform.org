@@ -16,7 +16,7 @@ export default () => (
           <Link className="btn btn-cta-secondary" to="documentation">
             Documentation
           </Link>
-          <Link className="btn btn-cta-primary" to="install">
+          <Link className="btn btn-cta-primary" to="use-cases">
             Install
           </Link>
           <Link className="btn btn-cta-secondary" to="contribute">
