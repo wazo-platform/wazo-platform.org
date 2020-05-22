@@ -168,7 +168,7 @@ When updating, only the id and updated properties are needed, omitted
 properties are not updated. Some properties can also be optional when
 creating an object.
 
-Errors {#rest_api_errors}
+Errors {#rest-api-errors}
 ------
 
 A request to the web services may return an error. An error will always

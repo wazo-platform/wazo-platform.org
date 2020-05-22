@@ -51,7 +51,7 @@ There are 2 options you can pass to wazo-upgrade:
     ISDN link status, internal/incoming/outgoing calls, Wazo Client
     connections etc.
 
-## Version-specific upgrade procedures {#version_specific_upgrade}
+## Version-specific upgrade procedures {#version-specific-upgrade}
 
 ### Upgrading from XiVO 16.13 and before
 

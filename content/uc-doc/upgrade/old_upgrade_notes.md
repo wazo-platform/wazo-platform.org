@@ -741,7 +741,7 @@ Roadmap](https://projects.wazo.community/versions/232)
     updated. No action is required for "normal" installations.
 -   Voicemails can now be deleted even if they are associated to a user.
 
-## 15.15 {#upgrade_notes_15_15}
+## 15.15 {#upgrade-notes-15-15}
 
 Consult the [15.15 Roadmap](https://projects.wazo.community/versions/231)
 

@@ -207,7 +207,7 @@ timeout
 :   The maximum waiting time for an answer from any source. Results from
     sources that take longer to answer are ignored. Default: 1.
 
-Service Discovery {#service\_discovery}
+Service Discovery {#service\-discovery}
 -----------------
 
 Service name: service_discovery

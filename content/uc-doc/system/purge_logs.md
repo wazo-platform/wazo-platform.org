@@ -38,7 +38,7 @@ The format of the following list is `plugin-name` (`associated table`) :
 -   `stat-switchboard` (`stat_switchboard_queue`)
 -   `webhookd-logs` (`webhookd_subscription_log`)
 
-Configuration File {#purge_logs_config_file}
+Configuration File {#purge-logs-config-file}
 ==================
 
 We recommend to override the setting `days_to_keep` from

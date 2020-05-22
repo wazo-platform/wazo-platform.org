@@ -181,7 +181,7 @@ wazo-provd
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-wazo-purge-db {#purge_logs}
+wazo-purge-db {#purge-logs}
 =============
 
 -   File location: `/var/log/wazo-purge-db.log`{.interpreted-text

@@ -145,7 +145,7 @@ requirements:
 Version [1]{.title-ref} adds support for the postrm instruction in the
 rules file.
 
-## rules commands {#contribs_plugins}
+## rules commands {#contribs-plugins}
 
 build
 
@@ -215,7 +215,7 @@ Example:
 [depends]{.title-ref} also generate an entry in the
 [debian\_depends]{.title-ref} section.
 
-### debian\_depends {#debian_depends}
+### debian\_depends {#debian-depends}
 
 The [debian\_depends]{.title-ref} section of the
 [plugin.yml]{.title-ref} file contains dependencies that will be added

@@ -215,7 +215,7 @@ Also, the subroutine prevent asterisk from calling an agent twice by
 hanguping the second call. In the agent statistics, this will be shown
 as a non-answered call by the agent.
 
-PostgreSQL localization errors {#postgresql_localization_errors}
+PostgreSQL localization errors {#postgresql-localization-errors}
 ==============================
 
 The database and the underlying [database

@@ -33,7 +33,7 @@ context
 
 :   the voicemail context (default is \'default\')
 
-Errors {#rest_api_errors}
+Errors {#rest-api-errors}
 ======
 
 +------------+---------------+------------------------------+

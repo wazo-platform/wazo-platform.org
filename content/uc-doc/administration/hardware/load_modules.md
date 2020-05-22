@@ -63,13 +63,13 @@ Now that you have loaded the correct module for your card you must:
 2.  and continue with the next configuration step which is to
     [configure the echo canceller](/uc-doc/administration/hardware/echo_canceller).
 
-Specific configuration {#dahdi_modules_specific_conf}
+Specific configuration {#dahdi-modules-specific-conf}
 ======================
 
 This section lists some specific configuration. You should not follow
 them unless you have a specific need.
 
-TE13x, TE23x, TE43x: E1/T1 selection {#dahdi_linemode_selection}
+TE13x, TE23x, TE43x: E1/T1 selection {#dahdi-linemode-selection}
 ------------------------------------
 
 With E1/T1 cards you must select the correct *line mode* between:

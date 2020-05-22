@@ -113,7 +113,7 @@ anything comments on it and respond to comments to eventually get your
 contribution merged.
 
 
-## Asking for help {#asking_for_help}
+## Asking for help {#asking-for-help}
 
 The Wazo developers can be contacted on our
 [MatterMost](https://mm.wazo.community/wazo-platform/channels/town-square)

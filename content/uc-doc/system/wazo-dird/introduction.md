@@ -45,7 +45,7 @@ times to query multiple directories of the same type. For example, I
 could have the customer-csv and the employee-csv sources, each using the
 CSV back-end, but reading a different file.
 
-Plugins {#developing_plugins}
+Plugins {#developing-plugins}
 -------
 
 A plugin is an extension point in wazo-dird. It is a way to add or

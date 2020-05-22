@@ -21,7 +21,7 @@ At the end of this page you will also find some general notes and DAHDI.
 Notes on configuration files
 ============================
 
-/etc/dahdi/system.conf {#system_conf}
+/etc/dahdi/system.conf {#system-conf}
 ----------------------
 
 A *span* is created for each card port. Below is an example of a
@@ -64,7 +64,7 @@ information should be checked with your operator.
 This file contains the general parameters of the DAHDI channel. It is
 not generated via the `dahdi_genconf` command.
 
-/etc/asterisk/dahdi-channels.conf {#asterisk_dahdi_channel_conf}
+/etc/asterisk/dahdi-channels.conf {#asterisk-dahdi-channel-conf}
 ---------------------------------
 
 This file contains the parameters of each channel. It is generated via

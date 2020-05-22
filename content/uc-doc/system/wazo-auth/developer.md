@@ -48,7 +48,7 @@ The token modules contains the business logic of wazo-auth.
 -   Creates ACLs for Wazo
 -   Schedule token expiration
 
-Plugins {#developing_plugins}
+Plugins {#developing-plugins}
 =======
 
 wazo-auth is meant to be easy to extend. This section describes how to

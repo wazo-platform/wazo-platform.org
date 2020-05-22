@@ -119,7 +119,7 @@ The following databases from PostgreSQL are backed up:
 -   `asterisk`: all the configuration done via the web interface
     (exceptions: High Availability, Provisioning, Certificates)
 
-Creating backup files manually {#manual_backup}
+Creating backup files manually {#manual-backup}
 ------------------------------
 
 #:warning: A backup file may take a lot of space on the disk. You should check the
@@ -228,7 +228,7 @@ Once the database and files have been restored, you can
 When restoring the database, if you encounter problems related to the
 system locale, see [PostgreSQL localization errors](/uc-doc/troubleshooting#postgresql-localization-errors).
 
-Alternative: Restoring and Keeping System Configuration {#restore_keep_system_config}
+Alternative: Restoring and Keeping System Configuration {#restore-keep-system-config}
 -------------------------------------------------------
 
 System configuration like network interfaces is stored in the database.
@@ -258,7 +258,7 @@ configuration if you restore the data.tgz file.
 Once the database and files have been restored, you can
 [finalize the restore](/uc-doc/system/backup_restore#after-restore)
 
-After Restoring The System {#after_restore}
+After Restoring The System {#after-restore}
 --------------------------
 
 1.  Restore the server UUID:
