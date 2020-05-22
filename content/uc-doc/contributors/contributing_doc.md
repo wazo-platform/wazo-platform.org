@@ -83,13 +83,15 @@ Incorrect:
 
 Bullet lists:
 
-    * First item
-    * Second item
+    - First item
+    - Second item
+    - ...
 
 Autonumbered lists:
 
-    #. First item
-    #. Second item
+    1. First item
+    2. Second item
+    3. ...
 
 ### Literal blocks {#literal-blocks}
 
