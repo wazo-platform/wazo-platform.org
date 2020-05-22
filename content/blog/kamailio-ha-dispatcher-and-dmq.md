@@ -8,7 +8,7 @@ Status: published
 
 # Kamailio HA with dispatcher and dmq modules
 
-This is the first of a series of blog posts about the HA features of the [Wazo Platform C4](https://wazo-platform.org/blog/wazo-platform-c4-overview). In this article, we concentrate on the routing component which is composed of a scalable set of [Kamailio](https://www.kamailio.org/) instances denominated routers.
+This is the first of a series of blog posts about the HA features of the [Wazo Platform C4](/blog/wazo-platform-c4-overview). In this article, we concentrate on the routing component which is composed of a scalable set of [Kamailio](https://www.kamailio.org/) instances denominated routers.
 
 The routers are not accessed directly from carriers nor the termination IPBXs, as they are behind the SBC infrastructure. We assume then the routers are on an internal, non-externally accessible network segment and communicate with the SBC using the SIP protocol over UDP.
 

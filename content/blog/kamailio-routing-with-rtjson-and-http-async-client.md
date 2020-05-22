@@ -10,7 +10,7 @@ Status: published
 
 ## The problem
 
-In the [Wazo Platform C4](https://wazo-platform.org/blog/wazo-platform-c4-overview) we are committed to delivering the most flexible, as well as easy to configure and set up, Softswitch in the market. The SIP router key component is provided by [Kamailio](https://www.kamailio.org/), the leading open-source SIP server.
+In the [Wazo Platform C4](/blog/wazo-platform-c4-overview) we are committed to delivering the most flexible, as well as easy to configure and set up, Softswitch in the market. The SIP router key component is provided by [Kamailio](https://www.kamailio.org/), the leading open-source SIP server.
 
 Our goal was while supporting high degrees of flexibility and ease to configure, to avoid any compromise regarding performances: we aim to support a high number of concurrent calls, high call rates with predictable and linear degradation of performances in case of overload.
 
