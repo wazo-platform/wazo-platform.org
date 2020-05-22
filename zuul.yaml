@@ -64,6 +64,7 @@
     description: Build and publish
     pre-run: zuul.d/pre.yaml
     run: zuul.d/run-test.yaml
+    timeout: 3600
 
 - project:
     check:
