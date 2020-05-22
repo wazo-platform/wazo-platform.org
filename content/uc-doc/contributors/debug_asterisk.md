@@ -57,7 +57,7 @@ packages on your Wazo:
 |   |            |            |            | ch         | r          |
 +---+------------+------------+------------+------------+------------+
 
-## -now-what}So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk.
+## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
 
 1.  Find out the time of the incident from the people most likely to
     know
@@ -169,7 +169,7 @@ The steps are:
 This will create a couple of .deb files in the parent directory, which
 you can install via dpkg.
 
-### 17}Recompiling a vanilla version of Asterisk (Wazo \< 17.17) {#recompiling-a-vanilla-version-of-asterisk-wazo-17.
+### Recompiling a vanilla version of Asterisk (Wazo \< 17.17) {#recompiling-a-vanilla-version-of-asterisk-wazo-17.17}
 
 It is sometimes useful to produce a \"vanilla\" version of Asterisk,
 i.e. a version of Asterisk that has none of the Wazo patches applied, to
@@ -196,7 +196,7 @@ When installing a vanilla version of Asterisk on a XiVO 16.08 or
 earlier, you\'ll need to stop monit, otherwise it will restart asterisk
 every few minutes.
 
-### 13}Recompiling a vanilla version of Asterisk (Wazo \>= 19.13) {#recompiling-a-vanilla-version-of-asterisk-wazo-19.
+### Recompiling a vanilla version of Asterisk (Wazo \>= 19.13) {#recompiling-a-vanilla-version-of-asterisk-wazo-19.13}
 
 It is sometimes useful to produce a \"vanilla\" version of Asterisk,
 i.e. a version of Asterisk that has none of the Wazo patches applied, to

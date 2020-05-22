@@ -3,7 +3,7 @@ title: Sound Files
 ---
 
 -   [Add Sounds Files](#add-sounds-files)
--   [Convert Your Wav File](#wav_files)
+-   [Convert Your Wav File](#wav-files)
 
 Add Sounds Files
 ================

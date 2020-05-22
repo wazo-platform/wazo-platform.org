@@ -3,7 +3,7 @@ title: 'xivo-sysconfd'
 ---
 
 -   [Configuration File](#sysconfd-configuration)
-    -   [request\_handlers section](#request_handlers-section)
+    -   [request\_handlers section](#request-handlers-section)
 
 xivo-sysconfd is the system configuration server for Wazo. It does quite
 a few different things; here\'s a non exhaustive list:
@@ -60,7 +60,7 @@ Here\'s an example of the configuration file:
     exchange_type = topic
     exchange_durable = true
 
-request\_handlers section
+request\_handlers section {#request-handlers-section}
 -------------------------
 
 synchronous

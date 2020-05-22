@@ -358,7 +358,7 @@ are some examples:
 -   [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)
 -   [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl)
 
-## wazo.community}Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.
+## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
 First, change the source of your plugins (cf.
 [Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo))

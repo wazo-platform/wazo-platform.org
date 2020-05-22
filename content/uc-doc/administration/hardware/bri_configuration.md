@@ -10,10 +10,10 @@ title: BRI card configuration
     -   [Asterisk dahdi-channels.conf
         configuration](#asterisk-dahdi-channels.conf-configuration)
 -   [Next step](#next-step)
--   [Specific configuration](#bri_card_specific_conf)
-    -   [PTMP without layer1/layer2 persistence](#bri_card_ptmp_wol1l2)
-    -   [PTMP with layer1/layer2 persistence](#bri_card_ptmp_wl1l2)
-    -   [PTP with layer1/layer2 persistence](#bri_card_ptp_wl1l2)
+-   [Specific configuration](#bri-card-specific-conf)
+    -   [PTMP without layer1/layer2 persistence](#bri-card-ptmp-wol1l2)
+    -   [PTMP with layer1/layer2 persistence](#bri-card-ptmp-wl1l2)
+    -   [PTP with layer1/layer2 persistence](#bri-card-ptp-wl1l2)
 
 Verifications
 =============

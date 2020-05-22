@@ -37,7 +37,7 @@ A plugin has the following structure:
 -   `wazo/plugin.yml`
 -   `wazo/rules`
 
-### yml} plugin.yml {#plugin.
+### plugin.yml {#plugin-yml}
 
 The `plugin.yml` file contains all the metadata of plugin. It should
 contains the following fields:

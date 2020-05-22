@@ -5,7 +5,7 @@ title: Voice Compression Card configuration
 -   [Verifications](#verifications)
 -   [Configure](#configure)
 -   [Next step](#next-step)
--   [Specific configuration](#vc_card_specific_conf)
+-   [Specific configuration](#vc-card-specific-conf)
     -   [Select the transcoding mode](#select-the-transcoding-mode)
 
 Verifications

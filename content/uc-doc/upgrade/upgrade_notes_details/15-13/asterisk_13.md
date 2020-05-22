@@ -15,7 +15,7 @@ You might be impacted by the upgrade to Asterisk 13 if you have:
 If you find yourself in one of these cases, you should make sure that
 your customizations still work with Asterisk 13.
 
-## {#hanges-between-asterisk-11-and-13}Changes Between Asterisk 11 and 13 c
+## Changes Between Asterisk 11 and 13 {#changes-between-asterisk-11-and-13}
 
 Some of the more common changes to look for:
 

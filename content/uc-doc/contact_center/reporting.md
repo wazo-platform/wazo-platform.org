@@ -4,11 +4,11 @@ title: Reporting
 
 -   [General Architecture](#general-architecture)
 -   [Statistic Data Table Content](#statistic-data-table-content)
-    -   [stat\_call\_on\_queue](#stat_call_on_queue)
+    -   [stat\_call\_on\_queue](#stat-call-on-queue)
     -   [Queue Call Status](#queue-call-status)
-    -   [stat\_queue\_periodic Table](#stat_queue_periodic-table)
-    -   [stat\_agent](#stat_agent)
-    -   [stat\_queue](#stat_queue)
+    -   [stat\_queue\_periodic Table](#stat-queue-periodic-table)
+    -   [stat\-agent](#stat-agent)
+    -   [stat\-queue](#stat-queue)
 
 You may use your own reporting tools to be able to produce your own
 reports provided **you do not use the Wazo server original tables**, but
@@ -20,7 +20,7 @@ procedure as a template :
 -   Create target tables in your database located on the data server
 -   Copy the statistic table content to your data server
 
-General Architecture
+General Architecture {#general-architecture}
 ====================
 
 ![Statistics Architecture](/images/uc-doc/contact_center/reporting/archi.png)
@@ -31,10 +31,10 @@ General Architecture
     table and generate the tables *stat\_call\_on\_queue* and
     *stat\_queue\_periodic*
 
-Statistic Data Table Content
+Statistic Data Table Content {#statistic-data-table-content}
 ============================
 
-stat\_call\_on\_queue
+stat\_call\_on\_queue {#stat-call-on-queue}
 ---------------------
 
 This table is used to store each call individually. Each call received
@@ -74,7 +74,7 @@ etc.
                           number 1002 in table `agentfeatures`
   --------------------------------------------------------------------------------
 
-Queue Call Status
+Queue Call Status {#queue-call-status}
 -----------------
 
   --------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ Queue Call Status
                       parameter
   --------------------------------------------------------------------------------
 
-stat\_queue\_periodic Table
+stat\_queue\_periodic Table {#stat-queue-periodic-table}
 ---------------------------
 
 This table is an aggregation of the queue\_log table.
@@ -149,7 +149,7 @@ range of hours, days, week, month or year.
   queue\_id
   --------------------------------------------------------------------------------
 
-stat\_agent
+stat\_agent {#stat-agent}
 -----------
 
 This table is used to match agents to an id that is different from the
@@ -161,7 +161,7 @@ old number to a another agent also means that the supervisor will have
 to ignore entries for this given agent for the period before the number
 assignment to the new agent.
 
-stat\_queue
+stat\_queue {#stat-queue}
 -----------
 
 This table is used to store queues in a table that is different from the

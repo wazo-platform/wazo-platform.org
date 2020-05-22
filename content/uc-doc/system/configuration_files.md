@@ -130,7 +130,7 @@ wazo-websocketd
 -   Default configuration file:
     `/etc/wazo-websocketd/config.yml`
 
-conf}xivo\_ring.conf {#xivo_ring.
+xivo\_ring.conf {#xivo-ring.conf}
 ===============
 
 -   Path: `/etc/xivo/asterisk/xivo_ring.conf`
