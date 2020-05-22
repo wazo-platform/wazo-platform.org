@@ -38,7 +38,7 @@ If you use two cards, you have to :
 -   Use a cable for clock synchronization between the cards
 -   Configure the *wheel* to define the cards order in the system.
 
-Please refer to the section [Sync cable](/uc-doc/administration/hardware/pri_configuration#sync_cable)
+Please refer to the section [Sync cable](/uc-doc/administration/hardware/pri_configuration#sync-cable)
 
 Configuration
 -------------

@@ -54,7 +54,7 @@ DAHDI or Local channels:
 -   *Name* : it is the name which will appear in the outcall
     interconnections list,
 -   *Interface* : this is the channel name (for DAHDI see
-    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf))
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf))
 -   *Interface suffix* (optional) : a suffix added after the dialed
     number (in fact the Dial command will dial:
 
@@ -84,7 +84,7 @@ where :
         round-robin fashion (and remembering where it last left off),
         searching from highest to lowest.
 -   `group number` is the group number to which belongs the span as
-    defined in the [/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk_dahdi_channel_conf).
+    defined in the [/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk-dahdi-channel-conf).
 
 #:warning: if you use a BRI card you MUST use per-port dahdi groups. You should not
 use a group like g0 which spans over several spans.

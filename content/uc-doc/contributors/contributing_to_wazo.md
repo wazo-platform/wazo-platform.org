@@ -16,7 +16,7 @@ can be a daunting task.
 
 The [Wazo developers page](http://developers.wazo.io/) can help you find
 which repository you should be working on.
-[Asking for help](/uc-doc/contributors/contributing_to_wazo#asking_for_help) is always an option when
+[Asking for help](/uc-doc/contributors/contributing_to_wazo#asking-for-help) is always an option when
 looking at the less popular corners of the source code.
 
 You can then

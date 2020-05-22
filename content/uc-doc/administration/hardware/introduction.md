@@ -85,7 +85,7 @@ and are applied to the given channels when it reads a line `channel =>`.
 
 Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
 
--   in groups 0 and 11 (see [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf))
+-   in groups 0 and 11 (see [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf))
 -   in context `from-extern` : all calls received on these channels will
     be sent in the context `from-extern`
 -   and configured with switchtype `euroisdn` and signalling `pri_cpe`

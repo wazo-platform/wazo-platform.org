@@ -145,7 +145,7 @@ exhaustive list):
         an Outgoing Call
 
     This variable is used by wazo-agid when
-    [selecting the ringtone](/uc-doc/system/configuration_files#xivo_ring.conf)
+    [selecting the ringtone](/uc-doc/system/configuration_files#xivo-ring.conf)
     for ringing a user. This variable is available only in
     user subroutines.
 

@@ -59,7 +59,7 @@ Next step
 
 Now that you have loaded the correct module for your card you must:
 
-1.  check if you need to follow one of the [Specific configuration](/uc-doc/administration/hardware/load_modules#dahdi_modules_specific_conf) sections below,
+1.  check if you need to follow one of the [Specific configuration](/uc-doc/administration/hardware/load_modules#dahdi-modules-specific-conf) sections below,
 2.  and continue with the next configuration step which is to
     [configure the echo canceller](/uc-doc/administration/hardware/echo_canceller).
 

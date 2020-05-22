@@ -90,7 +90,7 @@ ANALYZE automatically (after 1 minute). This command marks memory as
 reusable but does not actually free disk space, which is fine if your
 disk is not getting full. In the case when `wazo-purge-db` hasn\'t run
 for a long time (e.g. upgrading to 15.11 or when
-[days_to_keep](/uc-doc/system/purge_logs#purge_logs_config_file) is
+[days_to_keep](/uc-doc/system/purge_logs#purge-logs-config-file) is
 decreased), some administrator may want to perform a
 [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL
 to recover disk space.

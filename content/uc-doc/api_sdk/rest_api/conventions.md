@@ -33,7 +33,7 @@ definition](http://www.iana.org/assignments/http-status-codes/http-status-codes.
 -   415: Unsupported media type
 -   500: Internal server error
 
-See also [Errors](/uc-doc/api_sdk/rest_api/conventions#rest_api_errors) for general
+See also [Errors](/uc-doc/api_sdk/rest_api/conventions#rest-api-errors) for general
 explanations about error codes.
 
 General URL parameters

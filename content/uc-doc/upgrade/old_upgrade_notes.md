@@ -857,7 +857,7 @@ information:
     Roadmap](https://projects.wazo.community/versions/227)
 -   The call records older than 365 days will be periodically removed.
     The first automatic purge will occur in the night after the upgrade.
-    See [wazo-purge-db](/uc-doc/system/log_files#purge_logs) for more details.
+    See [wazo-purge-db](/uc-doc/system/log_files#purge-logs) for more details.
 
 ### 15.10
 

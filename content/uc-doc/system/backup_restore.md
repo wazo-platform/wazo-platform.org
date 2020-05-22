@@ -187,7 +187,7 @@ To restore the file :
     tar xvfp /var/backups/xivo/data.tgz -C /
 
 Once the database and files have been restored, you can
-[finalize the restore](/uc-doc/system/backup_restore#after_restore)
+[finalize the restore](/uc-doc/system/backup_restore#after-restore)
 
 Restoring the Database
 ----------------------
@@ -199,7 +199,7 @@ Restoring the Database
 -   If restoring Wazo >= 18.01 on a different machine, you should not
     restore the system configuration, because of network interface names
     that would change. See
-    [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore_keep_system_config).
+    [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore-keep-system-config).
 
 Database backups are created as `db.tgz`
 files in the `/var/backups/xivo`
@@ -221,12 +221,12 @@ Drop the asterisk database and restore it with the one from the backup:
     sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 
 Once the database and files have been restored, you can
-[finalize the restore](/uc-doc/system/backup_restore#after_restore)
+[finalize the restore](/uc-doc/system/backup_restore#after-restore)
 
 ### Troubleshooting {#troubleshooting}
 
 When restoring the database, if you encounter problems related to the
-system locale, see [PostgreSQL localization errors](/uc-doc/troubleshooting#postgresql_localization_errors).
+system locale, see [PostgreSQL localization errors](/uc-doc/troubleshooting#postgresql-localization-errors).
 
 Alternative: Restoring and Keeping System Configuration {#restore_keep_system_config}
 -------------------------------------------------------
@@ -256,7 +256,7 @@ hostname, network interfaces, etc. You will need to reapply the network
 configuration if you restore the data.tgz file.
 
 Once the database and files have been restored, you can
-[finalize the restore](/uc-doc/system/backup_restore#after_restore)
+[finalize the restore](/uc-doc/system/backup_restore#after-restore)
 
 After Restoring The System {#after_restore}
 --------------------------

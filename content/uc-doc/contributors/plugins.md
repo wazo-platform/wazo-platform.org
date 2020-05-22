@@ -70,7 +70,7 @@ debian_depends:
 
 ### rules {#rules}
 
-The [rules](/uc-doc/contributors/plugins#contribs_plugins) file is an
+The [rules](/uc-doc/contributors/plugins#contribs-plugins) file is an
 executable that will accept the following commands
 
 -   build
