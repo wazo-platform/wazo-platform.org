@@ -14,7 +14,7 @@ export default () => (
         <p className="intro">An Open Source project to build your own IP telecom platform</p>
         <div className="btns">
           <Link className="btn btn-cta-secondary" to="documentation">
-            Documentation
+            API Documentation
           </Link>
           <Link className="btn btn-cta-primary" to="use-cases">
             Install
