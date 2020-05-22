@@ -31,11 +31,11 @@ Our commitment to open source software is the most convenient lever to have the 
 
 In this perspective, we have decided to share the needed building blocks to build tailored communication solutions. These building blocks can be assembled, improved and packaged to create as many diverse applications as you want.
 
-Enter [Wazo Platform](http://wazo-platform.org): an API engine that gives all the API toolbox needed to manage a unified communication system. This engine offers many interfaces based on Web technologies: REST API, WebRTC, Websockets and Webhooks.
+Enter [Wazo Platform](/): an API engine that gives all the API toolbox needed to manage a unified communication system. This engine offers many interfaces based on Web technologies: REST API, WebRTC, Websockets and Webhooks.
 
 ## Where do I start building with Wazo Platform?
 
-The complete documentation is available [here](http://wazo-platform.org/documentation) and there is an example of using the API in the [install documentation](http://wazo-platform.org/install).
+The complete documentation is available [here](/documentation) and there is an example of using the API in the [install documentation](/install).
 We certainly are looking forward to seeing what you will build!
 
 ## Wazo was Free Software. How about Wazo Platform?
@@ -50,11 +50,11 @@ Wazo 18.03 had a pseudo-multi-tenancy feature via the concept of Entities. Howev
 
 We are releasing Wazo Platform 19.13. The main changes from Wazo 18.03 are:
 
-- A lot more [APIs are available](http://wazo-platform.org/documentation) to build web, mobile and desktop applications and third-party software integrations
+- A lot more [APIs are available](/documentation) to build web, mobile and desktop applications and third-party software integrations
 
 - ISO images have been replaced with an [Ansible recipe](https://github.com/wazo-platform/wazo-ansible).
 
-- Wazo Platform offers [multiple SDKs](http://wazo-platform.org/documentation#wazo-client-sdk) to build applications. There is no longer a built-in client like the Wazo Client.
+- Wazo Platform offers [multiple SDKs](/documentation#wazo-client-sdk) to build applications. There is no longer a built-in client like the Wazo Client.
 
 - The administration web interface is optional and disabled by default (see below how to enable it)
 
