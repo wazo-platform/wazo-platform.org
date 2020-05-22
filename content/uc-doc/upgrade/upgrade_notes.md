@@ -2,7 +2,7 @@
 title: Upgrade notes
 ---
 
-## 20.07 {#20-06}
+## 20.07 {#20-07}
 
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
   to proxy communication with wazo-platform services. To follow this change, the listen address has
