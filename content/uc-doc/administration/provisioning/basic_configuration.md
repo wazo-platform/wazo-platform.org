@@ -15,7 +15,7 @@ You may want to set up a DHCP server if you have a significant number of
 phones to connect, as no manual intervention will be required on each
 phone.
 
-<a name="dhcpd-config"></a>Configuring the DHCP Server
+Configuring the DHCP Server {#dhcpd-config}
 ===========================
 
 Wazo includes a DHCP server that facilitate the auto-provisioning of
@@ -53,7 +53,7 @@ information on the vendor website.
 
 It's good practice to only install the plugins you need and no more.
 
-<a name="alternative-plugins-repo"></a>Alternative plugins repository
+Alternative plugins repository {#alternative-plugins-repo}
 ------------------------------
 
 By default, the list of plugins available for installation are the
@@ -175,7 +175,7 @@ user: possibilities :
 The phone will restarts and display autoprov, ready to be used for
 another user.
 
-<a name="reset-to-autoprov-device"></a>From a Device
+From a Device {#reset-to-autoprov-device}
 -------------
 
 -   Dial ***guest** (*48378) on the phone dialpad followed by

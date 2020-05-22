@@ -21,7 +21,7 @@ At the end of this page you will also find some general notes and DAHDI.
 Notes on configuration files
 ============================
 
-<a name="system_conf"></a>/etc/dahdi/system.conf
+/etc/dahdi/system.conf {#system-conf}
 ----------------------
 
 A *span* is created for each card port. Below is an example of a
@@ -64,7 +64,7 @@ information should be checked with your operator.
 This file contains the general parameters of the DAHDI channel. It is
 not generated via the `dahdi_genconf` command.
 
-<a name="asterisk_dahdi_channel_conf"></a>/etc/asterisk/dahdi-channels.conf
+/etc/asterisk/dahdi-channels.conf {#asterisk-dahdi-channel-conf}
 ---------------------------------
 
 This file contains the parameters of each channel. It is generated via
@@ -85,7 +85,7 @@ and are applied to the given channels when it reads a line `channel =>`.
 
 Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
 
--   in groups 0 and 11 (see [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf))
+-   in groups 0 and 11 (see [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf))
 -   in context `from-extern` : all calls received on these channels will
     be sent in the context `from-extern`
 -   and configured with switchtype `euroisdn` and signalling `pri_cpe`

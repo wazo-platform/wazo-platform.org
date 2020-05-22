@@ -73,7 +73,7 @@ setup(
 )
 ```
 
-<a name="dird-back-end"></a>Back-End
+Back-End {#dird-back-end}
 ========
 
 Back-ends are used to query directories. Each back-end implements a way
@@ -167,7 +167,7 @@ class DummyBackendPlugin(object):
         return ''.join(random.choice(string.lowercase) for _ in xrange(5))
 ```
 
-<a name="dird-service"></a>Service
+Service {#dird-service}
 =======
 
 Service plugins add new functionality to the dird server. These
@@ -248,7 +248,7 @@ class DummyService(object):
         return []
 ```
 
-<a name="dird-view"></a>View
+View {#dird-view}
 ====
 
 View plugins add new routes to the HTTP application in wazo-dird, in

@@ -22,7 +22,7 @@ the PBX directly if the Wazo goes down.
 Wazo **does not offer natively** the possibility to configure Berofos in
 this failover mode. The [Berofos Integration with PBX](/uc-doc/troubleshooting#berofos-integration-with-pbx) section describes a workaround.
 
-<a name="berofos-installation-and-configuration"></a>Installation and Configuration
+Installation and Configuration {#berofos-installation-and-configuration}
 ==============================
 
 Master Configuration
@@ -177,7 +177,7 @@ Logical view:
 
 > -- Provider ----| wazo-1 | -- ISDN Interconnection --| PBX | -- Phones
 >
-> :   
+> :
 >
 >     +--------+ +-----+
 >

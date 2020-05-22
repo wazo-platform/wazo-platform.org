@@ -12,7 +12,7 @@ interact with Wazo. In order to access the REST APIs of Wazo, you need:
 -   a browser
 -   somewhere you can copy-paste text (ids, tokens, etc.)
 
-<a name="rest-api-acl"></a>REST API Permissions
+REST API Permissions {#rest-api-acl}
 ====================
 
 First of all, you must have permission to use the REST API. Create a

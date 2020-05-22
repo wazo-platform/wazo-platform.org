@@ -86,15 +86,15 @@ Next step
 Now that you have configured your PRI card:
 
 1.  you must check if you need to follow one of the
-    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#analog_card_specific_conf) sections
+    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#analog-card-specific-conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
     to the [configure your card](/uc-doc/administration/hardware/card_configuration) section,
 3.  if you have configured all your card you have to configure the
-    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf) in the web
     interface.
 
-<a name="analog_card_specific_conf"></a>Specific configuration
+Specific configuration {#analog-card-specific-conf}
 ======================
 
 FXS modules

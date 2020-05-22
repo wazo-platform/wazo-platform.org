@@ -2,9 +2,9 @@
 title: Style Guide
 ---
 
-## <a name="syntax"></a>Syntax
+## Syntax {#syntax}
 
-### <a name="license"></a>License
+### License {#license}
 
 Python files start with a UTF8 encoding comment and the GPLv3 license. A
 blank line should separate the license from the imports
@@ -17,7 +17,7 @@ Example:
 
     import argparse
 
-### <a name="spacing"></a>Spacing
+### Spacing {#spacing}
 
 -   Lines should not go further than 80 to 100 characters.
 -   In python, indentation blocks use 4 spaces
@@ -37,7 +37,7 @@ Example:
     from StringIO import StringIO
     from urllib import urlencode
 
-### <a name="pep8"></a>PEP8
+### PEP8 {#pep8}
 
 When possible, use pep8 to validate your code. Generally, the following
 errors are ignored :
@@ -64,7 +64,7 @@ Good Example:
                                .filter(User.number == number)
                                .all())
 
-### <a name="strings"></a>Strings
+### Strings {#strings}
 
 Avoid using the [+]{.title-ref} operator for concatenating strings. Use
 string interpolation instead.
@@ -77,7 +77,7 @@ Good Example:
 
     phone_interface = "SIP/%s-%s" % (username, password)
 
-### <a name="comments"></a>Comments
+### Comments {#comments}
 
 Redundant comments should be avoided. Instead, effort should be put on
 making the code clearer.
@@ -97,7 +97,7 @@ Good Example:
     if created_on_week_day(meeting):
         calendar.add(meeting)
 
-### <a name="conditions"></a>Conditions
+### Conditions {#conditions}
 
 Avoid using parenthesis around if statements, unless the statement
 expands on multiple lines or you need to nest your conditions.
@@ -145,7 +145,7 @@ Good Example:
     if final_price < money:
         product.pay(money)
 
-## <a name="naming"></a>Naming
+## Naming {#naming}
 
 > -   Class names are in `CamelCase`
 > -   File names are in `lower_underscore_case`
@@ -197,7 +197,7 @@ Example:
 
         return user_search
 
-### <a name="magic-numbers"></a>Magic numbers
+### Magic numbers {#magic-numbers}
 
 Magic numbers should be avoided. Arbitrary values should be assigned to
 variables with a clear name
@@ -228,7 +228,7 @@ Good example:
             self.assertEquals(rank.grade, grade)
             self.assertEquals(rank.session, session)
 
-## <a name="tests"></a>Tests
+## Tests {#tests}
 
 Tests for a package are placed in their own folder named \"tests\"
 inside the package.
@@ -290,7 +290,7 @@ Example:
 
             self._assert_users_are_equal(expected, user)
 
-## <a name="exceptions"></a>Exceptions
+## Exceptions {#exceptions}
 
 Exceptions should not be used for flow control. Raise exceptions only
 for edge cases, or when something that isn\'t usually expected happens.

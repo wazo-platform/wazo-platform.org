@@ -17,6 +17,7 @@
     "gatsby": "^2.4.3",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-remark-autolink-headers": "^2.3.0",
     "gatsby-remark-emojis": "^0.4.2",
     "gatsby-source-filesystem": "^2.0.34",
     "gatsby-transformer-remark": "^2.6.53",

@@ -11,7 +11,7 @@ title: Archived Upgrade Notes
     environments without NAT.
     -   In the rare cases where you want to keep `nat=no` you must
         explicitly change this value in the administation interface
-        `Services --> IPBX --> General Settings --> SIP Protocol`{.interpreted-text role="menuselection"} 
+        `Services --> IPBX --> General Settings --> SIP Protocol`{.interpreted-text role="menuselection"}
         in tab [Default]{.title-ref}. See
         [Asterisk sip.conf
         sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
@@ -278,7 +278,7 @@ information.
 ### 17.02
 
 -   A few more services are now available by default on port TCP/443
-    (the complete list is documented in the [Nginx](/uc-doc/system/nginx) 
+    (the complete list is documented in the [Nginx](/uc-doc/system/nginx)
     section). This does not pose any additional security
     risk by default, but if you have extra strict requirements about
     security, they can be manually disabled.
@@ -434,7 +434,7 @@ information.
 
 -   cti-protocol is now in version *2.2*
 -   Some
-    [security features have been added to the XiVO provisioning server](/uc-doc/administration/provisioning/adv_configuration#provd-security). 
+    [security features have been added to the XiVO provisioning server](/uc-doc/administration/provisioning/adv_configuration#provd-security).
     To benefit from these new features, you'll need to
     [update your xivo-provd plugins to meet the system requirements](/uc-doc/administration/provisioning/adv_configuration#provd-security-requirements).
 
@@ -741,7 +741,7 @@ Roadmap](https://projects.wazo.community/versions/232)
     updated. No action is required for "normal" installations.
 -   Voicemails can now be deleted even if they are associated to a user.
 
-## <a name="upgrade_notes_15_15"></a>15.15
+## 15.15 {#upgrade-notes-15-15}
 
 Consult the [15.15 Roadmap](https://projects.wazo.community/versions/231)
 
@@ -833,7 +833,7 @@ information:
 
 - [15.13/asterisk_13](/uc-doc/upgrade/upgrade_notes_details/15-13/asterisk_13)
 
-### <a name="upgrade-note-15.12"></a>15.12
+### 15.12 {#upgrade-note-15.12}
 
 -   Consult the [15.12
     Roadmap](https://projects.wazo.community/versions/228)
@@ -857,7 +857,7 @@ information:
     Roadmap](https://projects.wazo.community/versions/227)
 -   The call records older than 365 days will be periodically removed.
     The first automatic purge will occur in the night after the upgrade.
-    See [wazo-purge-db](/uc-doc/system/log_files#purge_logs) for more details.
+    See [wazo-purge-db](/uc-doc/system/log_files#purge-logs) for more details.
 
 ### 15.10
 

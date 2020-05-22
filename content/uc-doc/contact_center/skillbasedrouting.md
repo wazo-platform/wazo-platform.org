@@ -173,7 +173,7 @@ Logical operators:
 the lower priority. You can use parentheses \'()\' to change the
 priority of operations.
 
-<a name="skill-dynamic-part"></a>Dynamic Part
+Dynamic Part {#skill-dynamic-part}
 ------------
 
 The dynamic part can reference the following variables:
@@ -195,7 +195,7 @@ Examples
 
 -   WT \< 60
 
-<a name="skill-skill-part"></a>Skill Part
+Skill Part {#skill-skill-part}
 ----------
 
 The skill part can reference any skills name as variables.
@@ -216,7 +216,7 @@ Examples
 -   technic ! 0 & (\$os \> 29 & \$lang \> 39 \| \$os \> 39 &
     \$lang \> 19)
 
-<a name="skill-evaluation"></a>Evaluation
+Evaluation {#skill-evaluation}
 ----------
 
 Note that the expression:
@@ -271,7 +271,7 @@ following expressions are not accepted:
 -   english \< french (the second operand must be a constant)
 -   10 \< 11 (the first operand must be a variable name)
 
-<a name="skill-apply"></a>Apply Skill Rule Sets
+Apply Skill Rule Sets {#skill-apply}
 =====================
 
 A skill rule set is attached to a call using an incoming call.

@@ -65,12 +65,12 @@ Next step
 Now that you have loaded the correct module for your card you must:
 
 1.  check if you need to follow one of the
-    [Specific configuration](/uc-doc/administration/hardware/echo_canceller#echo_can_specific_conf) sections
+    [Specific configuration](/uc-doc/administration/hardware/echo_canceller#echo-can-specific-conf) sections
     below,
 2.  and continue with the next configuration step which is to
     [configure your card](/uc-doc/administration/hardware/card_configuration) according to the operator links.
 
-<a name="echo_can_specific_conf"></a>Specific configuration
+Specific configuration {#echo-can-specific-conf}
 ======================
 
 This section describes some specific configuration. You should not

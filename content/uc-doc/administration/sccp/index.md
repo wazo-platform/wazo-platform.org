@@ -2,7 +2,7 @@
 title: SCCP Configuration
 ---
 
-<a name="provisioning"></a>Provisioning
+Provisioning
 ============
 
 To be able to provision SCCP phones you should :
@@ -88,7 +88,7 @@ SCCP Phones support directmedia (direct RTP).
 
 -   `PUT /asterisk/sccp/general` options `directmedia: yes`
 
-<a name="sccp-features"></a>Features
+Features {#sccp-features}
 ========
 
   ------------------------------------------

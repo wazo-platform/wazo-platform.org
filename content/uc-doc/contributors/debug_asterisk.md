@@ -2,7 +2,7 @@
 title: Debugging Asterisk
 ---
 
-## <a name="precondition"></a>Precondition
+## Precondition {#precondition}
 
 To debug asterisk crashes or freezes, you need the following debug
 packages on your Wazo:
@@ -57,7 +57,7 @@ packages on your Wazo:
 |   |            |            |            | ch         | r          |
 +---+------------+------------+------------+------------+------------+
 
-## <a name="so-there-is-a-problem-with-asterisk.-now-what"></a>So There is a Problem with Asterisk. Now What ?
+## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
 
 1.  Find out the time of the incident from the people most likely to
     know
@@ -101,7 +101,7 @@ packages on your Wazo:
         sensitive information like passwords and should only be shared
         with people you trust.
 
-## <a name="debugging-asterisk-crash"></a>Debugging Asterisk Crash
+## Debugging Asterisk Crash {#debugging-asterisk-crash}
 
 When asterisk crashes, it usually leaves a core file in
 `/var/spool/asterisk/`{.interpreted-text role="file"}.
@@ -110,7 +110,7 @@ You can create a backtrace from a core file named `core_file` with:
 
     gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file > bt-threads.txt
 
-## <a name="debugging-asterisk-freeze"></a>Debugging Asterisk Freeze
+## Debugging Asterisk Freeze {#debugging-asterisk-freeze}
 
 You can create a backtrace of a running asterisk process with:
 
@@ -129,7 +129,7 @@ Optionally, other information that can be interesting:
 -   the output of `asterisk -rx 'core show channels'`
 -   the verbose log of asterisk just before the freeze
 
-## <a name="recompiling-asterisk"></a>Recompiling Asterisk
+## Recompiling Asterisk {#recompiling-asterisk}
 
 It\'s relatively straightforward to recompile the asterisk version of
 your Wazo with the DEBUG\_THREADS and DONT\_OPTIMIZE flag, which make
@@ -169,7 +169,7 @@ The steps are:
 This will create a couple of .deb files in the parent directory, which
 you can install via dpkg.
 
-### <a name="recompiling-a-vanilla-version-of-asterisk-wazo-17.17"></a>Recompiling a vanilla version of Asterisk (Wazo \< 17.17)
+### Recompiling a vanilla version of Asterisk (Wazo \< 17.17) {#recompiling-a-vanilla-version-of-asterisk-wazo-17.17}
 
 It is sometimes useful to produce a \"vanilla\" version of Asterisk,
 i.e. a version of Asterisk that has none of the Wazo patches applied, to
@@ -196,7 +196,7 @@ When installing a vanilla version of Asterisk on a XiVO 16.08 or
 earlier, you\'ll need to stop monit, otherwise it will restart asterisk
 every few minutes.
 
-### <a name="recompiling-a-vanilla-version-of-asterisk-wazo-19.13"></a>Recompiling a vanilla version of Asterisk (Wazo \>= 19.13)
+### Recompiling a vanilla version of Asterisk (Wazo \>= 19.13) {#recompiling-a-vanilla-version-of-asterisk-wazo-19.13}
 
 It is sometimes useful to produce a \"vanilla\" version of Asterisk,
 i.e. a version of Asterisk that has none of the Wazo patches applied, to
@@ -240,7 +240,7 @@ your current version of Wazo):
     xivo-fix-paths-rights
     wazo-dist -m pelican-buster
 
-## <a name="running-asterisk-under-valgrind"></a>Running Asterisk under Valgrind
+## Running Asterisk under Valgrind {#running-asterisk-under-valgrind}
 
 1.  Install valgrind:
 
@@ -278,7 +278,7 @@ explicitly unload it before terminating asterisk.
 Running asterisk under valgrind takes a lots of extra memory, so make
 sure you have enough RAM.
 
-## <a name="external-links"></a>External links
+## External links {#external-links}
 
 -   <https://wiki.asterisk.org/wiki/display/AST/Debugging>
 -   <http://blog.wazo.community/visualizing-asterisk-deadlocks.html>

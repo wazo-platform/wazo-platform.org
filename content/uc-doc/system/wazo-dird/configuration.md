@@ -4,7 +4,7 @@ title: 'wazo-dird configuration'
 
 -   [Main Configuration File](#main-configuration-file)
     -   [Root section](#root-section)
-    -   [enabled\_plugins section](#enabled_plugins-section)
+    -   [enabled\_plugins section](#enabled-plugins-section)
 
 There are three sources of configuration for wazo-dird:
 
@@ -15,7 +15,7 @@ There are three sources of configuration for wazo-dird:
 The command-line options have priority over the main configuration file
 options.
 
-Main Configuration File
+Main Configuration File {#main-configuration-file}
 =======================
 
 Default location: `/etc/wazo-dird/config.yml`. Format: YAML
@@ -44,7 +44,7 @@ enabled_plugins:
        default_json: true
 ```
 
-Root section
+Root section {#root-section}
 ------------
 
 debug
@@ -73,7 +73,7 @@ user
 
 :   The owner of the process. Default: `www-data`.
 
-enabled\_plugins section
+enabled\_plugins section {#enabled-plugins-section}
 ------------------------
 
 This sections controls which plugins are to be loaded at wazo-dird

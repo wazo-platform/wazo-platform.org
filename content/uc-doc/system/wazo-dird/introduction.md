@@ -10,7 +10,7 @@ extendable with plugins.
 - [Developer's](/uc-doc/system/wazo-dird/developer)
 - [Stock Plugins Documentation](/uc-doc/system/wazo-dird/stock_plugins)
 
-<a name="wazo-dird-usage"></a>Launching wazo-dird
+Launching wazo-dird {#wazo-dird-usage}
 ===================
 
     usage: wazo-dird [-h] [-c CONFIG_FILE] [-d] [-f] [-l LOG_LEVEL] [-u USER]
@@ -45,7 +45,7 @@ times to query multiple directories of the same type. For example, I
 could have the customer-csv and the employee-csv sources, each using the
 CSV back-end, but reading a different file.
 
-<a name="developing_plugins"></a>Plugins
+Plugins {#developing-plugins}
 -------
 
 A plugin is an extension point in wazo-dird. It is a way to add or

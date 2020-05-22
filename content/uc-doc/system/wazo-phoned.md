@@ -16,7 +16,7 @@ parameters:
 
 -   `xivo_user_uuid`: The Wazo user uuid that the phone is
     associated. It's used to search through personal contacts (see
-    [personal](/uc-doc/system/wazo-dird/stock_plugins#dird_services_personal)).
+    [personal](/uc-doc/system/wazo-dird/stock_plugins#dird-services-personal)).
 -   `profile`: The profile that the user is associated. It's used to
     format results as configured.
 

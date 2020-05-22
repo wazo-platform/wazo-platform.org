@@ -12,7 +12,7 @@ The procedure is:
 2.  [Install](/uc-doc/installation/install-system) a Wazo `amd64`
     **using the same version as the upgraded Wazo i386**
 3.  Make a backup of your Wazo `i386` by following the
-    [backup procedure](/uc-doc/system/backup_restore#manual_backup)
+    [backup procedure](/uc-doc/system/backup_restore#manual-backup)
 4.  Copy the backup tarballs to the Wazo `amd64`
 5.  Restore the backup by following the
     [restore procedure](/uc-doc/system/backup_restore#restore)

@@ -11,7 +11,7 @@ database used by Wazo. This operation should take at most a few minutes.
 
 After the upgrade, the system will need to be rebooted.
 
-## <a name="before-the-upgrade"></a>Before the upgrade
+## Before the upgrade {#before-the-upgrade}
 
 -   Make sure your have sufficient space for the upgrade. You might run
     into trouble if you have less than 2 GiB available in the file
@@ -38,7 +38,7 @@ After the upgrade, the system will need to be rebooted.
         upgrade. You can see a list of these files by running
         `find /etc -name '*.dpkg-old' -o -name '*.dpkg-dist' -o -name '*.dpkg-new'`.
 
-## <a name="upgrade"></a>Upgrade
+## Upgrade {#upgrade}
 
 The upgrade must be done with three commands:
 
@@ -58,7 +58,7 @@ the upgrade with:
     wazo-upgrade -d
     wazo-dist-upgrade -d
 
-## <a name="after-the-upgrade"></a>After the upgrade
+## After the upgrade {#after-the-upgrade}
 
 -   Check that customization to your configuration files is still
     effective.
@@ -85,7 +85,7 @@ the upgrade with:
 -   Reboot your system. It is necessary for the new Linux kernel to be
     effective.
 
-## <a name="changes"></a>Changes
+## Changes {#changes}
 
 Here\'s a non-exhaustive list of changes that comes with Wazo on Debian
 9:
@@ -98,7 +98,7 @@ Here\'s a non-exhaustive list of changes that comes with Wazo on Debian
     and then tries PCI card slot numbers, producing names like `ens0` or
     `enp1s1`.
 
-## <a name="external-links"></a>External Links
+## External Links {#external-links}
 
 -   [Official Debian 9 release
     notes](https://www.debian.org/releases/stretch/releasenotes)

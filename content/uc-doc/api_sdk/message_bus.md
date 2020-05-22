@@ -2,71 +2,6 @@
 title: Message Bus
 ---
 
--   [Usage](#usage)
-    -   [Websocket](#websocket)
-    -   [Direct AMQP connection](#direct-amqp-connection)
-    -   [Example](#example)
-    -   [Notes](#notes)
--   [Changelog](#bus-changelog)
-    -   [19.05](#section)
-    -   [19.04](#section-1)
-    -   [19.03](#section-2)
-    -   [19.02](#section-3)
-    -   [18.04](#section-4)
-    -   [18.02](#section-5)
-    -   [17.17](#section-6)
-    -   [17.16](#section-7)
-    -   [17.14](#section-8)
-    -   [17.08](#section-9)
-    -   [17.01](#section-10)
-    -   [16.08](#section-11)
-    -   [16.07](#section-12)
-    -   [15.20](#section-13)
-    -   [15.17](#section-14)
--   [Events](#bus-events)
-    -   [AMI events](#bus-ami_events)
-    -   [auth\_user\_external\_auth\_added](#bus-external-auth-added)
-    -   [auth\_user\_external\_auth\_authorized](#bus-external-auth-authorized)
-    -   [auth\_user\_external\_auth\_deleted](#bus-external-auth-deleted)
-    -   [auth\_tenant\_created](#bus-auth-tenant-created)
-    -   [auth\_tenant\_deleted](#bus-auth-tenant-deleted)
-    -   [auth\_tenant\_updated](#bus-auth-tenant-updated)
-    -   [call\_form\_result](#bus-call_form_result)
-    -   [agent\_status\_update](#bus-agent_status_update)
-    -   [call\_created, call\_updated, call\_ended](#bus-call_created)
-    -   [call\_held](#bus-call_held_event)
-    -   [call\_resumed](#bus-call_resumed_event)
-    -   [conference\_participant\_joined](#bus-conference-participant-joined)
-    -   [conference\_participant\_left](#bus-conference-participant-left)
-    -   [conference\_participant\_muted](#bus-conference-participant-muted)
-    -   [conference\_participant\_unmuted](#bus-conference-participant-unmuted)
-    -   [conference\_record\_started](#bus-conference-record-started)
-    -   [conference\_record\_stopped](#bus-conference-record-stopped)
-    -   [conference\_participant\_talk\_started](#bus-conference-participant-talk-started)
-    -   [conference\_participant\_talk\_stopped](#bus-conference-participant-talk-stopped)
-    -   [favorite\_added](#bus-favorite_added)
-    -   [favorite\_deleted](#bus-favorite_deleted)
-    -   [fax\_outbound\_created](#fax-outbound-created)
-    -   [fax\_outbound\_user\_created](#fax-outbound-user-created)
-    -   [fax\_outbound\_succeeded](#fax-outbound-succeeded)
-    -   [fax\_outbound\_user\_succeeded](#fax-outbound-user-succeeded)
-    -   [fax\_outbound\_failed](#fax-outbound-failed)
-    -   [fax\_outbound\_user\_failed](#fax-outbound-user-failed)
-    -   [plugin\_install\_progress](#bus-plugin_install_progress)
-    -   [plugin\_uninstall\_progress](#bus-plugin_uninstall_progress)
-    -   [relocate\_initiated](#bus-relocate_initiated)
-    -   [relocate\_answered](#bus-relocate_answered)
-    -   [relocate\_completed](#bus-relocate_completed)
-    -   [relocate\_ended](#bus-relocate_ended)
-    -   [user\_created](#bus-user_created)
-    -   [user\_deleted](#bus-user_deleted)
-    -   [user\_edited](#bus-user_edited)
-    -   [[users\_forwards]()\<forward\_name\>\_updated](#bus-users_forwards_forward_updated)
-    -   [[users\_services]()\<service\_name\>\_updated](#bus-users_services_service_updated)
-    -   [service\_registered\_event](#bus-service_registered_event)
-    -   [service\_deregistered\_event](#bus-service_deregistered_event)
-    -   [user\_voicemail\_message\_created](#user_voicemail_message_created)
-
 The message bus is used to receive events from Wazo. It is provided by
 an
 [AMQP](http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)
@@ -105,7 +40,7 @@ Example
 -------
 
 Here\'s an example of a simple client, in python, listening for
-[call_created, call_updated, call_ended](/uc-doc/api_sdk/message_bus#bus-call_created) events:
+[call_created, call_updated, call_ended](/uc-doc/api_sdk/message_bus#bus-call-created) events:
 
     import kombu
 
@@ -150,7 +85,7 @@ Things to be aware when writing a client/consumer:
 -   The published messages are not persistent. When the AMQP broker
     stops, the messages that are still in queues will be lost.
 
-<a name="bus-changelog"></a>Changelog
+Changelog {#bus-changelog}
 =========
 
 19.05
@@ -217,10 +152,10 @@ Things to be aware when writing a client/consumer:
 -----
 
 -   The following messages have been added:
-    -   [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate_initiated)
-    -   [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate_answered)
-    -   [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate_completed)
-    -   [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate_ended)
+    -   [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate-initiated)
+    -   [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate-answered)
+    -   [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate-completed)
+    -   [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate-ended)
 
 17.14
 -----
@@ -232,25 +167,25 @@ Things to be aware when writing a client/consumer:
 17.08
 -----
 
--   The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin_install_progress) bus
+-   The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin-install-progress) bus
     message has been added.
--   The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin_uninstall_progress)
+-   The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin-uninstall-progress)
     bus message has been added.
 
 17.01
 -----
 
--   The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite_added) bus message
+-   The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite-added) bus message
     has been added.
--   The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite_deleted) bus message
+-   The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message
     has been added.
 
 16.08
 -----
 
--   The [call_held](/uc-doc/api_sdk/message_bus#bus-call_held_event) bus message
+-   The [call_held](/uc-doc/api_sdk/message_bus#bus-call-held-event) bus message
     has been added.
--   The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call_resumed_event) bus
+-   The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call-resumed-event) bus
     message has been added.
 -   The user\_status\_update bus message now uses the user\'s UUID
     instead of the user\'s ID.
@@ -258,11 +193,11 @@ Things to be aware when writing a client/consumer:
 16.07
 -----
 
--   The [user_created](/uc-doc/api_sdk/message_bus#bus-user_created) bus message has
+-   The [user_created](/uc-doc/api_sdk/message_bus#bus-user-created) bus message has
     been added.
--   The [user_edited](/uc-doc/api_sdk/message_bus#bus-user_edited) bus message has
+-   The [user_edited](/uc-doc/api_sdk/message_bus#bus-user-edited) bus message has
     been added.
--   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user_deleted) bus message has
+-   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has
     been added.
 
 15.20
@@ -273,11 +208,11 @@ Things to be aware when writing a client/consumer:
 15.17
 -----
 
--   The [service_registered_event](/uc-doc/api_sdk/message_bus#bus-service_registered_event) and
-    [service_deregistered_event](/uc-doc/api_sdk/message_bus#bus-service_deregistered_event) bus
+-   The [service_registered_event](/uc-doc/api_sdk/message_bus#bus-service-registered-event) and
+    [service_deregistered_event](/uc-doc/api_sdk/message_bus#bus-service-deregistered-event) bus
     messages have been added.
 
-<a name="bus-events"></a>Events
+Events {#bus-events}
 ======
 
 Events that are sent to the bus use a JSON serialization format with the
@@ -312,7 +247,7 @@ data
 :   The data specific part of the event. This is documented on a per
     event type; if not this is assumed to be null.
 
-<a name="bus-ami_events"></a>AMI events
+AMI events {#bus-ami-events}
 ----------
 
 All AMI events are broadcasted on the bus.
@@ -341,7 +276,7 @@ Example event with binding key QueueMemberStatus:
         }
     }
 
-<a name="bus-external-auth-added"></a>auth\_user\_external\_auth\_added
+auth\_user\_external\_auth\_added {#bus-external-auth-added}
 ---------------------------------
 
 This event is sent when a user adds an external authentication to its
@@ -364,7 +299,7 @@ Example:
       }
     }
 
-<a name="bus-external-auth-authorized"></a>auth\_user\_external\_auth\_authorized
+auth\_user\_external\_auth\_authorized {#bus-external-auth-authorized}
 --------------------------------------
 
 This event is sent when a user authorizes an oauth2 request on an
@@ -387,7 +322,7 @@ Example:
       }
     }
 
-<a name="bus-external-auth-deleted"></a>auth\_user\_external\_auth\_deleted
+auth\_user\_external\_auth\_deleted {#bus-external-auth-deleted}
 -----------------------------------
 
 This event is sent when a user removes an external authentication from
@@ -410,7 +345,7 @@ Example:
       }
     }
 
-<a name="bus-auth-tenant-created"></a>auth\_tenant\_created
+auth\_tenant\_created {#bus-auth-tenant-created}
 ---------------------
 
 This event is published when a tenant is created
@@ -433,7 +368,7 @@ Example:
 }
 ```
 
-<a name="bus-auth-tenant-deleted"></a>auth\_tenant\_deleted
+auth\_tenant\_deleted {#bus-auth-tenant-deleted}
 ---------------------
 
 This event is published when a tenant is deleted
@@ -454,7 +389,7 @@ Example:
 }
 ```
 
-<a name="bus-auth-tenant-updated"></a>auth\_tenant\_updated
+auth\_tenant\_updated {#bus-auth-tenant-updated}
 ---------------------
 
 This event is published when a tenant is updated
@@ -477,7 +412,7 @@ Example:
 }
 ```
 
-<a name="bus-call_form_result"></a>call\_form\_result
+call\_form\_result {#bus-call-form-result}
 ------------------
 
 The call\_form\_result event is sent when a custom call form is
@@ -503,7 +438,7 @@ Example:
         }
     }
 
-<a name="bus-agent_status_update"></a>agent\_status\_update
+agent\_status\_update {#bus-agent-status-update}
 ---------------------
 
 The agent\_status\_update is sent when an agent is logged in or logged
@@ -530,7 +465,7 @@ Example:
         }
     }
 
-<a name="bus-call_created"></a>call\_created, call\_updated, call\_ended
+call\_created, call\_updated, call\_ended {#bus-call-created}
 -----------------------------------------
 
 The events `call_created`, `call_updated`, `call_ended` are sent when a
@@ -561,7 +496,7 @@ Example:
         }
     }
 
-<a name="bus-call_held_event"></a>call\_held
+call\_held {#bus-call-held-event}
 ----------
 
 This message is sent when a call is placed on hold
@@ -578,7 +513,7 @@ Example:
  "data": {"call_id": "1465572129.31"}}
 ```
 
-<a name="bus-call_resumed_event"></a>call\_resumed
+call\_resumed {#bus-call-resumed-event}
 -------------
 
 This message is sent when a call is resumed from hold
@@ -595,7 +530,7 @@ Example:
  "data": {"call_id": "1465572129.31"}}
 ```
 
-<a name="bus-conference-participant-joined"></a><a name="bus-conference-participant-left"></a>conference\_participant\_joined, conference\_participant\_left
+conference\_participant\_joined, conference\_participant\_left {#bus-conference-participant-joined}
 ----------------------------------------------------------------------------------------------------
 
 Those events are send when a participant joins or leaves a conference
@@ -640,7 +575,7 @@ Example:
 }
 ```
 
-<a name="bus-conference-participant-muted"></a><a name="bus-conference-participant-unmuted"></a>conference\_participant\_muted, conference\_participant\_unmuted
+conference\_participant\_muted, conference\_participant\_unmuted {#bus-conference-participant-muted}
 -----------------------------------------------------------------------------------------------------
 
 Those events are send when a participant joins or leaves a conference
@@ -680,7 +615,7 @@ Example:
 }
 ```
 
-<a name="bus-conference-record-started"></a><a name="bus-conference-record-stopped"></a>conference\_record\_started, conference\_record\_stopped
+conference\_record\_started, conference\_record\_stopped {#bus-conference-record-started}
 ------------------------------------------------------------------------------------------
 
 Those events are send when a participant joins or leaves a conference
@@ -706,7 +641,7 @@ Example:
 }
 ```
 
-<a name="bus-conference-participant-talk-started"></a><a name="bus-conference-participant-talk-stopped"></a>conference\_participant\_talk\_started, conference\_participant\_talk\_stopped
+conference\_participant\_talk\_started, conference\_participant\_talk\_stopped {#bus-conference-participant-talk-started}
 --------------------------------------------------------------------------------------------------------------------------
 
 Those events are send when a participant joins or leaves a conference
@@ -738,7 +673,7 @@ Example:
 }
 ```
 
-<a name="bus-favorite_added"></a>favorite\_added
+favorite\_added {#bus-favorite-added}
 ---------------
 
 The `favorite_added` event is published when a contact is marked as a
@@ -768,7 +703,7 @@ Example:
 }
 ```
 
-<a name="bus-favorite_deleted"></a>favorite\_deleted
+favorite\_deleted {#bus-favorite-deleted}
 -----------------
 
 The `favorite_deleted` event is published when a favorited contact is
@@ -798,7 +733,7 @@ Example:
 }
 ```
 
-<a name="fax-outbound-created"></a><a name="fax-outbound-user-created"></a>fax\_outbound\_created, fax\_outbound\_user\_created
+fax\_outbound\_created, fax\_outbound\_user\_created {#fax-outbound-created}
 -----------------------------------------------------------------------------
 
 Those event are published when a fax is being sent.
@@ -836,7 +771,7 @@ Example:
 }
 ```
 
-<a name="fax-outbound-succeeded"></a><a name="fax-outbound-user-succeeded"></a>fax\_outbound\_succeeded, fax\_outbound\_user\_succeeded
+fax\_outbound\_succeeded, fax\_outbound\_user\_succeeded {#fax-outbound-succeeded}
 -----------------------------------------------------------------------------------
 
 This event is published when a fax was successfully sent.
@@ -875,7 +810,7 @@ Example:
 }
 ```
 
-<a name="fax-outbound-failed"></a><a name="fax-outbound-user-failed"></a>fax\_outbound\_failed, fax\_outbound\_user\_failed
+fax\_outbound\_failed, fax\_outbound\_user\_failed {#fax-outbound-failed}
 --------------------------------------------------------------------------
 
 This event is published when a fax was successfully sent.
@@ -915,7 +850,7 @@ Example:
 }
 ```
 
-<a name="bus-plugin_install_progress"></a>plugin\_install\_progress
+plugin\_install\_progress {#bus-plugin-install-progress}
 -------------------------
 
 The [plugin\_install\_progress]{.title-ref} event is published during
@@ -941,7 +876,7 @@ Example:
 }
 ```
 
-<a name="bus-plugin_uninstall_progress"></a>plugin\_uninstall\_progress
+plugin\_uninstall\_progress {#bus-plugin-uninstall-progress}
 ---------------------------
 
 The [plugin\_uninstall\_progress]{.title-ref} event is published during
@@ -967,7 +902,7 @@ Example:
 }
 ```
 
-<a name="bus-relocate_initiated"></a><a name="bus-relocate_answered"></a><a name="bus-relocate_completed"></a><a name="bus-relocate_ended"></a>relocate\_initiated, relocate\_answered, relocate\_completed, relocate\_ended
+relocate\_initiated, relocate\_answered, relocate\_completed, relocate\_ended {#bus-relocate-initiated}
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Those events are published during the different steps of a relocate
@@ -1002,7 +937,7 @@ Example:
 }
 ```
 
-<a name="bus-user_created"></a>user\_created
+user\_created {#bus-user-created}
 -------------
 
 The [user\_created]{.title-ref} event is published when a new user is
@@ -1026,7 +961,7 @@ Example:
 }
 ```
 
-<a name="bus-user_deleted"></a>user\_deleted
+user\_deleted {#bus-user-deleted}
 -------------
 
 The [user\_deleted]{.title-ref} event is published when a user is
@@ -1050,7 +985,7 @@ Example:
 }
 ```
 
-<a name="bus-user_edited"></a>user\_edited
+user\_edited {#bus-user-edited}
 ------------
 
 The [user\_edited]{.title-ref} event is published when a user is
@@ -1074,10 +1009,10 @@ Example:
 }
 ```
 
-<a name="bus-users_forwards_forward_updated"></a>[users\_forwards]()\<forward\_name\>\_updated
+users\_forwards\_FORWARD\_NAME\_updated {#bus-users-forwards-forward-updated}
 ---------------------------------------------
 
-The [users\_forwards]()\<forward\_name\>\_updated is sent when a user
+The users\_forwards\_FORWARD\_NAME\_updated is sent when a user
 changes his forward using REST API.
 
 -   forward\_name:
@@ -1106,19 +1041,19 @@ Example:
         }
     }
 
-<a name="bus-users_services_service_updated"></a>[users\_services]()\<service\_name\>\_updated
+users\_services\_SERVICE\_NAME\_updated {#bus-users-services-service-updated}
 ---------------------------------------------
 
-The [users\_services]()\<service\_name\>\_updated is sent when a user
+The users\_services\_SERVICE\_NAME\_updated is sent when a user
 changes his service using REST API.
 
 -   service\_name:
     -   dnd
     -   incallfilter
 -   routing key:
-    config.users.\<user\_uuid\>.services.\<service\_name\>.updated
+    config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
 -   required ACL:
-    events.config.users.\<user\_uuid\>.services.\<service\_name\>.updated
+    events.config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
 -   event specific data: a dictionary with 2 keys
     -   user\_uuid: the user uuid
     -   enabled: the state of the service
@@ -1135,12 +1070,12 @@ Example:
         }
     }
 
-<a name="bus-service_registered_event"></a>service\_registered\_event
+service\_registered\_event {#bus-service-registered-event}
 --------------------------
 
 The service\_registered\_event is sent when a service is started.
 
--   routing key: service.registered.\<service\_name\>
+-   routing key: service.registered.SERVICE\_NAME
 -   event specific data: a dictionary with 5 keys
     -   service\_name: The name of the started service
     -   service\_id: The consul ID of the started service
@@ -1164,12 +1099,12 @@ Example:
 }
 ```
 
-<a name="bus-service_deregistered_event"></a>service\_deregistered\_event
+service\_deregistered\_event {#bus-service-deregistered-event}
 ----------------------------
 
 The service\_deregistered\_event is sent when a service is stopped.
 
--   routing key: service.deregistered.\<service\_name\>
+-   routing key: service.deregistered.SERVICE\_NAME
 -   event specific data: a dictionary with 3 keys
     -   service\_name: The name of the stopped service
     -   service\_id: The consul ID of the stopped service

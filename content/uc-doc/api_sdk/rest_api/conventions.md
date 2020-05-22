@@ -2,7 +2,7 @@
 title: REST API Conventions
 ---
 
-<a name="rest-api-authentication"></a>Authentication
+Authentication {#rest-api-authentication}
 ==============
 
 For all REST APIs, the main way to authenticate is to use an access
@@ -33,7 +33,7 @@ definition](http://www.iana.org/assignments/http-status-codes/http-status-codes.
 -   415: Unsupported media type
 -   500: Internal server error
 
-See also [Errors](/uc-doc/api_sdk/rest_api/conventions#rest_api_errors) for general
+See also [Errors](/uc-doc/api_sdk/rest_api/conventions#rest-api-errors) for general
 explanations about error codes.
 
 General URL parameters
@@ -168,7 +168,7 @@ When updating, only the id and updated properties are needed, omitted
 properties are not updated. Some properties can also be optional when
 creating an object.
 
-<a name="rest_api_errors"></a>Errors
+Errors {#rest-api-errors}
 ------
 
 A request to the web services may return an error. An error will always

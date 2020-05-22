@@ -10,10 +10,10 @@ title: BRI card configuration
     -   [Asterisk dahdi-channels.conf
         configuration](#asterisk-dahdi-channels.conf-configuration)
 -   [Next step](#next-step)
--   [Specific configuration](#bri_card_specific_conf)
-    -   [PTMP without layer1/layer2 persistence](#bri_card_ptmp_wol1l2)
-    -   [PTMP with layer1/layer2 persistence](#bri_card_ptmp_wl1l2)
-    -   [PTP with layer1/layer2 persistence](#bri_card_ptp_wl1l2)
+-   [Specific configuration](#bri-card-specific-conf)
+    -   [PTMP without layer1/layer2 persistence](#bri-card-ptmp-wol1l2)
+    -   [PTMP with layer1/layer2 persistence](#bri-card-ptmp-wl1l2)
+    -   [PTP with layer1/layer2 persistence](#bri-card-ptp-wl1l2)
 
 Verifications
 =============
@@ -77,7 +77,7 @@ Then you have to modify the
     -   `bri_cpe_ptmp`
 
 See some explanations of this file in the
-[/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk_dahdi_channel_conf) section.
+[/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk-dahdi-channel-conf) section.
 
 Below is **an example** for a typical french BRI line span:
 
@@ -94,15 +94,15 @@ Next step
 Now that you have configured your BRI card:
 
 1.  you must check if you need to follow one of the
-    [Specific configuration](/uc-doc/administration/hardware/bri_configuration#bri_card_specific_conf) sections
+    [Specific configuration](/uc-doc/administration/hardware/bri_configuration#bri-card-specific-conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
     to the [configure your card](/uc-doc/administration/hardware/card_configuration) section,
 3.  if you have configured all your card you have to configure the
-    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) in the web
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf) in the web
     interface.
 
-<a name="bri_card_specific_conf"></a>Specific configuration
+Specific configuration {#bri-card-specific-conf}
 ======================
 
 You will find below 3 configurations that we recommend for BRI lines.
@@ -112,16 +112,16 @@ with success.
 #:exclamation: The pre-requisites are:
 
 -   Use per-port dahdi interconnection (see the
-    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco_dahdi_conf) section)
+    [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf) section)
 
 If you don\'t know which one to configure we recommend that you try each
 one after the other in this order:
 
-1.  [PTMP without layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptmp_wol1l2)
-2.  [PTMP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptmp_wl1l2)
-3.  [PTP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri_card_ptp_wl1l2)
+1.  [PTMP without layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri-card-ptmp-wol1l2)
+2.  [PTMP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri-card-ptmp-wl1l2)
+3.  [PTP with layer1/layer2 persistence](/uc-doc/administration/hardware/bri_configuration#bri-card-ptp-wl1l2)
 
-<a name="bri_card_ptmp_wol1l2"></a>PTMP without layer1/layer2 persistence
+PTMP without layer1/layer2 persistence {#bri-card-ptmp-wol1l2}
 --------------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -168,7 +168,7 @@ Follow theses steps to configure:
 -   You can consider that there is *a problem* only if incoming or
     outgoing calls are rejected.
 
-<a name="bri_card_ptmp_wl1l2"></a>PTMP with layer1/layer2 persistence
+PTMP with layer1/layer2 persistence {#bri-card-ptmp-wl1l2}
 -----------------------------------
 
 In this mode we will configure asterisk and DAHDI:
@@ -206,7 +206,7 @@ Follow theses steps to configure:
 -   In asterisk CLI you may see the spans going Up/Down/Up : it is *a
     problem* only if incoming or outgoing calls are rejected.
 
-<a name="bri_card_ptp_wl1l2"></a>PTP with layer1/layer2 persistence
+PTP with layer1/layer2 persistence {#bri-card-ptp-wl1l2}
 ----------------------------------
 
 In this mode we will configure asterisk and DAHDI:

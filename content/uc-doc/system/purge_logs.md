@@ -38,7 +38,7 @@ The format of the following list is `plugin-name` (`associated table`) :
 -   `stat-switchboard` (`stat_switchboard_queue`)
 -   `webhookd-logs` (`webhookd_subscription_log`)
 
-<a name="purge_logs_config_file"></a>Configuration File
+Configuration File {#purge-logs-config-file}
 ==================
 
 We recommend to override the setting `days_to_keep` from
@@ -90,7 +90,7 @@ ANALYZE automatically (after 1 minute). This command marks memory as
 reusable but does not actually free disk space, which is fine if your
 disk is not getting full. In the case when `wazo-purge-db` hasn\'t run
 for a long time (e.g. upgrading to 15.11 or when
-[days_to_keep](/uc-doc/system/purge_logs#purge_logs_config_file) is
+[days_to_keep](/uc-doc/system/purge_logs#purge-logs-config-file) is
 decreased), some administrator may want to perform a
 [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL
 to recover disk space.
@@ -160,7 +160,7 @@ sample_file = '/tmp/wazo_purge_db.sample'
 
 > def sample\_plugin(config):
 >
-> :   
+> :
 >
 >     with open(sample\_file, \'w\') as output:
 >

@@ -29,7 +29,7 @@ with this setup. What you usually have to do is only to switch your
 phone from the \"Wazo\" VLAN to the \"phones\" VLAN, and reconfiguring
 the lines on your Wazo.
 
-## <a name="prerequisite"></a>Prerequisite
+## Prerequisite
 
 On the host machine:
 
@@ -44,7 +44,7 @@ On the guest machine, i.e. on the Wazo:
     In our example, this interface inside the virtual machine will have
     the IP 10.34.1.1/24.
 
-## <a name="configuration"></a>Configuration
+## Configuration
 
 1.  On the host, install the ISC DHCP server:
 

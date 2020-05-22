@@ -2,7 +2,7 @@
 title: Wazo Guidelines
 ---
 
-## <a name="inter-process-communication"></a>Inter-process communication
+## Inter-process communication {#inter-process-communication}
 
 Our current goal is to use only two means of communication between Wazo
 processes:
@@ -14,7 +14,7 @@ Each component should have its own REST API and its own events and can
 communicate with every other component from across a network only via
 those means.
 
-## <a name="service-api"></a>Service API
+## Service API {#service-api}
 
 The current [xivo-dao](https://github.com/wazo-platform/xivo-dao) Git
 repository contains the basis of the future services Python API. The API
@@ -35,7 +35,7 @@ groups, schedules\... For each resource, there are different modules :
 -   validator: private, it checks input parameters from the service
     module.
 
-## <a name="definition-of-wazo-daemon"></a>Definition of Wazo Daemon
+## Definition of Wazo Daemon {#definition-of-wazo-daemon}
 
 The goal is to make Wazo as elastic as possible, i.e. the Wazo services
 need to be able to run on separate machines and still talk to each

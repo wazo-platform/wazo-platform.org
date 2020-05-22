@@ -5,7 +5,7 @@ title: Voice Compression Card configuration
 -   [Verifications](#verifications)
 -   [Configure](#configure)
 -   [Next step](#next-step)
--   [Specific configuration](#vc_card_specific_conf)
+-   [Specific configuration](#vc-card-specific-conf)
     -   [Select the transcoding mode](#select-the-transcoding-mode)
 
 Verifications
@@ -40,12 +40,12 @@ Next step
 Now that you have configured your Voice Compression card:
 
 1.  you must check if you need to follow one of the
-    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#vc_card_specific_conf) sections
+    [Specific configuration](/uc-doc/administration/hardware/analog_configuration#vc-card-specific-conf) sections
     below,
 2.  then, if you have another type of card to configure, you can go back
     to the [configure your card](/uc-doc/administration/hardware/card_configuration) section.
 
-<a name="vc_card_specific_conf"></a>Specific configuration
+Specific configuration {#vc-card-specific-conf}
 ======================
 
 Select the transcoding mode

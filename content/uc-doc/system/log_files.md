@@ -45,7 +45,7 @@ would produce VERY large log files.
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="wazo-auth"></a>wazo-auth
+wazo-auth {#wazo-auth}
 =========
 
 -   File location: `/var/log/wazo-auth.log`{.interpreted-text
@@ -75,7 +75,7 @@ wazo-calld
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="wazo-dird"></a>wazo-dird
+wazo-dird {#wazo-dird}
 =========
 
 -   File location: `/var/log/wazo-dird.log`{.interpreted-text
@@ -125,7 +125,7 @@ wazo-call-logd
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="wazo-confd"></a>wazo-confd
+wazo-confd {#wazo-confd}
 ==========
 
 -   File location: `/var/log/wazo-confd.log`{.interpreted-text
@@ -135,7 +135,7 @@ wazo-call-logd
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="wazo-confgend"></a>wazo-confgend
+wazo-confgend {#wazo-confgend}
 =============
 
 The wazo-confgend daemon output is sent to the file specified with the
@@ -151,7 +151,7 @@ wazo-confgend.service unit file.
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="wazo-phoned"></a>wazo-phoned
+wazo-phoned {#wazo-phoned}
 ===========
 
 -   File location: `/var/log/wazo-phoned.log`{.interpreted-text
@@ -181,7 +181,7 @@ wazo-provd
 -   Number of archived files: 15
 -   Rotation frequence: Daily
 
-<a name="purge_logs"></a>wazo-purge-db
+wazo-purge-db {#purge-logs}
 =============
 
 -   File location: `/var/log/wazo-purge-db.log`{.interpreted-text

@@ -85,7 +85,7 @@ CallerID untouched.
 CallerID number normalization
 -----------------------------
 
-See [Incoming caller number display](/uc-doc/installation/postinstall#callerid_num_normalization) for
+See [Incoming caller number display](/uc-doc/installation/postinstall#callerid-num-normalization) for
 details.
 
 Incoming Call CallerID

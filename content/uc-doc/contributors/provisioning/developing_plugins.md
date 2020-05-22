@@ -6,7 +6,7 @@ Here is an example of how to develop a provisioning plugin for Digium
 phones. You can find all the code [on
 Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
 
-## <a name="phone-analysis"></a>Phone Analysis
+## Phone Analysis {#phone-analysis}
 
 Here\'s a non-exhaustive list of what a phone may or may not support:
 
@@ -27,7 +27,7 @@ Here\'s a non-exhaustive list of what a phone may or may not support:
 -   Call interception (with BLF)
 -   NTP
 
-## <a name="dhcp-configuration"></a>DHCP Configuration
+## DHCP Configuration {#dhcp-configuration}
 
 In `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update`:
 
@@ -68,7 +68,7 @@ You can check the logs in `/var/log/syslog`:
     dhcpd: DHCPREQUEST for 10.42.1.100 (10.42.1.1) from 00:0f:d3:05:48:48 via eth0
     dhcpd: DHCPACK on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
 
-## <a name="update-the-dhcp-configuration"></a>Update the DHCP configuration
+## Update the DHCP configuration {#update-the-dhcp-configuration}
 
 To upload the new DHCP configuration on `provd.wazo.community`, in
 `wazo-provd-plugins/dhcpd-update`:
@@ -79,7 +79,7 @@ To download the DHCP configuration on the Wazo server, run:
 
     dhcpcd-update -d
 
-## <a name="plugin-creation"></a>Plugin creation
+## Plugin creation {#plugin-creation}
 
 In `wazo-provd-plugins/plugins`, create the directory tree:
 
@@ -358,7 +358,7 @@ are some examples:
 -   [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)
 -   [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl)
 
-## <a name="upload-the-plugin-on-provd.wazo.community"></a>Upload the plugin on `provd.wazo.community`
+## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
 First, change the source of your plugins (cf.
 [Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo))

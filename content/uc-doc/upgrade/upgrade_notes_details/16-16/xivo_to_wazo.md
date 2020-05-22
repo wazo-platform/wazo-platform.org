@@ -10,7 +10,7 @@ XiVO 16.13, for example.
 
 More information about the Wazo project is available on the [Wazo blog](/blog/introducing-wazo).
 
-## <a name="using-wazo-infrastructure"></a>Using the Wazo Infrastructure on your XiVO
+## Using the Wazo Infrastructure on your XiVO {#using-wazo-infrastructure}
 
 Since `*.xivo.io` has been shut down, you may use the infrastructure at
 `*.wazo.community` instead of `*.xivo.io`. This step is only needed if
@@ -44,7 +44,7 @@ option.
 This script is compatible with any future upgrade, you don\'t have to
 revert it manually.
 
-## <a name="upgrading-to-wazo"></a>Upgrading to Wazo
+## Upgrading to Wazo {#upgrading-to-wazo}
 
 To upgrade your XiVO to Wazo, run the following commands:
 
