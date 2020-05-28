@@ -45,7 +45,7 @@ Network Flow table (IN) :
 | wazo-chatd       | HTTPS        | TCP       | 9304 | 0.0.0.0   | yes            | yes     |
 | wazo-confd       | HTTP         | TCP       | 9486 | 127.0.0.1 | yes            | yes     |
 | wazo-amid        | HTTP         | TCP       | 9491 | 127.0.0.1 | yes            | yes     |
-| wazo-agentd      | HTTPS        | TCP       | 9493 | 0.0.0.0   | yes            | yes     |
+| wazo-agentd      | HTTP         | TCP       | 9493 | 127.0.0.1 | yes            | yes     |
 | wazo-phoned      | HTTP         | TCP       | 9498 | 0.0.0.0   | IP filtering   | yes     |
 | wazo-phoned      | HTTPS        | TCP       | 9499 | 0.0.0.0   | IP filtering   | yes     |
 | wazo-calld       | HTTPS        | TCP       | 9500 | 0.0.0.0   | yes            | yes     |
