@@ -10,7 +10,7 @@ title: Upgrade notes
 
   - wazo-agentd
 
--   `wazo-agentd` http configuration section have been moved onto the rest_api section, eg:
+-   `wazo-agentd` http configuration section has been moved to the rest_api section, eg:
 
         rest_api:
           https:
