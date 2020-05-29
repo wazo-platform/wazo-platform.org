@@ -9,6 +9,7 @@ title: Upgrade notes
   been changed to 127.0.0.1 by default.
 
   - wazo-agentd
+  - wazo-calld
 
 -   `wazo-agentd` http configuration section has been moved to the rest_api section, eg:
 

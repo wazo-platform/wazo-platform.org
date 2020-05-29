@@ -48,6 +48,6 @@ Network Flow table (IN) :
 | wazo-agentd      | HTTP         | TCP       | 9493 | 127.0.0.1 | yes            | yes     |
 | wazo-phoned      | HTTP         | TCP       | 9498 | 0.0.0.0   | IP filtering   | yes     |
 | wazo-phoned      | HTTPS        | TCP       | 9499 | 0.0.0.0   | IP filtering   | yes     |
-| wazo-calld       | HTTPS        | TCP       | 9500 | 0.0.0.0   | yes            | yes     |
+| wazo-calld       | HTTP         | TCP       | 9500 | 127.0.0.1 | yes            | yes     |
 | wazo-websocketd  | WSS          | TCP       | 9502 | 0.0.0.0   | yes            | yes     |
 | wazo-plugind     | HTTPS        | TCP       | 9503 | 0.0.0.0   | yes            | yes     |
