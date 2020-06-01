@@ -10,6 +10,7 @@ title: Upgrade notes
 
   - wazo-agentd
   - wazo-calld
+  - wazo-call-logd
 
 -   `wazo-agentd` http configuration section has been moved to the rest_api section, eg:
 
