@@ -277,6 +277,11 @@ from the client.
 
 If the client send a message that the server doesn't understand, the server closes the connection.
 
+The "ping" message asks the server to reply with a "pong" with the
+same payload as what was sent by the ping.
+
+    {"op": "ping", "data": {"payload": "..."}}
+
 #### Server Messages
 
 The format of the messages sent by the server are all of the same format (until the server receives
@@ -304,6 +309,11 @@ Example:
 
     {"op": "start", "code": 0}
 
+The "pong" message is sent as a response to a client "ping" message.
+The code is always zero. Example:
+
+    {"op": "pong", "code": 0, "data": {"payload": "..."}}
+
 After receiving the "start" message, the server switch into the "bus/started" mode, where all
 messages that the server will ever sent will be the body of the messages it received on the bus on
-behalf of the client.
+behalf of the client or replies to ping messages.
