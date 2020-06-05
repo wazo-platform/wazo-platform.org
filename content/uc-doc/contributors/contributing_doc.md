@@ -21,13 +21,16 @@ The documentation must be written in english, and only in english.
 
 #### Content
 
-- Should be stored in `/content/uc-doc/`
-- Table of contents is based on the folders structure
-  - If you want to create a new level you must :
-    - Create a new folder
-    - Add an `index.md` with a list of subpages
-    - Add a new file to write your content `mypage.md`
+Documentation content should be stored in `/content/uc-doc/`.
 
+#### Table of Contents
+
+The table of contents is based on files and folders structure on `/content/uc-doc`.
+If you want to create a new level you must :
+- Create a new folder
+- Add an `index.md` with a list of subpages (Required to generate a clean navigation)
+- Create a new file `mypage.md`
+- Write your content inside the new file
 
 ### Headings
 
