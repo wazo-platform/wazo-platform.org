@@ -13,6 +13,14 @@ Here\'s the guideline/conventions to follow for the Wazo documentation.
 
 The documentation must be written in english, and only in english.
 
+### File structure {#file-structure}
+
+#### Images
+
+- Should be stored in : `/static/images/uc-doc/`
+- Should reproduce page path : `/static/images/uc-doc/page1/subpage2/myimage.jpg`
+
+
 ### Sections {#sections}
 
 The top section of each file must be capitalized using the following
