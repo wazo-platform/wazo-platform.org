@@ -14,6 +14,11 @@ The documentation must be written in english, and only in english.
 
 ### File structure {#file-structure}
 
+### File and Folders
+
+- Word should be separate by dashes (ex: `/my-folder/my-file.md`)
+- Don't use dot (`.`)
+
 #### Images
 
 - Should be stored in `/static/images/uc-doc/`
