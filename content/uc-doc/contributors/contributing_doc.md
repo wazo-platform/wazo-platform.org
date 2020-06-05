@@ -17,8 +17,17 @@ The documentation must be written in english, and only in english.
 
 #### Images
 
-- Should be stored in : `/static/images/uc-doc/`
-- Should reproduce page path : `/static/images/uc-doc/page1/subpage2/myimage.jpg`
+- Should be stored in `/static/images/uc-doc/`
+- Should reproduce page path `/static/images/uc-doc/page1/subpage2/myimage.jpg`
+
+#### Content
+
+- Should be stored in `/content/uc-doc/`
+- Table of contents is based on the folders structure
+  - If you want to create a new level you must
+    - Create a new folder
+    - Add an `index.md` with a list of subpages
+    - Add a new file to write your content `mypage.md`
 
 
 ### Sections {#sections}
@@ -118,6 +127,7 @@ Autonumbered lists:
     1. First item
     2. Second item
     3. ...
+
 
 ### Literal blocks {#literal-blocks}
 
