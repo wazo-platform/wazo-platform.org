@@ -128,6 +128,17 @@ Autonumbered lists:
     2. Second item
     3. ...
 
+### Code blocks
+
+Code blocks should have syntax highlight defined. Here's some values :
+
+- ShellSession
+- Shell
+- YAML
+- ini
+- Python
+- Javascript
+
 
 ### Literal blocks {#literal-blocks}
 
