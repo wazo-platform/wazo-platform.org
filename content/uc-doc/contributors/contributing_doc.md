@@ -82,7 +82,7 @@ Autonumbered lists:
 
 ### Code blocks
 
-Code blocks should have syntax highlight defined. Here's some values :
+Code blocks should have syntax highlight defined. Here's some values:
 
 - ShellSession
 - Shell
