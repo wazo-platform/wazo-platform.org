@@ -7,6 +7,12 @@ title: Upgrade notes
 - The wazo-confgend module that generates the SIP configuration for `chan_sip` has been removed. If
   you are still using `chan_sip` you will have to remove your custom configuration to use `pjsip`.
 
+- The TLS configuration has been deprecated on the following services. You should always use NGINX
+  to proxy communication with wazo-platform services. To follow this change, the listen address has
+  been changed to 127.0.0.1 by default.
+
+  - wazo-plugind
+
 ## 20.08 {#20-08}
 
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
