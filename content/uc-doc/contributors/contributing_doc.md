@@ -111,3 +111,4 @@ To highlight code, you can add the following values at the code block initializa
 - There should be no trailing whitespace at the end of lines
 - Paragraphs must be wrapped and lines should be at most 100
   characters long
+- You must run `yarn format:uc-doc` when you're done

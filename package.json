@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/gatsby build --prefix-paths",
     "develop": "./node_modules/.bin/gatsby develop",
     "format": "./node_modules/.bin/prettier --write src/**/*.{js,jsx} tests/*.js gatsby-node.js",
-    "format:uc-doc": "./node_modules/.bin/prettier --write content/uc-doc/**/*.{md}",
+    "format:uc-doc": "./node_modules/.bin/prettier --write content/uc-doc/*.md content/uc-doc/**/*.md",
     "start": "npm run develop",
     "serve": "./node_modules/.bin/gatsby serve"
   },
