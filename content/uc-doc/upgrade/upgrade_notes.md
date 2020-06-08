@@ -12,6 +12,7 @@ title: Upgrade notes
   been changed to 127.0.0.1 by default.
 
   - wazo-plugind
+  - wazo-chatd
 
 ## 20.08 {#20-08}
 
