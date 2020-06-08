@@ -41,7 +41,7 @@ Network Flow table (IN) :
 | wazo-call-logd   | HTTP         | TCP       | 9298 | 127.0.0.1 | yes            | yes     |
 | wazo-dird        | HTTP         | TCP       | 9489 | 127.0.0.1 | yes            | yes     |
 | wazo-webhookd    | HTTP         | TCP       | 9300 | 127.0.0.1 | yes            | yes     |
-| wazo-setupd      | HTTPS        | TCP       | 9302 | 0.0.0.0   | yes            | yes     |
+| wazo-setupd      | HTTP         | TCP       | 9302 | 127.0.0.1 | yes            | yes     |
 | wazo-chatd       | HTTP         | TCP       | 9304 | 127.0.0.1 | yes            | yes     |
 | wazo-confd       | HTTP         | TCP       | 9486 | 127.0.0.1 | yes            | yes     |
 | wazo-amid        | HTTP         | TCP       | 9491 | 127.0.0.1 | yes            | yes     |

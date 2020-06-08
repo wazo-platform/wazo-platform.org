@@ -13,6 +13,7 @@ title: Upgrade notes
 
   - wazo-plugind
   - wazo-chatd
+  - wazo-setupd
 
 ## 20.08 {#20-08}
 
