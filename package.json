@@ -7,8 +7,8 @@
   "scripts": {
     "build": "./node_modules/.bin/gatsby build --prefix-paths",
     "develop": "./node_modules/.bin/gatsby develop",
-    "format": "./node_modules/.bin/prettier --write src/**/*.{js,jsx} tests/*.js gatsby-node.js",
-    "format:uc-doc": "./node_modules/.bin/prettier --write content/uc-doc/*.md content/uc-doc/**/*.md",
+    "format": "prettier --write 'src/**/*.{js,jsx}' 'tests/src/*.js' 'gatsby-node.js'",
+    "format:uc-doc": "prettier --write 'content/uc-doc/**/*.md'",
     "start": "npm run develop",
     "serve": "./node_modules/.bin/gatsby serve"
   },
@@ -43,7 +43,7 @@
   "devDependencies": {
     "gatsby-plugin-sass": "^2.1.0",
     "node-sass": "^4.12.0",
-    "prettier": "^1.17.1"
+    "prettier": "^2.0.5"
   },
   "repository": {
     "type": "git",
