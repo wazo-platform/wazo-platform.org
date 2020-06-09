@@ -2,6 +2,11 @@
 title: Upgrade notes
 ---
 
+## 20.09 {#20-09}
+
+- The wazo-confgend module that generates the SIP configuration for `chan_sip` has been removed. If
+  you are still using `chan_sip` you will have to remove your custom configuration to use `pjsip`.
+
 ## 20.08 {#20-08}
 
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
