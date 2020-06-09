@@ -12,11 +12,10 @@ Here is a short review of the Wazo Platform 20.08 release.
 
 ## New features in this release
 
-* **Presences**: In Wazo 20.08, the presence status of users takes into account the multiple lines of a user: if one of the lines is talking, the phone status of the user will be talking.
-* **Sounds**: We have increased the limit for uploading sound files to Wazo Platform. The system now accepts sound files and music-on-hold up to 16MB in size. Unfortunately, voicemail greeting messages still have a limitation that forbids files greater that 1M.
-* **Directories**: In Wazo 20.08, reverse lookup will search through conference numbers. While not very useful when a incoming call arrives, it allows interrogating the system to know "what was that number I talked to the other day?".
-* **Provisioning**: We have improved the documentation about physical devices that are supported by Wazo Platform. You can see the new version here: https://wazo-platform.org/uc-doc/ecosystem/supported_devices. This list is auto-generated, which makes it easier to maintain over time and to keep in sync with what the provisioning plugins can do. Let us know what you think!
 * **Calls**: Wazo Platform is now able to emulate the pressing of DTMF keys via a REST API call. This makes remote-controlling a physical phone more transparent.
+* **Presences**: In Wazo 20.08, the presence status of users takes into account the multiple channels for the same line to determine its state.
+* **Directories**: In Wazo 20.08, reverse lookup will search through conference numbers. While not very useful when an incoming call arrives, it allows interrogating the system to know "what was that number I talked to the other day?".
+* **Provisioning**: We have improved the documentation about physical devices that are supported by Wazo Platform. You can see the new version here: https://wazo-platform.org/uc-doc/ecosystem/supported_devices. This list is auto-generated, which makes it easier to maintain over time and to keep in sync with what the provisioning plugins can do. Let us know what you think!
 
 ## Technical features
 
