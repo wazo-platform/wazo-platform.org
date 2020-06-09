@@ -4,9 +4,9 @@ title: Contributing to the Documentation
 
 ## Documentation guideline {#documentation-guideline}
 
-Here\'s the guideline/conventions to follow for the Wazo documentation. Wazo
-documentation is generated with GatbsyJS. The source code is available on GitHub
-at <https://github.com/wazo-platform/wazo-platform.org>
+Here\'s the guideline/conventions to follow for the Wazo documentation. Wazo documentation is
+generated with GatbsyJS. The source code is available on GitHub at
+<https://github.com/wazo-platform/wazo-platform.org>
 
 ### Language {#language}
 
@@ -30,8 +30,8 @@ Documentation content should be stored in `/content/uc-doc/`.
 
 #### Table of Contents
 
-The table of contents is based on files and folders structure on `/content/uc-doc`.
-If you want to create a new level you must :
+The table of contents is based on files and folders structure on `/content/uc-doc`. If you want to
+create a new level you must :
 
 - Create a new folder
 - Add an `index.md` with a list of subpages (Required to generate a clean navigation)
@@ -40,9 +40,8 @@ If you want to create a new level you must :
 
 ### Headings
 
-- The top section of each file must be capitalized using the following
-  rule: capitalization of all words, except for articles, prepositions,
-  conjunctions, and forms of to be.
+- The top section of each file must be capitalized using the following rule: capitalization of all
+  words, except for articles, prepositions, conjunctions, and forms of to be.
 
   ```Markdown
   <!-- Correct -->
@@ -92,7 +91,8 @@ Autonumbered lists:
 
 ### Code blocks
 
-To highlight code, you can add the following values at the code block initialization. It's better to specify it because it will improve readability.
+To highlight code, you can add the following values at the code block initialization. It's better to
+specify it because it will improve readability.
 
 - ShellSession
 - Shell
@@ -104,11 +104,8 @@ To highlight code, you can add the following values at the code block initializa
 
 ### Others {#others}
 
-- There must be no warning nor error messages when building the
-  documentation with `yarn start`.
-- There should be one and only one newline character at the end of
-  each file.
+- There must be no warning nor error messages when building the documentation with `yarn start`.
+- There should be one and only one newline character at the end of each file.
 - There should be no trailing whitespace at the end of lines
-- Paragraphs must be wrapped and lines should be at most 100
-  characters long
+- Paragraphs must be wrapped and lines should be at most 100 characters long
 - You must run `yarn format:uc-doc` when you're done
