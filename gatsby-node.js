@@ -210,7 +210,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
       context,
     });
 
-    if (hasSearch) {
+    if (hasSearch && component !== '404') {
       const title = context ? (context.module ? context.module.title : context.title) : null;
       const description = context ? (context.module ? context.module.description : context.description) : null;
 
@@ -416,6 +416,41 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   if (hasSearch) {
     algoliaIndex.addObjects(algoliaObjects);
   }
+
+  // Generate redirect 301
+  // ---------
+  console.log("Generating 301 redirects");
+  if(forDeveloper) {
+    ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-deployd.html`,
+      })
+    });
+
+    ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-configuration.html`,
+      })
+    });
+
+    ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-authentication.html`,
+      })
+    });
+  }
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -427,37 +462,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           : path.resolve(__dirname, 'src/styles/platform'),
       },
     },
-  });
-
-  // Generate redirect 301
-  console.log("Generating 301 redirects");
-  ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
-    newPage(fromPath, '404', {})
-    createRedirect({
-      fromPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: `/documentation/api/euc-deployd.html`,
-    })
-  });
-
-  ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach(fromPath => {
-    newPage(fromPath, '404', {})
-    createRedirect({
-      fromPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: `/documentation/api/euc-configuration.html`,
-    })
-  });
-
-  ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach(fromPath => {
-    newPage(fromPath, '404', {})
-    createRedirect({
-      fromPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-      toPath: `/documentation/api/euc-authentication.html`,
-    })
   });
 };
