@@ -33,7 +33,7 @@ Network Flow table (IN) :
 |                  | WAN          |           |      |           |                |         |
 | consul           | Consul HTTP  | TCP       | 8500 | 127.0.0.1 | both           | yes     |
 | consul           | Consul HTTPS | TCP       | 8501 | 127.0.0.1 | both           | yes     |
-| wazo-provd       | HTTPS        | TCP       | 8666 | 0.0.0.0   | yes            | yes     |
+| wazo-provd       | HTTP         | TCP       | 8666 | 127.0.0.1 | yes            | yes     |
 | wazo-provd       | HTTP         | TCP       | 8667 | 127.0.0.1 | no             | yes     |
 | wazo-confgend    | HTTP         | TCP       | 8669 | 127.0.0.1 | no             | yes     |
 | xivo-sysconfd    | HTTP         | TCP       | 8668 | 127.0.0.1 | no             | yes     |
