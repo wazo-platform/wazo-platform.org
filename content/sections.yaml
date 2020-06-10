@@ -103,29 +103,29 @@
     developer: true
     modules:
       euc-authentication:
+        overview: false
         title: Authentication
         description: Authentication in the Nestbox platform.
         icon: fa fa-key
         color: green
-        coporate: true
         repository: wazo-auth
         redocUrl: https://nestbox.dev.wazo.io/api/auth/0.1/api/api.yml
 
       euc-configuration:
+        overview: false
         title: Configuration
         description: Manage your resellers, customers, instances on Nestbox.
         icon: fa fa-cogs
         color: red
-        coporate: true
         repository: nestbox-confd
         redocUrl: https://nestbox.dev.wazo.io/api/confd/1.0/api/api.yml
 
       euc-deployd:
+        overview: false
         title: Deployment
         description: Deploy your instances from Nestbox.
         icon: fa fa-server
         color: orange
-        coporate: true
         repository: wazo-deployd
         redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
 
