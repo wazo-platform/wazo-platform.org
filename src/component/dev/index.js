@@ -55,7 +55,7 @@ export const Module = ({ moduleName, module }) => (
             </Link>
           )}
 
-          {module.repository && (
+          {module.repositoryLink !== false && (
             <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
               <i className="fab fa-github" /> {module.repository}
             </a>

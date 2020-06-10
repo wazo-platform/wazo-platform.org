@@ -104,6 +104,7 @@
     modules:
       euc-authentication:
         overview: false
+        repositoryLink: false
         title: Authentication
         description: Authentication in the Nestbox platform.
         icon: fa fa-key
@@ -113,6 +114,7 @@
 
       euc-configuration:
         overview: false
+        repositoryLink: false
         title: Configuration
         description: Manage your resellers, customers, instances on Nestbox.
         icon: fa fa-cogs
@@ -122,6 +124,7 @@
 
       euc-deployd:
         overview: false
+        repositoryLink: false
         title: Deployment
         description: Deploy your instances from Nestbox.
         icon: fa fa-server
