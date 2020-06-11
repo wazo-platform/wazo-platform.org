@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { Link } from 'gatsby';
-import Search from './dev/search';
+import Search from './corporate/search';
 
 const WazoHeader = () => {
   return <>
