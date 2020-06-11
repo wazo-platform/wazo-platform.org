@@ -1,6 +1,6 @@
 # [`wazo-setupd`](https://github.com/wazo-platform/wazo-setupd)
 
-A micro service to initialize a [Wazo](http://wazo.community) Engine.
+A micro service to initialize a Wazo platform.
 
 ## API documentation
 
