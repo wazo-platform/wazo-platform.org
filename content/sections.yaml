@@ -91,7 +91,7 @@
         repository: wazo-websocketd
 
       setup:
-        title: Initial system setup
+        title: Initial System Setup
         description: Allow to make the initial system setup
         icon: fa fa-cog
         color: purple
