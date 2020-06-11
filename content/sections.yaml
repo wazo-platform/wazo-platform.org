@@ -90,6 +90,15 @@
         color: purple
         repository: wazo-websocketd
 
+      setup:
+        overview: false
+        title: Initial System Setup
+        description: Allow to make the initial system setup
+        icon: fa fa-cog
+        color: purple
+        repository: wazo-setupd
+        redocUrl: https://example.com/api/setupd/1.0/api/api.yml
+
       router-confd:
         title: C4 Router API
         description: Configuration API for C4 router component.
