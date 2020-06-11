@@ -91,6 +91,7 @@
         repository: wazo-websocketd
 
       setup:
+        overview: false
         title: Initial System Setup
         description: Allow to make the initial system setup
         icon: fa fa-cog
