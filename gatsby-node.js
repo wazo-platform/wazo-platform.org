@@ -14,9 +14,9 @@ const buildProvisioning = require('./src/builder/provisioning');
 
 const markdownConverter = new showdown.Converter();
 const overviews = {};
-const forDeveloper = !!process.env.FOR_DEVELOPER;
+const corporate = !!process.env.CORPORATE;
 
-const siteUrl = forDeveloper ? 'http://developers.wazo.io' : 'https://wazo-platform.org';
+const siteUrl = corporate ? 'http://developers.wazo.io' : 'https://wazo-platform.org';
 const siteTitle = 'Wazo Platform Blog';
 
 let hasSearch = config.algolia && !!config.algolia.appId && !!config.algolia.apiKey;
@@ -26,7 +26,7 @@ let algoliaIndex = null;
 if (hasSearch) {
   console.info('Enabling Algolia search');
   const algoliaClient = algoliasearch(config.algolia.appId, config.algolia.apiKey);
-  const algoliaKeyIndex = forDeveloper ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform;
+  const algoliaKeyIndex = corporate ? constants.algoliaIndexDeveloper : constants.algoliaIndexPlatform;
   algoliaIndex = algoliaClient.initIndex(algoliaKeyIndex);
 
   algoliaIndex.setSettings(
@@ -169,9 +169,9 @@ const walk_md_files = (dir, path, acc, index) => {
 };
 
 exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
-  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
+  console.log(`Building ${corporate ? 'developers.wazo.io' : 'wazo-platform.org'}`)
   try {
-    fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
+    fs.writeFile('config-wazo.js', `export const corporate = ${corporate ? 'true' : 'false'};`, () => null);
   } catch (e) {
     console.error(e);
   }
@@ -186,8 +186,8 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
-  // when FOR_DEVELOPER is set do not filter section, otherwise only display what is not for developer
-  const sections = rawSections.filter(section => (!forDeveloper ? !section.developer : true));
+  // when CORPORATE is set do not filter section, otherwise only display what is not for developer
+  const sections = rawSections.filter(section => (!corporate ? !section.developer : true));
   const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
@@ -241,9 +241,9 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   console.info(`done generating svg diagrams`);
 
   // Create homepage
-  await newPage('/', forDeveloper ? 'dev/index' : 'home/index', forDeveloper ? { sections, overviews } : null);
+  await newPage('/', corporate ? 'corporate/index' : 'home/index', corporate ? { sections, overviews } : null);
 
-  if (!forDeveloper) {
+  if (!corporate) {
     // Create doc page
     await newPage('/documentation', 'documentation/index', { sections, overviews });
     // Create install page
@@ -420,7 +420,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   // Generate redirect 301
   // ---------
   console.log("Generating 301 redirects");
-  if(forDeveloper) {
+  if(corporate) {
     ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
       newPage(fromPath, '404', {})
       createRedirect({
@@ -457,8 +457,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        mainCSS: !!process.env.FOR_DEVELOPER
-          ? path.resolve(__dirname, 'src/styles/dev')
+        mainCSS: !!process.env.CORPORATE
+          ? path.resolve(__dirname, 'src/styles/corporate')
           : path.resolve(__dirname, 'src/styles/platform'),
       },
     },
