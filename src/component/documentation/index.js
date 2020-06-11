@@ -32,9 +32,9 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
 }
 
 export const Module = ({ moduleName, module }) => (
-  <div className={`item item-blue col-lg-4 col-6`}>
+  <div id={moduleName} className={`item item-blue col-lg-4 col-6`}>
     <div className="item-inner">
-      <Link to={module.url || `/documentation/overview/${moduleName}.html`}>
+      <Link to={module.overview === false ? `#${moduleName}` : module.url || `/documentation/overview/${moduleName}.html`}>
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
@@ -44,10 +44,11 @@ export const Module = ({ moduleName, module }) => (
       <p className="intro">{module.description}</p>
       {!module.url && (
         <div className="list-group">
-
-          <Link to={`/documentation/overview/${moduleName}.html`} className="list-group-item">
-            Overview
-          </Link>
+          {module.overview !== false && (
+            <Link to={`/documentation/overview/${moduleName}.html`} className="list-group-item">
+              Overview
+            </Link>
+          )}
 
           {module.redocUrl && (
             <Link to={`/documentation/api/${moduleName}.html`} className="list-group-item">
@@ -61,10 +62,11 @@ export const Module = ({ moduleName, module }) => (
             </Link>
           )}
 
-          <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
-            <i className="fab fa-github" /> {module.repository}
-          </a>
-
+          {module.repositoryLink !== false && (
+            <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
+              <i className="fab fa-github" /> {module.repository}
+            </a>
+          )}
         </div>
       )}
     </div>
