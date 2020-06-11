@@ -10,7 +10,9 @@ Before writing a new service please add a [wpep](https://github.com/wazo-platfor
 
 ### HTTP ports
 
-Wazo Platform uses TCP ports starting from 9486 (used for wazo-confd) upward. When creating a new daemon, pick the next unused port above 9486.
+Wazo Platform uses TCP ports starting from 9486 (used for wazo-confd) upward. When creating a new daemon, pick the next unused port.
+See [Network](/uc-doc/contributors/network) for more information.
+
 
 ## Checklist
 
