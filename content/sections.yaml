@@ -1,7 +1,7 @@
 ---
   - name: Programmable platform
     slug: programmable-platform
-    developer: false
+    corporate: false
     modules:
       authentication:
         title: Authentication
@@ -100,7 +100,7 @@
 
   - name: Management platform
     slug: management-platform
-    developer: true
+    corporate: true
     modules:
       euc-authentication:
         overview: false
@@ -137,7 +137,7 @@
 
   - name: Wazo Client SDK - Demo
     slug: wazo-client-sdk
-    developer: false
+    corporate: false
     modules:
       javascript:
         title: Javascript

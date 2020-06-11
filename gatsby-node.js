@@ -187,7 +187,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when CORPORATE is set do not filter section, otherwise only display what is not for developer
-  const sections = rawSections.filter(section => (!corporate ? !section.developer : true));
+  const sections = rawSections.filter(section => (!corporate ? !section.corporate : true));
   const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
   const allModules = sections.reduce((acc, section) => {
     Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
