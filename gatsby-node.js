@@ -168,8 +168,8 @@ const walk_md_files = (dir, path, acc, index) => {
   return acc;
 };
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  console.info(`Building ${siteUrl}`);
+exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
+  console.log(`Building ${forDeveloper ? 'developers.wazo.io' : 'wazo-platform.org'}`)
   try {
     fs.writeFile('config-wazo.js', `export const forDeveloper = ${forDeveloper ? 'true' : 'false'};`, () => null);
   } catch (e) {
@@ -210,7 +210,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       context,
     });
 
-    if (hasSearch) {
+    if (hasSearch && component !== '404') {
       const title = context ? (context.module ? context.module.title : context.title) : null;
       const description = context ? (context.module ? context.module.description : context.description) : null;
 
@@ -415,6 +415,41 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   // Update algolia index
   if (hasSearch) {
     algoliaIndex.addObjects(algoliaObjects);
+  }
+
+  // Generate redirect 301
+  // ---------
+  console.log("Generating 301 redirects");
+  if(forDeveloper) {
+    ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-deployd.html`,
+      })
+    });
+
+    ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-configuration.html`,
+      })
+    });
+
+    ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach(fromPath => {
+      newPage(fromPath, '404', {})
+      createRedirect({
+        fromPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: `/documentation/api/euc-authentication.html`,
+      })
+    });
   }
 };
 
