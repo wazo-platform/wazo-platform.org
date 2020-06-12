@@ -2,9 +2,6 @@
 title: Agents
 ---
 
--   [Introduction](#introduction)
--   [Getting Started](#getting-started)
-
 Introduction
 ============
 

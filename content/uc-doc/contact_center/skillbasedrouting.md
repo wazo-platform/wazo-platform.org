@@ -2,20 +2,6 @@
 title: 'Skills-Based Routing'
 ---
 
--   [Introduction](#introduction)
--   [Getting Started](#getting-started)
--   [Skills](#skills)
--   [Skill Rule Sets](#skill-rule-sets)
-    -   [Scenario 1](#scenario-1)
-    -   [Scenario 2](#scenario-2)
-    -   [Rules](#rules)
-    -   [Operators](#operators)
-    -   [Dynamic Part](#skill-dynamic-part)
-    -   [Skill Part](#skill-skill-part)
-    -   [Evaluation](#skill-evaluation)
--   [Apply Skill Rule Sets](#skill-apply)
--   [Monitoring](#monitoring)
-
 Introduction
 ============
 

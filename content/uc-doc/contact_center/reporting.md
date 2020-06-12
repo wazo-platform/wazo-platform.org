@@ -2,14 +2,6 @@
 title: Reporting
 ---
 
--   [General Architecture](#general-architecture)
--   [Statistic Data Table Content](#statistic-data-table-content)
-    -   [stat\_call\_on\_queue](#stat-call-on-queue)
-    -   [Queue Call Status](#queue-call-status)
-    -   [stat\_queue\_periodic Table](#stat-queue-periodic-table)
-    -   [stat\-agent](#stat-agent)
-    -   [stat\-queue](#stat-queue)
-
 You may use your own reporting tools to be able to produce your own
 reports provided **you do not use the Wazo server original tables**, but
 copy the tables to your own data server. You may use the following
