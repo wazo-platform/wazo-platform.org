@@ -2,160 +2,150 @@
 title: Reporting
 ---
 
-You may use your own reporting tools to be able to produce your own
-reports provided **you do not use the Wazo server original tables**, but
-copy the tables to your own data server. You may use the following
-procedure as a template :
+You may use your own reporting tools to be able to produce your own reports provided **you do not
+use the Wazo server original tables**, but copy the tables to your own data server. You may use the
+following procedure as a template :
 
--   Allow remote database access on Wazo
--   Create a postgresql account read only on asterisk database
--   Create target tables in your database located on the data server
--   Copy the statistic table content to your data server
+- Allow remote database access on Wazo
+- Create a postgresql account read only on asterisk database
+- Create target tables in your database located on the data server
+- Copy the statistic table content to your data server
 
-General Architecture {#general-architecture}
-====================
+# General Architecture {#general-architecture}
 
 ![Statistics Architecture](/images/uc-doc/contact_center/reporting/archi.png)
 
-1.  The *queue\_log* table of the *asterisk* database is filled by
-    events from Asterisk and by custom dialplan events
-2.  *xivo-stat fill\_db* is then used to read data from the *queue\_log*
-    table and generate the tables *stat\_call\_on\_queue* and
-    *stat\_queue\_periodic*
+1.  The _queue_log_ table of the _asterisk_ database is filled by events from Asterisk and by custom
+    dialplan events
+2.  _xivo-stat fill_db_ is then used to read data from the _queue_log_ table and generate the tables
+    _stat_call_on_queue_ and _stat_queue_periodic_
 
-Statistic Data Table Content {#statistic-data-table-content}
-============================
+# Statistic Data Table Content {#statistic-data-table-content}
 
-stat\_call\_on\_queue {#stat-call-on-queue}
----------------------
+## stat_call_on_queue {#stat-call-on-queue}
 
-This table is used to store each call individually. Each call received
-on a queue generates a single entry in this table containing time
-related fields and a foreign key to the agent who answered the call and
-another on the queue on which the call was received.
+This table is used to store each call individually. Each call received on a queue generates a single
+entry in this table containing time related fields and a foreign key to the agent who answered the
+call and another on the queue on which the call was received.
 
-It also contains the status of the call ie. answered, abandoned, full,
-etc.
+It also contains the status of the call ie. answered, abandoned, full, etc.
 
-  --------------------------------------------------------------------------------
-  Field       Values      Description
-  ----------- ----------- --------------------------------------------------------
-  id          generated
+---
 
-  callid      numeric     This call id is also used in the CEL table and can be
-              value       used to get call detail information
+Field Values Description
 
-  time        Call time
+---
 
-  ringtime                Ringing duration time in seconds
+id generated
 
-  talktime                Talk time duration in seconds
+callid numeric This call id is also used in the CEL table and can be value used to get call detail
+information
 
-  waittime                Wait time duration in seconds
+time Call time
 
-  status                  See status description below
+ringtime Ringing duration time in seconds
 
-  queue\_id               Id of the queue, the name of the queue can be found in
-                          table `stat_queue`, using this name queue details can be
-                          found in table `queuefeatures`
+talktime Talk time duration in seconds
 
-  agent\_id               Id of the agent, the agent name can be found in table
-                          `stat_agent`, using this name agent details can be found
-                          in table `agentfeatures` using the number in the second
-                          part of the name Exemple : Agent/1002 is agent with
-                          number 1002 in table `agentfeatures`
-  --------------------------------------------------------------------------------
+waittime Wait time duration in seconds
 
-Queue Call Status {#queue-call-status}
------------------
+status See status description below
 
-  --------------------------------------------------------------------------------
-  Status              Description
-  ------------------- ------------------------------------------------------------
-  full                Call was not queued because queue was full, happens when the
-                      number of calls is greater than the maximum number of calls
-                      allowed to wait
+queue_id Id of the queue, the name of the queue can be found in table `stat_queue`, using this name
+queue details can be found in table `queuefeatures`
 
-  closed              Closed due to the schedule applied to the queue
+agent_id Id of the agent, the agent name can be found in table `stat_agent`, using this name agent
+details can be found in table `agentfeatures` using the number in the second part of the name
+Exemple : Agent/1002 is agent with number 1002 in table `agentfeatures`
 
-  joinempty           No agents were available in the queue to take the call
-                      (follows the join empty parameter of the queue)
+---
 
-  leaveempty          No agents available while the call was waiting in the qeuue
+## Queue Call Status {#queue-call-status}
 
-  divert\_ca\_ratio   Call diverted because the ratio number of agent number of
-                      calls waiting configured was exceeded
+---
 
-  divert\_waittime    Call diverted because the maximum expected waiting time
-                      configured was exceeded
+Status Description
 
-  answered            Call was answered
+---
 
-  abandoned           Call hangup by the caller
+full Call was not queued because queue was full, happens when the number of calls is greater than
+the maximum number of calls allowed to wait
 
-  timeout             Call stayed longer than the maximum time allowed in queue
-                      parameter
-  --------------------------------------------------------------------------------
+closed Closed due to the schedule applied to the queue
 
-stat\_queue\_periodic Table {#stat-queue-periodic-table}
----------------------------
+joinempty No agents were available in the queue to take the call (follows the join empty parameter
+of the queue)
 
-This table is an aggregation of the queue\_log table.
+leaveempty No agents available while the call was waiting in the qeuue
 
-This table contains counters on each queue for each given period. The
-granularity at the time of this writing is an hour and is not
-configurable. This table is then used to compute statistics for a given
-range of hours, days, week, month or year.
+divert_ca_ratio Call diverted because the ratio number of agent number of calls waiting configured
+was exceeded
 
-  --------------------------------------------------------------------------------
-  Field               Description
-  ------------------- ------------------------------------------------------------
-  id                  Generated id
+divert_waittime Call diverted because the maximum expected waiting time configured was exceeded
 
-  time                time period, all counters are aggregated for an hour
+answered Call was answered
 
-  answered            Number of answered calls during the period
+abandoned Call hangup by the caller
 
-  abandoned           Number of abandoned calls during the period
+timeout Call stayed longer than the maximum time allowed in queue parameter
 
-  total               Total calls received during the period
+---
 
-  full                Number of calls received when queue was full
+## stat_queue_periodic Table {#stat-queue-periodic-table}
 
-  closed              Number of calls received on close
+This table is an aggregation of the queue_log table.
 
-  joinempty           Number of calls received no agents available
+This table contains counters on each queue for each given period. The granularity at the time of
+this writing is an hour and is not configurable. This table is then used to compute statistics for a
+given range of hours, days, week, month or year.
 
-  leaveempty          Number of calls diverted agents not available during the
-                      wait
+---
 
-  divert\_ca\_ratio   Number of calls diverted due to the number of agent number
-                      versus calls waiting configured was exceeded
+Field Description
 
-  divert\_waittime    Number of calls diverted because the maximum expected
-                      waiting time configured was exceeded
+---
 
-  timeout             Number of calls diverted because the maximum time allowed in
-                      queue parameter was exceeded
+id Generated id
 
-  queue\_id
-  --------------------------------------------------------------------------------
+time time period, all counters are aggregated for an hour
 
-stat\_agent {#stat-agent}
------------
+answered Number of answered calls during the period
 
-This table is used to match agents to an id that is different from the
-id in the agent configuration table. This is necessary to avoid loosing
-statistics on a deleted agent. This also means that if an agent changes
-number ie. Agent/1001 to Agent/1202, the supervisor will have to take
-this information into account when viewing the statistics. Affecting an
-old number to a another agent also means that the supervisor will have
-to ignore entries for this given agent for the period before the number
+abandoned Number of abandoned calls during the period
+
+total Total calls received during the period
+
+full Number of calls received when queue was full
+
+closed Number of calls received on close
+
+joinempty Number of calls received no agents available
+
+leaveempty Number of calls diverted agents not available during the wait
+
+divert_ca_ratio Number of calls diverted due to the number of agent number versus calls waiting
+configured was exceeded
+
+divert_waittime Number of calls diverted because the maximum expected waiting time configured was
+exceeded
+
+timeout Number of calls diverted because the maximum time allowed in queue parameter was exceeded
+
+queue_id
+
+---
+
+## stat_agent {#stat-agent}
+
+This table is used to match agents to an id that is different from the id in the agent configuration
+table. This is necessary to avoid loosing statistics on a deleted agent. This also means that if an
+agent changes number ie. Agent/1001 to Agent/1202, the supervisor will have to take this information
+into account when viewing the statistics. Affecting an old number to a another agent also means that
+the supervisor will have to ignore entries for this given agent for the period before the number
 assignment to the new agent.
 
-stat\_queue {#stat-queue}
------------
+## stat_queue {#stat-queue}
 
-This table is used to store queues in a table that is different from the
-queue configuration table. This is necessary to avoid losing statistics
-on a deleted queue. Renaming a queue is also not handled at this time.
+This table is used to store queues in a table that is different from the queue configuration table.
+This is necessary to avoid losing statistics on a deleted queue. Renaming a queue is also not
+handled at this time.
