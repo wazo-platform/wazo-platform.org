@@ -2,8 +2,7 @@
 title: Agents
 ---
 
-Introduction
-============
+## Introduction
 
 > *A call center agent is the person who handles incoming or outgoing
 > customer calls for a business. A call center agent might handle
@@ -17,8 +16,7 @@ Introduction
 In this respect, agents in Wazo have no fixed line and can login from
 any registered device.
 
-Getting Started
-===============
+## Getting Started
 
 -   Create a user with a SIP line and a provisioned device.
 -   Create agents.

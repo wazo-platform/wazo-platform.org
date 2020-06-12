@@ -32,8 +32,7 @@ enters the queue. A queue can use one of the following ring strategies:
 > distribution between multiple queues is nondeterministic and cannot be
 > configured.
 
-Timers
-======
+## Timers
 
 You may control how long a call will stay in a queue using different
 timers:
@@ -56,8 +55,7 @@ timers:
 
 ![](/images/uc-doc/contact_center/queues/queue_timers.jpg)
 
-Fallbacks
-=========
+## Fallbacks
 
 Calls can be diverted on no answer with `/queues/{queue_id}/fallbacks`
 endpoints:
@@ -71,8 +69,7 @@ endpoints:
     queued and no agents were available to answer
     (`options: leavewhenempty`).
 
-Diversions
-==========
+## Diversions
 
 Diversions can be used to redirect calls to another destination when a
 queue is very busy. Calls are redirected using one of the two threshold:
@@ -82,8 +79,7 @@ The diversion check is done only once per call, before the
 [preprocess subroutine](/uc-doc/api_sdk/subroutine) is
 executed and before the call enters the queue.
 
-`wait_time_threshold`
----------------------
+### `wait_time_threshold`
 
 When this scenario is used, the administrator can set a destination for
 calls to be sent to when the estimated waiting time is over the
@@ -92,7 +88,8 @@ threshold `wait_time_threshold`.
 Note that if a new call arrives when there are no waiting calls in the
 queue, the call will **always** be allowed to enter the queue.
 
-#!exclamation:
+#:exclamation:
+
 -   this *estimated* waiting time is computed from the **actual hold
     time** of all **answered** calls in the queue (since last asterisk
     restart) according to an [exponential smoothing
@@ -100,8 +97,7 @@ queue, the call will **always** be allowed to enter the queue.
 -   the estimated waiting time of a queue is updated only when a queue
     member answers a call.
 
-`wait_ratio_threshold` {#queue-diversion-waitratio}
-----------------------
+### `wait_ratio_threshold` {#queue-diversion-waitratio}
 
 When this scenario is used, the administrator can set a destination for
 calls to be sent to when the number of waiting calls per logged-in agent
@@ -145,8 +141,7 @@ example, in the following scenario:
 Even if `wait_ratio_time` (1) is greater than the maximum (0.5), the
 call will still be accepted since there are currently no waiting calls.
 
-Music on Hold {#moh}
-=============
+## Music on Hold {#moh}
 
 The `music_on_hold` of the queue will be played:
 
