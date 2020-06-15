@@ -6,13 +6,13 @@ To use the service, you need to:
 2.  authenticate to it by providing a wazo-auth token that has the
     `websocketd` ACL. If you don't know how to obtain a wazo-auth token
     from your Wazo, consult the [documentation on
-    wazo-auth](/uc-doc/system/wazo-auth/introduction).
+    wazo-auth](https://wazo-platform.org/uc-doc/system/wazo-auth/introduction).
 
 For example, if you want to use the service located at `example.org`
 with the token `some-token-id`, you would use the URL
 `wss://example.org:9502/?token=some-token-id&version=2`.
 
-The [SSL/TLS certificate](/uc-doc/system/https_certificate)
+The [SSL/TLS certificate](https://wazo-platform.org/uc-doc/system/https_certificate)
  that is used by the WebSocket server is
 the same as the one used by the Wazo web interface and the REST APIs. By
 default, this is a self-signed certificate, and web browsers will
@@ -20,7 +20,7 @@ prevent connections from being successfully established for security
 reasons. On most web browsers, this can be circumvented by first
 visiting the `https://<wazo-ip>:9502/` URL and adding a security
 exception. Other solutions to this problem are described in the
-[connection section](/uc-doc/system/https_certificate).
+[connection section](https://wazo-platform.org/uc-doc/system/https_certificate).
 
 After a succesful connection and authentication to the service, the
 server will send the following message:
@@ -30,16 +30,16 @@ server will send the following message:
 This indicate that the server is ready to accept more commands from the
 client. Had an error happened, the server would have closed the
 connection, possibly with one of the [service
-specific WebSocket close code](/uc-doc/api_sdk/websocket#ws-status-code).
+specific WebSocket close code](https://wazo-platform.org/uc-doc/api_sdk/websocket#ws-status-code).
 
 The message you see is part of the small
-[JSON-based protocol](/uc-doc/api_sdk/websocket#ws-protocol) that is
+[JSON-based protocol](https://wazo-platform.org/uc-doc/api_sdk/websocket#ws-protocol) that is
 used for the client/server interaction.
 
 To receive events on your WebSocket connection, you need to tell the
 server which type of events you are interested in, and then tell it to
 start sending you these events. For example, if you are interested in
-the ["endpoint_status_update" events](/uc-doc/api_sdk/message_bus#endpoint-status-update),
+the ["endpoint_status_update" events](https://wazo-platform.org/uc-doc/api_sdk/message_bus#endpoint-status-update),
 you send the following command:
 
     {"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
@@ -185,7 +185,7 @@ it receives will be logged to the console.
 ## Reference
 
 The WebSocket service is provided by `wazo-websocketd`, and its
-behaviour can be configured via its [configuration files](/uc-doc/system/configuration_files)
+behaviour can be configured via its [configuration files](https://wazo-platform.org/uc-doc/system/configuration_files)
 located under the
 <span data-role="file">/etc/wazo-websocketd</span> directory. After
 modifying the configuration files, you need to restart `wazo-websocketd`
@@ -208,7 +208,7 @@ since the certificate is self-signed, you'll have to either:
     the system that access the service
   - use a trusted certificate
 
-See the [Certificates for HTTPS](/uc-doc/system/https_certificate) section for more
+See the [Certificates for HTTPS](https://wazo-platform.org/uc-doc/system/https_certificate) section for more
 information on certificate configuration.
 
 ### Authentication
@@ -241,7 +241,7 @@ done when an event is received by the server. This mean a client can
 subscribe to an event "foo", but will never receive any of these events
 if it does not have the matching ACL.
 
-See the [Events](/uc-doc/api_sdk/message_bus#bus-events) section for more
+See the [Events](https://wazo-platform.org/uc-doc/api_sdk/message_bus#bus-events) section for more
 information on the required ACL of events which are available by default
 on Wazo.
 
@@ -289,7 +289,7 @@ Example:
 You can subscribe to any event. The special event name `*` can be used
 to match all events.
 
-See the [Events](/uc-doc/api_sdk/message_bus#bus-events) section for more
+See the [Events](https://wazo-platform.org/uc-doc/api_sdk/message_bus#bus-events) section for more
 information on the events which are available by default on Wazo.
 
 The "start" message ask the server to start sending messages from the
