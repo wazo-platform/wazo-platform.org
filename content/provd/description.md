@@ -1,6 +1,7 @@
 # [provd](https://github.com/wazo-platform/wazo-provd)
 
-wazo-provd is the phone provisioning service for the Wazo platform. It generates configuration files for phones and gateways based on the plugins that are installed.
+wazo-provd is the phone provisioning service for the Wazo platform. It generates configuration files
+for phones and gateways based on the plugins that are installed.
 
 ## Schema
 
@@ -16,11 +17,14 @@ The REST API for wazo-provd is available [here](../api/provisioning.html)
 
 ## Plugins
 
-Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located [here](https://github.com/wazo-platform/wazo-provd-plugins)
+Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located
+[here](https://github.com/wazo-platform/wazo-provd-plugins)
 
-Plugins are meant to be installed and upgraded independently of the OS to be able to use firmware version that works best for your use case.
+Plugins are meant to be installed and upgraded independently of the OS to be able to use firmware
+version that works best for your use case.
 
-Supported plugins are hosted on [provd.wazo.community](http://provd.wazo.community/plugins/1/stable/)
+Supported plugins are hosted on
+[provd.wazo.community](http://provd.wazo.community/plugins/1/stable/)
 
 ## Auto provisioning
 
@@ -31,8 +35,8 @@ Here's a simplified view of how auto-provisioning is supported on a typical SIP 
 1. The phone is powered on
 2. During its boot process, the phone sends a DHCP request to obtain its network configuration
 3. A DHCP server replies with the phone network configuration + an HTTP URL
-4. The phone use the provided URL to retrieve a common configuration file, a
-   MAC-specific configuration file, a firmware image and some language files.
+4. The phone use the provided URL to retrieve a common configuration file, a MAC-specific
+   configuration file, a firmware image and some language files.
 
 Building on this, configuring one of the supported phone on Wazo is as simple as:
 
@@ -41,8 +45,8 @@ Building on this, configuring one of the supported phone on Wazo is as simple as
 3. Powering on the phone
 4. Dialing the user's provisioning code from the phone
 
-And *voila*, once the phone has rebooted, your user is ready to make and receive calls.
-No manual editing of configuration files nor fiddling in the phone's web interface.
+And _voila_, once the phone has rebooted, your user is ready to make and receive calls. No manual
+editing of configuration files nor fiddling in the phone's web interface.
 
 ## Tenant assignation
 
@@ -54,24 +58,24 @@ it anyway, you must delete the device and restart it manually.
 
 ## Limitations
 
-* Device synchronisation does not work in the situation where multiple devices are connected from
+- Device synchronisation does not work in the situation where multiple devices are connected from
   behind a NAPT network equipment. The devices must be resynchronised manually.
-* There may be an issue if you are using an analog gateway with lines that are not in the same
+- There may be an issue if you are using an analog gateway with lines that are not in the same
   tenant. Indeed, in the case that the gateway is only one device and each port is a separate line,
   the device will only be seen by the tenant of the first line that was added.
 
 ## External links
 
-* [Introduction to provd plugin model](https://wazo-platform.org/contribute/introduction-to-the-plugin-model-of-the-new-provisioning-server)
-* [HTTP/TFTP requests processing in provd - part 1](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-1)
-* [HTTP/TFTP requests processing in provd - part 2](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-2)
+- [Introduction to provd plugin model](https://wazo-platform.org/contribute/introduction-to-the-plugin-model-of-the-new-provisioning-server)
+- [HTTP/TFTP requests processing in provd - part 1](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-1)
+- [HTTP/TFTP requests processing in provd - part 2](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-2)
 
 ## Related
 
-* [wazo-amid](amid.html)
-* [wazo-auth](authentication.html)
-* [wazo-confd](configuration.html)
+- [wazo-amid](amid.html)
+- [wazo-auth](authentication.html)
+- [wazo-confd](configuration.html)
 
 ## See also
 
-* [Admin notes](provisioning-admin.html)
+- [Admin notes](provisioning-admin.html)
