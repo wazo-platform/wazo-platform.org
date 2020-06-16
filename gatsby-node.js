@@ -382,7 +382,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   sections.forEach(section =>
     Object.keys(section.modules).forEach(
       moduleName =>
-        !!section.modules[moduleName].redocUrl && moduleName === 'contact' &&
+        !!section.modules[moduleName].graphql &&
         newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
           moduleName,
           module: section.modules[moduleName],

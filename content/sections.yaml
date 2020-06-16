@@ -33,6 +33,7 @@
         icon: fa fa-users
         color: purple
         repository: wazo-dird
+        graphql: true
         redocUrl: https://example.com/api/dird/0.1/api/api.yml
 
       provisioning:

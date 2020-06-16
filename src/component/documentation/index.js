@@ -62,6 +62,12 @@ export const Module = ({ moduleName, module }) => (
             </Link>
           )}
 
+          {module.graphql && (
+            <Link to={`/documentation/graphql/${moduleName}`} className="list-group-item">
+              GraphQL
+            </Link>
+          )}
+
           {module.repositoryLink !== false && (
             <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
               <i className="fab fa-github" /> {module.repository}
