@@ -45,13 +45,15 @@ const styles = {
   normal: {
     ...shared,
   },
-  loading: {
-    height: '50vh',
+  graphql: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
-}
+  warning: {
+    fontSize: '1.2em',
+  },
+};
 
 export default ({ pageContext: { moduleName, module, modules }}) => {
   const graphqlRef = useRef(null);
@@ -67,6 +69,8 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [scrollPos, setScrollPos] = useState(null);
+
+  const hasValidToken = apiKey && apiKey.indexOf(':') === -1;
 
   const handleScroll = () => {
     setScrollPos(window.scrollY);
@@ -91,12 +95,12 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   let buttonLabel = 'Validate';
   if (loading) {
     buttonLabel = 'Loading...';
-  }else if(apiKey && apiKey.indexOf(':') === -1){
+  }else if(hasValidToken){
     buttonLabel = 'Reset';
   }
 
   const validate = () => {
-    if(apiKey && apiKey.indexOf(':') === -1) {
+    if(hasValidToken) {
       setError(null);
       setCookie('apiKey', '');
       return;
@@ -167,7 +171,6 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
         />
 
         <input
-
           id="input_pathname"
           name="pathname"
           className="form-control"
@@ -198,8 +201,9 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           onClick={() => validate()}
         >{buttonLabel}</button>
       </div>
-      <div id="graphiql" ref={graphqlRef}>
-        <GraphiQL ref={graphqlRef} fetcher={graphQLFetcher} editorTheme="cm-s-material" />
+      <div id="graphiql" ref={graphqlRef} style={styles.graphql}>
+        {baseUrl && hasValidToken && <GraphiQL ref={graphqlRef} fetcher={graphQLFetcher} editorTheme="cm-s-material" />}
+        {(!baseUrl || !hasValidToken) && <div style={styles.warning}>You need a valid URL and token</div>}
       </div>
     </Layout>
   );
