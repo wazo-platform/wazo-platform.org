@@ -45,7 +45,7 @@ const styles = {
   normal: {
     ...shared,
   },
-  graphql: {
+  wrapper: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -71,6 +71,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
   const [scrollPos, setScrollPos] = useState(null);
 
   const hasValidToken = apiKey && apiKey.indexOf(':') === -1;
+  const show = baseUrl && hasValidToken;
 
   const handleScroll = () => {
     setScrollPos(window.scrollY);
@@ -201,9 +202,9 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
           onClick={() => validate()}
         >{buttonLabel}</button>
       </div>
-      <div id="graphiql" ref={graphqlRef} style={styles.graphql}>
-        {baseUrl && hasValidToken && <GraphiQL ref={graphqlRef} fetcher={graphQLFetcher} editorTheme="cm-s-material" />}
-        {(!baseUrl || !hasValidToken) && <div style={styles.warning}>You need a valid URL and token</div>}
+      <div id="graphiql" ref={graphqlRef} style={show ? {} : styles.wrapper}>
+        {show && <GraphiQL ref={graphqlRef} fetcher={graphQLFetcher} editorTheme="cm-s-material" />}
+        {!show && <div style={styles.warning}>You need a valid URL and token</div>}
       </div>
     </Layout>
   );
