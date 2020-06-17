@@ -79,7 +79,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
 
   const handleResize = () => {
     if (graphqlRef.current) {
-      graphqlRef.current.style.height = `${window.innerHeight - 305}px`;
+      graphqlRef.current.style.height = `${window.innerHeight - 200}px`;
     }
   };
 
