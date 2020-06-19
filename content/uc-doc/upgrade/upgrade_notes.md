@@ -11,9 +11,10 @@ title: Upgrade notes
   to proxy communication with wazo-platform services. To follow this change, the listen address has
   been changed to 127.0.0.1 by default.
 
-  - wazo-plugind
   - wazo-chatd
+  - wazo-plugind
   - wazo-setupd
+  - wazo-websocketd
 
 ## 20.08 {#20-08}
 
