@@ -13,6 +13,7 @@ title: Upgrade notes
 
   - wazo-chatd
   - wazo-plugind
+  - wazo-provd
   - wazo-setupd
   - wazo-websocketd
 
