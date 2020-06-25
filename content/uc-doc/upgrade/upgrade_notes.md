@@ -17,6 +17,10 @@ title: Upgrade notes
   - wazo-setupd
   - wazo-websocketd
 
+Consult the [20.09
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10101) for
+more information.
+
 ## 20.08 {#20-08}
 
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
