@@ -12,12 +12,12 @@ Here is a short review of the Wazo Platform 20.09 release.
 
 ## New features in this release
 
-* **WebSocket**: A new ping/pong command has been implemented to improve connection stability.
+* **WebSocket**: A new ping/pong command has been implemented in the Wazo WebSocket. This allows clients to detect more easily when the network connection with the server is interrupted.
 
 ## Technical features
 
-* **Asterisk**: Asterisk has now a process realtime priority by default. It increases stability when the server is on load.
-* **Performance**: We had removing the use of encryption of internal communication between Wazo components.
+* **Asterisk**: Asterisk process priority has been changed to realtime priority. This increases stability and voice quality when the server is under load.
+* **Performance**: We have removed the use of encryption for internal HTTP communication between Wazo components. Encryption now only happens when Wazo is sending/receiving data from the outside world.
 
 ## Ongoing features
 
