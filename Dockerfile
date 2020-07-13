@@ -7,7 +7,7 @@ COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 # Install Git
 RUN apk update && apk upgrade && \
-    apk add --no-cache git
+    apk add --no-cache git make
 
 # Move plantuml to a folder in the PATH
 RUN mv /plantuml.jar "$JAVA_HOME/lib"

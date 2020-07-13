@@ -13,4 +13,5 @@ services:
       - ./gatsby-config.js:/app/gatsby-config.js:ro
       - ./config.js:/app/config.js:ro
       - ./tests:/app/tests:ro
+      - ./Makefile:/app/Makefile:ro
     command: sleep 3600 # Use to let container up during build

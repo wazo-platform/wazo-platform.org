@@ -23,4 +23,22 @@ clean:
 import:
 	./import-plantuml.sh
 
-.PHONY: builder build develop format test clean import
+DIAGRAM_DIRECTORY=public/diagrams
+plantuml-diagrams:
+	mkdir -p $(DIAGRAM_DIRECTORY)
+	for f in $$(find content -name '*.puml'|grep -v /plantuml/); do \
+		cp -p $$f $(DIAGRAM_DIRECTORY)/$$(basename $$(dirname $$f))-$$(basename $$f); \
+	done
+	$(MAKE) plantuml-run
+	rm -f $(DIAGRAM_DIRECTORY)/*.puml
+
+plantuml-run:
+	outputs="$(patsubst %.puml,%.svg,$(wildcard $(DIAGRAM_DIRECTORY)/*.puml))"; \
+	cp content/plantuml/*.puml $(DIAGRAM_DIRECTORY); \
+	$(MAKE) $${outputs}
+
+%.svg: %.puml
+	java -jar ${JAVA_HOME}/lib/plantuml.jar -tsvg -o$(DIAGRAM_DIRECTORY) $^
+
+
+.PHONY: builder build develop format test clean import plantuml-diagrams
