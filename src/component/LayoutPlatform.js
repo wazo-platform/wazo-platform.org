@@ -30,7 +30,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
   if (typeof window === 'object') {
     useEffect(() => {
       scrollToAnchor(window.location.hash);
-    }, [window.location.hash]);
+    });
   }
 
   const bodyAttributes = { class: section };
