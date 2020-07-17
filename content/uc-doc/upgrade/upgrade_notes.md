@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 20.10 {#20.10}
+
+Consult the [20.10
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10111) for
+more information.
+
 ## 20.09 {#20-09}
 
 - The wazo-confgend module that generates the SIP configuration for `chan_sip` has been removed. If
