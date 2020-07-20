@@ -13,7 +13,7 @@ Here is a short review of the Wazo Platform 20.10 release.
 ## Technical features
 
 * **Asterisk**: Asterisk was upgraded to 17.5.1. See the [Asterisk release announcement](https://www.asterisk.org/downloads/asterisk-news/asterisk-1751-now-available)
-* **Multi-tenancy**: We have improved the consistency of the database for multiple tenants. User authentications will now get deleted from the database after the tenant gets deleted.
+* **Multi-tenancy**: We have improved the consistency of the database for multiple tenants. User credentials will now get deleted from the database after the tenant gets deleted.
 
 ## Ongoing features
 
