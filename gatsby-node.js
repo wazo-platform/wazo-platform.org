@@ -378,6 +378,19 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     )
   );
 
+  // integrate graphiql @TEMP: restricting to 'contact'... for now i hope :)
+  sections.forEach(section =>
+    Object.keys(section.modules).forEach(
+      moduleName =>
+        !!section.modules[moduleName].graphql &&
+        newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+        })
+    )
+  );
+
   // Create overview and extra pages
   Object.keys(allModules).forEach(moduleName => {
     const module = allModules[moduleName];
