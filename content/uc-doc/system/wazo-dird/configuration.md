@@ -26,10 +26,8 @@ Here\'s an example of the main configuration file:
 
 ``` {.sourceCode .yaml}
 debug: False
-foreground: False
 log_filename: /var/log/wazo-dird.log
 log_level: info
-pid_filename: /run/wazo-dird/wazo-dird.pid
 user: www-data
 
 enabled_plugins:
@@ -51,10 +49,6 @@ debug
 
 :   Enable log debug messages. Overrides `log_level`. Default: `False`.
 
-foreground
-
-:   Foreground, don\'t daemonize. Default: `False`.
-
 log\_filename
 
 :   File to write logs to. Default: `/var/log/wazo-dird.log`.
@@ -63,11 +57,6 @@ log\_level
 
 :   Logs messages with LOG\_LEVEL details. Must be one of: `critical`,
     `error`, `warning`, `info`, `debug`. Default: `info`.
-
-pid\_filename
-
-:   File used as lock to avoid multiple wazo-dird instances. Default:
-    `/run/wazo-dird/wazo-dird.pid`.
 
 user
 
