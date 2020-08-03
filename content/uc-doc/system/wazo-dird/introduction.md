@@ -21,7 +21,6 @@ Launching wazo-dird {#wazo-dird-usage}
                             The path where is the config file. Default: /etc/wazo-dird/config.yml
       -d, --debug           Log debug messages. Overrides log_level. Default:
                             False
-      -f, --foreground      Foreground, don't daemonize. Default: False
       -l LOG_LEVEL, --log-level LOG_LEVEL
                             Logs messages with LOG_LEVEL details. Must be one of:
                             critical, error, warning, info, debug. Default: info

@@ -82,7 +82,6 @@ Launching wazo-auth
                             The path to the config file
       -u USER, --user USER  User to run the daemon
       -d, --debug           Log debug messages
-      -f, --foreground      Foreground, don't daemonize
       -l LOG_LEVEL, --log-level LOG_LEVEL
                             Logs messages with LOG_LEVEL details. Must be one of:
                             critical, error, warning, info, debug. Default: None
