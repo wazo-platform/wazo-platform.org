@@ -2,7 +2,13 @@
 title: Upgrade notes
 ---
 
-## 20.10 {#20.10}
+## 20.11 {#20-11}
+
+Consult the [20.11
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10117) for
+more information.
+
+## 20.10 {#20-10}
 
 Consult the [20.10
 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10111) for
