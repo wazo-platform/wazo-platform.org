@@ -9,18 +9,16 @@ title: Installing the System
 
 ## Procedure
 
-To install the Unified Communication use case in an all-in-one
-setup, do the following steps:
+To install the Unified Communication use case in an all-in-one setup, do the following steps:
 
 1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset.
-2. Run the following commands as root on the Debian system to
-   provision sudo, git and Ansible:
+2. Run the following commands as root on the Debian system to provision sudo, git and Ansible:
 
    ```sh
    apt-get install -yq sudo git ansible
    ```
 
-4. Extract the Wazo Platform installer
+3. Extract the Wazo Platform installer
 
    ```sh
    git clone https://github.com/wazo-platform/wazo-ansible.git
@@ -28,13 +26,12 @@ setup, do the following steps:
    ansible-galaxy install -r requirements-postgresql.yml
    ```
 
-5. Edit the Ansible inventory in `inventories/uc-engine` to add your
-   preferences and passwords. The various variables that can be
-   customized are described at
+4. Edit the Ansible inventory in `inventories/uc-engine` to add your preferences and passwords. The
+   various variables that can be customized are described at
    <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
 
-   By default, Wazo Platform will install the development version. To install
-   the latest stable version, activate the following settings in your inventory:
+   By default, Wazo Platform will install the development version. To install the latest stable
+   version, activate the following settings in your inventory:
 
    ```ini
    [uc_engine:vars]
@@ -42,16 +39,15 @@ setup, do the following steps:
    wazo_distribution_upgrade = pelican-buster
    ```
 
-   If you want to install the web user interface, activate the following
-   in your inventory:
+   If you want to install the web user interface, activate the following in your inventory:
 
    ```ini
    [uc_ui:children]
    uc_engine_host
    ```
 
-   To create the `root` account at installation time and be able to use the web user interface
-   and REST APIs, you need to add the following variables:
+   To create the `root` account at installation time and be able to use the web user interface and
+   REST APIs, you need to add the following variables:
 
    ```ini
    [uc_engine:vars]
@@ -59,7 +55,7 @@ setup, do the following steps:
    engine_api_root_password = ****
    ```
 
-6. Launch the installation by running the following command:
+5. Launch the installation by running the following command:
 
    ```sh
    ansible-playbook -i inventories/uc-engine uc-engine.yml
@@ -71,12 +67,13 @@ You may now use the REST API from outside your system (here `wazo.example.com`).
 
 1. Get an authentication token for 1 hour:
 
-   Using the `api_client_name` and `api_client_password` you defined in
-   your inventory, you can execute from the Debian system:
+   Using the `api_client_name` and `api_client_password` you defined in your inventory, you can
+   execute from the Debian system:
 
    ```sh
    wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_client_password>
    ```
+
    Or with curl from anywhere:
 
    ```sh
