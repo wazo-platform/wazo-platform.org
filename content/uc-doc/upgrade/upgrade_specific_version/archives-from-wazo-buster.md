@@ -6,7 +6,7 @@ Those procedures are valid if your Wazo installation is newer than 19.12
 
 Example to upgrade to Wazo 19.13:
 
-```ShellSession
+```shell
 # wazo-dist -a wazo-19.13
 # apt-get update
 # apt-get install wazo-upgrade/wazo-19.13
@@ -19,7 +19,7 @@ Example to upgrade to Wazo 19.13:
 Procedures for upgrading to specific versions may freeze the version of
 your Wazo. Run the following commands to get the latest updates:
 
-```ShellSession
+```shell
 # wazo-dist pelican-buster
 # wazo-upgrade
 ```

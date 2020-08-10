@@ -227,7 +227,7 @@ i.e. :
 
 1.  Create a custom template for the SPA3102 base template:
 
-```ShellSession
+```shell
 # cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
 # cp ../../templates/base.tpl .
 ```
@@ -281,13 +281,13 @@ i.e. :
 
 3.  Reconfigure the devices with:
 
-```ShellSession
+```shell
 # wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 ```
 
 4.  Then reboot the devices:
 
-```ShellSession
+```shell
 # wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 ```
 

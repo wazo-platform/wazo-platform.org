@@ -24,7 +24,7 @@ Asterisk prompts.
     like `for_use_wazo_wazo-prompt_pt_BR.ini`.
 4.  On your Wazo, download the tool to automate the use of Google TTS:
 
-```ShellSession
+```shell
 $ wget https://github.com/zaf/asterisk-googletts/raw/master/cli/googletts-cli.pl
 $ chmod +x googletts-cli.pl
 ```

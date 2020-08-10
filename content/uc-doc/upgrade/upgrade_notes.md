@@ -603,7 +603,7 @@ Consult the roadmaps for more information:
 -   If you have a [custom certificate configured](/uc-doc/system/https_certificate),
     you will need to add a new symlink for wazo-upgrade:
 
-```ShellSession
+```shell
 # mkdir -p /etc/wazo-upgrade/conf.d
 # ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
 ```
@@ -654,7 +654,7 @@ Consult the roadmaps for more information:
     Let's Encrypt), you will have to add a link to the wazo-auth-cli
     configuration using the following command.
 
-```ShellSession
+```shell
 # ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
 ```
 

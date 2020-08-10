@@ -10,7 +10,7 @@ Upgrade to Wazo <= 18.03
 
 Example to upgrade to Wazo 18.03:
 
-```ShellSession
+```shell
 # wazo-dist -a wazo-18.03
 # apt-get update
 # apt-get install xivo-upgrade/wazo-18.03
@@ -28,7 +28,7 @@ Upgrade to Wazo < 19.13
 
 Example to upgrade to Wazo 19.12:
 
-```ShellSession
+```shell
 # wazo-upgrade
 ```
 
@@ -37,7 +37,7 @@ Upgrade to Wazo >= 19.13
 
 Example to upgrade to Wazo 19.13:
 
-```ShellSession
+```shell
 # wazo-upgrade
 ```
 
@@ -46,7 +46,7 @@ This will upgrade your Wazo to 19.12. From there:
 1.  Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes)
 2.  Upgrade to Wazo 19.13:
 
-```ShellSession
+```shell
 # wazo-dist-upgrade -t wazo-19.13
 # wazo-dist -m pelican-buster
 ```
@@ -57,7 +57,7 @@ My Wazo is stuck in a specific version
 Procedures for upgrading to specific versions may freeze the version of
 your Wazo. Run the following commands to get the latest updates:
 
-```ShellSession
+```shell
 # wazo-dist pelican-stretch
 # wazo-upgrade
 ```

@@ -87,7 +87,7 @@ The following variables can be used in the file name:
 
 #:exclamation: You **must** restart wazo-agid to take any config change into effect:
 
-```ShellSession
+```shell
 # systemctl restart wazo-agid
 ```
 

@@ -324,7 +324,7 @@ issue:
     example `fr_FR.UTF-8`), then restore your backup using the following
     commands instead:
 
-```ShellSession
+```shell
 $ sudo -u postgres dropdb asterisk
 $ sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk
 $ sudo -u postgres pg_restore -d asterisk asterisk-*.dump
@@ -356,7 +356,7 @@ If you have decided to change the locale of your database, you must:
 Then use the following commands (replacing `fr_FR.UTF-8` by your
 locale):
 
-```ShellSession
+```shell
 $ wazo-service restart all
 $ sudo -u postgres createdb -l fr_FR.UTF-8 -O asterisk -T template0 asterisk_newlocale
 $ sudo -u postgres pg_dump asterisk | sudo -u postgres psql -d asterisk_newlocale
@@ -393,14 +393,14 @@ etc.)
 
 Local capture, for later analysis:
 
-```ShellSession
+```shell
 # # change interface eth0 and filter 'udp port 5060' as you wish
 # tcpdump -i eth0 -w /tmp/wazo.pcap udp port 5060
 ```
 
 Remote packet capture, streamed to Wireshark via SSH:
 
-```ShellSession
+```shell
 # # install dumpcap on the server wazo.example.com
 # ssh wazo.example.com apt-get install -y wireshark-common
 #
@@ -426,14 +426,14 @@ To make that possible, you will have to follow these 4 easy steps.
 
 On a 32 bit server:
 
-```ShellSession
+```shell
 $ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
 $ unzip ngrok-stable-linux-386.zip
 ```
 
 On a 64 bit server:
 
-```ShellSession
+```shell
 $ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 $ unzip ngrok-stable-linux-amd64.zip
 ```
@@ -441,13 +441,13 @@ $ unzip ngrok-stable-linux-amd64.zip
 -   Add your ngrok token (given when you signed up on
     [ngrok](https://dashboard.ngrok.com/user/signup))
 
-```ShellSession
+```shell
 $ ./ngrok authtoken <YOUR AUTH TOKEN>
 ```
 
 -   Add SSH and HTTPS access in your *ngrok* config
 
-```ShellSession
+```shell
 $ cat << EOF >> ~/.ngrok2/ngrok.yml
 tunnels:
   webi:
@@ -461,7 +461,7 @@ EOF
 
 -   Start *ngrok*
 
-```ShellSession
+```shell
 $ ./ngrok start --all
 ```
 
@@ -503,7 +503,7 @@ When troubleshooting a problem, you may need to send logs for analysis.
 
 `wazo-debug-collect` simplifies the gathering of logs:
 
-```ShellSession
+```shell
 # apt-get update
 # apt-get install wazo-debug
 # wazo-debug-collect -o /tmp/logs.tar.gz

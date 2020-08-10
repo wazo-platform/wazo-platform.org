@@ -101,13 +101,13 @@ with the cards.
 
 Check:
 
-```ShellSession
+```shell
 # cat /proc/dahdi/<span number>
 ```
 
 If the *IRQ misses* counter increments, it\'s not good:
 
-```ShellSession
+```shell
 # cat /proc/dahdi/1
 Span 1: WCTDM/0 "Wildcard TDM800P Board 1" (MASTER)
 IRQ misses: 1762187

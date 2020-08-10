@@ -41,29 +41,29 @@ following steps.
 
 For a 32 bits system
 
-```ShellSession
+```shell
 # wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
 ```
 
 For a 64 bits system
 
-```ShellSession
+```shell
 # wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 ```
 
 ### Installing Consul on a new host
 
-```ShellSession
+```shell
 # unzip consul_0.5.2_linux_386.zip
 ```
 
 Or
 
-```ShellSession
+```shell
 # unzip consul_0.5.2_linux_amd64.zip
 ```
 
-```ShellSession
+```shell
 # mv consul /usr/bin/consul
 # mkdir -p /etc/consul/xivo
 # mkdir -p /var/lib/consul
@@ -83,7 +83,7 @@ to following lines.
 "advertise_addr": "<consul-host>"
 ```
 
-```ShellSession
+```shell
 # # on the consul host
 # scp root@<wazo-host>:/lib/systemd/system/consul.service /lib/systemd/system
 # systemctl daemon-reload
@@ -139,7 +139,7 @@ role="file"} with the following content
 
 This file should be owned by consul user.
 
-```ShellSession
+```shell
 # chown -R consul:consul /etc/consul/agent
 ```
 
@@ -153,6 +153,6 @@ Add or modify
 
 Restart your consul server.
 
-```ShellSession
+```shell
 # service consul restart
 ```

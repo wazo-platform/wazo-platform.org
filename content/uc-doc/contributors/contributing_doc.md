@@ -94,7 +94,7 @@ Autonumbered lists:
 To highlight code, you can add the following values at the code block initialization. It's better to
 specify it because it will improve readability.
 
-- ShellSession
+- shell
 - Shell
 - YAML
 - Python
