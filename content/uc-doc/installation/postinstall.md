@@ -26,9 +26,7 @@ following SIP options:
 The caller ID number on incoming calls depends on what is sent by your operator. You can modify it
 via the file `/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
-### #:exclamation: **Note**
-
-The reverse directory lookup use the caller ID number after it has been modified by
+**Note**: The reverse directory lookup use the caller ID number **after** it has been modified by
 `xivo_in_callerid.conf`
 
 ### Examples:
