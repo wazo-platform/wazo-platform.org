@@ -27,7 +27,7 @@ Notes on configuration files
 A *span* is created for each card port. Below is an example of a
 standard E1 port:
 
-```Ini
+```ini
 span=1,1,0,ccs,hdb3
 dchan=16
 bchan=1-15,17-31
@@ -72,7 +72,7 @@ the `dahdi_genconf` command.
 
 Below is an example of span definition:
 
-```Ini
+```ini
 group=0,11
 context=from-extern
 switchtype = euroisdn

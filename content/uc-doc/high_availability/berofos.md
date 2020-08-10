@@ -59,7 +59,7 @@ to explicitly specify the IP address of the berofos via the -h option:
 At this stage, your `/etc/bnfos.conf`{.interpreted-text role="file"}
 file should contains something like this:
 
-```Ini
+```ini
 [fos1]
 mac = 00:19:32:00:12:1D
 host = 10.34.1.50

@@ -17,7 +17,7 @@ assign it to the destinations where you have the problem.
 Add a new file
 `/etc/asterisk/extensions_extra.d/transfer-dtmf.conf` containing the following dialplan:
 
-```Ini
+```ini
 [allow-transfer]
 exten = s,1,NoOp(## Setting transfer context ##)
 same = n,Set(__TRANSFER_CONTEXT=<internal-context>)
@@ -52,7 +52,7 @@ Be aware that this workaround will probably not survive any upgrade.
 1.  Add new file
     `/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following dialplan:
 
-```Ini
+```ini
 ;; Fax Detection
 [pre-user-global-faxdetection]
 exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
@@ -186,7 +186,7 @@ It\'s possible to workaround this bug in Wazo by adding an agent
 `subroutine <subroutine>`. The subroutine
 can be either set globally or per agent:
 
-```Ini
+```ini
 [pre-limit-agentcallback]
 exten = s,1,NoOp()
 same  =   n,Set(LOCKED=${LOCK(agentcallback-${XIVO_AGENT_ID})})
