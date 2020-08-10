@@ -14,13 +14,13 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset.
 2. Run the following commands as root on the Debian system to provision sudo, git and Ansible:
 
-   ```sh
+   ```shell
    apt-get install -yq sudo git ansible
    ```
 
 3. Extract the Wazo Platform installer
 
-   ```sh
+   ```shell
    git clone https://github.com/wazo-platform/wazo-ansible.git
    cd wazo-ansible
    ansible-galaxy install -r requirements-postgresql.yml
@@ -57,7 +57,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 
 5. Launch the installation by running the following command:
 
-   ```sh
+   ```shell
    ansible-playbook -i inventories/uc-engine uc-engine.yml
    ```
 
@@ -70,13 +70,13 @@ You may now use the REST API from outside your system (here `wazo.example.com`).
    Using the `api_client_name` and `api_client_password` you defined in your inventory, you can
    execute from the Debian system:
 
-   ```sh
+   ```shell
    wazo-auth-cli token create --auth-user <api_client_name> --auth-password <api_client_password>
    ```
 
    Or with curl from anywhere:
 
-   ```sh
+   ```shell
    curl -k -X POST -u <api_client_name>:<api_client_password> -H 'Content-Type: application/json' -d '{"expiration": 3600}' https://wazo.example.com/api/auth/0.1/token
    ```
 
@@ -86,7 +86,7 @@ You may now use the REST API from outside your system (here `wazo.example.com`).
 
    - `my-token` with the authentication token
 
-   ```sh
+   ```shell
    curl -k -X GET -H 'X-Auth-Token: <my-token>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
    ```
 

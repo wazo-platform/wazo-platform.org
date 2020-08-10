@@ -44,7 +44,7 @@ via the file `/etc/xivo/asterisk/xivo_in_callerid.conf`.
 
 To enable the changes you have to restart wazo-agid:
 
-```sh
+```shell
 service wazo-agid restart
 ```
 
@@ -54,7 +54,7 @@ service wazo-agid restart
   `/provd/cfg_mgr/config` by editing the default template
 - If needed, reconfigure your timezone for the system:
 
-  ```sh
+  ```shell
   dpkg-reconfigure tzdata
   ```
 
