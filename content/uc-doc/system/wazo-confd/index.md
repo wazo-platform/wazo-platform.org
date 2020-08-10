@@ -1,5 +1,5 @@
 ---
-title: 'wazo-confd'
+title: wazo-confd
 ---
 
 - [Introduction](/uc-doc/system/wazo-confd/introduction)

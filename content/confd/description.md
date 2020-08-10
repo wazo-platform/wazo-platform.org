@@ -76,4 +76,5 @@ Create a user with a phone and a voicemail
 
 ## See also
 
-* [Dev notes](configuration-core.html)
+- [Internal concepts](/uc-doc/system/wazo-confd/developer)
+- [Tools](https://github.com/wazo-platform/wazo-confd/blob/master/README.md)
