@@ -7,8 +7,8 @@ created by people from the community.
 
 ## Tutorials
 
-Please note that these resources are provided on an \"as is basis\". They have not been reviewed by
-the Wazo team, therefore the information presented may be innaccurate. We also accept resources
+Please note that these resources are provided on an "as is basis". They have not been reviewed by
+the Wazo team, therefore the information presented may be inaccurate. We also accept resources
 provided in other languages besides English.
 
 Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/).
