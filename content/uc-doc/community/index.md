@@ -44,6 +44,6 @@ We gladly accept new contributions. There are two ways to contribute:
     to this page (see:
     [Contributing to the Documentation](/uc-doc/contributors/contributing_doc)).
 -   You can also open a contribution ticket on the [bug
-    tracker](https://projects.wazo.community/projects/xivo/issues).
+    tracker](https://wazo-dev.atlassian.net/).
 
 Note that we only accept documents in open formats, such as PDF or ODF.
