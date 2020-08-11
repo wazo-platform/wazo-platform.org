@@ -2,20 +2,19 @@
 title: Community Documentation
 ---
 
-This page provides links to resources on various topics around Wazo.
-They have been generously created by people from the community.
+This page provides links to resources on various topics around Wazo. They have been generously
+created by people from the community.
 
 ## Tutorials
 
-Please note that these resources are provided on an \"as is basis\".
-They have not been reviewed by the Wazo team, therefore the information
-presented may be innaccurate. We also accept resources provided in other
-languages besides English.
+Please note that these resources are provided on an \"as is basis\". They have not been reviewed by
+the Wazo team, therefore the information presented may be innaccurate. We also accept resources
+provided in other languages besides English.
 
 Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/).
 
 | Tutorial                                                                                                                                                           | Language | Level        | Author                       | Wazo Version |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------------|------------------------------|--------------|
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ------------ | ---------------------------- | ------------ |
 | [Xivo pour les nuls](http://xivopourlesnuls.wordpress.com/)                                                                                                        | French   | Beginner     | Nicolas                      | 2012         |
 | [Tips: post-installation of XiVO on Kimsufi](http://blog.labcellar.com/2014/02/23/ipbx-astuce-post-installation-de-xivo-sur-kimsufi)                               | French   | Intermediate | LabCellar                    | 2015         |
 | [Date format on SCCP 7941](http://blog.labcellar.com/2015/02/06/xivo-probleme-daffichage-de-lheure-sur-cisco-7941-en-cas-de-redemarrage-dasterisk/)                | French   | Intermediate | LabCellar                    | 2015         |
@@ -39,11 +38,9 @@ Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses
 
 We gladly accept new contributions. There are two ways to contribute:
 
--   The preferred way: open a pull request on
-    [Github](https://github.com/wazo-platform/wazo-platform.org) and add a line
-    to this page (see:
-    [Contributing to the Documentation](/uc-doc/contributors/contributing_doc)).
--   You can also open a contribution ticket on the [bug
-    tracker](https://wazo-dev.atlassian.net/).
+- The preferred way: open a pull request on
+  [Github](https://github.com/wazo-platform/wazo-platform.org) and add a line to this page (see:
+  [Contributing to the Documentation](/uc-doc/contributors/contributing_doc)).
+- You can also open a contribution ticket on the [bug tracker](https://wazo-dev.atlassian.net/).
 
 Note that we only accept documents in open formats, such as PDF or ODF.
