@@ -9,7 +9,7 @@ Those procedures are valid if your xivo installation is older than
 
 Example upgrade to Wazo 17.02:
 
-```ShellSession
+```shell
 # # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
 # wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/xivo-to-wazo-upgrade
 # chmod +x xivo-to-wazo-upgrade
@@ -21,7 +21,7 @@ Example upgrade to Wazo 17.02:
 
 Example upgrade to Wazo 18.02:
 
-```ShellSession
+```shell
 # # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
 # wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/xivo-to-wazo-upgrade
 # chmod +x xivo-to-wazo-upgrade
@@ -34,7 +34,7 @@ This will upgrade your xivo to Wazo 17.17. From there:
 
 2.  upgrade to Wazo 18.02:
 
-```ShellSession
+```shell
 # wazo-dist-upgrade -t wazo-18.02
 # wazo-dist phoenix-stretch
 ```
@@ -46,7 +46,7 @@ This will upgrade your xivo to Wazo 17.17. From there:
 Procedures for upgrading to specific versions may freeze the version of
 your xivo. Run the following commands to get the latest updates:
 
-```ShellSession
+```shell
 # # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
 # wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/xivo-to-wazo-upgrade
 # chmod +x xivo-to-wazo-upgrade

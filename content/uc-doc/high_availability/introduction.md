@@ -133,7 +133,7 @@ replicated from the master node to the slave every hour (:00).
 Replication can be started manually by running the replication scripts
 on the master:
 
-```ShellSession
+```shell
 # xivo-master-slave-db-replication <slave_ip>
 # xivo-sync
 ```

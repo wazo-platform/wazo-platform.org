@@ -59,7 +59,7 @@ to explicitly specify the IP address of the berofos via the -h option:
 At this stage, your `/etc/bnfos.conf`{.interpreted-text role="file"}
 file should contains something like this:
 
-```Ini
+```ini
 [fos1]
 mac = 00:19:32:00:12:1D
 host = 10.34.1.50
@@ -100,7 +100,7 @@ Then you must rewrite the `/etc/bnfos.conf` (mainly if you changed the IP addres
 Now that your berofos has proper network configuration and an up to date
 firmware, you might want to set a password on your berofos:
 
-```ShellSession
+```shell
     bnfos --set apwd=<password> -f fos1
     bnfos --set pwd=1 -f fos1
 ```
@@ -112,7 +112,7 @@ and replace the login line to something like:
 
 Next, configure your berofos for it to work correctly with the Wazo HA:
 
-```ShellSession
+```shell
     bnfos --set wdog=0 -f fos1
     bnfos --set wdogdef=0 -f fos1
     bnfos --set scenario=0 -f fos1

@@ -98,7 +98,7 @@ Here\'s an example of a valid
 `/etc/xivo/asterisk/xivo_fax.conf`
 configuration file:
 
-```Ini
+```ini
 [general]
 tiff2pdf = /usr/bin/tiff2pdf
 mutt = /usr/bin/mutt
@@ -140,7 +140,7 @@ FTP server.
 An FTP backend is always defined in a section beginning with the `ftp`
 prefix. Here\'s an example for a backend named `ftp_example_org`:
 
-```Ini
+```ini
 [ftp_example_org]
 host = example.org
 port = 2121
@@ -174,7 +174,7 @@ A printer backend is always defined in a section beginning with the
 `printer` prefix. Here\'s an example for a backend named
 `printer_office`:
 
-```Ini
+```ini
 [printer_office]
 name = office
 convert_to_pdf = 1
@@ -227,14 +227,14 @@ i.e. :
 
 1.  Create a custom template for the SPA3102 base template:
 
-```ShellSession
+```shell
 # cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
 # cp ../../templates/base.tpl .
 ```
 
 2.  Add the following content before the `</flat-profile>` tag:
 
-```Ini
+```ini
 <!-- CUSTOM TPL - for faxes - START -->
 
 {% for line_no, line in sip_lines.iteritems() %}
@@ -281,13 +281,13 @@ i.e. :
 
 3.  Reconfigure the devices with:
 
-```ShellSession
+```shell
 # wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").reconfigure()'
 ```
 
 4.  Then reboot the devices:
 
-```ShellSession
+```shell
 # wazo-provd-cli -c 'devices.using_plugin("xivo-cisco-spa3102-5.1.10").synchronize()'
 ```
 

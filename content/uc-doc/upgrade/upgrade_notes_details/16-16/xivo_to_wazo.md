@@ -24,7 +24,7 @@ time. The features needing `*.xivo.io` are:
 
 In this case, you\'ll need to run the following commands:
 
-```ShellSession
+```shell
 # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
 wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/use-wazo-infrastructure
 chmod +x use-wazo-infrastructure
@@ -48,7 +48,7 @@ revert it manually.
 
 To upgrade your XiVO to Wazo, run the following commands:
 
-```ShellSession
+```shell
 # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
 wget --no-check-certificate https://raw.githubusercontent.com/wazo-platform/wazo-upgrade/master/bin/xivo-to-wazo-upgrade
 chmod +x xivo-to-wazo-upgrade
@@ -60,7 +60,7 @@ chmod +x xivo-to-wazo-upgrade
 You should make sure that you don\'t have any reference left to the
 xivo.io domain on your Wazo. In particular, you should check the
 `/etc` directory with the command:
-```ShellSession
+```shell
     grep -rF xivo.io /etc
 ```
 There is no release of the Wazo Client 16.16, but Wazo 16.16 is

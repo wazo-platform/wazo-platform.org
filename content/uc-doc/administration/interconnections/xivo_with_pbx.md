@@ -61,7 +61,7 @@ general rule :
 
 Below is an example with two provider links and two PBX links:
 
-```Ini
+```ini
 # Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER)
 span=1,1,0,ccs,hdb3         # Span towards Provider
 bchan=1-15,17-31
@@ -106,7 +106,7 @@ overlapdial = incoming
 Below an example of
 `/etc/asterisk/dahdi-channels.conf`:
 
-```Ini
+```ini
 ; Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER)
 group=0,11
 context=from-extern
@@ -149,7 +149,7 @@ We first need to create a route for calls coming from the PBX
 # Create a file named `pbx.conf` in the
 directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}, # Add the following lines in the file:
 
-```Ini
+```ini
 [from-pabx]
 exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
 exten = _X.,n,Goto(default,${EXTEN},1)

@@ -135,7 +135,7 @@ A backend supplying the following variables:
 
 With the following ACL templates:
 
-```Ini
+```ini
 confd.users.{{ uuid }}.read
 {% for line in lines %}confd.lines.{{ line }}.#:{% endfor %}
 dird.me.#
@@ -147,7 +147,7 @@ at the end of each ACL
 
 Would create tokens with the following ACL:
 
-```Ini
+```ini
 confd.users.fd64193f-7260-4299-9bc2-87c0106e5302.read
 confd.lines.1.#
 confd.lines.42.#

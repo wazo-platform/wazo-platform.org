@@ -13,7 +13,7 @@ Know which card is in your server
 You can see which cards are detected by issuing the `dahdi_hardware`
 command:
 
-```ShellSession
+```shell
 # dahdi_hardware
 pci:0000:05:0d.0     wcb4xxp-     d161:b410 Digium Wildcard B410P
 pci:0000:05:0e.0     wct4xxp-     d161:0205 Wildcard TE205P (4th Gen)

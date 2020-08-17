@@ -68,7 +68,7 @@ You may need to reboot your machine before running `wazo-dist-upgrade`.
 To minimize the downtime, you can pre-download the packages required for
 the upgrade with:
 
-```ShellSession
+```shell
 # wazo-upgrade -d
 # wazo-dist-upgrade -d
 ```

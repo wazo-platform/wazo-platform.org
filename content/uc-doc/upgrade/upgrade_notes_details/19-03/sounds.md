@@ -21,7 +21,7 @@ How to migrate
 
 The sound files are stored in `/var/lib/xivo/sounds`, for example:
 
-```ShellSession
+```shell
 root@wazo:~# tree /var/lib/xivo/sounds
 /var/lib/xivo/sounds
 ├── acd
@@ -39,7 +39,7 @@ In order to make the sound files available to tenants, you need to move
 the files in a `tenants`{.interpreted-text role="file"} subdirectory,
 like this:
 
-```ShellSession
+```shell
 root@wazo:~# tree /var/lib/xivo/sounds
 /var/lib/xivo/sounds
 └── tenants
@@ -71,7 +71,7 @@ Each subdirectory of the `tenants`{.interpreted-text role="file"}
 directory must be named like the UUID of each tenant. In order to know
 the UUID of tenants, you can use the `wazo-auth-cli` command:
 
-```ShellSession
+```shell
 root@wazo:~# wazo-auth-cli tenant list -c uuid -c name
 +--------------------------------------+----------------+
 | uuid                                 | name           |
