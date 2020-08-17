@@ -226,8 +226,8 @@ The following ports are exposed to the host:
 - Consul HTTP API (8500)
 - PostgreSQL (5432)
 - Redis (6379)
-- Router confd (8000)
+- Router confd (9600)
 - SBC (5060, UDP only)
 
 You can now access the management and configuration API using the following base URL:
-http://localhost:8000
+http://localhost:9600
