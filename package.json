@@ -20,6 +20,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-remark-autolink-headers": "^2.3.0",
     "gatsby-remark-emojis": "^0.4.2",
+    "gatsby-remark-prismjs": "^3.5.10",
     "gatsby-source-filesystem": "^2.0.34",
     "gatsby-transformer-remark": "^2.6.53",
     "gatsby-transformer-yaml": "^2.1.12",

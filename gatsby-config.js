@@ -61,6 +61,14 @@ module.exports = {
               },
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              // If setting this to true, the parser won't handle and highlight inline
+              // code used in markdown i.e. single backtick code like `this`.
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },
