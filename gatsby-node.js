@@ -229,15 +229,11 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
   // Retrieve all diagrams
   const diagramOutputDir = path.resolve('public/diagrams/');
-  execSync(`mkdir -p ${diagramOutputDir}`);
-  execSync(`rm -rf ${diagramOutputDir}/*`);
   walk('content');
 
   // Generate puml to svg
   console.info(`generating svg diagrams in ${diagramOutputDir}...`);
-  execSync(
-    `set -e; cp content/plantuml/* ${diagramOutputDir}/; for f in $(find content -name '*.puml'|grep -v /plantuml/); do cp $f ${diagramOutputDir}/$(basename $(dirname $f))-$(basename $f); done; java -jar $JAVA_HOME/lib/plantuml.jar -tsvg ${diagramOutputDir}/*.puml; rm -f ${diagramOutputDir}/*.puml`
-  );
+  const output = execSync(`make plantuml-diagrams DIAGRAM_DIRECTORY=${diagramOutputDir}`);
   console.info(`done generating svg diagrams`);
 
   // Create homepage
