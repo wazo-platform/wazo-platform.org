@@ -33,6 +33,7 @@ Unless specified, the license is [CC BY-SA](https://creativecommons.org/licenses
 | [Wazo star codes (en)](/images/uc-doc/community/wazo-star-codes-en.pdf)                                                                                            | English  | Intermediate | Ward Mundy                   | 2016         |
 | [Wazo star codes (fr)](/images/uc-doc/community/wazo-star-codes-fr.pdf)                                                                                            | French   | Intermediate | Thomas Faure                 | 2017         |
 | [Configuring FOP2 with Wazo](/images/uc-doc/community/fop2.pdf)                                                                                                    | English  | Intermediate | Richard Cantin               | 17.04        |
+| [Configuring Wazo Platform on Proxmox and integration with SuiteCRM](/images/uc-doc/community/how_to_proxmox_suitecrm.pdf)                                         | English  | Intermediate | Richard Cantin               | 20.10   |
 
 ## Contribute
 
