@@ -4,9 +4,8 @@ title: Upgrade notes
 
 ## 20.12 {#20-12}
 
-
 Consult the [20.12
-Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectid=10011&version=10121) for
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10121) for
 more information.
 
 ## 20.11 {#20-11}
