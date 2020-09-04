@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "gatsby-plugin-sass": "^2.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "prettier": "^2.0.5"
   },
   "repository": {
