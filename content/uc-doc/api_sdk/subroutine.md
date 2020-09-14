@@ -133,6 +133,9 @@ exhaustive list):
     the call. Only available when calling a user.
 -   `WAZO_TENANT_UUID`: the tenant UUID of the line that placed the call
     or receives the call.
+-   `WAZO_VIDEO_ENABLED`: 
+      - `0` = the call is not sending any video stream
+      - `1` = the call is sending a video stream
 -   `XIVO_CALLOPTIONS`: the value is a list of options to be passed to
     the Dial application, e.g. `hHtT`. This variable is available in
     agent, user and outgoing call subroutines. Please note that it may
