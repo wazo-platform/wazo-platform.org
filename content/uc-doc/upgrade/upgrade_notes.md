@@ -2,6 +2,33 @@
 title: Upgrade notes
 ---
 
+## 20.13 {#20-13}
+
+- The SIP endpoint configuration as been changed to reflect the Asterisk configuration file. This
+  that if you are using one of the following API you should update your application to the new
+  body of the response before upgrading.
+
+  - `GET /api/confd/1.1/endpoints/sip`
+  - `GET /api/confd/1.1/endpoints/sip/<id>`
+  - `GET /api/confd/1.1/users/<id>/lines/main/associated/endpoints/sip`
+  - `GET /api/confd/1.1/users/<id>/lines/<id>/associated/endpoints/sip`
+
+- The ID field of a SIP endpoint is now a UUID instead of a numerical ID.
+
+- The generated SIP configuration file has changed. If you did manual configuration your changes
+  have to be reviewed to match the new format. If you use a file to add options you will be able
+  to add all options to you endpoint configuration has every options are now available through the
+  API. Here is a list of the changes.
+
+  - The name of the registration sections has changed
+
+- The general SIP configuration used to be shared by all tenants. A new template has been created
+  for each tenant based on the old general SIP configuration. This new template is labeled `global`
+  and can be used to change the configuration of lines and trunks within an tenant.
+
+- When creating a line or a tenant you should use the `global` template if you want your new resource
+  to inherit from the `global` SIP configuration of you tenant.
+
 ## 20.12 {#20-12}
 
 Consult the [20.12
