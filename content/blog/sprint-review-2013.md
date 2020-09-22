@@ -14,8 +14,8 @@ Here is a short review of the Wazo Platform 20.13 release.
 
 * **SIP lines and trunks**: The SIP configuration API has been revamped to match the possibilities
 of the Asterisk PJSIP configuration file. The SIP general configuration has been removed in favor
-of a global configuration template for each tenant. Here is a French article describing the changes
-done on lines and trunks. https://wazo-platform.discourse.group/t/wazo-20-13-how-trunk-works-now/567
+of a global configuration template for each tenant. Here is an article describing the changes done
+on lines and trunks. https://wazo-platform.discourse.group/t/wazo-20-13-how-trunk-works-now/567
 
 * **SIP Templates**: SIP endpoints (lines and trunks) can now inherit their configuration from
 templates. If you want to assign a given configuration to multiple lines, you can create a template
