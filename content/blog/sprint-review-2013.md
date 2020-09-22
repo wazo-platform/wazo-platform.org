@@ -45,8 +45,10 @@ are shared amongs all tenants.
 
 ## Documentation
 
-* **Wazo SuiteCRM integration**: A complete guide has been contributed by community member Richard
-Cantin on configuring Wazo and SuiteCRM on the Proxmox virtual environment.
+* **Wazo SuiteCRM integration**: A [complete guide has been
+contributed](https://wazo-platform.org/images/uc-doc/community/how_to_proxmox_suitecrm.pdf)
+by community member Richard Cantin on configuring Wazo and SuiteCRM on the
+Proxmox virtual environment.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
