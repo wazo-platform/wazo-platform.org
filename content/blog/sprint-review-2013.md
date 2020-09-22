@@ -1,14 +1,14 @@
-Title: Wazo Platform 20.13, Released
+Title: Wazo Platform 20.13 Released
 Date: 2020-09-22
 Author: The Wazo Authors
 Category: Wazo Platform
 Tags: wazo-platform, development
-Slug: release-review-2013,
+Slug: release-review-2013
 Status: published
 
 Hello Wazo Platform community!
 
-Here is a short review of the Wazo Platform 20.13, release.
+Here is a short review of the Wazo Platform 20.13 release.
 
 ## New features in this release
 
@@ -58,14 +58,14 @@ See you at the next sprint review!
 
 * [Install Wazo Platform](/install)
 
-* [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-13,)
+* [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-13)
 
 Sources:
 
-* [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-13,)
+* [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-13)
 
 * [Wazo Platform 20.13, Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10122)
 
 ## Discussion
 
-Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-20-13,-released).
+Comments or questions in [this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-20-13-released).
