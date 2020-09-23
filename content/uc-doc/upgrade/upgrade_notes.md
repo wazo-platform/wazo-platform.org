@@ -29,6 +29,10 @@ title: Upgrade notes
 - When creating a line or a tenant you should use the `global` template if you want your new resource
   to inherit from the `global` SIP configuration of your tenant.
 
+Consult the [20.13
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10122) for
+more information.
+
 ## 20.12 {#20-12}
 
 Consult the [20.12
