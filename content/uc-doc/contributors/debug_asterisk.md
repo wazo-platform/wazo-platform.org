@@ -7,55 +7,92 @@ title: Debugging Asterisk
 To debug asterisk crashes or freezes, you need the following debug
 packages on your Wazo:
 
-+---+------------+------------+------------+------------+------------+
-| G | XiVO \>=   | Wazo \>=   | Wazo \>=   | Wazo \>=   | Wazo \>=   |
-| e | 15.01      | 16.16      | 18.13      | 19.04      | 19.13      |
-| n |            |            |            |            |            |
-| e |            |            |            |            |            |
-| r |            |            |            |            |            |
-| a |            |            |            |            |            |
-| l |            |            |            |            |            |
-| r |            |            |            |            |            |
-| u |            |            |            |            |            |
-| l |            |            |            |            |            |
-| e |            |            |            |            |            |
-+===+============+============+============+============+============+
-| E | 15.01      | 17.15      | 18.13      | 19.04      | 19.13      |
-| x |            |            |            |            |            |
-| a |            |            |            |            |            |
-| m |            |            |            |            |            |
-| p |            |            |            |            |            |
-| l |            |            |            |            |            |
-| e |            |            |            |            |            |
-| v |            |            |            |            |            |
-| e |            |            |            |            |            |
-| r |            |            |            |            |            |
-| s |            |            |            |            |            |
-| i |            |            |            |            |            |
-| o |            |            |            |            |            |
-| n |            |            |            |            |            |
-+---+------------+------------+------------+------------+------------+
-| C |     xivo-d |     xivo-d |     wazo-d |     wazo-d |     wazo-d |
-| o | ist xivo-1 | ist wazo-1 | ist wazo-1 | ist -a waz | ist -a waz |
-| m | 5.01       | 7.15       | 8.13       | o-19.04    | o-19.13    |
-| m |     apt-ge |     apt-ge |     apt-ge |     apt-ge |     apt-ge |
-| a | t update   | t update   | t update   | t update   | t update   |
-| n |     apt-ge |     apt-ge |     apt-ge |     apt-ge |     apt-ge |
-| d | t install  | t install  | t install  | t install  | t install  |
-| s | gdb        | gdb libc6- | gdb libc6- | gdb libc6- | gdb libc6- |
-|   |     apt-ge | dbg        | dbg        | dbg        | dbg        |
-|   | t install  |     apt-ge |     apt-ge |     apt-ge |     apt-ge |
-|   | -t xivo-15 | t install  | t install  | t install  | t install  |
-|   | .01 asteri | -t wazo-17 | -t wazo-18 | -t wazo-19 | -t wazo-19 |
-|   | sk-dbg xiv | .15 asteri | .13 asteri | .04 asteri | .13 asteri |
-|   | o-libsccp- | sk-dbg xiv | sk-dbg waz | sk-dbg waz | sk-dbg waz |
-|   | dbg        | o-libsccp- | o-libsccp- | o-libsccp- | o-libsccp- |
-|   |     xivo-d | dbg        | dbg        | dbg        | dbg        |
-|   | ist xivo-f |     xivo-d |     wazo-d |     wazo-d |     wazo-d |
-|   | ive        | ist phoeni | ist phoeni | ist -m pel | ist -m pel |
-|   |            | x          | x-stretch  | ican-stret | ican-buste |
-|   |            |            |            | ch         | r          |
-+---+------------+------------+------------+------------+------------+
+Follow the instructions in the sub-section that matches the version you are currently using.
+
+### Wazo >= 19.13
+
+1. Set your Wazo version:
+    export WAZO_VERSION=<current-wazo-version>
+
+2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
+    wazo-dist -a wazo-${WAZO_VERSION}
+
+3. Install dependencies:
+    apt-get update
+    apt-get install gdb libc6-dbg
+    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+
+4. Switch back to the production mirror:
+    wazo-dist -m pelican-buster
+
+
+### Wazo >= 19.04
+
+1. Set your Wazo version:
+    export WAZO_VERSION=<current-wazo-version>
+
+2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
+    wazo-dist -a wazo-${WAZO_VERSION}
+
+3. Install dependencies:
+    apt-get update
+    apt-get install gdb libc6-dbg
+    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+
+4. Switch back to the production mirror:
+    wazo-dist -m pelican-stretch
+
+
+### Wazo >= 18.03
+
+1. Set your Wazo version:
+    export WAZO_VERSION=<current-wazo-version>
+
+2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
+    wazo-dist -a wazo-${WAZO_VERSION}
+
+3. Install dependencies:
+    apt-get update
+    apt-get install gdb libc6-dbg
+    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+
+4. Switch back to the production mirror:
+    wazo-dist -m phoenix-stretch
+
+
+### Wazo >= 16.16
+
+1. Set your Wazo version:
+    export WAZO_VERSION=<current-wazo-version>
+
+2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
+    xivo-dist wazo-${WAZO_VERSION}
+
+3. Install dependencies:
+    apt-get update
+    apt-get install gdb libc6-dbg
+    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg xivo-libsccp-dbg
+
+4. Switch back to the production mirror:
+    xivo-dist phoenix
+
+
+### XiVO >= 15.01
+
+1. Set your Wazo version:
+    export WAZO_VERSION=<current-wazo-version>
+
+2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
+    xivo-dist xivo-${WAZO_VERSION}
+
+3. Install dependencies:
+    apt-get update
+    apt-get install gdb libc6-dbg
+    apt-get install -t xivo-${WAZO_VERSION} asterisk-dbg xivo-libsccp-dbg
+
+4. Switch back to the production mirror:
+    xivo-dist xivo-five
+
 
 ## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
 
