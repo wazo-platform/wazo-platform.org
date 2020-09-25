@@ -16,8 +16,8 @@ Example to upgrade to Wazo 19.13:
 
 ## My Wazo is stuck in a specific version
 
-Procedures for upgrading to specific versions may freeze the version of
-your Wazo. Run the following commands to get the latest updates:
+Procedures for upgrading to specific versions may freeze the version of your Wazo. Run the following
+commands to get the latest updates:
 
 ```shell
 # wazo-dist pelican-buster

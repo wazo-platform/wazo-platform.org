@@ -2,8 +2,7 @@
 title: Upgrade an Older Xivo Installation
 ---
 
-Those procedures are valid if your xivo installation is older than
-16.08.
+Those procedures are valid if your xivo installation is older than 16.08.
 
 ## Upgrade to Wazo < 18.01
 
@@ -43,8 +42,8 @@ This will upgrade your xivo to Wazo 17.17. From there:
 
 ## My xivo is stuck in a specific version
 
-Procedures for upgrading to specific versions may freeze the version of
-your xivo. Run the following commands to get the latest updates:
+Procedures for upgrading to specific versions may freeze the version of your xivo. Run the following
+commands to get the latest updates:
 
 ```shell
 # # --no-check-certificate is needed only if you are affected by http://projects.wazo.community/issues/6024
