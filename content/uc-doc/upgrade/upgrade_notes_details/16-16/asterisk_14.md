@@ -8,7 +8,7 @@ You might be impacted by the upgrade to Asterisk 14 if you have:
 
 - custom Asterisk configuration (other than custom dialplan)
 - custom application using AMI or ARI
-- custom Asterisk modules (e.g. codec_g729a.so)
+- custom Asterisk modules (e.g. `codec_g729a.so`)
 
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with Asterisk 14.
@@ -20,7 +20,7 @@ major instability issues in Asterisk.
 If you are upgrading from Asterisk 11, you should also check the
 [Asterisk 11 to 13 upgrade notes](/uc-doc/upgrade/upgrade_notes_details/15-13/asterisk_13).
 
-# Changes Between Asterisk 13 and 14
+## Changes Between Asterisk 13 and 14
 
 Some of the more common changes to look for:
 

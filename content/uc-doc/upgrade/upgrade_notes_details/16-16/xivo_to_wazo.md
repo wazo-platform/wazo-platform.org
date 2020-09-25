@@ -55,7 +55,7 @@ You should make sure that you don\'t have any reference left to the xivo.io doma
 particular, you should check the `/etc` directory with the command:
 
 ```shell
-    grep -rF xivo.io /etc
+grep -rF xivo.io /etc
 ```
 
 There is no release of the Wazo Client 16.16, but Wazo 16.16 is compatible with the Wazo Client
