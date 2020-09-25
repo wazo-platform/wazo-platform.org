@@ -13,10 +13,7 @@ wazo-upgrade
 ```
 
 **Warning**: **You can't use wazo-upgrade if you have not run the wizard yet Upgrading from a
-[deprecated version](/uc-doc/upgrade/version_deprecation_policy) is not supported. When upgrading
-Wazo, you must also upgrade all associated Wazo Clients. There is currently no retro-compatibility
-on older Wazo Client versions. The only exception is Wazo 16.16, which is compatible with Wazo
-Client 16.13.**
+[deprecated version](/uc-doc/upgrade/version_deprecation_policy) is not supported.**
 
 This script will update Wazo and restart all services.
 
@@ -29,7 +26,7 @@ There are 2 options you can pass to wazo-upgrade:
 `wazo-upgrade` uses the following environment variables:
 
 - `WAZO_CONFD_PORT` to set the port used to query the
-  [HTTP API of wazo-confd](/uc-doc/api_sdk/rest_api/confd) (default is 9486)
+  [HTTP API of wazo-confd](/uc-doc/api_sdk/rest_api/confd) (default is `9486`)
 
 ## Upgrade procedure
 
@@ -57,7 +54,7 @@ instead of simply running `xivo-upgrade`.
 ## Upgrading a cluster {#upgrading-a-cluster}
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
-[high-availability](/uc-doc/high_availability/):
+[high availability](/uc-doc/high_availability/introduction):
 
 1. On the master : deactivate the database replication by commenting the cron in
    `/etc/cron.d/xivo-ha-master`
@@ -66,19 +63,19 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
 3. On the slave, start the upgrade:
 
    ```shell
-   xivo-slave:~$ wazo-upgrade
+   wazo-slave:~$ wazo-upgrade
    ```
 
 4. When the slave has finished, start the upgrade on the master:
 
    ```shell
-   xivo-master:~$ wazo-upgrade
+   wazo-master:~$ wazo-upgrade
    ```
 
 5. When done, launch the database replication manually:
 
    ```shell
-   xivo-master:~$ xivo-master-slave-db-replication <slave ip>
+   wazo-master:~$ xivo-master-slave-db-replication <slave ip>
    ```
 
 6. Reactivate the cronjobs (see steps 1 and 2)
@@ -106,7 +103,7 @@ When upgrading Wazo, if you encounter problems related to the system locale, see
 ### wazo-upgrade
 
 If wazo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
-doubt, run the following command to check the current state of xivo's firewall rules:
+doubt, run the following command to check the current state of wazo's firewall rules:
 
 ```shell
 iptables -nvL
