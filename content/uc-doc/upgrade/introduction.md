@@ -12,7 +12,7 @@ start an upgrade with the command:
 wazo-upgrade
 ```
 
-**Warning**: **You can't use wazo-upgrade if you have not run the wizard yet Upgrading from a
+**Warning**: **You can't use wazo-upgrade if you have not run the wizard yet. Upgrading from a
 [deprecated version](/uc-doc/upgrade/version_deprecation_policy) is not supported.**
 
 This script will update Wazo and restart all services.
@@ -103,7 +103,7 @@ When upgrading Wazo, if you encounter problems related to the system locale, see
 ### wazo-upgrade
 
 If wazo-upgrade fails or aborts in mid-process, the system might end up in a faulty condition. If in
-doubt, run the following command to check the current state of wazo's firewall rules:
+doubt, run the following command to check the current state of Wazo's firewall rules:
 
 ```shell
 iptables -nvL
