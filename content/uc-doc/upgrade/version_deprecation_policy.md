@@ -22,7 +22,6 @@ Planned deprecation calendar:
   version. This means that running a straight `wazo-upgrade` is not guaranteed to succeed.
 - Asking questions about a deprecated version (e.g. on the forum) will probably get the following
   answer: "get a newer version first, then come back and ask your question".
-- Binaries (ISO images) for deprecated versions are not available for download.
 
 ### Why are versions being deprecated?
 
