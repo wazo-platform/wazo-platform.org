@@ -462,12 +462,12 @@ information.
 
 ### 16.07
 
--   If you were affected by the [bug
-    #6213](http://projects.wazo.community/issues/6213), i.e. if your
-    agent login time statistics were incorrect since your upgrade to
-    XiVO 15.20 or later, and you want to fix your statistics for that
-    period of time, you'll need to [manually apply a
-    fix](http://projects.wazo.community/issues/6213#note-3).
+-   If you were affected by the
+    [bug #6213](http://projects.wazo.community/issues/6213),
+    i.e. if your agent login time statistics were incorrect since your
+    upgrade to XiVO 15.20 or later, and you want to fix your statistics
+    for that period of time, you'll need to
+    [manually apply a fix](http://projects.wazo.community/issues/6213#note-3).
 
 Consult the [16.07
 Roadmap](https://projects.wazo.community/versions/243) for more
