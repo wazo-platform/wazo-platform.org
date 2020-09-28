@@ -1,5 +1,5 @@
 Title: Wazo Platform 20.13 Released
-Date: 2020-09-22 12:00:00
+Date: 2020-09-28 12:00:00
 Author: The Wazo Authors
 Category: Wazo Platform
 Tags: wazo-platform, development
@@ -56,7 +56,7 @@ See you at the next sprint review!
 
 ## Resources
 
-* [Install Wazo Platform](/install)
+* [Install Wazo Platform](/uc-doc/installation/install-system)
 
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-13)
 
