@@ -32,7 +32,7 @@ Swagger UI
 ==========
 
 In this article, we will use the Swagger Web UI, a small web application
-available in every Wazo installation since XiVO 15.10.
+available in every Wazo installation.
 
 In your browser, go to `http://<wazo>/api`. You should see:
 

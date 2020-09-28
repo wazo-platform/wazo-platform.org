@@ -200,18 +200,6 @@ Changelog {#bus-changelog}
 -   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has
     been added.
 
-15.20
------
-
--   The chat\_message\_event bus message has been added.
-
-15.17
------
-
--   The [service_registered_event](/uc-doc/api_sdk/message_bus#bus-service-registered-event) and
-    [service_deregistered_event](/uc-doc/api_sdk/message_bus#bus-service-deregistered-event) bus
-    messages have been added.
-
 Events {#bus-events}
 ======
 
