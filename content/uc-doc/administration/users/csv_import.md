@@ -54,6 +54,7 @@ required fields for that resource are present.
   | call\_permission\_password | string ||| Overwrite all passwords set in call permissions associated to the user |
   | username | string ||| User\'s username to log into applications |
   | password | string ||| User\'s password to log into applications |
+  | userfield | string ||| A custom field which purpose is left to the client |
   | subscription_type | int ||| The subscription type for this user |
 
 ### Phone
