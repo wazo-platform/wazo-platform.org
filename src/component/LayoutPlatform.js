@@ -107,7 +107,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="ecosystem" activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to="/ecosystem" activeClassName="active" partiallyActive>
                     Ecosystem
                   </Link>
                 </li>
