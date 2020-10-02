@@ -77,7 +77,7 @@ Follow the instructions in the sub-section that matches the version you are curr
     xivo-dist phoenix
 
 
-### XiVO >= 15.01
+### XiVO >= 16.01
 
 1. Set your Wazo version:
     export WAZO_VERSION=<current-wazo-version>
