@@ -47,3 +47,4 @@ Then open http://localhost:8000 in your favorite browser.
 ```sh
 make test
 ```
+foobar
