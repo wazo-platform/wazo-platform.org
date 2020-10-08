@@ -1,6 +1,6 @@
 ## Docker
 
-The official docker image for this service is `wazopbx/wazo-plugind`.
+The official docker image for this service is `wazoplatform/wazo-plugind`.
 
 
 ### Getting the image
@@ -8,14 +8,14 @@ The official docker image for this service is `wazopbx/wazo-plugind`.
 To download the latest image from the docker hub
 
 ```sh
-docker pull wazopbx/wazo-plugind
+docker pull wazoplatform/wazo-plugind
 ```
 
 
 ### Running wazo-plugind
 
 ```sh
-docker run -e"XIVO_UUID=<the xivo UUID>" wazopbx/wazo-plugind
+docker run -e"XIVO_UUID=<the xivo UUID>" wazoplatform/wazo-plugind
 ```
 
 ### Building the image
@@ -23,5 +23,5 @@ docker run -e"XIVO_UUID=<the xivo UUID>" wazopbx/wazo-plugind
 Building the docker image:
 
 ```sh
-docker build -t wazopbx/wazo-plugind .
+docker build -t wazoplatform/wazo-plugind .
 ```

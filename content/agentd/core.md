@@ -8,20 +8,20 @@ tox --recreate -e py3
 
 ## Docker
 
-The official docker image for this service is `wazopbx/wazo-agentd`.
+The official docker image for this service is `wazoplatform/wazo-agentd`.
 
 ### Getting the image
 
 To download the latest image from the docker hub
 
 ```sh
-docker pull wazopbx/wazo-agentd
+docker pull wazoplatform/wazo-agentd
 ```
 
 ### Running wazo-agentd
 
 ```sh
-docker run wazopbx/wazo-agentd
+docker run wazoplatform/wazo-agentd
 ```
 
 ### Building the image
@@ -29,5 +29,5 @@ docker run wazopbx/wazo-agentd
 Building the docker image:
 
 ```sh
-docker build -t wazopbx/wazo-agentd .
+docker build -t wazoplatform/wazo-agentd .
 ```
