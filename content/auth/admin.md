@@ -11,18 +11,18 @@ wazo_auth [-d] [--user <user>] --config <path/to/config/file>
 
 ## Docker
 
-The wazopbx/wazo-auth image can be built using the following command:
+The wazoplatform/wazo-auth image can be built using the following command:
 
-    % docker build -t wazopbx/wazo-auth .
+    % docker build -t wazoplatform/wazo-auth .
 
 To run wazo-auth in docker, use the following commands:
 
-    % docker run -p 9497:9497 -v /conf/wazo-auth:/etc/wazo-auth/conf.d/ -it wazopbx/wazo-auth bash
+    % docker run -p 9497:9497 -v /conf/wazo-auth:/etc/wazo-auth/conf.d/ -it wazoplatform/wazo-auth bash
     % wazo-auth [-df] [-u <user>] [-c <path/to/config/file>]
 
-The wazopbx/wazo-auth-db image can be built using the following command:
+The wazoplatform/wazo-auth-db image can be built using the following command:
 
-    % docker build -f contribs/docker/Dockerfile-db -t wazopbx/wazo-auth-db .
+    % docker build -f contribs/docker/Dockerfile-db -t wazoplatform/wazo-auth-db .
 
 ## Bootstrapping
 
