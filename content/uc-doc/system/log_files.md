@@ -21,144 +21,144 @@ title: Log Files
 - [xivo-sysconfd](#xivo-sysconfd)
 - [wazo-websocketd](#wazo-websocketd)
 
-Every Wazo service has its own log file, placed in `/var/log`{.interpreted-text role="file"}.
+Every Wazo service has its own log file, placed in `/var/log`.
 
-# asterisk
+## asterisk
 
 The Asterisk log files are managed by logrotate.
 
-It\'s configuration files `/etc/logrotate.d/asterisk`{.interpreted-text role="file"} and
-`/etc/asterisk/logger.conf`{.interpreted-text role="file"}
+It's configuration files `/etc/logrotate.d/asterisk` and
+`/etc/asterisk/logger.conf`
 
-The message log level is enabled by default in `logger.conf`{.interpreted-text role="file"} and
+The message log level is enabled by default in `logger.conf` and
 contains notices, warnings and errors. The full log entry is commented in
-`logger.conf`{.interpreted-text role="file"} and should only be enabled when verbose debugging is
+`logger.conf` and should only be enabled when verbose debugging is
 required. Using this option in production would produce VERY large log files.
 
-- Files location: `/var/log/asterisk/\*`{.interpreted-text role="file"}
+- Files location: `/var/log/asterisk/\*`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-auth {#wazo-auth}
+## wazo-auth {#wazo-auth}
 
-- File location: `/var/log/wazo-auth.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-auth`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-auth.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-auth`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-agid
+## wazo-agid
 
-- File location: `/var/log/wazo-agid.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-agid`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-agid.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-agid`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-calld
+## wazo-calld
 
-- File location: `/var/log/wazo-calld.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-calld`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-calld.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-calld`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-dird {#wazo-dird}
+## wazo-dird {#wazo-dird}
 
-- File location: `/var/log/wazo-dird.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-dird`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-dird.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-dird`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-upgrade
+## wazo-upgrade
 
-- File location: `/var/log/wazo-upgrade.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-upgrade`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-upgrade.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-upgrade`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-agentd
+## wazo-agentd
 
-- File location: `/var/log/wazo-agentd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-agentd`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-agentd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-agentd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-amid
+## wazo-amid
 
-- File location: `/var/log/wazo-amid.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-amid`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-amid.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-amid`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-call-logd
+## wazo-call-logd
 
-- File location: `/var/log/wazo-call-logd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-call-logd`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-call-logd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-call-logd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-confd {#wazo-confd}
+## wazo-confd {#wazo-confd}
 
-- File location: `/var/log/wazo-confd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-confd`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-confd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-confd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-confgend {#wazo-confgend}
+## wazo-confgend {#wazo-confgend}
 
 The wazo-confgend daemon output is sent to the file specified with the `--logfile` parameter when
 launched with twistd.
 
 The file location can be changed by customizing the wazo-confgend.service unit file.
 
-- File location: `/var/log/wazo-confgend.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-confgend`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-confgend.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-confgend`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-phoned {#wazo-phoned}
+## wazo-phoned {#wazo-phoned}
 
-- File location: `/var/log/wazo-phoned.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-phoned`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-phoned.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-phoned`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-dxtora
+## wazo-dxtora
 
-- File location: `/var/log/wazo-dxtora.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-dxtora`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-dxtora.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-dxtora`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-provd
+## wazo-provd
 
-- File location: `/var/log/wazo-provd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-provd`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-provd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-provd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-purge-db {#purge-logs}
+## wazo-purge-db {#wazo-purge-db}
 
-- File location: `/var/log/wazo-purge-db.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-purge-db`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-purge-db.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-purge-db`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# xivo-stat
+## xivo-stat
 
-- File location: `/var/log/xivo-stat.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/xivo-stat`{.interpreted-text role="file"}
+- File location: `/var/log/xivo-stat.log`
+- Rotate configuration: `/etc/logrotate.d/xivo-stat`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# xivo-sysconfd
+## xivo-sysconfd
 
-- File location: `/var/log/xivo-sysconfd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/xivo-sysconfd`{.interpreted-text role="file"}
+- File location: `/var/log/xivo-sysconfd.log`
+- Rotate configuration: `/etc/logrotate.d/xivo-sysconfd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-# wazo-websocketd
+## wazo-websocketd
 
-- File location: `/var/log/wazo-websocketd.log`{.interpreted-text role="file"}
-- Rotate configuration: `/etc/logrotate.d/wazo-websocketd`{.interpreted-text role="file"}
+- File location: `/var/log/wazo-websocketd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-websocketd`
 - Number of archived files: 15
 - Rotation frequence: Daily
