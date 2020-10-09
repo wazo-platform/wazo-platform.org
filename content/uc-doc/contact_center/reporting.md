@@ -17,8 +17,8 @@ following procedure as a template :
 
 1.  The _queue_log_ table of the _asterisk_ database is filled by events from Asterisk and by custom
     dialplan events
-2.  _xivo-stat fill_db_ is then used to read data from the _queue_log_ table and generate the tables
-    _stat_call_on_queue_ and _stat_queue_periodic_
+2.  `wazo-stat fill_db` is then used to read data from the `queue_log` table and generate the tables
+    `stat_call_on_queue` and `stat_queue_periodic`
 
 # Statistic Data Table Content {#statistic-data-table-content}
 

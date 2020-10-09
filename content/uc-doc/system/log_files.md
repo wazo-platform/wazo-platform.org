@@ -17,7 +17,7 @@ title: Log Files
 - [wazo-dxtora](#wazo-dxtora)
 - [wazo-provd](#wazo-provd)
 - [wazo-purge-db](#wazo-purge-db)
-- [xivo-stat](#xivo-stat)
+- [wazo-stat](#wazo-stat)
 - [xivo-sysconfd](#xivo-sysconfd)
 - [wazo-websocketd](#wazo-websocketd)
 
@@ -142,10 +142,10 @@ The file location can be changed by customizing the wazo-confgend.service unit f
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-## xivo-stat
+## wazo-stat
 
-- File location: `/var/log/xivo-stat.log`
-- Rotate configuration: `/etc/logrotate.d/xivo-stat`
+- File location: `/var/log/wazo-stat.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-stat`
 - Number of archived files: 15
 - Rotation frequence: Daily
 
