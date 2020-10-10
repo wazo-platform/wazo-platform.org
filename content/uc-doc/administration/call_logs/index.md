@@ -15,7 +15,7 @@ Call logs allow users to see the history of the calls placed and
 received by Wazo.
 
 #:exclamation: The oldest call logs are periodically removed. See
-[wazo-purge-db](/uc-doc/system/log_files#purge-logs) for more details.
+[wazo-purge-db](/uc-doc/system/log_files#wazo-purge-db) for more details.
 
 ## REST API {#rest-api}
 

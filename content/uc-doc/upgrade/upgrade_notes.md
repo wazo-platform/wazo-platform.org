@@ -2,6 +2,14 @@
 title: Upgrade notes
 ---
 
+## 20.14 {#20-14}
+
+- `xivo-stat` command has been renamed to `wazo-stat`
+
+Consult the [20.14
+Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10128) for
+more information.
+
 ## 20.13 {#20-13}
 
 - The SIP endpoint configuration has been changed to reflect the Asterisk configuration file. If
