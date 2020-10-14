@@ -29,11 +29,7 @@ call and another on the queue on which the call was received.
 
 It also contains the status of the call ie. answered, abandoned, full, etc.
 
----
-
-Field Values Description
-
----
+Field values description:
 
 - `id`: An auto generated ID for this call
 
@@ -57,15 +53,9 @@ Field Values Description
   agent details can be found in table `agentfeatures` using the number in the second part of the
   name
 
----
+#### Queue Call `status` {#queue-call-status}
 
-#### Queue Call Status {#queue-call-status}
-
----
-
-Status Description
-
----
+`status` description:
 
 - `full`: The call was not queued because queue was full. happens when the number of calls is
   greater than the maximum number of calls allowed to wait
@@ -88,8 +78,6 @@ Status Description
 
 - `timeout`: Call stayed longer than the maximum time allowed in queue parameter
 
----
-
 ### `stat_queue_periodic` Table {#stat-queue-periodic-table}
 
 This table is an aggregation of the queue_log table.
@@ -98,11 +86,7 @@ This table contains counters on each queue for each given period. The granularit
 this writing is an hour and is not configurable. This table is then used to compute statistics for a
 given range of hours, days, week, month or year.
 
----
-
-Field Description
-
----
+Field description:
 
 - `id`: Generated ID
 
@@ -133,8 +117,6 @@ Field Description
 
 - `stat_queue_id`: The ID of the queue in the `stat_queue` table
 
----
-
 ### `stat_agent` Table {#stat-agent}
 
 This table is used to match agents to an id that is different from the id in the agent configuration
@@ -144,7 +126,7 @@ into account when viewing the statistics. Affecting an old number to a another a
 the supervisor will have to ignore entries for this given agent for the period before the number
 assignment to the new agent.
 
-## `stat_queue` Table {#stat-queue}
+### `stat_queue` Table {#stat-queue}
 
 This table is used to store queues in a table that is different from the queue configuration table.
 This is necessary to avoid losing statistics on a deleted queue. Renaming a queue is also not
