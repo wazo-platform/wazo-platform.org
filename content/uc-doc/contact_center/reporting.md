@@ -46,12 +46,12 @@ Field values description:
 
 - `status`: See status description below
 
-- `queue_id`: ID of the queue, the name of the queue can be found in table `stat_queue`, using this
-  name queue details can be found in table `queuefeatures`
+- `stat_queue_id`: ID of the queue, the name of the queue can be found in table `stat_queue`, using
+  this name queue details can be found in table `queuefeatures`
 
-- `agent_id`: ID of the agent, the agent name can be found in table `stat_agent`, using this name
-  agent details can be found in table `agentfeatures` using the number in the second part of the
-  name
+- `stat_agent_id`: ID of the agent, the agent name can be found in table `stat_agent`, using this
+  name agent details can be found in table `agentfeatures` using the number in the second part of
+  the name
 
 #### Queue Call `status` {#queue-call-status}
 
