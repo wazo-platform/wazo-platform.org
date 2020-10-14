@@ -2,22 +2,18 @@
 title: Migration of sound files to tenants
 ---
 
-In Wazo 19.03, sound files are now segregated by tenant (a.k.a entity).
-However, Wazo has no way to know which entity owns which sound file.
-Thus a manual intervention is required to make those sound files
-available to tenants.
+In Wazo 19.03, sound files are now segregated by tenant (a.k.a entity). However, Wazo has no way to
+know which entity owns which sound file. Thus a manual intervention is required to make those sound
+files available to tenants.
 
 Sound files include:
 
--   queue announces (`acd`)
--   telephony feature sounds, like autoprovisioning message, transfer
-    messages, etc. (`features`)
--   recordings of sounds, conversations and conferences (`recordings`
-    and `monitor`)
--   custom sounds used for IVR or dialplan (`playback`)
+- queue announces (`acd`)
+- telephony feature sounds, like autoprovisioning message, transfer messages, etc. (`features`)
+- recordings of sounds, conversations and conferences (`recordings` and `monitor`)
+- custom sounds used for IVR or dialplan (`playback`)
 
-How to migrate
-==============
+## How to migrate
 
 The sound files are stored in `/var/lib/xivo/sounds`, for example:
 
@@ -35,9 +31,8 @@ root@wazo:~# tree /var/lib/xivo/sounds
 └── recordings -> ../../asterisk/sounds/custom
 ```
 
-In order to make the sound files available to tenants, you need to move
-the files in a `tenants`{.interpreted-text role="file"} subdirectory,
-like this:
+In order to make the sound files available to tenants, you need to move the files in a
+`tenants`{.interpreted-text role="file"} subdirectory, like this:
 
 ```shell
 root@wazo:~# tree /var/lib/xivo/sounds
@@ -67,9 +62,8 @@ root@wazo:~# tree /var/lib/xivo/sounds
         └── recordings
 ```
 
-Each subdirectory of the `tenants`{.interpreted-text role="file"}
-directory must be named like the UUID of each tenant. In order to know
-the UUID of tenants, you can use the `wazo-auth-cli` command:
+Each subdirectory of the `tenants`{.interpreted-text role="file"} directory must be named like the
+UUID of each tenant. In order to know the UUID of tenants, you can use the `wazo-auth-cli` command:
 
 ```shell
 root@wazo:~# wazo-auth-cli tenant list -c uuid -c name
@@ -83,14 +77,12 @@ root@wazo:~# wazo-auth-cli tenant list -c uuid -c name
 +--------------------------------------+----------------+
 ```
 
-You can safely ignore the `master` tenant, which is used internally by
-Wazo.
+You can safely ignore the `master` tenant, which is used internally by Wazo.
 
-You should move sounds files of each tenant for the following
-directories:
+You should move sounds files of each tenant for the following directories:
 
--   `acd`
--   `features`
--   `monitor`
--   `playback`
--   `recordings`
+- `acd`
+- `features`
+- `monitor`
+- `playback`
+- `recordings`
