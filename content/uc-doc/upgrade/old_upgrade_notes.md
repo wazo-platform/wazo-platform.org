@@ -9,9 +9,8 @@ title: Archived Upgrade Notes
 - The default NAT option has changed from `no` to `auto_force_rport`. This makes NAT configuration
   easier but has no impact on environments without NAT.
   - In the rare cases where you want to keep `nat=no` you must explicitly change this value in the
-    administation interface
-    `Services --> IPBX --> General Settings --> SIP Protocol`{.interpreted-text
-    role="menuselection"} in tab [Default]{.title-ref}. See
+    administation interface `Services --> IPBX --> General Settings --> SIP Protocol` in tab
+    `Default`. See
     [Asterisk sip.conf sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
     for more informations.
 - The `sources` section of the `xivo-dird` service configuration has been changed to be a key-value
@@ -20,7 +19,7 @@ title: Archived Upgrade Notes
   - If you have configured directories manually in `/etc/xivo-dird` you should update your manual
     configuration:
 
-  ```{.sourceCode .yaml}
+  ```yaml
   services:
     lookup:
       default:
@@ -30,7 +29,7 @@ title: Archived Upgrade Notes
         timeout: 2
   ```
 
-  ```{.sourceCode .yaml}
+  ```yaml
   services:
     lookup:
       default:
@@ -46,13 +45,13 @@ title: Archived Upgrade Notes
   - This section is now a key-value setting.
   - All plugins have been renamed without the suffix `_plugins`.
 
-  ```{.sourceCode .yaml}
+  ```yaml
   enabled_plugins:
     - user_plugin
     - conference_plugin
   ```
 
-  ```{.sourceCode .yaml}
+  ```yaml
   enabled_plugins:
     user: true
     conference: true
@@ -65,27 +64,27 @@ title: Archived Upgrade Notes
 ### 17.16
 
 - You must update the Wazo Client to 17.16.
-- The _enabled_plugins_ section of the `wazo-auth` service has been renamed
-  _enabled_backend_plugins_ and is now a dictionary.
+- The `enabled_plugins` section of the `wazo-auth` service has been renamed
+  `enabled_backend_plugins` and is now a dictionary.
   - If you have hand made configuration to modify the list of enabled backends it should be modified
     see `/etc/wazo-auth/config.yml`
-- The _ldap_user_ backend in `wazo-auth` is now disabled in the base configuration file.
+- The `ldap_user` backend in `wazo-auth` is now disabled in the base configuration file.
 
   - If you are using the `ldap_user` authentication backend a file with the following content should
     be added to `/etc/wazo-auth/conf.d`
 
-    ```{.sourceCode .yaml}
+    ```yaml
     enabled_backend_plugins:
       ldap_user: true
     ```
 
-- The _enabled_plugins_ section of the `xivo-dird` service is now a dictionary.
+- The `enabled_plugins` section of the `xivo-dird` service is now a dictionary.
   - If you have hand made configuration to modify the list of enabled plugins, it should be modified
     see `/etc/xivo-dird/config.yml`
-- wazo-admin-ui has been upgraded to python3. All plugins by [Wazo Team]{.title-ref} has been
-  migrated, but if you have installed a non-official/custom plugin that add something to the new
-  interface, it probably broken. To fix this, you must convert your plugin to python3 or wait an
-  available upgrade from the maintainer.
+- wazo-admin-ui has been upgraded to python3. All plugins by `Wazo Team` has been migrated, but if
+  you have installed a non-official/custom plugin that add something to the new interface, it
+  probably broken. To fix this, you must convert your plugin to python3 or wait an available upgrade
+  from the maintainer.
 - If you have setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you have to
   update your config in `/etc/xivo/custom/custom-certificate.yml`, according to the
   [updated documentation](/uc-doc/system/https_certificate), namely for the config regarding
@@ -111,8 +110,8 @@ Consult the [17.15 Roadmap](https://projects.wazo.community/versions/268) for mo
     file in the `entry_point` section.
   - If your custom development use service discovery to find `xivo-auth`, you will have to search
     for the `wazo-auth` service instead of `xivo-auth`.
-- We released a new version of the CTI client, rebranded as [Wazo Client 17.14.1]{.title-ref}. It is
-  compatible with all previous versions of Wazo (i.e. not before 16.16).
+- We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
+  with all previous versions of Wazo (i.e. not before 16.16).
 
 Consult the [17.14 Roadmap](https://projects.wazo.community/versions/267) for more information.
 
@@ -141,11 +140,10 @@ Consult the [17.10 Roadmap](https://projects.wazo.community/versions/262) for mo
 
 ### 17.09
 
-- Codecs can now be customized in the [/etc/asterisk/codecs.d/]{.title-ref} directory. If you had
-  custom configuration in [/etc/asterisk/codecs.conf]{.title-ref} you will have to create a new file
-  in [codecs.d]{.title-ref} to use your customized configuration. A file named
-  [codecs.conf.dpkg-old]{.title-ref} will be left in [/etc/asterisk]{.title-ref} if this operation
-  is required.
+- Codecs can now be customized in the `/etc/asterisk/codecs.d/` directory. If you had custom
+  configuration in `/etc/asterisk/codecs.conf` you will have to create a new file in `codecs.d` to
+  use your customized configuration. A file named `codecs.conf.dpkg-old` will be left in
+  `/etc/asterisk` if this operation is required.
 - Provd plugins from the addons repository have been merged into the main plugin repository. If you
   were using the addons repository you can safely switch back to the stable repository. See
   [Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo)
@@ -190,25 +188,29 @@ Consult the [17.06 Roadmap](https://projects.wazo.community/versions/258) for mo
 
 ### 17.05
 
-- [python-flask-cors]{.title-ref} has been updated from 1.10.3 to 3.0.2. Configuration files with
-  custom [allow_headers]{.title-ref} will have to be updated to the new syntax. The following
-  command can be used to see if you have a configuration file which needs to be updated.
+- `python-flask-cors` has been updated from 1.10.3 to 3.0.2. Configuration files with custom
+  `allow_headers` will have to be updated to the new syntax. The following command can be used to
+  see if you have a configuration file which needs to be updated.
 
-  ```{.sourceCode .sh}
+  ```shell
   for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
   ```
 
   The old config in `/etc/xivo-*/conf.d` looked like:
 
-      rest_api:
-        cors:
-          allow_headers: Content-Type, X-Auth-Token
+  ```yaml
+  rest_api:
+    cors:
+      allow_headers: Content-Type, X-Auth-Token
+  ```
 
   The new config in `/etc/xivo-*/conf.d` looks like:
 
-      rest_api:
-        cors:
-          allow_headers: ["Content-Type", "X-Auth-Token"]
+  ```yaml
+  rest_api:
+    cors:
+      allow_headers: ['Content-Type', 'X-Auth-Token']
+  ```
 
   See also the reference ticket [#6617](https://projects.wazo.community/issues/6617).
 
@@ -238,15 +240,15 @@ Consult the [17.01 Roadmap](https://projects.wazo.community/versions/253) for mo
 
 ### 16.16
 
-Wazo 16.16 is the _first public release_ of the project under the Wazo name. It is also the first
+Wazo 16.16 is the **first public release** of the project under the Wazo name. It is also the first
 release of Wazo under the "phoenix" codename.
 
 - A [special procedure](/uc-doc/upgrade/upgrade_notes_details/16-16/xivo_to_wazo) is required to
   upgrade from XiVO to Wazo.
 - Asterisk has been upgraded from version 13.11.2 to 14.2.1, which is a major Asterisk upgrade.
-- If you are using [custom sheets]{.title-ref} that are stored locally, they _must_ now be readable
-  by the system user `xivo-ctid`. Make sure that this user has read access to the UI file of your
-  custom sheets.
+- If you are using `custom sheets` that are stored locally, they **must** now be readable by the
+  system user `xivo-ctid`. Make sure that this user has read access to the UI file of your custom
+  sheets.
 - Switchboard statistics have been removed. The existing statistics data remain in the database for
   later migration but no more statistics will be collected.
 - The `conference` destination type in incalls REST API has been renamed to `meetme`.
@@ -257,18 +259,14 @@ release of Wazo under the "phoenix" codename.
   one phonebook by entity is the desired configuration. If only one phonebook is desired for all
   entities, some of the duplicate phonebooks can be deleted from the web interface and their
   matching configuration can also be removed.
-  - The list of phonebooks can be modified in
-    `Services --> IPBX --> IPBX services --> Phonebook`{.interpreted-text role="menuselection"}
+  - The list of phonebooks can be modified in `Services --> IPBX --> IPBX services --> Phonebook`
   - The list of phonebooks sources can be modified in:
-    - `Configuration --> Management --> Directories`{.interpreted-text role="menuselection"}
-    - `Services --> CTI Server --> Directories --> Definitions`{.interpreted-text
-      role="menuselection"}
+    - `Configuration --> Management --> Directories`
+    - `Services --> CTI Server --> Directories --> Definitions`
   - The selected phonebooks for reverse lookups can be modified in
-    `Services --> CTI Server --> Directories --> Reverse directories`{.interpreted-text
-    role="menuselection"}
+    `Services --> CTI Server --> Directories --> Reverse directories`
   - Direct directories can be modified in
-    `Services --> CTI Server --> Directories --> Direct directories`{.interpreted-text
-    role="menuselection"}
+    `Services --> CTI Server --> Directories --> Direct directories`
 
 Please consult the following detailed upgrade notes for more information:
 
@@ -279,19 +277,18 @@ Consult the [16.16 Roadmap](https://projects.wazo.community/versions/252) for mo
 
 ### 16.13
 
-XiVO 16.13 is the _last public release_ of the project under the name XiVO.
+XiVO 16.13 is the **last public release** of the project under the name XiVO.
 
-- Previously, a user's `DND (Do Not Distrub)`{.interpreted-text role="abbr"} was effective only if
-  this user had DND enabled _and_ the DND extension (\*25 by default) was also enabled. Said
-  differently, disabling the DND extension meant that no user could effectively be in DND. Starting
-  from XiVO 16.13, a user's DND is effective regardless of the state of the DND extension. The
-  following features are impacted in the same way: call recording, incoming call filtering, forward
-  on non-answer, forward on busy and unconditional forward.
-- If you have manually added nginx configuration files to the
-  `/etc/nginx/locations/http`{.interpreted-text role="file"} directory, you'll need to move these
-  files to `/etc/nginx/locations/http-available`{.interpreted-text role="file"} and then create
-  symlinks to them in the `/etc/nginx/locations/http-enabled`{.interpreted-text role="file"}
-  directory. This also applies to the https directory. See [Nginx](/uc-doc/system/nginx).
+- Previously, a user's `DND (Do Not Distrub)` was effective only if this user had DND enabled
+  **and** the DND extension (\*25 by default) was also enabled. Said differently, disabling the DND
+  extension meant that no user could effectively be in DND. Starting from XiVO 16.13, a user's DND
+  is effective regardless of the state of the DND extension. The following features are impacted in
+  the same way: call recording, incoming call filtering, forward on non-answer, forward on busy and
+  unconditional forward.
+- If you have manually added nginx configuration files to the `/etc/nginx/locations/http` directory,
+  you'll need to move these files to `/etc/nginx/locations/http-available` and then create symlinks
+  to them in the `/etc/nginx/locations/http-enabled` directory. This also applies to the https
+  directory. See [Nginx](/uc-doc/system/nginx).
 - A regression has been introduced in the switchboard statistics. See
   [issue 6443](http://projects.wazo.community/issues/6443).
 
@@ -304,9 +301,8 @@ Consult the [16.12 Roadmap](https://projects.wazo.community/versions/248) for mo
 ### 16.11
 
 - Fax reception: the "log" backend type has been removed. You should remove references to it in your
-  `/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"} if you were using it. Now, every
-  time a fax is processed, a log line is added to `/var/log/xivo-agid.log`{.interpreted-text
-  role="file"}.
+  `/etc/xivo/asterisk/xivo_fax.conf` if you were using it. Now, every time a fax is processed, a log
+  line is added to `/var/log/xivo-agid.log`.
 
 Consult the [16.11 Roadmap](https://projects.wazo.community/versions/247) for more information.
 
@@ -336,7 +332,7 @@ Consult the [16.09 Roadmap](https://projects.wazo.community/versions/245) for mo
 
 ### 16.08
 
-- cti-protocol is now in version _2.2_
+- cti-protocol is now in version `2.2`
 - Some
   [security features have been added to the XiVO provisioning server](/uc-doc/administration/provisioning/adv_configuration#provd-security).
   To benefit from these new features, you'll need to
@@ -382,11 +378,9 @@ Consult the [16.05 Roadmap](https://projects.wazo.community/versions/241) for mo
 
 ### 16.04
 
-- cti-protocol is now in version _2.1_
-- The field `Rightcall Code`{.interpreted-text role="guilabel"} from
-  `Services -> IPBX -> IPBX Settings -> Users`{.interpreted-text role="menuselection"} under
-  `Services`{.interpreted-text role="guilabel"} tab will overwrite all password call permissions for
-  the user.
+- cti-protocol is now in version `2.1`
+- The field `Rightcall Code` from `Services -> IPBX -> IPBX Settings -> Users` under `Services` tab
+  will overwrite all password call permissions for the user.
 - Faxes stored on FTP servers are now converted to PDF by default. See
   [Using the FTP backend](/uc-doc/administration/fax#fax-ftp) if you want to keep the old behavior
   of storing faxes as TIFF files.
@@ -395,14 +389,14 @@ Consult the [16.04 Roadmap](https://projects.wazo.community/versions/240) for mo
 
 ### 16.03
 
-- The new section `Services --> Statistics --> Switchboard`{.interpreted-text role="menuselection"}
-  in the web interface will only be visible by a non-root administrator after adding the
-  corresponding permissions in the administrator configuration.
+- The new section `Services --> Statistics --> Switchboard` in the web interface will only be
+  visible by a non-root administrator after adding the corresponding permissions in the
+  administrator configuration.
 - Update the switchboard configuration page for the statistics in
   switchboard_configuration_multi_queues.
 - The API for associating a line to a device has been replaced. Consult the
   [xivo-confd changelog](/uc-doc/api_sdk/rest_api/changelog) for further details
-- The configuration parameters of _xivo_ldap_user_ plugin of _xivo-auth_ has been changed. See
+- The configuration parameters of `xivo_ldap_user` plugin of `xivo-auth` has been changed. See
   [xivo_ldap plugin](/uc-doc/system/wazo-auth/stock_plugins#auth-backends-ldap).
 - The user's email is now a unique constraint. Every duplicate email will be deleted during the
   migration. (This does not apply to the voicemail's email)
@@ -411,33 +405,30 @@ Consult the [16.03 Roadmap](https://projects.wazo.community/versions/239) for mo
 
 ### 16.02
 
-- The experimental _xivo_ldap_voicemail_ plugin of _xivo-auth_ has been removed. Use the new
+- The experimental `xivo_ldap_voicemail` plugin of `xivo-auth` has been removed. Use the new
   [xivo_ldap plugin](/uc-doc/system/wazo-auth/stock_plugins#auth-backends-ldap).
-- Bus messages in the _xivo_ exchange are now sent with the content-type
-  [application/json]{.title-ref}. Some libraries already do the message conversion based the
-  content-type. Kombu users will receive a python dictionnary instead of a string containing json
-  when a message is received.
-- [xivo-ctid encryption]{.title-ref} is automatically switched on for every XiVO server and Wazo
-  Client >= 16.02. If you really don't want encryption, you must disable it manually on the server
-  after the upgrade. In that case, Wazo Clients will ask whether to accept the connection the first
-  time.
+- Bus messages in the `xivo` exchange are now sent with the content-type `application/json`. Some
+  libraries already do the message conversion based the content-type. Kombu users will receive a
+  python dictionnary instead of a string containing json when a message is received.
+- `xivo-ctid encryption` is automatically switched on for every XiVO server and Wazo Client >=
+  16.02. If you really don't want encryption, you must disable it manually on the server after the
+  upgrade. In that case, Wazo Clients will ask whether to accept the connection the first time.
 
 Consult the [16.02 Roadmap](https://projects.wazo.community/versions/238) for more information.
 
 ### 16.01
 
-- The page `Configuration --> Management --> Web Services Access --> Acces rights`{.interpreted-text
-  role="menuselection"} has been removed. Consequently, every Web Services Access has now all access
-  rights on the web services provided by the web interface. These web services are deprecated and
-  will be removed soon.
+- The page `Configuration --> Management --> Web Services Access --> Acces rights` has been removed.
+  Consequently, every Web Services Access has now all access rights on the web services provided by
+  the web interface. These web services are deprecated and will be removed soon.
 - During the upgrade, if no CA certificates were trusted at the system level, all the CA
   certificates from the ca-certificates package will be added. This is done to resolve an issue with
   installations from the ISO and PXE. In the (rare) case you manually configured the ca-certificates
   package to trust no CA certificates at all, you'll need to manually reconfigure it via
   `dpkg-reconfigure ca-certificates` after the upgrade.
-- _xivo-ctid_ uses _xivo-auth_ to authenticate users.
-- the [service_discovery]{.title-ref} section of the _xivo-ctid_ configuration has changed. If you
-  have set up contact_and_presence_sharing, you should update your xivo-ctid configuration.
+- `xivo-ctid` uses `xivo-auth` to authenticate users.
+- the `service_discovery` section of the `xivo-ctid` configuration has changed. If you have set up
+  contact_and_presence_sharing, you should update your xivo-ctid configuration.
 - the cti-protocol is now versioned and a message will be displayed if the server and a client have
   incompatible protocol versions.
 
