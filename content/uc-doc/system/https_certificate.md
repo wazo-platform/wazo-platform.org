@@ -53,9 +53,9 @@ You will need:
 3. Both files **must** be readable by the group `www-data`. You can check with the following
    command:
 
-```shell
-sudo -u www-data cat /usr/local/share/*.pem > /dev/null
-```
+   ```shell
+   sudo -u www-data cat /usr/local/share/*.pem > /dev/null
+   ```
 
 Edit the file `/etc/nginx/sites-available/wazo` and replace the following keys:
 
