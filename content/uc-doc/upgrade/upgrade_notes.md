@@ -2,6 +2,17 @@
 title: Upgrade notes
 ---
 
+## 20.15 {#20-15}
+
+- This version contains a security update for Asterisk. All systems should be upgraded.
+
+  - [AST-2020-002: Outbound INVITE loop on challenge with different nonce](http://downloads.asterisk.org/pub/security/AST-2020-002.html)
+  - [AST-2020-001: Remote crash in res_pjsip_session](http://downloads.asterisk.org/pub/security/AST-2020-001.html)
+
+Consult the
+[20.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10135)
+for more information.
+
 ## 20.14 {#20-14}
 
 - `xivo-stat` command has been renamed to `wazo-stat`
