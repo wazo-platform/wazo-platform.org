@@ -1,5 +1,5 @@
 Title: Wazo Platform 20.15 Released
-Date: 2020-11-06
+Date: 2020-11-09
 Author: The Wazo Authors
 Category: Wazo Platform
 Tags: wazo-platform, development
