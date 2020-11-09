@@ -10,16 +10,19 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 20.15 release.
 
-New features in this release
-Contact Center Stats API: The begin and end time of the statistics are now timezone aware.
-External application API: A new API has been added to configure external applications for users and tenants.
+## New features in this release
 
-Technical features
-Asterisk: Asterisk was upgraded to 17.8.1. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-17-8-1-now-available/)
-This is a security release, every systems should be upgraded
+* **Contact Center Stats API**: The queue statistics have been improved and may now be aggregated by day or by month, to provide insights on a queue on long periods of time.
+* **Contact Center Stats API**: The begin and end time of the statistics are now timezone aware.
+* **External application API**: A new API has been added to configure external applications for users and tenants. This API can be used by an administrator to control how an external application will behave.
 
-Ongoing features
-Contact Center Stats API: We are working to expose all the statistics for queues and agents through REST API.
+## Technical features
+
+* **Asterisk**: Asterisk was upgraded to 17.8.1. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-17-8-1-now-available/). This is a security release, so we strongly recommand you to update your Wazo Platform.
+
+## Ongoing features
+
+* **Contact Center Stats API**: We are working to expose all the statistics for queues and agents through REST API.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
