@@ -60,7 +60,7 @@ const getServiceName = (raw) => {
   return path[2];
 }
 
-export default ({ pageContext: { moduleName, module, modules }}) => {
+export default ({ pageContext: { moduleName, module, modules, auth_url }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
 
@@ -99,7 +99,7 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
       setCookie('apiKey', '');
       return;
     };
-    const authURL = new URL(modules.authentication.redocUrl);
+    const authURL = new URL(auth_url);
     const auth = authURL.pathname.split('/');
     setLoading(true);
     fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
