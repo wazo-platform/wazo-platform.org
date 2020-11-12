@@ -363,27 +363,26 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
   // Create console pages
   sections.forEach(section =>
-    Object.keys(section.modules).forEach(
-      moduleName =>
-        !!section.modules[moduleName].redocUrl &&
-        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
-          moduleName,
-          module: section.modules[moduleName],
-          modules: section.modules,
-        })
+    Object.keys(section.modules).forEach(moduleName =>
+      !!section.modules[moduleName].redocUrl &&
+      newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+        moduleName,
+        module: section.modules[moduleName],
+        modules: section.modules,
+        auth_url: !section.modules[moduleName].corporate ? allModules['authentication'].redocUrl : section.modules['euc-authentication'].redocUrl,
+      })
     )
   );
 
   // integrate graphiql @TEMP: restricting to 'contact'... for now i hope :)
   sections.forEach(section =>
-    Object.keys(section.modules).forEach(
-      moduleName =>
-        !!section.modules[moduleName].graphql &&
-        newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
-          moduleName,
-          module: section.modules[moduleName],
-          modules: section.modules,
-        })
+    Object.keys(section.modules).forEach(moduleName =>
+      !!section.modules[moduleName].graphql &&
+      newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
+        moduleName,
+        module: section.modules[moduleName],
+        modules: section.modules,
+      })
     )
   );
 
