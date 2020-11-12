@@ -45,7 +45,7 @@ token
 The token modules contains the business logic of wazo-auth.
 
 -   Creates and delete tokens
--   Creates ACLs for Wazo
+-   Creates ACL for Wazo
 -   Schedule token expiration
 
 Plugins {#developing-plugins}
