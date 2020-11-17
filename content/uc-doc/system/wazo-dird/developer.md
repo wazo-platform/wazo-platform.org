@@ -19,17 +19,16 @@ The wazo-dird architecture uses plugins as extension points for most of its job.
 discovery and [ABC](https://docs.python.org/2/library/abc.html) classes to define the required
 interface.
 
-Plugins in wazo-dird use setuptools\' entry points. That means that installing a new plugin to
-wazo-dird requires an entry point in the plugin\'s setup.py. Each entry point\'s
-[namespace]{.title-ref} is documented in the appropriate documentation section. These entry points
-allow wazo-dird to be able to discover and load extensions packaged with wazo-dird or installed
-separately.
+Plugins in wazo-dird use setuptools' entry points. That means that installing a new plugin to
+wazo-dird requires an entry point in the plugin's setup.py. Each entry point's namespace is
+documented in the appropriate documentation section. These entry points allow wazo-dird to be able
+to discover and load extensions packaged with wazo-dird or installed separately.
 
-Each kind of plugin does a specific job. There are three kinds of plugins in dird.
+Each kind of plugin does a specific job. There are three kinds of plugins in wazo-dird.
 
-1.  [Back-End](/uc-doc/system/wazo-dird/developer#dird-back-end)
-2.  [Service](/uc-doc/system/wazo-dird/developer#dird-service)
-3.  [View](/uc-doc/system/wazo-dird/developer#dird-view)
+1. [Back-End](/uc-doc/system/wazo-dird/developer#dird-back-end)
+2. [Service](/uc-doc/system/wazo-dird/developer#dird-service)
+3. [View](/uc-doc/system/wazo-dird/developer#dird-view)
 
 ![wazo-dird HTTP query](/images/uc-doc/system/wazo-dird/query.png)
 
@@ -39,7 +38,7 @@ can be supplied to other extensions.
 The following setup.py shows an example of a python library that add a plugin of each kind to
 wazo-dird:
 
-```{.sourceCode .python}
+```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -69,7 +68,7 @@ setup(
 )
 ```
 
-# Back-End {#dird-back-end}
+## Back-End {#dird-back-end}
 
 Back-ends are used to query directories. Each back-end implements a way to query a given directory.
 Each instance of a given back-end is called a source. Sources are used by the services to get
@@ -78,7 +77,7 @@ results from each configured directory.
 Given one LDAP back-end, I can configure a source from the LDAP at alpha.example.com and another
 source from the other LDAP at beta.example.com. Both of these sources use the LDAP back-end.
 
-## Implementation details
+### Implementation details
 
 - Namespace: `wazo_dird.backends`
 - Abstract source plugin:
@@ -109,13 +108,13 @@ source from the other LDAP at beta.example.com. Both of these sources use the LD
 The implementation of the back-end should take these values into account and return results
 accordingly.
 
-## Example
+### Example
 
 The following example add a backend that will return random names and number.
 
 `dummy.py`:
 
-```{.sourceCode .python}
+```python
 # -*- coding: utf-8 -*-
 
 import logging
@@ -152,7 +151,7 @@ class DummyBackendPlugin(object):
         return ''.join(random.choice(string.lowercase) for _ in xrange(5))
 ```
 
-# Service {#dird-service}
+## Service {#dird-service}
 
 Service plugins add new functionality to the dird server. These functionalities are available to
 views. When loaded, a service plugin receives its configuration and a dictionary of available
@@ -164,7 +163,7 @@ Some service examples that come to mind include:
 - A reverse lookup service to search through all configured sources and return a specific field of
   the first matching result.
 
-## Implementation details
+### Implementation details
 
 - Namespace: `wazo_dird.services`
 - Abstract service plugin:
@@ -181,13 +180,13 @@ Some service examples that come to mind include:
 
   - `unload()`: free resources used by the plugin.
 
-## Example
+### Example
 
 The following example adds a service that will return an empty list when used.
 
 `dummy.py`:
 
-```{.sourceCode .python}
+```python
 # -*- coding: utf-8 -*-
 
 import logging
@@ -229,7 +228,7 @@ class DummyService(object):
         return []
 ```
 
-# View {#dird-view}
+## View {#dird-view}
 
 View plugins add new routes to the HTTP application in wazo-dird, in particular the REST API of
 wazo-dird: they define the URLs to which wazo-dird will respond and the formatting of data received
@@ -239,7 +238,7 @@ For example, we can define a REST API formatted in JSON with one view and the sa
 XML with another view. Supporting the directory function of a phone is generally a matter of adding
 a new view for the format that the phone consumes.
 
-## Implementation details
+### Implementation details
 
 - Namespace: `wazo_dird.views`
 - Abstract view plugin:
@@ -253,13 +252,13 @@ a new view for the format that the phone consumes.
     - key `rest_api`: a [Flask-RestFul Api]() instance
   - `unload()`: free resources used by the plugin.
 
-## Example
+### Example
 
 The following example adds a simple view: `GET /0.1/directories/ping` answers `{"message": "pong"}`.
 
 `dummy.py`:
 
-```{.sourceCode .python}
+```python
 # -*- coding: utf-8 -*-
 
 import logging
