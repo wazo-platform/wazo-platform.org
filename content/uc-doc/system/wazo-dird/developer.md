@@ -99,6 +99,11 @@ source from the other LDAP at beta.example.com. Both of these sources use the LD
     - `args` is a dictionary containing:
       - key `token_infos`: data associated to the authentication token (see
         [wazo-auth](/uc-doc/system/configuration_files#wazo-auth))
+  - `match_all(terms, args)`: The match_all method returns a dictionary.
+    - Empty values should be `{}`.
+    - `args` is a dictionary containing:
+      - key `token_infos`: data associated to the authentication token (see
+        [wazo-auth](/uc-doc/system/configuration_files#wazo-auth))
   - `list(uids, args)`: The list method returns a list of dictionary from a list of uids. Each uid
     is a string identifying a contact within the source.
     - `args` is a dictionary containing:
