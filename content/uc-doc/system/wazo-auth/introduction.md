@@ -106,54 +106,11 @@ backend_policies:
 -   backend\_name: The name of the backend to associate to a new policy
 -   policy\_name: The name of the policy to assign to the backend
 
-#:exclamation: Each backend may support different variables. A policy tailored for a
-user oriented backend will probably not be usable if assigned to an
-administrator backend.
-
 Policies
 ========
 
-A policy is a list of ACL templates that is used to generate the ACL of
-a token. Policies can be created, deleted or modified using the REST
-API.
-
-ACL templates
--------------
-
-ACL templates use [jinja2
-templates](http://jinja.pocoo.org/docs/2.9/templates/#). Each backend is
-responsible of supplying a list of variables to the template engine for
-rendering.
-
-A backend supplying the following variables:
-
-```Javascript
-{"uuid": "fd64193f-7260-4299-9bc2-87c0106e5302",
- "lines": [1, 42],
- "agent": {"id": 50, "number": "1001"}}
-```
-
-With the following ACL templates:
-
-```ini
-confd.users.{{ uuid }}.read
-{% for line in lines %}confd.lines.{{ line }}.#:{% endfor %}
-dird.me.#
-{% if agent %}agentd.agents.by-id.{{ agent.id }}.read{% endif %}
-```
-
-#:exclamation: When using `for` loops to create ACL, make sure to add a `:` separator
-at the end of each ACL
-
-Would create tokens with the following ACL:
-
-```ini
-confd.users.fd64193f-7260-4299-9bc2-87c0106e5302.read
-confd.lines.1.#
-confd.lines.42.#
-dird.me.#
-agentd.agentd.by-id.50.read
-```
+A policy is a list of access that is used to access Wazo resources.
+Policies can be created, deleted or modified using the REST API.
 
 HTTP API Reference
 ==================

@@ -32,45 +32,8 @@ The database tables are defined [here](https://github.com/wazo-platform/wazo-aut
 
 ## Policies
 
-A policy is a list of ACL templates that is used to generate the ACL of a token. Policies
-can be created, deleted or modified using the REST API.
-
-### ACL templates
-
-ACL templates use [jinja2 templates](http://jinja.pocoo.org/docs/2.9/templates/#). Each backend is responsible of supplying a list of variables
-to the template engine for rendering.
-
-A backend supplying the following variables:
-
-```javascript
-
-    {"uuid": "fd64193f-7260-4299-9bc2-87c0106e5302",
-     "lines": [1, 42],
-     "agent": {"id": 50, "number": "1001"}}
-```
-
-With the following ACL templates:
-
-```
-
-    confd.users.{{ uuid }}.read
-    {% for line in lines %}confd.lines.{{ line }}.#:{% endfor %}
-    dird.me.#
-    {% if agent %}agentd.agents.by-id.{{ agent.id }}.read{% endif %}
-```
-
-**Note**: when using `for` loops to create ACL, make sure to add a `:` separator at the end of
-          each ACL
-
-Would create tokens with the following ACL:
-
-```
-    confd.users.fd64193f-7260-4299-9bc2-87c0106e5302.read
-    confd.lines.1.#
-    confd.lines.42.#
-    dird.me.#
-    agentd.agentd.by-id.50.read
-```
+A policy is a list of access that is used to access Wazo resources.
+Policies can be created, deleted or modified using the REST API.
 
 ## Tokens
 
@@ -89,7 +52,7 @@ is restricted to the authorized programs.
 
 Here is the call flow to access a REST resource of a Wazo service:
 
-1. Create a username/password (also called service_id/service_key) with the right ACLs.
+1. Create a username/password (also called service_id/service_key) with the right ACL.
 2. Create a token with these credentials.
 3. Use this token to access the REST resource requiring the ACL
 

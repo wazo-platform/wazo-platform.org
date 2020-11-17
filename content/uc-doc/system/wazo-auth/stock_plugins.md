@@ -11,33 +11,6 @@ Backend name: `wazo_user`
 Purpose: Authenticate a user created by wazo-auth. These users do not
 map to telephony users at the moment.
 
-Supported policy variables
---------------------------
-
--   username: The username of the user
--   groups: A list of groups associated to this user
-    -   group.uuid: The group UUID
-    -   group.name: The group name
-    -   group.users: A list of users associated to this group each user
-        having the following fields
-        -   username
-        -   uuid
--   tenants: A list of tenants associated to this user
-    -   tenant.uuid: The tenant UUID
-    -   tenant.name: The tenant name
--   uuid: The UUID of the user authenticating
--   voicemails: a list of voicemail ID associated to this user
--   lines: a list of line ID associated to this user
--   extensions: a list of extension ID associated to this user
--   endpoint_sip: a list of SIP endpoint ID associated to this user
--   endpoing_sccp: a list of SCCP endpoint ID associated to this user
--   endpoint_custom: a list of custum endpoint ID associated to this
-    user
--   agent: a dictionnary containing the agent's property, may be none
-    and should be tested with an if before accessing its fields
--   agent.id: an agent id if the user is an agent
--   agent.number: an agent number if the user is an agent
-
 LDAP {#auth-backends-ldap}
 ====
 
@@ -139,20 +112,3 @@ Configuration
 `bind_anonymous` (optional)
 
 :   use anonymous bind for searching for the user DN (default: false)
-
-Supported policy variables
---------------------------
-
--   id: The ID of the user authenticating
--   uuid: The UUID of the user authenticating
--   voicemails: a list of voicemail ID associated to this user
--   lines: a list of line ID associated to this user
--   extensions: a list of extension ID associated to this user
--   endpoint_sip: a list of SIP endpoint ID associated to this user
--   endpoing_sccp: a list of SCCP endpoint ID associated to this user
--   endpoint_custom: a list of custum endpoint ID associated to this
-    user
--   agent: a dictionnary containing the agent's property, may be none
-    and should be tested with an if before accessing its fields
--   agent.id: an agent id if the user is an agent
--   agent.number: an agent number if the user is an agent
