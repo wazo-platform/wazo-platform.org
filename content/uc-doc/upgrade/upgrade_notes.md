@@ -7,6 +7,8 @@ title: Upgrade notes
 - wazo-auth ACL template feature has been removed. There are no more rendering template that will be
   done for ACL. Endpoints and fields have been deprecated. See
   [wazo-auth changelog 19.16](https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1916)
+- wazo-dird backend plugins now support `match_all` method. See
+  [wazo-dird](/uc-doc/system/wazo-dird/developer) for more informations
 
 Consult the
 [20.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10136)
