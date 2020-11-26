@@ -9,6 +9,8 @@ title: Upgrade notes
   [wazo-auth changelog 19.16](https://github.com/wazo-platform/wazo-confd/blob/master/CHANGELOG.md#1916)
 - wazo-dird backend plugins now support `match_all` method. See
   [wazo-dird](/uc-doc/system/wazo-dird/developer) for more informations
+- Asterisk configuration files in `/etc/asterisk` are required to have a name ending with `.conf`
+  to be applied.
 
 Consult the
 [20.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10136)
