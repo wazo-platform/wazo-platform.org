@@ -6,7 +6,7 @@ title: Upgrade notes
 
 - wazo-auth ACL template feature has been removed. There are no more rendering template that will be
   done for ACL. Endpoints and fields have been deprecated. See
-  [wazo-auth changelog 19.16](https://github.com/wazo-platform/wazo-auth/blob/master/CHANGELOG.md#2016)
+  [wazo-auth changelog 20.16](https://github.com/wazo-platform/wazo-auth/blob/master/CHANGELOG.md#2016)
 - wazo-dird backend plugins now support `match_all` method. See
   [wazo-dird](/uc-doc/system/wazo-dird/developer) for more informations
 - Asterisk configuration files in `/etc/asterisk` are required to have a name ending with `.conf`
