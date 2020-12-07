@@ -20,17 +20,21 @@ services to be used:
 An administrator can easily modify the configuration to allow or disallow some services.
 
 To do so, an administrator only has to create a symbolic link inside the
-`/etc/nginx/locations/http-enabled`{.interpreted-text role="file"} directory to the corresponding
-file in the `/etc/nginx/locations/http-available`{.interpreted-text role="file"} directory, and then
-reload nginx with `systemctl reload nginx`. A similar operation must be done for HTTPS.
+`/etc/nginx/locations/http-enabled` directory to the corresponding file in the
+`/etc/nginx/locations/http-available` directory, and then reload nginx with
+`systemctl reload nginx`. A similar operation must be done for HTTPS.
 
 For example, to enable all the available services:
 
-    ln -sf /etc/nginx/locations/http-available/* /etc/nginx/locations/http-enabled
-    ln -sf /etc/nginx/locations/https-available/* /etc/nginx/locations/https-enabled
-    systemctl reload nginx
+```shell
+ln -sf /etc/nginx/locations/http-available/* /etc/nginx/locations/http-enabled
+ln -sf /etc/nginx/locations/https-available/* /etc/nginx/locations/https-enabled
+systemctl reload nginx
+```
 
 To disable all the services other than the web interface:
 
-    rm /etc/nginx/locations/http-enabled/* /etc/nginx/locations/https-enabled/*
-    systemctl reload nginx
+```shell
+rm /etc/nginx/locations/http-enabled/* /etc/nginx/locations/https-enabled/*
+systemctl reload nginx
+```
