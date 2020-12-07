@@ -35,14 +35,6 @@ To get this kind of setup up and running, you will need to follow the following 
 
 ### Downloading Consul
 
-For a 32 bits system
-
-```shell
-wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_386.zip
-```
-
-For a 64 bits system
-
 ```shell
 wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0.5.2_linux_amd64.zip
 ```
@@ -50,16 +42,7 @@ wget --no-check-certificate https://releases.hashicorp.com/consul/0.5.2/consul_0
 ### Installing Consul on a new host
 
 ```shell
-unzip consul_0.5.2_linux_386.zip
-```
-
-Or
-
-```shell
 unzip consul_0.5.2_linux_amd64.zip
-```
-
-```shell
 mv consul /usr/bin/consul
 mkdir -p /etc/consul/xivo
 mkdir -p /var/lib/consul
