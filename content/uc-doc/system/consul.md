@@ -2,28 +2,24 @@
 title: Consul
 ---
 
-The default [consul](https://consul.io) installation in Wazo uses the
-configuration file in `/etc/consul/xivo/*.json`. All files in this
-directory are installed with the package and *should not* be modified
-by the administrator. To use a different configuration, the
-adminstrator can add it's own configuration file at another location
-and set the new configuration directory by creating a systemd unit
-drop-in file in the `/etc/systemd/system/consul.service.d` directory.
+The default [consul](https://consul.io) installation in Wazo uses the configuration file in
+`/etc/consul/xivo/*.json`. All files in this directory are installed with the package and _should
+not_ be modified by the administrator. To use a different configuration, the adminstrator can add
+it's own configuration file at another location and set the new configuration directory by creating
+a systemd unit drop-in file in the `/etc/systemd/system/consul.service.d` directory.
 
-The default installation generates a master token that can be
-retrieved in `/var/lib/consul/master_token`. This master token will
-not be used if a new configuration is supplied.
+The default installation generates a master token that can be retrieved in
+`/var/lib/consul/master_token`. This master token will not be used if a new configuration is
+supplied.
 
 ## Variables
 
-The following environment variables can be overridden in a systemd unit
-drop-in file:
+The following environment variables can be overridden in a systemd unit drop-in file:
 
--   `CONFIG_DIR`: the consul configuration directory
--   `WAIT_FOR_LEADER`: should the "start" action wait for a leader ?
+- `CONFIG_DIR`: the consul configuration directory
+- `WAIT_FOR_LEADER`: should the "start" action wait for a leader ?
 
-Example, in
-`/etc/systemd/system/consul.service.d/custom.conf`:
+Example, in `/etc/systemd/system/consul.service.d/custom.conf`:
 
     [Service]
     Environment=CONFIG_DIR=/etc/consul/agent
@@ -31,11 +27,9 @@ Example, in
 
 ## Agent mode
 
-It is possible to run consul on another host and have the local consul
-node run as an agent only.
+It is possible to run consul on another host and have the local consul node run as an agent only.
 
-To get this kind of setup up and running, you will need to follow the
-following steps.
+To get this kind of setup up and running, you will need to follow the following steps.
 
 ### Downloading Consul
 
@@ -73,9 +67,7 @@ Or
 
 ### Copying the consul configuration from the Wazo to a new host
 
-On the new consul host, modify
-`/etc/consul/xivo/config.json` to include
-to following lines.
+On the new consul host, modify `/etc/consul/xivo/config.json` to include to following lines.
 
 ```Javascript
 "bind_addr": "0.0.0.0",
@@ -92,18 +84,15 @@ to following lines.
 # consul agent -data-dir /var/lib/consul -config-dir /etc/consul/xivo/
 ```
 
-#:exclamation: To start consul with the systemd unit file, you may need to change owner
-and group (consul:consul) for all files inside
-`/etc/consul`,
-`/usr/share/xivo-certs` and
-`/var/lib/consul`
+#:exclamation: To start consul with the systemd unit file, you may need to change owner and group
+(consul:consul) for all files inside `/etc/consul`, `/usr/share/xivo-certs` and `/var/lib/consul`
 
 ### Adding the agent configuration
 
-Create the file `/etc/consul/agent/config.json`{.interpreted-text
-role="file"} with the following content
+Create the file `/etc/consul/agent/config.json`{.interpreted-text role="file"} with the following
+content
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "acl_datacenter": "<node_name>",
     "datacenter": "xivo",
@@ -130,12 +119,10 @@ role="file"} with the following content
 }
 ```
 
--   `node_name`: Arbitrary name to give this node, `wazo-paris` for
-    example.
--   `remote_host`: IP address of your new consul. Be sure the host is
-    accessible from your Wazo and check the firewall. See the
-    documentation [here](/uc-doc/contributors/network).
--   `wazo_address`: IP address of your Wazo.
+- `node_name`: Arbitrary name to give this node, `wazo-paris` for example.
+- `remote_host`: IP address of your new consul. Be sure the host is accessible from your Wazo and
+  check the firewall. See the documentation [here](/uc-doc/contributors/network).
+- `wazo_address`: IP address of your Wazo.
 
 This file should be owned by consul user.
 
@@ -145,8 +132,7 @@ This file should be owned by consul user.
 
 ### Enabling the agent configuration
 
-Add or modify
-`/etc/systemd/system/consul.service.d/custom.conf` to include the following lines:
+Add or modify `/etc/systemd/system/consul.service.d/custom.conf` to include the following lines:
 
     [Service]
     Environment=CONFIG_DIR=/etc/consul/agent
