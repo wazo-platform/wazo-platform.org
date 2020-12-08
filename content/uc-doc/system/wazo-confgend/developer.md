@@ -2,50 +2,40 @@
 title: Wazo confgend developer's guide
 ---
 
-wazo-confgend uses drivers to implement the logic required to generate
-configuration files. It uses
-[stevedore](http://docs.openstack.org/developer/stevedore/) to do the
-driver instantiation and discovery.
+wazo-confgend uses drivers to implement the logic required to generate configuration files. It uses
+[stevedore](http://docs.openstack.org/developer/stevedore/) to do the driver instantiation and
+discovery.
 
-Plugins in wazo-confgend use setuptools' entry points. That means that
-installing a new plugin to wazo-confgend requires an entry point in the
-plugin's *setup.py*.
+Plugins in wazo-confgend use setuptools' entry points. That means that installing a new plugin to
+wazo-confgend requires an entry point in the plugin's _setup.py_.
 
-Drivers
-=======
+# Drivers
 
-Driver plugin are classes that are used to generate the content of a
-configuration file.
+Driver plugin are classes that are used to generate the content of a configuration file.
 
 The implementation of a plugin should have the following properties.
 
 1.  It's `__init__` method should take one argument
-2.  It should have a `generate` method which will return the content of
-    the file
+2.  It should have a `generate` method which will return the content of the file
 3.  A setup.py adding an entry point
 
-The `__init__` method argument is the content of the configuration of
-wazo-confgend. This allows the driver implementor to add values to the
-configuration in `/etc/wazo-confgend/conf.d/*.yml` and these values will
-be available in the driver.
+The `__init__` method argument is the content of the configuration of wazo-confgend. This allows the
+driver implementor to add values to the configuration in `/etc/wazo-confgend/conf.d/*.yml` and these
+values will be available in the driver.
 
-The generate method has no argument, the configuration provided to the
-`__init__` should be sufficient for most cases. `generate` is called
-within a `scoped_session` of xivo-dao, allowing the usage of xivo-dao
-without prior setup in the driver.
+The generate method has no argument, the configuration provided to the `__init__` should be
+sufficient for most cases. `generate` is called within a `scoped_session` of xivo-dao, allowing the
+usage of xivo-dao without prior setup in the driver.
 
-The namespaces used for entry points in wazo-confgend have the following
-form:
+The namespaces used for entry points in wazo-confgend have the following form:
 
 > wazo_confgend.<resource>.<filename>
 
-as an example, a generator for sip.conf would have the following
-namespace:
+as an example, a generator for sip.conf would have the following namespace:
 
 > wazo_confgend.asterisk.sip.conf
 
-Example
-=======
+# Example
 
 Here is a typical `setup.py`:
 
