@@ -10,10 +10,10 @@ entries from the database. This allows keeping records for a maximum period and 
 By default, wazo-purge-db removes all logs older than a year (365 days), except for webhookd logs
 where only 30 days are kept. wazo-purge-db is run nightly.
 
-#:exclamation: Please check the laws applicable to your country and modify `days_to_keep` (see
-below) in the configuration file accordingly.
+**Note**: Please check the laws applicable to your country and modify `days_to_keep` (see below) in
+the configuration file accordingly.
 
-# Records Purged
+## Records Purged
 
 The following features are impacted by wazo-purge-db:
 
@@ -34,7 +34,7 @@ The format of the following list is `plugin-name` (`associated table`) :
 - `stat-switchboard` (`stat_switchboard_queue`)
 - `webhookd-logs` (`webhookd_subscription_log`)
 
-# Configuration File {#purge-logs-config-file}
+## Configuration File {#purge-logs-config-file}
 
 We recommend to override the setting `days_to_keep` from `/etc/wazo-purge-db/config.yml` in a new
 file in `/etc/wazo-purge-db/conf.d/`.
@@ -42,57 +42,67 @@ file in `/etc/wazo-purge-db/conf.d/`.
 The `days_to_keep` configuration can be done per plugin if needed, by setting
 `days_to_keep_per_plugin` for example:
 
-    days_to_keep_per_plugin:
-        webhookd-logs: 30
+```yaml
+days_to_keep_per_plugin:
+  webhookd-logs: 30
+```
 
-#:warning: Setting `days_to_keep` to 0 will NOT disable `wazo-purge-db`, and will remove ALL logs
+**Warning**: Setting `days_to_keep` to 0 will NOT disable `wazo-purge-db`, and will remove ALL logs
 from your system.
 
 See [Configuration priority](/uc-doc/system/configuration_files#configuration-priority) and
 `/etc/wazo-purge-db/config.yml` for more details.
 
-# Manual Purge
+## Manual Purge
 
 It is possible to purge logs manually. To do so, log on to the target Wazo server and run:
 
-    wazo-purge-db
+```shell
+wazo-purge-db
+```
 
 You can specify the number of days of logs to keep. For example, to purge entries older than 365
 days:
 
-    wazo-purge-db -d 365
+```shell
+wazo-purge-db -d 365
+```
 
 Usage of `wazo-purge-db`:
 
-    usage: wazo-purge-db [-h] [-d DAYS_TO_KEEP]
+```text
+usage: wazo-purge-db [-h] [-d DAYS_TO_KEEP]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -d DAYS_TO_KEEP, --days_to_keep DAYS_TO_KEEP
-                            Number of days data will be kept in tables
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DAYS_TO_KEEP, --days_to_keep DAYS_TO_KEEP
+                        Number of days data will be kept in tables
+```
 
-# Maintenance
+## Maintenance
 
-After an execution of `wazo-purge-db`, postgresql\'s
+After an execution of `wazo-purge-db`, postgresql's
 [Autovacuum Daemon](https://www.postgresql.org/docs/11/static/routine-vacuuming.html#AUTOVACUUM)
 should perform a [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) ANALYZE
 automatically (after 1 minute). This command marks memory as reusable but does not actually free
-disk space, which is fine if your disk is not getting full. In the case when `wazo-purge-db` hasn\'t
+disk space, which is fine if your disk is not getting full. In the case when `wazo-purge-db` hasn't
 run for a long time (e.g. upgrading to 15.11 or when
-[days_to_keep](/uc-doc/system/purge_logs#purge-logs-config-file) is decreased), some administrator
+[`days_to_keep`](/uc-doc/system/purge_logs#purge-logs-config-file) is decreased), some administrator
 may want to perform a [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL to
 recover disk space.
 
-#:warning: VACUUM FULL will require a service interruption. This may take several hours depending on
-the size of purged database.
+**Warning**: VACUUM FULL will require a service interruption. This may take several hours depending
+on the size of purged database.
 
 You need to:
 
-    $ wazo-service stop
-    $ sudo -u postgres psql asterisk -c "VACUUM (FULL)"
-    $ wazo-service start
+```shell
+wazo-service stop
+sudo -u postgres psql asterisk -c "VACUUM (FULL)"
+wazo-service start
+```
 
-# Archive Plugins
+## Archive Plugins
 
 In the case you want to keep archives of the logs removed by wazo-purge-db, you may install plugins
 to wazo-purge-db that will be run before the purge.
@@ -101,7 +111,7 @@ Wazo does not provide any archive plugin. You will need to develop plugins for y
 want to share your plugins, please open a
 [pull request](https://github.com/wazo-platform/wazo-purge-db/pulls).
 
-# Archive Plugins (for Developers)
+## Archive Plugins (for Developers)
 
 Each plugin is a Python callable (function or class constructor), that takes a dictionary of
 configuration as argument. The keys of this dictionary are the keys taken from the configuration
@@ -110,50 +120,45 @@ file. This allows you to add plugin-specific configuration in `/etc/wazo-purge-d
 There is an example plugin in the
 [wazo-purge-db git repo](https://github.com/wazo-platform/wazo-purge-db/tree/master/contribs).
 
-## Example
+### Example
 
 Archive name: sample
 
 Purpose: demonstrate how to create your own archive plugin.
 
-### Activate Plugin
+#### Activate Plugin
 
 Each plugin needs to be explicitly enabled in the configuration of `wazo-purge-db`. Here is an
 example of file added in `/etc/wazo-purge-db/conf.d/`:
 
-```{.sourceCode .yaml}
+```yaml
 enabled_plugins:
-    archives:
-        - sample
+  archives:
+    - sample
 ```
 
-### sample.py
+#### sample.py
 
 The following example will be save a file in `/tmp/wazo_purge_db.sample` with the following content:
 
-    Save tables before purge. 365 days to keep!
-
-```{.sourceCode .python}
-sample_file = '/tmp/wazo_purge_db.sample'
+```text
+Save tables before purge. 365 days to keep!
 ```
 
-> def sample_plugin(config):
->
-> :
->
->     with open(sample\_file, \'w\') as output:
->
->     :   output.write(\'Save tables before purge. {0} days to
->         keep!\'.format(config\[\'days\_to\_keep\'\]))
+```python
+sample_file = '/tmp/wazo_purge_db.sample'
 
-### Install sample plugin
+def sample_plugin(config):
+    with open(sample_file, 'w') as output:
+        output.write('Save tables before purge. {0} days to keep!'.format(config['days_to_keep']))
+```
+
+#### Install sample plugin
 
 The following `setup.py` shows an example of a python library that adds a plugin to wazo-purge-db:
 
-```{.sourceCode .python}
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
+```python
+#!/usr/bin/env python3
 from setuptools import setup
 from setuptools import find_packages
 
