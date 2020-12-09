@@ -189,7 +189,7 @@ The location of the templates are configured in the service configuration
 
 Example:
 
-```yaml
+```jinja2
 type: wazo
 name: wazo-{{ uuid }}
 searched_columns:
@@ -198,14 +198,14 @@ searched_columns:
 first_matched_columns:
   - exten
 auth:
-  host: { { hostname } }
+  host: {{ hostname }}
   port: 9497
-  username: { { service_id } }
-  password: { { service_key } }
+  username: {{ service_id }}
+  password: {{ service_key }}
   verify_certificate: false
 confd:
-  host: { { hostname } }
-  port: { { port } }
+  host: {{ hostname }}
+  port: {{ port }}
   version: '1.1'
   verify_certificate: false
 format_columns:
