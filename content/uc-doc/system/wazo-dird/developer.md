@@ -1,5 +1,5 @@
 ---
-title: 'wazo-dird developer\''s guide'
+title: "wazo-dird developer's guide"
 ---
 
 - [Back-End](#dird-back-end)
@@ -40,8 +40,6 @@ wazo-dird:
 
 ```python
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from setuptools import setup
 from setuptools import find_packages
 
@@ -120,8 +118,6 @@ The following example add a backend that will return random names and number.
 `dummy.py`:
 
 ```python
-# -*- coding: utf-8 -*-
-
 import logging
 
 logger = logging.getLogger(__name__)
@@ -192,8 +188,6 @@ The following example adds a service that will return an empty list when used.
 `dummy.py`:
 
 ```python
-# -*- coding: utf-8 -*-
-
 import logging
 
 from wazo_dird import BaseServicePlugin

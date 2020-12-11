@@ -27,13 +27,11 @@ Every Wazo service has its own log file, placed in `/var/log`.
 
 The Asterisk log files are managed by logrotate.
 
-It's configuration files `/etc/logrotate.d/asterisk` and
-`/etc/asterisk/logger.conf`
+It's configuration files `/etc/logrotate.d/asterisk` and `/etc/asterisk/logger.conf`
 
-The message log level is enabled by default in `logger.conf` and
-contains notices, warnings and errors. The full log entry is commented in
-`logger.conf` and should only be enabled when verbose debugging is
-required. Using this option in production would produce VERY large log files.
+The message log level is enabled by default in `logger.conf` and contains notices, warnings and
+errors. The full log entry is commented in `logger.conf` and should only be enabled when verbose
+debugging is required. Using this option in production would produce VERY large log files.
 
 - Files location: `/var/log/asterisk/\*`
 - Number of archived files: 15

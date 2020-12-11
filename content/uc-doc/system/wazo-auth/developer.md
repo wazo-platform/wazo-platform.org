@@ -2,148 +2,126 @@
 title: wazo-auth Developer's Guide
 ---
 
-Architecture
-============
+## Architecture
 
-wazo-auth contains 3 major components, an HTTP interface, authentication
-backends and a storage module. All operations are made through the HTTP
-interface, tokens are stored in postgres as well as the persistence for
-some of the data attached to tokens. Backends are used to test if a
-supplied username/password combination is valid and provide the
-xivo-user-uuid.
+wazo-auth contains 3 major components, an HTTP interface, authentication backends and a storage
+module. All operations are made through the HTTP interface, tokens are stored in postgres as well as
+the persistence for some of the data attached to tokens. Backends are used to test if a supplied
+username/password combination is valid and provide the xivo-user-uuid.
 
 wazo-auth is made of the following modules and packages.
 
-backend_plugins
-----------------
+### backend_plugins
 
-the plugin package contains the wazo-auth backends that are packaged
-with wazo-auth.
+the plugin package contains the wazo-auth backends that are packaged with wazo-auth.
 
-http_plugins
--------------
+### http_plugins
 
 The http module is the implementation of the HTTP interface.
 
--   Validate parameters
--   Calls the backend the check the user authentication
--   Forward instructions to the *token_manager*
--   Handle exceptions and return the appropriate status_code
+- Validate parameters
+- Calls the backend the check the user authentication
+- Forward instructions to the _token_manager_
+- Handle exceptions and return the appropriate status_code
 
-controller
-----------
+### controller
 
 The controller is the plumbin of wazo-auth, it has no business logic.
 
--   Start the HTTP application
--   Load all enabled plugins
--   Instanciate the token_manager
+- Start the HTTP application
+- Load all enabled plugins
+- Instantiate the token_manager
 
-token
------
+### token
 
 The token modules contains the business logic of wazo-auth.
 
--   Creates and delete tokens
--   Creates ACL for Wazo
--   Schedule token expiration
+- Creates and delete tokens
+- Creates ACL for Wazo
+- Schedule token expiration
 
-Plugins {#developing-plugins}
-=======
+## Plugins {#developing-plugins}
 
-wazo-auth is meant to be easy to extend. This section describes how to
-add features to wazo-auth.
+wazo-auth is meant to be easy to extend. This section describes how to add features to wazo-auth.
 
-Backends
---------
+### Backends
 
-wazo-auth allows its administrator to configure one or many sources of
-authentication. Implementing a new kind of authentication is quite
-simple.
+wazo-auth allows its administrator to configure one or many sources of authentication. Implementing
+a new kind of authentication is quite simple.
 
-1.  Create a python module implementing the [backend
-    interface](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/interfaces.py).
-2.  Install the python module with an entry point *wazo_auth.backends*
+1. Create a python module implementing the
+   [backend interface](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/interfaces.py).
+2. Install the python module with an entry point `wazo_auth.backends`
 
 An example backend implementation is available
 [here](http://github.com/wazo-platform/wazo-auth-example-backend).
 
-External Auth
--------------
+### External Auth
 
-wazo-auth allows the user to enable arbitrary external authentication,
-store sensible information which can be retrieved later given an
-appropriate ACL.
+wazo-auth allows the user to enable arbitrary external authentication, store sensible information
+which can be retrieved later given an appropriate ACL.
 
 An external authentication plugin is made of the following parts.
 
-1.  A setup.py adding the plugin the the [wazo_auth.http]{.title-ref}
-    entry point
-2.  A flask_restful class implementing the route for this plugin
-3.  A marshmallow model that can filter the stored data to be safe for
-    unpriviledged view
-4.  A plugin_info dictionary with information that should be displayed
-    in UI concerning this plugin
+1. A setup.py adding the plugin the `wazo_auth.http` entry point
+2. A flask_restful class implementing the route for this plugin
+3. A marshmallow model that can filter the stored data to be safe for unprivileged view
+4. A plugin_info dictionary with information that should be displayed in UI concerning this plugin
 
 The restful class should do the following:
 
--   POST: This is where the plugin should setup any information with the
-    external service and usually return a validation code and a
-    validateion URL to the user.
--   GET: After activating the external authentication, following the
-    POST. The GET can be used to retrieve credentials granting access to
-    certain resource of the external service.
--   DELETE: Should remove the stored data from wazo-auth
--   PUT: (optional) Could be implemented to modify the scope of the
-    generated credentials if the external service allow that kind of
-    modification.
+- POST: This is where the plugin should setup any information with the external service and usually
+  return a validation code and a validation URL to the user.
+- GET: After activating the external authentication, following the POST. The GET can be used to
+  retrieve credentials granting access to certain resource of the external service.
+- DELETE: Should remove the stored data from wazo-auth
+- PUT: (optional) Could be implemented to modify the scope of the generated credentials if the
+  external service allow that kind of modification.
 
-### OAuth2 helpers
+#### OAuth2 helpers
 
-If the external service uses OAuth2 it is possible to use some helper
-functions in the external_auth service.
+If the external service uses OAuth2 it is possible to use some helper functions in the external_auth
+service.
 
-Those helpers can be used to get notified when the user has accepted
-wazo-auth on the external service.
+Those helpers can be used to get notified when the user has accepted wazo-auth on the external
+service.
 
 The following helpers are available:
 
-    external_auth_service.register_oauth2_callback(auth_type, user_uuid, state, callback, *args, **kwargs)
+```python
+external_auth_service.register_oauth2_callback(auth_type, user_uuid, state, callback, *args, **kwargs)
+```
 
--   auth_type: The name of the authentication backend
--   user_uuid: The user UUID of the user creating the external auth
--   state: The state returned from the authorization URL query
--   callback: the callable that should be triggered when the
-    authorization is complete
--   args and kwargs: arguments that will be added to the callback
-    arguments
+- auth_type: The name of the authentication backend
+- user_uuid: The user UUID of the user creating the external auth
+- state: The state returned from the authorization URL query
+- callback: the callable that should be triggered when the authorization is complete
+- args and kwargs: arguments that will be added to the callback arguments
 
-When the callback function gets called, its last args will be the
-message sent to the redirect URL by the external service.
+When the callback function gets called, its last args will be the message sent to the redirect URL
+by the external service.
 
-#:exclamation: The callback is not executed in the main thread. You should take care of
-thread synchronization when sharing data structures between threads.
+**Note**: The callback is not executed in the main thread. You should take care of thread
+synchronization when sharing data structures between threads.
 
-The callback is usually used to create a first token on the external
-service.
+The callback is usually used to create a first token on the external service.
 
-    external_auth_service.build_oauth2_redirect_url(auth_type)
+```python
+external_auth_service.build_oauth2_redirect_url(auth_type)
+```
 
-This helper returns a URL that can be used by the OAuth2Session to
-trigger a redirection and receives a callback when the authorization is
-complete.
+This helper returns a URL that can be used by the OAuth2Session to trigger a redirection and
+receives a callback when the authorization is complete.
 
-### Example
+#### Example
 
-Files:
+```text
+setup.py
+src/plugin.py
+```
 
-    setup.py
-    src/plugin.py
-
-```Python
+```python
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from setuptools import find_packages
 from setuptools import setup
 
@@ -160,9 +138,7 @@ setup(
 )
 ```
 
-```Python
-# -*- coding: utf-8 -*-
-
+```python
 from marshmallow import Schema, fields, pre_load
 from flask import request
 from wazo_auth import http
