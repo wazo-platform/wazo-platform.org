@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 20.17 {#20-17}
+
+Consult the
+[20.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10144)
+for more information.
+
 ## 20.16 {#20-16}
 
 - The `i386` (32 bits) architecture is now deprecated and will be removed in 21.01 from our debian
