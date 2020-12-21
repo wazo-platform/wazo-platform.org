@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 20.17 {#20-17}
+
+- The recording files for online recording, i.e. recording started during a call, are now stored at
+  `/var/lib/wazo/sounds/tenants/*/monitor`. Old recordings are available at
+  `/var/spool/asterisk/monitor/` and must be moved manually to the new path.
+
+Consult the
+[20.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10144)
+for more information.
+
 ## 20.16 {#20-16}
 
 - The `i386` (32 bits) architecture is now deprecated and will be removed in 21.01 from our debian
