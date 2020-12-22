@@ -26,8 +26,10 @@ wazo-dist is the wazo repository sources manager. It is used to switch between d
 
 ## wazo-dist-upgrade
 
-`wazo-dist-upgrade` is used to upgrade Wazo when a Debian upgrade is required. `wazo-dist-upgrade`
-can only be used after `wazo-upgrade`.
+`wazo-dist-upgrade` is used to upgrade Wazo when a major Debian upgrade is required, e.g. upgrading
+from Wazo Platform 19.12 (Debian Stretch) to Wazo Platform 19.13 (Debian Buster).
+`wazo-dist-upgrade` can only be used when a Debian upgrade is required. Usually, upgrades are done
+with `wazo-upgrade`.
 
 ## wazo-reset {#wazo-reset}
 
@@ -46,7 +48,7 @@ After using it, you need to pass the wizard once again.
 ## wazo-upgrade
 
 `wazo-upgrade` is used to upgrade Wazo to a later version. Beginning with Wazo 17.17, `wazo-upgrade`
-will not upgrade to a later Debian version. For this, you have to use `wazo-dist-upgrade`.
+will not upgrade to a later major Debian version. For this, you have to use `wazo-dist-upgrade`.
 
 # Service-specific tools
 
