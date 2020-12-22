@@ -20,6 +20,14 @@ provides mainly authentication-related features.
 
 See `wazo-auth-cli --help` for a list of available operations.
 
+# wazo-debug
+
+`wazo-debug` is used to collect data about the system, either live or not. It then packages the
+collected data into a single tarball ready for analysis. Be careful before sharing this tarball, it
+contains sensitive data!
+
+See `wazo-debug --help` for a list of available operations.
+
 # wazo-dist {#wazo-dist}
 
 wazo-dist is the wazo repository sources manager. It is used to switch between distributions
