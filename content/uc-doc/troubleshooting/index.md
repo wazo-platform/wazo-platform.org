@@ -449,21 +449,43 @@ trust the Ngrok servers, you should ensure that:
 
 ## Collecting logs
 
-When troubleshooting a problem, you may need to send logs for analysis.
+### Unreproducible issues
 
-`wazo-debug-collect` simplifies the gathering of logs:
+When troubleshooting a problem, you may need to send logs of previous dates for analysis.
+
+`wazo-debug collect` simplifies the gathering of logs:
 
 ```shell
-apt-get update
-apt-get install wazo-debug
-wazo-debug-collect -o /tmp/logs.tar.gz
+wazo-debug collect -o /tmp/logs.tar.gz
 ```
 
-`wazo-debug-collect` will gather all the logs of the different Wazo daemons, including Asterisk, and
-bundle them into a tarball. You may then send this tarball for analysis.
+`wazo-debug collect` will gather all available logs of the different Wazo daemons, including
+Asterisk, and bundle them into a tarball. You may then send this tarball for analysis.
 
-**Warning**: Be careful before sending the logs in a public place: they may contain sensible
-information, that can be used to connect to your Wazo.
+**Warning**: Be careful before sending the logs in a public place: they may contain sensitive
+information, that can be used to connect to your Wazo Platform.
+
+### Reproducible issues
+
+You may use `wazo-debug capture` to log what is happening on the server while reproducing an issue.
+This tool will then bundle the capture logs in a tarball. You may then send this tarball for
+analysis.
+
+```shell
+wazo-debug capture
+AGI Debugging Enabled
+Starting capture...
+Capture started. Hit CTRL-C to stop the capture...
+^C
+Capture stopped.
+AGI Debugging Disabled
+Captured files have been stored in /tmp/wazo-debug-capture.tar.gz
+```
+
+
+**Warning**: Be careful before sending the logs in a public place: they may contain sensitive
+information, that can be used to connect to your Wazo Platform.
+
 
 ## Asterisk crash
 
