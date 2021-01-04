@@ -2,6 +2,11 @@
 title: Upgrade notes
 ---
 
+## 21.01 {#21-01}
+
+- Asterisk version has been updated:
+  - [Asterisk 17 to 18 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/21-01/asterisk_18)
+
 ## 20.17 {#20-17}
 
 - The recording files for online recording, i.e. recording started during a call, are now stored at
