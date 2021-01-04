@@ -12,7 +12,7 @@ If you find yourself in one of these cases, you should make sure that your custo
 with Asterisk 18.
 
 In particular, if you are using custom Asterisk modules, you\'ll need to either obtain the Asterisk
-16 version of these modules or recompile them against Asterisk 18. Not doing so usually leads to
+18 version of these modules or recompile them against Asterisk 18. Not doing so usually leads to
 major instability issues in Asterisk.
 
 You can see the complete list of changes from the Asterisk website:
