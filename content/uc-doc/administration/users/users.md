@@ -34,7 +34,15 @@ You can enable/disable the recording of all calls for a user in 2 different way:
 
 1. By set `call_record_*_enabled: True` for user:
 
-   `PUT /users/{user_uuid} {"call_record_enabled": True}`
+   ```ascii
+   PUT /users/{user_uuid}
+     {
+       "call_record_outgoing_internal_enabled": True,
+       "call_record_outgoing_external_enabled": True,
+       "call_record_incoming_internal_enabled": True,
+       "call_record_incoming_external_enabled": True
+     }
+   ```
 
 2. By using the extension `*26` from your phone (the feature `callrecord` option must
    be enabled):

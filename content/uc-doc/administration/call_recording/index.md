@@ -22,9 +22,17 @@ himself.
 
 ### Administrator
 
-The administrator can enable call recording from API:
+The administrator can enable call recording:
 
-- With `PUT /users/{user_uuid} {"call_record_enabled": True}`
+```ascii
+PUT /users/{user_uuid}
+  {
+    "call_record_outgoing_internal_enabled": True,
+    "call_record_outgoing_external_enabled": True,
+    "call_record_incoming_internal_enabled": True,
+    "call_record_incoming_external_enabled": True
+  }
+```
 
 ### User
 
@@ -43,7 +51,15 @@ The extensions for call recording and online call recording are available with e
 
 To disable call recording for user:
 
-- With `PUT /users/{user_uuid} {"call_record_enabled": False}`
+```ascii
+PUT /users/{user_uuid}
+  {
+    "call_record_outgoing_internal_enabled": False,
+    "call_record_outgoing_external_enabled": False,
+    "call_record_incoming_internal_enabled": False,
+    "call_record_incoming_external_enabled": False
+  }
+```
 
 To disable online call recording:
 
