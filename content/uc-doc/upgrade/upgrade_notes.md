@@ -9,6 +9,13 @@ title: Upgrade notes
 - Deprecated conference system (`meetme`) has been completely removed. Meetme conferences have not
   been configurable since 18.03 and unusable since 19.17. Note that recordings have been removed from
   backup (i.e. `/var/spool/asterisk/meetme`).
+- The way pre-dial handlers can be added in a subroutine has been changed. See [pre-dial handlers](/uc-doc/api_sdk/subroutine) for more details.
+  - If you used custom dialplan to add the `b` option to the `XIVO_CALLOPTIONS` you should update it to use the `wazo-add-pre-dial-hook` subroutine.
+
+    ; A subroutine with this line
+    same = n,Set(XIVO_CALLOPTIONS=${XIVO_CALLOPTIONS}b(my-subroutine^s^1))
+    ; should become
+    same = n,GoSub(wazo-add-pre-dial-hook,s,1(my-subroutine))
 
 Consult the
 [21.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10146)
