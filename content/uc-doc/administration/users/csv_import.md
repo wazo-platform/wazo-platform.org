@@ -27,25 +27,29 @@ created and associated to its user when all required fields for that resource ar
 
 #### User
 
-| Field                    | Type   | Required | Values                            | Description                                                            |
-| ------------------------ | ------ | -------- | --------------------------------- | ---------------------------------------------------------------------- |
-| firstname                | string | Yes      |                                   | User's firstname                                                       |
-| lastname                 | string |          |                                   | User's lastname                                                        |
-| email                    | string |          |                                   | User's email                                                           |
-| language                 | string |          | de_DE, en_US, es_ES, fr_FR, fr_CA | User's language                                                        |
-| mobile_phone_number      | string |          |                                   | Mobile phone number                                                    |
-| outgoing_caller_id       | string |          |                                   | Customize outgoing caller id for this user                             |
-| enabled                  | bool   |          |                                   | Enable/Disable the user                                                |
-| supervision_enabled      | bool   |          |                                   | Enable/Disable supervision                                             |
-| call_transfer_enabled    | bool   |          |                                   | Enable/Disable call transfers by DTMF                                  |
-| dtmf_hangup_enabled      | bool   |          |                                   | Enable/Disable hangup by DTMF                                          |
-| simultaneous_calls       | int    |          |                                   | Number of calls a user can have on his phone simultaneously            |
-| ring_seconds             | int    |          | A multiple of 5                   | Seconds a call ring before ending                                      |
-| call_permission_password | string |          |                                   | Overwrite all passwords set in call permissions associated to the user |
-| username                 | string |          |                                   | User's username to log into applications                               |
-| password                 | string |          |                                   | User's password to log into applications                               |
-| userfield                | string |          |                                   | A custom field which purpose is left to the client                     |
-| subscription_type        | int    |          |                                   | The subscription type for this user                                    |
+| Field                                 | Type   | Required | Values                            | Description                                                            |
+| ------------------------------------- | ------ | -------- | --------------------------------- | ---------------------------------------------------------------------- |
+| firstname                             | string | Yes      |                                   | User's firstname                                                       |
+| lastname                              | string |          |                                   | User's lastname                                                        |
+| email                                 | string |          |                                   | User's email                                                           |
+| language                              | string |          | de_DE, en_US, es_ES, fr_FR, fr_CA | User's language                                                        |
+| mobile_phone_number                   | string |          |                                   | Mobile phone number                                                    |
+| outgoing_caller_id                    | string |          |                                   | Customize outgoing caller id for this user                             |
+| enabled                               | bool   |          |                                   | Enable/Disable the user                                                |
+| supervision_enabled                   | bool   |          |                                   | Enable/Disable supervision                                             |
+| call_record_outgoing_external_enabled | bool   |          |                                   | Enable/Disable all external calls made by this user                    |
+| call_record_outgoing_internal_enabled | bool   |          |                                   | Enable/Disable all internal calls made by this user                    |
+| call_record_incoming_external_enabled | bool   |          |                                   | Enable/Disable all external calls received by this user                |
+| call_record_incoming_internal_enabled | bool   |          |                                   | Enable/Disable all internal calls received by this user                |
+| call_transfer_enabled                 | bool   |          |                                   | Enable/Disable call transfers by DTMF                                  |
+| dtmf_hangup_enabled                   | bool   |          |                                   | Enable/Disable hangup by DTMF                                          |
+| simultaneous_calls                    | int    |          |                                   | Number of calls a user can have on his phone simultaneously            |
+| ring_seconds                          | int    |          | A multiple of 5                   | Seconds a call ring before ending                                      |
+| call_permission_password              | string |          |                                   | Overwrite all passwords set in call permissions associated to the user |
+| username                              | string |          |                                   | User's username to log into applications                               |
+| password                              | string |          |                                   | User's password to log into applications                               |
+| userfield                             | string |          |                                   | A custom field which purpose is left to the client                     |
+| subscription_type                     | int    |          |                                   | The subscription type for this user                                    |
 
 #### Phone
 
