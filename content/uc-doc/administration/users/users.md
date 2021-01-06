@@ -49,5 +49,7 @@ You can enable/disable the recording of all calls for a user in 2 different way:
 
    `PUT /extensions/features/{extension_id}`
 
+   **Note**: Using `*26` will toggle the four `call_record_*_enabled` options simultaneously
+
 When this option is activated, all calls made to or made by the user will be recorded in the
 `/var/lib/wazo/sounds/tenants/<tenant_uuid>/monitor` directory.
