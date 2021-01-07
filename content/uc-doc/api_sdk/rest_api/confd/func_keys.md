@@ -127,7 +127,7 @@ Here are the parameters required for each destination:
 | ---------------- | ------- | ----------------------- |
 | filter_member_id | numeric | ID of the filter member |
 
-### Conference
+### Conference (deprecated)
 
 | Field         | Type    | Value           |
 | ------------- | ------- | --------------- |
@@ -168,7 +168,7 @@ No parameters are required for this destination
 | --------- | ------- | ----------- |
 | paging_id | numeric | Paging's id |
 
-### Parking
+### Parking (deprecated)
 
 No parameters are required for this destination
 
