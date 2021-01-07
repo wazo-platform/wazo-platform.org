@@ -55,6 +55,56 @@ a SIP provider from a NAT environment.
 has to be restarted using the [wazo-service restart]{.title-ref} command
 for the changes to take effect.
 
+
+### SIP Headers
+
+
+#### Outgoing calls
+
+There are some use cases where you need to set specific SIP headers on all outgoing
+calls done using a trunk.
+
+Adding a SIP header can be done using dialplan with the `PJSIP_HEADER(add,MY-HEADER)=value`
+or it can be done in the endpoint configuration using a `set_var`.
+
+Using the endpoint configuration endpoint `/endpoints/sip`
+
+    {
+        "uuid": "<UUID>",
+        ...,
+        "endpoint_section_options": [
+            ...,
+            ["set_var", "PJSIP_HEADER(add,<HEADER NAME>)=<HEADER VALUE>"]
+        ],
+        ...
+    }
+
+
+#### Incoming calls
+
+Sometimes it is neccessary to match incoming SIP INVITE against a specific header to route the
+call to the appropriate SIP endpoint.
+
+This is useful in a multi tenant situation where multiple tenants use the same provider.
+
+If you provider sends the `X-Dest-User: abc123` header when you receive a call you should add a
+match on the trunk SIP endpoint to get those calls routed to this endpoint.
+
+    {
+        "uuid": "<UUID>",
+        ...,
+        "endpoint_section_options": [
+            ...,
+            ["identify_by", "header,auth_username,username"],
+        ],
+        "identify_section_options": [
+            ...,
+            ["match_header", "X-Dest-User: abc123"]
+        ],
+        ...
+    }
+
+
 Customized interconnections
 ---------------------------
 
