@@ -23,12 +23,22 @@ There are three types of interconnections :
 SIP interconnections
 --------------------
 
-SIP interconnections are used to connect to a SIP provider to to another
+SIP interconnections are used to connect to a SIP provider or to another
 PBX that is part of your telecom infrastructure.
 
-General SIP configurations are available with `/asterisk/sip/general`
-endpoint and trunk configurations are available with `/endpoints/sip`
-and `/trunks` endpoints
+Global SIP configurations are available with at the following endpoints:
+
+- `/asterisk/pjsip/global`
+- `/asterisk/pjsip/system`
+
+Endpoint and trunk configurations are available with at the following endpoints:
+
+- `/endpoints/sip` For the SIP configuration of the trunk
+- `/endpoints/sip/templates` The `global` template can be used for global settings shared between all SIP endpoints
+- `/trunks` None SIP specific trunk configuration
+
+The [API documentation](/documentation/api/configuration.html) can be used for more details on the configuration.
+
 
 ### Environment with NAT
 
