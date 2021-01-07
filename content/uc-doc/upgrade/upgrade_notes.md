@@ -6,6 +6,9 @@ title: Upgrade notes
 
 - Asterisk version has been updated:
   - [Asterisk 17 to 18 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/21-01/asterisk_18)
+- Default configurations for Google and Office 365 directories have changed slightly to avoid
+  unexpected number duplication. You may want to review the configuration if you have applications
+  depending on those directories.
 
 ## 20.17 {#20-17}
 
