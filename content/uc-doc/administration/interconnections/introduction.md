@@ -28,14 +28,14 @@ PBX that is part of your telecom infrastructure.
 
 Global SIP configurations are available with at the following endpoints:
 
-- `/asterisk/pjsip/global`
-- `/asterisk/pjsip/system`
+- `/api/confd/1.1/asterisk/pjsip/global`
+- `/api/confd/1.1/asterisk/pjsip/system`
 
 Endpoint and trunk configurations are available with at the following endpoints:
 
-- `/endpoints/sip` For the SIP configuration of the trunk
-- `/endpoints/sip/templates` The `global` template can be used for global settings shared between all SIP endpoints
-- `/trunks` None SIP specific trunk configuration
+- `/api/confd/1.1/endpoints/sip` For the SIP configuration of the trunk
+- `/api/confd/1.1/endpoints/sip/templates` The `global` template can be used for global settings shared between all SIP endpoints
+- `/api/confd/1.1/trunks` None SIP specific trunk configuration
 
 The [API documentation](/documentation/api/configuration.html) can be used for more details on the configuration.
 
@@ -45,15 +45,47 @@ The [API documentation](/documentation/api/configuration.html) can be used for m
 There are some configuration steps that are required when connecting to
 a SIP provider from a NAT environment.
 
--   `PUT /asterisk/sip/general {..., "externip": "69.70.94.94", "localnet": "192.168.0.0/16", ...}`
--   `externip`: This is your public IP address
--   `localnet`: Your internal network range
--   `PUT /endpoints/sip/{endpoint_sip_id} {"options": [["nat", "yes"], ["qualify", "yes"]]}`
+#### Configuring your transport
 
-#:warning: When changing the [externip]{.title-ref}, the
-[media_address]{.title-ref} or the [externhost]{.title-ref} Asterisk
-has to be restarted using the [wazo-service restart]{.title-ref} command
-for the changes to take effect.
+The transport needs to be configured with the local network and it's external address and port.
+This can be done using the `/api/confd/1.1/sip/transports` API.
+
+    {
+        "name": "transport-udp",
+        "options": [
+            ...,
+            ["local_net", "192.168.0.0/16"],
+            ["local_net", "10.1.1.0/24"],
+            ["external_media_port", "<PUBLIC IP ADDRESS"],
+            ["external_signaling_address", "<PUBLIC IP ADDRESS>"]
+        ]
+    },
+
+- `external_signaling_address`: This is your public IP address
+- `external_media_address`: This is your public IP address
+- `local_net`: Your internal network range
+
+Note that modifying a transport requires an Asterisk restart to be applied
+
+
+#### Configuring your Endpoints
+
+Some options should be set on your endpoints for them to work in a NAT environment. The `global` SIP
+template can be used to apply settings to all SIP endpoints.
+
+- `PUT /api/confd/1.1/endpoints/sip/templates/<SIP template UUID>`
+
+    {
+        "uuid": "<UUID>",
+        "label": "global",
+        ...,
+        "endpoint_section_options": [
+            ...,
+            ["rtp_symmetric", "yes"],
+            ["rewrite_contact", "yes"]
+        ],
+        ...
+    }
 
 
 ### SIP Headers
