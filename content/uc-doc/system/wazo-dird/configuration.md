@@ -23,7 +23,7 @@ The default location may be overwritten by the command line options.
 Here's an example of the main configuration file:
 
 ```yaml
-debug: False
+debug: false
 log_filename: /var/log/wazo-dird.log
 log_level: info
 user: www-data

@@ -78,7 +78,7 @@ This is an example YAML file for running a DID test onto our C4 infrastructure t
       customer: "{tenant.id}"
       username: user
       password: pass
-      registered: False
+      registered: false
   - type: api
     uri: /carriers/
     method: POST

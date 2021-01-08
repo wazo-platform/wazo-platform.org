@@ -32,15 +32,15 @@ call recording. The recorded file will be available in the `/var/spool/asterisk/
 
 You can enable/disable the recording of all calls for a user in 2 different way:
 
-1. By set `call_record_*_enabled: True` for user:
+1. By set `call_record_*_enabled: true` for user:
 
    ```ascii
    PUT /users/{user_uuid}
      {
-       "call_record_outgoing_internal_enabled": True,
-       "call_record_outgoing_external_enabled": True,
-       "call_record_incoming_internal_enabled": True,
-       "call_record_incoming_external_enabled": True
+       "call_record_outgoing_internal_enabled": true,
+       "call_record_outgoing_external_enabled": true,
+       "call_record_incoming_internal_enabled": true,
+       "call_record_incoming_external_enabled": true
      }
    ```
 

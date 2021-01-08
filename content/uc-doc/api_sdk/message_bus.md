@@ -899,7 +899,7 @@ operation.
 -   routing key: `calls.relocate.XXX` where `XXX` is the event, e.g.
     `calls.relocate.completed`
 -   headers:
-    -   `"user_uuid:XXX": True` where `XXX` is the initiator\'s user
+    -   `"user_uuid:XXX": true` where `XXX` is the initiator\'s user
         UUID
 -   required ACL: `events.relocates.XXX` where XXX is the initiator\'s
     user UUID

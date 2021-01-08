@@ -27,10 +27,10 @@ The administrator can enable call recording:
 ```ascii
 PUT /users/{user_uuid}
   {
-    "call_record_outgoing_internal_enabled": True,
-    "call_record_outgoing_external_enabled": True,
-    "call_record_incoming_internal_enabled": True,
-    "call_record_incoming_external_enabled": True
+    "call_record_outgoing_internal_enabled": true,
+    "call_record_outgoing_external_enabled": true,
+    "call_record_incoming_internal_enabled": true,
+    "call_record_incoming_external_enabled": true
   }
 ```
 
@@ -54,16 +54,16 @@ To disable call recording for user:
 ```ascii
 PUT /users/{user_uuid}
   {
-    "call_record_outgoing_internal_enabled": False,
-    "call_record_outgoing_external_enabled": False,
-    "call_record_incoming_internal_enabled": False,
-    "call_record_incoming_external_enabled": False
+    "call_record_outgoing_internal_enabled": false,
+    "call_record_outgoing_external_enabled": false,
+    "call_record_incoming_internal_enabled": false,
+    "call_record_incoming_external_enabled": false
   }
 ```
 
 To disable online call recording:
 
-- With `PUT /users/{user_uuid} {"online_call_record_enabled": False}`
+- With `PUT /users/{user_uuid} {"online_call_record_enabled": false}`
 
 ### Files
 
