@@ -2,159 +2,148 @@
 title: Call Recording
 ---
 
--   [Enabling](#enabling)
-    -   [Administrator](#administrator)
-    -   [User](#user)
--   [Call Recording Management](#call-recording-management)
-    -   [Extensions](#extensions)
-    -   [Disable user call control
-        management](#disable-user-call-control-management)
-    -   [Files](#files)
-        -   [File names](#file-names)
-        -   [File extensions](#file-extensions)
+- [Enabling](#enabling)
+  - [Administrator](#administrator)
+  - [User](#user)
+- [Call Recording Management](#call-recording-management)
+  - [Extensions](#extensions)
+  - [Disable user call control management](#disable-user-call-control-management)
+  - [Files](#files)
+    - [File names](#file-names)
+    - [File extensions](#file-extensions)
 
-Call recording allow the user of the administrator to record a user\'s
-conversation. Recorded files are stored on the Wazo server and are
-accessible using the web interface.
+Call recording allow the user of the administrator to record a user's conversation. Recorded files
+are stored on the Wazo server and are accessible using the web interface.
 
-Enabling
-========
+## Enabling
 
-There are many ways to enable call recording. It can be done by the
-administrator or the user himself.
+There are many ways to enable call recording. It can be done by the administrator or the user
+himself.
 
-Administrator
--------------
+### Administrator
 
-The administrator can enable call recording from the user form in the
-web interface.
+The administrator can enable call recording:
 
--   With `PUT /users/{user_uuid} {"call_record_enabled": True}`
+```ascii
+PUT /users/{user_uuid}
+  {
+    "call_record_outgoing_internal_enabled": True,
+    "call_record_outgoing_external_enabled": True,
+    "call_record_incoming_internal_enabled": True,
+    "call_record_incoming_external_enabled": True
+  }
+```
 
-User
-----
+### User
 
-The user can enable and disable call recording using the
-[\*26]{.title-ref} extension on its phone. The user can also enable call
-recording during a call using the [\*3]{.title-ref} extension during the
-conversation.
+The user can enable and disable call recording using the `*26` extension on its phone. The user can
+also enable call recording during a call using the `*3` extension during the conversation.
 
-Call Recording Management
-=========================
+## Call Recording Management
 
-Extensions
-----------
+### Extensions
 
-The extensions for call recording and online call recording are
-available in the web interface in the extension form.
+The extensions for call recording and online call recording are available with extensions resource:
 
--   With `/extensions/features` endpoint and `feature: callrecord`
+- With `/extensions/features` endpoint and `feature: callrecord`
 
-Disable user call control management
-------------------------------------
+### Disable user call control management
 
-To disable call recording for user, disable the [Call
-recording]{.title-ref} extension in the web interface.
+To disable call recording for user:
 
-To disable online call recording, uncheck the [Enable online call
-recording]{.title-ref} option in the user form.
+```ascii
+PUT /users/{user_uuid}
+  {
+    "call_record_outgoing_internal_enabled": False,
+    "call_record_outgoing_external_enabled": False,
+    "call_record_incoming_internal_enabled": False,
+    "call_record_incoming_external_enabled": False
+  }
+```
 
--   With `PUT /users/{user_uuid} {"online_call_record_enabled": False}`
+To disable online call recording:
 
-Files
------
+- With `PUT /users/{user_uuid} {"online_call_record_enabled": False}`
+
+### Files
 
 Recorded files are not available for the now with REST API.
 
-Recordings are located in
-`/var/spool/asterisk/monitor`{.interpreted-text role="file"}
+Recordings are located in `/var/lib/wazo/sounds/tenants/<tenant_uuid>/monitor`
 
-### File names
+#### File names
 
 The file names for call recording can be customized using
 [Jinja2](http://jinja.pocoo.org/docs/2.9/templates/) templates.
 
 The following variables can be used in the file name:
 
--   srcnum: The caller ID number of the caller
--   dstnum: The called extension
--   timestamp: A unix timestamp
--   local\_time: The formated date in the server\'s timezone
--   utc\_time: The formated date in UTC
--   base\_context: The context in which this call entered the Wazo
-    dialplan
--   tenant\_uuid: The tenant UUID of the user or the outgoing call
+- `srcnum`: The caller ID number of the caller
+- `dstnum`: The called extension
+- `timestamp`: A unix timestamp
+- `local_time`: The formated date in the server's timezone
+- `utc_time`: The formated date in UTC
+- `base_context`: The context in which this call entered the Wazo dialplan
+- `tenant_uuid`: The tenant UUID of the user or the outgoing call
 
-#:exclamation: You **must** restart wazo-agid to take any config change into effect:
+**Note**: You **must** restart wazo-agid to take any config change into effect:
 
 ```shell
-# systemctl restart wazo-agid
+systemctl restart wazo-agid
 ```
 
-Example 1:
+##### Example 1
 
 Creating recording in a sub-directory for each entity
 
-A file with the following content in
-`/etc/wazo-agid/conf.d/call_recording.yml`{.interpreted-text
-role="file"}:
+A file with the following content in `/etc/wazo-agid/conf.d/call_recording.yml`:
 
-``` {.sourceCode .yaml}
+```yaml
 call_recording:
-  filename_template: "{{ tenant_uuid }}/{{ utc_time }}-{{ srcnum }}-{{ dstnum }}"
+  filename_template: '{{ tenant_uuid }}/{{ utc_time }}-{{ srcnum }}-{{ dstnum }}'
 ```
 
-This configuration would write the files in
-`/var/spool/asterisk/monitor/<tenant_uuid>/`. The name of the files would be
-`<utc_time>-<srcnum>-<dstnum>.wav`
+This configuration would write the files in `/var/spool/asterisk/monitor/<tenant_uuid>/`. The name
+of the files would be `<utc_time>-<srcnum>-<dstnum>.wav`
 
-Example 2:
+##### Example 2
 
 Creating recording in another directory
 
-A file with the following content in
-`/etc/wazo-agid/conf.d/call_recording.yml`:
+A file with the following content in `/etc/wazo-agid/conf.d/call_recording.yml`:
 
-```YAML
+```yaml
 call_recording:
-  filename_template: "/home/pcm/call/user-{{ srcnum }}-{{ dstnum }}-{{ timestamp }}"
+  filename_template: '/home/pcm/call/user-{{ srcnum }}-{{ dstnum }}-{{ timestamp }}'
 ```
 
-This configuration would write the files in the
-`/home/pcm/call`{.interpreted-text role="file"} directory. The name of
-the files would be
-`user-<srcnum>-<dstnum>-<timestamp>.wav`{.interpreted-text role="file"}.
-Which is the default with another location.
+This configuration would write the files in the `/home/pcm/call` directory. The name of the files
+would be `user-<srcnum>-<dstnum>-<timestamp>.wav`. Which is the default with another location.
 
-#:exclamation: recording that are not directly in
-`/var/spool/asterisk/monitor`{.interpreted-text role="file"} will not be
-shown in the web interface.
+**Note**: recording that are not directly in `/var/spool/asterisk/monitor` will not be shown in the
+web interface.
 
-#:exclamation: Asterisk needs write permission to be able to write the recordings in
-the configured directory.
+**Note**: Asterisk needs write permission to be able to write the recordings in the configured
+directory.
 
-The filename for online call recording cannot be configured from the
-configuration file but can be modified using a pre-process subroutine.
+The filename for online call recording cannot be configured from the configuration file but can be
+modified using a pre-process subroutine.
 
-The file format is always
-`auto-timestamp-<TOUCH_MIXMONITOR>.wav`{.interpreted-text role="file"}.
-`TOUCH_MIXMONITOR` is a channel variable that can be set before the call
-starts.
+The file format is always `auto-timestamp-<TOUCH_MIXMONITOR>.wav`. `TOUCH_MIXMONITOR` is a channel
+variable that can be set before the call starts.
 
-### File extensions
+#### File extensions
 
-For online call recording, the file format can be modified using the
-`TOUCH_MIXMONITOR_FORMAT` channel variable.
+For online call recording, the file format can be modified using the `TOUCH_MIXMONITOR_FORMAT`
+channel variable.
 
-For call recording the default value is `wav` and can be modified with a
-configuration file.
+For call recording the default value is `wav` and can be modified with a configuration file.
 
-Example:
+##### Example
 
-Add a file names `/etc/wazo-agid/conf.d/recording.yml`{.interpreted-text
-role="file"} with the following content:
+Add a file names `/etc/wazo-agid/conf.d/recording.yml` with the following content:
 
-```YAML
+```yaml
 call-recording:
   filename_extension: wav
 ```
