@@ -218,11 +218,17 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
         return;
       }
 
+      // Remove pagePath starting with a slash, causing issue with algolia
+      let searchPagePath = pagePath;
+      if (searchPagePath.indexOf('/') === 0) {
+        searchPagePath = pagePath.substring(1);
+      }
+
       algoliaObjects.push({
         title,
         description,
         content: context && context.algoliaContent ? context.algoliaContent : null,
-        pagePath,
+        pagePath: searchPagePath,
       });
     }
   };
