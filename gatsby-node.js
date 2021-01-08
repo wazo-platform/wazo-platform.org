@@ -36,7 +36,7 @@ if (hasSearch) {
       attributesToSnippet: ['content'],
       distinct: true,
     },
-    err => {
+    (err) => {
       if (err) {
         hasSearch = false;
         console.error('Algolia error:' + err.message);
@@ -45,13 +45,13 @@ if (hasSearch) {
   );
 }
 
-const walk = dir => {
+const walk = (dir) => {
   const files = fs.readdirSync(dir);
   const dirname = dir.split('/').pop();
 
   console.info('processing ' + dir);
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const filePath = dir + '/' + file;
 
     if (fs.statSync(filePath).isDirectory()) {
@@ -62,7 +62,7 @@ const walk = dir => {
   });
 };
 
-const getArticles = async newPageRef => {
+const getArticles = async (newPageRef) => {
   const dir = './content/blog';
   const articles = [];
   const files = fs.readdirSync(dir);
@@ -81,25 +81,19 @@ const getArticles = async newPageRef => {
     const filePath = `${dir}/${file}`;
 
     const content = fs.readFileSync(filePath, 'utf8');
-    const body = content
-      .split('\n')
-      .splice(8)
-      .join('\n');
+    const body = content.split('\n').splice(8).join('\n');
     const options = {};
     content
       .split('\n')
       .splice(0, 7)
-      .forEach(row => {
+      .forEach((row) => {
         const [key, value] = row.split(': ');
         options[key.toLowerCase()] = value;
       });
 
     const summaryNumWords = 40;
     const strippedContent = striptags(markdownConverter.makeHtml(body));
-    options.summary = strippedContent
-      .split(' ')
-      .splice(0, summaryNumWords)
-      .join(' ');
+    options.summary = strippedContent.split(' ').splice(0, summaryNumWords).join(' ');
 
     const blogPath = `/blog/${options.slug}`;
     if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
@@ -132,7 +126,7 @@ const getArticles = async newPageRef => {
   });
 
   console.log('generating articles rss feed');
-  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), err => {
+  fs.writeFile(__dirname + '/public/rss.xml', rssFeed.xml({ indent: true }), (err) => {
     if (err) console.log(err);
   });
 
@@ -144,7 +138,7 @@ const walk_md_files = (dir, path, acc, index) => {
 
   console.info('scanning dir ' + dir);
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const filePath = dir + '/' + file;
 
     if (fs.statSync(filePath).isDirectory()) {
@@ -169,7 +163,7 @@ const walk_md_files = (dir, path, acc, index) => {
 };
 
 exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
-  console.log(`Building ${corporate ? 'developers.wazo.io' : 'wazo-platform.org'}`)
+  console.log(`Building ${corporate ? 'developers.wazo.io' : 'wazo-platform.org'}`);
   try {
     fs.writeFile('config-wazo.js', `export const corporate = ${corporate ? 'true' : 'false'};`, () => null);
   } catch (e) {
@@ -178,7 +172,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
   // Init algolia index
   if (hasSearch) {
-    await new Promise(resolve => algoliaIndex.clearIndex(resolve));
+    await new Promise((resolve) => algoliaIndex.clearIndex(resolve));
   }
 
   const ecosystemDoc = fs.readFileSync('./content/ecosystem.md', 'utf8');
@@ -187,16 +181,16 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
   const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when CORPORATE is set do not filter section, otherwise only display what is not for developer
-  const sections = rawSections.filter(section => (!corporate ? !section.corporate : true));
+  const sections = rawSections.filter((section) => (!corporate ? !section.corporate : true));
   const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
   const allModules = sections.reduce((acc, section) => {
-    Object.keys(section.modules).forEach(moduleName => (acc[moduleName] = section.modules[moduleName]));
+    Object.keys(section.modules).forEach((moduleName) => (acc[moduleName] = section.modules[moduleName]));
     return acc;
   }, {});
   var algoliaObjects = [];
 
-  const getModuleName = repoName =>
-    Object.keys(allModules).find(moduleName => {
+  const getModuleName = (repoName) =>
+    Object.keys(allModules).find((moduleName) => {
       const { repository } = allModules[moduleName];
 
       return repository && repoName === repository.replace('wazo-', '');
@@ -261,7 +255,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
 
     // Create contribute pages
-    Object.keys(contributeDocs).forEach(fileName => {
+    Object.keys(contributeDocs).forEach((fileName) => {
       const rawContent = contributeDocs[fileName].split('\n');
       const title = rawContent[0];
       rawContent.shift();
@@ -305,10 +299,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
     let dynamicUcDocMenu = {};
     ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const pagePath = node.fileAbsolutePath
-        .split('content/')[1]
-        .split('.')[0]
-        .replace('index', '');
+      const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace('index', '');
 
       newPage(pagePath, 'uc-doc/index', {
         content: node.html,
@@ -318,7 +309,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
       });
 
       // Generate json file to make a dynamic submenu in /uc-doc
-      const pathSteps = pagePath.split('/').filter(step => step !== '');
+      const pathSteps = pagePath.split('/').filter((step) => step !== '');
       dynamicUcDocMenu = pathSteps.reduce((acc, val, index) => {
         let depthCursor = acc;
         for (var i = 0; i < index; i++) {
@@ -343,23 +334,23 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     dynamicUcDocMenu['uc-doc'].ecosystem.supported_devices = {
       self: {
         title: 'Supported Devices',
-        path: '/uc-doc/ecosystem/supported_devices'
-      }
-    }
+        path: '/uc-doc/ecosystem/supported_devices',
+      },
+    };
 
     const jsonFolder = `${__dirname}/public/json`;
     if (!fs.existsSync(jsonFolder)) {
       fs.mkdirSync(jsonFolder);
     }
-    fs.writeFile(`${jsonFolder}/uc-doc-submenu.json`, JSON.stringify(dynamicUcDocMenu), err => {
+    fs.writeFile(`${jsonFolder}/uc-doc-submenu.json`, JSON.stringify(dynamicUcDocMenu), (err) => {
       if (err) console.log(err);
     });
   }
 
   // Create api pages
   // ----------
-  sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName =>
+  sections.forEach((section) =>
+    Object.keys(section.modules).forEach((moduleName) =>
       newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
         moduleName,
         module: section.modules[moduleName],
@@ -368,32 +359,36 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   );
 
   // Create console pages
-  sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName =>
-      !!section.modules[moduleName].redocUrl &&
-      newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
-        moduleName,
-        module: section.modules[moduleName],
-        modules: section.modules,
-        auth_url: !section.modules[moduleName].corporate ? allModules['authentication'].redocUrl : section.modules['euc-authentication'].redocUrl,
-      })
+  sections.forEach((section) =>
+    Object.keys(section.modules).forEach(
+      (moduleName) =>
+        !!section.modules[moduleName].redocUrl &&
+        newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+          auth_url: !section.modules[moduleName].corporate
+            ? allModules['authentication'].redocUrl
+            : section.modules['euc-authentication'].redocUrl,
+        })
     )
   );
 
   // integrate graphiql @TEMP: restricting to 'contact'... for now i hope :)
-  sections.forEach(section =>
-    Object.keys(section.modules).forEach(moduleName =>
-      !!section.modules[moduleName].graphql &&
-      newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
-        moduleName,
-        module: section.modules[moduleName],
-        modules: section.modules,
-      })
+  sections.forEach((section) =>
+    Object.keys(section.modules).forEach(
+      (moduleName) =>
+        !!section.modules[moduleName].graphql &&
+        newPage(`/documentation/graphql/${moduleName}`, 'documentation/graphql', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+        })
     )
   );
 
   // Create overview and extra pages
-  Object.keys(allModules).forEach(moduleName => {
+  Object.keys(allModules).forEach((moduleName) => {
     const module = allModules[moduleName];
     const repoName = module.repository;
     if (!repoName) {
@@ -433,36 +428,36 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
   // Generate redirect 301
   // ---------
-  console.log("Generating 301 redirects");
-  if(corporate) {
-    ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach(fromPath => {
-      newPage(fromPath, '404', {})
+  console.log('Generating 301 redirects');
+  if (corporate) {
+    ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach((fromPath) => {
+      newPage(fromPath, '404', {});
       createRedirect({
         fromPath,
         isPermanent: true,
         redirectInBrowser: true,
         toPath: `/documentation/api/euc-deployd.html`,
-      })
+      });
     });
 
-    ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach(fromPath => {
-      newPage(fromPath, '404', {})
+    ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach((fromPath) => {
+      newPage(fromPath, '404', {});
       createRedirect({
         fromPath,
         isPermanent: true,
         redirectInBrowser: true,
         toPath: `/documentation/api/euc-configuration.html`,
-      })
+      });
     });
 
-    ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach(fromPath => {
-      newPage(fromPath, '404', {})
+    ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach((fromPath) => {
+      newPage(fromPath, '404', {});
       createRedirect({
         fromPath,
         isPermanent: true,
         redirectInBrowser: true,
         toPath: `/documentation/api/euc-authentication.html`,
-      })
+      });
     });
   }
 };
