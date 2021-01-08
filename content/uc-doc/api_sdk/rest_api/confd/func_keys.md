@@ -81,7 +81,7 @@ This page only describes the data models used by the REST API. Consult the
 
 ```json
 {
-  "blf": True,
+  "blf": true,
   "label": "Call john",
   "destination": {
     "type": "user",

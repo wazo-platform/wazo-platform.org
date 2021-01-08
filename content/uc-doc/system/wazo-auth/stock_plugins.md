@@ -49,7 +49,7 @@ To use an anonymous bind instead, the following configuration would be used:
 ```yaml
 ldap:
   uri: ldap://example.org
-  bind_anonymous: True
+  bind_anonymous: true
   user_base_dn: ou=people,dc=example,dc=org
   user_login_attribute: uid
   user_email_attribute: mail

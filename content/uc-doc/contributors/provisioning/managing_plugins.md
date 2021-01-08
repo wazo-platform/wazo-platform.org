@@ -96,7 +96,7 @@ the line:
 
 ```YAML
 general:
-  cache_plugin: True
+  cache_plugin: true
 ```
 
 Empty `/var/cache/wazo-provd` and restart
