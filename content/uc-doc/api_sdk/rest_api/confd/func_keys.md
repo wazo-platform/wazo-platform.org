@@ -127,7 +127,7 @@ Here are the parameters required for each destination:
 | ---------------- | ------- | ----------------------- |
 | filter_member_id | numeric | ID of the filter member |
 
-### Conference (deprecated)
+### Conference
 
 | Field         | Type    | Value           |
 | ------------- | ------- | --------------- |
