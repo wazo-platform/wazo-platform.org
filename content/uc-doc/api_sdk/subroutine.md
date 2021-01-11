@@ -2,7 +2,7 @@
 title: Subroutine
 ---
 
-# What is it ?
+## What is it ?
 
 The `preprocess_subroutine` allows you to enhance Wazo features through the Asterisk dialplan.
 Features that can be enhanced are :
@@ -29,26 +29,27 @@ forwarded to another external number (like a forward to a mobile phone):
 
 ![Where subroutines are called in dialplan](/images/uc-doc/api_sdk/subroutines.png)
 
-# Adding new subroutine
+## Adding new subroutine
 
-## Where
+### Where
 
 You can write the subroutine:
 
-- add/edit a file directly on the server in `/etc/asterisk/extensions_extra.d`{.interpreted-text
-  role="file"}
+- add/edit a file directly on the server in `/etc/asterisk/extensions_extra.d`
 
-#:exclamation: Since all configuration files will be merged together in the end, it does not matter
+**Note**: Since all configuration files will be merged together in the end, it does not matter
 in which file you write your subroutine. The different files are only here to find your way back
-more quickly than one big configuration file. So don\'t be afraid to create new files!
+more quickly than one big configuration file. So don't be afraid to create new files!
 
-## What
+### What
 
 An example:
 
-    [myexample]
-    exten = s,1,NoOp(This is an example)
-    same  =   n,Return()
+```dialplan
+[myexample]
+exten = s,1,NoOp(This is an example)
+same  =   n,Return()
+```
 
 Subroutines should always end with a `Return()`. You may replace `Return()` by a `Goto()` if you
 want to completely bypass the Wazo dialplan, but this is not recommended.
@@ -56,45 +57,51 @@ want to completely bypass the Wazo dialplan, but this is not recommended.
 To plug your subroutine into the Wazo dialplan, you must add `myexample` in the
 `preprocess_subroutine` subroutine field of your object.
 
-# Global subroutine
+## Global subroutine
 
 There is predefined subroutine for this feature, you can find the name and the activation in the
-`/etc/xivo/asterisk/xivo_globals.conf`{.interpreted-text role="file"}. The variables are:
+`/etc/xivo/asterisk/xivo_globals.conf`. The variables are:
 
-    ; Global Preprocess subroutine
-    XIVO_PRESUBR_GLOBAL_ENABLE = 1
-    XIVO_PRESUBR_GLOBAL_USER = xivo-subrgbl-user
-    XIVO_PRESUBR_GLOBAL_AGENT = xivo-subrgbl-agent
-    XIVO_PRESUBR_GLOBAL_GROUP = xivo-subrgbl-group
-    XIVO_PRESUBR_GLOBAL_QUEUE = xivo-subrgbl-queue
-    XIVO_PRESUBR_GLOBAL_MEETME = xivo-subrgbl-meetme
-    XIVO_PRESUBR_GLOBAL_DID = xivo-subrgbl-did
-    XIVO_PRESUBR_GLOBAL_OUTCALL = xivo-subrgbl-outcall
-    XIVO_PRESUBR_GLOBAL_PAGING = xivo-subrgbl-paging
+```dialplan
+; Global Preprocess subroutine
+XIVO_PRESUBR_GLOBAL_ENABLE = 1
+XIVO_PRESUBR_GLOBAL_USER = xivo-subrgbl-user
+XIVO_PRESUBR_GLOBAL_AGENT = xivo-subrgbl-agent
+XIVO_PRESUBR_GLOBAL_GROUP = xivo-subrgbl-group
+XIVO_PRESUBR_GLOBAL_QUEUE = xivo-subrgbl-queue
+XIVO_PRESUBR_GLOBAL_MEETME = xivo-subrgbl-meetme
+XIVO_PRESUBR_GLOBAL_DID = xivo-subrgbl-did
+XIVO_PRESUBR_GLOBAL_OUTCALL = xivo-subrgbl-outcall
+XIVO_PRESUBR_GLOBAL_PAGING = xivo-subrgbl-paging
+```
 
 So if you want to add a subroutine for all of your Wazo users you can do this:
 
-    [xivo-subrgbl-user]
-    exten = s,1,NoOp(This is an example for all my users)
-    same  =   n,Return()
+```dialplan
+[xivo-subrgbl-user]
+exten = s,1,NoOp(This is an example for all my users)
+same  =   n,Return()
+```
 
-# Forward subroutine
+## Forward subroutine
 
 You can also use a global subroutine for call forward.
 
-    ; Preprocess subroutine for forwards
-    XIVO_PRESUBR_FWD_ENABLE = 1
-    XIVO_PRESUBR_FWD_USER = xivo-subrfwd-user
-    XIVO_PRESUBR_FWD_GROUP = xivo-subrfwd-group
-    XIVO_PRESUBR_FWD_QUEUE = xivo-subrfwd-queue
-    XIVO_PRESUBR_FWD_MEETME = xivo-subrfwd-meetme
-    XIVO_PRESUBR_FWD_VOICEMAIL = xivo-subrfwd-voicemail
-    XIVO_PRESUBR_FWD_SCHEDULE = xivo-subrfwd-schedule
-    XIVO_PRESUBR_FWD_SOUND = xivo-subrfwd-sound
-    XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
-    XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension
+```dialplan
+; Preprocess subroutine for forwards
+XIVO_PRESUBR_FWD_ENABLE = 1
+XIVO_PRESUBR_FWD_USER = xivo-subrfwd-user
+XIVO_PRESUBR_FWD_GROUP = xivo-subrfwd-group
+XIVO_PRESUBR_FWD_QUEUE = xivo-subrfwd-queue
+XIVO_PRESUBR_FWD_MEETME = xivo-subrfwd-meetme
+XIVO_PRESUBR_FWD_VOICEMAIL = xivo-subrfwd-voicemail
+XIVO_PRESUBR_FWD_SCHEDULE = xivo-subrfwd-schedule
+XIVO_PRESUBR_FWD_SOUND = xivo-subrfwd-sound
+XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
+XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension
+```
 
-# Dialplan variables
+## Dialplan variables
 
 Some of the Wazo variables can be used and modified in subroutines (non exhaustive list):
 
@@ -115,8 +122,10 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   calling a user.
 - `WAZO_TENANT_UUID`: the tenant UUID of the line that placed the call or receives the call.
 - `WAZO_VIDEO_ENABLED`:
+
   - `0` = the call is not sending any video stream
   - `1` = the call is sending a video stream
+
 - `XIVO_CALLOPTIONS`: the value is a list of options to be passed to the Dial application, e.g.
   `hHtT`. This variable is available in agent, user and outgoing call subroutines. Please note that
   it may not be set earlier, because it will be overwritten.
@@ -137,7 +146,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   in group subroutines.
 - `XIVO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in group subroutines.
-- `XIVO_INTERFACE`: the value is the [Technology/Resource]{.title-ref} pairs that are used as the
+- `XIVO_INTERFACE`: the value is the Technology/Resource pairs that are used as the
   first argument of the
   [Dial application](https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial). This
   variable is only available in the user subroutines.
