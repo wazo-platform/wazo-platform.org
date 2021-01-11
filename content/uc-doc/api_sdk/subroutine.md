@@ -10,7 +10,6 @@ Features that can be enhanced are :
 - `/users`
 - `/groups`
 - `/queues`
-- `/conferences`
 - `/incalls`
 - `/outcalls`
 
@@ -69,7 +68,6 @@ XIVO_PRESUBR_GLOBAL_USER = xivo-subrgbl-user
 XIVO_PRESUBR_GLOBAL_AGENT = xivo-subrgbl-agent
 XIVO_PRESUBR_GLOBAL_GROUP = xivo-subrgbl-group
 XIVO_PRESUBR_GLOBAL_QUEUE = xivo-subrgbl-queue
-XIVO_PRESUBR_GLOBAL_MEETME = xivo-subrgbl-meetme
 XIVO_PRESUBR_GLOBAL_DID = xivo-subrgbl-did
 XIVO_PRESUBR_GLOBAL_OUTCALL = xivo-subrgbl-outcall
 XIVO_PRESUBR_GLOBAL_PAGING = xivo-subrgbl-paging
@@ -93,7 +91,6 @@ XIVO_PRESUBR_FWD_ENABLE = 1
 XIVO_PRESUBR_FWD_USER = xivo-subrfwd-user
 XIVO_PRESUBR_FWD_GROUP = xivo-subrfwd-group
 XIVO_PRESUBR_FWD_QUEUE = xivo-subrfwd-queue
-XIVO_PRESUBR_FWD_MEETME = xivo-subrfwd-meetme
 XIVO_PRESUBR_FWD_VOICEMAIL = xivo-subrfwd-voicemail
 XIVO_PRESUBR_FWD_SCHEDULE = xivo-subrfwd-schedule
 XIVO_PRESUBR_FWD_SOUND = xivo-subrfwd-sound
