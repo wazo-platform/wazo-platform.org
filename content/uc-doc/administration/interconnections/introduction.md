@@ -114,12 +114,12 @@ Using the endpoint configuration endpoint `/endpoints/sip`
 
 #### Incoming calls
 
-Sometimes it is neccessary to match incoming SIP INVITE against a specific header to route the
+Sometimes it is necessary to match incoming SIP INVITE against a specific header to route the
 call to the appropriate SIP endpoint.
 
-This is useful in a multi tenant situation where multiple tenants use the same provider.
+This is useful in a multi tenant situation where multiple tenants share the same provider.
 
-If you provider sends the `X-Dest-User: abc123` header when you receive a call you should add a
+If your provider sends the `X-Dest-User: abc123` header when you receive a call you should add a
 match on the trunk SIP endpoint to get those calls routed to this endpoint.
 
     {
