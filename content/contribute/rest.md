@@ -76,6 +76,10 @@ Each component in a daemon must be able to add values inside the body of `/statu
 
 * Key names must use `_` (underscore) as word separators.
 
+### Target audience
+
+`GET /status` is intended for an administrator of the Wazo Platform instance. It MAY include technical details that MUST NOT be available to users or tenant-restricted admins.
+
 ## REST API status codes
 
 Invalid token = 401
