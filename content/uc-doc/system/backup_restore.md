@@ -91,7 +91,6 @@ The following files/folders are excluded from this backup:
   - `/var/lib/consul/serf`
   - `/var/lib/consul/services`
   - `/var/lib/wazo-provd/plugins/*/var/cache/*`
-  - `/var/spool/asterisk/meetme/`
   - `/var/spool/asterisk/monitor/`
 - files
   - `/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`

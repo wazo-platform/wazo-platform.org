@@ -6,6 +6,13 @@ title: Upgrade notes
 
 - Asterisk version has been updated:
   - [Asterisk 17 to 18 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/21-01/asterisk_18)
+- Deprecated conference system (`meetme`) has been completely removed. Meetme conferences have not
+  been configurable since 18.03 and unusable since 19.17. Note that recordings have been removed from
+  backup (i.e. `/var/spool/asterisk/meetme`).
+
+Consult the
+[21.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10146)
+for more information.
 
 ## 20.17 {#20-17}
 
