@@ -98,6 +98,33 @@ XIVO_PRESUBR_FWD_CUSTOM = xivo-subrfwd-custom
 XIVO_PRESUBR_FWD_EXTENSION = xivo-subrfwd-extension
 ```
 
+## Pre-Dial Handlers
+
+A pre-dial handler is a subroutine that is executed on the other side of a channel before it starts
+ringing:  subroutine allows modifying the channel of the caller party, while a pre-dial handler
+allows modifying the channel of the called party, just before the called party starts to ring.
+
+Some examples of pre-dial handlers include:
+
+  * adding a SIP header to an outgoing channel to do call routing in an external tool.
+  * setting a variable on an outgoing channel that should not be set on the current channel.
+  * record an outgoing channel
+
+Here's an example of a pre-dial handler which adds a SIP header on a channel
+
+    [add-sip-header-outgoing]
+    exten = s,1,Set(PJSIP_HEADER(add,X-MY-HEADER)=123)
+    same = n,Return()
+
+To add this pre-dial handler to an outgoing call, create a subroutine:
+
+    [add-sip-header-pre-dial]
+    exten = s,1,GoSub(wazo-add-pre-dial-hook,s,1(add-sip-header-outgoing))
+    same = n,Return()
+
+Finally, you can set the subroutine of your outgoing call to `add-sip-header-pre-dial`.
+
+
 ## Dialplan variables
 
 Some of the Wazo variables can be used and modified in subroutines (non exhaustive list):
