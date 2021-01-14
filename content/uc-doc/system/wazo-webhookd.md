@@ -2,22 +2,17 @@
 title: 'wazo-webhookd'
 ---
 
--   [How to add a new webhookd type (a.k.a
-    service)](#how-to-add-a-new-webhookd-type-a.k.a-service)
-    -   [How to trigger code on a bus
-        event](#how-to-trigger-code-on-a-bus-event)
-    -   [How to programmatically create a
-        subscription](#how-to-programmatically-create-a-subscription)
+- [How to add a new webhookd type (a.k.a service)](#how-to-add-a-new-webhookd-type-a.k.a-service)
+  - [How to trigger code on a bus event](#how-to-trigger-code-on-a-bus-event)
+  - [How to programmatically create a subscription](#how-to-programmatically-create-a-subscription)
 
-wazo-webhookd is the microservice responsible for webhooks: it manages
-the list of webhooks and triggers them when an event occurs.
+wazo-webhookd is the microservice responsible for webhooks: it manages the list of webhooks and
+triggers them when an event occurs.
 
-How to add a new webhookd type (a.k.a service)
-==============================================
+# How to add a new webhookd type (a.k.a service)
 
-Here is an example of a webhook type that does nothing. Actually, it is
-very busy and sleeps for N seconds `:)` You may of course change this
-behaviour for something more suited to your needs.
+Here is an example of a webhook type that does nothing. Actually, it is very busy and sleeps for N
+seconds `:)` You may of course change this behaviour for something more suited to your needs.
 
 Files:
 
@@ -26,7 +21,7 @@ Files:
 
 `setup.py`:
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 from setuptools import setup
 from setuptools import find_packages
 
@@ -50,7 +45,7 @@ setup(
 
 `example_service/plugin.py`:
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 import time
 
 class Service:
@@ -99,12 +94,11 @@ Once installed, you may create subscriptions with the type `example`:
       "events": ["user_created"],
     }
 
-How to trigger code on a bus event
-----------------------------------
+## How to trigger code on a bus event
 
 `example_service/plugin.py`:
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 class Service:
 
     def load(self, dependencies):
@@ -120,12 +114,11 @@ class Service:
         logger.debug('User %s has been created!', body['uuid'])
 ```
 
-How to programmatically create a subscription
----------------------------------------------
+## How to programmatically create a subscription
 
 `example_service/plugin.py`:
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 from wazo_webhookd.plugins.subscription.service import SubscriptionService
 
 class Service:
