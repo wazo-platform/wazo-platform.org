@@ -2,20 +2,19 @@
 title: 'xivo-sysconfd'
 ---
 
--   [Configuration File](#sysconfd-configuration)
-    -   [request\_handlers section](#request-handlers-section)
+- [Configuration File](#sysconfd-configuration)
+  - [request_handlers section](#request-handlers-section)
 
-xivo-sysconfd is the system configuration server for Wazo. It does quite
-a few different things; here\'s a non exhaustive list:
+xivo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
+here\'s a non exhaustive list:
 
--   configuring network (hostname, DNS)
--   configuring high availability
--   staring/stopping/restarting services
--   reloading asterisk configuration
--   sending some events to components (wazo-agentd)
+- configuring network (hostname, DNS)
+- configuring high availability
+- staring/stopping/restarting services
+- reloading asterisk configuration
+- sending some events to components (wazo-agentd)
 
-Configuration File {#sysconfd-configuration}
-==================
+# Configuration File {#sysconfd-configuration}
 
 Default location: `/etc/xivo/sysconfd.conf`. Format: INI.
 
@@ -60,14 +59,12 @@ Here\'s an example of the configuration file:
     exchange_type = topic
     exchange_durable = true
 
-request\_handlers section {#request-handlers-section}
--------------------------
+## request_handlers section {#request-handlers-section}
 
 synchronous
 
-:   If this option is true, when xivo-sysconfd receives a request to
-    reload the dialplan for example, it will wait for the dialplan
-    reload to complete before replying to the request.
+: If this option is true, when xivo-sysconfd receives a request to reload the dialplan for example,
+it will wait for the dialplan reload to complete before replying to the request.
 
     When this option is false, xivo-sysconfd reply to the request
     immediately.
