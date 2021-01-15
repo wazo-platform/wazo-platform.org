@@ -15,19 +15,19 @@ Show all services status:
 wazo-service status
 ```
 
-Stop XiVO services:
+Stop Wazo services:
 
 ```shell
 wazo-service stop
 ```
 
-Start XiVO services:
+Start Wazo services:
 
 ```shell
 wazo-service start
 ```
 
-Restart XiVO services:
+Restart Wazo services:
 
 ```shell
 wazo-service restart
