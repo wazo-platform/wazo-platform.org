@@ -22,21 +22,21 @@ As you can see, you can do a lot of things with Wazo's call permissions. They ca
 fairly complex rules. That said, it is probably _not_ a good idea to so because it's pretty sure
 you'll get it somehow wrong.
 
-# Examples
+## Examples
 
-## Denying a user from calling a specific extension
+### Denying a user from calling a specific extension
 
 - Create with `POST /callpermissions`
 - Associate with `PUT /users/{user_uuid}/callpermissions/{callpermission_id}`
 
-#:exclamation: User's `call_permission_password` overwrite all call permissions password for the
+**Note**: User's `call_permission_password` overwrite all call permissions password for the
 user.
 
-#:warning: The extension can be anything but it will only work if it's the extension of a user or an
+**Warning**: The extension can be anything but it will only work if it's the extension of a user or an
 extension that pass through an outgoing call. It does _not_ work, for example, if the extension is
 the number of a conference room.
 
-## Denying a user of a group from calling a specific extension
+### Denying a user of a group from calling a specific extension
 
 First, you must create a group and add the user to this group. Note that groups aren't required to
 have a number.
@@ -46,7 +46,7 @@ Then,
 - Create with `POST /callpermissions`
 - Associate with `PUT /groups/{group_id}/callpermissions/{callpermission_id}`
 
-## Denying users from calling a specific extension on a specific outgoing call
+### Denying users from calling a specific extension on a specific outgoing call
 
 - Create with `POST /callpermissions`
 - Associate with `PUT /outcalls/{outcall_id}/callpermissions/{callpermission_id}`
