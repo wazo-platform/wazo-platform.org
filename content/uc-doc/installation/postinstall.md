@@ -8,16 +8,21 @@ Please note that these changes are optional.
 ## Display called name on internal calls
 
 When you call internally another phone of the system you would like your phone to display the name
-of the called person (instead of the dialed number only). To achieve this you must change the
-following SIP options:
+of the called person (instead of the dialed number only).
 
-- `PUT /asterisk/sip/general`
+To achieve this you must enable the `trust_id_inbound` option of you SIP endpoint. This can be
+achived on all endpoints on a tenant by modifying the `global` SIP template for that tenant:
+
+- `PUT /endpoints/sip/templates/<global_template_uuid>`
+
   ```json
   {
-      ...
-      "trustrpid": "yes",
-      "sendrpid": "pai",
-      ...
+    ...
+    "endpoint_section_options": [
+      ["trust_id_inbound", "yes"],
+      ["send_rpid", "yes"]
+    ],
+    ...
   }
   ```
 
@@ -64,21 +69,27 @@ You should also select default codecs. It obviously depends on the telco links, 
 phones, the usage, etc. Here is a typical example for Europe (the main goal in this example is to
 select _only_ `alaw` instead of both `alaw` and `ulaw` by default):
 
-- `PUT /asterisk/sip/general`
+- Modify the `global` PJSIP template for you tenant
+
+  `PUT /endpoints/sip/templates/<global_template_uuid>`
 
   ```json
   {
+    ...
+    "endpoint_section_options": [
+      ["allow", "!all,alaw,g722,g729,h264"],
       ...
-      "allow": "alaw,g722,g729,h264",
-      ...
+    ],
+    ...
   }
   ```
 
 - `PUT /asterisk/iax/general`
+
   ```json
   {
-      ...
-      "allow": "alaw,g722,g729,h264",
-      ...
+    ...
+    "allow": "alaw,g722,g729,h264",
+    ...
   }
   ```
