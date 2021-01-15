@@ -11,30 +11,32 @@ If you want to receive faxes from Wazo, you need to add incoming calls definitio
 from.
 
 This applies even if you want the action to be different from sending an email, like putting it on a
-FTP server. You\'ll still need to enter an email address in these cases even though it won\'t be
+FTP server. You'll still need to enter an email address in these cases even though it won't be
 used.
 
 ### Changing the email body
 
 You can change the body of the email sent upon fax reception by editing
-`/etc/xivo/mail.txt`{.interpreted-text role="file"}.
+`/etc/xivo/mail.txt`.
 
 The following variable can be included in the mail body:
 
 - `%(dstnum)s`: the DID that received the fax
 
 If you want to include a regular percent character, i.e. `%`, you must write it as `%%` in
-`mail.txt`{.interpreted-text role="file"} or an error will occur when trying to do the variables
+`mail.txt` or an error will occur when trying to do the variables
 substitution.
 
 The `agid` service must be restarted to apply changes:
 
-    service wazo-agid restart
+```shell
+service wazo-agid restart
+```
 
 ### Changing the email subject
 
 You can change the subject of the email sent upon fax reception by editing
-`/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"}.
+`/etc/xivo/asterisk/xivo_fax.conf`.
 
 Look for the `[mail]` section, and in this section, modify the value of the `subject` option.
 
@@ -42,34 +44,40 @@ The available variable substitution are the same as for the email body.
 
 The `agid` service must be restarted to apply changes:
 
-    service wazo-agid restart
+```shell
+service wazo-agid restart
+```
 
 ### Changing the email from
 
 You can change the from of the email sent upon fax reception by editing
-`/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"}.
+`/etc/xivo/asterisk/xivo_fax.conf`.
 
 Look for the `[mail]` section, and in this section, modify the value of the `email_from` option.
 
 The `agid` service must be restarted to apply changes:
 
-    service wazo-agid restart
+```shell
+service wazo-agid restart
+```
 
 ### Changing the email realname
 
-You can change the realname of the email sent upon fax reception by editing
-`/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"}.
+You can change the `realname` of the email sent upon fax reception by editing
+`/etc/xivo/asterisk/xivo_fax.conf`.
 
 Look for the `[mail]` section, and in this section, modify the value of the `email_realname` option.
 
 The `agid` service must be restarted to apply changes:
 
-    service wazo-agid restart
+```shell
+service wazo-agid restart
+```
 
 ### Using the advanced features
 
 The following features are only available via the
-`/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"} configuration file.
+`/etc/xivo/asterisk/xivo_fax.conf` configuration file.
 
 The way it works is the following:
 
@@ -79,7 +87,7 @@ The way it works is the following:
   someone calls the DID 100, you might want the `ftp_example_org` and `mail` backend to be run, but
   otherwise, you only want the `mail` backend to be run.
 
-Here\'s an example of a valid `/etc/xivo/asterisk/xivo_fax.conf` configuration file:
+Here's an example of a valid `/etc/xivo/asterisk/xivo_fax.conf` configuration file:
 
 ```ini
 [general]
@@ -108,16 +116,18 @@ dest = mail, ftp_example_org
 
 The section named `dstnum_default` will be used only if no DID-specific actions are defined.
 
-After editing `/etc/xivo/asterisk/xivo_fax.conf`{.interpreted-text role="file"}, you need to restart
+After editing `/etc/xivo/asterisk/xivo_fax.conf`, you need to restart
 the agid server for the changes to be applied:
 
-    service wazo-agid restart
+```shell
+service wazo-agid restart
+```
 
 #### Using the FTP backend {#fax-ftp}
 
 The FTP backend is used to send a PDF version of the received fax to an FTP server.
 
-An FTP backend is always defined in a section beginning with the `ftp` prefix. Here\'s an example
+An FTP backend is always defined in a section beginning with the `ftp` prefix. Here's an example
 for a backend named `ftp_example_org`:
 
 ```ini
@@ -132,7 +142,7 @@ convert_to_pdf = 0
 
 The `port` option is optional and defaults to 21.
 
-The `directory` option is optional and if not specified, the document will be put in the user\'s
+The `directory` option is optional and if not specified, the document will be put in the user's
 root directory.
 
 The `convert_to_pdf` option is optional and defaults to 1. If it is set to 0, the TIFF file will not
@@ -144,11 +154,13 @@ The uploaded file are named like `${XIVO_SRCNUM}-${EPOCH}.pdf`.
 
 To use the printer backend, you must have the `cups-client` package installed on your Wazo:
 
-    $ apt-get install cups-client
+```shell
+apt-get install cups-client
+```
 
 The printer backend uses the `lp` command to print faxes.
 
-A printer backend is always defined in a section beginning with the `printer` prefix. Here\'s an
+A printer backend is always defined in a section beginning with the `printer` prefix. Here's an
 example for a backend named `printer_office`:
 
 ```ini
@@ -162,7 +174,7 @@ When a fax will be received, the system command `lp -d office <faxfile>` will be
 The `convert_to_pdf` option is optional and defaults to 1. If it is set to 0, the TIFF file will not
 be converted to PDF before being printed.
 
-#:warning: You need a CUPS server set up somewhere on your network.
+**Warning**: You need a CUPS server set up somewhere on your network.
 
 #### Using the mail backend
 
@@ -180,11 +192,11 @@ Wazo is able to provision Cisco SPA122 and Linksys SPA2102, SPA3102 and SPA8000 
 which can be used to connect fax equipments. This section describes the creation of custom template
 _for SPA3102_ which modifies several parameters.
 
-#:exclamation: **With SPA ATA plugins >= v0.8**, you **should not need** to follow this section
+**Note**: **With SPA ATA plugins >= v0.8**, you **should not need** to follow this section
 anymore since all of these parameters are now set in the base templates of all, except for
-Echo_Canc_Adapt_Enable, Echo_Supp_Enable, Echo_Canc_Enable.
+`Echo_Canc_Adapt_Enable`, `Echo_Supp_Enable`, `Echo_Canc_Enable`.
 
-#:exclamation: Be aware that most of the parameters are or could be country specific, i.e. :
+**Note**: Be aware that most of the parameters are or could be country specific, i.e. :
 
 - Preferred Codec,
 - FAX Passthru Codec,
@@ -198,13 +210,13 @@ Echo_Canc_Adapt_Enable, Echo_Supp_Enable, Echo_Canc_Enable.
 1. Create a custom template for the SPA3102 base template:
 
 ```shell
-# cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
-# cp ../../templates/base.tpl .
+cd /var/lib/wazo-provd/plugins/xivo-cisco-spa3102-5.1.10/var/templates/
+cp ../../templates/base.tpl .
 ```
 
 2. Add the following content before the `</flat-profile>` tag:
 
-```ini
+```jinja2
 <!-- CUSTOM TPL - for faxes - START -->
 
 {% for line_no, line in sip_lines.iteritems() %}
