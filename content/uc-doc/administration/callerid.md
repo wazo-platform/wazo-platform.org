@@ -46,9 +46,19 @@ There are multiple settings coming into play, in order of priority:
 
 ### SIP CallerID
 
-To accept the CallerID sent via all SIP trunks, enable the following option
+To accept the CallerID sent via all SIP trunks, modify the `global` SIP template for your tenant
 
-- `PUT /asterisk/sip/general {..., "trustrpid": "yes", ...}`
+- `PUT /endpoints/sip/templates/<global_template_uuid>`
+
+  ```json
+  {
+      ...
+      "endpoint_section_options": [
+        ["trust_id_inbound", "yes"],
+      ],
+      ...
+  }
+  ```
 
 This option may also be enabled on specific SIP trunks, instead of globally.
 
