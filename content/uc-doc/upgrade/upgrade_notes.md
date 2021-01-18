@@ -16,6 +16,10 @@ title: Upgrade notes
     same = n,Set(XIVO_CALLOPTIONS=${XIVO_CALLOPTIONS}b(my-subroutine^s^1))
     ; should become
     same = n,GoSub(wazo-add-pre-dial-hook,s,1(my-subroutine))
+- dahdi-linux-modules has been removed by default if no configuration found (i.e.
+  `/etc/asterisk/dahdi_channels.conf`). Moreover, wazo-upgrade will stop to upgrade this package by
+  default. If you need dahdi and want to keep automatic upgrade, see [dahdi upgrade
+  section](/uc-doc/administration/hardware/chan_dahdi.md#dahdi-upgrade)
 
 Consult the
 [21.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10146)
