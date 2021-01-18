@@ -15,16 +15,16 @@ achived on all endpoints on a tenant by modifying the `global` SIP template for 
 
 - `PUT /endpoints/sip/templates/<global_template_uuid>`
 
-  ```json
-  {
-    ...
-    "endpoint_section_options": [
-      ["trust_id_inbound", "yes"],
-      ["send_rpid", "yes"]
-    ],
-    ...
-  }
-  ```
+    ```json
+    {
+      ...
+      "endpoint_section_options": [
+        ["trust_id_inbound", "yes"],
+        ["send_rpid", "yes"]
+      ],
+      ...
+    }
+    ```
 
 ## Incoming caller number display {#callerid-num-normalization}
 
@@ -41,11 +41,11 @@ via the file `/etc/xivo/asterisk/xivo_in_callerid.conf`.
 - You may want to display incoming numbers in E.164 format. For example, you can change the
   `[national1]` section to:
 
-  ```ini
-  callerid = ^0[1-9]\d{8}$
-  strip = 1
-  add = +33
-  ```
+    ```ini
+    callerid = ^0[1-9]\d{8}$
+    strip = 1
+    add = +33
+    ```
 
 To enable the changes you have to restart wazo-agid:
 
@@ -59,9 +59,9 @@ service wazo-agid restart
   `/provd/cfg_mgr/config` by editing the default template
 - If needed, reconfigure your timezone for the system:
 
-  ```shell
-  dpkg-reconfigure tzdata
-  ```
+    ```shell
+    dpkg-reconfigure tzdata
+    ```
 
 ## Codecs
 
@@ -73,23 +73,23 @@ select _only_ `alaw` instead of both `alaw` and `ulaw` by default):
 
   `PUT /endpoints/sip/templates/<global_template_uuid>`
 
-  ```json
-  {
-    ...
-    "endpoint_section_options": [
-      ["allow", "!all,alaw,g722,g729,h264"],
+    ```json
+    {
       ...
-    ],
-    ...
-  }
-  ```
+      "endpoint_section_options": [
+        ["allow", "!all,alaw,g722,g729,h264"],
+        ...
+      ],
+      ...
+    }
+    ```
 
 - `PUT /asterisk/iax/general`
 
-  ```json
-  {
-    ...
-    "allow": "alaw,g722,g729,h264",
-    ...
-  }
-  ```
+    ```json
+    {
+      ...
+      "allow": "alaw,g722,g729,h264",
+      ...
+    }
+    ```

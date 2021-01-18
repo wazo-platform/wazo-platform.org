@@ -95,19 +95,19 @@ To enable this plugin, you need to:
 
 1. Install the plugin with:
 
-   ```shell
-   python setup.py install
-   ```
+    ```shell
+    python setup.py install
+    ```
 
 2. Create a config file in `/etc/wazo-confgend/conf.d`:
 
-   ```yaml
-   plugins:
-     asterisk.sip.conf: my_driver
-   ```
+    ```yaml
+    plugins:
+      asterisk.sip.conf: my_driver
+    ```
 
 3. Restart wazo-confgend:
 
-   ```shell
-   systemctl restart wazo-confgend.service
-   ```
+    ```shell
+    systemctl restart wazo-confgend.service
+    ```

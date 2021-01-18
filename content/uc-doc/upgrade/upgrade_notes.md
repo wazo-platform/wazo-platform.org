@@ -148,20 +148,20 @@ for more information.
 
 - `wazo-agentd` http configuration section has been moved to the rest_api section, eg:
 
-  ```yaml
-  rest_api:
-    https:
-      listen: <ip>
-      port: <port>
-  ```
+    ```yaml
+    rest_api:
+      https:
+        listen: <ip>
+        port: <port>
+    ```
 
   becomes:
 
-  ```yaml
-  rest_api:
-    listen: <ip>
-    port: <port>
-  ```
+    ```yaml
+    rest_api:
+      listen: <ip>
+      port: <port>
+    ```
 
 Consult the
 [20.08 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10096)
@@ -197,24 +197,24 @@ for more information.
 - `wazo-amid`, `wazo-plugind` and `wazo-dird` http configuration section have been moved onto the
   rest_api section, eg:
 
-  ```yaml
-  rest_api:
-    https:
+    ```yaml
+    rest_api:
+      https:
+        listen: <ip>
+        port: <port>
+        certificate: </path/to/cert>
+        private_key: </path/to/key>
+    ```
+
+  becomes:
+
+    ```yaml
+    rest_api:
       listen: <ip>
       port: <port>
       certificate: </path/to/cert>
       private_key: </path/to/key>
-  ```
-
-  becomes:
-
-  ```yaml
-  rest_api:
-    listen: <ip>
-    port: <port>
-    certificate: </path/to/cert>
-    private_key: </path/to/key>
-  ```
+    ```
 
 - The TLS configuration has been deprecated on the following services. You should always use NGINX
   to proxy communication with wazo-platform services. To follow this change, the listen address has
@@ -277,9 +277,9 @@ for more information.
   development version. This is the expected behavior, but it was not visible in the installation
   procedure. To make your Wazo Platform use the stable version, use the following command:
 
-  ```shell
-  wazo-dist -m pelican-buster
-  ```
+    ```shell
+    wazo-dist -m pelican-buster
+    ```
 
   This command will take effect at the next Wazo Platform upgrade.
 
@@ -327,24 +327,24 @@ for more information.
 - `xivo-amid-client` has been renamed to `wazo-amid-client`
 - `wazo-auth` http configuration section have been moved onto the `rest_api` section, eg:
 
-  ```yaml
-  rest_api:
-    https:
+    ```yaml
+    rest_api:
+      https:
+        listen: <ip>
+        port: <port>
+        certificate: </path/to/cert>
+        private_key: </path/to/key>
+    ```
+
+  becomes:
+
+    ```yaml
+    rest_api:
       listen: <ip>
       port: <port>
       certificate: </path/to/cert>
       private_key: </path/to/key>
-  ```
-
-  becomes:
-
-  ```yaml
-  rest_api:
-    listen: <ip>
-    port: <port>
-    certificate: </path/to/cert>
-    private_key: </path/to/key>
-  ```
+    ```
 
 - The default value for Asterisk PJSIP configuration parameter `rtptimeout` has been set to 7200
   seconds on new installs only. The change was done to automatically delete ghost calls that might
@@ -635,10 +635,10 @@ Consult the roadmaps for more information:
 - If you have a [custom certificate configured](/uc-doc/system/https_certificate), you will need to
   add a new symlink for wazo-upgrade:
 
-```shell
-# mkdir -p /etc/wazo-upgrade/conf.d
-# ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
-```
+    ```shell
+    mkdir -p /etc/wazo-upgrade/conf.d
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-upgrade/conf.d/010-custom-certificate.yml"
+    ```
 
 - Default passwords for phones' web interfaces have been changed. You can change the password in
   `Configuration --> Provisioning --> Template device`.
@@ -678,28 +678,28 @@ Consult the roadmaps for more information:
 - If you _did_ setup a custom X.509 certificate for HTTPS (e.g. from Let's Encrypt), you will have
   to add a link to the wazo-auth-cli configuration using the following command.
 
-```shell
-# ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
-```
+    ```shell
+    ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-auth-cli/conf.d/010-custom-certificate.yml"
+    ```
 
 - The Python API for xivo-confd plugins has been updated to reflect Python API of other daemons. If
   you have created a custom xivo-confd plugin, you must update it:
 
-```Python
-class Plugin(object):
+    ```Python
+    class Plugin(object):
 
-   def load(self, core):
-       api = core.api
-       config = core.config
-```
+       def load(self, core):
+           api = core.api
+           config = core.config
+    ```
 
-```Python
-class Plugin(object):
+    ```Python
+    class Plugin(object):
 
-   def load(self, dependencies):
-       api = dependencies['api']
-       config = dependencies['config']
-```
+       def load(self, dependencies):
+           api = dependencies['api']
+           config = dependencies['config']
+    ```
 
 - The web interface no longer validates the queue skill rules fields added in
   `Services --> Call Center --> Configuration --> Skill rules`. If a rule is wrong, it will appear

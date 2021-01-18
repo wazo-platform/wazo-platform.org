@@ -32,10 +32,10 @@ This will upgrade your xivo to Wazo 17.17. From there:
 1. Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch)
 2. Upgrade to Wazo 18.02:
 
-   ```shell
-   wazo-dist-upgrade -t wazo-18.02
-   wazo-dist phoenix-stretch
-   ```
+    ```shell
+    wazo-dist-upgrade -t wazo-18.02
+    wazo-dist phoenix-stretch
+    ```
 
 **Note**: Upgrading to a specific version between 18.03 and 19.12 is not supported
 

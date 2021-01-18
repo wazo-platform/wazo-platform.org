@@ -37,8 +37,8 @@ Resolution:
 
 - Run the following command:
 
-  ```shell
-  rm /var/lib/munin/htmlconf.storable /var/lib/munin/limits.storable
-  ```
+    ```shell
+    rm /var/lib/munin/htmlconf.storable /var/lib/munin/limits.storable
+    ```
 
 - The graphs will be restored on the next run of munin, in the next 5 minutes.

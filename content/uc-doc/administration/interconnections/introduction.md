@@ -74,19 +74,19 @@ template can be used to apply settings to all SIP endpoints.
 
 - `PUT /api/confd/1.1/endpoints/sip/templates/<SIP template UUID>`
 
-  ```json
-  {
-      "uuid": "<UUID>",
-      "label": "global",
-      ...,
-      "endpoint_section_options": [
-          ...,
-          ["rtp_symmetric", "yes"],
-          ["rewrite_contact", "yes"]
-      ],
-      ...
-  }
-  ```
+    ```json
+    {
+        "uuid": "<UUID>",
+        "label": "global",
+        ...,
+        "endpoint_section_options": [
+            ...,
+            ["rtp_symmetric", "yes"],
+            ["rewrite_contact", "yes"]
+        ],
+        ...
+    }
+    ```
 
 #### SIP Headers
 
@@ -147,9 +147,9 @@ Customized interconnections are mainly used for interconnections using DAHDI or 
   [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf))
 - `interface_suffix`: a suffix added after the dialed number (in fact the Dial command will dial:
 
-  ```ascii
-  <Interface>/<EXTEN><Interface suffix>
-  ```
+    ```ascii
+    <Interface>/<EXTEN><Interface suffix>
+    ```
 
 - `Context` : currently not relevant
 
