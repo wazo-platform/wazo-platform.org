@@ -19,25 +19,25 @@ title: Archived Upgrade Notes
   - If you have configured directories manually in `/etc/xivo-dird` you should update your manual
     configuration:
 
-  ```yaml
-  services:
-    lookup:
-      default:
-        sources:
-          - source_one
-          - source_two
-        timeout: 2
-  ```
+        ```yaml
+        services:
+          lookup:
+            default:
+              sources:
+                - source_one
+                - source_two
+              timeout: 2
+        ```
 
-  ```yaml
-  services:
-    lookup:
-      default:
-        sources:
-          source_one: true
-          source_two: true
-        timeout: 2
-  ```
+        ```yaml
+        services:
+          lookup:
+            default:
+              sources:
+                source_one: true
+                source_two: true
+              timeout: 2
+        ```
 
 - The `enabled_plugins` section of the `xivo-confd` service configuration has been changed. If you
   have configured enabled plugins manually you should update your manual configuration
@@ -45,17 +45,17 @@ title: Archived Upgrade Notes
   - This section is now a key-value setting.
   - All plugins have been renamed without the suffix `_plugins`.
 
-  ```yaml
-  enabled_plugins:
-    - user_plugin
-    - conference_plugin
-  ```
+    ```yaml
+    enabled_plugins:
+      - user_plugin
+      - conference_plugin
+    ```
 
-  ```yaml
-  enabled_plugins:
-    user: true
-    conference: true
-  ```
+    ```yaml
+    enabled_plugins:
+      user: true
+      conference: true
+    ```
 
 - There is a new `channelvars` option in `/etc/asterisk/manager.d/99-general.conf`. If you have
   manually configured `channelvars` already, you will have to manually merge the Wazo version with
@@ -192,25 +192,25 @@ Consult the [17.06 Roadmap](https://projects.wazo.community/versions/258) for mo
   `allow_headers` will have to be updated to the new syntax. The following command can be used to
   see if you have a configuration file which needs to be updated.
 
-  ```shell
-  for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
-  ```
+    ```shell
+    for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
+    ```
 
   The old config in `/etc/xivo-*/conf.d` looked like:
 
-  ```yaml
-  rest_api:
-    cors:
-      allow_headers: Content-Type, X-Auth-Token
-  ```
+    ```yaml
+    rest_api:
+      cors:
+        allow_headers: Content-Type, X-Auth-Token
+    ```
 
   The new config in `/etc/xivo-*/conf.d` looks like:
 
-  ```yaml
-  rest_api:
-    cors:
-      allow_headers: ['Content-Type', 'X-Auth-Token']
-  ```
+    ```yaml
+    rest_api:
+      cors:
+        allow_headers: ['Content-Type', 'X-Auth-Token']
+    ```
 
   See also the reference ticket [#6617](https://projects.wazo.community/issues/6617).
 

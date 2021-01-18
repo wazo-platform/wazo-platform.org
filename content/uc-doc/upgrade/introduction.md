@@ -62,21 +62,21 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
    `/etc/cron.d/xivo-ha-slave`
 3. On the slave, start the upgrade:
 
-   ```shell
-   wazo-slave:~$ wazo-upgrade
-   ```
+    ```shell
+    wazo-slave:~$ wazo-upgrade
+    ```
 
 4. When the slave has finished, start the upgrade on the master:
 
-   ```shell
-   wazo-master:~$ wazo-upgrade
-   ```
+    ```shell
+    wazo-master:~$ wazo-upgrade
+    ```
 
 5. When done, launch the database replication manually:
 
-   ```shell
-   wazo-master:~$ xivo-master-slave-db-replication <slave ip>
-   ```
+    ```shell
+    wazo-master:~$ xivo-master-slave-db-replication <slave ip>
+    ```
 
 6. Reactivate the cronjobs (see steps 1 and 2)
 

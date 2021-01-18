@@ -253,24 +253,24 @@ Once the database and files have been restored, you can
 
 1. Restore the server UUID:
 
-   ```shell
-   XIVO_UUID=$(sudo -u postgres psql -d asterisk -tA -c 'select uuid from infos')
-   echo "export XIVO_UUID=$XIVO_UUID" > /etc/profile.d/xivo_uuid.sh
-   ```
+    ```shell
+    XIVO_UUID=$(sudo -u postgres psql -d asterisk -tA -c 'select uuid from infos')
+    echo "export XIVO_UUID=$XIVO_UUID" > /etc/profile.d/xivo_uuid.sh
+    ```
 
    Then edit `/etc/systemd/system.conf` to update `XIVO_UUID` in `DefaultEnvironment`
 
 2. You may reboot the system, or execute the following steps.
 3. Update systemd runtime configuration:
 
-   ```shell
-   source /etc/profile.d/xivo_uuid.sh
-   systemctl set-environment XIVO_UUID=$XIVO_UUID
-   systemctl daemon-reload
-   ```
+    ```shell
+    source /etc/profile.d/xivo_uuid.sh
+    systemctl set-environment XIVO_UUID=$XIVO_UUID
+    systemctl daemon-reload
+    ```
 
 4. Restart the services you stopped in the first step:
 
-   ```shell
-   wazo-service start
-   ```
+    ```shell
+    wazo-service start
+    ```

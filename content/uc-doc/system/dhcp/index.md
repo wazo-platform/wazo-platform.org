@@ -22,30 +22,30 @@ you must create a custom-template:
 
 1. Create a custom template for the `dhcpd_subnet.conf.head` file:
 
-   ```shell
-   mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
-   cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
-   cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
-   ```
+    ```shell
+    mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.head .
+    ```
 
 2. Edit the custom template:
 
-   ```shell
-   vim dhcpd_subnet.conf.head
-   ```
+    ```shell
+    vim dhcpd_subnet.conf.head
+    ```
 
 3. In the file, replace the string `#XIVO_NET4_IP#` by the routing address of your VoIP network, for
    example:
 
-   ```ascii
-   option routers 192.168.2.254;
-   ```
+    ```ascii
+    option routers 192.168.2.254;
+    ```
 
 4. Re-generate the dhcp configuration:
 
-   ```shell
-   xivo-update-config
-   ```
+    ```shell
+    xivo-update-config
+    ```
 
 DHCP server should have been restarted and should now use the new routing address.
 
@@ -63,29 +63,29 @@ If you want your Wazo DHCP server to serve also unknown hosts (like PCs) follow 
 
 1. Create a custom template for the `dhcpd_subnet.conf.tail` file:
 
-   ```shell
-   mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
-   cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
-   cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
-   ```
+    ```shell
+    mkdir -p /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cd /etc/xivo/custom-templates/dhcp/etc/dhcp/
+    cp /usr/share/xivo-config/templates/dhcp/etc/dhcp/dhcpd_subnet.conf.tail .
+    ```
 
 2. Edit the custom template:
 
-   ```shell
-   vim dhcpd_subnet.conf.tail
-   ```
+    ```shell
+    vim dhcpd_subnet.conf.tail
+    ```
 
 3. And add the following line at the head of the file:
 
-   ```ascii
-   allow unknown-clients;
-   ```
+    ```ascii
+    allow unknown-clients;
+    ```
 
 4. Re-generate the dhcp configuration:
 
-   ```shell
-   xivo-update-config
-   ```
+    ```shell
+    xivo-update-config
+    ```
 
 DHCP server should have been restarted and should now serve all network equipments.
 
@@ -142,21 +142,21 @@ subnet 172.30.8.0 netmask 255.255.255.0 {
 
 - subnet-mask:
 
-  ```ascii
-  option subnet-mask 255.255.255.0;
-  ```
+    ```ascii
+    option subnet-mask 255.255.255.0;
+    ```
 
 - broadcast-address:
 
-  ```ascii
-  option broadcast-address 172.30.8.255;
-  ```
+    ```ascii
+    option broadcast-address 172.30.8.255;
+    ```
 
 - routers (specify the IP address of the router that will be the default gateway of the site):
 
-  ```ascii
-  option routers 172.30.8.1;
-  ```
+    ```ascii
+    option routers 172.30.8.1;
+    ```
 
 In section **pool**, modify the options:
 
@@ -166,16 +166,16 @@ pool {
 
 - log (add the name of the site or of the subnet):
 
-  ```ascii
-  log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] POOL VoIP Site XXX"));
-  ```
+    ```ascii
+    log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] POOL VoIP Site XXX"));
+    ```
 
 - range (it will define the range of IP address the DHCP server can use to address the devices of
   that subnet):
 
-  ```ascii
-  range 172.30.8.10 172.30.8.200;
-  ```
+    ```ascii
+    range 172.30.8.10 172.30.8.200;
+    ```
 
 **Warning**: Wazo only answers to DHCP requests from
 [supported devices](/uc-doc/administration/security#devices). In case of you need to address other
