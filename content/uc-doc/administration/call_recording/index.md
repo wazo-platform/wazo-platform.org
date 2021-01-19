@@ -45,23 +45,16 @@ also enable call recording during a call using the `*3` extension during the con
 
 The extensions for call recording and online call recording are available with extensions resource:
 
-- With `/extensions/features` endpoint and `feature: callrecord`
+- `GET /extensions/features?feature=callrecord`
 
 ### Disable user call control management
 
-To disable call recording for user:
+To disable call recording for user (default: `*26`):
 
-```ascii
-PUT /users/{user_uuid}
-  {
-    "call_record_outgoing_internal_enabled": false,
-    "call_record_outgoing_external_enabled": false,
-    "call_record_incoming_internal_enabled": false,
-    "call_record_incoming_external_enabled": false
-  }
-```
+- Find `extension_id` with `GET /extensions/features?feature=callrecord`
+- Disabled with `PUT /extensions/features/{extenion_id} {"enabled": false}`
 
-To disable online call recording:
+To disable online call recording (default: `*3`):
 
 - With `PUT /users/{user_uuid} {"online_call_record_enabled": false}`
 
