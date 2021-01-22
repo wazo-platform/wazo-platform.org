@@ -2,57 +2,44 @@
 title: Interactive Voice Response
 ---
 
--   [Introduction](#introduction)
--   [Use Case: Minimal IVR](#use-case-minimal-ivr)
-    -   [Flowchart](#flowchart)
-    -   [Configuration File and
-        Dialplan](#configuration-file-and-dialplan)
-    -   [IVR external dial](#ivr-external-dial)
-    -   [IVR internal dial](#ivr-internal-dial)
--   [Use Case: IVR with a schedule](#use-case-ivr-with-a-schedule)
-    -   [Flowchart](#flowchart-1)
-    -   [Create Schedule](#create-schedule)
--   [Use Case: IVR with submenu](#use-case-ivr-with-submenu)
-    -   [Flowchart](#flowchart-2)
-    -   [Configuration File and
-        Dialplan](#configuration-file-and-dialplan-1)
+- [Introduction](#introduction)
+- [Use Case: Minimal IVR](#use-case-minimal-ivr)
+  - [Flowchart](#flowchart)
+  - [Configuration File and Dialplan](#configuration-file-and-dialplan)
+  - [IVR external dial](#ivr-external-dial)
+  - [IVR internal dial](#ivr-internal-dial)
+- [Use Case: IVR with a schedule](#use-case-ivr-with-a-schedule)
+  - [Flowchart](#flowchart-1)
+  - [Create Schedule](#create-schedule)
+- [Use Case: IVR with submenu](#use-case-ivr-with-submenu)
+  - [Flowchart](#flowchart-2)
+  - [Configuration File and Dialplan](#configuration-file-and-dialplan-1)
 
-Introduction
-============
+# Introduction
 
-> *Interactive voice response (IVR) is a technology that allows a
-> computer to interact with humans through the use of voice and DTMF
-> tones input via keypad. In telecommunications, IVR allows customers to
-> interact with a company's host system via a telephone keypad or by
-> speech recognition, after which they can service their own inquiries
-> by following the IVR dialogue.*
+> _Interactive voice response (IVR) is a technology that allows a computer to interact with humans
+> through the use of voice and DTMF tones input via keypad. In telecommunications, IVR allows
+> customers to interact with a company's host system via a telephone keypad or by speech
+> recognition, after which they can service their own inquiries by following the IVR dialogue._
 >
-> \-- Wikipedia
+> -- Wikipedia
 
-The IVR function is not yet available in graphic mode in Wazo. This
-functionality is currently supported only via the
-[wazo-confd REST API](/uc-doc/api_sdk/rest_api/confd) or using
-scripts, also named dialplan.
+This functionality is available via the [wazo-confd REST API](/uc-doc/api_sdk/rest_api/confd) or
+using scripts, also named dialplan.
 
-Use Case: Minimal IVR
-=====================
+# Use Case: Minimal IVR
 
-Flowchart
----------
+## Flowchart
 
 ![](/images/uc-doc/administration/ivr/ivr2.png)
 
-Configuration File and Dialplan
--------------------------------
+## Configuration File and Dialplan
 
-First step, you need to create a configuration file, that contain an
-asterisk context and your IVR dialpan. In our example, both (file and
-context) are named
-`/etc/asterisk/extensions_extra.d/dp-ivr-example.conf`{.interpreted-text
-role="file"}.
+First step, you need to create a configuration file, that contain an asterisk context and your IVR
+dialpan. In our example, both (file and context) are named
+`/etc/asterisk/extensions_extra.d/dp-ivr-example.conf`{.interpreted-text role="file"}.
 
-Copy all these lines in the newly created configuration file (in our
-case, dp-ivr-example) :
+Copy all these lines in the newly created configuration file (in our case, dp-ivr-example) :
 
     [dp-ivr-example]
 
@@ -110,68 +97,53 @@ case, dp-ivr-example) :
     exten = i,n(error),Playback(${GV_DIRECTORY_SOUNDS}/ivr-example-error)
     exten = i,n,Hangup()
 
-IVR external dial
------------------
+## IVR external dial
 
-To call the script dp-ivr-example from an external phone, you must
-create an incoming call and redirect the call to the script
-dp-ivr-example with the command :
+To call the script dp-ivr-example from an external phone, you must create an incoming call and
+redirect the call to the script dp-ivr-example with the command :
 
--   `POST /extensions {"exten": <DID>, "context": "from-extern"}`
--   `POST /incalls {"destination": {"type": "custom", "command": "Goto(dp-ivr-example,s,1)"}}`
--   `PUT /incalls/{incall_id}/extensions/{extension_id}`
+- `POST /extensions {"exten": <DID>, "context": "from-extern"}`
+- `POST /incalls {"destination": {"type": "custom", "command": "Goto(dp-ivr-example,s,1)"}}`
+- `PUT /incalls/{incall_id}/extensions/{extension_id}`
 
-IVR internal dial
------------------
+## IVR internal dial
 
-To call the script dp-ivr-example from an internal phone you must create
-an entry in the default context (`xivo-extrafeatures` is included in
-`default`). The best way is to add the extension in the file
-`/etc/asterisk/extensions_extra.d/xivo-extrafeatures.conf`{.interpreted-text
-role="file"}.
+To call the script dp-ivr-example from an internal phone you must create an entry in the default
+context (`xivo-extrafeatures` is included in `default`). The best way is to add the extension in the
+file `/etc/asterisk/extensions_extra.d/xivo-extrafeatures.conf`{.interpreted-text role="file"}.
 
     exten => 8899,1,Goto(dp-ivr-example,s,1)
 
-Use Case: IVR with a schedule
-=============================
+# Use Case: IVR with a schedule
 
-In many cases, you need to associate your IVR to a schedule to indicate
-when your company is closed.
+In many cases, you need to associate your IVR to a schedule to indicate when your company is closed.
 
-Flowchart
----------
+## Flowchart
 
 ![](/images/uc-doc/administration/ivr/ivr5.png)
 
-Create Schedule
----------------
+## Create Schedule
 
-First step, create your schedule. Give a name to your schedule and
-configure the open hours and select the sound which is played when the
-company is closed.
+First step, create your schedule. Give a name to your schedule and configure the open hours and
+select the sound which is played when the company is closed.
 
-In the Closed hours tab, configure all special closed days and select
-the sound that indicate to the caller that the company is exceptionally
-closed.
+In the Closed hours tab, configure all special closed days and select the sound that indicate to the
+caller that the company is exceptionally closed.
 
 The IVR script is now only available during workdays.
 
--   `POST /schedules`
--   `PUT /incalls/{incall_id}/schedules/{schedule_id}`
+- `POST /schedules`
+- `PUT /incalls/{incall_id}/schedules/{schedule_id}`
 
-Use Case: IVR with submenu
-==========================
+# Use Case: IVR with submenu
 
-Flowchart
----------
+## Flowchart
 
 ![](/images/uc-doc/administration/ivr/ivr7.png)
 
-Configuration File and Dialplan
--------------------------------
+## Configuration File and Dialplan
 
-Copy all these lines (2 contexts) in a configuration file on your Wazo
-server :
+Copy all these lines (2 contexts) in a configuration file on your Wazo server :
 
     [dp-ivr-example]
 
