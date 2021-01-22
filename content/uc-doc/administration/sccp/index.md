@@ -2,212 +2,201 @@
 title: SCCP Configuration
 ---
 
-Provisioning
-============
+# Provisioning
 
 To be able to provision SCCP phones you should :
 
--   activate the [DHCP Server](/uc-doc/system/dhcp),
--   activate the [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration),
+- activate the [DHCP Server](/uc-doc/system/dhcp),
+- activate the
+  [DHCP Integration](/uc-doc/administration/provisioning/adv_configuration#dhcp-integration),
 
 Then install a plugin for SCCP Phone
 
-At this point you should have a fully functional DHCP server that
-provides IP address to your phones. Depending on what type of CISCO
-phone you have, you need to install the plugin sccp-legacy, sccp-9.4 or
-both.
+At this point you should have a fully functional DHCP server that provides IP address to your
+phones. Depending on what type of CISCO phone you have, you need to install the plugin sccp-legacy,
+sccp-9.4 or both.
 
 #:exclamation: Please refer to the
-[Provisioning page](/uc-doc/ecosystem/supported_devices#cisco-provisioning)
-for more information on how to install CISCO firmwares.
+[Provisioning page](/uc-doc/ecosystem/supported_devices#cisco-provisioning) for more information on
+how to install CISCO firmwares.
 
-Once your plugin is installed, you\'ll be able to edit which firmwares
-and locales you need. If you are unsure, you can choose all without any
-problem.
+Once your plugin is installed, you\'ll be able to edit which firmwares and locales you need. If you
+are unsure, you can choose all without any problem.
 
-Now if you connect your first SCCP phone, you should be able to see it
-with `GET /devices`.
+Now if you connect your first SCCP phone, you should be able to see it with `GET /devices`.
 
-When connecting a second SCCP phone, the device will be automatically
-detected as well.
+When connecting a second SCCP phone, the device will be automatically detected as well.
 
-Auto-provisioning support
--------------------------
+## Auto-provisioning support
 
-Starting from Wazo 18.07, an SCCP device can be associated to a user by
-entering the user\'s provisioning code directly from the SCCP device
-while in autoprov mode.
+Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user\'s
+provisioning code directly from the SCCP device while in autoprov mode.
 
-There\'s two settings in `GET /asterisk/sccp/general` influencing the
-auto-provisioning behaviour:
+There\'s two settings in `GET /asterisk/sccp/general` influencing the auto-provisioning behaviour:
 
--   the `guest` option must be enabled to allow SCCP devices to connect
-    to the server and allow a provisioning code from being dialed from
-    them. Disabling this option can provide some additional security if
-    your Wazo is in an hostile environment, at the cost of making
-    auto-provisioning support unavailable for SCCP devices.
--   the `max_guests` option limits the number of SCCP devices that can
-    simultaneously connect to the server in autoprov mode. You should
-    set this value to the maximum number of SCCP devices you expect to
-    be in autoprov mode at any moment, unless your Wazo is in an hostile
-    environment, where you should probably set it to a fairly low value.
+- the `guest` option must be enabled to allow SCCP devices to connect to the server and allow a
+  provisioning code from being dialed from them. Disabling this option can provide some additional
+  security if your Wazo is in an hostile environment, at the cost of making auto-provisioning
+  support unavailable for SCCP devices.
+- the `max_guests` option limits the number of SCCP devices that can simultaneously connect to the
+  server in autoprov mode. You should set this value to the maximum number of SCCP devices you
+  expect to be in autoprov mode at any moment, unless your Wazo is in an hostile environment, where
+  you should probably set it to a fairly low value.
 
-SCCP General Settings
-=====================
+# SCCP General Settings
 
 Review SCCP general settings:
 
 > `GET /asterisk/sccp/general`
 
-User creation
-=============
+# User creation
 
 The last step is to create a user with a **SCCP line**.
 
 Creating a user with a SCCP line:
 
--   `POST /users`
--   `POST /lines`
--   `PUT /users/{user_id}/lines/{line_id}`
--   `POST /endpoints/sccp`
--   `PUT /lines/{line_id}/endpoints/sccp/{sccp_id}`
--   `PUT /lines/{line_id}/devices/{device_id}`
+- `POST /users`
+- `POST /lines`
+- `PUT /users/{user_id}/lines/{line_id}`
+- `POST /endpoints/sccp`
+- `PUT /lines/{line_id}/endpoints/sccp/{sccp_id}`
+- `PUT /lines/{line_id}/devices/{device_id}`
 
 Congratulations ! Your SCCP phone is now ready to be called !
 
-Function keys
-=============
+# Function keys
 
-With SCCP phones, the only destination type of function keys that can be
-configured is `custom`
+With SCCP phones, the only destination type of function keys that can be configured is `custom`
 
-Direct Media
-============
+# Direct Media
 
 SCCP Phones support directmedia (direct RTP).
 
--   `PUT /asterisk/sccp/general` options `directmedia: yes`
+- `PUT /asterisk/sccp/general` options `directmedia: yes`
 
-Features {#sccp-features}
-========
+# Features {#sccp-features}
 
-  ------------------------------------------
-  Features                       Supported
-  ------------------------------ -----------
-  Receive call                   Yes
+---
 
-  Initiate call                  Yes
+Features Supported
 
-  Hangup call                    Yes
+---
 
-  Transfer call                  Yes
+Receive call Yes
 
-  Congestion Signal              Yes
+Initiate call Yes
 
-  Autoanswer (custom dialplan)   Yes
+Hangup call Yes
 
-  Call forward                   Yes
+Transfer call Yes
 
-  Multi-instance per line        Yes
+Congestion Signal Yes
 
-  Message waiting indication     Yes
+Autoanswer (custom dialplan) Yes
 
-  Music on hold                  Yes
+Call forward Yes
 
-  Context per line               Yes
+Multi-instance per line Yes
 
-  Paging                         Yes
+Message waiting indication Yes
 
-  Direct RTP                     Yes
+Music on hold Yes
 
-  Redial                         Yes
+Context per line Yes
 
-  Speed dial                     Yes
+Paging Yes
 
-  BLF (Supervision)              Yes
+Direct RTP Yes
 
-  Resync device configuration    Yes
+Redial Yes
 
-  Do not disturb (DND)           Yes
+Speed dial Yes
 
-  Group listen                   Yes
+BLF (Supervision) Yes
 
-  Caller ID                      Yes
+Resync device configuration Yes
 
-  Connected line ID              Yes
+Do not disturb (DND) Yes
 
-  Group pickup                   Yes
+Group listen Yes
 
-  Auto-provisioning              Yes
+Caller ID Yes
 
-  Multi line                     Not yet
+Connected line ID Yes
 
-  Codec selection                Yes
+Group pickup Yes
 
-  NAT traversal                  Not yet
+Auto-provisioning Yes
 
-  Type of Service (TOS)          Manual
-  ------------------------------------------
+Multi line Not yet
 
-Telephone
-=========
+Codec selection Yes
 
-  -------------------------------------------------------------------
-  Device type   Supported     Firmware version       Timezone aware
-  ------------- ------------- ---------------------- ----------------
-  7905          Yes           8.0.3                  No
+NAT traversal Not yet
 
-  7906          Yes           SCCP11.9-4-2SR1-1      Yes
+Type of Service (TOS) Manual
 
-  7911          Yes           SCCP11.9-4-2SR1-1      Yes
+---
 
-  7912          Yes           8.0.4(080108A)         No
+# Telephone
 
-  7920          Yes           3.0.2                  No
+---
 
-  7921          Yes           1.4.5.3                Yes
+Device type Supported Firmware version Timezone aware
 
-  7931          Yes           SCCP31.9-4-2SR1-1      Yes
+---
 
-  7937          Testing
+7905 Yes 8.0.3 No
 
-  7940          Yes           8.1(SR.2)              No
+7906 Yes SCCP11.9-4-2SR1-1 Yes
 
-  7941          Yes           SCCP41.9-4-2SR1-1      Yes
+7911 Yes SCCP11.9-4-2SR1-1 Yes
 
-  7941GE        Yes           SCCP41.9-4-2SR1-1      Yes
+7912 Yes 8.0.4(080108A) No
 
-  7942          Yes           SCCP42.9-4-2SR1-1      Yes
+7920 Yes 3.0.2 No
 
-  7945          Testing
+7921 Yes 1.4.5.3 Yes
 
-  7960          Yes           8.1(SR.2)              No
+7931 Yes SCCP31.9-4-2SR1-1 Yes
 
-  7961          Yes           SCCP41.9-4-2SR1-1      Yes
+7937 Testing
 
-  7962          Yes           SCCP42.9-4-2SR1-1      Yes
+7940 Yes 8.1(SR.2) No
 
-  7965          Testing
+7941 Yes SCCP41.9-4-2SR1-1 Yes
 
-  7970          Testing
+7941GE Yes SCCP41.9-4-2SR1-1 Yes
 
-  7975          Testing
+7942 Yes SCCP42.9-4-2SR1-1 Yes
 
-  8941          Testing
+7945 Testing
 
-  8945          Testing
+7960 Yes 8.1(SR.2) No
 
-  CIPC          Yes           2.1.2                  Yes
-  -------------------------------------------------------------------
+7961 Yes SCCP41.9-4-2SR1-1 Yes
 
-Models not listed in the table above won\'t be able to connect to
-Asterisk at all. Models listed as \"Testing\" are not yet officially
-supported in Wazo: use them at your own risk.
+7962 Yes SCCP42.9-4-2SR1-1 Yes
 
-The \"Timezone aware\" column indicates if the device supports the
-timezone tag in its configuration file, i.e. in the file that the device
-request to the provisioning server when it boots. If you have devices
-that don\'t support the timezone tag and these devices are in a
-different timezone than the one of the Wazo, you can look at [the issue
-\#5161](https://projects.wazo.community/issues/5161) for a potential
-solution.
+7965 Testing
+
+7970 Testing
+
+7975 Testing
+
+8941 Testing
+
+8945 Testing
+
+CIPC Yes 2.1.2 Yes
+
+---
+
+Models not listed in the table above won\'t be able to connect to Asterisk at all. Models listed as
+\"Testing\" are not yet officially supported in Wazo: use them at your own risk.
+
+The \"Timezone aware\" column indicates if the device supports the timezone tag in its configuration
+file, i.e. in the file that the device request to the provisioning server when it boots. If you have
+devices that don\'t support the timezone tag and these devices are in a different timezone than the
+one of the Wazo, you can look at [the issue \#5161](https://projects.wazo.community/issues/5161) for
+a potential solution.
