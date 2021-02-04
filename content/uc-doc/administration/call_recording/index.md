@@ -64,6 +64,9 @@ Recorded files are not available for the now with REST API.
 
 Recordings are located in `/var/lib/wazo/sounds/tenants/<tenant_uuid>/monitor`
 
+**Warning**: Since 21.02, renaming or removing a file in this repository will break CDR recordings
+API
+
 #### File names
 
 The file names for call recording can be customized using
