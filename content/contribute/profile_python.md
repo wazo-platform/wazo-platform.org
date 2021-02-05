@@ -34,8 +34,8 @@ one above:
 $ twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
 ```
 
-Note that profiling multi-threaded program (wazo-agid, wazo-confd)
-doesn\'t work reliably.
+Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn't work reliably using this
+profiler. To profile multi-threaded programs, read the next section.
 
 The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
 various Wazo services in foreground/debug mode.
