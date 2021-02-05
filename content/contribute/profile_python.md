@@ -2,9 +2,9 @@ Profiling Python Programs
 =========================
 
 Profiling CPU/Time Usage (single thread)
-------------------------
+----------------------------------------
 
-Here\'s an example on how to profile wazo-auth for CPU/time usage:
+Here's an example on how to profile wazo-auth for CPU/time usage:
 
 1.  Stop the monit daemon:
 
@@ -53,7 +53,7 @@ Welcome to the profile statistics browser.
 ```
 
 Profiling CPU/Time Usage (multiple threads)
-------------------------
+-------------------------------------------
 
 Here's an example on how to profile wazo-amid for CPU/time usage:
 
@@ -75,7 +75,8 @@ Here's an example on how to profile wazo-amid for CPU/time usage:
 pip3 install yappi
 ```
 
-4. Create the profiling stats file. This is necessary because the daemon will drop privileges while running, and will not be able to write the stats when it stops.
+4. Create the profiling stats file. This is necessary because the daemon will drop privileges while
+running, and will not be able to write the stats when it stops.
 
 ```ShellSession
 install -o www-data -g www-data /dev/null /tmp/wazo-amid-profile.callgrind
@@ -95,11 +96,10 @@ various Wazo services in foreground/debug mode.
 
 6.  Examine the result of the profiling with a graphical analysis tool like KCacheGrind.
 
-
 Measuring Code Coverage
 -----------------------
 
-Here\'s an example on how to measure the code coverage of wazo-auth.
+Here's an example on how to measure the code coverage of wazo-auth.
 
 This can be useful when you suspect a piece of code to be unused and you
 want to have additional information about it.
