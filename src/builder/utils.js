@@ -30,6 +30,7 @@ const walk = (basePath, regexp, encoding = 'utf8', custom = false) => {
       const wazo_plugin = `${basePath.split('/')[4]}-${basePath.split('/')[5]}`;
       const content = fs.readFileSync(filePath, encoding);
       results[dirname][file] = custom ? {
+          path: path.dirname(filePath),
           file: content,
           wazo_plugin,
         } : content;
@@ -58,8 +59,9 @@ const getProvisioningPlugins = () => {
   Object.keys(pluginInfoFiles).forEach(basePath => {
     Object.keys(pluginInfoFiles[basePath]).forEach(fileName => {
       try {
-        const content = JSON.parse(pluginInfoFiles[basePath][fileName].file);
-        const { wazo_plugin } = pluginInfoFiles[basePath][fileName];
+        const { wazo_plugin, file, path: localPath } = pluginInfoFiles[basePath][fileName];
+        const content = JSON.parse(file);
+
         Object.keys(content.capabilities).forEach(capabilityName => {
           const [vendor, phone, firmware] = capabilityName.split(', ');
           if (!(vendor in cachedPlugins)) {
@@ -69,8 +71,15 @@ const getProvisioningPlugins = () => {
             cachedPlugins[vendor][phone] = {};
           }
 
+          const installPath = `${localPath}/install.md`;
+          const limitationsPath = `${localPath}/limitations.md`;
+          const install = fs.existsSync(installPath) ? fs.readFileSync(installPath, { encoding:'utf8', flag:'r' }) : null;
+          const limitations = fs.existsSync(limitationsPath) ? fs.readFileSync(limitationsPath, { encoding:'utf8', flag:'r' }) : null;
+
           cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
           cachedPlugins[vendor][phone][firmware].wazo_plugin = `${wazo_plugin} (v${content.version})`;
+          cachedPlugins[vendor][phone][firmware].install = install;
+          cachedPlugins[vendor][phone][firmware].limitations = limitations;
         });
       } catch (error) {
         console.log('json error in ', basePath, fileName, error);

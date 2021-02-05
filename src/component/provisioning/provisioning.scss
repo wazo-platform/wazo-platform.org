@@ -96,11 +96,61 @@
           .content {
             table.table {
               width: 100%;
+
               thead{
                 th {
                   border-top: 0 none;
                 }
               }
+              
+              tr.marked-button {
+                transition: all .3s ease-out;
+                cursor: pointer;
+                color: #17baef;
+
+                &:hover {
+                  color: #085b77;
+                }
+
+                a {
+                  display: block;
+                }
+
+                & .status { 
+                  text-align: right;
+                  padding-right: 15px; 
+
+                  &::after {
+                    content: '+';
+                  }
+                }
+
+                &.selected {
+                  background-color: #eee;
+                  & .status { 
+                    &::after {
+                      content: '-';
+                    }
+                  }
+                }
+              }
+
+              tr.marked-content {
+                background-color: #eee;
+                transition: all .3s ease-out;
+                height: auto;
+
+                td {
+                  border-top: none;
+                  padding-left: 25px;
+                  padding-right: 25px;
+                }
+
+                &.hidden {
+                  display: none;
+                }
+              }
+
               .key {
                 text-transform: capitalize;
               }
