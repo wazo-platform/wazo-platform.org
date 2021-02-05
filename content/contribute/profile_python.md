@@ -1,10 +1,10 @@
 Profiling Python Programs
 =========================
 
-Profiling CPU/Time Usage
-------------------------
+Profiling CPU/Time Usage (single thread)
+----------------------------------------
 
-Here\'s an example on how to profile wazo-auth for CPU/time usage:
+Here's an example on how to profile wazo-auth for CPU/time usage:
 
 1.  Stop the monit daemon:
 
@@ -21,7 +21,7 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 3.  Start the service in foreground mode running with the profiler:
 
 ```ShellSession
-$ python -m cProfile -o test.profile /usr/bin/xivo-auth -f
+$ python -m cProfile -o test.profile /usr/bin/wazo-auth -f
 ```
 
 This will create a file named `test.profile` when the process
@@ -34,8 +34,8 @@ one above:
 $ twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
 ```
 
-Note that profiling multi-threaded program (wazo-agid, wazo-confd)
-doesn\'t work reliably.
+Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn't work reliably using this
+profiler. To profile multi-threaded programs, read the next section.
 
 The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
 various Wazo services in foreground/debug mode.
@@ -52,10 +52,54 @@ Welcome to the profile statistics browser.
 % stats 15
 ```
 
+Profiling CPU/Time Usage (multiple threads)
+-------------------------------------------
+
+Here's an example on how to profile wazo-amid for CPU/time usage:
+
+1.  Stop the monit daemon:
+
+```ShellSession
+# service monit stop
+```
+
+2.  Stop the process you want to profile, i.e. wazo-amid:
+
+```ShellSession
+# service wazo-amid stop
+```
+
+3.  Install the profiler
+
+```ShellSession
+pip3 install yappi
+```
+
+4. Create the profiling stats file. This is necessary because the daemon will drop privileges while
+running, and will not be able to write the stats when it stops.
+
+```ShellSession
+install -o www-data -g www-data /dev/null /tmp/wazo-amid-profile.callgrind
+```
+
+5. Start the service in foreground mode running with the profiler:
+
+```ShellSession
+python3 -m yappi -f callgrind -o /tmp/wazo-amid-profile.callgrind.out /usr/bin/wazo-amid
+```
+
+This will create a file named `/tmp/wazo-amid-profile.callgrind.out` when the process
+terminates.
+
+The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
+various Wazo services in foreground/debug mode.
+
+6.  Examine the result of the profiling with a graphical analysis tool like KCacheGrind.
+
 Measuring Code Coverage
 -----------------------
 
-Here\'s an example on how to measure the code coverage of wazo-auth.
+Here's an example on how to measure the code coverage of wazo-auth.
 
 This can be useful when you suspect a piece of code to be unused and you
 want to have additional information about it.
