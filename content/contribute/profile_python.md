@@ -21,7 +21,7 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 3.  Start the service in foreground mode running with the profiler:
 
 ```ShellSession
-$ python -m cProfile -o test.profile /usr/bin/xivo-auth -f
+$ python -m cProfile -o test.profile /usr/bin/wazo-auth -f
 ```
 
 This will create a file named `test.profile` when the process
