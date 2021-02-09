@@ -2,8 +2,6 @@
 title: Interconnect two Wazo directly
 ---
 
-# Interconnect two Wazo directly
-
 Interconnecting two Wazo will allow you to send and receive calls between the users configured on
 both sides.
 
@@ -17,7 +15,7 @@ For now, only SIP interconnections have been tested.
 
 ## Establish the trunk
 
-The settings below allow a trunk to be used in both directions, so it doesn\'t matter which server
+The settings below allow a trunk to be used in both directions, so it doesn't matter which server
 is A and which is B.
 
 Consider Wazo A wants to establish a trunk with Wazo B.
@@ -32,7 +30,7 @@ trunk:
 - If `context` is set to `default`, then every user, group, conf room, queue, etc. that have an
   extension if the `default` context will be reachable directly by the other end of the trunk. This
   setting can ease configuration if you manage both ends of the trunk.
-- If you are establishing a trunk with a provider, you probably don\'t want everything to be
+- If you are establishing a trunk with a provider, you probably don't want everything to be
   available to everyone else, so you can set the `context` field to `from-extern`. By default, there
   is no extension available in this context, so we will be able to configure which extension are
   reachable by the other end. This is the role of the incoming calls: making bridges from the
@@ -70,9 +68,9 @@ This will tell Wazo: if any extension begins with `**99`, then try to dial it on
 
 The most useful special characters to match extensions are:
 
-    _ (underscore): tells Asterisk that this is a pattern
-    . (period): will match one or more characters
-    X: will match only one character
+- `_` (underscore): tells Asterisk that this is a pattern
+- `.` (period): will match one or more characters
+- `X`: will match only one character
 
 You can find more details about pattern matching in Asterisk (hence in Wazo) on
 [the Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching).
@@ -82,7 +80,7 @@ You can find more details about pattern matching in Asterisk (hence in Wazo) on
 Now that we have calls going out from a Wazo, we need to route incoming calls on the Wazo
 destination.
 
-#:exclamation: This step is only necessary if the trunk is linked to an Incoming calls context.
+**Note**: This step is only necessary if the trunk is linked to an Incoming calls context.
 
 To route an incoming call to the right destination in the right context, we will create an incoming
 call
