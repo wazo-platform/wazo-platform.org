@@ -2,46 +2,40 @@
 title: Interconnect
 ---
 
-Interconnect a Wazo to a PBX via an ISDN link
-=============================================
+# Interconnect a Wazo to a PBX via an ISDN link
 
 The goal of this architecture can be one of:
 
--   start a smooth migration between an old telephony system towards IP
-    telephony with Wazo
--   bring new features to the PBX like voicemail, conference, IVR etc.
+- start a smooth migration between an old telephony system towards IP telephony with Wazo
+- bring new features to the PBX like voicemail, conference, IVR etc.
 
-First, Wazo is to be integrated transparently between the operator and
-the PBX. Then users or features are to be migrated from the PBX to the
-Wazo.
+First, Wazo is to be integrated transparently between the operator and the PBX. Then users or
+features are to be migrated from the PBX to the Wazo.
 
-#:warning: It requires a special call routing configuration on both the Wazo **and
-the PBX**.
+#:warning: It requires a special call routing configuration on both the Wazo **and the PBX**.
 
 ![Interconnect a Wazo to a PBX](/images/uc-doc/administration/interconnections/xivo-pbx.png)
 
-Hardware
---------
+## Hardware
 
 ### General uses
 
-You must have an ISDN card able to support both the provider and PBX
-ISDN links.
+You must have an ISDN card able to support both the provider and PBX ISDN links.
 
-*Example :* If you have two provider links towards the PBX, Wazo should
-have a 4 spans card : two towards the provider, and two towards the PBX.
+_Example :_ If you have two provider links towards the PBX, Wazo should have a 4 spans card : two
+towards the provider, and two towards the PBX.
 
 ### If you use two cards
 
 If you use two cards, you have to :
 
--   Use a cable for clock synchronization between the cards
--   Configure the *wheel* to define the cards order in the system.
+- Use a cable for clock synchronization between the cards
+- Configure the _wheel_ to define the cards order in the system.
 
-Please refer to the section [Sync cable](/uc-doc/administration/hardware/pri_configuration#sync-cable)
+Please refer to the section
+[Sync cable](/uc-doc/administration/hardware/pri_configuration#sync-cable)
 
-Configuration
--------------
+## Configuration
 
 You have now to configure two files :
 
@@ -50,14 +44,12 @@ You have now to configure two files :
 
 ### system.conf
 
-You mainly need to configure the `timing` parameter on each *span*. As a
-general rule :
+You mainly need to configure the `timing` parameter on each _span_. As a general rule :
 
--   Provider *span* - Wazo will get the clock from the provider : the
-    `timing` value is to be different from 0 (see
-    [system_conf](/uc-doc/administration/hardware/hardware) section)
--   PBX *span* - Wazo will provide the clock to the PBX : the `timing`
-    value is to be set to 0 (see [system_conf](/uc-doc/administration/hardware/hardware) section)
+- Provider _span_ - Wazo will get the clock from the provider : the `timing` value is to be
+  different from 0 (see [system_conf](/uc-doc/administration/hardware/hardware) section)
+- PBX _span_ - Wazo will provide the clock to the PBX : the `timing` value is to be set to 0 (see
+  [system_conf](/uc-doc/administration/hardware/hardware) section)
 
 Below is an example with two provider links and two PBX links:
 
@@ -89,22 +81,20 @@ echocanceller=mg2,94-108,110-124
 
 ### dahdi-channels.conf
 
-In the file `/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} you need to adjust, for each span :
+In the file `/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} you need to adjust,
+for each span :
 
--   `group` : the group number (e.g. `0` for provider links, `2` for PBX
-    links),
--   `context` : the context (e.g. `from-extern` for provider links,
-    `from-pabx` for PBX links)
--   `signalling` : `pri_cpe` for provider links, `pri_net` for PBX side
+- `group` : the group number (e.g. `0` for provider links, `2` for PBX links),
+- `context` : the context (e.g. `from-extern` for provider links, `from-pabx` for PBX links)
+- `signalling` : `pri_cpe` for provider links, `pri_net` for PBX side
 
-#:warning: most of the PBX uses overlap dialing for some destination (digits are
-sent one by one instead of by block). In this case, the `overlapdial`
-parameter has to be activated on the PBX spans:
+#:warning: most of the PBX uses overlap dialing for some destination (digits are sent one by one
+instead of by block). In this case, the `overlapdial` parameter has to be activated on the PBX
+spans:
 
 overlapdial = incoming
 
-Below an example of
-`/etc/asterisk/dahdi-channels.conf`:
+Below an example of `/etc/asterisk/dahdi-channels.conf`:
 
 ```ini
 ; Span 1: TE4/0/1 "TE4XXP (PCI) Card 0 Span 1" (MASTER)
@@ -147,7 +137,9 @@ channel => 94-108,110-124
 We first need to create a route for calls coming from the PBX
 
 # Create a file named `pbx.conf` in the
-directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}, # Add the following lines in the file:
+
+directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}, # Add the following
+lines in the file:
 
 ```ini
 [from-pabx]
@@ -155,46 +147,44 @@ exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
 exten = _X.,n,Goto(default,${EXTEN},1)
 ```
 
-This dialplan routes incoming calls from the PBX in the `default`
-context of Wazo. It enables call from the PBX : * towards a SIP phone
-(in `default` context) * towards outgoing destniation (via the
+This dialplan routes incoming calls from the PBX in the `default` context of Wazo. It enables call
+from the PBX : _ towards a SIP phone (in `default` context) _ towards outgoing destniation (via the
 `to-extern` context included in `default` context)
 
 #### Create the to-pabx context
 
 Create a context named `to-pabx`:
 
--   `POST /contexts {"name": "to-pabx", "type": "outcall"}`
+- `POST /contexts {"name": "to-pabx", "type": "outcall"}`
 
 #### Route incoming calls to PBX
 
-In our example, incoming calls on spans 1 and 2 (spans plugged to the
-provider) are routed by from-extern context. We are going to create a
-default route to redirect incoming calls to the PBX.
+In our example, incoming calls on spans 1 and 2 (spans plugged to the provider) are routed by
+from-extern context. We are going to create a default route to redirect incoming calls to the PBX.
 
--   `POST /extensions {"exten": "_XXXX", "context": "from-extern"}`
-    (according to the number of digits sent by the provider)
--   `POST /incalls {"destination": {"type": "customiz", "command": "Goto(to-pabx,${XIVO_DSTNUM},1)}}`
--   `PUT /incalls/{incall_id}/extensions/{extension_id}`
+- `POST /extensions {"exten": "_XXXX", "context": "from-extern"}` (according to the number of digits
+  sent by the provider)
+- `POST /incalls {"destination": {"type": "customiz", "command": "Goto(to-pabx,${XIVO_DSTNUM},1)}}`
+- `PUT /incalls/{incall_id}/extensions/{extension_id}`
 
 #### Create the interconnections
 
 You have to create two interconnections :
 
--   provider side : dahdi/g0
--   PBX side : dahdi/g2
+- provider side : dahdi/g0
+- PBX side : dahdi/g2
 
 The first interconnection :
 
--   `POST /trunks {'name': "t2-operatoeur", "context": "to-extern"}`
--   `POST /endpoints/custom {"interface": "dahdi/g0"}`
--   `PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}`
+- `POST /trunks {'name': "t2-operatoeur", "context": "to-extern"}`
+- `POST /endpoints/custom {"interface": "dahdi/g0"}`
+- `PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}`
 
 The second interconnection :
 
--   `POST /trunks {"name": "t2-pabx", "context": "to-pabx"}`
--   `POST /endpoints/custom {"interface": "dahdi/g2"}`
--   `PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}`
+- `POST /trunks {"name": "t2-pabx", "context": "to-pabx"}`
+- `POST /endpoints/custom {"interface": "dahdi/g2"}`
+- `PUT /trunks/{trunk_id}/endpoints/custom/{custom_id}`
 
 #### Create outgoing calls
 
@@ -202,14 +192,14 @@ You must create two rules of outgoing calls:
 
 1.  Redirect calls to the PBX :
 
--   `POST /outcalls {"name": "fsc-pabx"}`
--   `PUT /outcalls/{outcall_id}/trunks`
--   `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
--   `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+- `POST /outcalls {"name": "fsc-pabx"}`
+- `PUT /outcalls/{outcall_id}/trunks`
+- `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
+- `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
 
 2.  Create a rule "fsc-operateur":
 
--   `POST /outcalls {"name": "fsc-operateur"}`
--   `PUT /outcalls/{outcall_id}/trunks`
--   `POST /extensions {"exten": "_X.", "context": "to-extern"}`
--   `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+- `POST /outcalls {"name": "fsc-operateur"}`
+- `PUT /outcalls/{outcall_id}/trunks`
+- `POST /extensions {"exten": "_X.", "context": "to-extern"}`
+- `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
