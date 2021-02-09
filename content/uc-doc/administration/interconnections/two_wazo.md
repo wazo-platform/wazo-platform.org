@@ -15,8 +15,8 @@ For now, only SIP interconnections have been tested.
 
 ## Establish the trunk
 
-The settings below allow a trunk to be used in both directions, so it doesn't matter which server
-is A and which is B.
+The settings below allow a trunk to be used in both directions, so it doesn't matter which server is
+A and which is B.
 
 Consider Wazo A wants to establish a trunk with Wazo B.
 

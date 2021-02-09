@@ -194,14 +194,14 @@ You must create two rules of outgoing calls:
 
 1. Redirect calls to the PBX :
 
-  - `POST /outcalls {"name": "fsc-pabx"}`
-  - `PUT /outcalls/{outcall_id}/trunks`
-  - `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
-  - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+   - `POST /outcalls {"name": "fsc-pabx"}`
+   - `PUT /outcalls/{outcall_id}/trunks`
+   - `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
+   - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
 
 2. Create a rule "fsc-operateur":
 
-  - `POST /outcalls {"name": "fsc-operateur"}`
-  - `PUT /outcalls/{outcall_id}/trunks`
-  - `POST /extensions {"exten": "_X.", "context": "to-extern"}`
-  - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+   - `POST /outcalls {"name": "fsc-operateur"}`
+   - `PUT /outcalls/{outcall_id}/trunks`
+   - `POST /extensions {"exten": "_X.", "context": "to-extern"}`
+   - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
