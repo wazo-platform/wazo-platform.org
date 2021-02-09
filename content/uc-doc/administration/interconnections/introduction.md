@@ -2,10 +2,6 @@
 title: Introduction
 ---
 
-- [two_wazo](/uc-doc/administration/interconnections/two_wazo)
-- [wazo_with_voip_provider](/uc-doc/administration/interconnections/wazo_with_voip_provider)
-- [wazo_with_pbx](/uc-doc/administration/interconnections/wazo_with_pbx)
-
 ## Specific VoIP providers
 
 - [simonics](/uc-doc/administration/interconnections/simonics)
@@ -14,9 +10,9 @@ title: Introduction
 
 There are three types of interconnections :
 
-- Customized
 - SIP
 - IAX
+- Customized
 
 ### SIP interconnections
 
@@ -30,10 +26,10 @@ Global SIP configurations are available with at the following endpoints:
 
 Endpoint and trunk configurations are available with at the following endpoints:
 
-- `/api/confd/1.1/endpoints/sip` For the SIP configuration of the trunk
-- `/api/confd/1.1/endpoints/sip/templates` The `global` template can be used for global settings
+- `/api/confd/1.1/endpoints/sip`: For the SIP configuration of the trunk
+- `/api/confd/1.1/endpoints/sip/templates`: The `global` template can be used for global settings
   shared between all SIP endpoints
-- `/api/confd/1.1/trunks` None SIP specific trunk configuration
+- `/api/confd/1.1/trunks`: SIP specific trunk configuration
 
 The [API documentation](/documentation/api/configuration.html) can be used for more details on the
 configuration.
