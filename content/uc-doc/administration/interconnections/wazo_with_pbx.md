@@ -1,8 +1,6 @@
 ---
-title: Interconnect
+title: Interconnect a Wazo to a PBX via an ISDN link
 ---
-
-# Interconnect a Wazo to a PBX via an ISDN link
 
 The goal of this architecture can be one of:
 
@@ -12,9 +10,11 @@ The goal of this architecture can be one of:
 First, Wazo is to be integrated transparently between the operator and the PBX. Then users or
 features are to be migrated from the PBX to the Wazo.
 
-#:warning: It requires a special call routing configuration on both the Wazo **and the PBX**.
+**Warning**: It requires a special call routing configuration on both the Wazo **and the PBX**.
 
-![Interconnect a Wazo to a PBX](/images/uc-doc/administration/interconnections/xivo-pbx.png)
+```ascii
+ISDN Provider <--> Wazo <--> PBX
+```
 
 ## Hardware
 
@@ -22,12 +22,12 @@ features are to be migrated from the PBX to the Wazo.
 
 You must have an ISDN card able to support both the provider and PBX ISDN links.
 
-_Example :_ If you have two provider links towards the PBX, Wazo should have a 4 spans card : two
+_Example_: If you have two provider links towards the PBX, Wazo should have a 4 spans card: two
 towards the provider, and two towards the PBX.
 
 ### If you use two cards
 
-If you use two cards, you have to :
+If you use two cards, you have to:
 
 - Use a cable for clock synchronization between the cards
 - Configure the _wheel_ to define the cards order in the system.
@@ -88,11 +88,13 @@ for each span :
 - `context` : the context (e.g. `from-extern` for provider links, `from-pabx` for PBX links)
 - `signalling` : `pri_cpe` for provider links, `pri_net` for PBX side
 
-#:warning: most of the PBX uses overlap dialing for some destination (digits are sent one by one
+**Warning**: Most of the PBX uses overlap dialing for some destination (digits are sent one by one
 instead of by block). In this case, the `overlapdial` parameter has to be activated on the PBX
 spans:
 
+```ascii
 overlapdial = incoming
+```
 
 Below an example of `/etc/asterisk/dahdi-channels.conf`:
 
@@ -190,16 +192,16 @@ The second interconnection :
 
 You must create two rules of outgoing calls:
 
-1.  Redirect calls to the PBX :
+1. Redirect calls to the PBX :
 
-- `POST /outcalls {"name": "fsc-pabx"}`
-- `PUT /outcalls/{outcall_id}/trunks`
-- `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
-- `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+  - `POST /outcalls {"name": "fsc-pabx"}`
+  - `PUT /outcalls/{outcall_id}/trunks`
+  - `POST /extensions {"exten": "_XXXX", "context": "to-pabx"}`
+  - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
 
-2.  Create a rule "fsc-operateur":
+2. Create a rule "fsc-operateur":
 
-- `POST /outcalls {"name": "fsc-operateur"}`
-- `PUT /outcalls/{outcall_id}/trunks`
-- `POST /extensions {"exten": "_X.", "context": "to-extern"}`
-- `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
+  - `POST /outcalls {"name": "fsc-operateur"}`
+  - `PUT /outcalls/{outcall_id}/trunks`
+  - `POST /extensions {"exten": "_X.", "context": "to-extern"}`
+  - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
