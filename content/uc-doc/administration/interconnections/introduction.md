@@ -2,10 +2,6 @@
 title: Introduction
 ---
 
-## Specific VoIP providers
-
-- [simonics](/uc-doc/administration/interconnections/simonics)
-
 ## Create an interconnection
 
 There are three types of interconnections :
