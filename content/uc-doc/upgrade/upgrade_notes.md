@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 21.02 {#21-02}
+
+Consult the
+[21.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10160)
+for more information.
+
 ## 21.01 {#21-01}
 
 - Asterisk version has been updated:
