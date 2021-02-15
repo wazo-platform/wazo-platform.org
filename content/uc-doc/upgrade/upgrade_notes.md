@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+
+## 21.03 {#21-03}
+
+- The following dialplan variables have been deprecated from the Wazo dialplan
+
+  - `XIVO_GROUPSUB` should be replaced by the `__WAZO_GROUP_SUBROUTINE` variable
+  - `XIVO_QUEUESUB` should be replaced by the `__WAZO_QUEUE_SUBROUTINE` variable
+
+
 ## 21.02 {#21-02}
 
 Consult the

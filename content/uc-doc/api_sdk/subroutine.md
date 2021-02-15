@@ -138,6 +138,12 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   - `to-wazo` when the channel was initiated by the user: the channel links Wazo to the calling
     party. From Asterisk, this is an inbound channel. From the peer, this is an outgoing call.
 
+- `__WAZO_GROUP_SUBROUTINE`: when used this variable will schedule a subroutine to be executed when
+  a call to a group gets answered. This variable can be used in groups pre-process subroutines.
+
+`__WAZO_QUEUE_SUBROUTINE`: when used this variable will schedule a subroutine to be executed when
+  a call to a queue gets answered. This variable can be used in queues pre-process subroutines.
+
   The default value is `from-wazo`. If you write scripts using originates to place new calls, you
   should set `WAZO_CHANNEL_DIRECTION` to `to-wazo` on the originator channel.
 
