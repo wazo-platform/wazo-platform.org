@@ -12,7 +12,7 @@ Here is a short review of the Wazo Platform 21.02 release.
 
 ## New features in this release
 
-* **Call Recording**: Call recordings are now attached to the call's CDR. There's an API to fetch the media from a given CDR.
+* **Call Recording**: Call recordings are now attached to the call's CDR. There's an [API](https://wazo-platform.org/documentation/api/cdr.html#tag/cdr) to fetch the media from a given CDR.
 
 ## Contributions
 
