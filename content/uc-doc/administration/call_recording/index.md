@@ -81,6 +81,7 @@ The following variables can be used in the file name:
 - `utc_time`: The formated date in UTC
 - `base_context`: The context in which this call entered the Wazo dialplan
 - `tenant_uuid`: The tenant UUID of the user or the outgoing call
+- `dest_type`: Will be the type of destination the call was reaching. `user`, `group`, `queue`
 
 **Note**: You **must** restart wazo-agid to take any config change into effect:
 
