@@ -31,7 +31,7 @@ See you at the next sprint review!
 
 ## Resources
 
-* [Install Wazo Platform](/install)
+* [Install Wazo Platform](/use-cases)
 
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#21-01)
 
@@ -39,7 +39,7 @@ Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#21-01)
 
-* [Wazo Platform 21.01 Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10146)
+* [Wazo Platform 21.01 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.01)
 
 ## Discussion
 
