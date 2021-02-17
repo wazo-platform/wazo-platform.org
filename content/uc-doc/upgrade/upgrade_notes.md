@@ -10,6 +10,9 @@ title: Upgrade notes
   - `XIVO_GROUPSUB` should be replaced by the `__WAZO_GROUP_SUBROUTINE` variable
   - `XIVO_QUEUESUB` should be replaced by the `__WAZO_QUEUE_SUBROUTINE` variable
 
+- Call recording will now record calls on queues and groups when the answering user has the
+  recording option enabled.
+
 
 ## 21.02 {#21-02}
 

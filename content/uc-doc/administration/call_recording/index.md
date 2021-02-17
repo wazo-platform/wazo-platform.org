@@ -12,13 +12,13 @@ title: Call Recording
     - [File names](#file-names)
     - [File extensions](#file-extensions)
 
-Call recording allow the user of the administrator to record a user's conversation. Recorded files
+Call recording allow the user or the administrator to record a user's conversation. Recorded files
 are stored on the Wazo server and are accessible using the web interface.
 
 ## Enabling
 
 There are many ways to enable call recording. It can be done by the administrator or the user
-himself.
+itself.
 
 ### Administrator
 
