@@ -41,7 +41,7 @@ the T41S to the `wazo-yealink-v85` plugin in this example. The information about
 keys, memory keys, SIP accounts, etc. was found in the datasheets available in the documentation
 provided on the Yealink website.
 
-### `plugins/xivo-yealink/v85/common.py`
+### `plugins/wazo-yealink/v85/common.py`
 
 This file contains the main code of the plugin. It is used to match the phone to the plugin using
 the HTTP User-Agent, DHCP option 60 or TFTP requests.
@@ -89,7 +89,7 @@ This file is also used to define the number of line keys, memory keys and SIP ac
     }
     ```
 
-### `plugins/xivo-yealink-v85/entry.py`
+### `plugins/wazo-yealink/v85/entry.py`
 
 This file is used to define the supported firmware version for the model and the firmware filename.
 
@@ -139,7 +139,7 @@ COMMON_FILES_DECT = [
 ]
 ```
 
-### `plugins/xivo-yealink-v85/pkgs/pkgs.db`
+### `plugins/wazo-yealink/v85/pkgs/pkgs.db`
 
 This file is where the firmware download information is located.
 
@@ -185,7 +185,7 @@ sha1sum: 091d469ba3ce13b424a5212fb74f0e1b59c31a6a
 
 The size is in bytes and the sha1sum is obtained using the `sha1sum` command on a GNU/Linux system.
 
-### `plugins/xivo-yealink-v85/templates/T41S.tpl`
+### `plugins/wazo-yealink/v85/templates/T41S.tpl`
 
 It is necessary to create a `T41S.tpl` file or copy-paste an existing file and rename it to
 `T41S.tpl`.Make sure that its content is correct.
@@ -206,7 +206,7 @@ documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) to learn 
 work. The `base.tpl` file mentioned in the model-specific templates usually contains all the shared
 parameters and will be what is output to the phone configuration file.
 
-### `plugins/xivo-yealink-v85/plugin-info`
+### `plugins/wazo-yealink/v85/plugin-info`
 
 This file is for metadata. It is used to expose what phones are supported by the plugin, the plugin
 version and the features supported by the phones and the plugin.
