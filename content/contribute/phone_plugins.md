@@ -6,7 +6,7 @@ phones. You can find all the code [on
 Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
 
 If instead you want to add a model to an existing provisioning plugin, see the [corresponding
-guide](/contribute/add_phone_to_plugin).
+guide](/contribute/add_phone_to_plugin) instead.
 
 Phone Analysis
 --------------
