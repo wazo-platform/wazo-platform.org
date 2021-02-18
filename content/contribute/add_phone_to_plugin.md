@@ -1,7 +1,20 @@
 # Add a phone model to an existing plugin
 
-First, you have to clone the [wazo-provd-plugins](https://github.com/wazo-platform/wazo-provd-plugins)
-repository:
+Sometimes, all you want to do is for a plugin to support a phone model that is closely related to
+models already present in it. In that case, all that is necessary to do most of the time is to add
+the model to the list of recognized models by that plugin to make it work.
+
+## Preparation
+
+### Knowledge
+
+This guide supposes that you know how to use git in a basic way. To learn more about git, GitHub
+provides a [pretty good tutorial](https://docs.github.com/en/github/using-git).
+
+### Provisioning plugins repository
+
+In order to work on plugins, you have to clone the
+[wazo-provd-plugins](https://github.com/wazo-platform/wazo-provd-plugins) repository:
 
 ```BashSession
 $ git clone https://github.com/wazo-platform/wazo-provd-plugins.git
