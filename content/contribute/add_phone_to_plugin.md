@@ -201,6 +201,11 @@ gui_lang.url = http://{{ ip }}:{{ http_port }}/lang/T41S-T42S-T53W-T53/004.GUI.F
 
 ```
 
+If you want to do more advanced modifications to the templates, you can take a look at the [Jinja2
+documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) to learn more about how they
+work. The `base.tpl` file mentioned in the model-specific templates usually contains all the shared
+parameters and will be what is output to the phone configuration file.
+
 ### `plugins/xivo-yealink-v85/plugin-info`
 
 This file is for metadata. It is used to expose what phones are supported by the plugin, the plugin
