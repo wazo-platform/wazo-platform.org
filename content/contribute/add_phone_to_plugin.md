@@ -249,4 +249,7 @@ In our example case, we need to:
 Commit everything you have done in git with the format `plugin-name: changes` as the commit
 message. For example, `yealink-v85: add T41S support`.
 
-You are now ready to open the pull request on GitHub.
+You are now ready to open the pull request on GitHub. To see how to open a Pull request, GitHub
+again provides
+[a tutorial](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests)
+on this subject.
