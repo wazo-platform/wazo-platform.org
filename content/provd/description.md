@@ -67,8 +67,8 @@ it anyway, you must delete the device and restart it manually.
 ## External links
 
 - [Introduction to provd plugin model](https://wazo-platform.org/contribute/introduction-to-the-plugin-model-of-the-new-provisioning-server)
-- [HTTP/TFTP requests processing in provd - part 1](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-1)
-- [HTTP/TFTP requests processing in provd - part 2](https://wazo-platform.org/contribute/httptftp-requests-processing-in-provd-part-2)
+- [HTTP/TFTP requests processing in provd - part 1](/uc-doc/contributors/provisioning/httptftp-requests-processing-in-provd-part-1)
+- [HTTP/TFTP requests processing in provd - part 2](/uc-doc/contributors/provisioning/httptftp-requests-processing-in-provd-part-2)
 
 ## Related
 
