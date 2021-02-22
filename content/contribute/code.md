@@ -105,7 +105,7 @@ well as its usage instructions.
 
 ## Debugging and profiling
 
-To debug Asterisk follow [this guide](/contribute/debug_asterisk). To
+To debug Asterisk follow [this guide](/uc-doc/contributors/debug_asterisk). To
 debug daemons follow [this guide](/contribute/debug_daemon).
 
 To profile python code follow [this guide](/contribute/profile_python).
