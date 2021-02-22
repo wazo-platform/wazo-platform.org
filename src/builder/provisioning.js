@@ -39,8 +39,8 @@ module.exports = async newPage => {
   Object.keys(plugins).forEach(vendor =>
     newPage(`/provisioning/${slugify(vendor)}`, 'provisioning/vendor', {
       name: vendor,
-      vendor: plugins[vendor],
-      images: imgs[slugify(vendor)],
+      vendor_plugins: plugins[vendor],
+      vendor_images: imgs[slugify(vendor)],
     })
   );
 
@@ -51,7 +51,7 @@ module.exports = async newPage => {
         name,
         vendor,
         phone: plugins[vendor][name],
-        images: imgs[slugify(vendor)],
+        vendor_images: imgs[slugify(vendor)],
       });
     });
   });
