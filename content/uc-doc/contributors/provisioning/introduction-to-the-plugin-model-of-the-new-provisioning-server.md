@@ -1,5 +1,6 @@
-Introduction to the plugin model of the new provisioning server
-===============================================================
+---
+title: Introduction to the plugin model of the new provisioning server
+---
 
 What must be understood is that if you install provd but you do not
 install any plugins, the server won't be able to configure anything.

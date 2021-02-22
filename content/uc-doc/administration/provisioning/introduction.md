@@ -63,6 +63,6 @@ Limitations
 External links
 ==============
 
--   [Introduction to provd plugin model](http://blog.wazo.community/introduction-to-the-plugin-model-of-the-new-provisioning-server.html)
+-   [Introduction to provd plugin model](/uc-doc/contributors/provisioning/introduction-to-the-plugin-model-of-the-new-provisioning-server)
 -   [HTTP/TFTP requests processing in provd - part 1](/uc-doc/contributors/provisioning/httptftp-requests-processing-in-provd-part-1)
 -   [HTTP/TFTP requests processing in provd - part 2](/uc-doc/contributors/provisioning/httptftp-requests-processing-in-provd-part-2)
