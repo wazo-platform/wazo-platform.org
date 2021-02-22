@@ -28,7 +28,7 @@ Most of Wazo Platform is written in Python, following the
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
 validate that your code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
-command `tox -e linters`. More details in the [Style Guide](/contribute/style_guide)
+command `tox -e linters`. More details in the [Style Guide](/uc-doc/contributors/style_guide)
 
 Follow the [Guidelines](/contribute/guidelines) to create or improve services.
 
