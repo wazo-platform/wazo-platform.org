@@ -1,4 +1,6 @@
-# Add a phone model to an existing plugin
+---
+title: Add a phone model to an existing plugin
+---
 
 Sometimes, all you want to do is for a plugin to support a phone model that is closely related to
 models already present in it. In that case, all that is necessary to do most of the time is to add
