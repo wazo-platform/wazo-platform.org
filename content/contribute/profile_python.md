@@ -37,7 +37,7 @@ $ twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/w
 Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn't work reliably using this
 profiler. To profile multi-threaded programs, read the next section.
 
-The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
+The [debug-daemons](/uc-doc/contributors/debug_daemon) section documents how to launch the
 various Wazo services in foreground/debug mode.
 
 4.  Examine the result of the profiling:
@@ -91,7 +91,7 @@ python3 -m yappi -f callgrind -o /tmp/wazo-amid-profile.callgrind.out /usr/bin/w
 This will create a file named `/tmp/wazo-amid-profile.callgrind.out` when the process
 terminates.
 
-The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
+The [debug-daemons](/uc-doc/contributors/debug_daemon) section documents how to launch the
 various Wazo services in foreground/debug mode.
 
 6.  Examine the result of the profiling with a graphical analysis tool like KCacheGrind.
@@ -125,7 +125,7 @@ want to have additional information about it.
 # coverage run /usr/bin/wazo-auth -f
 ```
 
-The [debug-daemons](/contribute/debug_daemon) section documents how to launch the
+The [debug-daemons](/uc-doc/contributors/debug_daemon) section documents how to launch the
 various Wazo service in foreground/debug mode.
 
 4.  After the process terminates, use `coverage html` to generate an
