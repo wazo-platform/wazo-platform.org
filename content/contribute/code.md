@@ -28,7 +28,7 @@ Most of Wazo Platform is written in Python, following the
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
 validate that your code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
-command `tox -e linters`. More details in the [Style Guide](/contribute/style_guide)
+command `tox -e linters`. More details in the [Style Guide](/uc-doc/contributors/style_guide)
 
 Follow the [Guidelines](/contribute/guidelines) to create or improve services.
 
@@ -105,10 +105,10 @@ well as its usage instructions.
 
 ## Debugging and profiling
 
-To debug Asterisk follow [this guide](/contribute/debug_asterisk). To
-debug daemons follow [this guide](/contribute/debug_daemon).
+To debug Asterisk follow [this guide](/uc-doc/contributors/debug_asterisk). To
+debug daemons follow [this guide](/uc-doc/contributors/debug_daemon).
 
-To profile python code follow [this guide](/contribute/profile_python).
+To profile python code follow [this guide](/uc-doc/contributors/profile_python).
 
 # Contributing your code
 

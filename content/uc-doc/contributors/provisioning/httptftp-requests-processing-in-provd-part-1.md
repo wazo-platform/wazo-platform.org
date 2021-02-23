@@ -1,5 +1,6 @@
-HTTP/TFTP requests processing in provd - part 1
-===============================================
+---
+title: HTTP/TFTP requests processing in provd - part 1
+---
 
 Well. Yes. provd ask a "device info extractor" object to extract
 information from the HTTP request, and that object returns the

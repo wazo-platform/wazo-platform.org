@@ -6,9 +6,12 @@ Here is an example of how to develop a provisioning plugin for Digium
 phones. You can find all the code [on
 Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
 
+If instead you want to add a model to an existing provisioning plugin, see the [corresponding
+guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
+
 ## Phone Analysis {#phone-analysis}
 
-Here\'s a non-exhaustive list of what a phone may or may not support:
+Here's a non-exhaustive list of what a phone may or may not support:
 
 -   Language
 -   Timezone
@@ -31,136 +34,156 @@ Here\'s a non-exhaustive list of what a phone may or may not support:
 
 In `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update`:
 
-    group {
-        option tftp-server-name = concat(config-option VOIP.http-server-uri, "/Digium");
-        class "DigiumD40" {
-            match if substring(option vendor-class-identifier, 0, 10) = "digium_D40";
-            log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D40"));
-        }
-        class "DigiumD50" {
-            match if substring(option vendor-class-identifier, 0, 10) = "digium_D50";
-            log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D50"));
-        }
-        class "DigiumD70" {
-            match if substring(option vendor-class-identifier, 0, 10) = "digium_D70";
-            log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D70"));
-        }
+```Python
+group {
+    option tftp-server-name = concat(config-option VOIP.http-server-uri, "/Digium");
+    class "DigiumD40" {
+        match if substring(option vendor-class-identifier, 0, 10) = "digium_D40";
+        log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D40"));
     }
+    class "DigiumD50" {
+        match if substring(option vendor-class-identifier, 0, 10) = "digium_D50";
+        log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D50"));
+    }
+    class "DigiumD70" {
+        match if substring(option vendor-class-identifier, 0, 10) = "digium_D70";
+        log(concat("[", binary-to-ascii(16, 8, ":", hardware), "] ", "BOOT Digium D70"));
+    }
+}
+```
 
 In
 `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle`:
 
-    # Digium
-    allow members of "DigiumD40";
-    allow members of "DigiumD50";
-    allow members of "DigiumD70";
+```ShellSession
+# Digium
+allow members of "DigiumD40";
+allow members of "DigiumD50";
+allow members of "DigiumD70";
+```
 
 You can check the logs in `/var/log/syslog`:
 
-    dhcpd: [1:0:f:d3:5:48:48] [VENDOR-CLASS-IDENTIFIER: digium_D40_1_1_0_0_48178]
-    dhcpd: [1:0:f:d3:5:48:48] POOL VoIP
-    dhcpd: [1:0:f:d3:5:48:48] BOOT Digium D40
-    dhcpd: DHCPDISCOVER from 00:0f:d3:05:48:48 via eth0
-    dhcpd: DHCPOFFER on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
-    dhcpd: [1:0:f:d3:5:48:48] [VENDOR-CLASS-IDENTIFIER: digium_D40_1_1_0_0_48178]
-    dhcpd: [1:0:f:d3:5:48:48] POOL VoIP
-    dhcpd: [1:0:f:d3:5:48:48] BOOT Digium D40
-    dhcpd: DHCPREQUEST for 10.42.1.100 (10.42.1.1) from 00:0f:d3:05:48:48 via eth0
-    dhcpd: DHCPACK on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
+```ShellSession
+dhcpd: [1:0:f:d3:5:48:48] [VENDOR-CLASS-IDENTIFIER: digium_D40_1_1_0_0_48178]
+dhcpd: [1:0:f:d3:5:48:48] POOL VoIP
+dhcpd: [1:0:f:d3:5:48:48] BOOT Digium D40
+dhcpd: DHCPDISCOVER from 00:0f:d3:05:48:48 via eth0
+dhcpd: DHCPOFFER on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
+dhcpd: [1:0:f:d3:5:48:48] [VENDOR-CLASS-IDENTIFIER: digium_D40_1_1_0_0_48178]
+dhcpd: [1:0:f:d3:5:48:48] POOL VoIP
+dhcpd: [1:0:f:d3:5:48:48] BOOT Digium D40
+dhcpd: DHCPREQUEST for 10.42.1.100 (10.42.1.1) from 00:0f:d3:05:48:48 via eth0
+dhcpd: DHCPACK on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
+```
 
 ## Update the DHCP configuration {#update-the-dhcp-configuration}
 
 To upload the new DHCP configuration on `provd.wazo.community`, in
 `wazo-provd-plugins/dhcpd-update`:
 
-    make upload
+```ShellSession
+$ make upload
+```
 
 To download the DHCP configuration on the Wazo server, run:
 
-    dhcpcd-update -d
+```ShellSession
+# dhcpcd-update -d
+```
 
 ## Plugin creation {#plugin-creation}
 
 In `wazo-provd-plugins/plugins`, create the directory tree:
 
-    xivo-digium/
-        build.py
-        1.1.0.0/
-            plugin-info
-            entry.py
-            pkgs/
-                pkgs.db
-        common/
-            common.py
-            var/
-                tftpboot/
-                    Digium/
+```ShellSession
+xivo-digium/
+    build.py
+    1.1.0.0/
+        plugin-info
+        entry.py
+        pkgs/
+            pkgs.db
+    common/
+        common.py
+        var/
+            tftpboot/
+                Digium/
+```
 
 In `build.py`:
 
-    # -*- coding: UTF-8 -*-
+```Python
+# -*- coding: UTF-8 -*-
 
-    from subprocess import check_call
+from subprocess import check_call
 
-    @target('1.1.0.0', 'xivo-digium-1.1.0.0')
-    def build_1_1_0_0(path):
-        check_call(['rsync', '-rlp', '--exclude', '.*',
-                    'common/', path])
-        check_call(['rsync', '-rlp', '--exclude', '.*',
-                    '1.1.0.0/', path])
+@target('1.1.0.0', 'xivo-digium-1.1.0.0')
+def build_1_1_0_0(path):
+    check_call(['rsync', '-rlp', '--exclude', '.*',
+                'common/', path])
+    check_call(['rsync', '-rlp', '--exclude', '.*',
+                '1.1.0.0/', path])
+```
 
 In `1.1.0.0/plugin-info`:
 
-    {
-        "version": "0.3",
-        "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
-        "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.1.0.0.",
-        "capabilities": {
-            "Digium, D40, 1.1.0.0": {
-                "sip.lines": 2
-            },
-            "Digium, D50, 1.1.0.0": {
-                "sip.lines": 4
-            },
-            "Digium, D70, 1.1.0.0": {
-                "sip.lines": 6
-            }
+```Python
+{
+    "version": "0.3",
+    "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
+    "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.1.0.0.",
+    "capabilities": {
+        "Digium, D40, 1.1.0.0": {
+            "sip.lines": 2
+        },
+        "Digium, D50, 1.1.0.0": {
+            "sip.lines": 4
+        },
+        "Digium, D70, 1.1.0.0": {
+            "sip.lines": 6
         }
     }
+}
+```
 
 In `1.1.0.0/entry.py`:
 
-    # -*- coding: UTF-8 -*-
-    common = {}
-    execfile_('common.py', common)
-    VERSION = u'1.1.0.0.48178'
-    class DigiumPlugin(common['BaseDigiumPlugin']):
-        IS_PLUGIN = True
-        pg_associator = common['DigiumPgAssociator'](VERSION)
+```Python
+# -*- coding: UTF-8 -*-
+common = {}
+execfile_('common.py', common)
+VERSION = u'1.1.0.0.48178'
+class DigiumPlugin(common['BaseDigiumPlugin']):
+    IS_PLUGIN = True
+    pg_associator = common['DigiumPgAssociator'](VERSION)
+```
 
 In `1.1.0.0/pkgs/pkgs.db`, put the informations needed to download the
 firmwares:
 
-    [pkg_firmware]
-    description: Firmware for all Digium phones
-    description_fr: Micrologiciel pour tous les téléphones Digium
-    version: 1.1.0.0
-    files: firmware
-    install: digium-fw
+```Ini
+[pkg_firmware]
+description: Firmware for all Digium phones
+description_fr: Micrologiciel pour tous les téléphones Digium
+version: 1.1.0.0
+files: firmware
+install: digium-fw
 
-    [install_digium-fw]
-    a-b: untar $FILE1
-    b-c: cp */*.eff firmware/
+[install_digium-fw]
+a-b: untar $FILE1
+b-c: cp */*.eff firmware/
 
-    [file_firmware]
-    url: http://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_1_0_0_package.tar.gz
-    size: 100111361
-    sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
+[file_firmware]
+url: http://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_1_0_0_package.tar.gz
+size: 100111361
+sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
+```
 
 In `common/common.py`, put the code needed to extract informations about
 the phone:
 
-``` {.sourceCode .python}
+```Python
 class DigiumDHCPDeviceInfoExtractor(object):
 
     _VDI_REGEX = re.compile(r'^digium_(D\d\d)_([\d_]+)$')
@@ -209,15 +232,17 @@ class DigiumHTTPDeviceInfoExtractor(object):
 
 You should see in the logs (`/var/log/wazo-provd.log`):
 
-    provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
-    provd[1090]: <11> Extracted device info: {u'ip': u'10.42.1.100', u'mac': u'00:0f:d3:05:48:48', u'vendor': u'Digium'}
-    provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
-    provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
+```ShellSession
+provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
+provd[1090]: <11> Extracted device info: {u'ip': u'10.42.1.100', u'mac': u'00:0f:d3:05:48:48', u'vendor': u'Digium'}
+provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
+provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
+```
 
 Still in `common/common.py`, put the code needed to associate the phone
 with the plugin:
 
-``` {.sourceCode .python}
+```Python
 class DigiumPgAssociator(BasePgAssociator):
 
     _MODELS = [u'D40', u'D50', u'D70']
@@ -238,7 +263,7 @@ class DigiumPgAssociator(BasePgAssociator):
 
 Then, the last piece: the generation of the phone configuration:
 
-``` {.sourceCode .python}
+```Python
 class BaseDigiumPlugin(StandardPlugin):
 
     _ENCODING = 'UTF-8'
@@ -365,16 +390,18 @@ First, change the source of your plugins (cf.
 
 For a development version:
 
-    cd xivo-skaro/provisioning/plugins
-    make upload
+```ShellSession
+$ cd xivo-skaro/provisioning/plugins
+$ make upload
+```
 
 For a stable version:
 
-    cd xivo-skaro/provisioning/plugins
-    make download-stable
-    cd _build
-    cp dev/xivo-digium-1.1.0.0-0.3.tar.bz2 stable/
-    cd ..
-    make upload-stable
-
-More details about this in [Managing Plugins](/uc-doc/contributors/provisioning/managing_plugins).
+```ShellSession
+$ cd xivo-skaro/provisioning/plugins
+$ make download-stable
+$ cd _build
+$ cp dev/xivo-digium-1.1.0.0-0.3.tar.bz2 stable/
+$ cd ..
+$ make upload-stable
+```
