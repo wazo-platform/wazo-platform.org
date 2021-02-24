@@ -39,7 +39,7 @@ export const buildTable = data => {
   })
 }
 
-export default ({ pageContext: { name, vendor, phone, images } }) => {
+export default ({ pageContext: { name, vendor, phone, vendor_images } }) => {
   const breadcrumbs = [
     { url: '/provisioning/vendors', label: 'Provd plugins' },
     { url: `/provisioning/${slugify(vendor)}`, label: vendor },
@@ -53,7 +53,7 @@ export default ({ pageContext: { name, vendor, phone, images } }) => {
             <div className="col-card col col-3">
               <div className="card">
                 <div className="body">
-                  {images && images.indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
+                  {vendor_images && vendor_images.indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
                 </div>
               </div>
             </div>
