@@ -17,7 +17,7 @@ title: Upgrade notes
 ## 21.02 {#21-02}
 
 Consult the
-[21.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10160)
+[21.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.02)
 for more information.
 
 ## 21.01 {#21-01}
@@ -46,7 +46,7 @@ for more information.
   [dahdi upgrade section](/uc-doc/administration/hardware/chan_dahdi.md#dahdi-upgrade)
 
 Consult the
-[21.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10146)
+[21.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.01)
 for more information.
 
 ## 20.17 {#20-17}
