@@ -23,14 +23,16 @@ You have two options in case of parking timeout :
 
 - Send park call to the dialplan
 
-  In case you don\'t want to call back the user who parked the call, you have the option to send the
+  In case you don't want to call back the user who parked the call, you have the option to send the
   call to any other extension or application. If the parking times out, the call is sent back to the
   dialplan in context `[parkedcallstimeout]`. You can define this context in a dialplan
-  configuration file located to `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}
+  configuration file located to `/etc/asterisk/extensions_extra.d/`
 
   Example:
 
-      [parkedcallstimeout]
-      exten = s,1,Noop('park call time out')
-      same  =   n,Playback(hello-world)
-      same  =   n,Hangup()
+  ```dialplan
+  [parkedcallstimeout]
+  exten = s,1,Noop('park call time out')
+  same  =   n,Playback(hello-world)
+  same  =   n,Hangup()
+  ```
