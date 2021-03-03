@@ -2,7 +2,7 @@
 title: Advanced Configuration
 ---
 
-# DHCP Integration {#dhcp-integration}
+## DHCP Integration {#dhcp-integration}
 
 DHCP integration is enabled by default without possibility to disable it.
 
@@ -19,7 +19,7 @@ This feature can also be useful if your phones are not always getting the same I
 reason or another. Again, this is useful only for some phones, like the Cisco 7900; it has no effect
 for Aastra 6700.
 
-# Creating Custom Templates {#provd-custom-templates}
+## Creating Custom Templates {#provd-custom-templates}
 
 Custom templates comes in handy when you have some really specific configuration to make on your
 telephony devices.
@@ -27,7 +27,7 @@ telephony devices.
 Templates are handled on a per plugin basis. It's not possible for a template to be shared by more
 than one plugin since it's a design limitation of the plugin system of `provd`.
 
-#:exclamation: When you install a new plugin, templates are not migrated automatically, so you must
+**Note**: When you install a new plugin, templates are not migrated automatically, so you must
 manually copy them from the old plugin directory to the new one. This does not apply for a plugin
 upgrade.
 
@@ -36,68 +36,63 @@ templates for it.
 
 First thing to do is to go into the directory where the plugin is installed:
 
-    cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
+```shell
+cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
+```
 
 Once you are there, you can see there's quite a few files and directories:
 
-    tree
-    .
-    +-- common.py
-    +-- entry.py
-    +-- pkgs
-    |   +-- pkgs.db
-    +-- plugin-info
-    +-- README
+```ascii
+tree
+.
++-- common.py
++-- entry.py
++-- pkgs
+|   +-- pkgs.db
++-- plugin-info
++-- README
++-- templates
+|   +-- 6730i.tpl
+|   +-- 6731i.tpl
+|   +-- 6739i.tpl
+|   +-- 6753i.tpl
+|   +-- 6755i.tpl
+|   +-- 6757i.tpl
+|   +-- 9143i.tpl
+|   +-- 9480i.tpl
+|   +-- base.tpl
++-- var
+    +-- cache
+    +-- installed
     +-- templates
-    |   +-- 6730i.tpl
-    |   +-- 6731i.tpl
-    |   +-- 6739i.tpl
-    |   +-- 6753i.tpl
-    |   +-- 6755i.tpl
-    |   +-- 6757i.tpl
-    |   +-- 9143i.tpl
-    |   +-- 9480i.tpl
-    |   +-- base.tpl
-    +-- var
-        +-- cache
-        +-- installed
-        +-- templates
-        +-- tftpboot
-            +-- Aastra
-                +-- aastra.cfg
+    +-- tftpboot
+        +-- Aastra
+            +-- aastra.cfg
+```
 
 The interesting directories are:
 
-templates
+- `templates`: This is where the original templates lies. You _should not_ edit these files directly
+  but instead copy the one you want to modify in the var/templates directory.
+- `var/templates`: This is the directory where you put and edit your custom templates.
+- `var/tftpboot`: This is where the configuration files lies once they have been generated from the
+  templates. You should look at them to confirm that your custom templates are giving you the result
+  you are expecting.
 
-: This is where the original templates lies. You _should not_ edit these files directly but instead
-copy the one you want to modify in the var/templates directory.
-
-var/templates
-
-: This is the directory where you put and edit your custom templates.
-
-var/tftpboot
-
-: This is where the configuration files lies once they have been generated from the templates. You
-should look at them to confirm that your custom templates are giving you the result you are
-expecting.
-
-#:warning: When you uninstall a plugin, the plugin directory is removed altogether, including all
+**Warning** When you uninstall a plugin, the plugin directory is removed altogether, including all
 the custom templates.
 
 A few things to know before writing your first custom template:
 
 - templates use the [Jinja2 template engine](http://jinja.pocoo.org/docs/templates/).
 - when doing an `include` or an `extend` from a template, the file is first looked up in the
-  `var/templates`{.interpreted-text role="file"} directory and then in the
-  `templates`{.interpreted-text role="file"} directory.
+  `var/templates` directory and then in the `templates` directory.
 - device in autoprov mode are affected by templates, because from the point of view of `provd`,
   there's no difference between a device in autoprov mode or fully configured. This means there's
-  usually no need to modify static files in `var/tftpboot`{.interpreted-text role="file"}. And this
-  is a bad idea since a plugin upgrade will override these files.
+  usually no need to modify static files in `var/tftpboot`. And this is a bad idea since a plugin
+  upgrade will override these files.
 
-## Custom template for every devices
+### Custom template for every devices
 
     cp templates/base.tpl var/templates
     vi var/templates/base.tpl
@@ -107,7 +102,7 @@ Once this is done, if you want to synchronize all the affected devices, use the 
 
     wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
-## Custom template for a specific model
+### Custom template for a specific model
 
 Let's supose we want to customize the template for our 6739i:
 
@@ -115,11 +110,10 @@ Let's supose we want to customize the template for our 6739i:
     vi var/templates/6739i.tpl
     wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
-## Custom template for a specific device
+### Custom template for a specific device
 
 To create a custom template for a specific device you have to create a device-specific template
-named `<device_specific_file_with_extension>.tpl`{.interpreted-text role="file"} in the
-`var/templates/` directory :
+named `<device_specific_file_with_extension>.tpl` in the `var/templates/` directory :
 
 - for an Aastra phone, if you want to customize the file `00085D2EECFB.cfg` you will have to create
   a template file named `00085D2EECFB.cfg.tpl`,
@@ -145,7 +139,7 @@ more than 1 file.
 The template to use as the base for a device specific template will vary depending on the need.
 Typically, the model template will be a good choice, but it might not always be the case.
 
-# Changing the Plugin Used by a Device {#provd-changing-device-plugin}
+## Changing the Plugin Used by a Device {#provd-changing-device-plugin}
 
 From time to time, new firmwares are released by the devices manufacturer. This sometimes translate
 to a new plugin being available for these devices.
@@ -166,15 +160,19 @@ make sure that they are still compatible.
 Once you take the decision to migrate all your phones to the new plugin, you can use the following
 command:
 
-    wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+```shell
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+```
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time:
 
-    wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+```shell
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+```
 
 You can check that all went well by looking at `GET /devices` page.
 
-# NAT
+## NAT
 
 The provisioning server has partial support for environment where the telephony devices are behind a
 [NAT](http://en.wikipedia.org/wiki/NAT) equipment.
@@ -194,12 +192,14 @@ If you have many devices behind a NAT equipment, you should also check the
 [security](/uc-doc/administration/provisioning/adv_configuration#provd-security) section to make
 sure the IP address of your NAT equipment doesn't get banned unintentionally.
 
-## Limitations
+### Limitations
 
 - You must only have phones of the following brands:
+
   - Aastra
   - Cisco SPA
   - Yealink
+
 - All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT
   equipments, not necessarily the same one)
 - You must provision the devices via REST API `PUT /lines/{line_id}/devices/{device_id}`. Using the
@@ -209,7 +209,7 @@ sure the IP address of your NAT equipment doesn't get banned unintentionally.
 For technical information about why other devices are not supported, you can look at
 [this issue](https://projects.wazo.community/issues/5107) on the Wazo bug tracker.
 
-# Security {#provd-security}
+## Security {#provd-security}
 
 By design, the auto-provisioning process is vulnerable to:
 
@@ -223,44 +223,32 @@ By design, the auto-provisioning process is vulnerable to:
   could spoof requests to the provisioning server to create a huge amount of devices, creating a
   denial-of-service condition.
 
-That said, starting from XiVO 16.08, XiVO adds [Fail2ban](http://www.fail2ban.org/) support to the
+That said, starting from Wazo 16.08, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the
 provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
 file potentially containing sensitive information is requested, a log line is appended to the
 `/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing happens when
 a new device is automatically created by the provisioning server.
 
 The fail2ban configuration for the provisioning server is located at
-`/etc/fail2ban/jail.d/wazo.conf`. You may want to adjust the `findtime` / `maxretry` value if you
-have special requirements. In particular, if you have many phones behind a NAT equipment, you'll
-probably have to adjust these values, since every request coming from your phones behind your NAT
-will appear to the provisioning server as coming from the same source IP address, and this IP
-address will then be more likely to get banned promptly if you, for example, reboot all your phones
-at the same time. Another solution would be to add your IP address to the list of ignored IP address
-of fail2ban. See the fail2ban(1) man page for more information.
+`/etc/fail2ban/jail.d/wazo.conf`. You may want to adjust the `findtime`/`maxretry` value if you have
+special requirements. In particular, if you have many phones behind a NAT equipment, you'll probably
+have to adjust these values, since every request coming from your phones behind your NAT will appear
+to the provisioning server as coming from the same source IP address, and this IP address will then
+be more likely to get banned promptly if you, for example, reboot all your phones at the same time.
+Another solution would be to add your IP address to the list of ignored IP address of fail2ban. See
+the fail2ban(1) man page for more information.
 
-## System Requirements {#provd-security-requirements}
+### System Requirements {#provd-security-requirements}
 
-XiVO/Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the
-list of official plugins which are compatible:
+Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
+of official plugins which are compatible:
 
----
-
-Plugin family Version
-
----
-
-xivo-aastra >= 1.6
-
-xivo-cisco-sccp >= 1.1
-
-xivo-cisco-spa >= 1.0
-
-xivo-digium >= 1.0
-
-xivo-polycom >= 1.7
-
-xivo-snom >= 1.6
-
-xivo-yealink >= 1.26
-
----
+| Plugin family   | Version |
+| --------------- | ------- |
+| xivo-aastra     | >= 1.6  |
+| xivo-cisco-sccp | >= 1.1  |
+| xivo-cisco-spa  | >= 1.0  |
+| xivo-digium     | >= 1.0  |
+| xivo-polycom    | >= 1.7  |
+| xivo-snom       | >= 1.6  |
+| xivo-yealink    | >= 1.26 |
