@@ -131,7 +131,6 @@ SCCP Phones support directmedia (direct RTP).
 | 8945        | Testing   |                   |                |
 | CIPC        | Yes       | 2.1.2             | Yes            |
 
-
 Models not listed in the table above won't be able to connect to Asterisk at all. Models listed as
 "Testing" are not yet officially supported in Wazo: use them at your own risk.
 
