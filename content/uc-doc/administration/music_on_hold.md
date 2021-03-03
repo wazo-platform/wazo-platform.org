@@ -5,73 +5,70 @@ title: Music on Hold
 
 Available categories are:
 
--   files: play sound files. Formats supported:
+- files: play sound files. Formats supported:
 
-      -----------------------------------------------------------------------
-      Format Name     Filename Extension
-      --------------- -------------------------------------------------------
-      G.719           .g719
+  ***
 
-      G.723           .g723 .g723sf
+  Format Name Filename Extension
 
-      G.726           .g726-40 .g726-32 .g726-24 .g726-16
+  ***
 
-      G.729           .g729
+  G.719 .g719
 
-      GSM             .gsm
+  G.723 .g723 .g723sf
 
-      iLBC            .ilbc
+  G.726 .g726-40 .g726-32 .g726-24 .g726-16
 
-      Ogg Vorbis      .ogg (only mono files sampled at 8000 Hz)
+  G.729 .g729
 
-      G.711 A-law     .alaw .al .alw
+  GSM .gsm
 
-      G.711 μ-law     .pcm .ulaw .ul .mu .ulw
+  iLBC .ilbc
 
-      G.722           .g722
+  Ogg Vorbis .ogg (only mono files sampled at 8000 Hz)
 
-      Au              .au
+  G.711 A-law .alaw .al .alw
 
-      Siren7          .siren7
+  G.711 μ-law .pcm .ulaw .ul .mu .ulw
 
-      Siren14         .siren14
+  G.722 .g722
 
-      SLN             .raw .sln .sln12 .sln16 .sln24 .sln32 .sln44 .sln48
-                      .sln96 .sln192
+  Au .au
 
-      VOX             .vox
+  Siren7 .siren7
 
-      WAV             .wav .wav16
+  Siren14 .siren14
 
-      WAV GSM         .WAV .wav49
-      -----------------------------------------------------------------------
+  SLN .raw .sln .sln12 .sln16 .sln24 .sln32 .sln44 .sln48 .sln96 .sln192
 
-    Only 1 audio channel must be present per file, i.e. files must be in
-    mono.
+  VOX .vox
 
-    If your music on hold files don't seem to work, you should look for
-    errors in the asterisk logs.
+  WAV .wav .wav16
 
-    The on-hold music will always play from the start.
+  WAV GSM .WAV .wav49
 
--   mp3: play MP3 files.
+  ***
 
-    #:warning: The mp3 mode is deprecated and you should not use it. Instead, you
-    should convert your MP3 files to another format and use the
-    "files" mode.
+  Only 1 audio channel must be present per file, i.e. files must be in mono.
 
-    The on-hold music will play from an arbitrary position on the track,
-    it will not play from the start.
+  If your music on hold files don't seem to work, you should look for errors in the asterisk logs.
 
--   custom: do not play sound files. Instead, run an external process.
-    That process must send on stdout the same binary format than WAV
-    files.
+  The on-hold music will always play from the start.
 
-    Example process:
-    `/usr/bin/mpg123 -s --mono -y -f 8192 -r 8000 http://streaming.example.com/stream.mp3`{.sourceCode}
+- mp3: play MP3 files.
 
-    #:exclamation: Processes run by custom categories are started as soon as the
-    category is created and will only stop when the category is deleted.
-    This means that on-hold music fed from online streaming will
-    constantly be receiving network traffic, even when there are no
-    calls.
+  #:warning: The mp3 mode is deprecated and you should not use it. Instead, you should convert your
+  MP3 files to another format and use the "files" mode.
+
+  The on-hold music will play from an arbitrary position on the track, it will not play from the
+  start.
+
+- custom: do not play sound files. Instead, run an external process. That process must send on
+  stdout the same binary format than WAV files.
+
+  Example process:
+  `/usr/bin/mpg123 -s --mono -y -f 8192 -r 8000 http://streaming.example.com/stream.mp3`{.sourceCode}
+
+  #:exclamation: Processes run by custom categories are started as soon as the category is created
+  and will only stop when the category is deleted. This means that on-hold music fed from online
+  streaming will constantly be receiving network traffic, even when there are no calls.
