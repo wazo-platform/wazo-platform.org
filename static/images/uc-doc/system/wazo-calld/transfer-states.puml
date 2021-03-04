@@ -1,0 +1,58 @@
+@startuml
+skinparam state {
+  BorderColor<<Bridged>> Blue
+  ArrowColor<<Bridged>> Blue
+}
+
+[*] --> 1to1NoStasis
+1to1NoStasis --> [*] : A/B hangup
+1to1NoStasis : A talks to B
+1to1NoStasis -> MovingToStasis
+
+MovingToStasis : A and B are redirected to Stasis app
+MovingToStasis --> Unknown : A/B hangup
+MovingToStasis --> Ringing
+
+Ringing : A is held
+Ringing : B is hearing ringback tone
+Ringing : C is ringing
+Ringing --> RingingAbandoned : A hangup
+Ringing -[#00FF00]-> Answered : C answers 
+Ringing --> RingingCompleted : B hangup / B completes
+Ringing -[#00FF00]-> 1to1Stasis : C hangs up
+
+state 1to1Stasis <<Bridged>>
+1to1Stasis : A talks to B
+1to1Stasis -[#0000FF]-> Ringing : B starts attended transfer
+1to1Stasis -[#0000FF]-> RingingCompleted : B starts blind transfer
+1to1Stasis -[#0000FF]-> [*] : A/B hangup
+
+RingingAbandoned : A is hungup
+RingingAbandoned : B is talking to C
+RingingAbandoned -[#00FF00]-> Abandoned : C answers
+RingingAbandoned --> [*] : B/C hangup
+
+state Answered <<Bridged>>
+Answered : A is held
+Answered : B is talking to C
+Answered -[#00FFFF]-> Abandoned : A hangs up
+Answered -[#00FFFF]-> Completed : B hangs up / B completes
+Answered -[#00FFFF]-> 1to1Stasis : C hangs up / B cancels
+
+RingingCompleted : A is hearing ringback tone
+RingingCompleted : B is hungup
+RingingCompleted : C is ringing
+RingingCompleted --> [*] : A/C hangup
+RingingCompleted -[#00FF00]-> Completed : C answers
+
+state Abandoned <<Bridged>>
+Abandoned : A hungup
+Abandoned : B talks to C
+Abandoned -[#0000FF]-> [*] : B/C hangup
+
+state Completed <<Bridged>>
+Completed : A talks to C
+Completed -[#0000FF]-> [*] : A/C hangup
+
+Unknown : Unknown state
+@enduml
