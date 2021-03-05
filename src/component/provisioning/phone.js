@@ -22,9 +22,7 @@ const MarkedDown = ({ label, content }) => {
   return (
     <>
       <tr className="marked-button" onClick={toggleContent}>
-        <td>
-          <a>{label}</a>
-        </td>
+        <td>{label}</td>
         <td>
           <div className="status"></div>
         </td>
