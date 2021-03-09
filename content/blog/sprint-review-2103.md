@@ -13,7 +13,7 @@ Here is a short review of the Wazo Platform 21.03 release.
 ## New features in this release
 
 * **Call Recording**: it is now possible to record calls that are coming from and going to a queue or a group.
-* **Call Recording**: There is a new API to delete multiple recordings, useful to purge recordings automatically.
+* **Call Recording**: API to delete multiple recordings, useful to purge recordings automatically.
 
 ## Technical features
 
