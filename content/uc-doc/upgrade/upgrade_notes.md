@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 21.04 {#21-04}
+
+- The group resource is now identified by a UUID instead of sequencial ID. The API using sequencial
+  ID will keep working for a while. Policies with permissions for a specific group will have to be
+  changed to use the UUID of the group instead of its ID. This only happens if you create policies with
+  permissions limited to a specific group.
+
+  For example: `confd.groups.42.read` whould have to be updated to use the UUID of the group with ID 42.
+
+
 ## 21.03 {#21-03}
 
 - Call logs have been moved to wazo-call-logd database. The migration will be automated for everyone
