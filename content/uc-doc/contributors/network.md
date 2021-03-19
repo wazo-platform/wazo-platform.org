@@ -36,7 +36,7 @@ Network Flow table (IN) :
 | wazo-provd       | HTTP         | TCP       | 8666 | 127.0.0.1 | yes            | yes     |
 | wazo-provd       | HTTP         | TCP       | 8667 | 127.0.0.1 | no             | yes     |
 | wazo-confgend    | HTTP         | TCP       | 8669 | 127.0.0.1 | no             | yes     |
-| xivo-sysconfd    | HTTP         | TCP       | 8668 | 127.0.0.1 | no             | yes     |
+| wazo-sysconfd    | HTTP         | TCP       | 8668 | 127.0.0.1 | no             | yes     |
 | wazo-auth        | HTTP         | TCP       | 9497 | 127.0.0.1 | both           | yes     |
 | wazo-call-logd   | HTTP         | TCP       | 9298 | 127.0.0.1 | yes            | yes     |
 | wazo-dird        | HTTP         | TCP       | 9489 | 127.0.0.1 | yes            | yes     |

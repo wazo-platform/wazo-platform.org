@@ -72,7 +72,7 @@ Create a user with a phone and a voicemail
 * [wazo-auth](https://github.com/wazo-platform/wazo-auth)
 * [wazo-confd-client](https://github.com/wazo-platform/wazo-confd-client)
 * [wazo-provd](https://github.com/wazo-platform/wazo-provd)
-* [xivo-sysconfd](https://github.com/wazo-platform/xivo-sysconfd)
+* [wazo-sysconfd](https://github.com/wazo-platform/wazo-sysconfd)
 
 ## See also
 

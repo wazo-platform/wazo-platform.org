@@ -1,5 +1,5 @@
 ---
-title: xivo-sysconfd REST API
+title: wazo-sysconfd REST API
 ---
 
 This service provides a public API that can be used to change the
