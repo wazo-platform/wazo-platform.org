@@ -23,4 +23,4 @@ title: System
 - [wazo-dird](/uc-doc/system/wazo-dird/wazo-dird)
 - [wazo-phoned](/uc-doc/system/wazo-phoned)
 - [wazo-purge-db](/uc-doc/system/purge_logs)
-- [xivo-sysconfd](/uc-doc/system/xivo-sysconfd)
+- [wazo-sysconfd](/uc-doc/system/wazo-sysconfd)

@@ -1,11 +1,11 @@
 ---
-title: 'xivo-sysconfd'
+title: 'wazo-sysconfd'
 ---
 
 - [Configuration File](#sysconfd-configuration)
   - [request_handlers section](#request-handlers-section)
 
-xivo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
+wazo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
 here's a non exhaustive list:
 
 - configuring network (hostname, DNS)
@@ -25,9 +25,9 @@ Here's an example of the configuration file:
 ```ini
 [general]
 xivo_config_path = /etc/xivo
-templates_path = /usr/share/xivo-sysconfd/templates
+templates_path = /usr/share/wazo-sysconfd/templates
 custom_templates_path = /etc/xivo/sysconfd/custom-templates
-backup_path = /var/backups/xivo-sysconfd
+backup_path = /var/backups/wazo-sysconfd
 
 [resolvconf]
 hostname_file = /etc/hostname
@@ -65,9 +65,9 @@ exchange_durable = true
 
 - `synchronous`:
 
-  - `true`: when xivo-sysconfd receives a request to reload the dialplan for example, it will wait
+  - `true`: when wazo-sysconfd receives a request to reload the dialplan for example, it will wait
     for the dialplan reload to complete before replying to the request.
-  - `false`: xivo-sysconfd reply to the request immediately.
+  - `false`: wazo-sysconfd reply to the request immediately.
 
   Setting this option to `false` will speed up some operation (for example, editing a user from
   wazo-confd), but this means that there will be a small delay (up to a few seconds in the worst

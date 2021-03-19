@@ -18,7 +18,7 @@ title: Log Files
 - [wazo-provd](#wazo-provd)
 - [wazo-purge-db](#wazo-purge-db)
 - [wazo-stat](#wazo-stat)
-- [xivo-sysconfd](#xivo-sysconfd)
+- [wazo-sysconfd](#wazo-sysconfd)
 - [wazo-websocketd](#wazo-websocketd)
 
 Every Wazo service has its own log file, placed in `/var/log`.
@@ -147,10 +147,10 @@ The file location can be changed by customizing the wazo-confgend.service unit f
 - Number of archived files: 15
 - Rotation frequence: Daily
 
-## xivo-sysconfd
+## wazo-sysconfd
 
-- File location: `/var/log/xivo-sysconfd.log`
-- Rotate configuration: `/etc/logrotate.d/xivo-sysconfd`
+- File location: `/var/log/wazo-sysconfd.log`
+- Rotate configuration: `/etc/logrotate.d/wazo-sysconfd`
 - Number of archived files: 15
 - Rotation frequence: Daily
 

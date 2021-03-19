@@ -4,6 +4,7 @@ title: Upgrade notes
 
 ## 21.04 {#21-04}
 
+- `xivo-sysconfd` has been renamed to `wazo-sysconfd`
 - The group resource is now identified by a UUID instead of sequential ID. The API using sequential
   ID will keep working for a while. Policies with permissions for a specific group will have to be
   changed to use the UUID of the group instead of its ID. This only happens if you create policies with
