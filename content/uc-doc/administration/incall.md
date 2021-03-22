@@ -44,3 +44,33 @@ You can manage the blacklist in the Asterisk CLI
     ```asteriskcli
     *CLI> database del blacklist <extension>
     ```
+
+## Whitelist
+
+Like blacklists, there is no interface to manage whitelists, but you can build it by hand.
+
+- You need a preprocess subroutine on the incall with the following dialplan:
+
+    ```dialplan
+    [check-whitelist]
+    exten = s,1,GotoIf(${DB_EXISTS(whitelist/${CALLERID(num)})}?whitelisted:)
+    same = n,Playback(no-user-find)
+    same = n,Hangup()
+    same = n(whitelisted),Return()
+    ```
+
+- Do a `dialplan reload` in the Asterisk CLI to load the new dialplan
+
+You can manage the whitelist in the Asterisk CLI
+
+- To add an extension:
+
+    ```asteriskcli
+    *CLI> database put whitelist <extension> "<description (e.g. reason)>"
+    ```
+
+- To remove an extension:
+
+    ```asteriskcli
+    *CLI> database del whitelist <extension>
+    ```
