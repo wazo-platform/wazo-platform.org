@@ -15,9 +15,9 @@ When a `+` character is prepended a called DID, the `+` character is discarded.
 - Bob has a DID with number 1000.
 - Alice can call Bob by dialing either 1000 or +1000, without configuring another DID.
 
-## BlackList
+## Blacklist
 
-There are no interface to set a blacklist, but you can build if by hand.
+There is no interface to set a blacklist, but you can build it by hand.
 
 - You need a preprocess subroutine on the incall with the following dialplan:
 
@@ -33,13 +33,13 @@ There are no interface to set a blacklist, but you can build if by hand.
 
 You can manage the blacklist in the Asterisk CLI
 
-- To add extension:
+- To add an extension:
 
     ```asteriskcli
     *CLI> database put blacklist <extension> "<description (e.g. reason)>"
     ```
 
-- To remove extension:
+- To remove an extension:
 
     ```asteriskcli
     *CLI> database del blacklist <extension>
