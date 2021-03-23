@@ -23,10 +23,23 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
     ```shell
     git clone https://github.com/wazo-platform/wazo-ansible.git
     cd wazo-ansible
+    ```
+
+4. (optional) By default, Wazo Platform will install the development version. To install the latest
+    stable version
+
+    ```shell
+    ansible_tag=wazo-$(curl https://mirror.wazo.community/version/stable)
+    git checkout $ansible_tag
+    ```
+
+5. Install the Wazo Platform installer dependency
+
+    ```shell
     ansible-galaxy install -r requirements-postgresql.yml
     ```
 
-4. Edit the Ansible inventory in `inventories/uc-engine` to add your preferences and passwords. The
+6. Edit the Ansible inventory in `inventories/uc-engine` to add your preferences and passwords. The
    various variables that can be customized are described at
    <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
 
@@ -55,7 +68,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
     engine_api_root_password = ****
     ```
 
-5. Launch the installation by running the following command:
+7. Launch the installation by running the following command:
 
     ```shell
     ansible-playbook -i inventories/uc-engine uc-engine.yml
