@@ -24,11 +24,11 @@ Here is a short review of the Wazo Platform 21.04 release.
 
 ## Technical features
 
-* **Ring group**: Group API now use uuid as primary identifier
+* **Ring group**: Group API now use UUID as primary identifier
 
 ## Ongoing features
 
-* **Call recording**: we are working to improve the Wazo Platform API to easily get call recordings.
+* **Call recording**: We are working to improve the Wazo Platform API to easily get call recordings.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
