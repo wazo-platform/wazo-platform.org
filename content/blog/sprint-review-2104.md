@@ -15,9 +15,12 @@ Here is a short review of the Wazo Platform 21.04 release.
 * **Email**: Some options only present in database are now exposed through API. It's the first step
   to improve and allow administrators to configure the email server using the API.
 * **Call recording**: Using API to start/stop a call recording will now trigger a beep.
-* **Tenant** : Add possibility to set a unique human readable identifier (a.k.a "slug") to a
+* **Tenant**: Add possibility to set a unique human readable identifier (a.k.a "slug") to a
   tenant, which will used to easily identify resource in asterisk configuration and log. For now
   this behavior is only used for groups, but will be used for all asterisk resources.
+* **Events**: A new event is sent when a user receives a call but is not
+  answered, be it because the phone is unavailable or the Do-Not-Disturb (DND) mode is activated, 
+  among other causes.
 
 ## Technical features
 
