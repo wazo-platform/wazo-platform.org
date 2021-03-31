@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 21.05 {#21-05}
+
+- `wazo-sysconfd` configuration has been migrated to `/etc/wazo-sysconfd/config.yml`. However, if
+  you had modified the `/etc/xivo/sysconfd.conf` configuration file, you should create a new file
+  in the `/etc/wazo-sysconfd/conf.d` directory with your changes.
+
 ## 21.04 {#21-04}
 
 - `xivo-sysconfd` has been renamed to `wazo-sysconfd`
