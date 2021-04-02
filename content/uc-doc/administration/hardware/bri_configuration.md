@@ -41,7 +41,7 @@ First step is to check `/etc/dahdi/system.conf` file:
 - if needed change the clock source,
 
 See detailed explanations of this file in the
-[system_conf](/uc-doc/administration/hardware/hardware) section.
+[system_conf](/uc-doc/administration/hardware/introduction) section.
 
 Below is **an example** for a typical french BRI line span:
 
