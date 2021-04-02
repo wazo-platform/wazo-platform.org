@@ -8,6 +8,10 @@ title: Upgrade notes
   you had modified the `/etc/xivo/sysconfd.conf` configuration file, you should create a new file
   in the `/etc/wazo-sysconfd/conf.d` directory with your changes.
 
+Consult the
+[21.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.05)
+for more information.
+
 ## 21.04 {#21-04}
 
 - `xivo-sysconfd` has been renamed to `wazo-sysconfd`
