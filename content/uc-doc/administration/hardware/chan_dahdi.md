@@ -31,6 +31,7 @@ systemctl restart wazo-confgend.service
 ```
 
 ## Auto-update packages with wazo-upgrade {#dahdi-upgrade}
+
 To always have the latest `dahdi-linux-modules-<kernel>` package, you can add the following script
 into `/usr/share/wazo-upgrade/pre-start.d/` directory.
 
