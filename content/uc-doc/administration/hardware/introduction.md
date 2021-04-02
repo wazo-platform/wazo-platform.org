@@ -4,7 +4,7 @@ title: 'Server/Hardware'
 
 This section describes how to configure the telephony hardware on a Wazo server.
 
-#:exclamation: Currently Wazo supports only Digium Telephony Interface cards
+**Note**: Currently Wazo supports only Digium Telephony Interface cards
 
 The configuration process is the following :
 
@@ -16,9 +16,9 @@ The configuration process is the following :
 
 At the end of this page you will also find some general notes and DAHDI.
 
-# Notes on configuration files
+## Notes on configuration files
 
-## /etc/dahdi/system.conf {#system-conf}
+### /etc/dahdi/system.conf {#system-conf}
 
 A _span_ is created for each card port. Below is an example of a standard E1 port:
 
@@ -48,12 +48,12 @@ Each span has to be declared with the following information:
 Note that the `dahdi_genconf` command should usually give you the correct parameters (if you
 correctly set the cards jumper). All these information should be checked with your operator.
 
-## /etc/asterisk/chan_dahdi.conf
+### /etc/asterisk/chan_dahdi.conf
 
 This file contains the general parameters of the DAHDI channel. It is not generated via the
 `dahdi_genconf` command.
 
-## /etc/asterisk/dahdi-channels.conf {#asterisk-dahdi-channel-conf}
+### /etc/asterisk/dahdi-channels.conf {#asterisk-dahdi-channel-conf}
 
 This file contains the parameters of each channel. It is generated via the `dahdi_genconf` command.
 
@@ -78,11 +78,11 @@ Here the channels 1 to 15 and 17 to 31 (it is a typical E1) are set:
   `from-extern`
 - and configured with switchtype `euroisdn` and signalling `pri_cpe`
 
-# Debug
+## Debug
 
-## Check IRQ misses
+### Check IRQ misses
 
-It\'s always useful to verify if there isn\'t any _missed IRQ_ problem with the cards.
+It's always useful to verify if there isn't any _missed IRQ_ problem with the cards.
 
 Check:
 
@@ -90,7 +90,7 @@ Check:
 # cat /proc/dahdi/<span number>
 ```
 
-If the _IRQ misses_ counter increments, it\'s not good:
+If the _IRQ misses_ counter increments, it's not good:
 
 ```shell
 # cat /proc/dahdi/1
