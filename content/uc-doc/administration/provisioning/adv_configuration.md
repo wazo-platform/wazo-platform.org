@@ -130,7 +130,7 @@ to create a template named `00085D2EECFB.cfg.tpl`:
     vi var/templates/00085D2EECFB.cfg.tpl
     wazo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
-#:exclamation: The choice to use this syntax comes from the fact that `provd` supports devices that
+**Note**: The choice to use this syntax comes from the fact that `provd` supports devices that
 do not have MAC addresses, namely softphones.
 
 Also, some devices have more than one file (like Snom), so this way make it possible to customize

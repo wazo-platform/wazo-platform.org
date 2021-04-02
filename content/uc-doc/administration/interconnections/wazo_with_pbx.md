@@ -81,7 +81,7 @@ echocanceller=mg2,94-108,110-124
 
 ### dahdi-channels.conf
 
-In the file `/etc/asterisk/dahdi-channels.conf`{.interpreted-text role="file"} you need to adjust,
+In the file `/etc/asterisk/dahdi-channels.conf` you need to adjust,
 for each span :
 
 - `group` : the group number (e.g. `0` for provider links, `2` for PBX links),
@@ -138,20 +138,20 @@ channel => 94-108,110-124
 
 We first need to create a route for calls coming from the PBX
 
-# Create a file named `pbx.conf` in the
+- Create a file named `pbx.conf` in the directory `/etc/asterisk/extensions_extra.d/`
+- Add the following lines in the file:
 
-directory `/etc/asterisk/extensions_extra.d/`{.interpreted-text role="file"}, # Add the following
-lines in the file:
-
-```ini
-[from-pabx]
-exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
-exten = _X.,n,Goto(default,${EXTEN},1)
-```
+  ```ini
+  [from-pabx]
+  exten = _X.,1,NoOp(### Call from PBX ${CARLLERID(num)} towards ${EXTEN} ###)
+  exten = _X.,n,Goto(default,${EXTEN},1)
+  ```
 
 This dialplan routes incoming calls from the PBX in the `default` context of Wazo. It enables call
-from the PBX : _ towards a SIP phone (in `default` context) _ towards outgoing destniation (via the
-`to-extern` context included in `default` context)
+from the PBX :
+
+- towards a SIP phone (in `default` context)
+- towards outgoing destination (via the `to-extern` context included in `default` context)
 
 #### Create the to-pabx context
 
