@@ -20,7 +20,7 @@ sccp-9.4 or both.
 [Provisioning page](/uc-doc/ecosystem/supported_devices#cisco-provisioning) for more information on
 how to install CISCO firmwares.
 
-Once your plugin is installed, you\'ll be able to edit which firmwares and locales you need. If you
+Once your plugin is installed, you'll be able to edit which firmwares and locales you need. If you
 are unsure, you can choose all without any problem.
 
 Now if you connect your first SCCP phone, you should be able to see it with `GET /devices`.
@@ -29,8 +29,8 @@ When connecting a second SCCP phone, the device will be automatically detected a
 
 ## Auto-provisioning support
 
-Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user\'s
-provisioning code directlyfrom the SCCP device while in autoprov mode.
+Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's
+provisioning code directly from the SCCP device while in autoprov mode.
 
 There's two settings in `GET /asterisk/sccp/general` influencing the auto-provisioning behaviour:
 

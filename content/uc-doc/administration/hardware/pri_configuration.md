@@ -23,7 +23,7 @@ Issue the command:
 
     dahdi_genconf
 
-#:warning: it will erase all existing configuration in `/etc/dahdi/system.conf` and
+**Warning**: it will erase all existing configuration in `/etc/dahdi/system.conf` and
 `/etc/asterisk/dahdi-channels.conf` files!
 
 ## Configure
