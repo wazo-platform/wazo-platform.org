@@ -22,7 +22,7 @@ export default ({ plugins, images }) => {
         <a className="title" href={`/provisioning/${slugify(vendor)}`} id={vendor} onClick={onVendorClick}>{vendor}</a>
         {vendor === currentVendor && 
           <div className="phones">
-            {Object.keys(plugins[vendor]).map(name => {
+            {Object.keys(plugins[vendor]).sort().map(name => {
               const id = `${slugify(vendor)}-${slugify(name)}`;
               return <div className={id === currentDevice ? 'selected' : ''} key={id} >
                 <a href={`/provisioning/${slugify(vendor)}/${slugify(name)}`} onClick={onDeviceClick} id={id}>{name}</a>
