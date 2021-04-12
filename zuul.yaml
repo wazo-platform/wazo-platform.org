@@ -69,24 +69,24 @@
     check:
       jobs:
         - yarn-build-copy:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
     gate:
       jobs:
         - yarn-build-search-copy:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
     auto-merge:
       jobs:
         - yarn-build-search-copy:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
     post:
       jobs:
         - yarn-build-publish:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
     experimental:
       jobs:
         - yarn-build-test:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
     periodic:
       jobs:
         - yarn-build-test:
-            nodeset: debian10-vm
+            nodeset: vm-debian-10-m1s
