@@ -19,10 +19,10 @@ First of all, you must have permission to use the REST API. Create a
 [wazo-auth]{.title-ref} user and policy:
 
 `POST /users {"purpose": "external_api", "username": "rest-api-test", ...}`
-`POST /policies {"acl_templates": ["#"], ...}`
+`POST /policies {"acl": ["#"], ...}`
 `PUT /users/{user_uuid}/policies/{policy_uuid}`
 
--   `acl_templates`: `#` is a wildcard that gives access to every REST
+-   `acl`: `#` is a wildcard that gives access to every REST
     API. You may want to delete this account when you're done, to
     reduce risks of unauthorized access.
 
