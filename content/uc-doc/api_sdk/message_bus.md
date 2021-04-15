@@ -2,42 +2,33 @@
 title: Message Bus
 ---
 
-The message bus is used to receive events from Wazo. It is provided by
-an
-[AMQP](http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)
-0-9-1 broker (namely,
-[RabbitMQ](http://previous.rabbitmq.com/v2_8_x/documentation.html)) that
-is integrated in Wazo.
+The message bus is used to receive events from Wazo. It is provided by an
+[AMQP](http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) 0-9-1 broker (namely,
+[RabbitMQ](http://previous.rabbitmq.com/v2_8_x/documentation.html)) that is integrated in Wazo.
 
-Usage
-=====
+# Usage
 
-Websocket
----------
+## Websocket
 
-The easiest way to listen for events is to use the
-[Wazo WebSocket](/uc-doc/api_sdk/websocket).
+The easiest way to listen for events is to use the [Wazo WebSocket](/uc-doc/api_sdk/websocket).
 
-Direct AMQP connection
-----------------------
+## Direct AMQP connection
 
-At the moment, the AMQP broker only listen on the 127.0.0.1 address.
-This means that if you want to connect to the AMQP broker from a distant
-machine, you must modify the RabbitMQ server configuration, which is not
-yet an officially supported operation. All events are sent to the *xivo*
+At the moment, the AMQP broker only listen on the 127.0.0.1 address. This means that if you want to
+connect to the AMQP broker from a distant machine, you must modify the RabbitMQ server
+configuration, which is not yet an officially supported operation. All events are sent to the _xivo_
 exchange.
 
 Otherwise, the default connection information is:
 
--   Virtual host: /
--   User name: guest
--   User password: guest
--   Port: 5672
--   Exchange name: xivo
--   Exchange type: topic
+- Virtual host: /
+- User name: guest
+- User password: guest
+- Port: 5672
+- Exchange name: xivo
+- Exchange type: topic
 
-Example
--------
+## Example
 
 Here\'s an example of a simple client, in python, listening for
 [call_created, call_updated, call_ended](/uc-doc/api_sdk/message_bus#bus-call-created) events:
@@ -74,174 +65,146 @@ Here\'s an example of a simple client, in python, listening for
 
     main()
 
-If you are new to AMQP, you might want to look at the [RabbitMQ
-tutorial](http://previous.rabbitmq.com/v2_8_x/getstarted.html).
+If you are new to AMQP, you might want to look at the
+[RabbitMQ tutorial](http://previous.rabbitmq.com/v2_8_x/getstarted.html).
 
-Notes
------
+## Notes
 
 Things to be aware when writing a client/consumer:
 
--   The published messages are not persistent. When the AMQP broker
-    stops, the messages that are still in queues will be lost.
+- The published messages are not persistent. When the AMQP broker stops, the messages that are still
+  in queues will be lost.
 
-Changelog {#bus-changelog}
-=========
+# Changelog {#bus-changelog}
 
-19.05
------
+## 19.05
 
--   The following messages have been deleted:
-    -   chat\_message\_event
-    -   chat\_message\_received
-    -   chat\_message\_sent
-    -   endpoint\_status\_update
-    -   user\_status\_update
+- The following messages have been deleted:
+  - chat_message_event
+  - chat_message_received
+  - chat_message_sent
+  - endpoint_status_update
+  - user_status_update
 
-19.04
------
+## 19.04
 
--   The following messages have been added:
-    -   [fax_outbound_created](/uc-doc/api_sdk/message_bus#fax-outbound-created)
-    -   [fax_outbound_user_created](/uc-doc/api_sdk/message_bus#fax-outbound-user-created)
-    -   [fax_outbound_succeeded](/uc-doc/api_sdk/message_bus#fax-outbound-succeeded)
-    -   [fax_outbound_user_succeeded](/uc-doc/api_sdk/message_bus#fax-outbound-user-succeeded)
-    -   [fax_outbound_failed](/uc-doc/api_sdk/message_bus#fax-outbound-failed)
-    -   [fax_outbound_user_failed](/uc-doc/api_sdk/message_bus#fax-outbound-user-failed)
+- The following messages have been added:
+  - [fax_outbound_created](/uc-doc/api_sdk/message_bus#fax-outbound-created)
+  - [fax_outbound_user_created](/uc-doc/api_sdk/message_bus#fax-outbound-user-created)
+  - [fax_outbound_succeeded](/uc-doc/api_sdk/message_bus#fax-outbound-succeeded)
+  - [fax_outbound_user_succeeded](/uc-doc/api_sdk/message_bus#fax-outbound-user-succeeded)
+  - [fax_outbound_failed](/uc-doc/api_sdk/message_bus#fax-outbound-failed)
+  - [fax_outbound_user_failed](/uc-doc/api_sdk/message_bus#fax-outbound-user-failed)
 
-19.03
------
+## 19.03
 
--   The following messages have been added:
-    -   [conference_record_started](/uc-doc/api_sdk/message_bus#bus-conference-record-started)
-    -   [conference_record_stopped](/uc-doc/api_sdk/message_bus#bus-conference-record-stopped)
-    -   [conference_participant_talk_started](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-started)
-    -   [conference_participant_talk_stopped](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-stopped)
+- The following messages have been added:
+  - [conference_record_started](/uc-doc/api_sdk/message_bus#bus-conference-record-started)
+  - [conference_record_stopped](/uc-doc/api_sdk/message_bus#bus-conference-record-stopped)
+  - [conference_participant_talk_started](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-started)
+  - [conference_participant_talk_stopped](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-stopped)
 
-19.02
------
+## 19.02
 
--   The following messages have been added:
-    -   [conference_participant_joined](/uc-doc/api_sdk/message_bus#bus-conference-participant-joined)
-    -   [conference_participant_left](/uc-doc/api_sdk/message_bus#bus-conference-participant-left)
-    -   [conference_participant_muted](/uc-doc/api_sdk/message_bus#bus-conference-participant-muted)
-    -   [conference_participant_unmuted](/uc-doc/api_sdk/message_bus#bus-conference-participant-unmuted)
+- The following messages have been added:
+  - [conference_participant_joined](/uc-doc/api_sdk/message_bus#bus-conference-participant-joined)
+  - [conference_participant_left](/uc-doc/api_sdk/message_bus#bus-conference-participant-left)
+  - [conference_participant_muted](/uc-doc/api_sdk/message_bus#bus-conference-participant-muted)
+  - [conference_participant_unmuted](/uc-doc/api_sdk/message_bus#bus-conference-participant-unmuted)
 
-18.04
------
+## 18.04
 
--   The following messages have been added:
-    -   [auth_tenant_created](/uc-doc/api_sdk/message_bus#bus-auth-tenant-created)
-    -   [auth_tenant_deleted](/uc-doc/api_sdk/message_bus#bus-auth-tenant-deleted)
-    -   [auth_tenant_updated](/uc-doc/api_sdk/message_bus#bus-auth-tenant-updated)
+- The following messages have been added:
+  - [auth_tenant_created](/uc-doc/api_sdk/message_bus#bus-auth-tenant-created)
+  - [auth_tenant_deleted](/uc-doc/api_sdk/message_bus#bus-auth-tenant-deleted)
+  - [auth_tenant_updated](/uc-doc/api_sdk/message_bus#bus-auth-tenant-updated)
 
-18.02
------
+## 18.02
 
--   The following message has been added:
-    -   [auth_user_external_auth_authorized](/uc-doc/api_sdk/message_bus#bus-external-auth-authorized)
+- The following message has been added:
+  - [auth_user_external_auth_authorized](/uc-doc/api_sdk/message_bus#bus-external-auth-authorized)
 
-17.17
------
+## 17.17
 
--   The following messages have been added:
-    -   [auth_user_external_auth_added](/uc-doc/api_sdk/message_bus#bus-external-auth-added)
-    -   [auth_user_external_auth_deleted](/uc-doc/api_sdk/message_bus#bus-external-auth-deleted)
+- The following messages have been added:
+  - [auth_user_external_auth_added](/uc-doc/api_sdk/message_bus#bus-external-auth-added)
+  - [auth_user_external_auth_deleted](/uc-doc/api_sdk/message_bus#bus-external-auth-deleted)
 
-17.16
------
+## 17.16
 
--   The following messages have been added:
-    -   [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate-initiated)
-    -   [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate-answered)
-    -   [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate-completed)
-    -   [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate-ended)
+- The following messages have been added:
+  - [relocate_initiated](/uc-doc/api_sdk/message_bus#bus-relocate-initiated)
+  - [relocate_answered](/uc-doc/api_sdk/message_bus#bus-relocate-answered)
+  - [relocate_completed](/uc-doc/api_sdk/message_bus#bus-relocate-completed)
+  - [relocate_ended](/uc-doc/api_sdk/message_bus#bus-relocate-ended)
 
-17.14
------
+## 17.14
 
--   The chat\_message\_sent bus message has been added.
--   The chat\_message\_received bus message has been added.
--   The chat\_message\_event bus message has been deprecated.
+- The chat_message_sent bus message has been added.
+- The chat_message_received bus message has been added.
+- The chat_message_event bus message has been deprecated.
 
-17.08
------
+## 17.08
 
--   The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin-install-progress) bus
-    message has been added.
--   The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin-uninstall-progress)
-    bus message has been added.
+- The [plugin_install_progress](/uc-doc/api_sdk/message_bus#bus-plugin-install-progress) bus message
+  has been added.
+- The [plugin_uninstall_progress](/uc-doc/api_sdk/message_bus#bus-plugin-uninstall-progress) bus
+  message has been added.
 
-17.01
------
+## 17.01
 
--   The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite-added) bus message
-    has been added.
--   The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message
-    has been added.
+- The [favorite_added](/uc-doc/api_sdk/message_bus#bus-favorite-added) bus message has been added.
+- The [favorite_deleted](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message has been
+  added.
 
-16.08
------
+## 16.08
 
--   The [call_held](/uc-doc/api_sdk/message_bus#bus-call-held-event) bus message
-    has been added.
--   The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call-resumed-event) bus
-    message has been added.
--   The user\_status\_update bus message now uses the user\'s UUID
-    instead of the user\'s ID.
+- The [call_held](/uc-doc/api_sdk/message_bus#bus-call-held-event) bus message has been added.
+- The [call_resumed](/uc-doc/api_sdk/message_bus#bus-call-resumed-event) bus message has been added.
+- The user_status_update bus message now uses the user\'s UUID instead of the user\'s ID.
 
-16.07
------
+## 16.07
 
--   The [user_created](/uc-doc/api_sdk/message_bus#bus-user-created) bus message has
-    been added.
--   The [user_edited](/uc-doc/api_sdk/message_bus#bus-user-edited) bus message has
-    been added.
--   The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has
-    been added.
+- The [user_created](/uc-doc/api_sdk/message_bus#bus-user-created) bus message has been added.
+- The [user_edited](/uc-doc/api_sdk/message_bus#bus-user-edited) bus message has been added.
+- The [user_deleted](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has been added.
 
-Events {#bus-events}
-======
+# Events {#bus-events}
 
-Events that are sent to the bus use a JSON serialization format with the
-content-type [application/json]{.title-ref}. For example, the CTI
-call\_form\_result event looks like this:
+Events that are sent to the bus use a JSON serialization format with the content-type
+[application/json]{.title-ref}. For example, the CTI call_form_result event looks like this:
 
     {"name": "call_form_result",
      "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
      "data": {...}}
 
-All events have the same basic structure, namely, a JSON object with 4
-keys:
+All events have the same basic structure, namely, a JSON object with 4 keys:
 
 name
 
-:   A string representing the name of the event. Each event type has a
-    unique name.
+: A string representing the name of the event. Each event type has a unique name.
 
-required\_acl (optional)
+required_acl (optional)
 
-:   Either a string or null. Currently used by wazo-websocketd to
-    determine if a client can receive the event or not. See the
-    [Events Access Control](/uc-doc/api_sdk/websocket#ws-events-acl) section for more
-    information.
+: Either a string or null. Currently used by wazo-websocketd to determine if a client can receive
+the event or not. See the [Events Access Control](/uc-doc/api_sdk/websocket#ws-events-acl) section
+for more information.
 
-origin\_uuid
+origin_uuid
 
-:   The uuid to identify the message producer.
+: The uuid to identify the message producer.
 
 data
 
-:   The data specific part of the event. This is documented on a per
-    event type; if not this is assumed to be null.
+: The data specific part of the event. This is documented on a per event type; if not this is
+assumed to be null.
 
-AMI events {#bus-ami-events}
-----------
+## AMI events {#bus-ami-events}
 
 All AMI events are broadcasted on the bus.
 
--   routing key: ami.\<event name\>
--   event specific data: a dictionary with the content of the AMI event
+- routing key: ami.\<event name\>
+- event specific data: a dictionary with the content of the AMI event
 
 Example event with binding key QueueMemberStatus:
 
@@ -264,17 +227,14 @@ Example event with binding key QueueMemberStatus:
         }
     }
 
-auth\_user\_external\_auth\_added {#bus-external-auth-added}
----------------------------------
+## auth_user_external_auth_added {#bus-external-auth-added}
 
-This event is sent when a user adds an external authentication to its
-account.
+This event is sent when a user adds an external authentication to its account.
 
--   routing\_key:
-    auth.users.{user\_uuid}.external.{external\_auth\_name}.created
--   event specific data:
-    -   user\_uuid: The user\'s UUID
-    -   external\_auth\_name: The name of the external service
+- routing_key: auth.users.{user_uuid}.external.{external_auth_name}.created
+- event specific data:
+  - user_uuid: The user\'s UUID
+  - external_auth_name: The name of the external service
 
 Example:
 
@@ -287,17 +247,14 @@ Example:
       }
     }
 
-auth\_user\_external\_auth\_authorized {#bus-external-auth-authorized}
---------------------------------------
+## auth_user_external_auth_authorized {#bus-external-auth-authorized}
 
-This event is sent when a user authorizes an oauth2 request on an
-external authentication plugin.
+This event is sent when a user authorizes an oauth2 request on an external authentication plugin.
 
--   routing\_key:
-    auth.users.{user\_uuid}.external.{external\_auth\_name}.authorized
--   event specific data:
-    -   user\_uuid: The user\'s UUID
-    -   external\_auth\_name: The name of the external service
+- routing_key: auth.users.{user_uuid}.external.{external_auth_name}.authorized
+- event specific data:
+  - user_uuid: The user\'s UUID
+  - external_auth_name: The name of the external service
 
 Example:
 
@@ -310,17 +267,14 @@ Example:
       }
     }
 
-auth\_user\_external\_auth\_deleted {#bus-external-auth-deleted}
------------------------------------
+## auth_user_external_auth_deleted {#bus-external-auth-deleted}
 
-This event is sent when a user removes an external authentication from
-its account.
+This event is sent when a user removes an external authentication from its account.
 
--   routing\_key:
-    auth.users.{user\_uuid}.external.{external\_auth\_name}.deleted
--   event specific data:
-    -   user\_uuid: The user\'s UUID
-    -   external\_auth\_name: The name of the external service
+- routing_key: auth.users.{user_uuid}.external.{external_auth_name}.deleted
+- event specific data:
+  - user_uuid: The user\'s UUID
+  - external_auth_name: The name of the external service
 
 Example:
 
@@ -333,19 +287,18 @@ Example:
       }
     }
 
-auth\_tenant\_created {#bus-auth-tenant-created}
----------------------
+## auth_tenant_created {#bus-auth-tenant-created}
 
 This event is published when a tenant is created
 
--   routing\_key: auth.tenants.{tenant\_uuid}.created
--   event specific data:
-    -   uuid: The tenant\'s UUID
-    -   name: The name of the tenant
+- routing_key: auth.tenants.{tenant_uuid}.created
+- event specific data:
+  - uuid: The tenant\'s UUID
+  - name: The name of the tenant
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
   "name": "auth_tenant_created",
   "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -356,18 +309,17 @@ Example:
 }
 ```
 
-auth\_tenant\_deleted {#bus-auth-tenant-deleted}
----------------------
+## auth_tenant_deleted {#bus-auth-tenant-deleted}
 
 This event is published when a tenant is deleted
 
--   routing\_key: auth.tenants.{tenant\_uuid}.deleted
--   event specific data:
-    -   uuid: The tenant\'s UUID
+- routing_key: auth.tenants.{tenant_uuid}.deleted
+- event specific data:
+  - uuid: The tenant\'s UUID
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
   "name": "auth_tenant_deleted",
   "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -377,19 +329,18 @@ Example:
 }
 ```
 
-auth\_tenant\_updated {#bus-auth-tenant-updated}
----------------------
+## auth_tenant_updated {#bus-auth-tenant-updated}
 
 This event is published when a tenant is updated
 
--   routing\_key: auth.tenants.{tenant\_uuid}.updated
--   event specific data:
-    -   uuid: The tenant\'s UUID
-    -   name: The name of the tenant
+- routing_key: auth.tenants.{tenant_uuid}.updated
+- event specific data:
+  - uuid: The tenant\'s UUID
+  - name: The name of the tenant
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
   "name": "auth_tenant_updated",
   "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -400,17 +351,14 @@ Example:
 }
 ```
 
-call\_form\_result {#bus-call-form-result}
-------------------
+## call_form_result {#bus-call-form-result}
 
-The call\_form\_result event is sent when a custom call form is
-submitted via REST API.
+The call_form_result event is sent when a custom call form is submitted via REST API.
 
--   routing key: call\_form\_result
--   event specific data: a dictionary with 2 keys:
-    -   user\_id: an integer corresponding to the user ID of the client
-        who saved the call form
-    -   variables: a dictionary holding the content of the form
+- routing key: call_form_result
+- event specific data: a dictionary with 2 keys:
+  - user_id: an integer corresponding to the user ID of the client who saved the call form
+  - variables: a dictionary holding the content of the form
 
 Example:
 
@@ -426,19 +374,16 @@ Example:
         }
     }
 
-agent\_status\_update {#bus-agent-status-update}
----------------------
+## agent_status_update {#bus-agent-status-update}
 
-The agent\_status\_update is sent when an agent is logged in or logged
-out.
+The agent_status_update is sent when an agent is logged in or logged out.
 
--   routing key: status.agent
--   required ACL: events.statuses.agents
--   event specific data: a dictionary with 3 keys:
-    -   agent\_id: an integer corresponding to the agent ID of the agent
-        who\'s status changed
-    -   status: a string identifying the status
-    -   xivo\_id: the uuid of the xivo
+- routing key: status.agent
+- required ACL: events.statuses.agents
+- event specific data: a dictionary with 3 keys:
+  - agent_id: an integer corresponding to the agent ID of the agent who\'s status changed
+  - status: a string identifying the status
+  - xivo_id: the uuid of the xivo
 
 Example:
 
@@ -453,18 +398,15 @@ Example:
         }
     }
 
-call\_created, call\_updated, call\_ended {#bus-call-created}
------------------------------------------
+## call_created, call_updated, call_ended {#bus-call-created}
 
-The events `call_created`, `call_updated`, `call_ended` are sent when a
-call handled by wazo-calld is received, connected or hung up.
+The events `call_created`, `call_updated`, `call_ended` are sent when a call handled by wazo-calld
+is received, connected or hung up.
 
--   routing key: calls.call.created, calls.call.updated,
-    calls.call.ended
--   required ACL: events.calls.\<user\_uuid\>
--   event specific data: a dictionary with the same fields as the REST
-    API model of Call (See <http://api.wazo.community>, section
-    wazo-calld)
+- routing key: calls.call.created, calls.call.updated, calls.call.ended
+- required ACL: events.calls.\<user_uuid\>
+- event specific data: a dictionary with the same fields as the REST API model of Call (See
+  <http://api.wazo.community>, section wazo-calld)
 
 Example:
 
@@ -484,68 +426,62 @@ Example:
         }
     }
 
-call\_held {#bus-call-held-event}
-----------
+## call_held {#bus-call-held-event}
 
 This message is sent when a call is placed on hold
 
--   routing key: calls.hold.created
--   event specific data:
-    -   call\_id: The asterisk channel unique ID
+- routing key: calls.hold.created
+- event specific data:
+  - call_id: The asterisk channel unique ID
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {"name": "call_held",
  "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
  "data": {"call_id": "1465572129.31"}}
 ```
 
-call\_resumed {#bus-call-resumed-event}
--------------
+## call_resumed {#bus-call-resumed-event}
 
 This message is sent when a call is resumed from hold
 
--   routing key: calls.hold.deleted
--   event specific data:
-    -   call\_id: The asterisk channel unique ID
+- routing key: calls.hold.deleted
+- event specific data:
+  - call_id: The asterisk channel unique ID
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {"name": "call_resumed",
  "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
  "data": {"call_id": "1465572129.31"}}
 ```
 
-conference\_participant\_joined, conference\_participant\_left {#bus-conference-participant-joined}
-----------------------------------------------------------------------------------------------------
+## conference_participant_joined, conference_participant_left {#bus-conference-participant-joined}
 
-Those events are send when a participant joins or leaves a conference
-room.
+Those events are send when a participant joins or leaves a conference room.
 
--   routing keys:
-    -   `conferences.<conference_id>.participants.joined`
-    -   `conferences.<conference_id>.participants.left`
--   required ACLs:
-    -   `events.conferences.<conference_id>.participants.joined`
-    -   `events.conferences.<conference_id>.participants.left`
--   event specific data:
-    -   `id`: The ID of the participant inside the conference
-    -   `caller_id_name`: The CallerID name of the participant
-    -   `caller_id_num`: The CallerID number of the participant
-    -   `muted`: Is the participant muted?
-    -   `answered_time`: Elapsed seconds since the participant joined
-        the conference
-    -   `admin`: Is the participant and admin of the conference?
-    -   `language`: The language of the participant
-    -   `call_id`: The ID of the call, usable in the `/calls` endpoints
-        of `wazo-calld`
-    -   `conference_id`: The ID of the conference
+- routing keys:
+  - `conferences.<conference_id>.participants.joined`
+  - `conferences.<conference_id>.participants.left`
+- required ACLs:
+  - `events.conferences.<conference_id>.participants.joined`
+  - `events.conferences.<conference_id>.participants.left`
+- event specific data:
+  - `id`: The ID of the participant inside the conference
+  - `caller_id_name`: The CallerID name of the participant
+  - `caller_id_num`: The CallerID number of the participant
+  - `muted`: Is the participant muted?
+  - `answered_time`: Elapsed seconds since the participant joined the conference
+  - `admin`: Is the participant and admin of the conference?
+  - `language`: The language of the participant
+  - `call_id`: The ID of the call, usable in the `/calls` endpoints of `wazo-calld`
+  - `conference_id`: The ID of the conference
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "conference_participant_joined",
     "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
@@ -563,30 +499,27 @@ Example:
 }
 ```
 
-conference\_participant\_muted, conference\_participant\_unmuted {#bus-conference-participant-muted}
------------------------------------------------------------------------------------------------------
+## conference_participant_muted, conference_participant_unmuted {#bus-conference-participant-muted}
 
-Those events are send when a participant joins or leaves a conference
-room.
+Those events are send when a participant joins or leaves a conference room.
 
--   routing key for both events:
-    -   `conferences.<conference_id>.participants.mute`
--   required ACL for both events:
-    -   `events.conferences.<conference_id>.participants.mute`
--   event specific data:
-    -   `id`: The ID of the participant inside the conference
-    -   `caller_id_name`: The CallerID name of the participant
-    -   `caller_id_num`: The CallerID number of the participant
-    -   `muted`: Is the participant muted?
-    -   `admin`: Is the participant and admin of the conference?
-    -   `language`: The language of the participant
-    -   `call_id`: The ID of the call, usable in the `/calls` endpoints
-        of `wazo-calld`
-    -   `conference_id`: The ID of the conference
+- routing key for both events:
+  - `conferences.<conference_id>.participants.mute`
+- required ACL for both events:
+  - `events.conferences.<conference_id>.participants.mute`
+- event specific data:
+  - `id`: The ID of the participant inside the conference
+  - `caller_id_name`: The CallerID name of the participant
+  - `caller_id_num`: The CallerID number of the participant
+  - `muted`: Is the participant muted?
+  - `admin`: Is the participant and admin of the conference?
+  - `language`: The language of the participant
+  - `call_id`: The ID of the call, usable in the `/calls` endpoints of `wazo-calld`
+  - `conference_id`: The ID of the conference
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "conference_participant_muted",
     "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
@@ -603,22 +536,20 @@ Example:
 }
 ```
 
-conference\_record\_started, conference\_record\_stopped {#bus-conference-record-started}
-------------------------------------------------------------------------------------------
+## conference_record_started, conference_record_stopped {#bus-conference-record-started}
 
-Those events are send when a participant joins or leaves a conference
-room.
+Those events are send when a participant joins or leaves a conference room.
 
--   routing key for both events:
-    -   `conferences.<conference_id>.record`
--   required ACL for both events:
-    -   `events.conferences.<conference_id>.record`
--   event specific data:
-    -   `id`: The ID of the conference
+- routing key for both events:
+  - `conferences.<conference_id>.record`
+- required ACL for both events:
+  - `events.conferences.<conference_id>.record`
+- event specific data:
+  - `id`: The ID of the conference
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "conference_record_started",
     "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
@@ -629,22 +560,20 @@ Example:
 }
 ```
 
-conference\_participant\_talk\_started, conference\_participant\_talk\_stopped {#bus-conference-participant-talk-started}
---------------------------------------------------------------------------------------------------------------------------
+## conference_participant_talk_started, conference_participant_talk_stopped {#bus-conference-participant-talk-started}
 
-Those events are send when a participant joins or leaves a conference
-room.
+Those events are send when a participant joins or leaves a conference room.
 
--   routing key for both events:
-    -   `conferences.<conference_id>.participants.talk`
--   required ACL for both events:
-    -   `events.conferences.<conference_id>.participants.talk`
--   event specific data:
-    -   `id`: The ID of the conference
+- routing key for both events:
+  - `conferences.<conference_id>.participants.talk`
+- required ACL for both events:
+  - `events.conferences.<conference_id>.participants.talk`
+- event specific data:
+  - `id`: The ID of the conference
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "conference_participant_talk_started",
     "origin_uuid": "08c56466-8f29-45c7-9856-92bf1ba89b82",
@@ -661,24 +590,22 @@ Example:
 }
 ```
 
-favorite\_added {#bus-favorite-added}
----------------
+## favorite_added {#bus-favorite-added}
 
-The `favorite_added` event is published when a contact is marked as a
-favorite by a user.
+The `favorite_added` event is published when a contact is marked as a favorite by a user.
 
--   routing key: directory.\<user\_uuid\>.favorite.created
--   required ACL: events.directory.\<user\_uuid\>.favorite.created
--   event specific data:
+- routing key: directory.\<user_uuid\>.favorite.created
+- required ACL: events.directory.\<user_uuid\>.favorite.created
+- event specific data:
 
-    > -   xivo\_id: The user\'s Wazo server UUID
-    > -   user\_uuid: The user\'s UUID
-    > -   source: The source in which this contact can be found
-    > -   source\_entry\_id: The ID of the contact within this source
+  > - xivo_id: The user\'s Wazo server UUID
+  > - user_uuid: The user\'s UUID
+  > - source: The source in which this contact can be found
+  > - source_entry_id: The ID of the contact within this source
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "favorite_added",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -691,24 +618,23 @@ Example:
 }
 ```
 
-favorite\_deleted {#bus-favorite-deleted}
------------------
+## favorite_deleted {#bus-favorite-deleted}
 
-The `favorite_deleted` event is published when a favorited contact is
-marked a not favorite by a user
+The `favorite_deleted` event is published when a favorited contact is marked a not favorite by a
+user
 
--   routing key: directory.\<user\_uuid\>.favorite.deleted
--   required ACL: events.directory.\<user\_uuid\>.favorite.deleted
--   event specific data:
+- routing key: directory.\<user_uuid\>.favorite.deleted
+- required ACL: events.directory.\<user_uuid\>.favorite.deleted
+- event specific data:
 
-    > -   xivo\_id: The user\'s Wazo server UUID
-    > -   user\_uuid: The user\'s UUID
-    > -   source: The source in which this contact can be found
-    > -   source\_entry\_id: The ID of the contact within this source
+  > - xivo_id: The user\'s Wazo server UUID
+  > - user_uuid: The user\'s UUID
+  > - source: The source in which this contact can be found
+  > - source_entry_id: The ID of the contact within this source
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "favorite_deleted",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -721,29 +647,27 @@ Example:
 }
 ```
 
-fax\_outbound\_created, fax\_outbound\_user\_created {#fax-outbound-created}
------------------------------------------------------------------------------
+## fax_outbound_created, fax_outbound_user_created {#fax-outbound-created}
 
-Those event are published when a fax is being sent.
-`fax_outbound_user_created` is only sent if the fax was sent by a user.
+Those event are published when a fax is being sent. `fax_outbound_user_created` is only sent if the
+fax was sent by a user.
 
--   routing key: `faxes.outbound.created` and
-    `faxes.outbound.users.{user_uuid}.created`
--   required ACL: `events.faxes.outbound.created` and
-    `events.faxes.outbound.users.{user_uuid}.created`
--   event specific data:
+- routing key: `faxes.outbound.created` and `faxes.outbound.users.{user_uuid}.created`
+- required ACL: `events.faxes.outbound.created` and
+  `events.faxes.outbound.users.{user_uuid}.created`
+- event specific data:
 
-    > -   `id`: The fax ID
-    > -   `call_id`: The ID of the call that sent the fax
-    > -   `extension`: The extension where the fax was sent
-    > -   `context`: The context where the fax was sent
-    > -   `caller_id`: The Caller ID presented to the fax recipient
-    > -   `user_uuid`: The UUID of the user that sent the fax
-    > -   `tenant_uuid`: The tenant UUID from where the fax was sent
+  > - `id`: The fax ID
+  > - `call_id`: The ID of the call that sent the fax
+  > - `extension`: The extension where the fax was sent
+  > - `context`: The context where the fax was sent
+  > - `caller_id`: The Caller ID presented to the fax recipient
+  > - `user_uuid`: The UUID of the user that sent the fax
+  > - `tenant_uuid`: The tenant UUID from where the fax was sent
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "fax_outbound_created",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -759,30 +683,27 @@ Example:
 }
 ```
 
-fax\_outbound\_succeeded, fax\_outbound\_user\_succeeded {#fax-outbound-succeeded}
------------------------------------------------------------------------------------
+## fax_outbound_succeeded, fax_outbound_user_succeeded {#fax-outbound-succeeded}
 
-This event is published when a fax was successfully sent.
-`fax_outbound_user_succeeded` is only sent if the fax was sent by a
-user.
+This event is published when a fax was successfully sent. `fax_outbound_user_succeeded` is only sent
+if the fax was sent by a user.
 
--   routing key: `faxes.outbound.succeeded` and
-    `faxes.outbound.users.{user_uuid}.succeeded`
--   required ACL: `events.faxes.outbound.succeeded` and
-    `events.faxes.outbound.users.{user_uuid}.succeeded`
--   event specific data:
+- routing key: `faxes.outbound.succeeded` and `faxes.outbound.users.{user_uuid}.succeeded`
+- required ACL: `events.faxes.outbound.succeeded` and
+  `events.faxes.outbound.users.{user_uuid}.succeeded`
+- event specific data:
 
-    > -   `id`: The fax ID
-    > -   `call_id`: The ID of the call that sent the fax
-    > -   `extension`: The extension where the fax was sent
-    > -   `context`: The context where the fax was sent
-    > -   `caller_id`: The Caller ID presented to the fax recipient
-    > -   `user_uuid`: The UUID of the user that sent the fax
-    > -   `tenant_uuid`: The tenant UUID from where the fax was sent
+  > - `id`: The fax ID
+  > - `call_id`: The ID of the call that sent the fax
+  > - `extension`: The extension where the fax was sent
+  > - `context`: The context where the fax was sent
+  > - `caller_id`: The Caller ID presented to the fax recipient
+  > - `user_uuid`: The UUID of the user that sent the fax
+  > - `tenant_uuid`: The tenant UUID from where the fax was sent
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "fax_outbound_succeeded",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -798,30 +719,27 @@ Example:
 }
 ```
 
-fax\_outbound\_failed, fax\_outbound\_user\_failed {#fax-outbound-failed}
---------------------------------------------------------------------------
+## fax_outbound_failed, fax_outbound_user_failed {#fax-outbound-failed}
 
-This event is published when a fax was successfully sent.
-`fax_outbound_user_created` is only sent if the fax was sent by a user.
+This event is published when a fax was successfully sent. `fax_outbound_user_created` is only sent
+if the fax was sent by a user.
 
--   routing key: `faxes.outbound.failed` and
-    `faxes.outbound.users.{user_uuid}.failed`
--   required ACL: `events.faxes.outbound.failed` and
-    `events.faxes.outbound.users.{user_uuid}.failed`
--   event specific data:
+- routing key: `faxes.outbound.failed` and `faxes.outbound.users.{user_uuid}.failed`
+- required ACL: `events.faxes.outbound.failed` and `events.faxes.outbound.users.{user_uuid}.failed`
+- event specific data:
 
-    > -   `id`: The fax ID
-    > -   `call_id`: The ID of the call that sent the fax
-    > -   `extension`: The extension where the fax was sent
-    > -   `context`: The context where the fax was sent
-    > -   `caller_id`: The Caller ID presented to the fax recipient
-    > -   `user_uuid`: The UUID of the user that sent the fax
-    > -   `tenant_uuid`: The tenant UUID from where the fax was sent
-    > -   `error`: An explanation of the fax failure
+  > - `id`: The fax ID
+  > - `call_id`: The ID of the call that sent the fax
+  > - `extension`: The extension where the fax was sent
+  > - `context`: The context where the fax was sent
+  > - `caller_id`: The Caller ID presented to the fax recipient
+  > - `user_uuid`: The UUID of the user that sent the fax
+  > - `tenant_uuid`: The tenant UUID from where the fax was sent
+  > - `error`: An explanation of the fax failure
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "fax_outbound_failed",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -838,22 +756,19 @@ Example:
 }
 ```
 
-plugin\_install\_progress {#bus-plugin-install-progress}
--------------------------
+## plugin_install_progress {#bus-plugin-install-progress}
 
-The [plugin\_install\_progress]{.title-ref} event is published during
-the installation of a plugin.
+The [plugin\_install\_progress]{.title-ref} event is published during the installation of a plugin.
 
--   routing key: [plugin.install.\<uuid\>.\<status\>]{.title-ref}
--   required ACL:
-    [events.plugin.install.\<uuid\>.\<status\>]{.title-ref}
--   event specific data:
-    -   uuid: The installation task UUID
-    -   status: The status of the installation
+- routing key: [plugin.install.\<uuid\>.\<status\>]{.title-ref}
+- required ACL: [events.plugin.install.\<uuid\>.\<status\>]{.title-ref}
+- event specific data:
+  - uuid: The installation task UUID
+  - status: The status of the installation
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "plugin_install_progress",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -864,22 +779,19 @@ Example:
 }
 ```
 
-plugin\_uninstall\_progress {#bus-plugin-uninstall-progress}
----------------------------
+## plugin_uninstall_progress {#bus-plugin-uninstall-progress}
 
-The [plugin\_uninstall\_progress]{.title-ref} event is published during
-the removal of a plugin.
+The [plugin\_uninstall\_progress]{.title-ref} event is published during the removal of a plugin.
 
--   routing key: [plugin.uninstall.\<uuid\>.\<status\>]{.title-ref}
--   required ACL:
-    [events.plugin.uninstall.\<uuid\>.\<status\>]{.title-ref}
--   event specific data:
-    -   uuid: The removal task UUID
-    -   status: The status of the removal
+- routing key: [plugin.uninstall.\<uuid\>.\<status\>]{.title-ref}
+- required ACL: [events.plugin.uninstall.\<uuid\>.\<status\>]{.title-ref}
+- event specific data:
+  - uuid: The removal task UUID
+  - status: The status of the removal
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "plugin_uninstall_progress",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -890,25 +802,19 @@ Example:
 }
 ```
 
-relocate\_initiated, relocate\_answered, relocate\_completed, relocate\_ended {#bus-relocate-initiated}
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+## relocate_initiated, relocate_answered, relocate_completed, relocate_ended {#bus-relocate-initiated}
 
-Those events are published during the different steps of a relocate
-operation.
+Those events are published during the different steps of a relocate operation.
 
--   routing key: `calls.relocate.XXX` where `XXX` is the event, e.g.
-    `calls.relocate.completed`
--   headers:
-    -   `"user_uuid:XXX": true` where `XXX` is the initiator\'s user
-        UUID
--   required ACL: `events.relocates.XXX` where XXX is the initiator\'s
-    user UUID
--   event specific data: a relocate object, see
-    <http://api.wazo.community>, section `wazo-calld`.
+- routing key: `calls.relocate.XXX` where `XXX` is the event, e.g. `calls.relocate.completed`
+- headers:
+  - `"user_uuid:XXX": true` where `XXX` is the initiator\'s user UUID
+- required ACL: `events.relocates.XXX` where XXX is the initiator\'s user UUID
+- event specific data: a relocate object, see <http://api.wazo.community>, section `wazo-calld`.
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "relocate_completed",
     "origin_uuid": "cc5d0d76-687e-40a7-81cf-75e0540d1787",
@@ -925,20 +831,18 @@ Example:
 }
 ```
 
-user\_created {#bus-user-created}
--------------
+## user_created {#bus-user-created}
 
-The [user\_created]{.title-ref} event is published when a new user is
-created.
+The [user\_created]{.title-ref} event is published when a new user is created.
 
--   routing key: [config.user.created]{.title-ref}
--   event specific data: a dictionary with 2 keys
-    -   id: the ID of the created user
-    -   uuid: the UUID of the created user
+- routing key: [config.user.created]{.title-ref}
+- event specific data: a dictionary with 2 keys
+  - id: the ID of the created user
+  - uuid: the UUID of the created user
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "user_created",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -949,20 +853,18 @@ Example:
 }
 ```
 
-user\_deleted {#bus-user-deleted}
--------------
+## user_deleted {#bus-user-deleted}
 
-The [user\_deleted]{.title-ref} event is published when a user is
-deleted.
+The [user\_deleted]{.title-ref} event is published when a user is deleted.
 
--   routing key: [config.user.deleted]{.title-ref}
--   event specific data: a dictionary with 2 keys
-    -   id: the ID of the deleted user
-    -   uuid: the UUID of the deleted user
+- routing key: [config.user.deleted]{.title-ref}
+- event specific data: a dictionary with 2 keys
+  - id: the ID of the deleted user
+  - uuid: the UUID of the deleted user
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "user_deleted",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -973,20 +875,18 @@ Example:
 }
 ```
 
-user\_edited {#bus-user-edited}
-------------
+## user_edited {#bus-user-edited}
 
-The [user\_edited]{.title-ref} event is published when a user is
-modified.
+The [user\_edited]{.title-ref} event is published when a user is modified.
 
--   routing key: [config.user.edited]{.title-ref}
--   event specific data: a dictionary with 2 keys
-    -   id: the ID of the modified user
-    -   uuid: the UUID of the modified user
+- routing key: [config.user.edited]{.title-ref}
+- event specific data: a dictionary with 2 keys
+  - id: the ID of the modified user
+  - uuid: the UUID of the modified user
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "user_edited",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -997,24 +897,20 @@ Example:
 }
 ```
 
-users\_forwards\_FORWARD\_NAME\_updated {#bus-users-forwards-forward-updated}
----------------------------------------------
+## users_forwards_FORWARD_NAME_updated {#bus-users-forwards-forward-updated}
 
-The users\_forwards\_FORWARD\_NAME\_updated is sent when a user
-changes his forward using REST API.
+The users_forwards_FORWARD_NAME_updated is sent when a user changes his forward using REST API.
 
--   forward\_name:
-    -   busy
-    -   noanswer
-    -   unconditional
--   routing key:
-    config.users.\<user\_uuid\>.forwards.\<forward\_name\>.updated
--   required ACL:
-    events.config.users.\<user\_uuid\>.forwards.\<forward\_name\>.updated
--   event specific data: a dictionary with 3 keys
-    -   user\_uuid: the user uuid
-    -   enabled: the state of the forward
-    -   destination: the destination of the forward
+- forward_name:
+  - busy
+  - noanswer
+  - unconditional
+- routing key: config.users.\<user_uuid\>.forwards.\<forward_name\>.updated
+- required ACL: events.config.users.\<user_uuid\>.forwards.\<forward_name\>.updated
+- event specific data: a dictionary with 3 keys
+  - user_uuid: the user uuid
+  - enabled: the state of the forward
+  - destination: the destination of the forward
 
 Example:
 
@@ -1029,22 +925,18 @@ Example:
         }
     }
 
-users\_services\_SERVICE\_NAME\_updated {#bus-users-services-service-updated}
----------------------------------------------
+## users_services_SERVICE_NAME_updated {#bus-users-services-service-updated}
 
-The users\_services\_SERVICE\_NAME\_updated is sent when a user
-changes his service using REST API.
+The users_services_SERVICE_NAME_updated is sent when a user changes his service using REST API.
 
--   service\_name:
-    -   dnd
-    -   incallfilter
--   routing key:
-    config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
--   required ACL:
-    events.config.users.\<user\_uuid\>.services.SERVICE\_NAME.updated
--   event specific data: a dictionary with 2 keys
-    -   user\_uuid: the user uuid
-    -   enabled: the state of the service
+- service_name:
+  - dnd
+  - incallfilter
+- routing key: config.users.\<user_uuid\>.services.SERVICE_NAME.updated
+- required ACL: events.config.users.\<user_uuid\>.services.SERVICE_NAME.updated
+- event specific data: a dictionary with 2 keys
+  - user_uuid: the user uuid
+  - enabled: the state of the service
 
 Example:
 
@@ -1058,22 +950,21 @@ Example:
         }
     }
 
-service\_registered\_event {#bus-service-registered-event}
---------------------------
+## service_registered_event {#bus-service-registered-event}
 
-The service\_registered\_event is sent when a service is started.
+The service_registered_event is sent when a service is started.
 
--   routing key: service.registered.SERVICE\_NAME
--   event specific data: a dictionary with 5 keys
-    -   service\_name: The name of the started service
-    -   service\_id: The consul ID of the started service
-    -   address: The advertised address of the started service
-    -   port: The advertised port of the started service
-    -   tags: The advertised Consul tags of the started service
+- routing key: service.registered.SERVICE_NAME
+- event specific data: a dictionary with 5 keys
+  - service_name: The name of the started service
+  - service_id: The consul ID of the started service
+  - address: The advertised address of the started service
+  - port: The advertised port of the started service
+  - tags: The advertised Consul tags of the started service
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "service_registered_event",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -1087,20 +978,19 @@ Example:
 }
 ```
 
-service\_deregistered\_event {#bus-service-deregistered-event}
-----------------------------
+## service_deregistered_event {#bus-service-deregistered-event}
 
-The service\_deregistered\_event is sent when a service is stopped.
+The service_deregistered_event is sent when a service is stopped.
 
--   routing key: service.deregistered.SERVICE\_NAME
--   event specific data: a dictionary with 3 keys
-    -   service\_name: The name of the stopped service
-    -   service\_id: The consul ID of the stopped service
-    -   tags: The advertised Consul tags of the stopped service
+- routing key: service.deregistered.SERVICE_NAME
+- event specific data: a dictionary with 3 keys
+  - service_name: The name of the stopped service
+  - service_id: The consul ID of the stopped service
+  - tags: The advertised Consul tags of the stopped service
 
 Example:
 
-``` {.sourceCode .javascript}
+```{.sourceCode .javascript}
 {
     "name": "service_deregistered_event",
     "origin_uuid": "ca7f87e9-c2c8-5fad-ba1b-c3140ebb9be3",
@@ -1112,21 +1002,17 @@ Example:
 }
 ```
 
-user\_voicemail\_message\_created
----------------------------------
+## user_voicemail_message_created
 
-The events `user_voicemail_message_created`,
-`user_voicemail_message_updated`, `user_voicemail_message_deleted` are
-sent when a message is left, updated or deleted from a voicemail. A
-distinct message is generated for each user associated to the voicemail:
-if the voicemail is not associated to any user, no message is generated.
+The events `user_voicemail_message_created`, `user_voicemail_message_updated`,
+`user_voicemail_message_deleted` are sent when a message is left, updated or deleted from a
+voicemail. A distinct message is generated for each user associated to the voicemail: if the
+voicemail is not associated to any user, no message is generated.
 
--   routing key: voicemails.messages.created,
-    voicemails.messages.updated, voicemails.messages.deleted
--   required ACL: events.users.\<user\_uuid\>.voicemails
--   event specific data: a dictionary with the same fields as the REST
-    API model of VoicemailMessage (See <http://api.wazo.community>,
-    section wazo-calld)
+- routing key: voicemails.messages.created, voicemails.messages.updated, voicemails.messages.deleted
+- required ACL: events.users.\<user_uuid\>.voicemails
+- event specific data: a dictionary with the same fields as the REST API model of VoicemailMessage
+  (See <http://api.wazo.community>, section wazo-calld)
 
 Example:
 
