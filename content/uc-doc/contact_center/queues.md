@@ -10,37 +10,37 @@ A queue can be configured with the following options:
 A `options: strategy` defines how queue members are called when a call enters the queue. A queue can
 use one of the following ring strategies:
 
-> - `linear`: For each call, in the same order, starting from the same member
->   - For agents: In login order
->   - For static members: In definition order
-> - `leastrecent`: call the member who least recently hung up a call
-> - `fewestcalls`: call the member with the fewest completed calls
-> - `rrmemory` (round robin with memory): call the "next" member after the one who answered last
-> - `random`: call a member at random
-> - `wrandom` (weight random): same as random, but taking the member penalty into account
-> - `ringall`: call all members at the same time
->
-> #:warning: When editing a queue, you can't change the ring strategy to linear. This is due to an
-> asterisk limitation. Unfortunately, if you want to change the ring strategy of a queue to linear,
-> you'll have to delete it first and then create a new queue with the right strategy.
+- `linear`: For each call, in the same order, starting from the same member
+  - For agents: In login order
+  - For static members: In definition order
+- `leastrecent`: call the member who least recently hung up a call
+- `fewestcalls`: call the member with the fewest completed calls
+- `rrmemory` (round robin with memory): call the "next" member after the one who answered last
+- `random`: call a member at random
+- `wrandom` (weight random): same as random, but taking the member penalty into account
+- `ringall`: call all members at the same time
 
-> #:exclamation: When an agent is a member of many queues the order of call distribution between
-> multiple queues is nondeterministic and cannot be configured.
+**Warning**: When editing a queue, you can't change the ring strategy to linear. This is due to an
+asterisk limitation. Unfortunately, if you want to change the ring strategy of a queue to linear,
+you'll have to delete it first and then create a new queue with the right strategy.
+
+**Note**: When an agent is a member of many queues the order of call distribution between
+multiple queues is non-deterministic and cannot be configured.
 
 ## Timers
 
 You may control how long a call will stay in a queue using different timers:
 
-> - `options: timeout` (Member reachabillity time out): Maximum number of seconds a call will ring
->   on an agent's phone. If a call is not answered within this time, the call will be forwarded to
->   another agent.
-> - `retry_on_timeout` (Time before retrying a call to a member): Used once a call has reached the
->   "Member reachability time out". The call will be put on hold for the number of seconds allowed
->   before being redirected to another agent.
-> - `timeout` (Ringing time): The total time the call will stay in the queue.
-> - `options: timeoutpriority` (Timeout priority): Determines which timeout to use before ending a
->   call. When set to "configuration", the call will use the "Member reachability time out". When
->   set to "dialplan", the call will use the "Ringing time".
+- `options: timeout` (Member reachability time out): Maximum number of seconds a call will ring
+  on an agent's phone. If a call is not answered within this time, the call will be forwarded to
+  another agent.
+- `retry_on_timeout` (Time before retrying a call to a member): Used once a call has reached the
+  "Member reachability time out". The call will be put on hold for the number of seconds allowed
+  before being redirected to another agent.
+- `timeout` (Ringing time): The total time the call will stay in the queue.
+- `options: timeoutpriority` (Timeout priority): Determines which timeout to use before ending a
+  call. When set to "configuration", the call will use the "Member reachability time out". When
+  set to "dialplan", the call will use the "Ringing time".
 
 ![](/images/uc-doc/contact_center/queues/queue_timers.jpg)
 
@@ -71,7 +71,7 @@ estimated waiting time is over the threshold `wait_time_threshold`.
 Note that if a new call arrives when there are no waiting calls in the queue, the call will
 **always** be allowed to enter the queue.
 
-#:exclamation:
+**Note**:
 
 - this _estimated_ waiting time is computed from the **actual hold time** of all **answered** calls
   in the queue (since last asterisk restart) according to an
@@ -93,25 +93,31 @@ The maximum number of waiting calls per logged-in agent can have a fractional pa
 
 Here are a few examples:
 
-    wait_ratio_threshold: 1
-    Current number of waiting calls: 2
-    Current number of logged-in agents: 2
-    Number of waiting calls per logged-in agent when a new call arrives: 3 / 2 = 1.5
-    Call will be redirected to ``wait_ratio_destination``
+```
+wait_ratio_threshold: 1
+Current number of waiting calls: 2
+Current number of logged-in agents: 2
+Number of waiting calls per logged-in agent when a new call arrives: 3 / 2 = 1.5
+Call will be redirected to ``wait_ratio_destination``
+```
 
-    wait_ratio_threshold: 0.5
-    Number of waiting calls: 5
-    Number of logged-in agents: 12
-    Number of waiting calls per logged-in agent when a new call arrives: 6 / 12 = 0.5
-    Call will not be redirected to ``wait_ratio_destination``
+```
+wait_ratio_threshold: 0.5
+Number of waiting calls: 5
+Number of logged-in agents: 12
+Number of waiting calls per logged-in agent when a new call arrives: 6 / 12 = 0.5
+Call will not be redirected to ``wait_ratio_destination``
+```
 
 Note that if a new call arrives when there are no waiting calls in the queue, the call will
 **always** be allowed to enter the queue. For example, in the following scenario:
 
-    wait_ratio_threshold: 0.5
-    Current number of waiting calls: 0
-    Current number of logged-in agents: 1
-    Number of waiting calls per logged-in agent when a new call arrives: 1 / 1 = 1
+```
+wait_ratio_threshold: 0.5
+Current number of waiting calls: 0
+Current number of logged-in agents: 1
+Number of waiting calls per logged-in agent when a new call arrives: 1 / 1 = 1
+```
 
 Even if `wait_ratio_time` (1) is greater than the maximum (0.5), the call will still be accepted
 since there are currently no waiting calls.
@@ -126,15 +132,17 @@ The `music_on_hold` of the queue will be played:
 If you want a different music to be played when the caller is put on hold after being answered, you
 need to make some more configuration:
 
-1.  Write an AGI script that will set the channel variable `CHANNEL(musicclass)` to the name of the
-    music-on-hold class you want the caller to hear when he is put on hold by the agent. Save this
-    script to e.g. `/usr/local/bin/agi-agent-hold-moh`.
-2.  Add the following [preprocess subroutine](/uc-doc/api_sdk/subroutine) on the queue:
+1. Write an AGI script that will set the channel variable `CHANNEL(musicclass)` to the name of the
+   music-on-hold class you want the caller to hear when he is put on hold by the agent. Save this
+   script to e.g. `/usr/local/bin/agi-agent-hold-moh`.
+2. Add the following [preprocess subroutine](/uc-doc/api_sdk/subroutine) on the queue:
 
-        [setup-agent-hold-moh]
-        exten = s,1,NoOp(Setting AGI script for custom agent hold music)
-        same  =   n,Set(XIVO_QUEUEAGI=/usr/local/bin/agi-agent-hold-moh)
-        same  =   n,Return
+   ```dialplan
+   [setup-agent-hold-moh]
+   exten = s,1,NoOp(Setting AGI script for custom agent hold music)
+   same  =   n,Set(XIVO_QUEUEAGI=/usr/local/bin/agi-agent-hold-moh)
+   same  =   n,Return
+   ```
 
 This configuration will give the following scenario:
 
