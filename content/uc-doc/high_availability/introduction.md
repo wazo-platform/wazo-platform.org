@@ -6,9 +6,9 @@ The `HA (High Availability)` solution in Wazo makes it possible to maintain basi
 whether your main Wazo server is running or not. When running a Wazo HA cluster, users are
 guaranteed to never experience a downtime of more than 5 minutes of their basic telephony service.
 
-The HA solution in Wazo is based on a 2-nodes \"master and slave\" architecture. In the normal
-situation, both the master and slave nodes are running in parallel, the slave acting as a \"hot
-standby\", and all the telephony services are provided by the master node. If the master fails or
+The HA solution in Wazo is based on a 2-nodes "master and slave" architecture. In the normal
+situation, both the master and slave nodes are running in parallel, the slave acting as a "hot
+standby", and all the telephony services are provided by the master node. If the master fails or
 must be shutdown for maintenance, then the telephony devices automatically communicate with the
 slave node instead of the master one. Once the master is up again, the telephony devices failback to
 the master node. Both the failover and the failback operation are done automatically, i.e. without
@@ -16,7 +16,7 @@ any user intervention, although an administrator might want to run some manual o
 failback as to, for example, make sure any voicemail messages that were left on the slave are copied
 back to the master.
 
-# Prerequisites
+## Prerequisites
 
 The HA in Wazo only works with telephony devices (i.e. phones) that support the notion of a primary
 and backup telephony server.
@@ -31,35 +31,35 @@ and backup telephony server.
 The HA solution is guaranteed to work correctly with
 [the following devices](/uc-doc/administration/security#devices).
 
-# Quick Summary
+## Quick Summary
 
 - You need two configured Wazo (wizard passed)
-- Configure one Wazo as a master -\> setup the slave address (VoIP interface)
+- Configure one Wazo as a master -> setup the slave address (VoIP interface)
 - Restart services (wazo-service restart) on master
-- Configure the other Wazo as a slave -\> setup the master address (VoIP interface)
+- Configure the other Wazo as a slave -> setup the master address (VoIP interface)
 - Configure file synchronization by running the script `xivo-sync -i` on the master
 - Start configuration synchronization by running the script
   `xivo-master-slave-db-replication <slave_ip>` on the master
 - Resynchronize all your devices
 
-That\'s it, you now have a HA configuration, and every hour all the configuration done on the master
+That's it, you now have a HA configuration, and every hour all the configuration done on the master
 will be reported to the slave.
 
-# Configuration Details
+## Configuration Details
 
 First thing to do is to [install 2 Wazo](/uc-doc/installation).
 
-#:exclamation: When you upgrade a node of your cluster, you must also upgrade the other so that they
-both are running the same version of Wazo. Otherwise, the replication might not work properly.
+**Note**: When you upgrade a node of your cluster, you must also upgrade the other so that they both
+are running the same version of Wazo. Otherwise, the replication might not work properly.
 
-You must configure the `HA (High Availability)`{.interpreted-text role="abbr"} with `PUT /ha`
+You must configure the `HA (High Availability)` with `PUT /ha`
 
 You can configure the master and slave in whatever order you want.
 
 You must also run `xivo-sync -i` on the master to setup file synchronization. Running `xivo-sync -i`
-will create a passwordless SSH key on the master, stored under the `/root/.ssh`{.interpreted-text
-role="file"} directory, and will add it to the `/root/.ssh/authorized_keys`{.interpreted-text
-role="file"} file on the slave. The following directories will then be rsync\'ed every hour:
+will create a passwordless SSH key on the master, stored under the `/root/.ssh` directory, and will
+add it to the `/root/.ssh/authorized_keys` file on the slave. The following directories will then be
+rsync'ed every hour:
 
 - /etc/asterisk/extensions_extra.d
 - /etc/xivo/asterisk
@@ -67,7 +67,7 @@ role="file"} file on the slave. The following directories will then be rsync\'ed
 - /var/lib/asterisk/moh
 - /var/lib/wazo/sounds/tenants
 
-#:warning: When the HA is configured, some changes will be automatically made to the configuration
+**Warning**: When the HA is configured, some changes will be automatically made to the configuration
 of Wazo.
 
 SIP expiry value on master and slave will be automatically updated:
@@ -82,28 +82,28 @@ switch from Wazo power failure.
 
 - `GET /provd/cfg_mgr/configs?q={"X_type": "registrar"}`
 
-  `registrar_backup`: \<slave ip\> `proxy_backup`: \<slave ip\>
+  `registrar_backup: <slave ip>, proxy_backup: <slave ip>`
 
-#:warning: Do not change these values when the HA is configured, as this may cause problems. These
+**Warning**: Do not change these values when the HA is configured, as this may cause problems. These
 values will be reset to blank when the HA is disabled.
 
-#:exclamation: For the telephony devices to take the new proxy/registrar settings into account, you
-must resynchronize the devices or restart them manually.
+**Note**: For the telephony devices to take the new proxy/registrar settings into account, you must
+resynchronize the devices or restart them manually.
 
-## Master node
+### Master node
 
 In choosing the `node_type: master` you must enter the `remote_address` **of the VoIP interface** of
 the slave node.
 
-#:exclamation: You have to restart all services (wazo-service restart) once the master node is
+**Note**: You have to restart all services (wazo-service restart) once the master node is
 configured.
 
-## Slave node
+### Slave node
 
 In choosing the `node_type: slave` you must enter the `remote_address` **of the VoIP interface** of
 the master node.
 
-## Replication Configuration
+### Replication Configuration
 
 Once master slave configuration is completed, Wazo configuration is replicated from the master node
 to the slave every hour (:00).
@@ -111,8 +111,8 @@ to the slave every hour (:00).
 Replication can be started manually by running the replication scripts on the master:
 
 ```shell
-# xivo-master-slave-db-replication <slave_ip>
-# xivo-sync
+xivo-master-slave-db-replication <slave_ip>
+xivo-sync
 ```
 
 The replication does not copy the full Wazo configuration of the master. Notably, these are
@@ -132,7 +132,7 @@ Less importantly, these are also excluded:
 - Queue logs
 - CELs
 
-# Internals
+## Internals
 
 4 scripts are used to manage services and data replication.
 
@@ -144,7 +144,7 @@ Less importantly, these are also excluded:
   disable services accordingly.
 - xivo-sync is used to sync directories from master to slave.
 
-# Limitations
+## Limitations
 
 When the master node is down, some features are not available and some behave a bit differently.
 This includes:
@@ -174,11 +174,11 @@ Here's the list of limitations that are more relevant on an administrator standp
 - The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
   the Wazo is still up and the failover will NOT happen.
 
-# Berofos Integration
+## Berofos Integration
 
 - [berofos](/uc-doc/high_availability/berofos)
 
-# Troubleshooting {#troubleshooting}
+## Troubleshooting {#troubleshooting}
 
 When replicating the database between master and slave, if you encounter problems related to the
 system locale, see `postgresql_localization_errors`
