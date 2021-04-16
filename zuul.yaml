@@ -1,39 +1,39 @@
 - secret:
-    name: algolia_secret
+    name: algolia
     data:
       appId: !encrypted/pkcs1-oaep
-        - P3K4iNDyGfhmSBLZUAi4QemdEfC0qZMH5I/Dcw+niTCz4lqGBozuOgT7eC2YzUBB16ePs
-          wwX6yMM7V2gu8e80tjBEQyxUpW6b6W+LER3ybc5E/uvNxO0L0SZtkN7TCBi9DFs6SFw9U
-          mIDWCIU4JA/eXLGEGojsdOUtu0hF0QeEdlAClqM/QuPRarooP6zlbA52r0gFWlr+ThnnT
-          /Cngzfk+5EvemFczBuy/tAL0Q+Xo94ZfelEQCH+1Khddc4fjutWggRoxPh0jRIe6Hx1wR
-          t7C5OiWcyy/hqD//EvS9ORepNR1GuHSO4UD0tdBhc9rQ2SdHcb3bxzky3bVYrClMvRqKs
-          cIelCHjQDgmtaP4b2ybZspFskZIACIgrPUMACHRrAl7ExBn7OzjuDoSeFPoKy0tZqdNfC
-          JKAkf70nUBiwuO1C1p8a6acYiZKLRIXhY6FPWyG4lQEilcKwGVCrpJz7sg7XEn+k7tmsc
-          UcyuPf4tvV6DX/NRtCAThwwSEWwhBhpIEXQiCSeiwrN7/7og/XG8id5Z+SQDxUNZGXgRy
-          cBFke/sdVWGb5XZpJrwliDrmeVuWZLFDmK8m4QlpVt9Jk1Lz30d2ICtbPU3RI2ZKaXH+/
-          8/r4p0Mpm2UwXmpcuhoe7ftwgwICkitQzFqviOoUTk2tENagvdEhuLQy/DYh3Y=
+        - OcEPtfepFe9aBF+OKbJq2T3EK0QVMniMONJ86HNgZDCJGe24EoH1MjVUBX8e84YYW1eXd
+          ZStstuoD6s9rwnTscYqLjcMQa0miUTbvi1aTrivSisVJlhzixziOtooU7G/TWl5tJEIUF
+          Ox8tTQ73B9YWQmKfUGaDPNsvhPiPv9wNkBbdLjOvOCqHzF9UXLowfNNaqbQkusmnpB5eX
+          EpHRHD3X53Yr2FTTM8d5VmTob0KKgMzjQK40xQrnssVT8/YZH5o03dKSXON3ImHhprXYa
+          qsx7aGBxyU5NqrUHj8Rf/aV2b93YAW5Rxe40ocoAerJdGkxkBm1+um2/MEbgYSt3c06al
+          Ta83nwCPWlEFwZFQ7vg9bejU6sis/7fbgQNJUkCxs3bH2qxiL4lE7UOcXi4MN4Vf55ha+
+          8Y5bilJ5lf3n0LdaWdBcTHNsWAwB3+/uYKD4vavTB8u9PU2hMppaxA+VZkYT08F5/f+LX
+          YKmaKAMepwIEvwJVYYe8IBXLBqxrHjUa0RTFXJlsBH/z6dPbnlYmpktAuwFGrm2eyjJx/
+          I7itiwY30Xk/agZlNGDO+LA5rg5GRC8pMgodpJsmfJEdrOpIPkrOp7LaRJNRUqkSCRWlj
+          A3MXpaiSHqfBgXoHnOmuzEafheJAXfR0R0/K3bw4tiob8l89S8170UYx7+U7w8=
       apiKey: !encrypted/pkcs1-oaep
-        - SJ+K83pqSyhScXupO04YW7UGbCLARYb6ozX8tRjjr2ENpnNMCpAyrmvMdrB/caYyEV5oE
-          2Ja8Yfelytf/4tD+/SlppxgirPfWOjWf8HbAmdBhyOm+QkVig8Vr0gsH80S5HbIxR+/Xu
-          XUWZ2QeFWP0QaDAeGIwgJHp5MnkhtcFJoV8l4087j/EtcO/oyunCG18n+QyQD1bNxD+BJ
-          gZKG6X5DhvrMW4FfFRV58kw+fSFZfwnEqOGyGauMgFdY0YNTEB6e02+KJ5XdOItWw8B8A
-          SozbpovgMvqY1VfLAFUsXAwjasKvwH56QNIhG0BviD5vzlO0TORAOwYXtKy0yzBH3Uz+/
-          HyRxoDfNwmXrUynwqK8hBnfigib5aBowSJZ6FZng+IDYGjYc7n15Qazv+5YWyNLnQsjZN
-          it3auGs9BohiLxNhYd0eV8HLaSS7c8T07tYd8jItElTA1YMtkBa5MS5XudkySS2EQeRw6
-          AyTTFS0ZurKf83AFCsqR3n3/jgUWRfORb0blyVrIx+UM/YFn67zjESwpqpUt0Pa1PcTpM
-          aalxOm+2HwIKlkTrtBEz/suLxYmIOqO1UfVgOu7fH+eOkbfKEHzMqEuW6dJASOyXXiJzv
-          H7noX8s3JCn1kxRcvNfWMx0Mmu8OYpDPUsNa6gtXgR4Wpq6SVqw1MqBJuyVCEc=
+        - XYd6ADcvHBNqBiZ+fES7bZXHzKHCm5CdJba6YGETKysBmmE7VzM1FLeilShHUeeMbSHjc
+          8U12EcpFKY0iTPznlZsjOkrBXcnR3V/DgwMk+UZIJtQ7je5WgohyB1rvYtnMYHDfoBNKZ
+          fL0EcMycyatFnfUueeBvYykHciEyiyiTEfHZnzW/+QBBGi0JQmolxMUXsi6PtGG4j6UFw
+          qQLyVgqtsCeMReUHps8fJ420pOF4LvM6sSINMTAaj+6QflGgK3BdFUoA8suyeRch9nhYn
+          3OSeibOsk9BxcryXoqW4umZn8R01/9J2P7xdS+2D/G9TttYJVXM3DQKTebsVIQcf07CQ9
+          8hd19lHMKoUryhjJ8uSPVVMTsKeHTk7a+J8yTQSE3TOj3ic9DO7r5nJpQBVAHVfEP8nH9
+          /dTo3YcK1/lL8UkHRKiF8Y+/UifX+Z/VrjzCEJ/rHtXfV+BKVD0WNyTgmnrq0fJY4eHXg
+          zQdAsWOP6obIPnfzZvdn/sM0CMG9tFYiUb09gooli+qXohW2bEdu64xaM/bbuSlG2l7mX
+          PdB1PGujKbBDhQeNNbKuVJ0Ay0Ga7h08d8ezNXvmhgVkc+gr9Hws2r0H53f5BrG9x0svv
+          gs6G9DOWXHC4B2EePXz+3oYDL1oVlQD5K3xontPH4O2cRyncoYwm0BdQlztVC0=
       publicKey: !encrypted/pkcs1-oaep
-        - dHedy6OAk1A659S8eOiXJo0V556VB5oFEPygck0n/amwyTaKLvcToGHgj4I2GoOl1eUSq
-          zvA9uA4EDQ0raq3yg9edMn26K0w9I7CuUGRixMgJFT7hJebj0jpNepB8cTLbWwCN7TaPp
-          LcZqkUQMO+9cvsBAG6oNYGVUm12UxfHRpl/lvskuToGZsxU+0rvWZZkGtQoNG6IWWGd8S
-          BDJYuIOESTR1pVp2Ie7JMew6TiawS/0AVMo4f8xqQLviXNq4PLsh+sYKrCR0h8lEwoz8g
-          +Fgp0w3EWsFsMFVdGDPSPfI4Lx9AOnANAPRpyLzqMpDIHkv+dnaWgqr+xrs/NxwekAlL0
-          SEljPscG9bQKNw/0JO+43q7AFvPBLPxMgGuU6gp4lpx2hGkCd0vA1HR+WGwqcFBbF9uqZ
-          ztBWMScXsLRo9oPzrJVGXvZQyLSmwNxwvAMAHNlzDizzV5NK2Y1DYboDU8YjDLL6Mjf8t
-          VeaEr0v386oZzD2enNhKmwuds+AHMj/MJQLKKqMMtrrK94ZvET8ZRUFnH5m7+fYz79mh6
-          bzEmP8eLkbzKWBAZwKpnQN99mXB7reSdiwK6Iedhg6oVi21okxpZxU5WSjrvkDTs9STME
-          gV/G13PW97UAg1Xxdg3p8nbnuNWI8+7+yLfmDjqyyMm30XYAaE4H59jiu/cqas=
+        - o2ZN/zjPRD8Bj/cDO5KzccQxBHCKkqCKB+xMKQ/16wc2UO2RVqIoRAOC+v+gjLof0nBqs
+          F9DtKlsIN0kiN+WTZg3AhW55cWv7L4MDoyeE7Je0XCxiGwQ3hfFGgmppwvGOBZn3XeMAO
+          R9NXrUFstAYKN2dl+JYyn4r705eyGkNiVvEuN5tj88lbRV+LFnFHhNMQaNupQIhaS9ckl
+          +iCGJLV1NjW1EonYqftux0jCMLKI2jBJpUzMJalP3xWu6X5m3ZryN27206UXtTwJmnCcf
+          163WXEEyTVmrsJojEmjnf/JlSJ0dNJUKFSsWiWnbCQBPLPVLfH/3ZM0stiEVBFr3KrTJO
+          2erEmffegoHlcbzXRnHx+Uh1Y9zpcsup1kJiCV/SBGvSNF8BaOwM/FtVbmxHnNTyDdhqK
+          iFlUhNwABhxfY8k0WBbZdgtqbgHiHfkQmUUgQymG6y3OzBzOpnbMzOG9SboyfKtA9kQQW
+          jjs4p0VGY+czRG2tjeO7c9/28hk1B597c9Zm6XA4txjX663nNrCWPzUGhIqfrb8Y1/eD+
+          KsoCdmDPALrY56vYf/6KWAkB2RPK9GyHMVlL2EiBjzWCsEP2/5jfcmpvybKyraJayO2ZT
+          lokMlFToEZxqUGrQCoF5FlB2Ztb5i6tN+sYuNS0yGbgD9Sz3ZDOXJJJmhdAWuU=
 
 - job:
     name: yarn-build-copy
@@ -48,7 +48,7 @@
     run: zuul.d/run-search-copy.yaml
     secrets:
       - name: algolia
-        secret: algolia_secret
+        secret: algolia
 
 - job:
     name: yarn-build-publish
@@ -57,7 +57,7 @@
     run: zuul.d/run.yaml
     secrets:
       - name: algolia
-        secret: algolia_secret
+        secret: algolia
 
 - job:
     name: yarn-build-test
