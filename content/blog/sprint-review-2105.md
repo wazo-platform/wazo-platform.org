@@ -10,6 +10,10 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 21.05 release.
 
+## New features in this release
+
+* **Voicemails**: To make life easier, we added missing timezones for a few countries: Belgium, Italy, Canada, Germany, France, Israel, Luxembourg, Malaysia, Monaco, Netherlands, Poland, Portugal, Britain (United Kingdom), America, Spain and Switzerland. Note that the time format is by default set to 12-hour clock with AM/PM.
+
 ## Technical features
 
 * **Policies**: We revamped the logic that creates default authentication policies
