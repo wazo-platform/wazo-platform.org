@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 21.06 {#21-06}
+
+- Call recording filenames are now exposed using the CDR API. The filenames on the filesystem are
+  now auto-generated using a UUID and an extension only.
+
+Consult the
+[21.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.06)
+for more information.
+
 ## 21.05 {#21-05}
 
 - `wazo-sysconfd` configuration has been migrated to `/etc/wazo-sysconfd/config.yml`. However, if
