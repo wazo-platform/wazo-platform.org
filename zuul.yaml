@@ -72,6 +72,8 @@
     secrets:
       - name: algolia
         secret: algolia
+      - name: publication
+        secret: publication
 
 - job:
     name: yarn-build-test
