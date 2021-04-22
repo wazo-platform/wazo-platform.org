@@ -34,6 +34,20 @@
           jjs4p0VGY+czRG2tjeO7c9/28hk1B597c9Zm6XA4txjX663nNrCWPzUGhIqfrb8Y1/eD+
           KsoCdmDPALrY56vYf/6KWAkB2RPK9GyHMVlL2EiBjzWCsEP2/5jfcmpvybKyraJayO2ZT
           lokMlFToEZxqUGrQCoF5FlB2Ztb5i6tN+sYuNS0yGbgD9Sz3ZDOXJJJmhdAWuU=
+- secret:
+    name: publication
+    data:
+      private_key: !encrypted/pkcs1-oaep
+        - cC+wGTXktQ97KMy2h8Evre+AuRFRFfCz/QuIR3U5KLNvziIFTqlhr0Y2PNFcxhbyu+PzZ
+          yRgW0aN9gyZRqxrU+eEVkZ4Mge406Bhp3eKYC8nzH6JN6AapLvQ0tmyGAk8W0K+JZ+yI9
+          /Rqhk9SYna2j60AMa/rPjdChKDpJLoAw8XQYR3xgmA2YkA59713BKftC7/ZsE0j/oSrrz
+          ymUjE/BWaTbj7zlryIhVck70VaJk8Ojqcg+gZhN3q7XcN/smTLTUTv8BLRy2diAT0zrvV
+          vLtnjs4qh7fakaoi1U8TI99MKtpMhjMKf8CRcLpM/A9puZm0Rrg56NVfE/goMOY+NLQl5
+          hUskuYCZ7a6W7+tiFg4vdNBvhyd6BXedcaBLAhORzPKZhRcfK3HBPwJ9Sxx680bzOxuAC
+          bg+gXYbFXXThgRT6fRAx8hRr/XnY6XzpriuuqWGeJ1tqGAeT68o5xyEZakkb8a6ym2hxb
+          515hjX3r2PpG1LRmJMZfb/pswIZBjj0sWuSFlMo87o+xQrKuk60jyT15Ec6WUXZcbnKw9
+          ZnOHDoJgvzgFMiiMGGNynXRlUN/gk+2CLRgjQRXN17M567izsWjzH2dOd3OJippdiiIka
+          8xjqkPyEwA0o3rI3EHjD1jOxsVIzr53Z6/bMGC2BXdQRLftmfvqHehHgJcdIdI=
 
 - job:
     name: yarn-build-copy

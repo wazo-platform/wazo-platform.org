@@ -1,12 +1,4 @@
 ---
-- hosts: localhost
-  gather_facts: no
-  tasks:
-    - name: Add webserver SSH hostkey
-      known_hosts:
-        name: "webserver.wazo.community"
-        key: "webserver.wazo.community,52.21.34.41 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPkV9UYmjJpPFhQyrMGeJ8Ft+8N83JyNmkyLf5Z181ebYY7HW/G2nq76IRtzYP3Cg3wXuLQt5tUkQ9fxtP/+3t4="
-
 - hosts: all
   tasks:
     - name: Prepare config.js with Algolia ids
@@ -20,33 +12,36 @@
               apiKey: '{{ algolia.apiKey }}',
             },
           };
-        dest: "{{ zuul.project.src_dir }}/config.js"
+        dest: '{{ zuul.project.src_dir }}/config.js'
 
     - name: make
-      command: "make"
+      command: 'make'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
     - name: make build
-      command: "make build"
+      command: 'make build'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
+
+    # The matching public key was added manually to zuul-publisher@wazo-platform.org:.ssh/authorized_keys
+    # command="/usr/local/bin/rrsync -wo /var/www/wazo-platform" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA49zOQt8P3afuLR3qBuddj+x0lMTdk10n/QUtOH4w2q wazo-platform.org publication
+    - name: Set up publication private key from Zuul's secret
+      copy:
+        content: '{{ publication.private_key }}'
+        dest: .ssh/id_ed25519
+        owner: root
+        group: root
+        mode: '0400'
 
     - name: Copy site
       synchronize:
         src: '{{ zuul.project.src_dir }}/public'
-        dest: '{{ zuul.executor.log_root }}'
-        mode: pull
-        copy_links: true
-        verify_host: true
+        dest: 'zuul-publisher@webserver.wazo.community:'
+        set_remote_user: no
+        delete: yes
+        copy_links: yes
+        verify_host: no
         rsync_opts:
           - --prune-empty-dirs
-
-- hosts: localhost
-  gather_facts: no
-  tasks:
-    - name: Display available ssh keys
-      shell: "ssh-add -l || :"
-
-    - name: Upload site
-      command: 'rsync -e ssh -a --delete {{ zuul.executor.log_root }}/public/ zuul-publisher@webserver.wazo.community:'
+      delegate_to: delegate.host
