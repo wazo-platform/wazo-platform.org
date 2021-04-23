@@ -29,9 +29,7 @@
     - name: Set up publication private key from Zuul's secret
       copy:
         content: '{{ publication.private_key }}'
-        dest: .ssh/id_ed25519
-        owner: root
-        group: root
+        dest: '{{ ansible_user_dir }}/.ssh/id_ed25519'
         mode: '0400'
 
     - name: Copy site
