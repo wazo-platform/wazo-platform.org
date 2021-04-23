@@ -42,4 +42,4 @@
         verify_host: no
         rsync_opts:
           - --prune-empty-dirs
-      delegate_to: delegate.host
+      delegate_to: '{{ inventory_hostname }}'
