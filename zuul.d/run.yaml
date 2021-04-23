@@ -42,4 +42,5 @@
         verify_host: no
         rsync_opts:
           - --prune-empty-dirs
+          - --dry-run
       delegate_to: '{{ inventory_hostname }}'
