@@ -77,7 +77,7 @@
 
 - job:
     name: yarn-build-test
-    description: Build and publish
+    description: Build and test
     pre-run: zuul.d/pre.yaml
     run: zuul.d/run-test.yaml
 
