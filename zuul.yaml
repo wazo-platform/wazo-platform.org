@@ -80,6 +80,7 @@
     description: Build and test
     pre-run: zuul.d/pre.yaml
     run: zuul.d/run-test.yaml
+    timeout: 10800
 
 - project:
     check:
