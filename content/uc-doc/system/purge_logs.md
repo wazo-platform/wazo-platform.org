@@ -25,9 +25,10 @@ of record (usually a postgresql table).
 
 The format of the following list is `plugin-name` (`associated table`) :
 
-- `call-logs` (`call_logd_call_log`)
+- `call-logs` (`call_logd_call_log`, `call_logd_recordings` and recording files)
 - `cel` (`cel`)
 - `queue-log` (`queue_log`)
+- `recordings` (`call_logd_recordings` and recording files)
 - `stat-agent` (`stat_agent_periodic`)
 - `stat-call` (`stat_call_on_queue`)
 - `stat-queue` (`stat_queue_periodic`)
