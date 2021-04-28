@@ -41,7 +41,6 @@ python3 -m http.server
 
 Then open http://localhost:8000 in your favorite browser.
 
-
 ## Testing
 
 ```sh
