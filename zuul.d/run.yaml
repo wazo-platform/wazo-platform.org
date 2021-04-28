@@ -32,15 +32,5 @@
         dest: '{{ ansible_user_dir }}/.ssh/id_ed25519'
         mode: '0400'
 
-    - name: Copy site
-      synchronize:
-        src: '{{ zuul.project.src_dir }}/public'
-        dest: 'zuul-publisher@webserver.wazo.community:'
-        set_remote_user: no
-        delete: yes
-        copy_links: yes
-        verify_host: no
-        rsync_opts:
-          - --prune-empty-dirs
-          - --dry-run
-      delegate_to: '{{ inventory_hostname }}'
+    - name: Upload site
+      command: 'rsync -e ssh -av --delete --dry-run {{ zuul.project.src_dir }}/public/ zuul-publisher@webserver.wazo.community:'
