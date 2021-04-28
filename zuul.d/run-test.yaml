@@ -4,12 +4,12 @@
     - name: Set log path for a change
       when: zuul.change is defined
       set_fact:
-        zuul_log_path: "{{ zuul.change[-2:] }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}"
+        zuul_log_path: '{{ zuul.change[-2:] }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}'
 
     - name: Set log path for a ref update
       when: zuul.newrev is defined
       set_fact:
-        zuul_log_path: "{{ zuul.newrev[-2:] }}/{{ zuul.newrev }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}"
+        zuul_log_path: '{{ zuul.newrev[-2:] }}/{{ zuul.newrev }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}'
 
     - name: Prepare config.js
       copy:
@@ -22,32 +22,32 @@
               apiKey: '',
             },
           };
-        dest: "{{ zuul.project.src_dir }}/config.js"
+        dest: '{{ zuul.project.src_dir }}/config.js'
 
     - name: configure path prefix
       when: zuul_log_path is defined
       lineinfile:
         line: "pathPrefix: '/logs/{{ zuul_log_path }}/public',"
-        insertafter: "module.exports = {"
-        path: "{{ zuul.project.src_dir }}/gatsby-config.js"
+        insertafter: 'module.exports = {'
+        path: '{{ zuul.project.src_dir }}/gatsby-config.js'
         state: present
 
     - name: make
-      command: "make"
+      command: 'make'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
     - name: make build
-      command: "make build"
+      command: 'make build'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
     - name: make test
-      command: "make test"
+      command: 'make test'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
-    - name: Upload site
+    - name: Add resulting site to job's logs
       synchronize:
         src: '{{ zuul.project.src_dir }}/public'
         dest: '{{ zuul.executor.log_root }}'

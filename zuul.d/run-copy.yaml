@@ -12,26 +12,26 @@
               apiKey: '',
             },
           };
-        dest: "{{ zuul.project.src_dir }}/config.js"
+        dest: '{{ zuul.project.src_dir }}/config.js'
 
     - name: configure path prefix
       lineinfile:
         line: "pathPrefix: '/logs/{{ zuul.change[-2:] }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}/public',"
-        insertafter: "module.exports = {"
-        path: "{{ zuul.project.src_dir }}/gatsby-config.js"
+        insertafter: 'module.exports = {'
+        path: '{{ zuul.project.src_dir }}/gatsby-config.js'
         state: present
 
     - name: make
-      command: "make"
+      command: 'make'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
     - name: make build
-      command: "make build"
+      command: 'make build'
       args:
-        chdir: "{{ zuul.project.src_dir }}"
+        chdir: '{{ zuul.project.src_dir }}'
 
-    - name: Upload site
+    - name: Add resulting site to job's logs
       synchronize:
         src: '{{ zuul.project.src_dir }}/public'
         dest: '{{ zuul.executor.log_root }}'
