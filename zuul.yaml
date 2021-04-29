@@ -52,13 +52,11 @@
 - job:
     name: yarn-build-copy
     description: Build and copy
-    pre-run: zuul.d/pre.yaml
     run: zuul.d/run-copy.yaml
 
 - job:
     name: yarn-build-search-copy
     description: Build with search and copy
-    pre-run: zuul.d/pre.yaml
     run: zuul.d/run-search-copy.yaml
     secrets:
       - name: algolia
@@ -67,7 +65,6 @@
 - job:
     name: yarn-build-publish
     description: Build with search and publish
-    pre-run: zuul.d/pre.yaml
     run: zuul.d/run.yaml
     secrets:
       - name: algolia
@@ -78,7 +75,6 @@
 - job:
     name: yarn-build-test
     description: Build and test
-    pre-run: zuul.d/pre.yaml
     run: zuul.d/run-test.yaml
     timeout: 10800
 
