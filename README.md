@@ -18,6 +18,7 @@ cp config.sample.js config.js  # the config.js file must exist
 
 In `config.js`, you can configure the Algolia credentials used for the search engine. If left empty, the search engine will be disabled.
 
+
 ## Develop
 
 ```sh
