@@ -92,6 +92,9 @@
     run: zuul.d/run-test.yaml
     post-run: zuul.d/notification.yml
     timeout: 10800
+    secrets:
+      - name: mattermost
+        secret: mattermost
 
 - project:
     check:
@@ -109,10 +112,6 @@
     post:
       jobs:
         - yarn-build-publish:
-            nodeset: vm-debian-10-m1s
-    experimental:
-      jobs:
-        - yarn-build-test:
             nodeset: vm-debian-10-m1s
     periodic:
       jobs:
