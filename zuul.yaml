@@ -48,6 +48,20 @@
           515hjX3r2PpG1LRmJMZfb/pswIZBjj0sWuSFlMo87o+xQrKuk60jyT15Ec6WUXZcbnKw9
           ZnOHDoJgvzgFMiiMGGNynXRlUN/gk+2CLRgjQRXN17M567izsWjzH2dOd3OJippdiiIka
           8xjqkPyEwA0o3rI3EHjD1jOxsVIzr53Z6/bMGC2BXdQRLftmfvqHehHgJcdIdI=
+- secret:
+    name: mattermost
+    data:
+      api_key: !encrypted/pkcs1-oaep
+        - pkbNgblEDa26VbvMzrRhjGJfAXyqwTZOryKUvl2RsgWjcyVYvMZVG8MAyQXtNMMUalOVG
+          H25Ve53loL5f/8KCXHAsJ63xLIM7cDA5uU74LKUfNJCyM2aw1JVAmsuZLgLS6oBYJFByX
+          Ptg08Nu1nV3uKSPGW4P4YMBrxNq9QywdlsbCdJfiHLUvD1x0z5gQpt/Af9qU47LHW8XBA
+          c9X88QQUwONei3lZGk3SOje5qjYTuAjFtbsOmAtifIuWzxDVvDzKu8jnXyPlkvTDpnbDf
+          NjN5Xjsmyp6cdg1Uqkd8FJlwBM9PNejtr2rzzGccOLcu3I6+q8d7UPWF4jesRsRvpE9xU
+          JeQke3Ux/IR14tCNOa1SoY6+iy74+fkqmzLiQQtv9dAafCtnQ/f0+qenzqx5TI5ygxw3t
+          sP7Dtg12KF8P9INlymEaNemLq/BmLnt6MHKHHhY8v1VLklaNVVYXsP4uNlIXvgaD5Dp23
+          Rg5s7GNE0dBlsXUKYBrI2Dkt3ljUclOax8I+fPBtlYCf1gDxHtjREViW8x2rZxYLmjQzf
+          x8e2pt+6jDapc56wcyD5fFmHf1fPE91Mz3W6yt99n0M0g+Sdu1eXzWbeBgKsTAWjwN5vG
+          yqLOSw5NzP+maylyZgUd+kxN9me/KdFNsdu6DrN7PfM74QzPzra2aHsldU2ezM=
 
 - job:
     name: yarn-build-copy
@@ -76,6 +90,7 @@
     name: yarn-build-test
     description: Build and test
     run: zuul.d/run-test.yaml
+    post-run: zuul.d/notification.yml
     timeout: 10800
 
 - project:
