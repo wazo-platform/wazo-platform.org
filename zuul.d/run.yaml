@@ -33,4 +33,4 @@
         mode: '0400'
 
     - name: Upload site
-      command: 'rsync -e ssh -av --delete {{ zuul.project.src_dir }}/public/ zuul-publisher@webserver.wazo.community:'
+      command: 'rsync -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -av --delete {{ zuul.project.src_dir }}/public/ zuul-publisher@webserver.wazo.community:'
