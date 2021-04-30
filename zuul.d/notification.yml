@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Send a notification to Mattermost in case of error
+      mattermost:
+        url: https://mm.wazo.community
+        api_key: '{{ mattermost.api_key }}'
+        text: "{{ zuul.project.name }}'s job {{ zuul.job }} [failed](https://sf.production.wazo.cloud/zuul/t/local/buildset/{{ zuul.buildset }}) :nuke:"
+      when: not (zuul_success | bool)
