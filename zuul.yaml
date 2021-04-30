@@ -92,6 +92,9 @@
     run: zuul.d/run-test.yaml
     post-run: zuul.d/notification.yml
     timeout: 10800
+    secrets:
+      - name: mattermost
+        secret: mattermost
 
 - project:
     check:
