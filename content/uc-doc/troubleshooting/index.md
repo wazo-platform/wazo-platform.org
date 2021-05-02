@@ -375,7 +375,7 @@ _ngrok_ can be used to give access to someone outside your network to your Wazo 
 
 To make that possible, you will have to follow these 4 easy steps.
 
-- Create an account on [ngrok](https://dashboard.ngrok.com/user/signup)
+- Create an account on [ngrok](https://dashboard.ngrok.com/signup)
 - Install ngrok on your Wazo server:
 
 On a 32 bit server:
@@ -393,7 +393,7 @@ unzip ngrok-stable-linux-amd64.zip
 ```
 
 - Add your ngrok token (given when you signed up on
-  [ngrok](https://dashboard.ngrok.com/user/signup))
+  [ngrok](https://dashboard.ngrok.com/signup))
 
     ```shell
     ./ngrok authtoken <YOUR AUTH TOKEN>
@@ -490,4 +490,4 @@ information, that can be used to connect to your Wazo Platform.
 
 ## Asterisk crash
 
-See [Debugging Asterisk](/contribute/debug_asterisk)
+See [Debugging Asterisk](uc-doc/contributors/debug_asterisk)

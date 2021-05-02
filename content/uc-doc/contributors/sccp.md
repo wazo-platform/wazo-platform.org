@@ -11,7 +11,7 @@ wazo-libsccp on something other than Wazo.
 ## Installation from the git repository
 
 #:warning: If you just want to use your SCCP phones with Wazo, refer to
-[SCCP Configuration](/uc-doc/administration/sccp/sccp) instead.
+[SCCP Configuration](/uc-doc/administration/sccp) instead.
 
 The following packages are required to compile wazo-libsccp on Debian.
 
