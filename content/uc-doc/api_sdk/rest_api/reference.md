@@ -14,9 +14,9 @@ Most of them can also be reached by default via
 API reference
 =============
 
-- [webhookd/api](/uc-doc/api_sdk/rest_api/webhookd/api)
-- [confd/api](/uc-doc/api_sdk/rest_api/confd/api)
-- [sysconfd/api](/uc-doc/api_sdk/rest_api/sysconfd/api)
+- [webhookd](/uc-doc/api_sdk/rest_api/webhookd)
+- [confd](/uc-doc/api_sdk/rest_api/confd)
+- [sysconfd](/uc-doc/api_sdk/rest_api/sysconfd)
 
 For other services, see <http://api.wazo.community>. See also the
 [REST API Quickstart](/uc-doc/api_sdk/rest_api/quickstart) for an interactive

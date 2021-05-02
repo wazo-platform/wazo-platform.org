@@ -11,7 +11,7 @@ title: Contributors
 - [Generate Custom Prompts](/uc-doc/contributors/generate_custom_prompts)
 - [Guidelines](/uc-doc/contributors/guidelines)
 - [Network](/uc-doc/contributors/network)
-- [Plugins](/uc-doc/contributors/plugins/plugins)
+- [Plugins](/uc-doc/contributors/plugins)
 - [Profile Python](/uc-doc/contributors/profile_python)
 - [Style Guide](/uc-doc/contributors/style_guide)
 - [Translate](/uc-doc/contributors/translate)

@@ -121,7 +121,7 @@ Follow the instructions in the sub-section that matches the version you are curr
         cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
 
 5.  Open a new issue on the
-    [bugtracker](https://projects.wazo.community/projects/xivo/issues/new)
+    [bug tracker](https://wazo-dev.atlassian.net)
     with following information
     -   Tracker: Bug
     -   Status: New

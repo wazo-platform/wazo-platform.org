@@ -206,9 +206,6 @@ sure the IP address of your NAT equipment doesn't get banned unintentionally.
   6-digit provisioning code on the phone will produce unexpected results (i.e. the wrong device will
   be provisioned)
 
-For technical information about why other devices are not supported, you can look at
-[this issue](https://projects.wazo.community/issues/5107) on the Wazo bug tracker.
-
 ## Security {#provd-security}
 
 By design, the auto-provisioning process is vulnerable to:

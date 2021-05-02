@@ -15,7 +15,7 @@ example:
 Also, your token needs to have the right ACLs to give you access to the
 resource you want. See [REST API ACL](/uc-doc/api_sdk/rest_api/acl).
 
-See also [service-authentication](/uc-doc/system/service_authentication/service_authentication) for
+See also [service-authentication](/uc-doc/system/service_authentication) for
 details about the token-based authentication process.
 
 HTTP status codes

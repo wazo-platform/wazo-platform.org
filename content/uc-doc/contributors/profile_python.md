@@ -91,5 +91,4 @@ want to have additional information about it.
 
 -   [Official python
     documentation](http://docs.python.org/library/profile.html)
--   [PyMOTW](http://blog.doughellmann.com/2008/08/pymotw-profile-cprofile-pstats.html)
 -   [coverage.py](http://nedbatchelder.com/code/coverage/)
