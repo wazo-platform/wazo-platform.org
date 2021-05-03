@@ -4,12 +4,14 @@ import Layout from '../Layout';
 import './provisioning.scss';
 const slugify = require('../../builder/slugify');
 
+const vendorsUrl = '/uc-doc/ecosystem/supported_devices';
+
 const breadcrumbs = [{
-  url: '/provisioning/vendors', label: 'Provd plugins',
+  url: vendorsUrl, label: 'Provd plugins',
 }];
 
 export default ({ pageContext: { name, vendor_plugins, vendor_images } }) => (
-  <Layout pageTitle={`<a href="/provisioning/vendors">Provd Plugins:</a> ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
+  <Layout pageTitle={`<a href="${vendorsUrl}">Provd Plugins:</a> ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
     <div className="doc-wrapper provisioning-vendor">
       <div className="container">
         <div className="section-block">
