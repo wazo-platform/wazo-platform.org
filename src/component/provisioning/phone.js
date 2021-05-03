@@ -5,6 +5,7 @@ import Layout from '../Layout';
 import './provisioning.scss';
 const slugify = require('../../builder/slugify');
 
+const vendorsUrl = '/uc-doc/ecosystem/supported_devices';
 
 const MarkedDown = ({ label, content }) => {
   if (!content) {
@@ -75,12 +76,12 @@ export const buildTable = data => {
 
 export default ({ pageContext: { name, vendor, phone, vendor_images } }) => {
   const breadcrumbs = [
-    { url: '/provisioning/vendors', label: 'Provd plugins' },
+    { url: vendorsUrl, label: 'Provd plugins' },
     { url: `/provisioning/${slugify(vendor)}`, label: vendor },
   ];
 
   return (
-    <Layout pageTitle={`<a href="/provisioning/vendors">Provd Plugins</a> &gt; <a href="/provisioning/${slugify(vendor)}">${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
+    <Layout pageTitle={`<a href="${vendorsUrl}">Provd Plugins</a> &gt; <a href="/provisioning/${slugify(vendor)}">${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
       <div className="doc-wrapper provisioning-phone">
         <div className="container">
           <div className="row">
