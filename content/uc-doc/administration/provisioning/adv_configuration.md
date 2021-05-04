@@ -220,7 +220,7 @@ By design, the auto-provisioning process is vulnerable to:
   could spoof requests to the provisioning server to create a huge amount of devices, creating a
   denial-of-service condition.
 
-That said, starting from Wazo 16.08, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the
+That said, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the
 provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
 file potentially containing sensitive information is requested, a log line is appended to the
 `/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing happens when
@@ -237,8 +237,8 @@ the fail2ban(1) man page for more information.
 
 ### System Requirements {#provd-security-requirements}
 
-Wazo 16.08 or later is required. You also need to use compatible wazo-provd plugins. Here's the list
-of official plugins which are compatible:
+You need to use compatible wazo-provd plugins. Here's the list of official plugins which are
+compatible:
 
 | Plugin family   | Version |
 | --------------- | ------- |

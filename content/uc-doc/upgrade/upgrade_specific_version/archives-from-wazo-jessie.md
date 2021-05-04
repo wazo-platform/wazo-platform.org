@@ -2,7 +2,7 @@
 title: Upgrade from Wazo < 18.01
 ---
 
-Those procedures are valid if your Wazo installation is newer than 16.08 and older than 18.01.
+Those procedures are valid if your Wazo installation is newer than 17.01 and older than 18.01.
 
 ## Upgrade to Wazo < 18.01
 

@@ -60,7 +60,7 @@ Follow the instructions in the sub-section that matches the version you are curr
     wazo-dist -m phoenix-stretch
 
 
-### Wazo >= 16.16
+### Wazo >= 17.01
 
 1. Set your Wazo version:
     export WAZO_VERSION=<current-wazo-version>
@@ -75,23 +75,6 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 4. Switch back to the production mirror:
     xivo-dist phoenix
-
-
-### XiVO >= 16.01
-
-1. Set your Wazo version:
-    export WAZO_VERSION=<current-wazo-version>
-
-2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
-    xivo-dist xivo-${WAZO_VERSION}
-
-3. Install dependencies:
-    apt-get update
-    apt-get install gdb libc6-dbg
-    apt-get install -t xivo-${WAZO_VERSION} asterisk-dbg xivo-libsccp-dbg
-
-4. Switch back to the production mirror:
-    xivo-dist xivo-five
 
 
 ## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
@@ -229,9 +212,8 @@ The procedure is similar to the one described above. Before calling
 
         truncate -s0 debian/patches/series
 
-When installing a vanilla version of Asterisk on a XiVO 16.08 or
-earlier, you\'ll need to stop monit, otherwise it will restart asterisk
-every few minutes.
+When installing a vanilla version of Asterisk, you'll need to stop monit, otherwise it will restart
+asterisk every few minutes.
 
 ### Recompiling a vanilla version of Asterisk (Wazo \>= 19.13) {#recompiling-a-vanilla-version-of-asterisk-wazo-19.13}
 
