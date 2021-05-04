@@ -11,7 +11,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
 - [Call Recording](/uc-doc/administration/call_recording)
 - [Call Logs CallerID](/uc-doc/administration/call_logs)
 - [Caller ID](/uc-doc/administration/callerid)
-- [CLI Tools](/uc-doc/administration/cli_tools/cli_tools)
+- [CLI Tools](/uc-doc/administration/cli_tools)
 - [Directed Pickup](/uc-doc/administration/directed_pickup)
 - [Direct media](/uc-doc/administration/direct_media)
 - [Fax](/uc-doc/administration/fax)
