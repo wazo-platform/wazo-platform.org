@@ -68,7 +68,7 @@ Creating a refresh token is just like creating an access token with a few more
 arguments.
 
 ```ShellSession
-$ curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600, "client_id": "example", "access_type": "offline"}'
+$ curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"client_id": "example", "access_type": "offline"}'
 ```
 
 The only change from the access token creation is that two fields are added to
