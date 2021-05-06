@@ -6,6 +6,10 @@ title: Upgrade notes
 
 - Call recording filenames are now exposed using the CDR API. The filenames on the filesystem are
   now auto-generated using a UUID and an extension only.
+- Call recording files are now automatically purged (default: after 1 year). However, call recording 
+  files that were created before Wazo Platform 21.02 will not be purged
+  automatically. Those recording files can be found in
+  `/var/lib/wazo/sounds/tenants/*/monitor` and you can remove the older files manually without risk.
 
 Consult the
 [21.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.06)
