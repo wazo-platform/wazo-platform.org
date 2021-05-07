@@ -2,26 +2,28 @@
 title: REST API Troubleshooting
 ---
 
-- [Swagger UI: Can\'t read from server\...](#swagger-ui-cant-read-from-server...)
+- [Swagger UI: Can't read from server...](#swagger-ui-cant-read-from-server...)
   - [Problem](#problem)
   - [Answer](#answer)
 
 Here is a list of common problems you can encounter with Wazo REST APIs.
 
-# Swagger UI: Can\'t read from server\...
+## Swagger UI: Can't read from server...
 
-## Problem
+### Problem
 
 When trying to access Swagger UI via `http://wazo/api`, I get:
 
-    Can't read from server. It may not have the appropriate access-control-origin settings.
+```markdown
+Can't read from server. It may not have the appropriate access-control-origin settings.
+```
 
-## Answer
+### Answer
 
 This is a very generic error message from Swagger UI. It can have a variety of causes, most
 commonly:
 
-- the HTTPS certificate of the API you\'re trying to get is not trusted
+- the HTTPS certificate of the API you're trying to get is not trusted
 - the daemon that serves the API is not running
 
 What you can do:
