@@ -39,7 +39,7 @@ about error codes.
 
 Example usage of general parameters:
 
-```
+```markdown
 GET http://<wazo_address>/api/confd/1.1/voicemails?limit=X&offset=Y
 ```
 
