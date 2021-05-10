@@ -12,7 +12,7 @@ Here is a short review of the Wazo Platform 21.06 release.
 
 ## New features in this release
 
-* **Retention**: To make it possible to abide by european GDPR regulations, we added the possibility to configure the automatic deletion of CDRs and call recordings.
+* **Retention**: We added the possibility to configure the automatic deletion of CDRs and call recordings. For instance, this makes it possible to abide by European GDPR regulations.
 
 ## Bug fixes
 
