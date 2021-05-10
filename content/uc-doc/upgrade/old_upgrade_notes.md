@@ -100,8 +100,6 @@ title: Archived Upgrade Notes
   - If you have installed asterisk modules manually, you will have to install the asterisk 15
     version, otherwise Asterisk will crash when starting.
 
-Consult the [17.15 Roadmap](https://projects.wazo.community/versions/268) for more information.
-
 ### 17.14
 
 - `xivo-auth` has been renamed `wazo-auth`
@@ -113,11 +111,7 @@ Consult the [17.15 Roadmap](https://projects.wazo.community/versions/268) for mo
 - We released a new version of the CTI client, rebranded as `Wazo Client 17.14.1`. It is compatible
   with all previous versions of Wazo (i.e. not before 16.16).
 
-Consult the [17.14 Roadmap](https://projects.wazo.community/versions/267) for more information.
-
 ### 17.13
-
-Consult the [17.13 Roadmap](https://projects.wazo.community/versions/266) for more information.
 
 ### 17.12
 
@@ -125,18 +119,12 @@ Consult the [17.13 Roadmap](https://projects.wazo.community/versions/266) for mo
   [backup-restore procedure](/uc-doc/system/backup_restore#backup) has been updated to include this
   new database.
 
-Consult the [17.12 Roadmap](https://projects.wazo.community/versions/265) for more information.
-
 ### 17.11
 
 - wazo-plugind REST API version `0.1` has been deprecated and will be removed in Wazo `18.02`. See
   changelog for version [REST API changelog](/uc-doc/api_sdk/rest_api/changelog)
 
-Consult the [17.11 Roadmap](https://projects.wazo.community/versions/263) for more information.
-
 ### 17.10
-
-Consult the [17.10 Roadmap](https://projects.wazo.community/versions/262) for more information.
 
 ### 17.09
 
@@ -155,8 +143,6 @@ Consult the [17.10 Roadmap](https://projects.wazo.community/versions/262) for mo
 
       ln -s "/etc/xivo/custom/custom-certificate.yml" "/etc/wazo-webhookd/conf.d/010-custom-certificate.yml"
 
-Consult the [17.09 Roadmap](https://projects.wazo.community/versions/261) for more information.
-
 ### 17.08
 
 - The call logs has been improved by adding `date_end` and `date_answer` informations. If you want
@@ -174,17 +160,11 @@ Consult the [17.09 Roadmap](https://projects.wazo.community/versions/261) for mo
   [updated documentation](/uc-doc/system/https_certificate), namely for the config regarding
   `plugind`.
 
-Consult the [17.08 Roadmap](https://projects.wazo.community/versions/260) for more information.
-
 ### 17.07
-
-Consult the [17.07 Roadmap](https://projects.wazo.community/versions/259) for more information.
 
 ### 17.06
 
 - Upgrade from version older than 13.01 are not supported anymore.
-
-Consult the [17.06 Roadmap](https://projects.wazo.community/versions/258) for more information.
 
 ### 17.05
 
@@ -212,17 +192,9 @@ Consult the [17.06 Roadmap](https://projects.wazo.community/versions/258) for mo
         allow_headers: ['Content-Type', 'X-Auth-Token']
     ```
 
-  See also the reference ticket [#6617](https://projects.wazo.community/issues/6617).
-
-Consult the [17.05 Roadmap](https://projects.wazo.community/versions/257) for more information.
-
 ### 17.04
 
-Consult the [17.04 Roadmap](https://projects.wazo.community/versions/256) for more information.
-
 ### 17.03
-
-Consult the [17.03 Roadmap](https://projects.wazo.community/versions/255) for more information.
 
 ### 17.02
 
@@ -230,8 +202,4 @@ Consult the [17.03 Roadmap](https://projects.wazo.community/versions/255) for mo
   in the [Nginx](/uc-doc/system/nginx) section). This does not pose any additional security risk by
   default, but if you have extra strict requirements about security, they can be manually disabled.
 
-Consult the [17.02 Roadmap](https://projects.wazo.community/versions/254) for more information.
-
 ### 17.01
-
-Consult the [17.01 Roadmap](https://projects.wazo.community/versions/253) for more information.
