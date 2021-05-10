@@ -148,7 +148,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
               </div>
               <div className="coll">
                 <div>
-                  <h2>Recent publications</h2>
+                  <h2>Publications</h2>
                   <p>
                     Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
                   </p>

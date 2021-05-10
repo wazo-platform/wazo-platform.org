@@ -490,4 +490,4 @@ information, that can be used to connect to your Wazo Platform.
 
 ## Asterisk crash
 
-See [Debugging Asterisk](uc-doc/contributors/debug_asterisk)
+See [Debugging Asterisk](/uc-doc/contributors/debug_asterisk)
