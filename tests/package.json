@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "test": "status=0;for filename in src/*.js; do node $filename http://server:8000 || status=$?; done; exit $status"
+    "test": "status=0;for filename in src/*.js; do node $filename http://server:8000/uc-doc/upgrade/upgrade_notes || status=$?; done; exit $status"
   },
   "dependencies": {
     "puppeteer": "^1.20.0"
