@@ -97,6 +97,12 @@
       - name: mattermost
         secret: mattermost
 
+- job:
+    name: jgauthier-debug
+    description: Build and test
+    run: zuul.d/run-test.yaml
+    timeout: 10800
+
 - project:
     check:
       jobs:
@@ -117,4 +123,8 @@
     periodic:
       jobs:
         - yarn-build-test:
+            nodeset: vm-debian-10-m1s
+    experimental:
+      jobs:
+        - jgauthier-debug:
             nodeset: vm-debian-10-m1s
