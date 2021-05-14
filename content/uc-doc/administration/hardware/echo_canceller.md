@@ -46,7 +46,7 @@ When you know which firmware you need you can install it with `xivo-fetchfw` uti
 ## Activate the Hardware Echo-cancellation
 
 Now that you installed hardware echo-canceller firmware you must activate it in
-`/etc/asterisk/chan_dahdi.conf` file:
+`/etc/asterisk/chan_dahdi.d/01-wazo.conf` file:
 
 ```ini
 echocancel = 1
