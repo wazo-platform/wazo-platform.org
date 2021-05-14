@@ -104,7 +104,7 @@ for more information.
   `/var/spool/asterisk/monitor/` and must be moved manually to the new path.
 
 Consult the
-[20.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10144)
+[20.17 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.17)
 for more information.
 
 ## 20.16 {#20-16}
@@ -121,7 +121,7 @@ for more information.
   be applied.
 
 Consult the
-[20.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10136)
+[20.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.16)
 for more information.
 
 ## 20.15 {#20-15}
@@ -132,7 +132,7 @@ for more information.
   - [AST-2020-001: Remote crash in res_pjsip_session](http://downloads.asterisk.org/pub/security/AST-2020-001.html)
 
 Consult the
-[20.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10135)
+[20.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.15)
 for more information.
 
 ## 20.14 {#20-14}
@@ -140,7 +140,7 @@ for more information.
 - `xivo-stat` command has been renamed to `wazo-stat`
 
 Consult the
-[20.14 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10128)
+[20.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.14)
 for more information.
 
 ## 20.13 {#20-13}
@@ -171,25 +171,25 @@ for more information.
   resource to inherit from the `global` SIP configuration of your tenant.
 
 Consult the
-[20.13 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10122)
+[20.13 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.13)
 for more information.
 
 ## 20.12 {#20-12}
 
 Consult the
-[20.12 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10121)
+[20.12 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.12)
 for more information.
 
 ## 20.11 {#20-11}
 
 Consult the
-[20.11 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10117)
+[20.11 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.11)
 for more information.
 
 ## 20.10 {#20-10}
 
 Consult the
-[20.10 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10111)
+[20.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.10)
 for more information.
 
 ## 20.09 {#20-09}
@@ -208,7 +208,7 @@ for more information.
   - wazo-websocketd
 
 Consult the
-[20.09 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10101)
+[20.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.09)
 for more information.
 
 ## 20.08 {#20-08}
@@ -240,7 +240,7 @@ for more information.
   ```
 
 Consult the
-[20.08 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10096)
+[20.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.08)
 for more information.
 
 ## 20.07 {#20-07}
@@ -253,7 +253,7 @@ for more information.
   - wazo-dird
 
 Consult the
-[20.07 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10088)
+[20.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.07)
 for more information.
 
 ## 20.06 {#20-06}
@@ -265,7 +265,7 @@ for more information.
   - wazo-auth
 
 Consult the
-[20.06 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10084)
+[20.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.06)
 for more information.
 
 ## 20.05 {#20-05}
@@ -304,7 +304,7 @@ for more information.
   equals to `yes`.
 
 Consult the
-[20.05 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10077)
+[20.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.05)
 for more information.
 
 ## 20.04 {#20-04}
@@ -315,7 +315,7 @@ for more information.
   the new API and the mapping from chan_sip to chan_pjsip has been removed for those 2 sections.
 
 Consult the
-[20.04 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10072)
+[20.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.04)
 for more information.
 
 ## 20.03 {#20-03}
@@ -328,13 +328,13 @@ for more information.
   is in the `archive` phone plugin repository.
 
 Consult the
-[20.03 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
+[20.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.03)
 for more information.
 
 ## 20.02 {#20-02}
 
 Consult the
-[20.02 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067)
+[20.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.02)
 for more information.
 
 ## 20.01 {#20-01}
@@ -343,7 +343,7 @@ for more information.
   available on `localhost`. The `HTTPS` remains available via the port `8501`.
 
 Consult the
-[20.01 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10065)
+[20.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.01)
 for more information.
 
 ## 19.17 {#19-17}
@@ -395,7 +395,7 @@ for more information.
   - `res_xmpp`
 
 Consult the
-[19.17 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061)
+[19.17 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.17)
 for more information.
 
 ## 19.16 {#19-16}
@@ -428,7 +428,7 @@ for more information.
   `wazo-confd` API.
 
 Consult the
-[19.16 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)
+[19.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.16)
 for more information.
 
 ## 19.15 {#19-15}
@@ -442,7 +442,7 @@ for more information.
   you can do it with `wazo-confd` `/extensions/features` API endpoint.
 
 Consult the
-[19.15 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046)
+[19.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.15)
 for more information.
 
 ## 19.14 {#19-14}
@@ -476,7 +476,7 @@ for more information.
   bug.
 
 Consult the
-[19.14 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10045)
+[19.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.14)
 for more information.
 
 ## 19.13 {#19-13}
@@ -492,7 +492,7 @@ for more information.
   - The NGINX proxy has been recreated in `/etc/nginx/locations/https-enabled/wazo-amid`.
 
 Consult the
-[19.13 Tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10029)
+[19.13 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.13)
 for more information.
 
 ## 19.12 {#19-12}
@@ -692,19 +692,19 @@ for more information.
 
 Consult the roadmaps for more information:
 
-- [18.14](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10003)
-- [19.01](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10007)
-- [19.02](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10009)
-- [19.03](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10013)
-- [19.04](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10014)
-- [19.05](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10017)
-- [19.06](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10020)
-- [19.07](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10022)
-- [19.08](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10023)
-- [19.09](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10024)
-- [19.10](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10026)
-- [19.11](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10027)
-- [19.12](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10028)
+- [18.14](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D18.14)
+- [19.01](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.01)
+- [19.02](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.02)
+- [19.03](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.03)
+- [19.04](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.04)
+- [19.05](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.05)
+- [19.06](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.06)
+- [19.07](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.07)
+- [19.08](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.08)
+- [19.09](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.09)
+- [19.10](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.10)
+- [19.11](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.11)
+- [19.12](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.12)
 
 ## 18.03 {#18-03}
 
