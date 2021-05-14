@@ -4,7 +4,7 @@ title: Deprecated Wazo versions
 
 ## General policy
 
-On January 1st of every year, Wazo/XiVO versions that are more than 4 years old will be considered
+On January 1st of every year, Wazo versions that are more than 4 years old will be considered
 as deprecated.
 
 Planned deprecation calendar:

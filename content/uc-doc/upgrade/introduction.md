@@ -45,12 +45,6 @@ There are 2 options you can pass to wazo-upgrade:
 
 ## Version-specific upgrade procedures {#version-specific-upgrade}
 
-### Upgrading from XiVO 16.13 and before
-
-When upgrading from XiVO 16.13 or before, you must use the special
-[XiVO to Wazo upgrade procedure](/uc-doc/upgrade/upgrade_notes_details/16-16/xivo_to_wazo#upgrading-to-wazo)
-instead of simply running `xivo-upgrade`.
-
 ## Upgrading a cluster {#upgrading-a-cluster}
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with

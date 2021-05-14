@@ -159,19 +159,6 @@ Things to be aware when writing a client/consumer:
 - The [`favorite_deleted`](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message has been
   added.
 
-### 16.08
-
-- The [`call_held`](/uc-doc/api_sdk/message_bus#bus-call-held-event) bus message has been added.
-- The [`call_resumed`](/uc-doc/api_sdk/message_bus#bus-call-resumed-event) bus message has been
-  added.
-- The `user_status_update` bus message now uses the user's UUID instead of the user's ID.
-
-### 16.07
-
-- The [`user_created`](/uc-doc/api_sdk/message_bus#bus-user-created) bus message has been added.
-- The [`user_edited`](/uc-doc/api_sdk/message_bus#bus-user-edited) bus message has been added.
-- The [`user_deleted`](/uc-doc/api_sdk/message_bus#bus-user-deleted) bus message has been added.
-
 ## Events {#bus-events}
 
 Events that are sent to the bus use a JSON serialization format with the content-type

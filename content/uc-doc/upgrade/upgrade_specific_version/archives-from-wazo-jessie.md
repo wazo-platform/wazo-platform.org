@@ -2,7 +2,7 @@
 title: Upgrade from Wazo < 18.01
 ---
 
-Those procedures are valid if your Wazo installation is newer than 16.08 and older than 18.01.
+Those procedures are valid if your Wazo installation is newer than 17.01 and older than 18.01.
 
 ## Upgrade to Wazo < 18.01
 
@@ -24,7 +24,7 @@ Example to upgrade to Wazo 18.02:
 wazo-upgrade
 ```
 
-This will upgrade your xivo to Wazo 17.17. From there:
+This will upgrade your Wazo to 17.17. From there:
 
 1. Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes_details/18-01/stretch)
 2. upgrade to Wazo 18.02:
