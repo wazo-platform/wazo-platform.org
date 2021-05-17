@@ -17,7 +17,7 @@ New features in this sprint
 Important bug fixes
 -------------------
 
-**High Availability**: Wazo 17.07 introduced a regression in the replication of database between master and slave. This issue is fixed in 17.08. See the issue [#6716](https://projects.wazo.community/issues/6716) for more details.
+**High Availability**: Wazo 17.07 introduced a regression in the replication of database between master and slave. This issue is fixed in 17.08.
 
 
 Ongoing features

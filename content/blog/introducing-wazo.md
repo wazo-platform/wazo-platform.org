@@ -55,7 +55,7 @@ We intend to continue the work we have started a few years ago: make Wazo comple
 When is our next release due?
 -----------------------------
 
-We released the first version Wazo 16.16 in December 2016. We release a new version of Wazo [every 3 weeks](https://projects.wazo.community/projects/xivo/news). We also provide a simple procedure to upgrade your XiVO installation to Wazo, we want to keep the transition as smooth as possible.
+We released the first version Wazo 16.16 in December 2016. We release a new version of Wazo every 3 weeks. We also provide a simple procedure to upgrade your XiVO installation to Wazo, we want to keep the transition as smooth as possible.
 
 &nbsp;
 
@@ -108,4 +108,4 @@ Nous avons l'intention de continuer le travail que nous avons commencé depuis q
 Quand sortira notre prochaine version?
 --------------------------------------
 
-Nous avons publié la première version de Wazo 16.16 en décembre 2016. Nous publions depuis une nouvelle version [toutes les 3 semaines](https://projects.wazo.community/projects/xivo/news). Nous fournissons également une procédure simple pour mettre à jour votre XiVO en Wazo pour garder la transition la plus facile possible.
+Nous avons publié la première version de Wazo 16.16 en décembre 2016. Nous publions depuis une nouvelle version toutes les 3 semaines. Nous fournissons également une procédure simple pour mettre à jour votre XiVO en Wazo pour garder la transition la plus facile possible.

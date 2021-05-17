@@ -22,7 +22,7 @@ Technical features
 Important bug fixes
 -------------------
 
-**CTI Client**: Transfers made via the client could cause Asterisk to take all CPU of the machine, blocking the transfer and losing the call, in some circumstances. Ticket reference: [#6624](https://projects.wazo.community/issues/6642).
+**CTI Client**: Transfers made via the client could cause Asterisk to take all CPU of the machine, blocking the transfer and losing the call, in some circumstances.
 
 
 Ongoing features

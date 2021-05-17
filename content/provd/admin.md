@@ -213,8 +213,6 @@ If you have many devices behind a NAT equipment, you should also check the secur
   the 6-digit provisioning code on the phone will produce unexpected results (i.e. the wrong device
   will be provisioned)
 
-For technical information about why other devices are not supported, you can look at [this issue](https://projects.wazo.community/issues/5107)  on the Wazo bug tracker.
-
 ### Security
 
 By design, the auto-provisioning process is vulnerable to:
