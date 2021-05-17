@@ -37,4 +37,3 @@ Sources:
 
 * [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.03/upgrade/upgrade.html#upgrade-notes)
 * [xivo-confd REST API Changelog](http://wazo.readthedocs.io/en/wazo-17.03/api_sdk/rest_api/confd/changelog.html)
-* [Wazo 17.03 Roadmap](https://projects.wazo.community/versions/255)

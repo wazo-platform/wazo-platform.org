@@ -38,4 +38,3 @@ See you at the next sprint review!
 Sources:
 
 * [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.13/upgrade/upgrade.html#upgrade-notes)
-* [Wazo 17.13 Roadmap](https://projects.wazo.community/versions/266)
