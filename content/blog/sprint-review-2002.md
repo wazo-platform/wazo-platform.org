@@ -50,4 +50,4 @@ Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
 
-* [Wazo Platform 20.02 Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10067)
+* [Wazo Platform 20.02 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.02)

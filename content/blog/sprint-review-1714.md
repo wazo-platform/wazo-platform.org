@@ -8,7 +8,7 @@ Status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.14!
 
-[We are looking for beta testers for the Wazo Zapier plugin](https://projects.wazo.community/boards/1/topics/11514).
+We are looking for beta testers for the Wazo Zapier plugin.
 
 
 ## Security update
@@ -43,4 +43,3 @@ See you at the next sprint review!
 Sources:
 
 * [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.14/upgrade/upgrade.html#upgrade-notes)
-* [Wazo 17.14 Roadmap](https://projects.wazo.community/versions/266)

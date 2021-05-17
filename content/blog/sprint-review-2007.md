@@ -40,7 +40,7 @@ See you at the next sprint review!
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-07)
-* [Wazo Platform 20.07 Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10088)
+* [Wazo Platform 20.07 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.07)
 
 ## Discussion
 
