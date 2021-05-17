@@ -38,7 +38,7 @@ Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-15)
 
-* [Wazo Platform 20.15 Changelog](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10135)
+* [Wazo Platform 20.15 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.15)
 
 ## Discussion
 

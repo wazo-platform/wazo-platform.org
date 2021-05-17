@@ -35,4 +35,4 @@ Resources:
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
-* [Wazo Platform 19.16 Release notes](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10054)
+* [Wazo Platform 19.16 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.16)

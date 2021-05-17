@@ -45,4 +45,4 @@ Resources:
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
-* [Wazo Platform 19.15 Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10046)
+* [Wazo Platform 19.15 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.15)

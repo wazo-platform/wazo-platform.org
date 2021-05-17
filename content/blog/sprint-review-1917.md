@@ -56,4 +56,4 @@ Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
 
-* [Wazo Platform 19.17 Roadmap](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10061)
+* [Wazo Platform 19.17 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D19.17)

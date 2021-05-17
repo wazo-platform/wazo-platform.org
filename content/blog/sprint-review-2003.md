@@ -44,7 +44,7 @@ Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
 
-* [Summary of JIRA tickets](https://wazo-dev.atlassian.net/secure/ReleaseNote.jspa?projectId=10011&version=10069)
+* [Wazo Platform 20.03 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.03)
 
 ## Discussion
 
