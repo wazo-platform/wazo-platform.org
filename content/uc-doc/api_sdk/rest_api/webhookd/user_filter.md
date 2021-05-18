@@ -2,15 +2,13 @@
 title: Filtering webhook events on user
 ---
 
-- [Supported events](#supported-events)
-
 When configuring a webhook, you can set the `user_uuid` parameter. Doing so makes the webhook being
 only triggered when events are related to the specified user.
 
 For example, given a webhook on event `user_status_update`, and `user_uuid` is set to user A, the
 webhook will only be triggered when user A changes its presence status, not when user B does.
 
-# Supported events
+## Supported events
 
 The current list of events that is supported by the `user_uuid` parameter is:
 
