@@ -1,10 +1,9 @@
 ---
-subtitle: Update configuration
-title: Dhcpd configuration
+title: DHCPD configuration
 ---
 
-- [Query](#query)
+## Query
 
-# Query
-
-    GET /dhcpd_update
+```markdown
+GET /dhcpd_update
+```
