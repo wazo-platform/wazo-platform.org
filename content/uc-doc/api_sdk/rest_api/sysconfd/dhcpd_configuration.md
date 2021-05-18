@@ -3,9 +3,8 @@ subtitle: Update configuration
 title: Dhcpd configuration
 ---
 
--   [Query](#query)
+- [Query](#query)
 
-Query
-=====
+# Query
 
     GET /dhcpd_update
