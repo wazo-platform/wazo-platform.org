@@ -1,10 +1,9 @@
 ---
-subtitle: Execute handlers
 title: Handlers
 ---
 
-- [Query](#query)
+## Query
 
-# Query
-
-    POST /exec_request_handlers
+```
+POST /exec_request_handlers
+```
