@@ -2,19 +2,18 @@
 title: HA configuration
 ---
 
-- [Get HA configuration](#get-ha-configuration)
-  - [Query](#query)
-- [Update HA configuration](#update-ha-configuration)
-  - [Query](#query-1)
+## Get HA configuration
 
-# Get HA configuration
+### Query
 
-## Query
-
+```
     GET /get_ha_config
+```
 
-# Update HA configuration
+## Update HA configuration
 
-## Query
+### Query
 
-    POST /update_ha_config
+```
+POST /update_ha_config
+```
