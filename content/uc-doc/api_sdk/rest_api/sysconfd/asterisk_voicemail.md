@@ -1,60 +1,38 @@
 ---
-subtitle: Delete voicemail
 title: Asterisk Voicemail
 ---
 
--   [Query](#query)
--   [Parameters](#parameters)
-    -   [Mandatory](#mandatory)
-    -   [Optional](#optional)
--   [Errors](#errors)
--   [Example requests](#example-requests)
--   [Example response](#example-response)
+## Query
 
-Query
-=====
+```markdown
+GET /delete_voicemail
+```
 
-    GET /delete_voicemail
+## Parameters
 
-Parameters
-==========
+- `name`: the voicemail name
+- `context`(optional): the voicemail context (default is `default`)
 
-Mandatory
----------
+## Errors {#rest-api-errors}
 
-name
-
-:   the voicemail name
-
-Optional
---------
-
-context
-
-:   the voicemail context (default is \'default\')
-
-Errors {#rest-api-errors}
-======
-
-+------------+---------------+------------------------------+
 | Error code | Error message | Description                  |
-+============+===============+==============================+
-| > 404      | Not found     | The voicemail does not exist |
-+------------+---------------+------------------------------+
+| ---------- | ------------- | ---------------------------- |
+| 404        | Not found     | The voicemail does not exist |
 
-Example requests
-================
+## Example requests
 
-    GET /delete_voicemail HTTP/1.1
-    Host: wazoserver
-    Accept: application/json
+```
+GET /delete_voicemail HTTP/1.1
+Host: wazoserver
+Accept: application/json
+```
 
-Example response
-================
+## Example response
 
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-    {
-        nothing
-    }
+```
+HTTP/1.1 200 OKi
+Content-Type: application/json
+{
+    nothing
+}
+```

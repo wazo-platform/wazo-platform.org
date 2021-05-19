@@ -1,11 +1,9 @@
 ---
-subtitle: Reload services
 title: Services daemon
 ---
 
--   [Query](#query)
+## Query
 
-Query
-=====
-
-    POST /services
+```
+POST /services
+```

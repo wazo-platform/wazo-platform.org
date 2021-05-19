@@ -1,11 +1,9 @@
 ---
-subtitle: Reload Wazo services
-title: Xivo Services
+title: Wazo Services
 ---
 
--   [Query](#query)
+## Query
 
-Query
-=====
-
-    POST /xivoctl
+```
+POST /xivoctl
+```

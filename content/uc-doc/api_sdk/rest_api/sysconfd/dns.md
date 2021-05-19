@@ -2,23 +2,18 @@
 title: DNS configuration
 ---
 
--   [Host configuration](#host-configuration)
-    -   [Query](#query)
--   [Resolv.conf configuration](#resolv.conf-configuration)
-    -   [Query](#query-1)
+## Host configuration
 
-Host configuration
-==================
+### Query
 
-Query
------
+```markdown
+POST /hosts
+```
 
-    POST /hosts
+## Resolv.conf configuration
 
-Resolv.conf configuration
-=========================
+### Query
 
-Query
------
-
-    POST /resolv_conf
+```markdown
+POST /resolv_conf
+```
