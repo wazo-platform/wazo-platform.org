@@ -176,9 +176,6 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
                   <li>
                     <a href="https://mm.wazo.community/wazo-platform/">Mattermost</a>
                   </li>
-                  <li>
-                    <a href="https://kiwiirc.com/nextclient/irc.freenode.net/?#wazo">IRC: #wazo on irc.freenode.net</a>
-                  </li>
                 </ul>
               </div>
               <div className="coll">
