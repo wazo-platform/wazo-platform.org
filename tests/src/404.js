@@ -30,6 +30,12 @@ const checkUrl = async (browser, url, fromUrl) => {
     return true;
   }
 
+  // There are a few dynamically-generated example URLs (redoc), let's skip them also
+  if (url.indexOf('//my-service') !== -1) {
+    console.log(`Skipping ${url} (from: ${fromUrl}) ...`);
+    return true;
+  }
+
   const extensionParts = url.split('.');
   const extension = extensionParts[extensionParts.length -1];
   const isUrlLocal = url.indexOf(baseUrl) !== -1;
@@ -104,6 +110,7 @@ const checkUrl = async (browser, url, fromUrl) => {
   console.log(`Checking 404s exiting : ${errorCode}`);
 
   if (errorUrl.length) {
+    // Listing problem URLs, instead of have to scour the logs
     console.error("###### PROBLEMS\n", errorUrl.join("\n"))
   }
 
