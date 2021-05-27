@@ -126,5 +126,5 @@
             nodeset: vm-debian-10-m1s
     experimental:
       jobs:
-        - jgauthier-debug:
+        - yarn-build-test:
             nodeset: vm-debian-10-m1s
