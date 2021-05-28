@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 21.07 {#21-07}
+
+Consult the
+[21.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.07)
+for more information.
+
 ## 21.06 {#21-06}
 
 - Call recording filenames are now exposed using the CDR API. The filenames on the filesystem are
