@@ -8,6 +8,8 @@
 
 ## Procedure
 
+* Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes#19-12): features have been removed after Wazo 18.03.
+
 * Check the system locale
   * Execute `locale -a`
   * If the system locale is not in en.UTF-8, change it to en.UTF-8 and reboot.
