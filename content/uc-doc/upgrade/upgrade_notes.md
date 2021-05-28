@@ -12,10 +12,10 @@ for more information.
 
 - Call recording filenames are now exposed using the CDR API. The filenames on the filesystem are
   now auto-generated using a UUID and an extension only.
-- Call recording files are now automatically purged (default: after 1 year). However, call recording 
-  files that were created before Wazo Platform 21.03 will not be purged
-  automatically. Those recording files can be found in
-  `/var/lib/wazo/sounds/tenants/*/monitor` and you can remove the **older** files manually without risk.
+- Call recording files are now automatically purged (default: after 1 year). However, call recording
+  files that were created before Wazo Platform 21.03 will not be purged automatically. Those
+  recording files can be found in `/var/lib/wazo/sounds/tenants/*/monitor` and you can remove the
+  **older** files manually without risk.
 
 Consult the
 [21.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.06)
@@ -24,8 +24,8 @@ for more information.
 ## 21.05 {#21-05}
 
 - `wazo-sysconfd` configuration has been migrated to `/etc/wazo-sysconfd/config.yml`. However, if
-  you had modified the `/etc/xivo/sysconfd.conf` configuration file, you should create a new file
-  in the `/etc/wazo-sysconfd/conf.d` directory with your changes.
+  you had modified the `/etc/xivo/sysconfd.conf` configuration file, you should create a new file in
+  the `/etc/wazo-sysconfd/conf.d` directory with your changes.
 
 Consult the
 [21.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.05)
@@ -34,16 +34,18 @@ for more information.
 ## 21.04 {#21-04}
 
 - `xivo-sysconfd` has been renamed to `wazo-sysconfd`
-- Call recording will now play a beep when the recording starts and end. This behavior can be modified
-  in `/etc/xivo/asterisk/xivo_globals.conf` by modifying the `WAZO_MIXMONITOR_OPTIONS`. See the
+- Call recording will now play a beep when the recording starts and end. This behavior can be
+  modified in `/etc/xivo/asterisk/xivo_globals.conf` by modifying the `WAZO_MIXMONITOR_OPTIONS`. See
+  the
   [Asterisk documentation](https://wiki.asterisk.org/wiki/display/AST/Asterisk+18+Application_MixMonitor)
   for available options.
 - The group resource is now identified by a UUID instead of sequential ID. The API using sequential
   ID will keep working for a while. Policies with permissions for a specific group will have to be
-  changed to use the UUID of the group instead of its ID. This only happens if you create policies with
-  permissions limited to a specific group.
+  changed to use the UUID of the group instead of its ID. This only happens if you create policies
+  with permissions limited to a specific group.
 
-  For example: `confd.groups.42.read` would have to be updated to use the UUID of the group with ID 42.
+  For example: `confd.groups.42.read` would have to be updated to use the UUID of the group with
+  ID 42.
 
 Consult the
 [21.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.04)
