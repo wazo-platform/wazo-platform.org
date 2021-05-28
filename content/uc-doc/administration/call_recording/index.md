@@ -155,3 +155,79 @@ curl -X GET --header 'Accept: application/json' --header 'X-Auth-Token: <ACCESS 
 
 One the export reaches the status `finished` a mail will be sent to the email address that was in the query string of the POST with the link that
 can be used to download the archive.
+
+
+#### Automating an Export
+
+Let's say you want to get your recordings exported every week. Here's how you would do it.
+
+1. Create a user with the appropriate permissions to launch the export.
+
+```
+export USER_UUID=$(wazo-auth-cli user create --password <password> <username>)
+export POLICY_UUID=$(wazo-auth-cli policy create --acl call-logd.cdr.recordings.media.export.create auth.tenants.read -- recording_exporter)
+wazo-auth-cli user add --policy ${POLICY_UUID} ${USER_UUID}
+```
+
+2. Create a refresh token that will be copied in the script
+
+```
+wazo-auth-cli -vvv token create --access_type offline --client_id exporter --auth-username <username> --auth-password <password> 2>&1 | grep "'refresh_token'" | sed "s/'/\"/g" | jq .refresh_token
+```
+
+The output of this command is your refresh token. Save it for the script.
+
+3. Copy the script on you stack
+
+You will need to copy the refresh token you created previously into the `REFRESH_TOKEN` variable and add the tenants to export
+as well as the email adress where the export should be sent.
+
+```python
+#!/usr/bin/env python3
+
+from datetime import datetime, timedelta
+from wazo_auth_client import Client as AuthClient
+from wazo_call_logd_client import Client as CallLogdClient
+
+### Configuration start ###
+REFRESH_TOKEN="<REFRESH_TOKEN>"
+TENANTS = {
+  "<tenant UUID>": "<administrator@this.tenant>",
+}
+### Configuration end ###
+
+auth = AuthClient(host='localhost', https=False, prefix=None, port=9497)
+token = auth.token.new(
+  backend='wazo_user',
+  expiration=60,
+  access_type='online',
+  client_id='exporter',
+  refresh_token=REFRESH_TOKEN,
+)['token']
+
+now = datetime.now()
+start = now - timedelta(days=now.weekday() + 7)  # Monday of the previous week
+end = start + timedelta(days=7) # Last monday (or today)
+from_ = datetime(start.year, start.month, start.day, 0, 0, 0).isoformat()
+to = datetime(end.year, end.month, end.day, 0, 0, 0).isoformat()
+
+call_logd = CallLogdClient(host='localhost', https=False, prefix=None, port=9298, token=token)
+for tenant_uuid, email in TENANTS.items():
+  call_logd.cdr.export_recording_media(tenant_uuid=tenant_uuid, email=email, from_=from_, to=to)
+
+auth.token.revoke(token)
+```
+
+You can copy this script to `/usr/local/bin/recording_export.py` and make it executable.
+
+```
+chmod +x /usr/local/bin/recording_export.py
+```
+
+4. Create a cron job to execute the script weekly
+
+The following example will execute the cron each monday at 1:22
+
+```
+22 1 * * 1 /usr/local/bin/recording_export.py
+```
