@@ -12,7 +12,11 @@ Here is a short review of the Wazo Platform 21.07 release.
 
 ## New Features in This Release
 
-* **Call recording**: Introducing an API to easily [export recordings](https://wazo-platform.org/documentation/api/cdr.html#tag/cdr/paths/~1cdr~1recordings~1media~1export/create) and [download](https://wazo-platform.org/documentation/api/cdr.html#tag/cdr/paths/~1exports~1{export_uuid}~1download/get) the resulting export ZIP archive.
+* **Call recording**: Introducing an API to easily
+  [export recordings](https://wazo-platform.org/documentation/api/cdr.html#tag/exports/paths/~1cdr~1recordings~1media~1export/post)
+  and
+  [download](https://wazo-platform.org/documentation/api/cdr.html#tag/exports/paths/~1exports~1{export_uuid}~1download/get)
+  the resulting export ZIP archive.
 
 ## Technical Features
 
