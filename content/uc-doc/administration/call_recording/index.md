@@ -164,7 +164,7 @@ Let's say you want to get your recordings exported every week. Here's how you wo
 2.  Create a refresh token that will be copied in the script
 
     ```bash
-    wazo-auth-cli -vvv token create --access_type offline --client_id exporter --auth-username <username> --auth-password <password> 2>&1 | grep "'refresh_token'" | sed "s/'/\"/g" | jq .refresh_token
+    wazo-auth-cli -v token create --access_type offline --client_id exporter --auth-username <username> --auth-password <password> 2>&1 | tr ',' '\n' | sed 's/}//g' | grep 'refresh_token' | awk -F': ' '{ print $NF }'
     ```
 
     The output of this command is your refresh token. Save it for the script.
