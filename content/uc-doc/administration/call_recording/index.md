@@ -121,7 +121,7 @@ single call depending on the call and the configuration.
 The curl command to download this recording would be the following.
 
 ```bash
-curl -X GET --header 'Accept: audio/wav' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/2060/recordings/5ea37d0b-0823-4d2b-a18c-b9082e551b50/media' --output <MY FILE.wav>
+curl --insecure -X GET --header 'Accept: audio/wav' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/2060/recordings/5ea37d0b-0823-4d2b-a18c-b9082e551b50/media' --output <MY FILE.wav>
 ```
 
 #### Bulk downloads
@@ -134,7 +134,7 @@ First you need to create an export, see the
 options for the export.
 
 ```bash
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Wazo-Tenant: <TENANT UUID>' --header 'X-Auth-Token: ACCESS TOKEN' -d '{}' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/recordings/media/export?from=2021-04-01T00%3A00%3A00-0500&until=2021-05-01T00%3A00%3A00-0500&recurse=false&email=<USERNAME%40DOMAIN>'
+curl --insecure -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Wazo-Tenant: <TENANT UUID>' --header 'X-Auth-Token: ACCESS TOKEN' -d '{}' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/recordings/media/export?from=2021-04-01T00%3A00%3A00-0500&until=2021-05-01T00%3A00%3A00-0500&recurse=false&email=<USERNAME%40DOMAIN>'
 ```
 
 The result will contain the UUID of your export. You can use that UUID to download the export or
@@ -143,7 +143,7 @@ query its progression.
 To known the status of you export you can use the following command
 
 ```bash
-curl -X GET --header 'Accept: application/json' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/exports/<EXPORT UUID>'
+curl --insecure -X GET --header 'Accept: application/json' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/exports/<EXPORT UUID>'
 ```
 
 One the export reaches the status `finished`, mail will be sent to the email address that was in the
