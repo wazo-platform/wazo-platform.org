@@ -2,7 +2,7 @@
 title: Call Recording
 ---
 
-Call recording allow the user or the administrator to record a user's conversation. Recorded files
+Call recording allows the user or the administrator to record a user's conversation. Recorded files
 are stored on the Wazo server and are accessible using the CDR API.
 
 ## Enabling
@@ -39,7 +39,7 @@ The extensions for call recording and online call recording are available with e
 
 ### Disable user call control management
 
-To disable call recording for user (default: `*26`):
+To disable call recording for a user (default: `*26`):
 
 - Find `extension_id` with `GET /extensions/features?feature=callrecord`
 - Disabled with `PUT /extensions/features/{extenion_id} {"enabled": false}`
@@ -126,8 +126,8 @@ curl -X GET --header 'Accept: audio/wav' --header 'X-Auth-Token: <ACCESS TOKEN>'
 
 #### Bulk downloads
 
-If you want to export a large selection of recordings to be consumed externally you can use the bulk
-download API.
+If you want to export a large selection of recordings to be consumed externally, you can use the
+bulk download API.
 
 First you need to create an export, see the
 [API documentation](https://wazo-platform.org/documentation/console/cdr) for all the available
@@ -137,8 +137,8 @@ options for the export.
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Wazo-Tenant: <TENANT UUID>' --header 'X-Auth-Token: ACCESS TOKEN' -d '{}' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/recordings/media/export?from=2021-04-01T00%3A00%3A00-0500&until=2021-05-01T00%3A00%3A00-0500&recurse=false&email=<USERNAME%40DOMAIN>'
 ```
 
-The result will contain the UUID of you export. You can use that UUID to download the export or
-query it's progression.
+The result will contain the UUID of your export. You can use that UUID to download the export or
+query its progression.
 
 To known the status of you export you can use the following command
 
@@ -146,8 +146,8 @@ To known the status of you export you can use the following command
 curl -X GET --header 'Accept: application/json' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/exports/<EXPORT UUID>'
 ```
 
-One the export reaches the status `finished` a mail will be sent to the email address that was in
-the query string of the POST with the link that can be used to download the archive.
+One the export reaches the status `finished`, mail will be sent to the email address that was in the
+query string of the POST with the link that can be used to download the archive.
 
 #### Automating an Export
 
@@ -172,7 +172,7 @@ Let's say you want to get your recordings exported every week. Here's how you wo
 3. Copy the script on you stack
 
    You will need to copy the refresh token you created previously into the `REFRESH_TOKEN` variable
-   and add the tenants to export as well as the email adress where the export should be sent.
+   and add the tenants to export as well as the email address where the export should be sent.
 
    ```python
    #!/usr/bin/env python3
@@ -199,7 +199,7 @@ Let's say you want to get your recordings exported every week. Here's how you wo
 
    now = datetime.now()
    start = now - timedelta(days=now.weekday() + 7)  # Monday of the previous week
-   end = start + timedelta(days=7) # Last monday (or today)
+   end = start + timedelta(days=7) # Last Monday (or today)
    from_ = datetime(start.year, start.month, start.day, 0, 0, 0).isoformat()
    to = datetime(end.year, end.month, end.day, 0, 0, 0).isoformat()
 
@@ -218,7 +218,7 @@ Let's say you want to get your recordings exported every week. Here's how you wo
 
 4. Create a cron job to execute the script weekly
 
-   The following example will execute the cron each monday at 1:22
+   The following example will execute the cron each Monday at 1:22
 
    ```
    22 1 * * 1 /usr/local/bin/recording_export.py
