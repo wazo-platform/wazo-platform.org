@@ -182,7 +182,7 @@ Let's say you want to get your recordings exported every week. Here's how you wo
     from wazo_call_logd_client import Client as CallLogdClient
 
     ### Configuration start ###
-    REFRESH_TOKEN="<REFRESH_TOKEN>"
+    REFRESH_TOKEN = "<REFRESH_TOKEN>"
     TENANTS = {
         "<tenant UUID>": "<administrator@this.tenant>",
     }
@@ -198,8 +198,8 @@ Let's say you want to get your recordings exported every week. Here's how you wo
     )['token']
 
     now = datetime.now()
-    start = now - timedelta(days=now.weekday() + 7)  # Monday of the previous week
-    end = start + timedelta(days=7) # Last Monday (or today)
+    start = now - timedelta(days=now.weekday() + 7)   # Monday of the previous week
+    end = start + timedelta(days=7)  # Last Monday (or today)
     from_ = datetime(start.year, start.month, start.day, 0, 0, 0).isoformat()
     to = datetime(end.year, end.month, end.day, 0, 0, 0).isoformat()
 
