@@ -1,6 +1,6 @@
 # Administration
 
-The oldest call logs are periodically removed by `xivo-purge-db`.
+The oldest call logs are periodically removed by `wazo-purge-db`.
 
 ## Manual Generation
 
