@@ -230,4 +230,4 @@ The following ports are exposed to the host:
 - SBC (5060, UDP only)
 
 You can now access the management and configuration API using the following base URL:
-http://localhost:9600
+`http://localhost:9600`

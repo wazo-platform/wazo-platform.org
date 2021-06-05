@@ -4,14 +4,37 @@ process.setMaxListeners(Infinity);
 
 const baseUrl = process.argv[2];
 const testedUrl = [];
+const errorUrl = [];
 // Chrome headless can't open these format:
 const EXCLUDED_EXTENSIONS = ['yml'];
 
 const checkUrl = async (browser, url, fromUrl) => {
-  if (testedUrl.indexOf(url) !== -1) {
+
+  if (!url || url === '' || testedUrl.indexOf(url) !== -1) {
     return true;
   }
+
   testedUrl.push(url);
+
+  // Jira links are a tad flaky and tend to mess with the process, skipping
+  const isJira = url.indexOf('wazo-dev.atlassian.net') !== -1;
+  if (isJira) {
+    console.log(`Skipping Jira ${url} (from: ${fromUrl}) ...`);
+    return true;
+  }
+
+  // Puppeteer has trouble handling binaries, let's take a few out of the equation
+  const isBinary = url.match(/\.(odt|pdf|sh|cfg)$/);
+  if (isBinary) {
+    console.log(`Skipping ${url.slice(-3).toUpperCase()} binary ${url} (from: ${fromUrl}) ...`);
+    return true;
+  }
+
+  // There are a few dynamically-generated example URLs (redoc), let's skip them also
+  if (url.indexOf('//my-service') !== -1) {
+    console.log(`Skipping ${url} (from: ${fromUrl}) ...`);
+    return true;
+  }
 
   const extensionParts = url.split('.');
   const extension = extensionParts[extensionParts.length -1];
@@ -67,7 +90,9 @@ const checkUrl = async (browser, url, fromUrl) => {
 
     return result;
   } catch (err) {
-    console.error(`Error in ${url} (from ${fromUrl}): ${err}`);
+    const message = `Error in ${url} (from ${fromUrl}): ${err}`;
+    console.error(message);
+    errorUrl.push(message);
     return false;
   }
 };
@@ -83,5 +108,11 @@ const checkUrl = async (browser, url, fromUrl) => {
   const errorCode = ok ? 0 : 1;
 
   console.log(`Checking 404s exiting : ${errorCode}`);
+
+  if (errorUrl.length) {
+    // Listing problem URLs, instead of have to scour the logs
+    console.error("###### PROBLEMS\n", errorUrl.join("\n"))
+  }
+
   process.exit(errorCode);
 })();
