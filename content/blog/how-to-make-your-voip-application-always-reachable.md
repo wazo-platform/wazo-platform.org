@@ -47,7 +47,7 @@ With it, we can seamlessly notify both Android and iOS users of an incoming call
 Indeed, we still need a way to inform the application that a call occurs so it can display the incall UI. But how to do it without WebSocket?
 With push Notification of course !
 
-But not the one we discuss before, the one specific to VoIP: [PushKit](https://developer.apple.com/documentation/pushkit) for iOS and [FCM data only-message in background](https://rnfirebase.io/docs/v4.0.x/messaging/receiving-messages).
+But not the one we discuss before, the one specific to VoIP: [PushKit](https://developer.apple.com/documentation/pushkit) for iOS and [FCM data only-message in background](https://firebase.google.com/docs/cloud-messaging).
 
 After implementing [`react-native-voip-push-notification`](https://github.com/ianlin/react-native-voip-push-notification) and [`react-native-firebase`](https://github.com/invertase/react-native-firebase) we are now able to wake of the application when receiving a call and then display the native UI through `react-native-callkeep`.
 

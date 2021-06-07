@@ -30,7 +30,7 @@ validate that your code respects the standards. Some repositories also
 include the appropriate configuration to check your code using the tox
 command `tox -e linters`. More details in the [Style Guide](/uc-doc/contributors/style_guide)
 
-Follow the [Guidelines](/contribute/guidelines) to create or improve services.
+Follow the [Guidelines](/uc-doc/contributors/guidelines) to create or improve services.
 
 Respecting coding standards is not sufficient to warrant quality code.
 Your contribution should not break any existing tests and when possible,
