@@ -17,7 +17,7 @@ New features in this sprint
 
 **Migration from XiVO infrastructure**: Since the domain xivo.io went down, we spent some time rebuilding everything that was needed to make Wazo work correctly from a XiVO installation. You can find the instruction to migrate from XiVO [on the documentation](http://wazo.readthedocs.io/en/wazo-16.16/upgrade/16.16/xivo_to_wazo.html). Note that you don't have to upgrade your XiVO to use the new infrastructure. See the documentation for more details.
 
-**Codecs**: The Opus codec is now available in Wazo. The Opus codec is a [very efficient codec](http://opus-codec.org/comparison/) that has been around for a while, but is a potential subject for patent-infringement lawsuits. The Asterisk editor Digium came out with [a solution](http://blogs.digium.com/2016/09/30/opus-in-asterisk/) that we deem satisfying, given the great advantages of the Opus codec.
+**Codecs**: The Opus codec is now available in Wazo. The Opus codec is a very efficient codec that has been around for a while, but is a potential subject for patent-infringement lawsuits. The Asterisk editor Digium came out with [a solution](http://blogs.digium.com/2016/09/30/opus-in-asterisk/) that we deem satisfying, given the great advantages of the Opus codec.
 
 **Documentation**: We have improved the documentation for using REST APIs. You can see the instructions on [this page](http://wazo.readthedocs.io/en/wazo-16.16/api_sdk/rest_api/quickstart.html)
 
