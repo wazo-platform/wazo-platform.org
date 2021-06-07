@@ -47,7 +47,7 @@ There are 2 options you can pass to wazo-upgrade:
 
 ### Upgrading from Wazo 18.03 only
 
-When upgrading from Wazo 18.03, you should follow the specific procedure for [Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade-from-wazo-18.03).
+When upgrading from Wazo 18.03, you should follow the specific procedure for [Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18.03).
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 

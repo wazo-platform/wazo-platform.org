@@ -52,20 +52,26 @@ const checkUrl = async (browser, url, fromUrl) => {
   }
 
   try {
-    let response = null;
+    let responses = [];
     const browserPage = await browser.newPage();
     let result = true;
 
+    // One response event for each file on the page
     browserPage.on('response', res => {
-      if (res.url().indexOf('favicon.ico') === -1) {
-        response = res;
+      if (res.url().indexOf('favicon.ico') !== -1) {
+        return;
       }
+      responses.push(res);
     });
 
     await browserPage.goto(url, { waitUntil: 'networkidle2' });
 
-    if (response && response.status() > 401) {
-      throw new Error(`status ${response.status()}`);
+    mainResponse = responses.find((response) => response.url() === url);
+    isResponseFailed = (response) => response && response.status() >= 400;
+    failedResponses = responses.filter((response) => isResponseFailed(response));
+    allResponsesOk = failedResponses.length === 0;
+    if (isResponseFailed(mainResponse) || (isUrlLocal && !allResponsesOk)) {
+      throw new Error(`statuses ${failedResponses.map((response) => response.status())}`);
     }
 
     let links = await browserPage.evaluate(
