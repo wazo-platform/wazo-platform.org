@@ -154,7 +154,7 @@ Or from our repository [wazo-tester](https://github.com/wazo-platform/wazo-teste
 
 ## Preparing a testing environment
   
-The best way to try wazotester is with the Wazo C4 is to run Wazo C4 from our repository [wazo-kamailio-config](https://github.com/wazo-platform/wazo-kamailio-config) using `Docker` with `docker-compose` which runs different containers defined in the `docker-compose.yaml` file.
+The best way to try wazotester is with the Wazo C4 is to run Wazo C4 from our repository `https://github.com/wazo-platform/wazo-kamailio-config` using `Docker` with `docker-compose` which runs different containers defined in the `docker-compose.yaml` file.
 
 
 ## Running tests

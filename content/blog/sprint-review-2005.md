@@ -25,7 +25,7 @@ Here is a short review of the Wazo Platform 20.05 release.
 ## Technical features
 
 * **Documentation**: The Wazo Platform documentation has moved from http://documentation.wazo.community to /uc-doc. Links to the former documentations should redirect you to the latter documentation automatically.
-* **Asterisk**: Asterisk was upgraded from 16.8.0 to 17.3.0. See the [Asterisk release announcement](https://www.asterisk.org/downloads/asterisk-news/asterisk-1730-now-available).
+* **Asterisk**: Asterisk was upgraded from 16.8.0 to 17.3.0.
 * **Performance**: We are in the process of removing SSL between services running on the same host, using plain HTTP instead.
 
 ## Ongoing features

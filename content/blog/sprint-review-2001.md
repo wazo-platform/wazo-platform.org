@@ -15,7 +15,7 @@ Here is a short review of the Wazo Platform 20.01 release.
 * **Switchboard**: We have worked on improving the switchboard reactivity. In this version, the time to answer a call has been reduced by half. These changes may also impact positively the response time of other actions made on the calls in a switchboard.
 * **Monitoring**: We have added a new HTTP resource to retrieve the current status of user telephony lines in wazo-calld REST API. This allows an external application to know which phones are busy, available or disconnected. This feature is currently very similar to the wazo-chatd presence features, but it will be improved with more details irrelevant to wazo-chatd, like the round-trip time to a phone.
 * **Users**: We have improved the users REST API to add information related to user interception. When getting a user's details, you may now get the list of people that this user is allowed to intercept.
-* **Class 4**: We are releasing a first version of the SBC and call routing features of Wazo Platform, featuring Kamailio. Here are the links to the [installation documentation](/install/class-4) and [REST API documentation](/documentation/overview/router-confd.html).
+* **Class 4**: We are releasing a first version of the SBC and call routing features of Wazo Platform, featuring Kamailio. Here are the links to the [installation documentation](/use-cases/class-4) and [REST API documentation](/documentation/overview/router-confd.html).
 
 ## Contributions
 
@@ -23,7 +23,7 @@ Here is a short review of the Wazo Platform 20.01 release.
 
 ## Technical features
 
-* **Asterisk**: Asterisk was updated from 16.6.2 to [16.7.0](https://www.asterisk.org/downloads/asterisk-news/asterisk-1670-now-available), including 2 security fixes.
+* **Asterisk**: Asterisk was updated from 16.6.2 to 16.7.0, including 2 security fixes.
 * **Orchestration**: wazo-calld can now run independently from Asterisk. Of course it can not do much without it, since the main purpose of wazo-calld is to manage calls that are placed through Asterisk. This makes Wazo Platform easier to setup in a orchestrated environment such as containers.
 
 ## Ongoing features

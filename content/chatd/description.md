@@ -19,5 +19,5 @@ The REST API for wazo-chatd is available [here](../api/chat.html)
 
 ## Related
 
-* [wazo-ami](https://github.com/wazo-platform/wazo-ami)
+* [wazo-amid](https://github.com/wazo-platform/wazo-amid)
 * [wazo-confd](configuration.html)
