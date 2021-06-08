@@ -66,10 +66,10 @@ const checkUrl = async (browser, url, fromUrl) => {
 
     await browserPage.goto(url, { waitUntil: 'networkidle2' });
 
-    mainResponse = responses.find((response) => response.url() === url);
-    isResponseFailed = (response) => response && response.status() >= 400;
-    failedResponses = responses.filter((response) => isResponseFailed(response));
-    allResponsesOk = failedResponses.length === 0;
+    const mainResponse = responses.find((response) => response.url() === url);
+    const isResponseFailed = (response) => response && response.status() >= 400;
+    const failedResponses = responses.filter((response) => isResponseFailed(response));
+    const allResponsesOk = failedResponses.length === 0;
     if (isResponseFailed(mainResponse) || (isUrlLocal && !allResponsesOk)) {
       throw new Error(`statuses ${failedResponses.map((response) => response.status())}`);
     }
