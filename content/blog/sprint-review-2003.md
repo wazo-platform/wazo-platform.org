@@ -24,7 +24,7 @@ Here is a short review of the Wazo Platform 20.03 release.
 
 ## Technical features
 
-* **Asterisk**: Asterisk has been upgraded to version 16.8.0 ([changelog](https://www.asterisk.org/downloads/asterisk-news/asterisk-1680-now-available))
+* **Asterisk**: Asterisk has been upgraded to version 16.8.0
 
 ## Ongoing features
 

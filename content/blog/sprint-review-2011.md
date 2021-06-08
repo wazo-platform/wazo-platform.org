@@ -20,7 +20,7 @@ Here is a short review of the Wazo Platform 20.11 release.
 
 ## Technical features
 
-* **Asterisk**: Asterisk was upgraded to 17.6.0. See the [Asterisk release announcement](https://www.asterisk.org/downloads/asterisk-news/asterisk-1760-now-available ).
+* **Asterisk**: Asterisk was upgraded to 17.6.0.
 
 ## Ongoing features
 
