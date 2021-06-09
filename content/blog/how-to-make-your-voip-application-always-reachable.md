@@ -38,7 +38,7 @@ Developing a react-native module in Java is very easy, even if Java was not our 
 ## Improve the Developer Experience
 
 So we now have 2 libraries dealing with the same goal: displaying incall system UI. But why should we install, setup and abstract 2 libraries with the same point ? 
-`react-native-callkit` uses the name of the iOS Framework, it would be misunderstood if we integrate the Android feature in it. So we've decided to fork it and create a new [`react-native-callkeep`](https://github.com/wazo-platform/react-native-callkeep) repository with both Android and iOS implementation.
+`react-native-callkit` uses the name of the iOS Framework, it would be misunderstood if we integrate the Android feature in it. So we've decided to fork it and create a new [`react-native-callkeep`](https://github.com/react-native-webrtc/react-native-callkeep) repository with both Android and iOS implementation.
 
 With it, we can seamlessly notify both Android and iOS users of an incoming call, and even using Wazo to make calls from the native Phone application:
 
