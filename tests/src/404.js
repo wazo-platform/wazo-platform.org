@@ -26,6 +26,16 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // User-specific Github link for listing active PR
+  if (url.indexOf('https://github.com/pulls?') !== -1) {
+    return true;
+  }
+
+  // API doc referencing Microsoft API
+  if (url.indexOf('https://graph.microsoft.com/v1.0/me/contacts') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
