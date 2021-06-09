@@ -18,7 +18,7 @@ Here is a short review of the Wazo Platform 20.15 release.
 
 ## Technical features
 
-* **Asterisk**: Asterisk was upgraded to 17.8.1. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-17-8-1-now-available/). This is a security release, so we strongly recommand you to update your Wazo Platform.
+* **Asterisk**: Asterisk was upgraded to 17.8.1. This is a security release, so we strongly recommend you to update your Wazo Platform.
 
 ## Ongoing features
 
@@ -30,7 +30,7 @@ See you at the next sprint review!
 
 ## Resources
 
-* [Install Wazo Platform](/install)
+* [Install Wazo Platform](/use-cases)
 
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-15)
 
