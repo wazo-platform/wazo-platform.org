@@ -8,30 +8,45 @@ const errorUrl = [];
 // Chrome headless can't open these format:
 const EXCLUDED_EXTENSIONS = ['yml'];
 
-const checkUrl = async (browser, url, fromUrl) => {
-
-  if (!url || url === '' || testedUrl.indexOf(url) !== -1) {
-    return true;
-  }
-
-  testedUrl.push(url);
-
+function isUrlWhitelisted(url, fromUrl) {
   // Jira links are a tad flaky and tend to mess with the process, skipping
   const isJira = url.indexOf('wazo-dev.atlassian.net') !== -1;
   if (isJira) {
-    console.log(`Skipping Jira ${url} (from: ${fromUrl}) ...`);
     return true;
   }
 
   // Puppeteer has trouble handling binaries, let's take a few out of the equation
   const isBinary = url.match(/\.(odt|pdf|sh|cfg)$/);
   if (isBinary) {
-    console.log(`Skipping ${url.slice(-3).toUpperCase()} binary ${url} (from: ${fromUrl}) ...`);
     return true;
   }
 
   // There are a few dynamically-generated example URLs (redoc), let's skip them also
   if (url.indexOf('//my-service') !== -1) {
+    return true;
+  }
+
+  // User-specific Github link for listing active PR
+  if (url.indexOf('https://github.com/pulls?') !== -1) {
+    return true;
+  }
+
+  // API doc referencing Microsoft API
+  if (url.indexOf('https://graph.microsoft.com/v1.0/me/contacts') !== -1) {
+    return true;
+  }
+
+  return false;
+}
+
+const checkUrl = async (browser, url, fromUrl) => {
+  if (!url || url === '' || testedUrl.indexOf(url) !== -1) {
+    return true;
+  }
+
+  testedUrl.push(url);
+
+  if (isUrlWhitelisted(url)) {
     console.log(`Skipping ${url} (from: ${fromUrl}) ...`);
     return true;
   }
@@ -66,10 +81,10 @@ const checkUrl = async (browser, url, fromUrl) => {
 
     await browserPage.goto(url, { waitUntil: 'networkidle2' });
 
-    mainResponse = responses.find((response) => response.url() === url);
-    isResponseFailed = (response) => response && response.status() >= 400;
-    failedResponses = responses.filter((response) => isResponseFailed(response));
-    allResponsesOk = failedResponses.length === 0;
+    const mainResponse = responses.find((response) => response.url() === url);
+    const isResponseFailed = (response) => response && response.status() >= 400;
+    const failedResponses = responses.filter((response) => isResponseFailed(response));
+    const allResponsesOk = failedResponses.length === 0;
     if (isResponseFailed(mainResponse) || (isUrlLocal && !allResponsesOk)) {
       throw new Error(`statuses ${failedResponses.map((response) => response.status())}`);
     }
