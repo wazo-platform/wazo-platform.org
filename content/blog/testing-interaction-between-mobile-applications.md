@@ -8,7 +8,7 @@ Status: published
 
 ![callkeep](https://user-images.githubusercontent.com/2076632/52963046-ca98b200-336c-11e9-8c82-590c0bed8839.gif)
 
-For the past couple weeks, we've been working on the creation of automated integration tests for our new mobile application. This application is built with react-native and uses edge technologies like native WebRTC, native UI with ConnectionService or CallKit (see our library [callkeep](https://github.com/wazo-platform/react-native-callkeep)) and wake up push notifications.
+For the past couple weeks, we've been working on the creation of automated integration tests for our new mobile application. This application is built with react-native and uses edge technologies like native WebRTC, native UI with ConnectionService or CallKit (see our library [callkeep](https://github.com/react-native-webrtc/react-native-callkeep)) and wake up push notifications.
 
 Avoiding regressions on such a large application is a huge challenge. We are making big steps in the automation process to fulfill this goal.
 
