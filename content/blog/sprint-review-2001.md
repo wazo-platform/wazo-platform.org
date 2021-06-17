@@ -38,11 +38,9 @@ See you at the next release!
 ## Resources
 
 * [Install Wazo Platform](/uc-doc/installation/install-system)
-
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/introduction). Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-19.17/upgrade/upgrade_notes.html)
 
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
-
 * [Wazo Platform 20.01 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.01)
