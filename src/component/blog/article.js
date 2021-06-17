@@ -9,10 +9,9 @@ export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, ca
   const tags = tagsRaw && tagsRaw.split(',');
 
   return (
-    <Layout pageTitle={title} className="article" section="blog">
+    <Layout pageTitle={title} pageTitleDate={formattedDate} className="article" section="blog">
       <div className="container main">
         <div className="head">
-          Posted on {formattedDate}  {" "}
           in <Link className="hilite" to="/blog" state={{ filter: { type: 'category', value: category }}}>{category}</Link> {" "}
           by <Link className="hilite" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>  {" "}
           {tags && tags.length &&

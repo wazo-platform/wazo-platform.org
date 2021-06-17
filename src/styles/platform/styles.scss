@@ -33,6 +33,12 @@ pre {
       position: relative;
     }
 
+    .page-title-date {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     h1, h2, h3, p {
       transition: 350ms ease opacity;
       color: #fff;
@@ -446,6 +452,17 @@ body.documentation {
       height: auto;
       border-radius: 10px;
       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    a {
+      transition: none;
+      color: #212327;
+      text-decoration: underline 1px #212327;
+
+      &:hover, &:active {
+        color: #000;
+        text-decoration: underline 2px #98c451;
+      }
     }
 
   }
