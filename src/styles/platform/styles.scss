@@ -387,13 +387,6 @@ body.documentation {
 }
 
 .article{
-  .head{
-    color: #999;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 40px;
-  }
-
   .container.main {
     padding: 50px 15px 70px;
   }
@@ -464,7 +457,57 @@ body.documentation {
         text-decoration: underline 2px #98c451;
       }
     }
+  }
 
+  .article--content--footer {
+    color: #999;
+    padding: 29px 25px 25px 135px;
+    background: #EEE;
+    margin-top: 40px;
+    border-radius: 5px;
+    max-width: 700px;
+    position: relative;
+    min-height: 140px;
+
+    &::before {
+      content: "";
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      background: #98c451 url(../../../src/assets//logo.square.svg) center no-repeat;
+      background-size: 60%;
+      border-radius: 100px;
+    }
+
+    .article--content--footer-author {
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+      margin-bottom: 2px;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .tags a {
+      display: inline-block;
+      margin-right: 8px;
+
+      &::after {
+        content: ', ';
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        &::after { display: none; }
+      }
+    }
   }
 }
 
