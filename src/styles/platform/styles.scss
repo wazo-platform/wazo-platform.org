@@ -387,11 +387,67 @@ body.documentation {
     border-bottom: 1px solid #ddd;
     margin-bottom: 40px;
   }
-  .container.main{
+
+  .container.main {
+    padding: 50px 15px 70px;
+  }
+
+  .article--content {
+    font-size: 16px;
+
+    p, ul, ol {
+      margin-bottom: 18px;
+    }
+
+    p { line-height: 25px; }
+
+    ul, ol {
+      margin-left: 0px;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 5px;
+        &:last-child { margin-bottom: 0; }
+      }
+    }
+
+    h1, h2, h3, h4 {
+      &:first-child { margin-top: 0; }
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 40px 0 20px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 35px 0 20px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin: 25px 0 18px;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin: 20px 0 18px;
+    }
+
+    code {
+      background-color: rgba(27,31,35,0.05);
+      padding: 2px 5px;
+      border-radius: 6px;
+    }
+
     img {
       max-width: 100%;
       height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
     }
+
   }
 }
 
