@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 21.08 {#21-08}
+
+Consult the
+[21.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.08)
+for more information.
+
 ## 21.07 {#21-07}
 
 Consult the
