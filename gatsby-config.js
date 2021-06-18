@@ -9,7 +9,12 @@ const path = require('path');
 module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("dart-sass"),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -8,15 +8,15 @@ import '../styles/platform/pretty-docs.scss';
 import '../styles/platform/documentation.scss';
 import '../styles/platform/styles.scss';
 
-export default ({ children, section, className, pageTitle, PageTitleComponent = 'h1', breadcrumbs = [] }) => {
+export default ({ children, section, className, pageTitle, pageTitleDate, PageTitleComponent = 'h1' }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
 
-  const scrollToAnchor = hash => {
+  const scrollToAnchor = (hash) => {
     if (!hash) {
       return;
     }
     const anchorName = hash.replace('#', '');
-    setTimeout(function() {
+    setTimeout(function () {
       const element = document.querySelector(`a[name="${anchorName}"]`);
       if (element === null) {
         return;
@@ -25,7 +25,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
       const headerHeight = document.querySelector('#header').offsetHeight;
       window.scrollTo(0, elementPosition - headerHeight - 15);
     }, 1);
-  }
+  };
 
   if (typeof window === 'object') {
     useEffect(() => {
@@ -35,14 +35,14 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
 
   const bodyAttributes = { class: section };
   const now = new Date();
-  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(' - ');
+  const headTitle = [pageTitle, 'Wazo Platform'].filter((value) => Boolean(value)).join(' - ');
 
   const navigationClasses = ['main-nav', 'navbar-expand-md'];
   if (searchEnabled) {
     navigationClasses.push('main-nav-search-enabled');
   }
 
-  const handleSearch = e => {
+  const handleSearch = (e) => {
     e.preventDefault();
     const newStateSearchEnabled = !searchEnabled;
     setSearchEnabled(newStateSearchEnabled);
@@ -55,7 +55,7 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
-        <title>{headTitle.replace(/<\/?[^>]+(>|$)/g, "")}</title>
+        <title>{headTitle.replace(/<\/?[^>]+(>|$)/g, '')}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
@@ -128,7 +128,8 @@ export default ({ children, section, className, pageTitle, PageTitleComponent = 
         {pageTitle && (
           <div className="page-title">
             <div className="container">
-              <PageTitleComponent dangerouslySetInnerHTML={{ __html: pageTitle }}/>
+              <PageTitleComponent dangerouslySetInnerHTML={{ __html: pageTitle }} />
+              {pageTitleDate && <p className="page-title-date">{pageTitleDate}</p>}
             </div>
           </div>
         )}

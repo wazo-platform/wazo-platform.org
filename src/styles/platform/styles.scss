@@ -33,6 +33,12 @@ pre {
       position: relative;
     }
 
+    .page-title-date {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     h1, h2, h3, p {
       transition: 350ms ease opacity;
       color: #fff;
@@ -381,16 +387,126 @@ body.documentation {
 }
 
 .article{
-  .head{
-    color: #999;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 40px;
+  .container.main {
+    padding: 50px 15px 70px;
   }
-  .container.main{
+
+  .article--content {
+    font-size: 16px;
+
+    p, ul, ol {
+      margin-bottom: 18px;
+    }
+
+    p { line-height: 25px; }
+
+    ul, ol {
+      margin-left: 0px;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 5px;
+        &:last-child { margin-bottom: 0; }
+      }
+    }
+
+    h1, h2, h3, h4 {
+      &:first-child { margin-top: 0; }
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 40px 0 20px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 35px 0 20px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin: 25px 0 18px;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin: 20px 0 18px;
+    }
+
+    code {
+      background-color: rgba(27,31,35,0.05);
+      padding: 2px 5px;
+      border-radius: 6px;
+    }
+
     img {
       max-width: 100%;
       height: auto;
+      border-radius: 10px;
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    a {
+      transition: none;
+      color: #212327;
+      text-decoration: underline 1px #212327;
+
+      &:hover, &:active {
+        color: #000;
+        text-decoration: underline 2px #98c451;
+      }
+    }
+  }
+
+  .article--content--footer {
+    color: #999;
+    padding: 29px 25px 25px 135px;
+    background: #EEE;
+    margin-top: 40px;
+    border-radius: 5px;
+    max-width: 700px;
+    position: relative;
+    min-height: 140px;
+
+    &::before {
+      content: "";
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      background: #98c451 url(../../../src/assets//logo.square.svg) center no-repeat;
+      background-size: 60%;
+      border-radius: 100px;
+    }
+
+    .article--content--footer-author {
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+      margin-bottom: 2px;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .tags a {
+      display: inline-block;
+      margin-right: 8px;
+
+      &::after {
+        content: ', ';
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        &::after { display: none; }
+      }
     }
   }
 }

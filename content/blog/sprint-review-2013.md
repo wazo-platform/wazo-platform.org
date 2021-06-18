@@ -57,13 +57,11 @@ See you at the next sprint review!
 ## Resources
 
 * [Install Wazo Platform](/uc-doc/installation/install-system)
-
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#20-13)
 
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#20-13)
-
 * [Wazo Platform 20.13 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.13)
 
 ## Discussion

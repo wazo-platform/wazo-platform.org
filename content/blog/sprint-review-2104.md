@@ -19,7 +19,7 @@ Here is a short review of the Wazo Platform 21.04 release.
   tenant, which will used to easily identify resource in asterisk configuration and log. For now
   this behavior is only used for groups, but will be used for all asterisk resources.
 * **Events**: A new event is sent when a user receives a call but is not
-  answered, be it because the phone is unavailable or the Do-Not-Disturb (DND) mode is activated, 
+  answered, be it because the phone is unavailable or the Do-Not-Disturb (DND) mode is activated,
   among other causes.
 
 ## Technical features
@@ -37,13 +37,11 @@ See you at the next sprint review!
 ## Resources
 
 * [Install Wazo Platform](/use-cases)
-
 * [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the [breaking changes](/uc-doc/upgrade/upgrade_notes#21-04)
 
 Sources:
 
 * [Upgrade notes](/uc-doc/upgrade/upgrade_notes#21-04)
-
 * [Wazo Platform 21.04 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.04)
 
 ## Discussion
