@@ -1,5 +1,5 @@
 Title: Wazo Platform 21.08 Released
-Date: 2021-06-21:00:00
+Date: 2021-06-21T13:00:00
 Author: The Wazo Authors
 Category: Wazo Platform
 Tags: wazo-platform, development
