@@ -15,7 +15,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 2. Run the following commands as root on the Debian system to provision sudo, git and Ansible:
 
    ```shell
-   apt-get install -yq sudo git ansible
+   apt-get install -yq sudo git ansible curl
    ```
 
 3. Extract the Wazo Platform installer
