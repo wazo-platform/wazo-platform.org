@@ -18,6 +18,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
 - [Graphics](/uc-doc/administration/graphics)
 - [Group Pickup](/uc-doc/administration/group_pickup)
 - [Hardware](/uc-doc/administration/hardware)
+- [Import Export](/uc-doc/administration/import_export)
 - [Incall](/uc-doc/administration/incall)
 - [Interconnections](/uc-doc/administration/interconnections)
 - [IVR](/uc-doc/administration/ivr)
