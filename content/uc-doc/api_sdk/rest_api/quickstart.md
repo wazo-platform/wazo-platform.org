@@ -17,11 +17,12 @@ First of all, you must have permission to use the REST API. Create a wazo-auth u
 
 ```markdown
 POST /users {"purpose": "external_api", "username": "rest-api-test", ...} POST /policies {"acl":
-["#"], ...}` `PUT /users/{user_uuid}/policies/{policy_uuid}
+["confd.#", "auth.#"], ...}` `PUT /users/{user_uuid}/policies/{policy_uuid}
 ```
 
-- `acl`: `#` is a wildcard that gives access to every REST API. You may want to delete this account
-  when you're done, to reduce risks of unauthorized access.
+- `acl`: Each access starts with the REST API service name. Then `#` is a wildcard that gives access
+  to every REST API from this service. You may want to delete this account when you're done, to
+  reduce risks of unauthorized access.
 
 Save the form, and store the login/password somewhere for later use.
 
