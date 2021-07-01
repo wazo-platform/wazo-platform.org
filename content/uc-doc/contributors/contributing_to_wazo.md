@@ -24,7 +24,7 @@ Most of the Wazo Platform is written in Python, our code follows the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can use a tool such as
 [flake8](http://flake8.pycqa.org/en/latest/) to validate that you code respects the standards. Some
 repositories also include the appropriate configuration to check your code using the tox command
-[tox -e linters]{.title-ref}.
+`tox -e linters`.
 
 Respecting coding standards is not sufficient to warrant quality code. Your contribution should not
 break any existing tests and when possible, it should add tests for the code you are adding. We use
@@ -38,7 +38,7 @@ also leave your environment in the same state, no files laying around.
 
 You can execute unittests with the following command
 
-```{.sourceCode .sh}
+```sh
 tox -e py37
 ```
 
@@ -46,18 +46,17 @@ tox -e py37
 
 Integration tests exercise a service as a black box. It uses the public API of the service and use
 the API to assert that the test passes. Our integration tests use docker to avoid installing too
-many dependencies on your system. You can find the integration tests in the
-[integration\_tests]{.title-ref} directory of most repository. Executing the following command from
-the root directory of a project should execute all integration tests.
+many dependencies on your system. You can find the integration tests in the `integration_tests`
+directory of most repository. Executing the following command from the root directory of a project
+should execute all integration tests.
 
-```{.sourceCode .sh}
+```sh
 tox -eintegration
 ```
 
-If [tox]{.title-ref} is not configured to execute integration tests, you can execute the following
-commands.
+If `tox` is not configured to execute integration tests, you can execute the following commands.
 
-```{.sourceCode .sh}
+```sh
 cd integration_tests
 make test-setup
 make test
@@ -74,7 +73,7 @@ executed manually at the end of each sprint.
 ## Trying your code {#trying-your-code}
 
 After writing your code and checking that it does not break any tests, you should try it. The
-\"easiest\" way to do so is to use a virtual machine with a working engine. You should avoid testing
+"easiest" way to do so is to use a virtual machine with a working engine. You should avoid testing
 in a production environment to avoid outage for you and your users. To install your test engine
 follow the [Installing the System](/uc-doc/installation/install-system) documentation.
 
