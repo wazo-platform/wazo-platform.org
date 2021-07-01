@@ -2,7 +2,7 @@
 title: Import Export
 ---
 
-## Importing a whole tenant
+## Importing a Whole Tenant
 
 When creating a new tenant on a Wazo stack, it can be convenient to be able to create resources in a
 single bulk action. [A tool](https://github.com/wazo-platform/wazo-export-import) is available to
@@ -27,11 +27,11 @@ pip3 install -rrequirements.txt
 python3 setup.py install
 ```
 
-## Creating import file
+## Creating Import File
 
 The first thing to do is to create the file that will contain all of your resources.
 
-### Supported resources and fields
+### Supported Resources and Fields
 
 Each tab in the file represents a resource.
 
@@ -47,7 +47,7 @@ To list available fields use the following command
 wazo-generate-dump list fields --<resource name>
 ```
 
-### Starting from scratch
+### Starting from Scratch
 
 To create a tenant from scratch you will first need to create a spreadsheet file that will be used
 as the scaffold for your import.
@@ -68,7 +68,7 @@ For example, given a user with `ref` being `user1` you can then reference that u
 
 Tabs and columns that are not required can be removed from the file for easier editing.
 
-### Building the export file from other tools
+### Building the Export File from Other Tools
 
 If you already have a system with your users or even other resources configured, you can use it as
 the base to fill up your import file.
@@ -81,12 +81,12 @@ following command
 cat user.csv | wazo-generate-dump import --users my-export.ods
 ```
 
-### System specific scripts
+### System Specific Scripts
 
 Some scripts are available to export specific systems to the appropriate export file format. To list
 all available scripts look at the `contrib directory.
 
-#### Exporting from a Xivo installation
+#### Exporting from a Xivo Installation
 
 If you are exporting a Xivo system you can use the `export_xivo.sh` script to create your export
 file.
@@ -97,7 +97,7 @@ file.
 
 This will create a file named `export.ods` in the current directory.
 
-## Creating new tenant
+## Creating New Tenant
 
 The import is meant to be used in a new tenant. The tenant **does not** get created by the import
 tool.
@@ -106,7 +106,7 @@ The first thing you have to do is create a new tenant on your stack. Once that t
 created, you **MUST** add the extension range to your contexts to match the resources you are going
 to import.
 
-## Updating the export file to match system
+## Updating the Export File to Match System
 
 If you used an existing system to create your import file chances are that it will contain some
 resources that can conflict with the stack you are importing on. For example, the context names from
@@ -117,7 +117,7 @@ These issues should be fixed before doing the import. For the context example yo
 `internal`, `outgoing` and `incoming` contexts in your new tenant. Leaving the old name in other
 tabs will allow the reference system within the import to resolve the old names to the new one.
 
-## Importing the resources
+## Importing the Resources
 
 Importing your data.
 
