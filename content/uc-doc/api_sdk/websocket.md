@@ -41,7 +41,7 @@ After a succesful connection and authentication to the service, the server will 
 message:
 
 ```json
-{"op": "init", "code": 0, "data": {"version": 2}}
+{ "op": "init", "code": 0, "data": { "version": 2 } }
 ```
 
 This indicate that the server is ready to accept more commands from the client. Had an error
@@ -58,26 +58,26 @@ interested in the [`call_created" events](/uc-doc/api_sdk/message_bus#bus-call-c
 the following command:
 
 ```json
-{"op": "subscribe", "data": {"event_name": "call_created"}}
+{ "op": "subscribe", "data": { "event_name": "call_created" } }
 ```
 
 If all goes well, the server will respond with:
 
 ```json
-{"op": "subscribe", "code": 0}
+{ "op": "subscribe", "code": 0 }
 ```
 
 Once you have subscribed to all the events you are interested in, you ask the server to start
 sending you the matching events by sending the following command:
 
 ```json
-{"op": "start"}
+{ "op": "start" }
 ```
 
 The server will respond with:
 
 ```json
-{"op": "start", "code": 0}
+{ "op": "start", "code": 0 }
 ```
 
 Once you have received this message, you will start to received events from the bus. All event will
@@ -94,78 +94,80 @@ Here's a rudimentary example of a web page accessing the service:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Wazo WebSocket Example</title>
-<script>
-var socket = null;
-var started = false;
+  <head>
+    <meta charset="utf-8" />
+    <title>Wazo WebSocket Example</title>
+    <script>
+      var socket = null;
+      var started = false;
 
-function connect() {
-    if (socket != null) {
-        console.log("socket already connected");
-        return;
-    }
-
-    var host = document.getElementById("host").value;
-    var token_id = document.getElementById("token").value;
-    socket = new WebSocket("wss://" + host + "/api/websocketd/?version=2&token=" + token_id);
-    socket.onclose = function(event) {
-        socket = null;
-        console.log("websocketd closed with code " + event.code + " and reason '" + event.reason + "'");
-    };
-    socket.onmessage = function(event) {
-        var msg = JSON.parse(event.data);
-        switch (msg.op) {
-            case "init":
-                subscribe("*");
-                start();
-                break;
-            case "start":
-                console.log("waiting for messages");
-                break;
-            case "event":
-                console.log("message received: " + msg.event);
-                break;
+      function connect() {
+        if (socket != null) {
+          console.log('socket already connected');
+          return;
         }
-    };
-    started = false;
-}
 
-function subscribe(event_name) {
-    var msg = {
-        op: "subscribe",
-        data: {
-          event_name: event_name
-        }
-    };
-    socket.send(JSON.stringify(msg));
-};
+        var host = document.getElementById('host').value;
+        var token_id = document.getElementById('token').value;
+        socket = new WebSocket('wss://' + host + '/api/websocketd/?version=2&token=' + token_id);
+        socket.onclose = function (event) {
+          socket = null;
+          console.log(
+            'websocketd closed with code ' + event.code + " and reason '" + event.reason + "'"
+          );
+        };
+        socket.onmessage = function (event) {
+          var msg = JSON.parse(event.data);
+          switch (msg.op) {
+            case 'init':
+              subscribe('*');
+              start();
+              break;
+            case 'start':
+              console.log('waiting for messages');
+              break;
+            case 'event':
+              console.log('message received: ' + msg.event);
+              break;
+          }
+        };
+        started = false;
+      }
 
-function start() {
-    var msg = {
-        op: "start"
-    };
-    socket.send(JSON.stringify(msg));
-}
-</script>
-</head>
-<body>
-  <p>Open the web console to see what's happening.</p>
-  <form>
-    <div>
-      <label for="host">Host:</label>
-      <input type="text" id="host" autofocus>
-    </div>
-    <div>
-      <label for="token">Token ID:</label>
-      <input type="text" id="token" size="35">
-    </div>
-    <div>
-      <button type="button" onclick="connect();">Connect</button>
-    </div>
-  </form>
-</body>
+      function subscribe(event_name) {
+        var msg = {
+          op: 'subscribe',
+          data: {
+            event_name: event_name,
+          },
+        };
+        socket.send(JSON.stringify(msg));
+      }
+
+      function start() {
+        var msg = {
+          op: 'start',
+        };
+        socket.send(JSON.stringify(msg));
+      }
+    </script>
+  </head>
+  <body>
+    <p>Open the web console to see what's happening.</p>
+    <form>
+      <div>
+        <label for="host">Host:</label>
+        <input type="text" id="host" autofocus />
+      </div>
+      <div>
+        <label for="token">Token ID:</label>
+        <input type="text" id="token" size="35" />
+      </div>
+      <div>
+        <button type="button" onclick="connect();">Connect</button>
+      </div>
+    </form>
+  </body>
 </html>
 ```
 
@@ -174,42 +176,41 @@ button is clicked, the `connect` function is called, and the WebSocket connectio
 18 (using the [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)):
 
 ```javascript
-socket = new WebSocket("wss://" + host + "/api/websocketd/?version=2&token=" + token_id);
+socket = new WebSocket('wss://' + host + '/api/websocketd/?version=2&token=' + token_id);
 ```
 
 Then, at line 23, a `onmessage` callback is set on the WebSocket object:
 
 ```javascript
-socket.onmessage = function(event) {
-    var msg = JSON.parse(event.data);
-    switch (msg.op) {
-        case "init":
-            subscribe("call_created");
-            subscribe("call_updated");
-            start();
-            break;
-        case "start":
-            console.log("waiting for messages");
-            break;
-        case "event":
-            console.log("message received: " + msg.event);
-            break;
-    }
+socket.onmessage = function (event) {
+  var msg = JSON.parse(event.data);
+  switch (msg.op) {
+    case 'init':
+      subscribe('call_created');
+      subscribe('call_updated');
+      start();
+      break;
+    case 'start':
+      console.log('waiting for messages');
+      break;
+    case 'event':
+      console.log('message received: ' + msg.event);
+      break;
+  }
 };
 ```
 
-After a successful connection to the service, an `init` message will be received by the client.
-When the client receives this message, it sends two subscribe commands (e.g.
-`subscribe("call_created")`) and a start command (e.g. `start()`). When the client receives the
-`start` message, it sets the `started` flag. After that, all the other messages it receives will
-be logged to the console.
+After a successful connection to the service, an `init` message will be received by the client. When
+the client receives this message, it sends two subscribe commands (e.g. `subscribe("call_created")`)
+and a start command (e.g. `start()`). When the client receives the `start` message, it sets the
+`started` flag. After that, all the other messages it receives will be logged to the console.
 
 ## Reference
 
 The WebSocket service is provided by `wazo-websocketd`, and its behaviour can be configured via its
-[configuration files](/uc-doc/system/configuration_files) located under the
-`/etc/wazo-websocketd` directory. After modifying the configuration
-files, you need to restart `wazo-websocketd` with `systemctl restart wazo-websocketd`.
+[configuration files](/uc-doc/system/configuration_files) located under the `/etc/wazo-websocketd`
+directory. After modifying the configuration files, you need to restart `wazo-websocketd` with
+`systemctl restart wazo-websocketd`.
 
 ### Authentication {#rest-api-authentication}
 
@@ -226,7 +227,7 @@ the token expires.
 
 Clients connected to `wazo-websocketd` only receive events that they are authorized to receive. For
 example, a client connected with a token obtained from the `wazo_user` `wazo-auth` backend will
-*not* receive call events of other users.
+_not_ receive call events of other users.
 
 When a message is received from the bus by `wazo-websocketd`, it extracts the ACL from the
 `required_acl` key of the event. If the field is missing, no clients will receive the event. If the
@@ -273,11 +274,11 @@ mandatory for the `subscribe` operation.
 
 The `subscribe` message ask the server to subscribe the client to the given event. When a message
 with the same name is published on the `xivo` exchange of the bus, the server forwards the message
-to all the subscribed clients that are authorized to receive it. For this command, the `data`
-value is a dictionary with an `event_name` key (mandatory). Example:
+to all the subscribed clients that are authorized to receive it. For this command, the `data` value
+is a dictionary with an `event_name` key (mandatory). Example:
 
 ```json
-{"op": "subscribe", "data": {"event_name": "endpoint_status_update"}}
+{ "op": "subscribe", "data": { "event_name": "endpoint_status_update" } }
 ```
 
 You can subscribe to any event. The special event name `*` can be used to match all events.
@@ -288,11 +289,11 @@ which are available by default on Wazo.
 The `start` message ask the server to start sending messages from the bus to the client. Example:
 
 ```json
-{"op": "start"}
+{ "op": "start" }
 ```
 
-The server won\'t forward messages from the bus to the client until it receives the `start`
-message from the client.
+The server won\'t forward messages from the bus to the client until it receives the `start` message
+from the client.
 
 If the client send a message that the server doesn\'t understand, the server closes the connection.
 
@@ -309,26 +310,26 @@ The 3 keys are always present. The value of the `op` key can be one of `init`, `
 `start`. The value of the `code` key is an integer representing the status of the operation, 0
 meaning there was no error, other values meaning there was an error.
 
-The `init` message is only sent after the connection is successfully established between the
-client and the server. It\'s code is always zero; if the connection could not be established, the
+The `init` message is only sent after the connection is successfully established between the client
+and the server. It\'s code is always zero; if the connection could not be established, the
 connection is simply closed. Example:
 
 ```json
-{"op": "init", "code": 0, "data": {"version": 2}}
+{ "op": "init", "code": 0, "data": { "version": 2 } }
 ```
 
-The `subscribe` message is sent as a response to a client `subscribe` message. The code is
-always zero. Example:
+The `subscribe` message is sent as a response to a client `subscribe` message. The code is always
+zero. Example:
 
 ```json
-{"op": "subscribe", "code": 0}
+{ "op": "subscribe", "code": 0 }
 ```
 
 The `start` message is sent as a response to a client `start` message. The code is always zero.
 Example:
 
 ```json
-{"op": "start", "code": 0}
+{ "op": "start", "code": 0 }
 ```
 
 After receiving the `start` message, the server switch into the `bus/started` mode, where all
