@@ -20,10 +20,11 @@ Installing the import tool is required on the exporting and importing system.
 To install it on a debian based system uses the following commands on the command line.
 
 ```sh
-apt update && apt install git python3-pip
+apt update && apt install git python3-pip python3-setuptools
+cd /tmp
 git clone https://github.com/wazo-platform/wazo-export-import.git
 cd wazo-export-import
-pip3 install -rrequirements.txt
+pip3 install -r requirements.txt
 python3 setup.py install
 ```
 
