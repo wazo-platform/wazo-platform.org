@@ -78,7 +78,7 @@ match the available fields in the export file and use the CSV to fill you export
 following command
 
 ```sh
-cat user.csv | wazo-generate-dump import --users my-export.ods
+cat user.csv | wazo-generate-dump add --users my-export.ods
 ```
 
 ### System Specific Scripts
