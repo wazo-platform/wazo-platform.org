@@ -19,7 +19,6 @@ title: Contributors
 
 ## Component specific information
 
-- [Database](/uc-doc/contributors/database)
 - [Diagrams](/uc-doc/contributors/diagrams)
 - [Provisioning](/uc-doc/contributors/provisioning)
 - [SCCP](/uc-doc/contributors/sccp)
