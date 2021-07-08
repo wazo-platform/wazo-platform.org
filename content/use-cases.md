@@ -1,18 +1,7 @@
-# Use Cases
+## Meet Wazo Platform
 
-Wazo Platform allows to setup multiple communication use cases. Find
+Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication infrastructures. You can pick and choose the components you need to build your infrastructures with **class 5 features** and **class 4 features**.
+
+Our platform allows to setup multiple communication use cases. Find
 bellow the documentation of some examples of use cases. You can of
 course use your own set of services to build your own use case.
-
-## Unified Communication use case
-
-Follow [the UC Use Case documentation](/uc-doc/) for a complete guide
-or jump directly to the [installation procedure](/uc-doc/installation/install-system).
-
-## SIP Router use case
-
-Follow [the guide to install the Class 4 engine](/use-cases/class-4).
-
-## SBC use case
-
-Follow [the guide to install the Class 4 engine](/use-cases/class-4).
