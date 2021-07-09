@@ -4,7 +4,7 @@ title: Upgrade notes
 
 ## 21.09 {#21-09}
 
-- It's now mandatory to have the access you want to assign to another resource (i.e. users/groups).
+- You are now required to have the same access you are attempting to assign to another resource (i.e. users/groups).
   Following this logic, admin now have access to all resources in their tenant by default.
 
 Consult the
