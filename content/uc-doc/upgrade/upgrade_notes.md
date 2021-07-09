@@ -4,6 +4,9 @@ title: Upgrade notes
 
 ## 21.09 {#21-09}
 
+- It's now mandatory to have the access you want to assign to another resource (i.e. users/groups).
+  Following this logic, admin now have access to all resources in their tenant by default.
+
 Consult the
 [21.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.09)
 for more information.
