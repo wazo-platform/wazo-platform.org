@@ -4,12 +4,12 @@ import ReactMarkdown from 'react-markdown';
 
 import Layout from '../Layout';
 
-export const CardItem = ({ title, introduction, icon, links = [] }) => (
+export const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
   <div className="item item-blue col-md-4 col-sm-12">
     <div className="item-inner item-inner-no-hover">
       <div className="text-center">
         {icon && <i className={`icon ${icon}`} />}
-        <h3 className="title">{title}</h3>
+        <h3 className="title">{title}{beta && (<span class="badge badge-secondary">BETA</span>)}</h3>
       </div>
 
       {introduction && <p className="intro">{introduction}</p>}
@@ -51,6 +51,7 @@ export default ({ pageContext: { installDoc } }) => (
             />
 
             <CardItem
+              beta
               title="SIP Router"
               icon="fa fa-code-branch"
               introduction="A SIP router performs authentication, routing, normalizing SIP Headers on large volumes of traffic."
@@ -61,6 +62,7 @@ export default ({ pageContext: { installDoc } }) => (
             />
 
             <CardItem
+              beta
               title="Session Border Controller"
               icon="fa fa fa-lock"
               introduction="An SBC key features are security, NAT management, protocol translation, load balancing and horizontal scaling."
