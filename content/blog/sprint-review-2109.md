@@ -16,27 +16,27 @@ Here is a short review of the Wazo Platform 21.09 release.
   [documentation](https://wazo-platform.org/uc-doc/administration/import_export)
 - **Incall**: Music on Hold can now be played when an incall redirects to a user.
 - **Phones**: A new phone provisioning plugin has been added to support Gigaset N870.
-- **REST API**: To make REST API easier to use, authentication policies can now be identified by a
-  slug instead of its UUID.
+- **REST API**: To make REST APIs easier to use, authentication policies can now be identified by a
+  slug instead of their UUID.
 
 ## Bug Fixes
 
-- **Asterisk**: Fix asterisk [STUN issue](https://wazo-dev.atlassian.net/browse/WAZO-2237) when IP
+- **Asterisk**: Fix Asterisk [STUN issue](https://wazo-dev.atlassian.net/browse/WAZO-2237) when IP
   of STUN server changes while Asterisk is running.
 
 ## Technical Features
 
-- **Authorization**: Users cannot give permission to another user if they don't already have that
-  permission themselves.
+- **Authorization**: Users cannot give permissions to other users if they don't already have those
+  permissions themselves.
 - **Asterisk**: Asterisk has been upgraded to 18.5.0. See the
   [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-18-5-0-now-available/)
 
 ## Ongoing Features
 
-- **Conference**: We are working on a better integration of conference actions, by adding events and
-  REST API to control them, like raising hand or mute/unmute participants
-- **Group**: Improve user and group interaction, like avoid ringing user phone when DND is enabled
-  and better push mobile integration.
+- **Conference**: We are working on a better integration of conference actions, such as raising
+  hand or mute/unmute, by adding events and REST APIs to control them.
+- **Group**: Improve users and groups interactions, like avoiding ringing a user's phone when DND
+  is enabled and better mobile push notifications integration.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
