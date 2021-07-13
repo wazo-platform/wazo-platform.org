@@ -2,13 +2,18 @@ $green: #98c451;
 $fakeDarkGray: #515454;
 $fakeBlack: #404343;
 
+body{ background: #f9f9fb; }
+p, ul, ol { margin-bottom: 18px; }
+p { line-height: 25px; }
 
-ul{
-  padding-left: 16px;
-}
+ul, ol {
+  margin-left: 0px;
+  padding-left: 20px;
 
-body{
-  background: #f9f9fb;
+  li {
+    margin-bottom: 5px;
+    &:last-child { margin-bottom: 0; }
+  }
 }
 
 /* may be overriding too aggressively */
@@ -23,6 +28,30 @@ pre {
 .main {
   h1, h2, h3{
     font-weight: normal;
+  }
+
+  h1, h2, h3, h4 {
+    &:first-child { margin-top: 0; }
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 40px 0 20px;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin: 35px 0 20px;
+  }
+
+  h3 {
+    font-size: 22px;
+    margin: 25px 0 18px;
+  }
+
+  h4 {
+    font-size: 18px;
+    margin: 20px 0 18px;
   }
 
   .page-title {
@@ -58,10 +87,15 @@ pre {
     .container{
       position: relative;
     }
-    .main-nav .navbar-toggler {
-      margin-top: 15px;
-      margin-bottom: 15px;
-      background: rgba(0,0,0,.1);
+
+    .main-nav {
+      .navbar-toggler {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background: rgba(0,0,0,.1);
+      }
+
+      .nav-item { margin-bottom: 0; }
     }
   }
 
@@ -392,48 +426,6 @@ body.documentation {
   }
 
   .article--content {
-    font-size: 16px;
-
-    p, ul, ol {
-      margin-bottom: 18px;
-    }
-
-    p { line-height: 25px; }
-
-    ul, ol {
-      margin-left: 0px;
-      padding-left: 20px;
-
-      li {
-        margin-bottom: 5px;
-        &:last-child { margin-bottom: 0; }
-      }
-    }
-
-    h1, h2, h3, h4 {
-      &:first-child { margin-top: 0; }
-    }
-
-    h1 {
-      font-size: 30px;
-      margin: 40px 0 20px;
-    }
-
-    h2 {
-      font-size: 25px;
-      margin: 35px 0 20px;
-    }
-
-    h3 {
-      font-size: 22px;
-      margin: 25px 0 18px;
-    }
-
-    h4 {
-      font-size: 18px;
-      margin: 20px 0 18px;
-    }
-
     code {
       background-color: rgba(27,31,35,0.05);
       padding: 2px 5px;
