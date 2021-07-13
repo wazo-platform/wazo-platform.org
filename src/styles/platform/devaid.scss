@@ -719,3 +719,27 @@ body {
     }
   }
 }
+
+/* ======= Use Case Page ======= */
+.use-cases {
+  .cards-section {
+    .item-inner {
+      padding-bottom: 130px;
+      position: relative;
+    }
+
+    .list-group {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+
+      a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+

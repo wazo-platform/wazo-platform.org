@@ -9,7 +9,10 @@ export const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
     <div className="item-inner item-inner-no-hover">
       <div className="text-center">
         {icon && <i className={`icon ${icon}`} />}
-        <h3 className="title">{title}{beta && (<span class="badge badge-secondary">BETA</span>)}</h3>
+        <h3 className="title">
+          {title}
+          {beta && <span className="badge badge-secondary">BETA</span>}
+        </h3>
       </div>
 
       {introduction && <p className="intro">{introduction}</p>}
@@ -17,7 +20,7 @@ export const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
       {links.length && (
         <div className="list-group">
           {links.map(({ to, text }) => (
-            <Link to={to} className="list-group-item">
+            <Link key={to} to={to} className="list-group-item">
               {text}
             </Link>
           ))}
@@ -54,7 +57,7 @@ export default ({ pageContext: { installDoc } }) => (
               beta
               title="SIP Router"
               icon="fa fa-code-branch"
-              introduction="A SIP router performs authentication, routing, normalizing SIP Headers on large volumes of traffic."
+              introduction="Router key features are SIP packets routing, load balancing, NAT management, and offering high availability."
               links={[
                 { to: '/use-cases/class-4', text: 'Install Procedure' },
                 { to: '/documentation/overview/c4-router.html', text: 'Documentation' },
@@ -65,7 +68,7 @@ export default ({ pageContext: { installDoc } }) => (
               beta
               title="Session Border Controller"
               icon="fa fa fa-lock"
-              introduction="An SBC key features are security, NAT management, protocol translation, load balancing and horizontal scaling."
+              introduction="His primary role is security and protection. SBCs are between your architecture and the outside."
               links={[
                 { to: '/use-cases/class-4', text: 'Install Procedure' },
                 { to: '/documentation/overview/c4-sbc.html', text: 'Documentation' },
