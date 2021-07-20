@@ -101,6 +101,7 @@
         redocUrl: https://example.com/api/setupd/1.0/api/api.yml
 
       router-confd:
+        beta: true
         title: C4 Router API
         description: Configuration API for C4 router component.
         icon: fa fa-code
@@ -203,6 +204,7 @@
         redocUrl: https://example.com/api/amid/1.0/api/api.yml
 
       c4-sbc:
+        beta: true
         title: C4 SBC
         description: Session Border Controller, based on Kamailio.
         icon: fa fa-lock
@@ -210,6 +212,7 @@
         repository: wazo-c4-sbc
 
       c4-router:
+        beta: true
         title: C4 Router
         description: Routing component, based on Kamailio.
         icon: fa fa-code-branch
@@ -217,6 +220,7 @@
         repository: wazo-c4-router
 
       rtpe-config:
+        beta: true
         title: C4 RTPEngine
         description: Media Proxy, based on Sipwise RTPEngine.
         icon: fa fa-headphones

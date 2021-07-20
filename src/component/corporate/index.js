@@ -32,7 +32,10 @@ export const Module = ({ moduleName, module }) => (
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
-        <h3 className="title">{module.title}</h3>
+        <h3 className="title">
+          {module.title}
+          {module.beta && <span className="badge badge-secondary">BETA</span>}
+        </h3>
       </ExternalOrInternalLink>
 
       <p className="intro">{module.description}</p>
