@@ -6,7 +6,7 @@ title: Upgrade notes
 
 - All Snom, Yealink and Aastra / Mitel phone plugins now use by default the following preferred
   codecs: G711A, G711U, G722 and G729. Other codecs are disabled by default. Administrators wanting
-  to use other codecs must define them in custom templates.
+  to use other codecs must define them in [custom templates](/documentation/overview/provisioning-admin.html).
 
 ## 21.09 {#21-09}
 
