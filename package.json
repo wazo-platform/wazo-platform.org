@@ -43,8 +43,8 @@
     "swagger-ui-react": "^3.23.11"
   },
   "devDependencies": {
-    "gatsby-plugin-sass": "^2.1.0",
     "dart-sass": "^1.25.0",
+    "gatsby-plugin-sass": "^2.1.0",
     "prettier": "^2.0.5"
   },
   "repository": {
