@@ -8,6 +8,12 @@ title: Upgrade notes
   codecs: G711A, G711U, G722 and G729. Other codecs are disabled by default. Administrators wanting
   to use other codecs must define them in [custom templates](/documentation/overview/provisioning-admin.html).
 
+- The `wazo-dird` Google backend has migrated from using the deprecated Contacts API to the People API. To make valid requests, the Google Cloud application must have either the `https://www.googleapis.com/auth/contacts` or the `https://www.googleapis.com/auth/contacts.readonly` [permissions](https://developers.google.com/people/contacts-api-migration#read). Also, the Google Cloud application must enable the People API instead of the Contacts API; [here's how to do that](https://support.google.com/googleapi/answer/6158841?hl=en).
+
+Consult the
+[21.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.10)
+for more information.
+
 ## 21.09 {#21-09}
 
 - You are now required to have the same access you are attempting to assign to another resource (i.e. users/groups).
