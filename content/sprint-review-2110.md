@@ -17,8 +17,8 @@ Here is a short review of the Wazo Platform 21.10 release.
 
 ## Technical Features
 
-- **Asterisk**: Asterisk has been upgraded to 18.5.1. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-13-38-3-16-19-1-17-9-4-18-5-1-and-16-8-cert10-now-available-security/)
-- **Google**: The implementation of the directory plugin for Google has been updated to use the People API instead of the deprecated Contact API. See the upgrade note for more details about the changes that have to be done.
+- **Asterisk**: Asterisk has been upgraded to 18.5.1, featuring security fixes. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-13-38-3-16-19-1-17-9-4-18-5-1-and-16-8-cert10-now-available-security/)
+- **Google**: The implementation of the directory plugin for Google has been updated to use the People API instead of the deprecated Contact API that will increasingly return voluntary errors. See the upgrade note for more details about the changes that have to be done.
 - **Event**: New websocket events have been added when a call recording archive gets created
 
 For more details about the aforementioned topics, please see the roadmap linked below.
