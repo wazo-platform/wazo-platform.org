@@ -1,5 +1,5 @@
 Title: Wazo Platform 21.10 Released
-Date: 2021-07-30T17:25:00
+Date: 2021-08-02T12:00:00
 Author: The Wazo Authors
 Category: Wazo Platform
 Tags: wazo-platform, development
@@ -12,13 +12,15 @@ Here is a short review of the Wazo Platform 21.10 release.
 
 ## New Features in This Release
 
-- **CDR**: Improve CDR to add information about the source_internal name
+- **CDR**: Improve CDR to add information about the `source_internal name`
 - **Call permission**: It's now possible to use the same name on different tenants
 
 ## Technical Features
 
 - **Asterisk**: Asterisk has been upgraded to 18.5.1, featuring security fixes. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-13-38-3-16-19-1-17-9-4-18-5-1-and-16-8-cert10-now-available-security/)
-- **Google**: The implementation of the directory plugin for Google has been updated to use the People API instead of the deprecated Contact API that will increasingly return voluntary errors. See the upgrade note for more details about the changes that have to be done.
+- **Google**: The implementation of the directory plugin for Google has been updated to use the
+  People API instead of the deprecated Contact API that will increasingly return voluntary errors.
+  See the upgrade note for more details about the changes that have to be done.
 - **Event**: New websocket events have been added when a call recording archive gets created
 
 For more details about the aforementioned topics, please see the roadmap linked below.
