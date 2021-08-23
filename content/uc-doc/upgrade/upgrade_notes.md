@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 21.11 {#21-11}
+
+Consult the
+[21.11 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.11)
+for more information.
+
 ## 21.10 {#21-10}
 
 - All Snom, Yealink and Aastra / Mitel phone plugins now use by default the following preferred
