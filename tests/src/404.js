@@ -36,6 +36,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // API doc referencing example.com
+  if (url.indexOf('example.com') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
