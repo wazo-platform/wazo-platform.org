@@ -57,7 +57,7 @@ For our example application, here are some engineered features that might help o
 - TimeOfDay | *float* | Numerical variable representing the hour normalized between 0 and 1  
 - DayOfWeek | *integer* | Category variable representing which day of the week the call took place on  
 - Hour | *integer* | Category variable representing which hour of the day the call took place on  
-- DestnationContainsStar | *boolean* | Categorical variable representing wether the destination extension contains a star  
+- DestnationContainsStar | *boolean* | Categorical variable representing whether the destination extension contains a star  
   
 When crafting new features, make sure to use variables that you will be able to access when serving the model  
   
