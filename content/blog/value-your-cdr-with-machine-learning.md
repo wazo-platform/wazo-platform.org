@@ -82,3 +82,4 @@ For regression you may want to use [MSE](https://en.wikipedia.org/wiki/Mean_squa
   
 ## Deploying models  
 The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is flask as it is very simple and quick to serve ml models using it.
+<img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="100">
