@@ -74,10 +74,11 @@ A good testing methodology is crucial to estimate the performances of your model
 For example, feature engineering can be a source of information leakage.  
 A typical example is a normalization operation: To compute the mean and std of a variable, you should use your training samples only  
 ### Cross-validation  
-The first good practice is to perform [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). This method allows you to test your model on unseen data while maximizing the use of your data samples. This is especially important if you have a little dataset.  
+The first good practice is to perform [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). This method allows you to test your model on unseen data while maximizing the use of your data samples. This is especially important if you have a little dataset. Furthermore, the final metric will be based on multiple random seeds, avoiding "lucky" seeds.
 ### Metrics  
 The metrics that you can use depend on the task you want to achieve. 
-For classification, you may use [accuracy, precision](https://en.wikipedia.org/wiki/Accuracy_and_precision), 
+For classification, you may use [accuracy, precision](https://en.wikipedia.org/wiki/Accuracy_and_precision), [F1](https://en.wikipedia.org/wiki/F-score), or [AUC ROC](https://fr.wikipedia.org/wiki/Courbe_ROC)
+For regression you may want to use [MSE](https://en.wikipedia.org/wiki/Mean_squared_error), [RMSE](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
   
 ## Deploying models  
-The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose.
+The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is flask as it is very simple and quick to serve ml models using it.
