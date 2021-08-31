@@ -70,7 +70,7 @@ Tree-based methods, as their name suggests are based on decision trees. They are
 ### Neural Networks  
 Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for big datasets, they are an option you may want to consider.  
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131469694-c0480c16-ab63-4ebe-ace4-42244c37b8a7.png">
+  <img src="https://user-images.githubusercontent.com/38444438/131469694-c0480c16-ab63-4ebe-ace4-42244c37b8a7.png"/>
 </p>
 ## Testing  
 A good testing methodology is crucial to estimate the performances of your models. You should be very careful when designing a test pipeline because it's very easy to bias your results.  
@@ -87,5 +87,5 @@ For regression you may want to use [MSE](https://en.wikipedia.org/wiki/Mean_squa
 The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is flask as it is very simple and quick to serve ml models using it.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="100">
+  <img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="100"/>
 </p>
