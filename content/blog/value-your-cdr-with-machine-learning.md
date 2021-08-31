@@ -70,7 +70,7 @@ Tree-based methods, as their name suggests are based on decision trees. They are
 ### Neural Networks  
 Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for big datasets, they are an option you may want to consider.  
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131469483-a300e94c-c8a1-4f73-bea8-3fcbd3b64161.png" width="100">
+  <img src="https://user-images.githubusercontent.com/38444438/131469694-c0480c16-ab63-4ebe-ace4-42244c37b8a7.png">
 </p>
 ## Testing  
 A good testing methodology is crucial to estimate the performances of your models. You should be very careful when designing a test pipeline because it's very easy to bias your results.  
