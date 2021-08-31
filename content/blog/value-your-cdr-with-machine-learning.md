@@ -69,6 +69,9 @@ Linear models come directly from statistics. They aren't complex models but they
 Tree-based methods, as their name suggests are based on decision trees. They are a bit harder to fit well because they can be subject to overfitting quite easily. You can tune quite a few parameters and must avoid [overfitting](https://en.wikipedia.org/wiki/Overfitting). The most popular tree-based algorithms are the RandomForest and the Gradient Boosting algorithms.  
 ### Neural Networks  
 Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for big datasets, they are an option you may want to consider.  
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/38444438/131469483-a300e94c-c8a1-4f73-bea8-3fcbd3b64161.png" width="100">
+</p>
 ## Testing  
 A good testing methodology is crucial to estimate the performances of your models. You should be very careful when designing a test pipeline because it's very easy to bias your results.  
 For example, feature engineering can be a source of information leakage.  
