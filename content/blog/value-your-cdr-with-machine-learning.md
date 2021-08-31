@@ -65,7 +65,7 @@ When crafting new features, make sure to use variables that you will be able to 
 There are a ton of models that we can use to fit our dataset. We'll quickly introduce the most popular ones. You can easily find and tune those models using the [scikit](https://scikit-learn.org) learn library
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131471505-bb4884e7-cb0c-43f3-9fe5-296873acbe9b.png" width="100"/>
+  <img src="https://user-images.githubusercontent.com/38444438/131471505-bb4884e7-cb0c-43f3-9fe5-296873acbe9b.png" width="200"/>
 </p>
 
 ### Linear model  
@@ -94,5 +94,5 @@ For regression you may want to use [MSE](https://en.wikipedia.org/wiki/Mean_squa
 The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is flask as it is very simple and quick to serve ml models using it.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="100"/>
+  <img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="200"/>
 </p>
