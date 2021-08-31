@@ -63,6 +63,11 @@ When crafting new features, make sure to use variables that you will be able to 
   
 ## Models  
 There are a ton of models that we can use to fit our dataset. We'll quickly introduce the most popular ones  
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/38444438/131471505-bb4884e7-cb0c-43f3-9fe5-296873acbe9b.png" width="500"/>
+</p>
+
 ### Linear model  
 Linear models come directly from statistics. They aren't complex models but they can achieve good performances for a lot of problems. Furthermore, Linear models can be fitted without crazy hardware requirements and are very well manageable in production.  
 ### Tree-based methods  
