@@ -15,10 +15,11 @@ to access the REST APIs of Wazo, you need:
 
 First of all, you must have permission to use the REST API. Create a wazo-auth user and policy:
 
-```markdown
-POST /users {"purpose": "external_api", "username": "rest-api-test", ...} POST /policies {"acl":
-["confd.#", "auth.#"], ...}` `PUT /users/{user_uuid}/policies/{policy_uuid}
-```
+- `POST /users {"purpose": "external_api", "username": "rest-api-test", ...}`
+- `POST /policies {"acl": ["confd.#", "auth.#"], ...}`
+- `PUT /users/{user_uuid}/policies/{policy_uuid}`
+
+Where:
 
 - `acl`: Each access starts with the REST API service name. Then `#` is a wildcard that gives access
   to every REST API from this service. You may want to delete this account when you're done, to
