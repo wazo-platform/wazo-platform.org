@@ -8,7 +8,7 @@ Thereby machine learning allows you to automate tasks that you wouldn't have bee
 In the present article, we will take as an example a task consisting of predicting the probability that a person will pick up a given call.  
   
 ## The CDR dataset  
-Like all machine learning tasks, we need a so-called *dataset* which is in our case a dump of the CDR into a CSV file obtained via Portal.  
+Like all machine learning tasks, we need a so-called *dataset* which is in our case a dump of the CDR into a CSV file.  
 The CDR is a *tabular dataset*, meaning that we have rows or *occurrences*, and columns or *variables*. In the case of the CDR, each row is a call, and each column is an attribute of the calls.  
 The columns are the following:  
 - id | *integer* | Unique identifier  
@@ -44,7 +44,7 @@ In the case of tabular data, we have to make sure that each variable's type that
 - Numerical, meaning that a variable is a float number, as the duration of a call in seconds for example  
 - Categorical, meaning that the variable will have values from a given ensemble, like the day of the week, or the phone number of the person that called  
 ### Handling missing values  
-In every dataset from the real world, there are sometimes missing values. It can be accidental, (for example if a bug happened during the saving of the CDR ) or intentional, meaning that It doesn't make sense for this variable to have a value for this call (for example, source_internal_extension whenever the call is coming from outside of the stack).  
+In every dataset from the real world, there are sometimes missing values. It can be accidental (for example if a bug happened during the saving of the CDR ) or intentional, meaning that It doesn't make sense for this variable to have a value for this call (for example, source_internal_extension whenever the call is coming from outside of the stack).  
 For some models, you will need to handle them, for others you won't need to.  
 To handle a missing value, you can either drop the concerned row/column or replace it with a carefully chosen one. This choice depends on the variable's type:  
 - For a numerical column, you may want to choose the mean/median value of the variable or zero in some cases  
@@ -91,7 +91,7 @@ For classification, you may use [accuracy, precision](https://en.wikipedia.org/w
 For regression you may want to use [MSE](https://en.wikipedia.org/wiki/Mean_squared_error), [RMSE](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
   
 ## Deploying models  
-The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is flask as it is very simple and quick to serve ml models using it.
+The most frequent way to deploy models is to serve them through an API. Numerous frameworks exist to fulfill this purpose. One of the most popular is Flask as it is very simple and quick to serve ml models using it.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/38444438/131364700-4e370e90-0f03-4924-be40-cc642b5d969a.png" width="200"/>
