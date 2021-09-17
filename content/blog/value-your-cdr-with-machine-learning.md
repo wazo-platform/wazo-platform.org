@@ -1,3 +1,10 @@
+Title: Value your CDR with Machine learning
+Date: 2021-09-17 17:00:00
+Author: Théo Boyer
+Category: Wazo Platform
+Tags: Asterisk, Applications, Stasis, Scalability, Machine Learning, Data Science
+Slug: value-cdr-machine-learning
+Status: published
 
 # Value your CDR with Machine learning
 The CDR service allows you to keep track of the activity going on your stack. It's a data source that could be valuable in numerous ways. In this article, we will see how to make value out of your CDR using machine learning.
