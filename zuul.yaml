@@ -108,8 +108,7 @@
             nodeset: vm-debian-10-m1s
     auto-merge:
       jobs:
-        - yarn-build-search-copy:
-            nodeset: vm-debian-10-m1s
+        - noop
     post:
       jobs:
         - yarn-build-publish:
