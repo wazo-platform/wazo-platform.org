@@ -79,9 +79,7 @@ When crafting new features, make sure to use variables that you will be able to 
 ## Models
 There are tons of models that we can use to fit our dataset. We'll quickly introduce the most popular ones. You can easily find and tune those models using the [scikit](https://scikit-learn.org) learn library
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131471505-bb4884e7-cb0c-43f3-9fe5-296873acbe9b.png" width="200"/>
-</p>
+![scikit.png](../../images/blog/machine-learning/scikit.png "Scikit logo")
 
 ### Linear model
 Linear models come directly from statistics. They aren't complex models but they can achieve good performances for a lot of problems. Furthermore, linear models can be fitted without crazy hardware requirements and are very well manageable in production.
@@ -90,9 +88,7 @@ Tree-based methods, as their name suggests are based on decision trees. They are
 ### Neural Networks
 Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for big datasets, they are an option you may want to consider.
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/38444438/131469694-c0480c16-ab63-4ebe-ace4-42244c37b8a7.png"/>
-</p>
+![neural-net.png](../../images/blog/machine-learning/neural-net.png "Neural network pattern")
 
 ## Testing
 A good testing methodology is crucial to estimate the performances of your models. You should be very careful when designing a test pipeline because it's very easy to bias your results.
