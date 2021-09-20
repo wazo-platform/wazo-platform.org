@@ -5,5 +5,5 @@
       mattermost:
         url: https://mm.wazo.community
         api_key: '{{ mattermost.api_key }}'
-        text: "{{ zuul.project.name }}'s job {{ zuul.job }} [failed](https://sf.production.wazo.cloud/zuul/t/local/buildset/{{ zuul.buildset }}) :nuke:"
+        text: "{{ zuul.project.name }}'s job {{ zuul.job }} [failed](https://zuul.wazo.community/zuul/t/local/buildset/{{ zuul.buildset }}) :nuke:"
       when: not (zuul_success | bool)
