@@ -46,7 +46,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    By default, Wazo Platform will install the development version. To install the latest stable
    version, activate the following settings in your inventory:
 
-   ```ini
+   ```
    [uc_engine:vars]
    wazo_distribution = pelican-buster
    wazo_distribution_upgrade = pelican-buster
@@ -54,7 +54,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 
    If you want to install the web user interface, activate the following in your inventory:
 
-   ```ini
+   ```
    [uc_ui:children]
    uc_engine_host
    ```
@@ -62,7 +62,7 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    To create the `root` account at installation time and be able to use the web user interface and
    REST APIs, you need to add the following variables:
 
-   ```ini
+   ```
    [uc_engine:vars]
    engine_api_configure_wizard = true
    engine_api_root_password = ****
