@@ -237,18 +237,18 @@ select {
 }
 
 /* ====== Header ====== */
-.header {
+header.header {
   background: #323699;
   color: rgba(255, 255, 255, 0.85);
   padding: 15px 0;
-}
 
-.header a {
-  color: #fff;
-}
+  a {
+    color: #fff;
+  }
 
-.header .container {
-  position: relative;
+  .container {
+    position: relative;
+  }
 }
 
 .branding {

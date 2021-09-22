@@ -322,19 +322,19 @@ body {
   }
 
   /* ====== Header ====== */
-  .header {
+  header.header {
     background: #494d55;
     color: rgba(255, 255, 255, 0.85);
     border-top: 5px solid #40babd;
     padding: 30px 0;
-  }
 
-  .header a {
-    color: #fff;
-  }
+    a {
+      color: #fff;
+    }
 
-  .header .container {
-    position: relative;
+    .container {
+      position: relative;
+    }
   }
 
   .branding {
