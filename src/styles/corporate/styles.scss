@@ -46,7 +46,7 @@ section.cards-section > div > h3 {
       h3 {
         color: #494d55;
       }
-    } 
+    }
   }
 
   .item {
@@ -67,9 +67,9 @@ section.cards-section > div > h3 {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 4px 20px 0; 
+  padding: 4px 20px 0;
   z-index: 999;
-  
+
   & .container {
     display: flex;
     align-items: center;
@@ -100,7 +100,7 @@ section.cards-section > div > h3 {
   }
 }
 
-.header {
+header.header {
   padding-top: 60px;
   .sub{
     display: flex;
@@ -123,13 +123,13 @@ section.cards-section > div > h3 {
   }
 }
 
-.footer{  
+.footer{
   a{
     color: #fff;
   }
   margin-top: 20px;
   padding: 30px 0;
-  
+
   .container {
     display: flex;
     align-items: center;
