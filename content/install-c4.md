@@ -1,4 +1,6 @@
-# Install the Class 4 engine
+# Install the Class 4 engine (BETA)
+
+**Note**: This procedure is a BETA and may be not up-to-date. Use at your own risk!
 
 ## Supported environments
 
