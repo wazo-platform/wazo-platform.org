@@ -99,10 +99,8 @@ share the exact same clock.
 
 To do this, you need to:
 
-- use the coding wheel on the Digium cards to give them an order of recognition in DAHDI/Asterisk
-  (see [Digium_telephony_cards_support](http://www.digium.com/en/support/telephony-cards)),
-- daisy-chain the cards with a sync cable (see
-  [Digium_telephony_cards_support](http://www.digium.com/en/support/telephony-cards)),
+- use the coding wheel on the Digium cards to give them an order of recognition in DAHDI/Asterisk,
+- daisy-chain the cards with a sync cable,
 - load the DAHDI module with the `timingcable=1` option.
 
 Create `/etc/modprobe.d/xivo-timingcable.conf` file and insert the line:

@@ -34,7 +34,7 @@ We are looking for beta testers for the Wazo Zapier plugin. You can click this [
 
 ## New upstream versions
 
-**Asterisk**: Wazo now includes Asterisk 15.0.0. [See the Asterisk 15 release announcement](http://www.digium.com/blog/2017/10/03/open-source-asterisk-15-released/)
+**Asterisk**: Wazo now includes Asterisk 15.0.0.
 
 
 ---
