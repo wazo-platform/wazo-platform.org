@@ -19,7 +19,7 @@ covers the Wazo prompts, but it may be adapted for Asterisk prompts.
     file on your Wazo. You should have a file named like `for_use_wazo_wazo-prompt_pt_BR.ini`.
 4.  On your Wazo, download the tool to automate the use of Google TTS:
 
-    ```sh
+    ```shell
     wget https://github.com/zaf/asterisk-googletts/raw/master/cli/googletts-cli.pl
     chmod +x googletts-cli.pl
     ```
@@ -27,7 +27,7 @@ covers the Wazo prompts, but it may be adapted for Asterisk prompts.
 5.  Then run the following script to generate the sound files (set `LANGUAGE` and `COUNTRY` to your
     own language):
 
-    ```sh
+    ```shell
     LANGUAGE=pt
     COUNTRY=BR
     mkdir -p wav/{digits,letters}
@@ -39,7 +39,7 @@ covers the Wazo prompts, but it may be adapted for Asterisk prompts.
 
 6.  Install the prompts on your system:
 
-    ```sh
+    ```shell
     mv wav /usr/share/asterisk/sounds/${LANGUAGE}_${COUNTRY}
     ```
 

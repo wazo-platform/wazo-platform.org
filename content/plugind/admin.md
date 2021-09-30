@@ -7,14 +7,14 @@ The official docker image for this service is `wazoplatform/wazo-plugind`.
 
 To download the latest image from the docker hub
 
-```sh
+```shell
 docker pull wazoplatform/wazo-plugind
 ```
 
 
 ### Running wazo-plugind
 
-```sh
+```shell
 docker run -e"XIVO_UUID=<the xivo UUID>" wazoplatform/wazo-plugind
 ```
 
@@ -22,6 +22,6 @@ docker run -e"XIVO_UUID=<the xivo UUID>" wazoplatform/wazo-plugind
 
 Building the docker image:
 
-```sh
+```shell
 docker build -t wazoplatform/wazo-plugind .
 ```

@@ -18,7 +18,7 @@ provides a [pretty good tutorial](https://docs.github.com/en/github/using-git).
 In order to work on plugins, you have to clone the
 [wazo-provd-plugins](https://github.com/wazo-platform/wazo-provd-plugins) repository:
 
-```BashSession
+```shell
 $ git clone https://github.com/wazo-platform/wazo-provd-plugins.git
 Cloning into 'wazo-provd-plugins'...
 remote: Enumerating objects: 563, done.
@@ -31,7 +31,7 @@ Resolving deltas: 100% (6357/6357), done.
 
 Then, create a new branch for your plugin:
 
-```BashSession
+```shell
 $ git checkout -b yealink-v85-add-T4X
 Switched to a new branch 'yealink-v85-add-T4X'
 ```
@@ -194,7 +194,7 @@ It is necessary to create a `T41S.tpl` file or copy-paste an existing file and r
 
 In our case it should be:
 
-```jinja
+```jinja2
 {% extends 'base.tpl' -%}
 
 {% block model_specific_parameters -%}

@@ -35,13 +35,13 @@ You can manage the blacklist in the Asterisk CLI
 
 - To add an extension:
 
-    ```asteriskcli
+    ```asterisk-cli
     *CLI> database put blacklist <extension> "<description (e.g. reason)>"
     ```
 
 - To remove an extension:
 
-    ```asteriskcli
+    ```asterisk-cli
     *CLI> database del blacklist <extension>
     ```
 
@@ -65,12 +65,12 @@ You can manage the whitelist in the Asterisk CLI
 
 - To add an extension:
 
-    ```asteriskcli
+    ```asterisk-cli
     *CLI> database put whitelist <extension> "<description (e.g. reason)>"
     ```
 
 - To remove an extension:
 
-    ```asteriskcli
+    ```asterisk-cli
     *CLI> database del whitelist <extension>
     ```

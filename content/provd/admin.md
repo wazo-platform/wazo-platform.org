@@ -15,13 +15,13 @@ want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed:
 
-```sh
+```shell
 cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
 ```
 
 Once you are there, you can see there's quite a few files and directories:
 
-```sh
+```shell
    tree
    .
    +-- common.py
@@ -80,7 +80,7 @@ A few things to know before writing your first custom template:
 
 ### Custom template for every devices
 
-```sh
+```shell
 cp templates/base.tpl var/templates
 vi var/templates/base.tpl
 wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
@@ -88,7 +88,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command:
 
-```sh
+```shell
 wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 ```
 
@@ -96,7 +96,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 Let's supose we want to customize the template for our 6739i
 
-```sh
+```shell
 cp templates/6739i.tpl var/templates
 vi var/templates/6739i.tpl
 wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
@@ -118,7 +118,7 @@ named `<device_specific_file_with_extension>.tpl` in the `var/templates/` direct
 Here, we want to customize the content of a device-specific file named `00085D2EECFB.cfg`,
 we need to create a template named `00085D2EECFB.cfg.tpl`
 
-```sh
+```shell
 cp templates/6739i.tpl var/templates/00085D2EECFB.cfg.tpl
 vi var/templates/00085D2EECFB.cfg.tpl
 wazo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
@@ -155,13 +155,13 @@ them to the new plugin and make sure that they are still compatible.
 Once you take the decision to migrate all your phones to the new plugin, you can
 use the following command:
 
-```sh
+```shell
 wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
 ```
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time:
 
-```sh
+```shell
 wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 ```
 

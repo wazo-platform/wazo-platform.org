@@ -170,7 +170,7 @@ like g0 which spans over several spans.
 
 Interesting Asterisk commands: :
 
-```asterisk
+```asterisk-cli
 sip show peers
 sip show registry
 sip set debug on

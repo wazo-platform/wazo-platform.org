@@ -74,7 +74,7 @@ For example, the content of `/etc/asterisk/sip.conf` is:
 
 To view the generated configuration file you can do the following command:
 
-```sh
+```shell
 wazo-confgen asterisk/sip.conf
 ```
 
@@ -96,7 +96,7 @@ This example adds or modify the options `accept_outofcall_message` and
 Note that these changes will have to be redone at each upgrade modifying the
 configuration file. The old version will be kept in a `.dpkg-old` file:
 
-```sh
+```shell
 > ls /etc/asterisk/sip.conf*
 sip.conf  sip.conf.dpkg-old
 ```

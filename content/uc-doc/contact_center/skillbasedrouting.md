@@ -232,7 +232,7 @@ A skill rule set is attached to a call using an incoming call.
 You may monitor your waiting calls with skills using the asterisk CLI and the command
 `queue show <queue_name>`:
 
-```asterisk
+```asterisk-cli
 wazo*CLI> queue show services
 services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talktime), W:0, C:1, A:10, SL:0.0% within 0s
   Members:
@@ -246,7 +246,7 @@ services has 1 calls (max unlimited) in 'ringall' strategy (0s holdtime, 2s talk
 
 You may monitor your skills groups with the command `queue show skills groups <agent_name>`:
 
-```asterisk
+```asterisk-cli
 wazo*CLI> queue show skills groups <PRESS TAB>
 agent-2   agent-3   agent-4   agent-48  agent-7   agent-1
 wazo*CLI> queue show skills groups agent-1
@@ -257,7 +257,7 @@ Skill group 'agent-1':
 
 You may monitor your skills rules with the command `queue show skills rules <rule_name>`:
 
-```asterisk
+```asterisk-cli
 wazo*CLI> queue show skills rules <PRESS TAB>
 english      french       select_lang
 wazo*CLI> queue show skills rules english
