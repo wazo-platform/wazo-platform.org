@@ -12,19 +12,19 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 1. Set your Wazo version:
 
-   ```sh
+   ```shell
    export WAZO_VERSION=<current-wazo-version>
    ```
 
 2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
 
-   ```sh
+   ```shell
    wazo-dist -a wazo-${WAZO_VERSION}
    ```
 
 3. Install dependencies:
 
-   ```sh
+   ```shell
    apt-get update
    apt-get install gdb libc6-dbg
    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
@@ -32,7 +32,7 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 4. Switch back to the production mirror:
 
-   ```sh
+   ```shell
     wazo-dist -m pelican-buster
    ```
 
@@ -40,19 +40,19 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 1. Set your Wazo version:
 
-   ```sh
+   ```shell
    export WAZO_VERSION=<current-wazo-version>
    ```
 
 2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
 
-   ```sh
+   ```shell
    wazo-dist -a wazo-${WAZO_VERSION}
    ```
 
 3. Install dependencies:
 
-   ```sh
+   ```shell
    apt-get update
    apt-get install gdb libc6-dbg
    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
@@ -60,7 +60,7 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 4. Switch back to the production mirror:
 
-   ```sh
+   ```shell
    wazo-dist -m pelican-stretch
    ```
 
@@ -68,19 +68,19 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 1. Set your Wazo version:
 
-   ```sh
+   ```shell
    export WAZO_VERSION=<current-wazo-version>
    ```
 
 2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
 
-   ```sh
+   ```shell
    wazo-dist -a wazo-${WAZO_VERSION}
    ```
 
 3. Install dependencies:
 
-   ```sh
+   ```shell
    apt-get update
    apt-get install gdb libc6-dbg
    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
@@ -88,7 +88,7 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 4. Switch back to the production mirror:
 
-   ```sh
+   ```shell
    wazo-dist -m phoenix-stretch
    ```
 
@@ -96,19 +96,19 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 1. Set your Wazo version:
 
-   ```sh
+   ```shell
    export WAZO_VERSION=<current-wazo-version>
    ```
 
 2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
 
-   ```sh
+   ```shell
    wazo-dist -a wazo-${WAZO_VERSION}
    ```
 
 3. Install dependencies:
 
-   ```sh
+   ```shell
    apt-get update
    apt-get install gdb libc6-dbg
    apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
@@ -116,7 +116,7 @@ Follow the instructions in the sub-section that matches the version you are curr
 
 4. Switch back to the production mirror:
 
-   ```sh
+   ```shell
    wazo-dist phoenix
    ```
 
@@ -141,7 +141,7 @@ Follow the instructions in the sub-section that matches the version you are curr
     - Command `core show channels` returns only headers (no data) right before returning
 4.  Fetch Asterisk logs for the day of the crash (make sure file was not already logrotated):
 
-    ```sh
+    ```shell
     cp -a /var/log/asterisk/full /var/local/`date +"%Y%m%d"`-`hostname`-asterisk-full.log
     ```
 
@@ -164,7 +164,7 @@ When asterisk crashes, it usually leaves a core file in `/var/spool/asterisk/`.
 
 You can create a backtrace from a core file named `core_file` with:
 
-```sh
+```shell
 gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file > bt-threads.txt
 ```
 
@@ -172,14 +172,14 @@ gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file 
 
 You can create a backtrace of a running asterisk process with:
 
-```sh
+```shell
 gdb -batch -ex "thread apply all bt" /usr/sbin/asterisk $(pidof asterisk) > bt-threads.txt
 ```
 
 If your version of asterisk has been compiled with the `DEBUG_THREADS` flag, you can get more
 information about locks with:
 
-```sh
+```shell
 asterisk -rx "core show locks" > core-show-locks.txt
 ```
 
@@ -199,14 +199,14 @@ The steps are:
 
 1.  Uncomment the `deb-src` line for the Wazo sources:
 
-    ```sh
+    ```shell
         sed -i 's/^# *deb-src/deb-src/' /etc/apt/sources.list.d/xivo*
 
     ```
 
 2.  Fetch the asterisk source package:
 
-    ```sh
+    ```shell
     mkdir -p ~/ast-rebuild
     cd ~/ast-rebuild
     apt-get update
@@ -216,26 +216,26 @@ The steps are:
 
 3.  Install the build dependencies:
 
-    ```sh
+    ```shell
     apt-get build-dep -y asterisk
     ```
 
 4.  Enable the `DEBUG_THREADS` and `DONT_OPTIMIZE` flag:
 
-    ```sh
+    ```shell
     cd <asterisk-source-folder>
     vim debian/rules
     ```
 
 5.  Update the changelog by appending `+debug1` in the package version:
 
-    ```sh
+    ```shell
     vim debian/changelog
     ```
 
 6.  Rebuild the asterisk binary packages:
 
-    ```sh
+    ```shell
     dpkg-buildpackage -us -uc
     ```
 
@@ -253,19 +253,19 @@ need to:
 
 1.  Make sure `quilt` is installed:
 
-    ```sh
+    ```shell
     apt-get install -y quilt
     ```
 
 2.  Unapply all the currently applied patches:
 
-    ```sh
+    ```shell
     quilt pop -a
     ```
 
 3.  Remove all the lines in the `debian/patches/series` file:
 
-    ```sh
+    ```shell
     truncate -s0 debian/patches/series
     ```
 
@@ -291,7 +291,7 @@ features include:
 
 To install the vanilla version of Asterisk (replace 19.13 with your current version of Wazo):
 
-```sh
+```shell
 wazo-dist -a wazo-19.13
 apt-get update
 apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbg
@@ -306,7 +306,7 @@ core dump file. Those file may then be used to file a bug report to Asterisk.
 
 To revert this modification, reinstall `asterisk` (replace 19.13 with your current version of Wazo):
 
-```sh
+```shell
 wazo-dist -a wazo-19.13
 apt-get update
 apt-get install -t wazo-19.13 asterisk
@@ -318,7 +318,7 @@ wazo-dist -m pelican-buster
 
 1.  Install valgrind:
 
-    ```sh
+    ```shell
     apt-get install valgrind
     ```
 
@@ -329,7 +329,7 @@ wazo-dist -m pelican-buster
 4.  Edit `/etc/asterisk/asterisk.conf` and comment the `highpriority` option. This step is optional.
 5.  Stop monit and asterisk:
 
-    ```sh
+    ```shell
     monit quit
     service asterisk stop
     ```
@@ -340,7 +340,7 @@ wazo-dist -m pelican-buster
     directory of the asterisk source code.
 8.  Execute valgrind in the /tmp directory:
 
-    ```sh
+    ```shell
     cd /tmp
     valgrind --leak-check=full --log-file=valgrind.txt --suppressions=valgrind.supp --vgdb=no asterisk -G asterisk -U asterisk -fnc
     ```

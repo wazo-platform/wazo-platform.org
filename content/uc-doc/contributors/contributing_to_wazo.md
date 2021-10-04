@@ -38,7 +38,7 @@ also leave your environment in the same state, no files laying around.
 
 You can execute unittests with the following command
 
-```sh
+```shell
 tox -e py37
 ```
 
@@ -50,13 +50,13 @@ many dependencies on your system. You can find the integration tests in the `int
 directory of most repository. Executing the following command from the root directory of a project
 should execute all integration tests.
 
-```sh
+```shell
 tox -eintegration
 ```
 
 If `tox` is not configured to execute integration tests, you can execute the following commands.
 
-```sh
+```shell
 cd integration_tests
 make test-setup
 make test

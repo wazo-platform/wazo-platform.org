@@ -19,7 +19,7 @@ Installing the import tool is required on the exporting and importing system.
 
 To install it on a debian based system uses the following commands on the command line.
 
-```sh
+```shell
 # Debian Buster (10)
 apt update && apt install git python3-pip python3-setuptools sudo
 cd /tmp
@@ -39,13 +39,13 @@ Each tab in the file represents a resource.
 
 To list available resources use the following command
 
-```sh
+```shell
 wazo-generate-dump list resources
 ```
 
 To list available fields use the following command
 
-```sh
+```shell
 wazo-generate-dump list fields --<resource name>
 ```
 
@@ -56,7 +56,7 @@ as the scaffold for your import.
 
 To create a spreadsheet ready to type in your data you can use the following command.
 
-```sh
+```shell
 wazo-generate-dump new <filename.ods>
 ```
 
@@ -79,7 +79,7 @@ For example, if you have a CSV file with your users in it, you can modify the he
 match the available fields in the export file and use the CSV to fill you export file with the
 following command
 
-```sh
+```shell
 cat user.csv | wazo-generate-dump add --users my-export.ods
 ```
 
@@ -93,7 +93,7 @@ all available scripts look at the `contrib directory.
 If you are exporting a Xivo system you can use the `export_xivo.sh` script to create your export
 file.
 
-```sh
+```shell
 ./contrib/export_xivo.sh
 ```
 
@@ -123,7 +123,7 @@ tabs will allow the reference system within the import to resolve the old names 
 
 Importing your data.
 
-```sh
+```shell
 wazo-import-dump import --username <username> --password <password> --tenant <tenant-uuid> <filename.ods>
 ```
 
@@ -132,7 +132,7 @@ resources in wazo-auth and wazo-confd.
 
 A new user can be created from the command line for this purpose with the following commands.
 
-```sh
+```shell
 # Create a user named `import` with password secret
 wazo-auth-cli user create --password secret import
 
@@ -145,6 +145,6 @@ wazo-auth-cli user delete import
 
 The tenant can be found using the following command
 
-```sh
+```shell
 wazo-auth-cli tenant list
 ```

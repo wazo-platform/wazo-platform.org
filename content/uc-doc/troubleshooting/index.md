@@ -340,7 +340,7 @@ For more information, consult the
 It is sometimes useful to ring a phone from the asterisk console. For example, if you want to call
 the `1234` extension in context `default`:
 
-```asterisk
+```asterisk-cli
 channel originate Local/1234@default extension 42@xivo-callme
 ```
 

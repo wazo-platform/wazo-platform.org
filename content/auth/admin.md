@@ -1,6 +1,6 @@
 ## Launching
 
-```sh
+```shell
 wazo_auth [-d] [--user <user>] --config <path/to/config/file>
 ```
 
@@ -36,7 +36,7 @@ other users.
 To be able to bootstrap wazo-auth, you will have to enable the init plugin and create a key file in
 wazo-auth's HOME directory. This can be done using the `wazo-auth-bootstrap` command.
 
-```sh
+```shell
 wazo-auth-bootstrap setup && systemctl restart wazo-auth
 ```
 
@@ -47,7 +47,7 @@ Once wazo-auth is ready to be bootstraped, calling the init resource with a user
 the content of the key file will create a new user. The username and password can then be used to create
 a token with the `auth.#` acl. This can be done using the `wazo-auth-bootstrap` command.
 
-```sh
+```shell
 wazo-auth-bootstrap complete
 ```
 
@@ -62,13 +62,13 @@ Dependencies
 
 * ab
 
-```sh
+```shell
 apt update && apt install apache2-utils
 ```
 
 Running the tests
 
-```sh
+```shell
 ab -n1000 -c25 -A 'alice:alice' -T 'application/json' "https://localhost:9497/0.1/token"
 ```
 

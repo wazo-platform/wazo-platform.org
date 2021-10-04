@@ -14,13 +14,13 @@ The official docker image for this service is `wazoplatform/wazo-agentd`.
 
 To download the latest image from the docker hub
 
-```sh
+```shell
 docker pull wazoplatform/wazo-agentd
 ```
 
 ### Running wazo-agentd
 
-```sh
+```shell
 docker run wazoplatform/wazo-agentd
 ```
 
@@ -28,6 +28,6 @@ docker run wazoplatform/wazo-agentd
 
 Building the docker image:
 
-```sh
+```shell
 docker build -t wazoplatform/wazo-agentd .
 ```

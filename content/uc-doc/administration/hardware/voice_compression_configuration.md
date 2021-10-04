@@ -81,6 +81,6 @@ following value:
 
    - this command should show the encoders/decoders registered by the TC400 card:
 
-   ```asterisk
+   ```asterisk-cli
     > \*CLI\> transcoder show 0/0 encoders/decoders of 120 channels are in use.
    ```
