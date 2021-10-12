@@ -88,7 +88,7 @@ optional arguments:
 
 ## Configuration
 
-### Policies
+### Policies (deprecated)
 
 Policies can be assigned to backends in order to generate the appropriate permissions for a token
 created with this backend.
