@@ -441,6 +441,11 @@ body.documentation {
     img[alt~="(small)"] {
       max-width: 33%;
     }
+    img[alt~="(small-centered)"] {
+      max-width: 33%;
+      margin: 0 auto;
+      display: block;
+    }
 
     a {
       transition: none;
