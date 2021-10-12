@@ -438,6 +438,9 @@ body.documentation {
       border-radius: 10px;
       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
     }
+    img[alt~="(small)"] {
+      max-width: 33%;
+    }
 
     a {
       transition: none;
