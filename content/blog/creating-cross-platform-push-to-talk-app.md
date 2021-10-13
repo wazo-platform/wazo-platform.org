@@ -10,7 +10,7 @@ Status: published
 
 During our last Hackathon in a wonderful Quebec, we've thought about fun projects we can make to improve our knowledge on WebRTC, ReactJS and all the libraries around it.
 
-Here some people of the super place where our hackathon took place :
+Here some pictures of the super place where our hackathon took place :
 
 ![What a wonderful view](/images/blog/hackathon-2021/big.jpg)
 
