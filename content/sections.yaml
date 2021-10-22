@@ -1,5 +1,5 @@
 ---
-  - name: Programmable platform
+  - name: Programmable Platform
     slug: programmable-platform
     corporate: false
     modules:
@@ -203,7 +203,7 @@
         color: primary
         url: https://github.com/wazo-platform/wazo-sdk
 
-  - name: Internal platform
+  - name: Internal Platform
     slug: internal-platform
     modules:
       amid:
