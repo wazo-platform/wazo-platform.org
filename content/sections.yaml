@@ -146,6 +146,17 @@
         repository: wazo-deployd
         redocUrl: https://nestbox.dev.wazo.io/api/deployd/0.1/api/api.yml
 
+      euc-accessd:
+        overview: false
+        repositoryLink: false
+        corporate: true
+        title: Subscriptions
+        description: Managing subscriptions and queries related to access rights.
+        icon: fa fa-file-invoice-dollar
+        color: orange
+        repository: swarm-accessd
+        redocUrl: https://example.com/api/accessd/1.0/api/api.yml
+
   - name: Wazo Client SDK - Demo
     slug: wazo-client-sdk
     corporate: false
