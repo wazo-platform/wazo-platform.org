@@ -205,6 +205,12 @@ sudo -u postgres dropdb asterisk
 sudo -u postgres pg_restore -C -d postgres asterisk-*.dump
 ```
 
+Remove the cache files generated from the previous database:
+
+```shell
+rm -rf /var/cache/wazo-confgend/*
+```
+
 Once the database and files have been restored, you can
 [finalize the restore](/uc-doc/system/backup_restore#after-restore)
 
