@@ -1,0 +1,24 @@
+@startuml
+
+actor Alice as alice
+participant "Alice app" as alice_app
+participant "Wazo Platform" as server
+participant "Ethan app" as ethan_app
+actor "Ethan" as ethan
+
+alice -> alice_app: Create meeting
+alice_app -> server: POST /users/me/meetings
+server -> alice_app: 201 Created
+alice_app -> alice: https://meetings.example.com/...
+alice_app -> server: Call Meeting
+alice -> ethan: Share the link https://meetings.example.com/...
+ethan -> ethan_app: Open
+ethan_app -> server: Call Meeting
+ethan -> ethan_app: Hangup
+ethan_app -> server: Hangup Meeting
+alice -> alice_app: Hangup
+alice_app -> server: Hangup Meeting
+alice -> alice_app: Delete Meeting
+alice_app -> server: DELETE /user/me/meeting/...
+
+@enduml
