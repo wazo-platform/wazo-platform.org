@@ -39,7 +39,7 @@ systemctl restart nginx
 ```
 
 For more details, see the official
-[Certbot documentation](https://certbot.eff.org/lets-encrypt/debianbuster-nginx.html).
+[Certbot documentation](https://certbot.eff.org/instructions?ws=nginx&os=debian-10).
 
 ## Use your own certificate
 
