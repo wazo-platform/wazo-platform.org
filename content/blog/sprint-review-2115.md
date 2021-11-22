@@ -13,7 +13,7 @@ Here is a short review of the Wazo Platform 21.15 release.
 ## New Features in This Release
 
 - **Meeting**: It's now possible to create external conferences that allow guests to join a meeting.
-  For the workflow, [see the doccumentation](https://wazo-platform.org/uc-doc/administration/meetings)
+  For the workflow, [see the documentation](https://wazo-platform.org/uc-doc/administration/meetings)
 
 ## Bug Fixes
 
