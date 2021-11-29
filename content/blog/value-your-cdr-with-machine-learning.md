@@ -77,7 +77,7 @@ For our example application, here are some engineered features that might help o
 When crafting new features, make sure to use variables that you will be able to access when serving the model
 
 ## Models
-There are tons of models that we can use to fit our dataset. We'll quickly introduce the most popular ones. You can easily find and tune those models using the [scikit](https://scikit-learn.org) learn library
+There are tons of models that we can use to fit our dataset. We'll quickly introduce the most popular ones. You can easily find and tune those models using the [scikit](https://scikit-learn.org/stable/) learn library
 
 ![scikit.png](../../images/blog/machine-learning/scikit.png "Scikit logo")
 
