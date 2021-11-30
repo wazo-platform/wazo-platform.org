@@ -38,3 +38,6 @@ To disable all the services other than the web interface:
 rm /etc/nginx/locations/http-enabled/* /etc/nginx/locations/https-enabled/*
 systemctl reload nginx
 ```
+
+Rate limiting is defined in `/etc/nginx/sites-available/wazo`. It is applied to unauthenticated resources
+only at the moment.
