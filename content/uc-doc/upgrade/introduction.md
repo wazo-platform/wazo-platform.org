@@ -93,6 +93,23 @@ See our recommendation on
 
 ## Troubleshooting {#troubleshooting}
 
+### Invalid signature
+
+You may encounter the following error:
+
+```
+The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com> 
+```
+
+This error happens on all Wazo Platform servers installed before 21.01. See also: the [issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
+
+To fix the issue, run the following commands:
+
+```
+curl http://mirror.wazo.community/wazo_current.key | apt-key add - 
+wazo-upgrade
+```
+
 ### Postgresql
 
 When upgrading Wazo, if you encounter problems related to the system locale, see

@@ -9,6 +9,11 @@ Those procedures are valid if your Wazo installation is newer than 17.01 and old
 Example to upgrade to Wazo 17.02:
 
 ```shell
+# Fix WAZO-2622
+curl http://mirror.wazo.community/wazo_current.key | apt-key add -
+rm /etc/apt/trusted.gpg.d/wazo-keyring.gpg
+apt-get update
+
 xivo-dist wazo-17.02
 apt-get update
 apt-get install xivo-upgrade/wazo-17.02
@@ -21,6 +26,11 @@ xivo-dist phoenix
 Example to upgrade to Wazo 18.02:
 
 ```shell
+# Fix WAZO-2622
+curl http://mirror.wazo.community/wazo_current.key | apt-key add -
+rm /etc/apt/trusted.gpg.d/wazo-keyring.gpg
+apt-get update
+
 wazo-upgrade
 ```
 
