@@ -2,6 +2,27 @@
 title: Upgrade notes
 ---
 
+## 21.16 {#21-16}
+
+- Throttling was added in the nginx configuration of the following routes:
+  - `/api/auth/0.1/backends`
+  - `/api/auth/0.1/status`
+  - `/api/confd/1.1/guests/me/meetings/<meeting_uuid>`
+  - `/api/confd/1.1/wizard`
+
+  The request rate is limited at 25 requests per second, with an allowed burst of 15 requests.
+  If you have any nginx custom configuration (e.g. using certbot), you will be asked a question
+  about the `/etc/nginx/sites-available/wazo` configuration file during the upgrade. You *must*
+  accept the maintainer version, then reapply your custom configuration, which is saved in
+  `/etc/nginx/sites-available/wazo.dpkg-old`.
+
+- If you installed Wazo Platform before 21.01, you will have an error about an invalid signature.
+  See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature) section for the fix.
+
+Consult the
+[21.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.16)
+for more information.
+
 ## 21.15 {#21-15}
 
 Consult the
