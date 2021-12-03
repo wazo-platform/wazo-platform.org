@@ -13,7 +13,8 @@ title: Upgrade notes
   The request rate is limited at 25 requests per second, with an allowed burst of 15 requests.
   If you have any nginx custom configuration (e.g. using certbot), you will be asked a question
   about the `/etc/nginx/sites-available/wazo` configuration file during the upgrade. You *must*
-  accept the maintainer version, then reapply your custom configuration.
+  accept the maintainer version, then reapply your custom configuration, which is saved in
+  `/etc/nginx/sites-available/wazo.dpkg-old`.
 
 - If you installed Wazo Platform before 21.01, you will have an error about an invalid signature.
   See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature) section for the fix.
