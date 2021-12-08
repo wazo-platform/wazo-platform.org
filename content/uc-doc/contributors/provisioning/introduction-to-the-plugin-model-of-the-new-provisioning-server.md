@@ -7,14 +7,14 @@ won't be able to configure anything. This means that without plugins, provd is p
 
 Each plugin can configure devices from configuration specifications. Plugins can also offer some
 additional services, like the downloading of external files, like firmware or dictionary files for
-example. So what was done before by xivo_fetchfw is now partially integrated in each and every
+example. So what was done before by `xivo_fetchfw` is now partially integrated in each and every
 plugin.
 
 One important particularity of this system is that each plugin is isolated from the others. Besides,
-and unlike the old provisioning server, the plugins doesn't share a common directory like /tftpboot.
-This way, there's never a conflict between the files used by the different plugins, and this make it
-easy to have for example a xivo-aastra-3.2.0.1011 and a xivo-aastra-2.6.0.2019 plugin on the same
-server.
+and unlike the old provisioning server, the plugins doesn't share a common directory like
+`/tftpboot`. This way, there's never a conflict between the files used by the different plugins, and
+this make it easy to have for example a xivo-aastra-3.2.0.1011 and a xivo-aastra-2.6.0.2019 plugin
+on the same server.
 
 This means that with provd, you can have at the same time and on the same network, for example, two
 Aastra 6730i, one using the 2.6.0.2019 firmware and another using the 3.2.0.1011 firmware, and this
@@ -75,7 +75,7 @@ flow](/images/blog/provd/provd-http-request-flow_m.jpg 'Example HTTP request flo
     case, from the device retrieved at 4, we know that its associated plugin is
     xivo-aastra-2.6.0.2019, so the request is routed to the HTTP handler of the
     xivo-aastra-2.6.0.2019 plugin.
-7.  Finaly, the handler chosen at 6 answer the request. In this case, the xivo-aastra-2.6.0.2019
+7.  Finally, the handler chosen at 6 answer the request. In this case, the xivo-aastra-2.6.0.2019
     plugin will return the content of its var/tftpboot/aastra.cfg file.
 
 Now, you might be wondering how this work when an unknown device make a request to the provisioning
@@ -90,7 +90,7 @@ was received.
 So this is what conclude our brief introduction to the plugin model of the new provisioning server.
 If you are interested into digging into the details, you might want to start by looking at the
 provd/devices/ident.py python source file (this make me thing I should rename this file) and the
-various \*.py.conf.\* configuration file.
+various `*.py.conf.*` configuration file.
 
 Note that to keep this text at the introduction level, some things stated here have been slightly
 simplified and are not 100% exact.
