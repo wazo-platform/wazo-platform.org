@@ -13,7 +13,7 @@ The device info extractor object is in fact only merging results from two others
 extractor.
 
 The "all plugins device info extractor" ask for each installed plugin to extract info from the
-request. In this case, thexivo-aastra plugin is of course able to extract a lot of information by
+request. In this case, the xivo-aastra plugin is of course able to extract a lot of information by
 looking at the User-Agent header, but the xivo-cisco-sccp plugin is of no help. The results are then
 merged and returned.
 
