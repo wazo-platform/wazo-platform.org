@@ -34,7 +34,7 @@ Here's a non-exhaustive list of what a phone may or may not support:
 
 In `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_update`:
 
-```Python
+```python
 group {
     option tftp-server-name = concat(config-option VOIP.http-server-uri, "/Digium");
     class "DigiumD40" {
@@ -54,7 +54,7 @@ group {
 
 In `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle`:
 
-```ShellSession
+```shell
 # Digium
 allow members of "DigiumD40";
 allow members of "DigiumD50";
@@ -63,7 +63,7 @@ allow members of "DigiumD70";
 
 You can check the logs in `/var/log/syslog`:
 
-```ShellSession
+```shell
 dhcpd: [1:0:f:d3:5:48:48] [VENDOR-CLASS-IDENTIFIER: digium_D40_1_1_0_0_48178]
 dhcpd: [1:0:f:d3:5:48:48] POOL VoIP
 dhcpd: [1:0:f:d3:5:48:48] BOOT Digium D40
@@ -81,21 +81,21 @@ dhcpd: DHCPACK on 10.42.1.100 to 00:0f:d3:05:48:48 via eth0
 To upload the new DHCP configuration on `provd.wazo.community`, in
 `wazo-provd-plugins/dhcpd-update`:
 
-```ShellSession
-$ make upload
+```shell
+make upload
 ```
 
 To download the DHCP configuration on the Wazo server, run:
 
-```ShellSession
-# dhcpcd-update -d
+```shell
+dhcpcd-update -d
 ```
 
 ## Plugin creation {#plugin-creation}
 
 In `wazo-provd-plugins/plugins`, create the directory tree:
 
-```ShellSession
+```shell
 xivo-digium/
     build.py
     1.1.0.0/
@@ -112,7 +112,7 @@ xivo-digium/
 
 In `build.py`:
 
-```Python
+```python
 # -*- coding: UTF-8 -*-
 
 from subprocess import check_call
@@ -127,7 +127,7 @@ def build_1_1_0_0(path):
 
 In `1.1.0.0/plugin-info`:
 
-```Python
+```python
 {
     "version": "0.3",
     "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
@@ -148,7 +148,7 @@ In `1.1.0.0/plugin-info`:
 
 In `1.1.0.0/entry.py`:
 
-```Python
+```python
 # -*- coding: UTF-8 -*-
 common = {}
 execfile_('common.py', common)
@@ -160,7 +160,7 @@ class DigiumPlugin(common['BaseDigiumPlugin']):
 
 In `1.1.0.0/pkgs/pkgs.db`, put the informations needed to download the firmwares:
 
-```Ini
+```ini
 [pkg_firmware]
 description: Firmware for all Digium phones
 description_fr: Micrologiciel pour tous les téléphones Digium
@@ -180,7 +180,7 @@ sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
 
 In `common/common.py`, put the code needed to extract informations about the phone:
 
-```Python
+```python
 class DigiumDHCPDeviceInfoExtractor(object):
 
     _VDI_REGEX = re.compile(r'^digium_(D\d\d)_([\d_]+)$')
@@ -229,7 +229,7 @@ class DigiumHTTPDeviceInfoExtractor(object):
 
 You should see in the logs (`/var/log/wazo-provd.log`):
 
-```ShellSession
+```shell
 provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
 provd[1090]: <11> Extracted device info: {u'ip': u'10.42.1.100', u'mac': u'00:0f:d3:05:48:48', u'vendor': u'Digium'}
 provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
@@ -238,7 +238,7 @@ provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
 
 Still in `common/common.py`, put the code needed to associate the phone with the plugin:
 
-```Python
+```python
 class DigiumPgAssociator(BasePgAssociator):
 
     _MODELS = [u'D40', u'D50', u'D70']
@@ -259,7 +259,7 @@ class DigiumPgAssociator(BasePgAssociator):
 
 Then, the last piece: the generation of the phone configuration:
 
-```Python
+```python
 class BaseDigiumPlugin(StandardPlugin):
 
     _ENCODING = 'UTF-8'
@@ -385,18 +385,18 @@ First, change the source of your plugins (cf.
 
 For a development version:
 
-```ShellSession
-$ cd xivo-skaro/provisioning/plugins
-$ make upload
+```shell
+cd xivo-skaro/provisioning/plugins
+make upload
 ```
 
 For a stable version:
 
-```ShellSession
-$ cd xivo-skaro/provisioning/plugins
-$ make download-stable
-$ cd _build
-$ cp dev/xivo-digium-1.1.0.0-0.3.tar.bz2 stable/
-$ cd ..
-$ make upload-stable
+```shell
+cd xivo-skaro/provisioning/plugins
+make download-stable
+cd _build
+cp dev/xivo-digium-1.1.0.0-0.3.tar.bz2 stable/
+cd ..
+make upload-stable
 ```
