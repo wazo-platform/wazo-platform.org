@@ -14,15 +14,20 @@ User-Agent: Aastra6731i MAC:00-11-22-33-44-55 V:3.2.2.1136-SIP
 
 The "device info extraction" step is then able to extract the following information:
 
-```
-{'vendor': 'Aastra', 'model': '6731i', 'version': '3.2.2.1136',
- 'mac': '00:11:22:33:44:55', 'ip': '192.168.1.100'}
+```json
+{
+  "vendor": "Aastra",
+  "model": "6731i",
+  "version": "3.2.2.1136",
+  "mac": "00:11:22:33:44:55",
+  "ip": "192.168.1.100"
+}
 ```
 
 This information is then passed to a "device retriever" object. Here's a pseudo code version of what
 it looks like:
 
-```
+```python
 def process_request(request):
     device_info = device_info_extractor.extract(request)
     device = device_retriever.retrieve(device_info)
@@ -30,8 +35,8 @@ def process_request(request):
 ```
 
 A device object can be seen as a superset of a device info object. Both are dictionaries, but the
-device object can contain keys that the device infoobject never will, like an "id", a "plugin" and a
-"config" key.
+`device` object can contain keys that the `device_info` object never will, like an "id", a "plugin"
+and a "config" key.
 
 Let's see in more details what happens in this "device retriever" object:
 
@@ -39,7 +44,7 @@ Let's see in more details what happens in this "device retriever" object:
 retriever](/images/blog/provd/device-retriever_m.jpg 'Device retriever, avr. 2012')](/images/blog/provd/device-retriever.png 'Device retriever')
 
 The device retriever will ask one at a time the different other device retrievers until one returns
-something. In our example, since the provd serverdoesn't know yet about our Aastra, the "mac device
+something. In our example, since the provd server doesn't know yet about our Aastra, the "mac device
 retriever" will returns nothing because there is no device with the MAC address 00:11:22:33:44:55 in
 the device database, then the "SN (serial number) device retriever" will returns nothing because no
 SN is used with Aastra, then the "ip device retriever" will also returns nothing, and finally, the
