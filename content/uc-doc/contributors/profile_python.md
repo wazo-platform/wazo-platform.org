@@ -18,19 +18,16 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 
         python -m cProfile -o test.profile /usr/bin/xivo-auth -f
 
-    This will create a file named `test.profile` when the process
-    terminates.
+    This will create a file named `test.profile` when the process terminates.
 
-    To profile wazo-confgend, you must use this command instead of the
-    one above:
+    To profile wazo-confgend, you must use this command instead of the one above:
 
         twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
 
-    Note that profiling multi-threaded program (wazo-agid, wazo-confd)
-    doesn\'t work reliably.
+    Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn\'t work reliably.
 
-    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents
-    how to launch the various Wazo services in foreground/debug mode.
+    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents how to launch the
+    various Wazo services in foreground/debug mode.
 
 4.  Examine the result of the profiling:
 
@@ -46,8 +43,8 @@ Here\'s an example on how to profile wazo-auth for CPU/time usage:
 
 Here\'s an example on how to measure the code coverage of wazo-auth.
 
-This can be useful when you suspect a piece of code to be unused and you
-want to have additional information about it.
+This can be useful when you suspect a piece of code to be unused and you want to have additional
+information about it.
 
 1.  Install the following packages:
 
@@ -64,21 +61,20 @@ want to have additional information about it.
         coverage erase
         coverage run /usr/bin/wazo-auth -f
 
-    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents
-    how to launch the various Wazo service in foreground/debug mode.
+    The [Debugging Daemons](/uc-doc/contributors/debug_daemon) section documents how to launch the
+    various Wazo service in foreground/debug mode.
 
-4.  After the process terminates, use `coverage html` to generate an
-    HTML coverage report:
+4.  After the process terminates, use `coverage html` to generate an HTML coverage report:
 
         coverage html --include='*wazo_calld*'
 
-    This will generate an `htlmcov`{.interpreted-text role="file"}
-    directory in the current directory.
+    This will generate an `htlmcov`{.interpreted-text role="file"} directory in the current
+    directory.
 
 5.  Browse the coverage report.
 
-    Either copy the directory onto your computer and open it with a web
-    browser, or start a web server on the Wazo:
+    Either copy the directory onto your computer and open it with a web browser, or start a web
+    server on the Wazo:
 
         cd htmlcov
         python -m SimpleHTTPServer
@@ -89,6 +85,5 @@ want to have additional information about it.
 
 ## External Links {#external-links}
 
--   [Official python
-    documentation](http://docs.python.org/library/profile.html)
--   [coverage.py](http://nedbatchelder.com/code/coverage/)
+- [Official python documentation](http://docs.python.org/library/profile.html)
+- [coverage.py](http://nedbatchelder.com/code/coverage/)
