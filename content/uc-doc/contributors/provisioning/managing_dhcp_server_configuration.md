@@ -2,8 +2,7 @@
 title: Managing DHCP server configuration
 ---
 
-This page considers the configuration files of the DHCP server in
-`/etc/dhcp/dhcpd_update/`{.interpreted-text role="file"}.
+This page considers the configuration files of the DHCP server in `/etc/dhcp/dhcpd_update/`
 
 ## Who modifies the files {#who-modifies-the-files}
 
@@ -15,17 +14,15 @@ server.
 
 ## Ensure your modifications are working {#ensure-your-modifications-are-working}
 
-- On a Wazo, edit manually the file `/etc/dhcp/dhcpd_update/*.conf`{.interpreted-text role="file"}
+- On a Wazo, edit manually the file `/etc/dhcp/dhcpd_update/*.conf`
 - `service isc-dhcp-server restart`
-- If errors are shown in `/var/log/daemon.log`{.interpreted-text role="file"}, check your
-  modifications
+- If errors are shown in `/var/log/daemon.log`, check your modifications
 
 ## Edit the files {#edit-the-files}
 
-- Edit the files in the Git repo `wazo-provd-plugins`, directory `dhcp/`{.interpreted-text
-  role="file"}
+- Edit the files in the Git repo `wazo-provd-plugins`, directory `dhcp/`
 - Push your modifications
-- Go in `dhcp/`{.interpreted-text role="file"}
+- Go in `dhcp/`
 - Run `make upload` to push your modifications to `provd.wazo.community`. There is no `testing`
   version of these files. Once the files are uploaded, they are available for all Wazo
   installations.
