@@ -49,47 +49,47 @@ This file contains the main code of the plugin. It is used to match the phone to
 the HTTP User-Agent, DHCP option 60 or TFTP requests.
 
 In the case of the Yealink plugin, we only want to make sure that the User-Agent is matched by one
-of the regular expression defined in the `_UA_REGEX_LIST` variable. If not, it is possible to add
-a regular expression to the list. In our example case, the T41S User-Agent is already matched by
-the `^[yY]ealink\s+SIP-(\w+)\s+([\d.]+)\s+([\da-fA-F:]{17})$` regular expression.
+of the regular expression defined in the `_UA_REGEX_LIST` variable. If not, it is possible to add a
+regular expression to the list. In our example case, the T41S User-Agent is already matched by the
+`^[yY]ealink\s+SIP-(\w+)\s+([\d.]+)\s+([\da-fA-F:]{17})$` regular expression.
 
 This file is also used to define the number of line keys, memory keys and SIP accounts for a model.
 
 1. Find the `_NB_LINEKEY` dictionary and add the number of lines for that model.
 
-    Example:
+   Example:
 
-    ```python
-    _NB_LINEKEY = {
-        # (...)
-        u'T41S': 15,
-        # (...)
-    }
-    ```
+   ```python
+   _NB_LINEKEY = {
+       # (...)
+       u'T41S': 15,
+       # (...)
+   }
+   ```
 
 2. Find the `_NB_MEMORYKEY` dictionary and add the number of memory keys for that model.
 
-    Example:
+   Example:
 
-    ```python
-    _NB_MEMORYKEY = {
-        # (...)
-        u'T41S': 0,
-        # (...)
-    }
-    ```
+   ```python
+   _NB_MEMORYKEY = {
+       # (...)
+       u'T41S': 0,
+       # (...)
+   }
+   ```
 
 3. Find the `_NB_SIP_ACCOUNTS` dictionary and add the number of SIP accounts for that model.
 
-    Example:
+   Example:
 
-    ```python
-    _NB_SIP_ACCOUNTS = {
-        # (...)
-        u'T41S': 6,
-        # (...)
-    }
-    ```
+   ```python
+   _NB_SIP_ACCOUNTS = {
+       # (...)
+       u'T41S': 6,
+       # (...)
+   }
+   ```
 
 ### `plugins/wazo-yealink/v85/entry.py`
 
@@ -97,30 +97,30 @@ This file is used to define the supported firmware version for the model and the
 
 1. Find the `MODEL_VERSIONS` dictionary and add the model.
 
-    Example:
+   Example:
 
-    ```python
-    MODEL_VERSIONS = {
-        # (...)
-        u'T41S': u'66.85.0.5',
-        # (...)
-    }
-    ```
+   ```python
+   MODEL_VERSIONS = {
+       # (...)
+       u'T41S': u'66.85.0.5',
+       # (...)
+   }
+   ```
 
 2. Find the `COMMON_FILES` list and add the correct entry for the `y0000000000xx.cfg` file.
 
-    Example:
+   Example:
 
-    ```python
-    COMMON_FILES = [
-        # (...)
-        {'y000000000066.cfg', u'T46S(T48S,T42S,T41S)-66.85.0.5.rom', 'model.tpl'},
-        # (...)
-    ]
-    ```
+   ```python
+   COMMON_FILES = [
+       # (...)
+       {'y000000000066.cfg', u'T46S(T48S,T42S,T41S)-66.85.0.5.rom', 'model.tpl'},
+       # (...)
+   ]
+   ```
 
-If the phone is a DECT model (not the case for the T41S, but we will ignore this fact), you must
-add the model to the `COMMON_FILES_DECT` list instead.
+If the phone is a DECT model (not the case for the T41S, but we will ignore this fact), you must add
+the model to the `COMMON_FILES_DECT` list instead.
 
 Example for the W60B:
 
@@ -145,9 +145,9 @@ COMMON_FILES_DECT = [
 
 This file is where the firmware download information is located.
 
-We need to add a *package definition* and a *file definition*.
+We need to add a _package definition_ and a _file definition_.
 
-The *package definition* is usually at the top of the `pkgs.db` file:
+The _package definition_ is usually at the top of the `pkgs.db` file:
 
 ```
 [pkg_T46S_T48S_T42S_T41S-fw]
@@ -169,13 +169,13 @@ not need to add it**, but to be clear this is its content:
 a-b: cp *.rom firmware/
 ```
 
-As you can see, it will copy the ROM file to the `firmware` directory. The `firmware` directory
-in question is located in the `tftpboot` directory in the installed plugin, located at
+As you can see, it will copy the ROM file to the `firmware` directory. The `firmware` directory in
+question is located in the `tftpboot` directory in the installed plugin, located at
 `/var/lib/wazo-provd/plugins/wazo-yealink-v85/var/tftpboot/firmware`. It is possible to have more
 than one step in the install method. To see how it is done, look at what is done with the language
 packages already present in the `pkgs.db` file.
 
-The *file definition* is usually at the bottom of the `pkgs.db` file:
+The _file definition_ is usually at the bottom of the `pkgs.db` file:
 
 ```
 [file_T46S_T48S_T42S_T41S-fw]
@@ -203,10 +203,10 @@ gui_lang.url = http://{{ ip }}:{{ http_port }}/lang/T41S-T42S-T53W-T53/004.GUI.F
 
 ```
 
-If you want to do more advanced modifications to the templates, you can take a look at the [Jinja2
-documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) to learn more about how they
-work. The `base.tpl` file mentioned in the model-specific templates usually contains all the shared
-parameters and will be what is output to the phone configuration file.
+If you want to do more advanced modifications to the templates, you can take a look at the
+[Jinja2 documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/) to learn more about
+how they work. The `base.tpl` file mentioned in the model-specific templates usually contains all
+the shared parameters and will be what is output to the phone configuration file.
 
 ### `plugins/wazo-yealink/v85/plugin-info`
 
@@ -216,42 +216,41 @@ version and the features supported by the phones and the plugin.
 In our example case, we need to:
 
 1. Add the model to the `description` and to the French translation `description_fr`. In our case,
-    we decide to specify that we support the T4X series.
+   we decide to specify that we support the T4X series.
 
-    ```json
-    "description": "Plugin for Yealink for CP920, CP960, T2X, T3X, T4X, T5X and W60 series in version V85.",
-    "description_fr": "Greffon pour Yealink pour les series CP920, CP960, T2X, T3X, T4X, T5X et W60 en version V85.",
-    ```
+   ```json
+   "description": "Plugin for Yealink for CP920, CP960, T2X, T3X, T4X, T5X and W60 series in version V85.",
+   "description_fr": "Greffon pour Yealink pour les series CP920, CP960, T2X, T3X, T4X, T5X et W60 en version V85.",
+   ```
 
 2. Add the phone model in the `capabilities` key
 
-    ```json
-    "Yealink, T41S, 66.85.0.5": {
-        "lines": 6,
-        "high_availability": true,
-        "function_keys": 15,
-        "expansion_modules": 0,
-        "protocol": "sip"
-    },
-    ```
+   ```json
+   "Yealink, T41S, 66.85.0.5": {
+       "lines": 6,
+       "high_availability": true,
+       "function_keys": 15,
+       "expansion_modules": 0,
+       "protocol": "sip"
+   },
+   ```
 
-    As you can see, we reuse the information that we defined in the `common.py` file. To see the
-    supported metadata, take a look at the
-    [README.md](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/README.md) file at
-    the root of the wazo-provd-plugins repository.
+   As you can see, we reuse the information that we defined in the `common.py` file. To see the
+   supported metadata, take a look at the
+   [README.md](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/README.md) file at
+   the root of the wazo-provd-plugins repository.
 
 3. Bump the plugin version
 
-    It is necessary for the plugin version to be incremented, otherwise the plugin will not be
-    rebuilt one merged into the main branch. To do so, increment the last digit of the `version`
-    key.
+   It is necessary for the plugin version to be incremented, otherwise the plugin will not be
+   rebuilt one merged into the main branch. To do so, increment the last digit of the `version` key.
 
 ## Final steps
 
-Commit everything you have done in git with the format `plugin-name: changes` as the commit
-message. For example, `yealink-v85: add T41S support`.
+Commit everything you have done in git with the format `plugin-name: changes` as the commit message.
+For example, `yealink-v85: add T41S support`.
 
 You are now ready to open the pull request on GitHub. To see how to open a Pull request, GitHub
 again provides
-[a tutorial](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests)
-on this subject.
+[a tutorial](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests) on this
+subject.
