@@ -2,33 +2,33 @@
 title: Developing Provisioning Plugins
 ---
 
-Here is an example of how to develop a provisioning plugin for Digium
-phones. You can find all the code [on
-Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
+Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
+code
+[on Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
 
-If instead you want to add a model to an existing provisioning plugin, see the [corresponding
-guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
+If instead you want to add a model to an existing provisioning plugin, see the
+[corresponding guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
 
 ## Phone Analysis {#phone-analysis}
 
 Here's a non-exhaustive list of what a phone may or may not support:
 
--   Language
--   Timezone
--   UTF-8
--   Reboot of the phone (SIP notify ?)
--   Simple call
--   Blind transfer
--   Attended transfer
--   Firmware upgrade
--   Multiple lines
--   DTMF (RTP ? SIP ?)
--   MWI (voicemail indication)
--   Voicemail button
--   Call on hold
--   Function keys
--   Call interception (with BLF)
--   NTP
+- Language
+- Timezone
+- UTF-8
+- Reboot of the phone (SIP notify ?)
+- Simple call
+- Blind transfer
+- Attended transfer
+- Firmware upgrade
+- Multiple lines
+- DTMF (RTP ? SIP ?)
+- MWI (voicemail indication)
+- Voicemail button
+- Call on hold
+- Function keys
+- Call interception (with BLF)
+- NTP
 
 ## DHCP Configuration {#dhcp-configuration}
 
@@ -52,8 +52,7 @@ group {
 }
 ```
 
-In
-`wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle`:
+In `wazo-provd-plugins/provisioning/dhcpd-update/dhcp/dhcpd_subnet.conf.middle`:
 
 ```ShellSession
 # Digium
@@ -159,8 +158,7 @@ class DigiumPlugin(common['BaseDigiumPlugin']):
     pg_associator = common['DigiumPgAssociator'](VERSION)
 ```
 
-In `1.1.0.0/pkgs/pkgs.db`, put the informations needed to download the
-firmwares:
+In `1.1.0.0/pkgs/pkgs.db`, put the informations needed to download the firmwares:
 
 ```Ini
 [pkg_firmware]
@@ -180,8 +178,7 @@ size: 100111361
 sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
 ```
 
-In `common/common.py`, put the code needed to extract informations about
-the phone:
+In `common/common.py`, put the code needed to extract informations about the phone:
 
 ```Python
 class DigiumDHCPDeviceInfoExtractor(object):
@@ -239,8 +236,7 @@ provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
 provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
 ```
 
-Still in `common/common.py`, put the code needed to associate the phone
-with the plugin:
+Still in `common/common.py`, put the code needed to associate the phone with the plugin:
 
 ```Python
 class DigiumPgAssociator(BasePgAssociator):
@@ -376,12 +372,11 @@ class BaseDigiumPlugin(StandardPlugin):
         )
 ```
 
-Then you can create the configuration templates with Jinja syntax. Here
-are some examples:
+Then you can create the configuration templates with Jinja syntax. Here are some examples:
 
--   [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl)
--   [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)
--   [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl)
+- [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl)
+- [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)
+- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl)
 
 ## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
