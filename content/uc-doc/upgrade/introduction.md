@@ -107,6 +107,7 @@ To fix the issue, run the following commands:
 
 ```
 curl http://mirror.wazo.community/wazo_current.key | apt-key add - 
+curl http://mirror.wazo.community/wazo_current.key | apt-key --keyring /etc/apt/trusted.gpg.d/wazo-keyring.gpg add -
 wazo-upgrade
 ```
 

@@ -11,7 +11,7 @@ Example to upgrade to Wazo 17.02:
 ```shell
 # Fix WAZO-2622
 curl http://mirror.wazo.community/wazo_current.key | apt-key add -
-rm /etc/apt/trusted.gpg.d/wazo-keyring.gpg
+curl http://mirror.wazo.community/wazo_current.key | apt-key --keyring /etc/apt/trusted.gpg.d/wazo-keyring.gpg add -
 apt-get update
 
 xivo-dist wazo-17.02
@@ -28,7 +28,7 @@ Example to upgrade to Wazo 18.02:
 ```shell
 # Fix WAZO-2622
 curl http://mirror.wazo.community/wazo_current.key | apt-key add -
-rm /etc/apt/trusted.gpg.d/wazo-keyring.gpg
+curl http://mirror.wazo.community/wazo_current.key | apt-key --keyring /etc/apt/trusted.gpg.d/wazo-keyring.gpg add -
 apt-get update
 
 wazo-upgrade
