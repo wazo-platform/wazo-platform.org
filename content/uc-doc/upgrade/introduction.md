@@ -93,7 +93,7 @@ See our recommendation on
 
 ## Troubleshooting {#troubleshooting}
 
-### Invalid signature
+### Invalid signature (before 22.01 only)
 
 You may encounter the following error:
 
