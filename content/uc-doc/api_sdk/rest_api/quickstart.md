@@ -82,20 +82,20 @@ To that end:
 
 Let's ask wazo-auth for an authentication token:
 
-1. Choose the `wazo-auth` service in the list of REST APIs
-2. In the top-right text box of the page (left to the "Explore" button), fill "token" with the
-   `rest-api-test:password`: those credentials are the ones from the Web Services Access you created
-   earlier.
-3. Go to the `POST /tokens` section and click on the yellow box to the right of the `body`
+1. Open `wazo-auth` spec in our [API Console](/documentation/console/authentication)
+2. In the first field, please enter your stack hostname (ex: `https://mystack.example`)
+3. In the last field, please enter `username:password` : those credentials are the ones from
+   the Web Services Access you created earlier.
+4. Go to the `POST /tokens` section and click on the yellow box to the right of the `body`
    parameter. This will pre-fill the `body` parameter.
-4. In the `body` parameter, set:
+5. In the `body` parameter, set:
    - `expiration` to the number of seconds for the token to be valid (e.g. 3600 for one hour). After
      the expiration time, you will need to re-authenticate to get a new token.
-5. Click `Try it out` at the end of the section. This will make an HTTP request to wazo-auth.
-6. You should see a response to your HTTP request, containing a JSON object. In the response, you
+6. Click `Try it out` at the end of the section. This will make an HTTP request to wazo-auth.
+7. You should see a response to your HTTP request, containing a JSON object. In the response, you
    should see a `token` attribute. That little string is your authentication token. Save it
    somewhere, in case you need it later.
-7. Copy-paste the `token` attribute in the top-right input box, replacing the
+8. Copy-paste the `token` attribute in the top-right input box, replacing the
    `rest-api-test:password`. Note that you don't need to click the Explore button to accept the
    change of token.
 
