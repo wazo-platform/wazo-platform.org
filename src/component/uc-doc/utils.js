@@ -38,6 +38,12 @@ export const tableOfContentLinksOrdering = (itemKey, titleSortedKeys) => {
     reorderedTitleSortedKeys = pushLinkLast(reorderedTitleSortedKeys, 'old_upgrade_notes');
   }
 
+  // /uc-doc/api_sdk/rest_api custom ordering
+  if (itemKey === 'uc-doc-api_sdk-rest_api') {
+    reorderedTitleSortedKeys = pushLinkFirst(reorderedTitleSortedKeys, 'quickstart');
+  }
+
+
   // (Keep last) Introduction always first
   reorderedTitleSortedKeys = pushLinkFirst(reorderedTitleSortedKeys, 'introduction');
 
