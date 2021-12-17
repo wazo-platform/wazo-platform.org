@@ -73,8 +73,7 @@ The sequence will look like:
 1. Alice's application then encodes those information into a single Web URL, showing the resulting
 URL to Alice, starting with `https://guests.wazo.example.com/...`.
 
-1. Alice then calls the Meeting to wait for Ethan, by calling the extension
-`wazo-meeting-21142baa-4318-4d80-a93f-c403a47192b5` (`2114...` being the Meeting UUID).
+1. Alice then calls the Meeting to wait for Ethan, by calling the extension found in the response of the `POST`
 
 1. Alice may then share the Web URL with Ethan, so that Ethan can join Alice in the conference.
 
