@@ -41,7 +41,7 @@ Each module is a Python process that serves its own REST API. We will take one o
 - [Configuration - API Console](/documentation/console/configuration) (wazo-confd)
 
 wazo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
-modify users, lines, extensions, groups, etc. This is the programatic equivalent of the Wazo web
+modify users, lines, extensions, groups, etc. This is the programmatic equivalent of the Wazo web
 interface. However, the wazo-confd REST API is not yet complete, and not all aspects of Wazo
 configuration are available in wazo-confd.
 
@@ -63,15 +63,16 @@ To that end:
 2. Copy the URL `https://<YOUR_WAZO_IP>` and paste it in your browser.
 3. Accept the HTTPS certificate validation exception.
 4. Go back to the `API console`.
-5. Now you should see a list of sections for the authentication REST API, like `backends` or `token`
+5. Now you should see the documentation for the `wazo-confd` API, and a list of sections for the
+   configuration REST API, like `funckeys` or `users`
 
 ## Use the Configuration REST API
 
-Now that we have an authentication token, we are ready to use the REST API.
+Now that we have access to REST API specifications, we can use them:
 
 1. Go to [Configuration - API Console](/documentation/console/configuration)
 2. In the top-left field, enter your stack hostname (ex: `https://mystack.example`)
-3. In the top-right field, enter your `username:password`  and click to `validate` to obtain a token
+3. In the top-right field, enter your `username:password`  and click to `validate` to obtain a temporary token
 4. Choose a REST API endpoint, like `users -> GET /users` and click `Try it out`
 
 And that's it, you are ready to use any REST API with your authentication token.
