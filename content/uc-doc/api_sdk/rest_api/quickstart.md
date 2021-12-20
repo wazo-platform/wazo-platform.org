@@ -27,28 +27,21 @@ Where:
 
 Save the form, and store the login/password somewhere for later use.
 
-## Swagger UI
+## API console
 
-In this article, we will use the Swagger Web UI, a small web application available in every Wazo
-installation.
+In this article, we will use `API console` built on Swagger UI: https://wazo-platform.org/documentation
 
-In your browser, go to `http://<wazo>/api`. You should see:
+Choose a service and click on `API console` to explore API.
+In the top-left, fill the field with your Wazo hostname: `https://<YOUR_WAZO_IP>`
 
-- a list of available APIs
-- input boxes on the top, we will ignore those for now
+**Note**: No data will be sent to a third party. All requests are done directly to your server.
 
-The list of available APIs reflects the different modules of Wazo. Each module is a Python process
-that serves its own REST API. We will concentrate on two of them:
+Each module is a Python process that serves its own REST API. We will take one of them as example:
 
-- wazo-auth
-- wazo-confd
-
-wazo-auth is the daemon responsible for authentication. Every API is protected by a token-based
-authentication mechanism. In order to use any REST API, we will need a valid authentication token,
-obtained from wazo-auth.
+- [Configuration - API Console](/documentation/console/configuration) (wazo-confd)
 
 wazo-confd is the daemon responsible for Wazo configuration. Its REST API allows you to read and
-modify users, lines, extensions, groups, etc. This is the programatic equivalent of the Wazo web
+modify users, lines, extensions, groups, etc. This is the programmatic equivalent of the Wazo web
 interface. However, the wazo-confd REST API is not yet complete, and not all aspects of Wazo
 configuration are available in wazo-confd.
 
@@ -58,53 +51,29 @@ Almost all REST APIs use encryption and are available via HTTPS. Unfortunately, 
 with a trusted certificate. So you have to manually trust the self-signed certificate of your Wazo.
 To that end:
 
-1. Click on wazo-auth in the menu on the left.
-2. You should see an error like:
+1. If you see an error like:
 
    ```markdown
-   Can't read from server. It may not have the appropriate access-control-origin settings.
+   Failed to load API definition.
    ```
 
    This is expected. This is the kind of error (quite misleading, admittedly) you get when the
    certificate is not trusted.
 
-3. Copy the URL you see in the text box at the top of the page, something like:
-   `https://wazo/api/auth/0.1/api/api.yml` and paste it in your browser.
-4. Accept the HTTPS certificate validation exception.
-5. You should see a YAML text file describing the wazo-confd API.
-6. Go back to `http://wazo/api`.
-7. Click on wazo-auth again.
-8. Now you should see a list of sections for the wazo-auth REST API, like `backends` or `token`
-9. Repeat the whole procedure for wazo-confd (the port in the URL will be different, and the REST
-   API description will take longer to load), and you should be ready to go.
+2. Copy the URL `https://<YOUR_WAZO_IP>` and paste it in your browser.
+3. Accept the HTTPS certificate validation exception.
+4. Go back to the `API console`.
+5. Now you should see the documentation for the `wazo-confd` API, and a list of sections for the
+   configuration REST API, like `funckeys` or `users`
 
-## Authentication token
+## Use the Configuration REST API
 
-Let's ask wazo-auth for an authentication token:
+Now that we have access to REST API specifications, we can use them:
 
-1. Choose the `wazo-auth` service in the list of REST APIs
-2. In the top-right text box of the page (left to the "Explore" button), fill "token" with the
-   `rest-api-test:password`: those credentials are the ones from the Web Services Access you created
-   earlier.
-3. Go to the `POST /tokens` section and click on the yellow box to the right of the `body`
-   parameter. This will pre-fill the `body` parameter.
-4. In the `body` parameter, set:
-   - `expiration` to the number of seconds for the token to be valid (e.g. 3600 for one hour). After
-     the expiration time, you will need to re-authenticate to get a new token.
-5. Click `Try it out` at the end of the section. This will make an HTTP request to wazo-auth.
-6. You should see a response to your HTTP request, containing a JSON object. In the response, you
-   should see a `token` attribute. That little string is your authentication token. Save it
-   somewhere, in case you need it later.
-7. Copy-paste the `token` attribute in the top-right input box, replacing the
-   `rest-api-test:password`. Note that you don't need to click the Explore button to accept the
-   change of token.
-
-## Use the wazo-confd REST API
-
-Now that we have an authentication token, we are ready to use the REST API.
-
-1.  Click on wazo-confd in the left menu
-2.  Choose a REST API endpoint, like `users -> GET /users` and click `Try it out`
+1. Go to [Configuration - API Console](/documentation/console/configuration)
+2. In the top-left field, enter your stack hostname (ex: `https://mystack.example`)
+3. In the top-right field, enter your `username:password`  and click to `validate` to obtain a temporary token
+4. Choose a REST API endpoint, like `users -> GET /users` and click `Try it out`
 
 And that's it, you are ready to use any REST API with your authentication token.
 

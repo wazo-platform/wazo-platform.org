@@ -643,6 +643,8 @@ body.documentation {
     padding: 0;
     width: 100%;
 
+    li { margin-bottom: 0; }
+
     li.secondary-navigation-submenu {
       &.open {
         > ul  { max-height: inherit; }
