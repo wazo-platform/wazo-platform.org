@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 22.01 {#22-01}
+
+Consult the
+[22.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.01)
+for more information.
+
 ## 21.16 {#21-16}
 
 - Throttling was added in the nginx configuration of the following routes:
