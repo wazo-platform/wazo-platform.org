@@ -23,7 +23,8 @@ for more information.
   `/etc/nginx/sites-available/wazo.dpkg-old`.
 
 - If you installed Wazo Platform before 21.01, you will have an error about an invalid signature.
-  See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature) section for the fix.
+  See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature-before-2201-only)
+  section for the fix.
 
 Consult the
 [21.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.16)
