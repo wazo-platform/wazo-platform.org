@@ -20,6 +20,6 @@ Procedures for upgrading to specific versions may freeze the version of your Waz
 commands to get the latest updates:
 
 ```shell
-wazo-dist pelican-buster
+wazo-dist -m pelican-buster
 wazo-upgrade
 ```
