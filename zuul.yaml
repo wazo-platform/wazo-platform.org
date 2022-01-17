@@ -2,67 +2,68 @@
     name: algolia
     data:
       appId: !encrypted/pkcs1-oaep
-        - WyxKiDkoyyLzwDrHGcC/gn9EquFbRV0kZAxnrxtbJ6+9KNbu9Q+F0cIJP9v2eUBQMmdsL
-          0CXY0Zvx4EHYyw7nUYLe1hhSlpaUgMjkrUewQmvcinZCir9HvlKLAU7eYpZrtE5hzVSe1
-          pI+ZQ6cIPhN9Jc1o5HOV/grOIQC3ic/C80y6x1ifa+xFo9FmZ7fFPlWn36jRuPMl1pg/4
-          LVmPzWa86wy30tG8LaY491AIjWoJSbtQBn3rEYZC5fT1x8ZpWsgFuZAsFT+KjGdU4G+e2
-          LantDQ7gTnr4VHDKLGF0Gd2tck1gx1rbpUWXVMy2a+6dnouO8ZSYYbkcII8kN54VP57ek
-          Morhc6/VO5XUJfNSEGOquwBqUsQNR2L3Trcj4KG2Q4WngOW3u9U2ffCpVPbEYEf6pd2XP
-          J/Z6fbTtFThjWQ1F3WQyfLHfsAbYuKEyB1tLq6wk90e208wP/dgBoMfdHTvFF0FEdGhCd
-          e/2HmWwftuhwA2fbaMq22/+CIsKhALtHsgdV6reuItxK3JrW4ZFhmcrCV5u8mYQ8fzLfQ
-          JTyJxTYrHVuzeBXQ4cq+TtS4z1zMtDcCfwIb83jhBw6Gg2mKrR//5JnxFhyrxsQU+Zz7d
-          oI1Yc3c1nUpbaFWOyF73Qed7mGj/qRtL1a3VEGTB9ly+Oo7LTAg1Spp3TCtfDI=
+        - WQiDViEEvxjI7Zaqt4PLh6MjZrQ7dOXCYGr68jWte8iwd7M7HHlvaIF/Hcb1NpoiZGuMC
+          HWb42wGZLSb/ndYBg8XOiE38fpf4ynEzHVQeU4/isK6dEHRT9lvuTNh0BVz+vPaN+6yL4
+          S/FJVGf4IKn/Gjf4EKnrp4AQR1aiAsCRUOXG0H1buTcWV5obMBUgl6/scW0TsI+2xsgSn
+          rA8EwLHE+WK+GyJiLOCP6dJm6FUB1sunc3xw5W+wFAZUGfpU4LGHzrBDf6N3CV16dOa5E
+          p493lg48sUPm/PcIJ29BLwL13sVOpcPUeqik1p+7AATtiBmifJXxXF+UEMHXJQDQOxyGk
+          3RpcUOmSqPCOQ/qB5L/Lf40rimj0Uc0A+yu9XdfBEumeo1Ba1d0c3Dh5Z+t0piLqdwsk4
+          JEx9SqFN/ZQYawOiwh7wxsoPT0emGRY+HuGmR5OBse1K4IoCMTmOgOHg9ve6tljl7V9E6
+          uDExSLGob0msHhrmzuG6/W/AHnXZLP9fpm6Bv4PFxjnI/Pkn3G6RitmoHz1OfFbdMjmK2
+          pCfnCTyr/RgfPrq7GrIOiThk0F32TMTI9tbDPo4zj8JiGkHuGMjY4OSslsgS4kZJ51ZMy
+          IT5I9ly4XHGTKhTCew5ApXtw5DVy0HviKZUatQveZi2nniWL7zjMRETxqBSYFY=
       apiKey: !encrypted/pkcs1-oaep
-        - RLxy8znRp1xJTF1CbVs7N5BGrtJACKKWrMdfzJUJX+cznsrlvNb6/PbiJ9QCZNG1f8SGZ
-          DZVawxGTtAmyL8ksSVdtTpFfB2wravRZcmelF/c7eAAEMKHEeW3vXQ/iyzrQgyJkkuUuQ
-          IR0yrWejYP5cUKCIn37QBBkQnmfMAcK/fU0ZwrTCWbMfEk7QedXdbYildNVW1l8ASDR7w
-          kYE7MmArpfj1rcuY3hnlEBbIuDx8V6yibemF3ACor2gZND+uBYObNcJ/l8cSgFIV+1Ve1
-          ns57K2j6SqR5UtYnfPYJ0Nmk3Bc7n1Jc4r9J9hISZRb8xblFHJmwn/nmhNJvqNnHX2q6O
-          xJaZSErhxOP7RK+VAV27SUewQTZbegJJXywAmdxENAovD00w80GBg80/YxhEASUKNQEKE
-          FqTavvkqNmVLQrImPUW49dTC60D7gowinOESkXninUjFsRY9qHRP9Cf41/So44B9SDwbf
-          OHk2T2+Ak+LrVY9eu8AFVIr9ALqrRCX1nl/5eU7fLMBJJbwS9TOJ4OPLE/1yR44W99HLU
-          iP5gngFtVXUXVRAy5BiFYfqzb8vaUW6/x7UPAzdAd/sr42jQbuji2xP2qoBs/ZYH7XCLu
-          gn1AWhYW8LRNzX3IdLUV50h3di6z/TaF0OVTQBm1p9ICBIHEgp0qQu/fv+yPWA=
+        - HjGVGLM1F8MilL4M9oV26WSKPn9ZMos6QFQ4t5nQbuLd2I+2wl2u2T3A1nT7ONIW89386
+          3Qd6e/J44j643tGFmnOKt7Yx9JHOqEW5NAdm2Lz00AgviMVNJL35DvMPBY4nZECD/cZQx
+          OjxYz9USADd9RS7kIqTQyd1745w9l1Bl59kvfPidlI4e+OQifQfdwr+RqtcnJB6dq15dV
+          LE6lj0C0qyBFEu/+BggQojFe6NGBQDFFm6FxgHxowPQTdlGbQir5xaPNK+PaVrMWpB/RI
+          AfvcWE2DDFy5G7u+F3rnFKBQd89Jm3kWTWMqhZ8lcEtwx3jTW5rUNHamBcbCohImtZBY/
+          aZWLLOJ7I4F9DVC+ZlWEr0iT/RzgmO9xsl9PJ/QZUGDuMksc2DKyMZCoK1+X6+t2fYr7k
+          tLBB+DA2d/eczK1Y7ujREbNiyR58m7W9ymTGK+Q7G9+o4dckJHzWXUODtaH80Cn3d4aae
+          s1QTBUTjs0xNcxW6eUsX5AH37+A+5CsB1z1MwPqwA1brC06QlTAmMX9kCPVkcz18tLW65
+          iYLbyeBqcv/Sf7JEUk07DQfT+6J9xsjb1u77wCDmqcfRMrwcajdmCjLhe22yhAB1LLmSk
+          mm0MBVZdi8mYMKaSOX7ZmwaYJ1sb7eOXf5pz7FrMdwCJBwrCR1qAq1jrO3xxog=
       publicKey: !encrypted/pkcs1-oaep
-        - g0Us9Q7H5FQa+SJS+m3BdhpGAnLtlKXB9U7b2VJlXzuwbk6bAQ+Ndst0tHpdX5UIBpp+O
-          sOTniblyD3CHAyvNEREaYt7OBy7pvjBI5GYemAfLhP12qQCTuIsiCrpb3ECULfT29cyWU
-          xAiGCPbUPjbiXaeRBEv2KLKMhgPw+k3RAwhpn0JuzA+u8ATCd7hgTXPubdu2lf1q7aM2k
-          Y2jyleFTt7RotCM7VRzIbE4N4NIHjoGo8EHVWjAp16fuRa/Z2VBwRUK+NKq1FVdjZILGB
-          lFB/xMMhaZxA6e0HyJz0Aa6ooZna4V0K5DTvWlGI+H56VsumE0WiL4gSadPOq17SwNX7g
-          owE8/7sde6bEi1Za/f16IcqXhfygvdyn4EZavb33Fqgdt4L7I5SpJ+JOeFbUXjKjG2sn8
-          CWJkTqIsm0MsvlhudQxbCSJprFirwCAkcma5kT3YUqiauHxWp5AcHeSEf/krzukE/XRSF
-          LoGsmzrQWFTUInbMpd2B20NLbq9ouYaA9uEolv5zxT0t6ITsGC54HcpM99yM1kpOMH8mA
-          ELE9ngT3ngseTxMdwTQvo44Vqj/OOZ+INNIoKPQtwKWA0Gz+yRLSGlAyORXflqUujOMMw
-          q6ZSIOYpN5rOO+8LFS1CyBryADY75PgZOTUXtLj1d/t6VZrbImOcO77htk/hWs=
+        - mRhtuLnMN0Uj1Ugs02WPUBSwavURG/I223u5aNj/VfDsLuNjNnAXpnYIxhh0YqSlNWkS0
+          8FJO0xJZXDl2P5hmcrVH0K3Ffhb/31OvsMtelarvm0FibZJ1d+Ed00bQ2XHoXaABAngey
+          Ri1OxNbKTOqLGpUnYpre7WUOmoiEilIVgl6J6PKCTLhUMLJzRLFYivowV0IsMCbT0Weso
+          YIJu6onW6eZNcpMOA4b+IGwHAWt+LBWu4pi06RAORfdMpKwFplwJUXcq8/Jr1Qbb/0Eea
+          Lc+idQWkv9ypCtKX5KetaYeozPMt88Evwrfn6bKFzOhBfzthvsBeXPOxH1e1+p3S89K8S
+          3efWcLRSB+HI5tB4GosSh8wTvnrP8H0thAO3ge2COpm5biYZHwoB5o4AoA0WSap+YWKOq
+          XlOjc7wy1TF0nCLeKWT/7ZIjIrA34ryG10yFtjJoHEQoxBAQwvvAEOHIQWHC9tMXvNHgN
+          HCbwdOhuChSCQhuC/nWjeqG6ljcBzhf7OQjRL/fM04ysbl+a2FQNi8jYw1HdC7uPHRKsa
+          yOJRENKcPVRYJfko+gjbDLSc9GThCnRIXOUQM11F/qOvk0xCBmnI9qhOs6G0COQN1xsbD
+          qUTLoQg660tQg3GSYEstmjMGrELxf/HRpctRX8OpkgSxIgiht0v82QIhCx1i0E=
+
 - secret:
     name: publication
     data:
       private_key: !encrypted/pkcs1-oaep
-        - JrAZwb2puRNsEYDZF4KM3vr5uJeE5V5P9+AUAtyNQKX+i24RGdpnzIbcR1fT/p1g+keqE
-          JbXgFaNUJSDAmPMdVxDyMcDluGOBJ7rWUBokKN9SkNr4OqDoNRiasODdzOsWC/hly2cM1
-          aiBPlJdZ5pfMfY33w78pE39i1olrnupMeH2GAwvxZ3rNxpkkR8tqdrB2TlBUgSMKBwhZC
-          hc3l6eJ3prjdaL5u+XhzXPfCoexXE9W8l5v1DFrlVyqWm5bwffuZHT1QPW2qzJLnmDnNF
-          gowQ1mpTRNSDYXEPxdHwUWcoINsxJEt8VOZ/Qa29ptvz2qPm783jXS5ocFYp8fB7jhkUL
-          qLQZOVJda6p/LPO93liG65Ol0XWzTOyDYsLgdkdoG65v/yHUEcBuPyfHXCs1ef0NARz+V
-          +Cc2DrfzIr178QW72LwL9Uot2wdfOlSgMX8amzyV4XbztDOmD/L6iZQ4KGHmOAMdbH/QH
-          6fdmleeF4TuYKle1d48XkuZ+F5187b9DiMeffzQBGU/HxMh3jB8Lvc3UC4WICfMS37Fw4
-          ovJCUuzEBPyZrBAL1CRFIJuWI2GWG8fGOxWRuTIC3Q6GKqU5vGtGEITi1/S46wbjBNABa
-          xBKyFEJR03zwiQOiWf19GWOLtb58BawF4YMi2dw8nLmNy7uLylsh4T8j/nefuM=
+        - CUFM7KbTRc4NCsi+tSTBJkqdse7qm4Crd5Rtww6zt+ux4S3ccRlcOZsQ8rN7vKlT5lPOI
+          WwDFJy6fknU1hKGqDDwRYQNe3PO1DVFz/Ho39IDnHVg8Qif+gR+Md8zQOCCK4GXvFPcoS
+          3HNhmO5Mb4MuBb6StdzFP4kouu/avIBYMxMXmECF28ObO1G+CM0GUOVl3mespl/XsDhqT
+          dSGq1H1nDTFp7u8LurnTLzouaif81FmB0Lu4tppFBDPSwRjCFtoXDBafikR/aigX/lSKR
+          UE75G/7MxuUV36mUIcVWnzYc5YXjHSdApvXFk8TAIah2imw53ek77s0//d6GEDS5qKEmR
+          MGQB0kEgmjHiDMwV9uAQGjcitkk0ERJV1HF4FzfY9f0ySDHJWAjFTY/DkobEGWkn5HVVN
+          n5ubVUGvN3E0wUEMScV9mTq+GitZ25Kz5X369q5iA6mGhziMj4EYuLZBAUuf4hdJjmO2S
+          sYDtEYVNEMlFNLc/ZSL/2hnmdsPonCacgPIcaP9IJLY5mg6VKVmppCaTEqHGGkUBPzqGS
+          Mk/h24GjLCpLb3VuN8lK56FWIDw7+01Sm3iBczzvahjfQNmz6zXiHw8sM2DQcadZPX2RV
+          lMe/d6Wr3fvmPIZtDi55deCLffn42fc+AQeqFMKnG1ex1dzD7c9GVvDS4I2+KM=
 
 - secret:
     name: mattermost
     data:
       api_key: !encrypted/pkcs1-oaep
-        - Hafw7OtBf8uiKxOrvGY3xWLSggapuXmyYEnDmVTvS59OQgeDPdO6ze4nqeTNqz1wAwCud
-          RABGw5g5I38A2Feo1ovbPkJ3tttBzhMDSvIgN+rB2Faxg3ESbHyI37DEcPcbV8LEWQD0E
-          k+2vc4M5Zf5tpNy9uO9dUX1n3XjSn6D37ZST4jTUYOmK85l7rxILYYNpyeGIu8c5ydKR7
-          C/3joFxWA2VuJsHGPq8RyyOvJtNCHWyHx1THOu9SFX+J0a4cZErjQ9bpLVos3U8OHmnoW
-          pwqTRHXO0xWilM3t42jFr8lN9m4p9ALSwX481ZP0qpWO6ONUtDUheGlcXSBvtGgYd928j
-          E4BbLFYo7j3035VA/UkohGRDFiPaCG1XWOtVsM/trufxJfq2HABU7WJ5I3+Mnglrc6IEp
-          uQY8DqQqVExGpErcmIZ3/ixlfTq043DebB/mT63rpkYkzhy35J76zilP4qtWzJJlfg6bK
-          i0xmrImMXP7SBH9rNePmaACltNexOO7VbCxuNmk09oY5tb4uQZFsnNVyaKhb2W8kFZdEg
-          5GRFwwWLU3K5SidynCKDvi+R8+lU3wwsxFVQdxgG5uuv7AYNBFeJK7E9NtDJMQd8Vt/9a
-          RBIb0c6ofuUmjbNe283LN3/Q8JXAimTlcbeYi3Aff+ZlPiPHVJmOhIZiIc2lO8=
+        - yl14QOjD2G+i3xfuZK5YI+rgir9CX04B7TiJVjIpD/31r5VbLFWKxtFOdUVHmEJOMmx6t
+          dN0mcNfUyh69Hr78LrRBatTSbuATyJOblTgWElhwz9gzoJmzERLdvFZRzG+DI7HfLQWg3
+          a3OZDVXfKqTPpv/Op+yOSE7mU7larq8y3FYGo5qvNWuY3g3gg05Ohf7ZNnKHrSV8J+H28
+          46KMu/71Ar+sUrF8IXKs4R7uRY7yNU+fZKwkAc7zIED9oA09YK3vm2R5fWpiQ+cR/MHkw
+          GYBEZg2jK86+vmgs6kTT0qxw8gO4E1NwWH5VBGxhkEFyK+Yo/Av2JX+ftl/5nuA5yPH61
+          QnU6iWd/mlSCNAwhZuITzFA4map92rHShctsHM7foQrpAB4LaN5kCfBcSmUGIqVVP+Wld
+          f4+UfpSNHqXNFHWmA7bPc64Ul1k4E3lgAoQvdmaMrWE2GjrGCBXHNRRp7ReitCwVS7Usd
+          VrX5YV+1CI7932weG6Hh9o81vdzGyYV9NNtj2TpIzCefu7lezmOMvGkbAOHSYQaQxjZlR
+          rwXEEKHR9jE/s1fQGDoIs2WGArPqacR+VSWy1t4dRciqZ7nTUOCJm8thV1zMx82ScDftF
+          olOMAHn7EgTmgkdEDnGdY1AwsGspz+dpJ2YwilMb9TruqWkjKZWWmqNQ9TWlik=
 
 - job:
     name: yarn-build-copy
