@@ -25,7 +25,7 @@
         chdir: '{{ zuul.project.src_dir }}'
 
     # The matching public key was added manually to zuul-publisher@wazo-platform.org:.ssh/authorized_keys
-    # command="/usr/local/bin/rrsync -wo /var/www/wazo-platform" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA49zOQt8P3afuLR3qBuddj+x0lMTdk10n/QUtOH4w2q wazo-platform.org publication
+    # command="/usr/local/bin/rrsync -wo /var/www/wazo-platform" ssh-ed25519 AAAAC... zuul
     - name: Set up publication private key from Zuul's secret
       copy:
         content: '{{ publication.private_key }}'
