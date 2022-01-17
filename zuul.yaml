@@ -98,10 +98,18 @@
       - name: mattermost
         secret: mattermost
 
+- job:
+    name: sduthil-debug
+    run: zuul.d/debug.yaml
+    timeout: 10800
+    secrets:
+      - name: publication
+        secret: publication
+
 - project:
     check:
       jobs:
-        - yarn-build-copy:
+        - sduthil-debug:
             nodeset: vm-debian-10-m1s
     gate:
       jobs:

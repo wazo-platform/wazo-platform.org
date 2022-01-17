@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    # The matching public key was added manually to zuul-publisher@wazo-platform.org:.ssh/authorized_keys
+    # command="/usr/local/bin/rrsync -wo /var/www/wazo-platform" ssh-ed25519 AAAAC... zuul
+    - name: Set up publication private key from Zuul's secret
+      copy:
+        content: '{{ publication.private_key }}'
+        dest: '{{ ansible_user_dir }}/.ssh/id_ed25519'
+        mode: '0400'
