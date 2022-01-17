@@ -39,16 +39,16 @@
     name: publication
     data:
       private_key: !encrypted/pkcs1-oaep
-        - b4yLnym+YWTRvNczu1wT3GVyNU6SD+DoZP++A6xzs7rd4X1FHU438Sl+sdro6cQLRvT8y
-          dciS6U9ZKCBD3nyXpK1DRnoum+/keAhngg3BPfETGcDMTuremEdILxk2YURW84IbLp3Fh
-          WdaiCY4JmACa5VLNjeDghnJQ9F5mfJIXsC/s30SdKWVy7CsBIYjyv20Cm1r2mBV30IZKZ
-          7QL3VGZhzF6uKKEhOOoZWA5ODhbqNA00zpOLkQhs13mmoOQSgO6ldnryxKoIgIXYPOxXu
-          aqZLk/ivdrqqH+jnvi3tGyVm6puMzULyUDLXB3w3ptHt/2PVsYxwHE1gQ6uwfwhp7LqVa
-          bO2U0h9E4dnEDhAOvQj4J8huhLGFHyo8DVthqFmPe5kTK0sJPKPyqzLHp0qZg9BcCZyNA
-          eERhuvSFBGMOK0SkxJzn1QMBrRwdEqIdiWh3yoAtxv+6x/NqByQFcm0Lo4oGK1GjiSTFA
-          eq9Jet0PiD2NC0PGXA1rhYv7kL+WwEvi6tnY5kDEGDt7le7eQQKZkvJwbzUkwBujr86O5
-          mt3LSp6pMGTMTLkzW0gL6Q/S610TB9Cwkw8lYbc7LNTUGJvxqrMI1dJhXSFLloayA1vw0
-          0bS09RfkJyXrZDhHJTagIbshFLRintf6FlB419FpbjMuDuG1J64tFyNofZz2zA=
+        - jfMeYOKm1ajQLDNwU39mA9VpPOxHama9uVP3V8GC9glKQTz8lIP4TIT55tjzOXIwNvDfX
+          6sVGhSEGHwpaLeFVw/sHf2Pf4krEHlrdYokhq7fth0hs/olNGE9RJDL2f7fwds8s9CGzx
+          PA/HJkFdV87VO1rWQzxR2/XqsTK9LGY2YGkGczdRfpXxbclJc4aWHug/ZVCYnGuriCLfe
+          Q++zogE1PEe2z/lqF15GVSdrpkZfK9anAoKLIaBCXBZTS8A/V/r6XYinFHEFUN4Fe6+H7
+          ITd6h2if3tXz+1eWneOz9kjf97lZPj7Eg5Vl9zC28WEa892BfBPEPPUxrD4x+9Id0Dy3f
+          umNxpVWXZ9wyCKTFtiPC6GQR3ZS3tiD1y8A6JxCiY6o4p1YaFhJv6lU9QD4geYMG67V1z
+          qTVMgeqrQNOIplyjUWBS8csEQXhxSMAQHLc+KkKWxZfkwGiY429Ug9JTAmpHlQLZyQfOL
+          2gfnG/epNGkrxx8+rxKpR04W+bvDPAYRNob3YMiEuJ2Qaro9bWkYOclxLdxCqwFCrv5I5
+          unf1lwtUsaEgg1uqtQ+1jApzjuEGzdVrwucFe1pX5fzknlnj60zupai8F5nOgLm1xhafq
+          NqD4pKBbBwQXmf/j5vxfsDwLub5I3ImfZgO3K0LjQiK/Pbt+uii/L3c4qjuCSA=
 
 - secret:
     name: mattermost
