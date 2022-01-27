@@ -15,7 +15,8 @@ Here is a short review of the Wazo Platform 22.02 release.
 - **Asterisk**: Asterisk has been upgraded to 18.9.0 and backported to 22.01 to fix a regression.
   See the [Asterisk release
 announcement](https://www.asterisk.org/asterisk-news/asterisk-18-9-0-now-available/)
-- **Provisioning**: the Yealink T4XU models have been added to `yealink-v86` plugin.
+- **Provisioning**: the Yealink T4XU models have been added to the `yealink-v85` and `yealink-v86`
+  plugins.
 
 ## Ongoing Features
 
