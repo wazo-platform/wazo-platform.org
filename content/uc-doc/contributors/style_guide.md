@@ -40,7 +40,7 @@ from urllib import urlencode
 
 ### Black
 
-When possible, use black to validate your code. Generally, the following errors are ignored :
+When possible, use black to validate your code.
 
 Example:
 
