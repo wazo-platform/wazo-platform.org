@@ -6,8 +6,8 @@ title: Style Guide
 
 ### License {#license}
 
-Python files start with a UTF8 encoding comment and the GPLv3 license. A
-blank line should separate the license from the imports
+Python files start with a UTF8 encoding comment and the GPLv3 license. A blank line should separate
+the license from the imports
 
 Example:
 
@@ -19,11 +19,11 @@ Example:
 
 ### Spacing {#spacing}
 
--   Lines should not go further than 80 to 100 characters.
--   In python, indentation blocks use 4 spaces
--   In PHP, indentation blocks use tabs
--   Imports should be ordered alphabetically
--   Separate module imports and `from` imports with a blank line
+- Lines should not go further than 80 to 100 characters.
+- In python, indentation blocks use 4 spaces
+- In PHP, indentation blocks use tabs
+- Imports should be ordered alphabetically
+- Separate module imports and `from` imports with a blank line
 
 Example:
 
@@ -39,10 +39,9 @@ Example:
 
 ### PEP8 {#pep8}
 
-When possible, use pep8 to validate your code. Generally, the following
-errors are ignored :
+When possible, use pep8 to validate your code. Generally, the following errors are ignored :
 
-> -   E501 (max 80 chars per line)
+> - E501 (max 80 chars per line)
 
 Example:
 
@@ -66,8 +65,8 @@ Good Example:
 
 ### Strings {#strings}
 
-Avoid using the [+]{.title-ref} operator for concatenating strings. Use
-string interpolation instead.
+Avoid using the [+]{.title-ref} operator for concatenating strings. Use string interpolation
+instead.
 
 Bad Example:
 
@@ -79,8 +78,7 @@ Good Example:
 
 ### Comments {#comments}
 
-Redundant comments should be avoided. Instead, effort should be put on
-making the code clearer.
+Redundant comments should be avoided. Instead, effort should be put on making the code clearer.
 
 Bad Example:
 
@@ -99,8 +97,8 @@ Good Example:
 
 ### Conditions {#conditions}
 
-Avoid using parenthesis around if statements, unless the statement
-expands on multiple lines or you need to nest your conditions.
+Avoid using parenthesis around if statements, unless the statement expands on multiple lines or you
+need to nest your conditions.
 
 Bad Examples:
 
@@ -127,8 +125,8 @@ Good Examples:
     if (2 + 3 + 4) - (1 + 1 + 1) == 6:
         print "condition is true"
 
-Consider refactoring your statement into a function if it becomes too
-long, or the meaning isn\'t clear.
+Consider refactoring your statement into a function if it becomes too long, or the meaning isn\'t
+clear.
 
 Bad Example:
 
@@ -147,14 +145,14 @@ Good Example:
 
 ## Naming {#naming}
 
-> -   Class names are in `CamelCase`
-> -   File names are in `lower_underscore_case`
+> - Class names are in `CamelCase`
+> - File names are in `lower_underscore_case`
 
 Conventions for functions prefixed by \`find\`:
 
-> -   Return None when nothing is found
-> -   Return an object when a single entity is found
-> -   Return the first element when multiple entities are found
+> - Return None when nothing is found
+> - Return an object when a single entity is found
+> - Return the first element when multiple entities are found
 
 Example:
 
@@ -169,9 +167,9 @@ Example:
 
 Conventions for functions prefixed by \`get\`:
 
-> -   Raise an Exception when nothing is found
-> -   Return an object when a single entity is found
-> -   Return the first element when multiple entities are found
+> - Raise an Exception when nothing is found
+> - Return an object when a single entity is found
+> - Return the first element when multiple entities are found
 
 Example:
 
@@ -184,10 +182,10 @@ Example:
 
         return user_search[0]
 
-Conventions for functions prefixed by \`find\_all\`:
+Conventions for functions prefixed by \`find_all\`:
 
-> -   Return an empty list when nothing is found
-> -   Return a list of objects when multiple entites are found
+> - Return an empty list when nothing is found
+> - Return a list of objects when multiple entites are found
 
 Example:
 
@@ -199,8 +197,7 @@ Example:
 
 ### Magic numbers {#magic-numbers}
 
-Magic numbers should be avoided. Arbitrary values should be assigned to
-variables with a clear name
+Magic numbers should be avoided. Arbitrary values should be assigned to variables with a clear name
 
 Bad example:
 
@@ -230,8 +227,7 @@ Good example:
 
 ## Tests {#tests}
 
-Tests for a package are placed in their own folder named \"tests\"
-inside the package.
+Tests for a package are placed in their own folder named \"tests\" inside the package.
 
 Example:
 
@@ -248,15 +244,15 @@ Example:
         __init__.py
         test_mod9.py
 
-Unit tests should be short, clear and concise in order to make the test
-easy to understand. A unit test is separated into 3 sections :
+Unit tests should be short, clear and concise in order to make the test easy to understand. A unit
+test is separated into 3 sections :
 
-> -   Preconditions / Preparations
-> -   Thing to test
-> -   Assertions
+> - Preconditions / Preparations
+> - Thing to test
+> - Assertions
 
-Sections are separated by a blank line. Sections that become too big
-should be split into smaller functions.
+Sections are separated by a blank line. Sections that become too big should be split into smaller
+functions.
 
 Example:
 
@@ -292,8 +288,8 @@ Example:
 
 ## Exceptions {#exceptions}
 
-Exceptions should not be used for flow control. Raise exceptions only
-for edge cases, or when something that isn\'t usually expected happens.
+Exceptions should not be used for flow control. Raise exceptions only for edge cases, or when
+something that isn\'t usually expected happens.
 
 Bad Example:
 
@@ -320,10 +316,9 @@ Good Example:
     if not is_user_available(user):
         disable_user(user)
 
-Avoid throwing `Exception`. Use one of Python\'s built-in Exceptions, or
-create your own custom Exception. A list of exceptions is available on
-[the Python documentation
-website](http://docs.python.org/2/library/exceptions.html#exception-hierarchy).
+Avoid throwing `Exception`. Use one of Python\'s built-in Exceptions, or create your own custom
+Exception. A list of exceptions is available on
+[the Python documentation website](http://docs.python.org/2/library/exceptions.html#exception-hierarchy).
 
 Bad Example:
 
@@ -347,9 +342,8 @@ Good Example:
         if not user:
             raise UserNotFoundError(userid)
 
-Never use `except:` without specifying any exception type. The reason is
-that it will also catch important exceptions, such as
-`KeyboardInterrupt` and `OutOfMemory` exceptions, making your program
+Never use `except:` without specifying any exception type. The reason is that it will also catch
+important exceptions, such as `KeyboardInterrupt` and `OutOfMemory` exceptions, making your program
 unstoppable or continuously failing, instead of stopping when wanted.
 
 Bad Example:
