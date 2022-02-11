@@ -87,7 +87,7 @@ that secure.
     ```
 
 4.  Create an `hostapd` configuration file in `/etc/hostapd/hostapd.sccp.conf` with content:
-    [hostapd.sccp.conf](resources/hostapd.sccp.conf)
+    [hostapd.sccp.conf](/images/uc-doc/contributors/resources/hostapd.sccp.conf)
 
 5.  Update the following parameters (if applicable) in the configuration file:
 
