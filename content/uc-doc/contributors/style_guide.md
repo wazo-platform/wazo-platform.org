@@ -116,29 +116,29 @@ Bad Examples:
 
 ```python
 if(x == 3):
-    print "condition is true"
+    print("condition is true")
 
 if(x == 3 and y == 4):
-    print "condition is true"
+    print("condition is true")
 ```
 
 Good Examples:
 
 ```python
 if x == 3:
-    print "condition is true"
+    print("condition is true")
 
 if x == 3 and y == 4:
-    print "condition is true"
+    print("condition is true")
 
 if (extremely_long_variable == 3
     and another_long_variable == 4
     and yet_another_variable == 5):
 
-    print "condition is true"
+    print("condition is true")
 
 if (2 + 3 + 4) - (1 + 1 + 1) == 6:
-    print "condition is true"
+    print("condition is true")
 ```
 
 Consider refactoring your statement into a function if it becomes too long, or the meaning isn't
