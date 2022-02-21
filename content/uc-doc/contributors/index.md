@@ -15,7 +15,6 @@ title: Contributors
 - [Profile Python](/uc-doc/contributors/profile_python)
 - [Style Guide](/uc-doc/contributors/style_guide)
 - [Translate](/uc-doc/contributors/translate)
-- [Xivo Package File Structure](/uc-doc/contributors/xivo_package_file_structure)
 
 ## Component specific information
 
