@@ -16,7 +16,7 @@ Here is a short review of the Wazo Platform 22.03 release.
   for configuration.
 
 ## Bug Fixes
-- **User export**: Fixed an exporting users issue when an associated wazo-auth
+- **User export**: Fixed a users export issue when an associated wazo-auth
   user was missing.
 
 ## Technical Features
