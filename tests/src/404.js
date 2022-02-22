@@ -16,7 +16,7 @@ function isUrlWhitelisted(url, fromUrl) {
   }
 
   // Puppeteer has trouble handling binaries, let's take a few out of the equation
-  const isBinary = url.match(/\.(odt|pdf|sh|cfg|dia)$/);
+  const isBinary = url.match(/\.(odt|pdf|sh|cfg|dia|conf)$/);
   if (isBinary) {
     return true;
   }
