@@ -192,7 +192,7 @@ Optionally, other information that can be interesting:
 
 ### Debugging Asterisk Freeze using a core dump
 
-Most of the time Asterisk has been stopped by the wazo-res-freeze-check module and a core
+Most of the time Asterisk has been stopped by the `wazo-res-freeze-check` module and a core
 file will be available in `/var/spool/asterisk`. The first step is to figure out which threads
 were blocking each other.
 
@@ -209,7 +209,7 @@ gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file 
 grep -Eo 'mutex_name=mutex_name@entry=0x[0-9a-z]+' bt-threads.txt | sort | uniq -c
 ```
 
-This will produce a list of mutex that you can then search for in the bt-threads.txt file.
+This will produce a list of mutex that you can then search for in the `bt-threads.txt` file.
 
 ```
      4 mutex_name=mutex_name@entry=0x562d24cc9cfe
@@ -230,12 +230,12 @@ This will produce a list of mutex that you can then search for in the bt-threads
 
 3. Following the locks
 
-Starting with the mutex that is being waited on the most look at one of the thread waiting on this lock.
+Starting with the mutex that is being waited on the most, look at one of the thread waiting on this lock.
 
 In this example we will start with the mutex `0x562d24d15bb4` which was being waited on by 20 threads at
 the time of the core dump.
 
-In the bt-threads.txt file search for `0x562d24d15bb4` and stop at any of the matches.
+In the `bt-threads.txt` file, search for `0x562d24d15bb4` and stop at any of the matches.
 
 ```
 Thread 175 (Thread 0x7fa186bc9700 (LWP 1680946)):
@@ -257,7 +257,8 @@ oc_ap", mutex_name=mutex_name@entry=0x562d24d15bb4 "channels", t=t@entry=0x562d2
 #19 0x00007fa1c18194cf in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
 ```
 
-Then we want to find the owner of the mutex. Using the address of the underlying `pthread_mutex_t` we can find the owner id. This is the `t` field in the second frame.
+Then we want to find the owner of the mutex. Using the address of the underlying `pthread_mutex_t`,
+we can find the owner id. This is the `t` field in the second frame.
 
 ```gdb
 gdb> p *((pthread_mutex_t *) 0x562d2713de70)
@@ -274,15 +275,17 @@ Thread 135 (Thread 0x7fa137aa0700 (LWP 1677129)):
 
 Now back to `gdb` we can move to thread 135 and repeat the same process.
 
-At a certain point you will notice a loop between the threads. All threads that are part of the loop are part of the freeze.
+At a certain point you will notice a loop between the threads. All threads that are part of the loop
+are part of the freeze.
 
 #### Other threads
 
-Some threads in Asterisk are not started from a user interaction. Once you found which threads are locked, it can be interesting to find
-out what triggered the current threads.
+Some threads in Asterisk are not started from a user interaction. Once you found which threads are
+locked, it can be interesting to find out what triggered the current threads.
 
-In this example on frame 5 we can see that we are most likely in a scheduled thread because of the name of the function `bridge_channel_ind_thread`
-searching through the code we can find the type of it's parameter and then print it using the apropriate cast to find the calling function.
+In this example on frame 5 we can see that we are most likely in a scheduled thread because of the
+name of the function `bridge_channel_ind_thread` searching through the code we can find the type of
+it's parameter and then print it using the apropriate cast to find the calling function.
 
 ```gdb
 #0  __lll_lock_wait () at ../sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:103
@@ -345,7 +348,8 @@ neno@entry=1677, func=func@entry=0x562d24ccdab0 <__PRETTY_FUNCTION__.18917> "bri
 
 #### Getting the log for this freeze
 
-Using the thread ID we can filter the full log to extract only the lines from the threads we are interested in.
+Using the thread ID we can filter the full log to extract only the lines from the threads we are
+interested in.
 
 ```shell
 grep -E '(1681007|1680934|1680912)' full
