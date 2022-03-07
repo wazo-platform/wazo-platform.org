@@ -46,7 +46,7 @@ steps to follow :
 1. Copy folder plugins/xivo-snom/8.7.3.25 to plugins/xivo-snom/8.7.3.25.5
 2. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/entry.py
 3. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/plugin-info
-4. Download new firmwares (.bin files from [snom website](http://wiki.snom.com/Firmware/V8/Patch))
+4. Download the new firmwares files (`.bin` files from [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
 5. Update VERSION number and URIs in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (with uris of
    downloaded files from snom website)
 6. Update sizes and sha1sums in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (using helper script
