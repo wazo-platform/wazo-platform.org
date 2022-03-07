@@ -5,13 +5,13 @@ title: Managing Plugins
 ## Git Repository
 
 Most plugin-related files are available in the
-[wazo-provd-plugins repository](https://github.com/wazo-platform/wazo-provd-plugins.git). Following
-examples are relative to the repository directory tree. Any modifications should be preceeded by a
-`git pull`.
+[wazo-provd-plugins repository](https://github.com/wazo-platform/wazo-provd-plugins.git). The
+following examples are relative to the repository directory tree. Any modifications should be
+preceded by a `git pull`.
 
 ## Updating a Plugin
 
-We will be using the `xivo-cisco-spai` plugins family as an example on this page
+We will be using the `xivo-cisco-spa` plugins family as an example on this page
 
 There is one directory per family. Here is the directory structure for `xivo-cisco-spa`:
 
@@ -23,7 +23,7 @@ plugins/xivo-cisco-spa/
 +-- build.py
 ```
 
-Every plugin has a folder called `common` which regroups common resources for each model. Every
+Every plugin has a folder called `common` which regroups common resources used by every model. Every
 model has its own folder with its version number.
 
 After modifying a plugin, you must increment the version number. You can modify the file
@@ -35,23 +35,23 @@ plugins/xivo-cisco-spa/
     +-- plugin-info
 ```
 
-**Note**: If ever you modify the folder `common`, you must increment the version number of all the
+**Note**: If you ever modify the `common` folder, you must increment the version number of all the
 models.
 
 ### Use Case: Update Firmwares for a given plugin
 
-Let us suppose we want to update firmwares for xivo-snom from 8.7.3.25 to 8.7.3.25 5. Here are the
+Let us suppose we want to update firmwares for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here are the
 steps to follow :
 
-1. Copy folder plugins/xivo-snom/8.7.3.25 to plugins/xivo-snom/8.7.3.25.5
-2. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/entry.py
-3. Update VERSION number in plugins/xivo-snom/8.7.3.25.5/plugin-info
+1. Copy folder `plugins/xivo-snom/8.7.3.25` to `plugins/xivo-snom/8.7.3.25.5`
+2. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/entry.py`
+3. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/plugin-info`
 4. Download the new firmwares files (`.bin` files from [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
-5. Update VERSION number and URIs in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (with uris of
-   downloaded files from snom website)
-6. Update sizes and sha1sums in plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db (using helper script
-   xivo-tools/dev-tools/check_fw)
-7. Update plugins/xivo-snom/build.py (duplicate and update section 8.7.3.25 > 8.7.3.25.5)
+5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
+   downloaded files from the Snom website)
+6. Update sizes and SHA1 checksums in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper script
+   `xivo-tools/dev-tools/check_fw`)
+7. Update `plugins/xivo-snom/build.py` (duplicate and update section `8.7.3.25` to `8.7.3.25.5`)
 
 ### Test your changes
 
@@ -149,7 +149,7 @@ make download-stable
 make download-archive
 ```
 
-Go to the `plugins/_buildi` directory and delete the plugins that are going to be updated. Note that
+Go to the `plugins/_build` directory and delete the plugins that are going to be updated. Note that
 if you are not updating a plugin but you are instead removing it "once and for all", you should
 instead move it to the archive directory:
 
