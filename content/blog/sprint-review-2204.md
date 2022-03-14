@@ -12,7 +12,7 @@ Here is a short review of the Wazo Platform 22.04 release.
 
 ## Contributions
 
-- **Fax**: We thank Milad RazbanFax and his team for submitting improvement to
+- **Fax**: We thank Milad Razban and his team for submitting improvement to
   fax API. It's now possible to send DTMF and wait time before sending a fax.
 
 ## New Features in This Release
