@@ -24,7 +24,7 @@ Here is a short review of the Wazo Platform 22.04 release.
 
 - **Asterisk**: Asterisk has been upgraded to 18.10.1. See the
   [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-16-24-1-18-10-1-19-2-1-and-16-8-cert13-now-available-security/)
-- **Provisioning**: various Yealink and Snom firmwares have been upgraded
+- **Provisioning**: Various Yealink and Snom firmwares have been upgraded
 
 ## Ongoing Features
 
