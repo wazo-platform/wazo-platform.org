@@ -13,10 +13,6 @@ on [Github](https://github.com/wazo-platform/wazo-platform.org) or to
 
 ## Commercial Products
 
--   ##### Ottspott
-    [Connect](https://ottspott.co/connect/) by [Ottspott](https://ottspott.co/) is a Chrome extension for integrating your CRM apps to your existing phone system.
-
-
 -   ##### Wazo Communication
     [Wazo Enterprise Unified Communication](https://wazo.io/enterprise-unified-communication/) is based on all the Unified Communication components from Wazo Platform with some additional components like web and mobile applications and a web management console.
     
