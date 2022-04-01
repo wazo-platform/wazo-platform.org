@@ -11,10 +11,11 @@ Hello Wazo Platform community!
 Here is a short review of the Wazo Platform 22.05 release.
 
 ## New Features in This Release
-- **Provisioning**: a new plugin for Alcatel-Lucent M3, M5 and M7 has been added.
+- **Provisioning**: A new plugin for Alcatel-Lucent M3, M5 and M7 has been added.
+- **Meetings**: Meeting owners can now allow or deny new participants to join the meeting.
 
 ## Bug Fixes
-- **Switchboards**: timeout fallback did not work when a group destination had its ring timeout set to null
+- **Switchboards**: Timeout fallback did not work when a group destination had its ring timeout set to null
 
 ## Technical Features
 - **Asterisk**: Asterisk has been upgraded to 18.11.0. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-18-11-0-now-available/)
