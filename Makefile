@@ -7,6 +7,9 @@ develop:
 format:
 	docker-compose run doc yarn format
 
+format-uc-doc:
+	docker-compose run doc yarn format:uc-doc
+
 build:
 	rm -rf public
 	docker-compose up -d doc

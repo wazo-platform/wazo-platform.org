@@ -98,10 +98,17 @@
       - name: mattermost
         secret: mattermost
 
+- job:
+    name: yarn-prettier-uc-doc
+    description: Run prettier
+    run: zuul.d/run-prettier.yaml
+
 - project:
     check:
       jobs:
         - yarn-build-copy:
+            nodeset: vm-debian-10-m1s
+        - yarn-prettier-uc-doc:
             nodeset: vm-debian-10-m1s
     gate:
       jobs:
