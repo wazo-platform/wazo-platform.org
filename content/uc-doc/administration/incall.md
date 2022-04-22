@@ -21,13 +21,13 @@ There is no interface to set a blacklist, but you can build it by hand.
 
 - You need a preprocess subroutine on the incall with the following dialplan:
 
-    ```dialplan
-    [check-blacklist]
-    exten = s,1,GotoIf(${BLACKLIST()}?blacklisted)
-    same = n,Return()
-    same = n(blacklisted),Playback(no-user-find)
-    same = n,Hangup()
-    ```
+  ```dialplan
+  [check-blacklist]
+  exten = s,1,GotoIf(${BLACKLIST()}?blacklisted)
+  same = n,Return()
+  same = n(blacklisted),Playback(no-user-find)
+  same = n,Hangup()
+  ```
 
 - Do a `dialplan reload` in the Asterisk CLI to load the new dialplan
 
@@ -35,15 +35,15 @@ You can manage the blacklist in the Asterisk CLI
 
 - To add an extension:
 
-    ```asterisk-cli
-    *CLI> database put blacklist <extension> "<description (e.g. reason)>"
-    ```
+  ```asterisk-cli
+  *CLI> database put blacklist <extension> "<description (e.g. reason)>"
+  ```
 
 - To remove an extension:
 
-    ```asterisk-cli
-    *CLI> database del blacklist <extension>
-    ```
+  ```asterisk-cli
+  *CLI> database del blacklist <extension>
+  ```
 
 ## Whitelist
 
@@ -51,13 +51,13 @@ Like blacklists, there is no interface to manage whitelists, but you can build i
 
 - You need a preprocess subroutine on the incall with the following dialplan:
 
-    ```dialplan
-    [check-whitelist]
-    exten = s,1,GotoIf(${DB_EXISTS(whitelist/${CALLERID(num)})}?whitelisted:)
-    same = n,Playback(no-user-find)
-    same = n,Hangup()
-    same = n(whitelisted),Return()
-    ```
+  ```dialplan
+  [check-whitelist]
+  exten = s,1,GotoIf(${DB_EXISTS(whitelist/${CALLERID(num)})}?whitelisted:)
+  same = n,Playback(no-user-find)
+  same = n,Hangup()
+  same = n(whitelisted),Return()
+  ```
 
 - Do a `dialplan reload` in the Asterisk CLI to load the new dialplan
 
@@ -65,12 +65,12 @@ You can manage the whitelist in the Asterisk CLI
 
 - To add an extension:
 
-    ```asterisk-cli
-    *CLI> database put whitelist <extension> "<description (e.g. reason)>"
-    ```
+  ```asterisk-cli
+  *CLI> database put whitelist <extension> "<description (e.g. reason)>"
+  ```
 
 - To remove an extension:
 
-    ```asterisk-cli
-    *CLI> database del whitelist <extension>
-    ```
+  ```asterisk-cli
+  *CLI> database del whitelist <extension>
+  ```

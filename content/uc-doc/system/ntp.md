@@ -43,18 +43,18 @@ ntpq -p
 1. Edit `/etc/ntp.conf`
 2. Give your NTP reference servers:
 
-    ```ascii
-    server 192.168.0.1                           # LAN existing NTP Server
-    server 0.debian.pool.ntp.org iburst dynamic  # default in ntp.conf
-    server 1.debian.pool.ntp.org iburst dynamic  # default in ntp.conf
-    ```
+   ```ascii
+   server 192.168.0.1                           # LAN existing NTP Server
+   server 0.debian.pool.ntp.org iburst dynamic  # default in ntp.conf
+   server 1.debian.pool.ntp.org iburst dynamic  # default in ntp.conf
+   ```
 
 3. If no reference server to synchronize to, add this to synchronize locally:
 
-    ```ascii
-    server 127.127.1.0              # local clock (LCL)
-    fudge 127.127.1.0 stratum 10    # LCL is not very reliable
-    ```
+   ```ascii
+   server 127.127.1.0              # local clock (LCL)
+   fudge 127.127.1.0 stratum 10    # LCL is not very reliable
+   ```
 
 4. Restart NTP service
 5. Check NTP synchronization status.

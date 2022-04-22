@@ -41,10 +41,10 @@ This will upgrade your Wazo to 19.12. From there:
 1. Read the [upgrade notes](/uc-doc/upgrade/upgrade_notes)
 2. Upgrade to Wazo 19.13:
 
-    ```shell
-    wazo-dist-upgrade -t wazo-19.13
-    wazo-dist -m pelican-buster
-    ```
+   ```shell
+   wazo-dist-upgrade -t wazo-19.13
+   wazo-dist -m pelican-buster
+   ```
 
 # My Wazo is stuck in a specific version
 

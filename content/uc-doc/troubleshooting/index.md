@@ -45,36 +45,36 @@ Be aware that this workaround will probably not survive any upgrade.
 1. Add new file `/etc/asterisk/extensions_extra.d/fax-detection.conf` containing the following
    dialplan:
 
-    ```ini
-    ;; Fax Detection
-    [pre-user-global-faxdetection]
-    exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
-    same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
-    same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
-    same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
-    same  =   n,Answer()
-    same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
-    same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
-    same  =   n(return),Return()
+   ```ini
+   ;; Fax Detection
+   [pre-user-global-faxdetection]
+   exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
+   same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
+   same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
+   same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
+   same  =   n,Answer()
+   same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
+   same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
+   same  =   n(return),Return()
 
-    exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-    same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
-    same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
-    same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
-    ```
+   exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
+   same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
+   same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
+   same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+   ```
 
 2. In the file `/etc/xivo/asterisk/xivo_globals.conf` set the global user subroutine to
    `pre-user-global-faxdetection` : this subroutine will be executed each time a user is called:
 
-    ```shell
-    XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
-    ```
+   ```shell
+   XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
+   ```
 
 3. Reload asterisk configuration (both for dialplan and dahdi):
 
-    ```shell
-    asterisk -rx 'core reload'
-    ```
+   ```shell
+   asterisk -rx 'core reload'
+   ```
 
 ## Berofos Integration with PBX {#berofos-integration-with-pbx}
 
@@ -118,54 +118,54 @@ The following describes how to configure your Wazo and your Berofos.
    page.
 2. When done, apply these specific parameters to the berofos:
 
-    ```shell
-    bnfos --set scenario=1   -h 10.105.2.26 -u admin:berofos
-    bnfos --set mode=1       -h 10.105.2.26 -u admin:berofos
-    bnfos --set modedef=1    -h 10.105.2.26 -u admin:berofos
-    bnfos --set wdog=1       -h 10.105.2.26 -u admin:berofos
-    bnfos --set wdogdef=1    -h 10.105.2.26 -u admin:berofos
-    bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
-    ```
+   ```shell
+   bnfos --set scenario=1   -h 10.105.2.26 -u admin:berofos
+   bnfos --set mode=1       -h 10.105.2.26 -u admin:berofos
+   bnfos --set modedef=1    -h 10.105.2.26 -u admin:berofos
+   bnfos --set wdog=1       -h 10.105.2.26 -u admin:berofos
+   bnfos --set wdogdef=1    -h 10.105.2.26 -u admin:berofos
+   bnfos --set wdogitime=60 -h 10.105.2.26 -u admin:berofos
+   ```
 
 3. Add the following script `/usr/local/sbin/berofos-workaround`:
 
-    ```shell
-    #!/bin/bash
-    # Script workaround for berofos integration with a Wazo in front of PABX
+   ```shell
+   #!/bin/bash
+   # Script workaround for berofos integration with a Wazo in front of PABX
 
-    res=$(/usr/sbin/service asterisk status)
-    does_ast_run=$?
-    if [ $does_ast_run -eq 0 ]; then
-        /usr/bin/logger "$0 - Asterisk is running"
-        # If asterisk is running, we (re)enable wdog and (re)set the mode
-        /usr/bin/bnfos --set mode=1 -f fos1 -s
-        /usr/bin/bnfos --set modedef=1 -f fos1 -s
-        /usr/bin/bnfos --set wdog=1 -f fos1 -s
+   res=$(/usr/sbin/service asterisk status)
+   does_ast_run=$?
+   if [ $does_ast_run -eq 0 ]; then
+       /usr/bin/logger "$0 - Asterisk is running"
+       # If asterisk is running, we (re)enable wdog and (re)set the mode
+       /usr/bin/bnfos --set mode=1 -f fos1 -s
+       /usr/bin/bnfos --set modedef=1 -f fos1 -s
+       /usr/bin/bnfos --set wdog=1 -f fos1 -s
 
-        # Now 'kick' berofos ten times each 5 seconds
-        for ((i == 1; i <= 10; i += 1)); do
-            /usr/bin/bnfos --kick -f fos1 -s
-            /bin/sleep 5
-        done
-    else
-        /usr/bin/logger "$0 - Asterisk is not running"
-    fi
-    ```
+       # Now 'kick' berofos ten times each 5 seconds
+       for ((i == 1; i <= 10; i += 1)); do
+           /usr/bin/bnfos --kick -f fos1 -s
+           /bin/sleep 5
+       done
+   else
+       /usr/bin/logger "$0 - Asterisk is not running"
+   fi
+   ```
 
 4. Add execution rights to script:
 
-    ```shell
-    chmod +x /usr/local/sbin/berofos-workaround
-    ```
+   ```shell
+   chmod +x /usr/local/sbin/berofos-workaround
+   ```
 
 5. Create a cron to launch the script every minutes `/etc/cron.d/berofos-cron-workaround`:
 
-    ```shell
-    # Workaround to berofos integration
-    MAILTO=""
+   ```shell
+   # Workaround to berofos integration
+   MAILTO=""
 
-    */1 * * * * root /usr/local/sbin/berofos-workaround
-    ```
+   */1 * * * * root /usr/local/sbin/berofos-workaround
+   ```
 
 ## Agents receiving two ACD calls
 
@@ -394,29 +394,29 @@ unzip ngrok-stable-linux-amd64.zip
 
 - Add your ngrok token (given when you signed up on [ngrok](https://dashboard.ngrok.com/signup))
 
-    ```shell
-    ./ngrok authtoken <YOUR AUTH TOKEN>
-    ```
+  ```shell
+  ./ngrok authtoken <YOUR AUTH TOKEN>
+  ```
 
 - Add SSH and HTTPS access in your _ngrok_ config
 
-    ```shell
-    $ cat << EOF >> ~/.ngrok2/ngrok.yml
-    tunnels:
-      webi:
-        addr: 443
-        proto: tcp
-      ssh:
-        addr: 22
-        proto: tcp
-    EOF
-    ```
+  ```shell
+  $ cat << EOF >> ~/.ngrok2/ngrok.yml
+  tunnels:
+    webi:
+      addr: 443
+      proto: tcp
+    ssh:
+      addr: 22
+      proto: tcp
+  EOF
+  ```
 
 - Start _ngrok_
 
-    ```shell
-    ./ngrok start --all
-    ```
+  ```shell
+  ./ngrok start --all
+  ```
 
 The output will show the public URL and ports that are now available to access you server. For
 example:

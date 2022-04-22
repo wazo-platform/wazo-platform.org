@@ -87,9 +87,9 @@ The sequence will look like:
 
 1. Once they are done, Alice can delete the Meeting:
 
-  ```http
-  DELETE https://wazo.example.com/api/confd/1.1/users/me/meetings/21142baa-4318-4d80-a93f-c403a47192b5
-  ```
+   ```http
+   DELETE https://wazo.example.com/api/confd/1.1/users/me/meetings/21142baa-4318-4d80-a93f-c403a47192b5
+   ```
 
 ## Other scenarios
 

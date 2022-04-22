@@ -50,15 +50,15 @@ To accept the CallerID sent via all SIP trunks, modify the `global` SIP template
 
 - `PUT /endpoints/sip/templates/<global_template_uuid>`
 
-    ```json
-    {
-      ...
-      "endpoint_section_options": [
-        ["trust_id_inbound", "yes"],
-      ],
-      ...
-    }
-    ```
+  ```json
+  {
+    ...
+    "endpoint_section_options": [
+      ["trust_id_inbound", "yes"],
+    ],
+    ...
+  }
+  ```
 
 This option may also be enabled on specific SIP trunks, instead of globally.
 
