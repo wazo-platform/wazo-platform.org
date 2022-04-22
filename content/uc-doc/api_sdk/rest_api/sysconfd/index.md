@@ -2,14 +2,12 @@
 title: wazo-sysconfd REST API
 ---
 
-This service provides a public API that can be used to change the
-configuration that are on a Wazo.
+This service provides a public API that can be used to change the configuration that are on a Wazo.
 
-#:warning: The 0.1 API is currently in development. Major changes could still
-happen and new resources will be added over time.
+**Warning** The 0.1 API is currently in development. Major changes could still happen and new
+resources will be added over time.
 
-API reference
-=============
+## API reference
 
 - [asterisk voicemail](/uc-doc/api_sdk/rest_api/sysconfd/asterisk_voicemail)
 - [common configuration](/uc-doc/api_sdk/rest_api/sysconfd/common_configuration)
