@@ -51,8 +51,8 @@ Add two files `/etc/systemd/system/wazo-auth.service.d/proxy.conf` and
 ```ini
 [Service]
 # replace proxy.example.com with your proxy host and 8000 with your proxy port
-Environment=HTTP_PROXY=http://proxy.example.com:8000  
-Environment=HTTPS_PROXY=https://proxy.example.com:8000  
+Environment=HTTP_PROXY=http://proxy.example.com:8000
+Environment=HTTPS_PROXY=https://proxy.example.com:8000
 Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
 ```
 
@@ -72,8 +72,8 @@ Add a file `/etc/systemd/system/wazo-plugind.service.d/proxy.conf`:
 ```ini
 [Service]
 # replace proxy.example.com with your proxy host and 8000 with your proxy port
-Environment=HTTP_PROXY=http://proxy.example.com:8000  
-Environment=HTTPS_PROXY=https://proxy.example.com:8000  
+Environment=HTTP_PROXY=http://proxy.example.com:8000
+Environment=HTTPS_PROXY=https://proxy.example.com:8000
 Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
 ```
 
@@ -93,8 +93,8 @@ Add a file `/etc/systemd/system/wazo-setupd.service.d/proxy.conf`:
 ```ini
 [Service]
 # replace proxy.example.com with your proxy host and 8000 with your proxy port
-Environment=HTTP_PROXY=http://proxy.example.com:8000  
-Environment=HTTPS_PROXY=https://proxy.example.com:8000  
+Environment=HTTP_PROXY=http://proxy.example.com:8000
+Environment=HTTPS_PROXY=https://proxy.example.com:8000
 Environment=NO_PROXY=localhost,127.0.0.1,127.0.1.1
 ```
 

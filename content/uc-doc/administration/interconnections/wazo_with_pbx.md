@@ -81,8 +81,7 @@ echocanceller=mg2,94-108,110-124
 
 ### dahdi-channels.conf
 
-In the file `/etc/asterisk/dahdi-channels.conf` you need to adjust,
-for each span :
+In the file `/etc/asterisk/dahdi-channels.conf` you need to adjust, for each span :
 
 - `group` : the group number (e.g. `0` for provider links, `2` for PBX links),
 - `context` : the context (e.g. `from-extern` for provider links, `from-pabx` for PBX links)

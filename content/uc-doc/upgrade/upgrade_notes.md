@@ -6,7 +6,7 @@ title: Upgrade notes
 
 Consult the
 [22.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.06)
-for more information. 
+for more information.
 
 ## 22.05 {#22-05}
 
@@ -41,20 +41,21 @@ for more information.
 ## 21.16 {#21-16}
 
 - Throttling was added in the nginx configuration of the following routes:
+
   - `/api/auth/0.1/backends`
   - `/api/auth/0.1/status`
   - `/api/confd/1.1/guests/me/meetings/<meeting_uuid>`
   - `/api/confd/1.1/wizard`
 
-  The request rate is limited at 25 requests per second, with an allowed burst of 15 requests.
-  If you have any nginx custom configuration (e.g. using certbot), you will be asked a question
-  about the `/etc/nginx/sites-available/wazo` configuration file during the upgrade. You *must*
-  accept the maintainer version, then reapply your custom configuration, which is saved in
+  The request rate is limited at 25 requests per second, with an allowed burst of 15 requests. If
+  you have any nginx custom configuration (e.g. using certbot), you will be asked a question about
+  the `/etc/nginx/sites-available/wazo` configuration file during the upgrade. You _must_ accept the
+  maintainer version, then reapply your custom configuration, which is saved in
   `/etc/nginx/sites-available/wazo.dpkg-old`.
 
 - If you installed Wazo Platform before 21.01, you will have an error about an invalid signature.
-  See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature-before-2201-only)
-  section for the fix.
+  See the [troubleshooting](/uc-doc/upgrade/introduction#invalid-signature-before-2201-only) section
+  for the fix.
 
 Consult the
 [21.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.16)
@@ -94,9 +95,16 @@ for more information.
 
 - All Snom, Yealink and Aastra / Mitel phone plugins now use by default the following preferred
   codecs: G711A, G711U, G722 and G729. Other codecs are disabled by default. Administrators wanting
-  to use other codecs must define them in [custom templates](/documentation/overview/provisioning-admin.html).
+  to use other codecs must define them in
+  [custom templates](/documentation/overview/provisioning-admin.html).
 
-- The `wazo-dird` Google backend has migrated from using the deprecated Contacts API to the People API. To make valid requests, the Google Cloud application must have either the `https://www.googleapis.com/auth/contacts` or the `https://www.googleapis.com/auth/contacts.readonly` [permissions](https://developers.google.com/people/contacts-api-migration#read). Also, the Google Cloud application must enable the People API instead of the Contacts API; [here's how to do that](https://support.google.com/googleapi/answer/6158841?hl=en).
+- The `wazo-dird` Google backend has migrated from using the deprecated Contacts API to the People
+  API. To make valid requests, the Google Cloud application must have either the
+  `https://www.googleapis.com/auth/contacts` or the
+  `https://www.googleapis.com/auth/contacts.readonly`
+  [permissions](https://developers.google.com/people/contacts-api-migration#read). Also, the Google
+  Cloud application must enable the People API instead of the Contacts API;
+  [here's how to do that](https://support.google.com/googleapi/answer/6158841?hl=en).
 
 Consult the
 [21.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.10)
@@ -104,8 +112,9 @@ for more information.
 
 ## 21.09 {#21-09}
 
-- You are now required to have the same access you are attempting to assign to another resource (i.e. users/groups).
-  Following this logic, admin now have access to all resources in their tenant by default.
+- You are now required to have the same access you are attempting to assign to another resource
+  (i.e. users/groups). Following this logic, admin now have access to all resources in their tenant
+  by default.
 
 Consult the
 [21.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.09)

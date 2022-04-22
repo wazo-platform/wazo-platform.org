@@ -130,8 +130,8 @@ to create a template named `00085D2EECFB.cfg.tpl`:
     vi var/templates/00085D2EECFB.cfg.tpl
     wazo-provd-cli -c 'devices.using_mac("00085D2EECFB").reconfigure()'
 
-**Note**: The choice to use this syntax comes from the fact that `provd` supports devices that
-do not have MAC addresses, namely softphones.
+**Note**: The choice to use this syntax comes from the fact that `provd` supports devices that do
+not have MAC addresses, namely softphones.
 
 Also, some devices have more than one file (like Snom), so this way make it possible to customize
 more than 1 file.
@@ -220,9 +220,9 @@ By design, the auto-provisioning process is vulnerable to:
   could spoof requests to the provisioning server to create a huge amount of devices, creating a
   denial-of-service condition.
 
-That said, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the
-provisioning server to drastically lower the likelihood of such attacks. Every time a request for a
-file potentially containing sensitive information is requested, a log line is appended to the
+That said, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the provisioning server to
+drastically lower the likelihood of such attacks. Every time a request for a file potentially
+containing sensitive information is requested, a log line is appended to the
 `/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing happens when
 a new device is automatically created by the provisioning server.
 

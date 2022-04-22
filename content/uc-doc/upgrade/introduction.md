@@ -47,7 +47,8 @@ There are 2 options you can pass to wazo-upgrade:
 
 ### Upgrading from Wazo 18.03 only
 
-When upgrading from Wazo 18.03, you should follow the specific procedure for [Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18_03).
+When upgrading from Wazo 18.03, you should follow the specific procedure for
+[Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18_03).
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 
@@ -98,15 +99,16 @@ See our recommendation on
 You may encounter the following error:
 
 ```
-The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com> 
+The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com>
 ```
 
-This error happens on all Wazo Platform servers installed before 21.01. See also: the [issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
+This error happens on all Wazo Platform servers installed before 21.01. See also: the
+[issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
 
 To fix the issue, run the following commands:
 
 ```
-curl http://mirror.wazo.community/wazo_current.key | apt-key add - 
+curl http://mirror.wazo.community/wazo_current.key | apt-key add -
 curl http://mirror.wazo.community/wazo_current.key | apt-key --keyring /etc/apt/trusted.gpg.d/wazo-keyring.gpg add -
 wazo-upgrade
 ```

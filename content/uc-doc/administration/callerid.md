@@ -74,8 +74,7 @@ for details.
 
 ### Incoming Call CallerID
 
-The Incoming Call's `caller_id_mode` can prepend, append or overwrite the incoming
-CallerID.
+The Incoming Call's `caller_id_mode` can prepend, append or overwrite the incoming CallerID.
 
 ### Reverse Lookup
 

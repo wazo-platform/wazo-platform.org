@@ -392,8 +392,7 @@ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 unzip ngrok-stable-linux-amd64.zip
 ```
 
-- Add your ngrok token (given when you signed up on
-  [ngrok](https://dashboard.ngrok.com/signup))
+- Add your ngrok token (given when you signed up on [ngrok](https://dashboard.ngrok.com/signup))
 
     ```shell
     ./ngrok authtoken <YOUR AUTH TOKEN>
@@ -483,10 +482,8 @@ AGI Debugging Disabled
 Captured files have been stored in /tmp/wazo-debug-capture.tar.gz
 ```
 
-
 **Warning**: Be careful before sending the logs in a public place: they may contain sensitive
 information, that can be used to connect to your Wazo Platform.
-
 
 ## Asterisk crash
 

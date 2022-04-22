@@ -19,8 +19,8 @@ direct_media: yes
 You may also set this option on the tenant PJSIP template `global` to apply this to all phones of a
 tenant.
 
-**Note**: To configure direct media on SCCP, see [SCCP Direct
-Media](uc-doc/administration/sccp/#direct-media)
+**Note**: To configure direct media on SCCP, see
+[SCCP Direct Media](uc-doc/administration/sccp/#direct-media)
 
 ## Limitations
 

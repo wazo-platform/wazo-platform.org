@@ -29,10 +29,11 @@ Save the form, and store the login/password somewhere for later use.
 
 ## API console
 
-In this article, we will use `API console` built on Swagger UI: https://wazo-platform.org/documentation
+In this article, we will use `API console` built on Swagger UI:
+https://wazo-platform.org/documentation
 
-Choose a service and click on `API console` to explore API.
-In the top-left, fill the field with your Wazo hostname: `https://<YOUR_WAZO_IP>`
+Choose a service and click on `API console` to explore API. In the top-left, fill the field with
+your Wazo hostname: `https://<YOUR_WAZO_IP>`
 
 **Note**: No data will be sent to a third party. All requests are done directly to your server.
 
@@ -72,7 +73,8 @@ Now that we have access to REST API specifications, we can use them:
 
 1. Go to [Configuration - API Console](/documentation/console/configuration)
 2. In the top-left field, enter your stack hostname (ex: `https://mystack.example`)
-3. In the top-right field, enter your `username:password`  and click to `validate` to obtain a temporary token
+3. In the top-right field, enter your `username:password` and click to `validate` to obtain a
+   temporary token
 4. Choose a REST API endpoint, like `users -> GET /users` and click `Try it out`
 
 And that's it, you are ready to use any REST API with your authentication token.

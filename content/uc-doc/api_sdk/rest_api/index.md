@@ -2,8 +2,7 @@
 title: REST API
 ---
 
-The Wazo REST APIs are the privileged way to programmatically interact
-with Wazo.
+The Wazo REST APIs are the privileged way to programmatically interact with Wazo.
 
 - [quickstart](/uc-doc/api_sdk/rest_api/quickstart)
 - [examples](/uc-doc/api_sdk/rest_api/examples)

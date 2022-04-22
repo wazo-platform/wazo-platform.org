@@ -29,12 +29,11 @@ you'll get it somehow wrong.
 - Create with `POST /callpermissions`
 - Associate with `PUT /users/{user_uuid}/callpermissions/{callpermission_id}`
 
-**Note**: User's `call_permission_password` overwrite all call permissions password for the
-user.
+**Note**: User's `call_permission_password` overwrite all call permissions password for the user.
 
-**Warning**: The extension can be anything but it will only work if it's the extension of a user or an
-extension that pass through an outgoing call. It does _not_ work, for example, if the extension is
-the number of a conference room.
+**Warning**: The extension can be anything but it will only work if it's the extension of a user or
+an extension that pass through an outgoing call. It does _not_ work, for example, if the extension
+is the number of a conference room.
 
 ### Denying a user of a group from calling a specific extension
 
