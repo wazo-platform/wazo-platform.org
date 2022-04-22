@@ -2,7 +2,9 @@
 title: NAT traversal
 ---
 
-[comment]: # 'Asterisk doc: https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT'
+[comment]:
+  #
+  'Asterisk doc: https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT'
 
 ## What is NAT?
 
