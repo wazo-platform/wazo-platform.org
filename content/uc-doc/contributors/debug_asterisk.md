@@ -192,9 +192,9 @@ Optionally, other information that can be interesting:
 
 ### Debugging Asterisk Freeze using a core dump
 
-Most of the time Asterisk has been stopped by the `wazo-res-freeze-check` module and a core
-file will be available in `/var/spool/asterisk`. The first step is to figure out which threads
-were blocking each other.
+Most of the time Asterisk has been stopped by the `wazo-res-freeze-check` module and a core file
+will be available in `/var/spool/asterisk`. The first step is to figure out which threads were
+blocking each other.
 
 #### Finding the culprits
 
@@ -205,6 +205,7 @@ gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file 
 ```
 
 2. Find mutexes being waited on
+
 ```shell
 grep -Eo 'mutex_name=mutex_name@entry=0x[0-9a-z]+' bt-threads.txt | sort | uniq -c
 ```
@@ -230,10 +231,11 @@ This will produce a list of mutex that you can then search for in the `bt-thread
 
 3. Following the locks
 
-Starting with the mutex that is being waited on the most, look at one of the thread waiting on this lock.
+Starting with the mutex that is being waited on the most, look at one of the thread waiting on this
+lock.
 
-In this example we will start with the mutex `0x562d24d15bb4` which was being waited on by 20 threads at
-the time of the core dump.
+In this example we will start with the mutex `0x562d24d15bb4` which was being waited on by 20
+threads at the time of the core dump.
 
 In the `bt-threads.txt` file, search for `0x562d24d15bb4` and stop at any of the matches.
 
@@ -268,7 +270,7 @@ $1 = pthread_mutex_t = {Type = Recursive, Status = Acquired, possibly with waite
 Now back to the `bt-threads.txt` we can search for `1677129` the owner of the `pthread_mutex_t`
 
 ```sh
-% grep '1677129' bt-threads.txt 
+% grep '1677129' bt-threads.txt
 [New LWP 1677129]
 Thread 135 (Thread 0x7fa137aa0700 (LWP 1677129)):
 ```
@@ -291,13 +293,13 @@ it's parameter and then print it using the apropriate cast to find the calling f
 #0  __lll_lock_wait () at ../sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:103
 #1  0x00007f1bedfd87d1 in __GI___pthread_mutex_lock (mutex=mutex@entry=0x7f1bd48616b0)
     at ../nptl/pthread_mutex_lock.c:115
-#2  0x000056105271b298 in __ast_pthread_mutex_lock (filename=filename@entry=0x56105285aff9 "bridge_channel.c", 
-    lineno=lineno@entry=2885, 
-    func=func@entry=0x56105285c0f0 <__PRETTY_FUNCTION__.19010> "bridge_channel_internal_join", 
+#2  0x000056105271b298 in __ast_pthread_mutex_lock (filename=filename@entry=0x56105285aff9 "bridge_channel.c",
+    lineno=lineno@entry=2885,
+    func=func@entry=0x56105285c0f0 <__PRETTY_FUNCTION__.19010> "bridge_channel_internal_join",
     mutex_name=mutex_name@entry=0x561052870b51 "peer", t=t@entry=0x7f1bd48616b0) at lock.c:326
-#3  0x00005610526715da in __ao2_lock (user_data=user_data@entry=0x7f1bd48616f0, 
-    lock_how=lock_how@entry=AO2_LOCK_REQ_MUTEX, file=file@entry=0x56105285aff9 "bridge_channel.c", 
-    func=func@entry=0x56105285c0f0 <__PRETTY_FUNCTION__.19010> "bridge_channel_internal_join", 
+#3  0x00005610526715da in __ao2_lock (user_data=user_data@entry=0x7f1bd48616f0,
+    lock_how=lock_how@entry=AO2_LOCK_REQ_MUTEX, file=file@entry=0x56105285aff9 "bridge_channel.c",
+    func=func@entry=0x56105285c0f0 <__PRETTY_FUNCTION__.19010> "bridge_channel_internal_join",
     line=line@entry=2885, var=var@entry=0x561052870b51 "peer") at astobj2.c:241
 #4  0x000056105269a251 in bridge_channel_internal_join (bridge_channel=bridge_channel@entry=0x7f1bd4694f90)
     at bridge_channel.c:2885

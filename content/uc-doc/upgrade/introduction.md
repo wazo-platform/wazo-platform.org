@@ -47,7 +47,8 @@ There are 2 options you can pass to wazo-upgrade:
 
 ### Upgrading from Wazo 18.03 only
 
-When upgrading from Wazo 18.03, you should follow the specific procedure for [Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18_03).
+When upgrading from Wazo 18.03, you should follow the specific procedure for
+[Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18_03).
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 
@@ -60,21 +61,21 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
    `/etc/cron.d/xivo-ha-slave`
 3. On the slave, start the upgrade:
 
-    ```shell
-    wazo-slave:~$ wazo-upgrade
-    ```
+   ```shell
+   wazo-slave:~$ wazo-upgrade
+   ```
 
 4. When the slave has finished, start the upgrade on the master:
 
-    ```shell
-    wazo-master:~$ wazo-upgrade
-    ```
+   ```shell
+   wazo-master:~$ wazo-upgrade
+   ```
 
 5. When done, launch the database replication manually:
 
-    ```shell
-    wazo-master:~$ xivo-master-slave-db-replication <slave ip>
-    ```
+   ```shell
+   wazo-master:~$ xivo-master-slave-db-replication <slave ip>
+   ```
 
 6. Reactivate the cronjobs (see steps 1 and 2)
 
@@ -98,15 +99,16 @@ See our recommendation on
 You may encounter the following error:
 
 ```
-The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com> 
+The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com>
 ```
 
-This error happens on all Wazo Platform servers installed before 21.01. See also: the [issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
+This error happens on all Wazo Platform servers installed before 21.01. See also: the
+[issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
 
 To fix the issue, run the following commands:
 
 ```
-curl http://mirror.wazo.community/wazo_current.key | apt-key add - 
+curl http://mirror.wazo.community/wazo_current.key | apt-key add -
 curl http://mirror.wazo.community/wazo_current.key | apt-key --keyring /etc/apt/trusted.gpg.d/wazo-keyring.gpg add -
 wazo-upgrade
 ```

@@ -32,7 +32,7 @@ There are 3 substitution values for an ACL.
 
 The ACL `confd.users.me.#.read` will have access to the following REST resources:
 
-```markdown
+```
 GET /users/{user_id}/cti
 GET /users/{user_id}/funckeys
 GET /users/{user_id}/funckeys/{position}
@@ -48,7 +48,7 @@ GET /users/{user_id}/voicemail
 
 The ACL `confd.users.me.funckeys.*.*` will have access to the following REST resources:
 
-```markdown
+```
 DELETE /users/{user_id}funckeys/{position}
 GET /users/{user_id}funckeys/{position}
 PUT /users/{user_id}funckeys/{position}

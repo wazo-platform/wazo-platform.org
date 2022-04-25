@@ -172,25 +172,25 @@ title: Archived Upgrade Notes
   `allow_headers` will have to be updated to the new syntax. The following command can be used to
   see if you have a configuration file which needs to be updated.
 
-    ```shell
-    for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
-    ```
+  ```shell
+  for f in $(find /etc/*/conf.d -name '*.yml'); do grep -H allow_headers $f; done
+  ```
 
   The old config in `/etc/xivo-*/conf.d` looked like:
 
-    ```yaml
-    rest_api:
-      cors:
-        allow_headers: Content-Type, X-Auth-Token
-    ```
+  ```yaml
+  rest_api:
+    cors:
+      allow_headers: Content-Type, X-Auth-Token
+  ```
 
   The new config in `/etc/xivo-*/conf.d` looks like:
 
-    ```yaml
-    rest_api:
-      cors:
-        allow_headers: ['Content-Type', 'X-Auth-Token']
-    ```
+  ```yaml
+  rest_api:
+    cors:
+      allow_headers: ['Content-Type', 'X-Auth-Token']
+  ```
 
 ### 17.04
 

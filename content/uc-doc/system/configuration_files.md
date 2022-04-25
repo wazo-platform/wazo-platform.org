@@ -126,47 +126,47 @@ Here is the process you should follow if you want to use/customize this feature 
 
 1. Create a new profile, e.g.:
 
-    ```ini
-    [myprofile-aastra]
-    ```
+   ```ini
+   [myprofile-aastra]
+   ```
 
 2. Change the `phonetype` accordingly, in our example:
 
-    ```ini
-    [myprofile-aastra]
-    phonetype = aastra
-    ```
+   ```ini
+   [myprofile-aastra]
+   phonetype = aastra
+   ```
 
 3. Chose the ringtone for the different type of calls (note that the ringtone names are
    brand-specific):
 
-    ```ini
-    [myprofile-aastra]
-    phonetype = aastra
-    intern = <Bellcore-dr1>
-    group = <Bellcore-dr2>
-    ```
+   ```ini
+   [myprofile-aastra]
+   phonetype = aastra
+   intern = <Bellcore-dr1>
+   group = <Bellcore-dr2>
+   ```
 
 4. Apply your profile, in the section `[number]`
 
    - to a given list of extensions (e.g. 1001 and 1002):
 
-       ```ini
-       1001@default = myprofile-aastra
-       1002@default = myprofile-aastra
-       ```
+     ```ini
+     1001@default = myprofile-aastra
+     1002@default = myprofile-aastra
+     ```
 
    - or to a whole context (e.g. default):
 
-       ```ini
-       @default = myprofile-aastra
-       ```
+     ```ini
+     @default = myprofile-aastra
+     ```
 
 5. Restart `wazo-agid` service:
 
-    ```shell
-    service wazo-agid restart
-    ```
+   ```shell
+   service wazo-agid restart
+   ```
 
 ## Asterisk configuration files {#asterisk-configuration}
 
@@ -206,27 +206,27 @@ configuration.
 
 1. Enable `res_cli_aliases.so` in the `wazo-confgend` configuration:
 
-    ```shell
-    cat <<EOF > /etc/wazo-confgend/conf.d/res_cli_aliases.yml
-    enabled_asterisk_modules:
-        res_cli_aliases.so: true
-    EOF
-    ```
+   ```shell
+   cat <<EOF > /etc/wazo-confgend/conf.d/res_cli_aliases.yml
+   enabled_asterisk_modules:
+       res_cli_aliases.so: true
+   EOF
+   ```
 
 2. Restart `wazo-confgend`:
 
-    ```shell
-    systemctl restart wazo-confgend
-    ```
+   ```shell
+   systemctl restart wazo-confgend
+   ```
 
 3. Check that your changes work by looking at the generated `modules.conf`:
 
-    ```shell
-    wazo-confgen asterisk/modules.conf
-    ```
+   ```shell
+   wazo-confgen asterisk/modules.conf
+   ```
 
 4. Restart Asterisk:
 
-    ```shell
-    systemctl restart asterisk
-    ```
+   ```shell
+   systemctl restart asterisk
+   ```

@@ -13,9 +13,8 @@ moment.
 
 Backend name: `ldap_user`
 
-Purpose: Authenticate with an LDAP user. In this case, the LDAP server is used to authenticate
-while wazo-auth is used to identify. This means that an LDAP user must match a user present in
-wazo-auth.
+Purpose: Authenticate with an LDAP user. In this case, the LDAP server is used to authenticate while
+wazo-auth is used to identify. This means that an LDAP user must match a user present in wazo-auth.
 
 The LDAP backend is configured for each tenant through a
 [wazo-auth REST API endpoint](/documentation/api/authentication.html#operation/updateLDAPBackendConfig).
@@ -52,7 +51,6 @@ When an authentication request is received for username `alice`, password `userp
    `mail` attribute of the LDAP user
 7. If a wazo-auth user is found, success
 
-
 ### No service bind authentication flow
 
 The backend can also work in a "no search" mode, for example with the following configuration:
@@ -71,9 +69,9 @@ The backend can also work in a "no search" mode, for example with the following 
 }
 ```
 
-When the server receives the same authentication request as the service bind authentication flow,
-it will fetch the LDAP configuration for the tenant and directly do an LDAP "bind" operation using
-the DN `uid=alice,ou=people,dc=example,dc=org` and password `userpass`. The flow then continues at
+When the server receives the same authentication request as the service bind authentication flow, it
+will fetch the LDAP configuration for the tenant and directly do an LDAP "bind" operation using the
+DN `uid=alice,ou=people,dc=example,dc=org` and password `userpass`. The flow then continues at
 step 6.
 
 **Note**: User's email and voicemail's email are two separate things. This plugin only use the
@@ -81,17 +79,17 @@ user's email.
 
 ### Search filters
 
-In the LDAP configuration API, you may have noticed a field named `search_filters`. This field
-is only useful when using the [service bind authentication flow](#service-bind-authentication-flow).
+In the LDAP configuration API, you may have noticed a field named `search_filters`. This field is
+only useful when using the [service bind authentication flow](#service-bind-authentication-flow).
 
 The default filter is `{user_login_attribute}={username}`. This allows a simple search that matches
 the `user_login_attribute` defined in the tenant's LDAP configuration. `username` comes from the
-authentication request. In the example above, the search filter variables would be substituted as such:
-`uid=alice`.
+authentication request. In the example above, the search filter variables would be substituted as
+such: `uid=alice`.
 
-**It is important that the search filter allows for only _one_ result**, otherwise
-wazo-auth will return a 401. It this thus fair to say that the `{user_login_attribute}={username}`
-filter should always be in the filter and that any filter must be built upon it.
+**It is important that the search filter allows for only _one_ result**, otherwise wazo-auth will
+return a 401. It this thus fair to say that the `{user_login_attribute}={username}` filter should
+always be in the filter and that any filter must be built upon it.
 
 Of course, using more complex filters is possible and that is exactly why this feature exists. For
 example, you may want to limit what kind of person can log in to wazo-auth. In our example, consider

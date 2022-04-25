@@ -2,16 +2,16 @@
 title: Generate your own prompts
 ---
 
-If you want your Wazo to speak in your language that is not supported by Wazo, and you don't want
-to record the whole package of sounds in a studio, you may generate them yourself with some
+If you want your Wazo to speak in your language that is not supported by Wazo, and you don't want to
+record the whole package of sounds in a studio, you may generate them yourself with some
 text-to-speech services.
 
 The following procedure will generate prompts for `pt_BR` (portuguese from Brazil) based on the
 Google TTS service.
 
-**Note**: There are two sets of prompts: the
-[Asterisk prompts](http://www.asterisksounds.org/en) and the Wazo prompts. This procedure only
-covers the Wazo prompts, but it may be adapted for Asterisk prompts.
+**Note**: There are two sets of prompts: the [Asterisk prompts](http://www.asterisksounds.org/en)
+and the Wazo prompts. This procedure only covers the Wazo prompts, but it may be adapted for
+Asterisk prompts.
 
 1.  Create an account on Transifex and join the team of translation of Wazo.
 2.  Translate the prompts in the wazo-prompt resource.

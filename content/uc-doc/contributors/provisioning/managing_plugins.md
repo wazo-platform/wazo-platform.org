@@ -40,17 +40,18 @@ models.
 
 ### Use Case: Update Firmwares for a given plugin
 
-Let us suppose we want to update firmwares for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here are the
-steps to follow :
+Let us suppose we want to update firmwares for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here are
+the steps to follow :
 
 1. Copy folder `plugins/xivo-snom/8.7.3.25` to `plugins/xivo-snom/8.7.3.25.5`
 2. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/entry.py`
 3. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/plugin-info`
-4. Download the new firmwares files (`.bin` files from [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
+4. Download the new firmwares files (`.bin` files from
+   [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
 5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
-6. Update sizes and SHA1 checksums in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper script
-   `xivo-tools/dev-tools/check_fw`)
+6. Update sizes and SHA1 checksums in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper
+   script `xivo-tools/dev-tools/check_fw`)
 7. Update `plugins/xivo-snom/build.py` (duplicate and update section `8.7.3.25` to `8.7.3.25.5`)
 
 ### Test your changes

@@ -1,3 +1,3 @@
 ---
-title: "wazo-calld"
+title: 'wazo-calld'
 ---

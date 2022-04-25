@@ -2,8 +2,6 @@
 title: NAT traversal
 ---
 
-[comment]: # 'Asterisk doc: https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT'
-
 ## What is NAT?
 
 NAT (Network Address Translation) allows multiple devices to share the same public IP address. This
@@ -53,3 +51,8 @@ work in all situations:
 
 - STUN: To get external addresses from a third party
 - TURN: To relay the audio/video streams when direct connection is impossible
+
+## References
+
+If you need more details, you may find an answer in the
+[Asterisk SIP documentation about NAT](https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT)

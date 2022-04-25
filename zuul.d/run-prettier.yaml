@@ -1,0 +1,19 @@
+---
+- hosts: all
+  tasks:
+    - name: configure path prefix
+      lineinfile:
+        line: "pathPrefix: '/logs/{{ zuul.change[-2:] }}/{{ zuul.change }}/{{ zuul.patchset }}/{{ zuul.pipeline }}/{{ zuul.job }}/{{ zuul.build[:7] }}/public',"
+        insertafter: 'module.exports = {'
+        path: '{{ zuul.project.src_dir }}/gatsby-config.js'
+        state: present
+
+    - name: make
+      command: 'make'
+      args:
+        chdir: '{{ zuul.project.src_dir }}'
+
+    - name: make format-uc-doc
+      command: 'make format-uc-doc'
+      args:
+        chdir: '{{ zuul.project.src_dir }}'

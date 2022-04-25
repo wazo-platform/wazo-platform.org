@@ -24,23 +24,23 @@ use one of the following ring strategies:
 asterisk limitation. Unfortunately, if you want to change the ring strategy of a queue to linear,
 you'll have to delete it first and then create a new queue with the right strategy.
 
-**Note**: When an agent is a member of many queues the order of call distribution between
-multiple queues is non-deterministic and cannot be configured.
+**Note**: When an agent is a member of many queues the order of call distribution between multiple
+queues is non-deterministic and cannot be configured.
 
 ## Timers
 
 You may control how long a call will stay in a queue using different timers:
 
-- `options: timeout` (Member reachability time out): Maximum number of seconds a call will ring
-  on an agent's phone. If a call is not answered within this time, the call will be forwarded to
+- `options: timeout` (Member reachability time out): Maximum number of seconds a call will ring on
+  an agent's phone. If a call is not answered within this time, the call will be forwarded to
   another agent.
 - `retry_on_timeout` (Time before retrying a call to a member): Used once a call has reached the
   "Member reachability time out". The call will be put on hold for the number of seconds allowed
   before being redirected to another agent.
 - `timeout` (Ringing time): The total time the call will stay in the queue.
 - `options: timeoutpriority` (Timeout priority): Determines which timeout to use before ending a
-  call. When set to "configuration", the call will use the "Member reachability time out". When
-  set to "dialplan", the call will use the "Ringing time".
+  call. When set to "configuration", the call will use the "Member reachability time out". When set
+  to "dialplan", the call will use the "Ringing time".
 
 ![](/images/uc-doc/contact_center/queues/queue_timers.jpg)
 
