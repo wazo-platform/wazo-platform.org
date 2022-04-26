@@ -2,6 +2,25 @@
 title: Upgrade notes
 ---
 
+## 22.07 {#22-07}
+
+- Port 5040 from asterisk is now disabled by default. If custom development need it, add
+  configuration file:
+
+  - Example: `/etc/asterisk/http.d/50-custom.conf`
+
+  ```ini
+  [general](+)
+  tlsenable=yes
+  tlsbindaddr=127.0.0.1:5040
+  tlscertfile=/usr/share/xivo-certs/server.crt
+  tlsprivatekey=/usr/share/xivo-certs/server.key
+  ```
+
+Consult the
+[22.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.07)
+for more information.
+
 ## 22.06 {#22-06}
 
 Consult the
