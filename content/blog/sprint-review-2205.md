@@ -16,6 +16,7 @@ Here is a short review of the Wazo Platform 22.05 release.
 
 ## Bug Fixes
 - **Switchboards**: Timeout fallback did not work when a group destination had its ring timeout set to null
+- **Groups**: Mobile group members will now receive call when they have a mobile refresh token
 
 ## Technical Features
 - **Asterisk**: Asterisk has been upgraded to 18.11.0. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-18-11-0-now-available/)
