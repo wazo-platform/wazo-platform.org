@@ -18,7 +18,6 @@ Network Flow table (IN) :
 | asterisk        | SCCP         | TCP      | 2000 | 0.0.0.0   | yes            | yes     |
 | asterisk        | AMI          | TCP      | 5038 | 127.0.0.1 | yes            | yes     |
 | asterisk        | HTTP         | TCP      | 5039 | 127.0.0.1 | yes            | yes     |
-| asterisk        | HTTPS        | TCP      | 5040 | 127.0.0.1 | yes            | yes     |
 | sshd            | SSH          | TCP      | 22   | 0.0.0.0   | yes            | yes     |
 | nginx           | HTTP         | TCP      | 80   | 0.0.0.0   | yes            | yes     |
 | nginx           | HTTPS        | TCP      | 443  | 0.0.0.0   | yes            | yes     |
