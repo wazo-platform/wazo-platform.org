@@ -14,7 +14,7 @@ No major feature added this sprint, we are hard at work on the following feature
 
 ## Ongoing Features
 
-- **Autentication**: Improve the LDAP authentication source by identifying tenants by domain name
+- **Authentication**: Improve the LDAP authentication source by identifying tenants by domain name
 - **Meetings**: Improve external conferences that allow guests to join a meeting
 - **Bullseye**: Modernizing some old services to facilitate transition to Python 3 and Debian Bullseye
 - **Scalability**: Consume events from the bus instead of the Asterisk websocket. This will improve the performance of Wazo and allow greater scalability.
