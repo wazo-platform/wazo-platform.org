@@ -51,7 +51,7 @@ the steps to follow :
 5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
 6. Update sizes and SHA1 checksums in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper
-   script `xivo-tools/dev-tools/check_fw`)
+   script `wazo-tools/dev-tools/check_fw`)
 7. Update `plugins/xivo-snom/build.py` (duplicate and update section `8.7.3.25` to `8.7.3.25.5`)
 
 ### Test your changes
