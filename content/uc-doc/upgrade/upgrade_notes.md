@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 22.08 {#22-08}
+
+Consult the
+[22.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.08)
+for more information.
+
 ## 22.07 {#22-07}
 
 - Port 5040 from asterisk is now disabled by default. If custom development need it, add
