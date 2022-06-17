@@ -4,6 +4,11 @@ title: Upgrade notes
 
 ## 22.09 {#22-09}
 
+- Webhooks are now tenant-aware
+
+  - Webhooks defined in a tenant will only trigger on events originating from within that tenant.
+  - Webhooks defined in the master tenant will trigger on events from all tenants.
+
 - All HTTP URLs on port 80 have been redirected to HTTPS on port 443, including the following URLs:
 
   - GET http://wazo.example.com/
