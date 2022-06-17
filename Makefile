@@ -4,11 +4,14 @@ builder:
 develop:
 	docker-compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
+check-format-uc-doc:
+	docker-compose run --no-TTY doc yarn check-format:uc-doc
+
 format:
 	docker-compose run doc yarn format
 
 format-uc-doc:
-	docker-compose run --no-TTY doc yarn format:uc-doc
+	docker-compose run doc yarn format:uc-doc
 
 build:
 	rm -rf public

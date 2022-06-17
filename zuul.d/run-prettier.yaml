@@ -14,6 +14,6 @@
         chdir: '{{ zuul.project.src_dir }}'
 
     - name: make format-uc-doc
-      command: 'make format-uc-doc'
+      command: 'make check-format-uc-doc'
       args:
         chdir: '{{ zuul.project.src_dir }}'
