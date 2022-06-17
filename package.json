@@ -9,6 +9,7 @@
     "develop": "./node_modules/.bin/gatsby develop",
     "format": "prettier --write 'src/**/*.{js,jsx}' 'tests/src/*.js' 'gatsby-node.js'",
     "format:uc-doc": "prettier --print-width 100 --prose-wrap always --write 'content/uc-doc/**/*.md'",
+    "check-format:uc-doc": "prettier --check --print-width 100 --prose-wrap always 'content/uc-doc/**/*.md'",
     "start": "npm run develop",
     "serve": "./node_modules/.bin/gatsby serve"
   },

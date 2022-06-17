@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 22.09 {#22-09}
+
+- All HTTP URLs on port 80 have been redirected to HTTPS on port 443, including the following URLs:
+
+  - GET http://wazo.example.com/
+  - GET http://wazo.example.com/api
+
+  This does not impact HTTP requests made by physical phones, using ports 8667 for provisioning and
+  9498 for directories and some phone key features.
+
 ## 22.08 {#22-08}
 
 Consult the
