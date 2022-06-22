@@ -97,13 +97,17 @@ export default ({ children, section, className, pageTitle, pageTitleDate, PageTi
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
-                    Contribute
+                  <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
+                    Blog
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
-                    Blog
+                  <Link className="nav-link" to="/tutorials" activeClassName="active" partiallyActive>
+                    Tutorials
+                  </Link>
+                </li>                <li className="nav-item">
+                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
+                    Contribute
                   </Link>
                 </li>
                 <li className="nav-item">

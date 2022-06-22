@@ -511,6 +511,91 @@ body.documentation {
   }
 }
 
+.tutorials {
+  min-height: 60vh;
+
+  .tutorials-items {
+    padding: 30px 0;
+
+    .tutorials-items-item {
+      transition: 350ms ease box-shadow;
+      display: block;
+      padding: 30px 30px 30px 260px;
+      background-color: #FFF;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      position: relative;
+
+      &:hover, &:active {
+        box-shadow: 3px 0px 10px rgba(0,0,0,0.1);
+
+        .title { color: #000; }
+        .thumbnail::after { opacity: 1; }
+      }
+
+      .thumbnail {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        width: 230px;
+        background-color: #999;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 4px 0 0px 4px;
+
+        &::after {
+          transition: 350ms ease opacity;
+          opacity: 0;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: block;
+          background-color: rgba($green, 25%);
+        }
+      }
+
+      .title {
+        color: #333;
+        font-size: 1.3em;
+        margin: 0 0 15px;
+      }
+
+      .summary {
+        margin: 0 0 10px;
+        color: #333;
+        font-size: 0.9em;
+      }
+
+      .author {
+        color: #888;
+        margin-bottom: 0;
+        position: relative;
+        padding-left: 30px;
+        font-size: 0.9em;
+
+        &::before {
+          content: "";
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          top: 50%;
+          left: 0px;
+          transform: translate(0, -50%);
+          background: #999 url(../../../src/assets/logo-bird-only.svg) 55% 50% no-repeat;
+          background-size: 12px;
+          border-radius: 25px;
+        }
+      }
+    }
+  }
+}
+
 
 // Basic layout
 // ---------
