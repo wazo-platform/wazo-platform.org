@@ -15,5 +15,5 @@ TCP/443.
 - [confd](/uc-doc/api_sdk/rest_api/confd)
 - [sysconfd](/uc-doc/api_sdk/rest_api/sysconfd)
 
-For other services, see <http://api.wazo.community>. See also the
+For other services, see <https://wazo-platform.org/documentation>. See also the
 [REST API Quickstart](/uc-doc/api_sdk/rest_api/quickstart) for an interactive web UI.

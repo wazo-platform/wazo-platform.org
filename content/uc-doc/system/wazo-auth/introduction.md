@@ -6,7 +6,7 @@ wazo-auth is a scalable, extendable and configurable authentication service. It 
 interface to emit tokens to users who can then use those tokens to identify and authenticate
 themselves with other services compatible with wazo-auth.
 
-The HTTP API reference is at <http://api.wazo.community>.
+The HTTP API reference is at <https://wazo-platform.org/documentation>.
 
 - [developer](/uc-doc/system/wazo-auth/developer)
 - [stock_plugins](/uc-doc/system/wazo-auth/stock_plugins)
@@ -40,7 +40,7 @@ If Alice wants to revoke her token before its expiration:
 curl -k -X DELETE -H 'Content-Type: application/json' "https://localhost/api/auth/0.1/token/1823c1ee-6c6a-0cdc-d869-964a7f08a744"
 ```
 
-See <http://api.wazo.community> for more details about the HTTP API.
+See <https://wazo-platform.org/documentation> for more details about the HTTP API.
 
 See [Service Authentication](/uc-doc/system/service_authentication) for details about the
 authentication process.
@@ -95,7 +95,7 @@ or modified using the REST API.
 
 ## HTTP API Reference
 
-The complete HTTP API documentation is at <http://api.wazo.community>.
+The complete HTTP API documentation is at <https://wazo-platform.org/documentation>.
 
 See also the [wazo-auth changelog](/uc-doc/api_sdk/rest_api/changelog).
 

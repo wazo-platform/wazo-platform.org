@@ -6,7 +6,7 @@ Users and common related resources can be imported onto a Wazo server by sending
 predefined [set of fields](/uc-doc/administration/users/csv_import).
 
 This page only documents additional notes useful for API users. Consult the
-[API documentation](http://api.wazo.community) for more details.
+[API documentation](https://wazo-platform.org/documentation) for more details.
 
 ## Uploading files
 
