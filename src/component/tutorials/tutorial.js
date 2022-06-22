@@ -1,46 +1,22 @@
+import Helmet from 'react-helmet';
 import React from 'react';
 import Layout from '../Layout';
 import ReactMarkdown from 'react-markdown';
-import { Link } from 'gatsby';
 
-export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, body } }) => {
-  const date = new Date(dateRaw);
-  const formattedDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
-  const tags = tagsRaw && tagsRaw.split(',');
+export default ({ pageContext: { title, author, category, body, ogimage } }) => (
+  <Layout pageTitle={title} className="article" section="tutorials">
+    <Helmet>
+      {ogimage && <meta property="og:image" content={`https://wazo-platform.org/images/tutorials/${ogimage}`} />}
+    </Helmet>
+    <div className="container main">
+      <div className="article--content">
+        <ReactMarkdown source={body} />
 
-  return (
-    <Layout pageTitle={title} pageTitleDate={formattedDate} className="article" section="tutorials">
-      <div className="container main">
-        <div className="article--content">
-          <ReactMarkdown source={body} />
-
-          <div className="article--content--footer">
-            <Link
-              className="article--content--footer-author"
-              to="/blog"
-              state={{ filter: { type: 'author', value: author } }}
-            >
-              {author}
-            </Link>
-            <p>
-              Category:{' '}
-              <Link to="/blog" state={{ filter: { type: 'category', value: category } }}>
-                {category}
-              </Link>
-            </p>
-            {tags && tags.length && (
-              <p className="tags">
-                Tags:{' '}
-                {tags.map((item) => (
-                  <Link key={item} to="/blog" state={{ filter: { type: 'tag', value: item } }}>
-                    {item}
-                  </Link>
-                ))}
-              </p>
-            )}
-          </div>
+        <div className="article--content--footer">
+          <span className="article--content--footer-author">{author}</span>
+          <p>Category: {category}</p>
         </div>
       </div>
-    </Layout>
-  );
-};
+    </div>
+  </Layout>
+);

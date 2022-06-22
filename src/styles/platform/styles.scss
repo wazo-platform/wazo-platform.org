@@ -525,6 +525,7 @@ body.documentation {
       font-size: 18px;
       margin-bottom: 2px;
       display: inline-block;
+      color: #212327;
     }
 
     p {
@@ -602,6 +603,7 @@ body.documentation {
           bottom: 0;
           display: block;
           background-color: rgba($green, 25%);
+          border-radius: 4px 0 0px 4px;
         }
       }
 

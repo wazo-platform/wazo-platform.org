@@ -13,7 +13,6 @@ const sortTutorials = (a) =>
 
 export default ({ pageContext: { tutorials: tutorialsRaw } }) => {
   const [tutorials] = useState(sortTutorials(tutorialsRaw));
-  console.log(`🤠 -> tutorials`, tutorials);
 
   return (
     <Layout pageTitle="Tutorials" section="tutorials" className="tutorials">
