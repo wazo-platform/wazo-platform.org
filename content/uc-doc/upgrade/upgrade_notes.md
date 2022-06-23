@@ -17,6 +17,10 @@ title: Upgrade notes
   This does not impact HTTP requests made by physical phones, using ports 8667 for provisioning and
   9498 for directories and some phone key features.
 
+Consult the
+[22.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.09)
+for more information.
+
 ## 22.08 {#22-08}
 
 Consult the
