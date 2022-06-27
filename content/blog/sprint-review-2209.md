@@ -10,8 +10,13 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 22.09 release.
 
+## Community Contributions
+Shout-out to user BnLG for his contributions which help to make Wazo platform even better:
+- **Security**: Various tweaks to [reinforce security in NGINX](https://github.com/wazo-platform/wazo-nginx/pull/11), making wazo more secure
+- **Phones**: [Yealink](https://github.com/wazo-platform/wazo-provd-plugins/pull/138) and [Gigaset N510](https://github.com/wazo-platform/wazo-provd-plugins/pull/137) enhancements
+
 ## Features
-- **Authentication: Improve the LDAP authentication source by identifying tenants by domain name
+- **Authentication**: Improve the LDAP authentication source by identifying tenants by domain names
 
 ## Bug Fixes
 - **Provisioning**: Changing the provisioning port via the API did not change the provisioning server configuration.
@@ -19,11 +24,6 @@ Here is a short review of the Wazo Platform 22.09 release.
 
 ## Ongoing Features
 - **Scalability**: Consume events from the bus instead of the Asterisk websocket. This will improve the performance of Wazo and allow greater scalability.
-
-## Community Contributions
-Shout-out to user BnLG for his contributions that helps to make Wazo platform even better:
-- **Security**: Various tweaks to reinforce security in NGINX, making wazo more secure
-- **Phones**: Yealink and Gigaset N510 enhancements
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.09).
 
