@@ -49,7 +49,7 @@ Be sure that Wazo will keep the spirit of the original XiVO project:
 What's next?
 ------------
 
-We intend to continue the work we have started a few years ago: make Wazo completely controllable through [REST APIs](https://wazo-platform.org/documentation), which is one of the best way we know of to enable easy interconnection with other software systems. These APIs also allow people to develop graphical interfaces easily and we certainly intend to use those APIs to make graphical interfaces, like a more modern web interface or a mobile application. Moreover, APIs give more flexibility for creating distributed or centralised systems over multiple machines... Possibilities are vast and don't hesitate to share your own ideas: let's write together the future in telecommunications!
+We intend to continue the work we have started a few years ago: make Wazo completely controllable through [REST APIs](https://wazo-platform.org/documentation), which is one of the best ways we know of to enable easy interconnection with other software systems. These APIs also allow people to develop graphical interfaces easily and we certainly intend to use those APIs to make graphical interfaces, like a more modern web interface or a mobile application. Moreover, APIs give more flexibility for creating distributed or centralized systems over multiple machines... Possibilities are vast and don't hesitate to share your own ideas: let's write together the future of telecommunications!
 
 
 When is our next release due?

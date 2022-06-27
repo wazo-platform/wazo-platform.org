@@ -58,7 +58,7 @@ future you will want to create a new token to keep using the API. When the API u
 writing an HTTP request, that is quite simple, all you've got to do is repeat the token creation
 process.
 
-But if the API consumer is an application it's not that straight forward. You can't either use a
+But if the API consumer is an application, it's not that straightforward. You can't either use a
 very very long expiration which defeats the point of having an expiration. You can't store the
 username and password of your user because it's a bad practice and leaves your users vulnerable to
 malicious people. A third but still imperfect solution is to ask the user for its password each time
