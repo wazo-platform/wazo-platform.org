@@ -2,6 +2,11 @@
 title: Upgrade notes
 ---
 
+## 22.10 {#22.10}
+
+- Asterisk version has been updated:
+  - [Asterisk 18 to 19 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/22-10/asterisk_19)
+
 ## 22.09 {#22-09}
 
 - Webhooks are now tenant-aware
