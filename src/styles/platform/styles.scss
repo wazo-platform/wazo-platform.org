@@ -27,6 +27,10 @@ ol {
   }
 }
 
+code {
+  color: #2a2f45;
+}
+
 /* may be overriding too aggressively */
 pre {
   background: #333;
@@ -464,9 +468,24 @@ body.documentation {
 
   .article--content {
     code {
-      background-color: rgba(27, 31, 35, 0.05);
-      padding: 2px 5px;
+      padding: 3px 6px;
       border-radius: 6px;
+      background-color: rgba(27, 31, 35, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    blockquote {
+      border-left: 4px solid $fakeDarkGray;
+      background-color: #eaeaea;
+      padding: 10px 15px;
+      width: fit-content;
+
+      p {
+        margin-bottom: 15px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     img {
@@ -634,7 +653,7 @@ body.documentation {
           top: 50%;
           left: 0px;
           transform: translate(0, -50%);
-          background: #999 url(../../../src/assets/logo-bird-only.svg) 55% 50% no-repeat;
+          background: #98c451 url(../../../src/assets/logo-bird-only.svg) 55% 50% no-repeat;
           background-size: 12px;
           border-radius: 25px;
         }
@@ -964,40 +983,49 @@ body.documentation {
       list-style-type: circle;
       padding-left: 19px;
     }
+  }
+}
 
-    table {
-      border: 1px solid #e1e4e5;
+// Table default styles
+.template-uc-doc .main-content-right-col,
+.article {
+  table {
+    border: 1px solid #e1e4e5;
+    margin-bottom: 10px;
+
+    td,
+    th {
+      padding: 5px 10px;
+    }
+
+    thead {
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+      white-space: nowrap;
 
       td,
       th {
-        padding: 5px 10px;
+        background: #fff;
+        border-bottom: 2px solid #e1e4e5;
+        border-left: 1px solid #e1e4e5;
+      }
+    }
+
+    tbody {
+      td {
+        border-bottom: 1px solid #e1e4e5;
+        border-left: 1px solid #e1e4e5;
+        background: #fff;
       }
 
-      thead {
-        color: #000;
-        text-align: left;
-        vertical-align: bottom;
-        white-space: nowrap;
-
-        td,
-        th {
-          background: #fff;
-          border-bottom: 2px solid #e1e4e5;
-          border-left: 1px solid #e1e4e5;
-        }
+      tr:nth-child(2n) td {
+        background: #fafafa;
       }
+    }
 
-      tbody {
-        td {
-          border-bottom: 1px solid #e1e4e5;
-          border-left: 1px solid #e1e4e5;
-          background: #fff;
-        }
-
-        tr:nth-child(2n) td {
-          background: #fafafa;
-        }
-      }
+    code {
+      white-space: nowrap;
     }
   }
 }
