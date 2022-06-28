@@ -125,3 +125,7 @@
       jobs:
         - yarn-build-test:
             nodeset: vm-debian-10-m1s
+    experimental:
+      jobs:
+        - yarn-build-test:
+            nodeset: vm-debian-10-m1s
