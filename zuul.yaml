@@ -89,6 +89,13 @@
         secret: publication
 
 - job:
+    name: potato
+    description: Build and test
+    run: zuul.d/run-test.yaml
+    post-run: zuul.d/notification.yml
+    timeout: 10800
+
+- job:
     name: yarn-build-test
     description: Build and test
     run: zuul.d/run-test.yaml
@@ -106,9 +113,7 @@
 - project:
     check:
       jobs:
-        - yarn-build-copy:
-            nodeset: vm-debian-10-m1s
-        - yarn-prettier-uc-doc:
+        - potato:
             nodeset: vm-debian-10-m1s
     gate:
       jobs:
