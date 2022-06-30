@@ -11,7 +11,7 @@ A backup of the database and the data are launched every day with a logrotate ta
 
 Logrotate task:
 
-- `/etc/logrotate.d/xivo-backup`
+- `/etc/logrotate.d/wazo-backup`
 
 Logrotate cron:
 
@@ -24,7 +24,7 @@ With shell access, you can retrieve them in `/var/backups/xivo`. In this directo
 
 Backup scripts:
 
-- `/usr/sbin/xivo-backup`
+- `/usr/sbin/wazo-backup`
 
 Backup location:
 
@@ -122,7 +122,7 @@ You can manually create a _database_ backup file named `db-manual.tgz` in `/var/
 following commands:
 
 ```shell
-xivo-backup db /var/tmp/db-manual
+wazo-backup db /var/tmp/db-manual
 ```
 
 #### Files
@@ -131,7 +131,7 @@ You can manually create a _data_ backup file named `data-manual.tgz` in `/var/tm
 following commands:
 
 ```shell
-xivo-backup data /var/tmp/data-manual
+wazo-backup data /var/tmp/data-manual
 ```
 
 ## Restore {#restore}
