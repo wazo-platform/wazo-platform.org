@@ -16,6 +16,7 @@
   "dependencies": {
     "algoliasearch": "^3.33.0",
     "babel-plugin-styled-components": "^1.10.0",
+    "btoa": "^1.2.1",
     "gatsby": "^2.32.13",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-styled-components": "^3.10.0",
@@ -41,7 +42,7 @@
     "stickyfill": "^1.1.1-strict",
     "striptags": "^3.1.1",
     "styled-components": "^4.2.0",
-    "swagger-ui-react": "^3.23.11"
+    "swagger-ui-react": "^3.52.5"
   },
   "devDependencies": {
     "dart-sass": "^1.25.0",
