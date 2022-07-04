@@ -6,6 +6,7 @@ title: Upgrade notes
 
 - Asterisk version has been updated:
   - [Asterisk 18 to 19 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/22-10/asterisk_19)
+- Backup directory has been moved from `/var/backups/xivo` to `/var/backups/wazo`
 - `xivo-backup` script has been renamed to `wazo-backup`. `xivo-backup` is now deprecated and will
   be removed in future version.
 

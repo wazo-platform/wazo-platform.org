@@ -19,7 +19,7 @@ Logrotate cron:
 
 ### Retrieve the backup
 
-With shell access, you can retrieve them in `/var/backups/xivo`. In this directory you will find
+With shell access, you can retrieve them in `/var/backups/wazo`. In this directory you will find
 `db.tgz` and `data.tgz` files for the database and data backups.
 
 Backup scripts:
@@ -28,7 +28,7 @@ Backup scripts:
 
 Backup location:
 
-- `/var/backups/xivo`
+- `/var/backups/wazo`
 
 ### What is actually backed-up?
 
@@ -139,7 +139,7 @@ wazo-backup data /var/tmp/data-manual
 ### Introduction {#intro-provisioning}
 
 A backup of both the configuration files and the database used by a Wazo installation is done
-automatically every day. These backups are created in the `/var/backups/xivo` directory and are kept
+automatically every day. These backups are created in the `/var/backups/wazo` directory and are kept
 for 7 days.
 
 ### Limitations
@@ -160,7 +160,7 @@ wazo-service stop
 
 ### Restoring System Files
 
-System files are stored in the data.tgz file located in the `/var/backups/xivo` directory.
+System files are stored in the data.tgz file located in the `/var/backups/wazo` directory.
 
 This file contains for example, voicemail files, musics, voice guides, phone sets firmwares,
 provisioning server configuration database.
@@ -168,7 +168,7 @@ provisioning server configuration database.
 To restore the file :
 
 ```shell
-tar xvfp /var/backups/xivo/data.tgz -C /
+tar xvfp /var/backups/wazo/data.tgz -C /
 ```
 
 Once the database and files have been restored, you can
@@ -184,7 +184,7 @@ Once the database and files have been restored, you can
   configuration, because of network interface names that would change. See
   [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore-keep-system-config).
 
-Database backups are created as `db.tgz` files in the `/var/backups/xivo` directory. These tarballs
+Database backups are created as `db.tgz` files in the `/var/backups/wazo` directory. These tarballs
 contains a dump of the database used in Wazo.
 
 In this example, we'll restore the database from a backup file named `db.tgz` placed in the home
