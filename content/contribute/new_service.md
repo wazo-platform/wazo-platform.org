@@ -31,7 +31,7 @@ Checklist of things to remember when adding a new service to Wazo Platform:
 - The service is correctly started on a wazo-upgrade
 - The service is the correct state (running or stopped) after an upgrade of the slave machine
 - The service is documented on wazo-platform.org
-- The service config files are copied by xivo-backup
+- The service config files are copied by wazo-backup
 - The service config files are listed in the documentation for files backup
 - The service registers with consul for the discovery of services
   - Add an entry to the acceptance test: `daily/service_discovery.feature`
