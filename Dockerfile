@@ -1,5 +1,5 @@
 # Use multistage builds to take node and npm binaries from another base image
-FROM node:12.2.0-alpine AS build-node
+FROM node:14.19.3-buster-slim AS build-node
 
 FROM think/plantuml:1.2018.5
 COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
