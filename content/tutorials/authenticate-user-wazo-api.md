@@ -23,7 +23,7 @@ password. This can be done using the `POST /api/auth/0.1/token` API of wazo-auth
 Here's an example from the command line on how to create a token for a user.
 
 ```bash
-curl -k -XPOST "https://<hostname>/api/auth/0.1/token" \
+curl -k -X POST "https://<hostname>/api/auth/0.1/token" \
   -H "Content-Type: application/json" \
   -u "<username>:<password>" \
   -d '{"expiration": 3600}'
@@ -73,7 +73,7 @@ token on behalf of the user without having to commit its password to memory.
 Creating a refresh token is just like creating an access token with a few more arguments.
 
 ```bash
-curl -k -XPOST "https://<hostname>/api/auth/0.1/token" \
+curl -k -X POST "https://<hostname>/api/auth/0.1/token" \
   -H "Content-Type: application/json" \
   -u "<username>:<password>" \
   -d '{"client_id": "example", "access_type": "offline"}'
@@ -115,7 +115,7 @@ Now that you've created and stored a refresh token you want to be able to use it
 create an access token from a refresh token is the same again, with different arguments.
 
 ```bash
-curl -k -XPOST "https://<hostname>/api/auth/0.1/token" \
+curl -k -X POST "https://<hostname>/api/auth/0.1/token" \
   -H "Content-Type: application/json" \
   -d '{"expiration": 3600, "client_id": "example", "refresh_token": "353fefa1-d013-4633-a7d3-c6cb574ddc26"}'
 ```
