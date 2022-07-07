@@ -1,16 +1,13 @@
 # Use multistage builds to take node and npm binaries from another base image
-FROM node:12.2.0-alpine AS build-node
+FROM node:14.19.3-buster-slim AS build-node
 
-FROM think/plantuml:1.2018.5
+FROM openjdk:14-slim-buster
 COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
 COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 # Install Git
-RUN apk update && apk upgrade && \
-    apk add --no-cache git make
-
-# Move plantuml to a folder in the PATH
-RUN mv /plantuml.jar "$JAVA_HOME/lib"
+RUN apt-get update && apt-get install -y git graphviz wget ttf-dejavu fontconfig
+RUN wget "http://downloads.sourceforge.net/project/plantuml/1.2018.5/plantuml.1.2018.5.jar" -O plantuml.jar -O $JAVA_HOME/lib/plantuml.jar
 
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm i -g yarn
@@ -25,5 +22,7 @@ RUN rm -rf node_modules/
 
 # Install node dependencies
 RUN yarn install
+RUN apt-get install -y make
+ENV LANG en_US.UTF-8
 
 ENTRYPOINT []
