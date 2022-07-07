@@ -49,7 +49,7 @@ Be sure that Wazo will keep the spirit of the original XiVO project:
 What's next?
 ------------
 
-We intend to continue the work we have started a few years ago: make Wazo completely controllable through [REST APIs](http://api.wazo.community), which is one of the best way we know of to enable easy interconnection with other software systems. These APIs also allow people to develop graphical interfaces easily and we certainly intend to use those APIs to make graphical interfaces, like a more modern web interface or a mobile application. Moreover, APIs give more flexibility for creating distributed or centralised systems over multiple machines... Possibilities are vast and don't hesitate to share your own ideas: let's write together the future in telecommunications!
+We intend to continue the work we have started a few years ago: make Wazo completely controllable through [REST APIs](https://wazo-platform.org/documentation), which is one of the best ways we know of to enable easy interconnection with other software systems. These APIs also allow people to develop graphical interfaces easily and we certainly intend to use those APIs to make graphical interfaces, like a more modern web interface or a mobile application. Moreover, APIs give more flexibility for creating distributed or centralized systems over multiple machines... Possibilities are vast and don't hesitate to share your own ideas: let's write together the future of telecommunications!
 
 
 When is our next release due?
@@ -102,7 +102,7 @@ Bien sûr, Wazo garde l'esprit du projet original XiVO:
 C'est quoi la suite?
 --------------------
 
-Nous avons l'intention de continuer le travail que nous avons commencé depuis quelques années: rendre Wazo totalement contrôlable par des [API REST](http://api.wazo.community), qui sont l'un des meilleurs moyens que nous connaissons pour faciliter l'interconnexion avec d'autres logiciels. Ces API permettent à tout le monde de développer des interfaces graphiques, et nous entendons bien écrire quelques unes de ces interfaces, comme une interface web plus moderne ou une application mobile. De plus, les API donnent une meilleure flexibilité pour mettre en place des systèmes téléphoniques centralisés ou décentralisés, répartis sur plusieurs machines... Les possibilités sont nombreuses, alors n'hésitez pas à partager vos idées: nous pourrons construire ensemble l'avenir des télécommunications!
+Nous avons l'intention de continuer le travail que nous avons commencé depuis quelques années: rendre Wazo totalement contrôlable par des [API REST](https://wazo-platform.org/documentation), qui sont l'un des meilleurs moyens que nous connaissons pour faciliter l'interconnexion avec d'autres logiciels. Ces API permettent à tout le monde de développer des interfaces graphiques, et nous entendons bien écrire quelques unes de ces interfaces, comme une interface web plus moderne ou une application mobile. De plus, les API donnent une meilleure flexibilité pour mettre en place des systèmes téléphoniques centralisés ou décentralisés, répartis sur plusieurs machines... Les possibilités sont nombreuses, alors n'hésitez pas à partager vos idées: nous pourrons construire ensemble l'avenir des télécommunications!
 
 
 Quand sortira notre prochaine version?

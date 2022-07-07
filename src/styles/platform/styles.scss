@@ -2,36 +2,58 @@ $green: #98c451;
 $fakeDarkGray: #515454;
 $fakeBlack: #404343;
 
-body{ background: #f9f9fb; }
-p, ul, ol { margin-bottom: 18px; }
-p { line-height: 25px; }
+body {
+  background: #f9f9fb;
+}
+p,
+ul,
+ol {
+  margin-bottom: 18px;
+}
+p {
+  line-height: 25px;
+}
 
-ul, ol {
+ul,
+ol {
   margin-left: 0px;
   padding-left: 20px;
 
   li {
     margin-bottom: 5px;
-    &:last-child { margin-bottom: 0; }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
+}
+
+code {
+  color: #2a2f45;
 }
 
 /* may be overriding too aggressively */
 pre {
   background: #333;
   color: #ccc;
-  border-radius: .3em;
+  border-radius: 0.3em;
   padding: 20px;
   white-space: normal;
 }
 
 .main {
-  h1, h2, h3{
+  h1,
+  h2,
+  h3 {
     font-weight: normal;
   }
 
-  h1, h2, h3, h4 {
-    &:first-child { margin-top: 0; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   h1 {
@@ -68,7 +90,10 @@ pre {
       letter-spacing: 1px;
     }
 
-    h1, h2, h3, p {
+    h1,
+    h2,
+    h3,
+    p {
       transition: 350ms ease opacity;
       color: #fff;
       font-size: 2em;
@@ -84,7 +109,7 @@ pre {
   #header {
     background: $green;
     z-index: 11;
-    .container{
+    .container {
       position: relative;
     }
 
@@ -92,17 +117,19 @@ pre {
       .navbar-toggler {
         margin-top: 15px;
         margin-bottom: 15px;
-        background: rgba(0,0,0,.1);
+        background: rgba(0, 0, 0, 0.1);
       }
 
-      .nav-item { margin-bottom: 0; }
+      .nav-item {
+        margin-bottom: 0;
+      }
     }
   }
 
-  #promo{
+  #promo {
     .btn-cta-secondary {
       color: $fakeDarkGray;
-      background: #FC0;
+      background: #fc0;
       border: none;
     }
     .btn-cta-primary {
@@ -111,14 +138,18 @@ pre {
     }
   }
 
-  #three, #why, #about, #features, #license{
-    .fas{
+  #three,
+  #why,
+  #about,
+  #features,
+  #license {
+    .fas {
       font-size: 36px;
     }
-    .icon-holder{
+    .icon-holder {
       left: 20px;
     }
-    h3.sub-title{
+    h3.sub-title {
       color: #444;
     }
     color: #666;
@@ -130,18 +161,18 @@ pre {
       font-size: 1em;
       color: #aaa;
     }
-    h2{
+    h2 {
       color: #444;
       font-weight: normal !important;
       font-size: 48px;
     }
   }
 
-  .col-wrapper{
+  .col-wrapper {
     display: flex;
     align-items: top;
     flex-wrap: wrap;
-    &.one{
+    &.one {
       padding-bottom: 20px;
     }
     .coll {
@@ -151,7 +182,7 @@ pre {
   }
 
   #wazo-platform {
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     width: 50%;
     @media (min-width: 768px) {
       width: 25%;
@@ -166,18 +197,18 @@ pre {
   }
 
   #why {
-    background:$fakeDarkGray;
+    background: $fakeDarkGray;
     padding: 60px 0 20px;
     color: #ccc;
-    h2{
-      color: #fff
+    h2 {
+      color: #fff;
     }
   }
 
   #about {
     padding: 70px 0 30px;
     background: #fff;
-    #technical-layers{
+    #technical-layers {
       text-align: center;
       padding: 30px 14px;
       img {
@@ -190,13 +221,13 @@ pre {
 
   #three {
     background: #e4e4e4;
-    h3{
+    h3 {
       font-weight: bold;
       font-size: 1.4em;
       color: #666 !important;
     }
     p {
-      margin-bottom: 0
+      margin-bottom: 0;
     }
   }
 
@@ -221,25 +252,29 @@ pre {
   .home & {
     opacity: 0;
   }
-  .home.navbar-fixed-top &{
+  .home.navbar-fixed-top & {
     opacity: 1;
   }
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
 }
 
-.main header.header{
+.main header.header {
   padding: 0;
 
-  .navbar-collapse{
+  .navbar-collapse {
     background: $green !important;
   }
 
   @media (min-width: 576px) {
-    .container { max-width: none; }
+    .container {
+      max-width: none;
+    }
   }
 
   .main-nav {
-    @media(min-width: 989px) { float: right; }
+    @media (min-width: 989px) {
+      float: right;
+    }
 
     // When search is enabled
     &.main-nav-search-enabled .nav {
@@ -259,17 +294,16 @@ pre {
       }
     }
 
-    .nav{
-      @media(min-width: 992px) {
+    .nav {
+      @media (min-width: 992px) {
         padding-top: 0px;
       }
 
-
-      .nav-item{
+      .nav-item {
         transition: 250ms ease opacity !important;
         margin-right: 0;
 
-        @media(min-width: 992px){
+        @media (min-width: 992px) {
           border-bottom: 0 none;
         }
 
@@ -280,8 +314,13 @@ pre {
           padding: 20px 20px !important;
           text-decoration: none;
 
-          &:hover, &:active { background: rgba(0,0,0,.05) !important; }
-          &.active { background: rgba(0,0,0,.2) !important; }
+          &:hover,
+          &:active {
+            background: rgba(0, 0, 0, 0.05) !important;
+          }
+          &.active {
+            background: rgba(0, 0, 0, 0.2) !important;
+          }
         }
 
         // Search in nav
@@ -289,7 +328,9 @@ pre {
           position: relative;
           text-align: right;
 
-          > i { margin-right: 2px; }
+          > i {
+            margin-right: 2px;
+          }
 
           .main-search-box {
             transition: 250ms ease opacity;
@@ -306,7 +347,7 @@ pre {
             .form-control {
               transition: 250ms ease all;
               background: $fakeBlack;
-              color: #FFF;
+              color: #fff;
               outline: 0;
               box-shadow: none;
               border: none;
@@ -319,14 +360,13 @@ pre {
           }
         }
       }
-
     }
   }
 }
 
-section.console{
-  pre{
-    background: rgba(0,0,0,.05)
+section.console {
+  pre {
+    background: rgba(0, 0, 0, 0.05);
   }
   .loading {
     height: 50vh;
@@ -337,21 +377,21 @@ section.console{
 }
 
 body.documentation {
-  .main-nav .nav .nav-item .nav-link[href="/documentation"] {
-    background: rgba(0,0,0,.1) !important;
+  .main-nav .nav .nav-item .nav-link[href='/documentation'] {
+    background: rgba(0, 0, 0, 0.1) !important;
   }
 }
 
-.container.principal{
+.container.principal {
   padding-top: 40px;
   padding-bottom: 70px;
-  &.ecosystem h2{
-    margin: 1em auto .8em;
+  &.ecosystem h2 {
+    margin: 1em auto 0.8em;
   }
 }
 
-.navbar-fixed-top{
-  header{
+.navbar-fixed-top {
+  header {
     box-shadow: none !important;
   }
   #wazo-platform {
@@ -359,26 +399,27 @@ body.documentation {
   }
 }
 
-.footer{
-  a, #contact a {
+.footer {
+  a,
+  #contact a {
     color: $green;
     font-weight: bold;
   }
-  h2{
+  h2 {
     font-size: 1.4em;
     font-weight: bold;
   }
   background: $fakeBlack;
   text-align: left;
   padding: 0 !important;
-  #contact{
+  #contact {
     background: $fakeDarkGray;
   }
-  .small-print{
+  .small-print {
     padding: 10px 0;
     background: $fakeBlack;
     color: #999;
-    .container{
+    .container {
       display: flex;
       justify-content: space-between;
     }
@@ -387,11 +428,11 @@ body.documentation {
 
 .blog {
   min-height: 60vh;
-  .filter{
+  .filter {
     font-style: italic;
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
-    a{
+    a {
       margin-left: 20px;
     }
   }
@@ -402,11 +443,11 @@ body.documentation {
       .hilite {
         color: #444;
       }
-      a.title{
+      a.title {
         color: #333;
         font-size: 1.8em;
       }
-      .summary{
+      .summary {
         margin: 10px 0 15px;
       }
       .head {
@@ -420,16 +461,31 @@ body.documentation {
   }
 }
 
-.article{
+.article {
   .container.main {
     padding: 50px 15px 70px;
   }
 
   .article--content {
     code {
-      background-color: rgba(27,31,35,0.05);
-      padding: 2px 5px;
+      padding: 3px 6px;
       border-radius: 6px;
+      background-color: rgba(27, 31, 35, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    blockquote {
+      border-left: 4px solid $fakeDarkGray;
+      background-color: #eaeaea;
+      padding: 10px 15px;
+      width: fit-content;
+
+      p {
+        margin-bottom: 15px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
 
     img {
@@ -438,10 +494,10 @@ body.documentation {
       border-radius: 10px;
       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
     }
-    img[alt~="(small)"] {
+    img[alt~='(small)'] {
       max-width: 33%;
     }
-    img[alt~="(small-centered)"] {
+    img[alt~='(small-centered)'] {
       max-width: 33%;
       margin: 0 auto;
       display: block;
@@ -452,7 +508,8 @@ body.documentation {
       color: #212327;
       text-decoration: underline 1px #212327;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         color: #000;
         text-decoration: underline 2px #98c451;
       }
@@ -462,7 +519,7 @@ body.documentation {
   .article--content--footer {
     color: #999;
     padding: 29px 25px 25px 135px;
-    background: #EEE;
+    background: #eee;
     margin-top: 40px;
     border-radius: 5px;
     max-width: 700px;
@@ -470,7 +527,7 @@ body.documentation {
     min-height: 140px;
 
     &::before {
-      content: "";
+      content: '';
       width: 90px;
       height: 90px;
       position: absolute;
@@ -487,6 +544,7 @@ body.documentation {
       font-size: 18px;
       margin-bottom: 2px;
       display: inline-block;
+      color: #212327;
     }
 
     p {
@@ -505,12 +563,104 @@ body.documentation {
 
       &:last-child {
         margin-right: 0;
-        &::after { display: none; }
+        &::after {
+          display: none;
+        }
       }
     }
   }
 }
 
+.tutorials {
+  min-height: 60vh;
+
+  .tutorials-items {
+    padding: 30px 0;
+
+    .tutorials-items-item {
+      transition: 350ms ease box-shadow;
+      display: block;
+      padding: 30px 30px 30px 260px;
+      background-color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      position: relative;
+
+      &:hover,
+      &:active {
+        box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1);
+
+        .title {
+          color: #000;
+        }
+        .thumbnail::after {
+          opacity: 1;
+        }
+      }
+
+      .thumbnail {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        width: 230px;
+        background-color: #999;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 4px 0 0px 4px;
+
+        &::after {
+          transition: 350ms ease opacity;
+          opacity: 0;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: block;
+          background-color: rgba($green, 25%);
+          border-radius: 4px 0 0px 4px;
+        }
+      }
+
+      .title {
+        color: #333;
+        font-size: 1.3em;
+        margin: 0 0 15px;
+      }
+
+      .summary {
+        margin: 0 0 10px;
+        color: #333;
+        font-size: 0.9em;
+      }
+
+      .author {
+        color: #888;
+        margin-bottom: 0;
+        position: relative;
+        padding-left: 30px;
+        font-size: 0.9em;
+
+        &::before {
+          content: '';
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          top: 50%;
+          left: 0px;
+          transform: translate(0, -50%);
+          background: #98c451 url(../../../src/assets/logo-bird-only.svg) 55% 50% no-repeat;
+          background-size: 12px;
+          border-radius: 25px;
+        }
+      }
+    }
+  }
+}
 
 // Basic layout
 // ---------
@@ -520,21 +670,29 @@ body.documentation {
 
   // Menu left & content right
   &.main-content-on-right-side {
-    .main-content-left-col { width: 28.33%; }
-    .main-content-right-col { width: 66.66%; }
+    .main-content-left-col {
+      width: 28.33%;
+    }
+    .main-content-right-col {
+      width: 66.66%;
+    }
   }
 
   // Menu right & content left
   &.main-content-on-left-side {
-    .main-content-left-col { width: 66.66%; }
-    .main-content-right-col { width: 33.33%; }
+    .main-content-left-col {
+      width: 66.66%;
+    }
+    .main-content-right-col {
+      width: 33.33%;
+    }
   }
 }
 
 // Small Desktop
 // ----------
 @media only screen and (max-width: 1199px) {
-  .main header.header{
+  .main header.header {
     .main-nav .nav .nav-item .nav-link {
       padding: 20px 15px !important;
       font-size: 13px;
@@ -545,11 +703,13 @@ body.documentation {
 // Mobile
 // ----------
 @media only screen and (max-width: 989px) {
-  .main header.header{
+  .main header.header {
     .main-nav {
       // Remove search overlay
       &.main-nav-search-enabled .nav {
-        .nav-item, &.nav-item-search, &.nav-item-search .main-search-box {
+        .nav-item,
+        &.nav-item-search,
+        &.nav-item-search .main-search-box {
           opacity: 1;
           pointer-events: visible;
         }
@@ -558,19 +718,24 @@ body.documentation {
       .nav {
         display: flex;
 
-
-        &.navbar-nav { margin-left: 0 !important; }
+        &.navbar-nav {
+          margin-left: 0 !important;
+        }
 
         .nav-item {
-          .nav-link { border-bottom: 1px solid rgba(255,255,255,0.25); }
+          .nav-link {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+          }
 
           // Search item
           &.nav-item.nav-item-search {
             order: -1;
             text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.25);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
-            > a { display: none; }
+            > a {
+              display: none;
+            }
 
             .main-search-box {
               opacity: 1;
@@ -597,11 +762,15 @@ body.documentation {
     display: flex;
     flex-direction: column;
 
-    &.main-content-on-left-side { flex-direction: column-reverse; }
+    &.main-content-on-left-side {
+      flex-direction: column-reverse;
+    }
 
     // Menu left & content right
-    &.main-content-on-right-side, &.main-content-on-left-side {
-      .main-content-left-col, .main-content-right-col {
+    &.main-content-on-right-side,
+    &.main-content-on-left-side {
+      .main-content-left-col,
+      .main-content-right-col {
         width: 100%;
       }
     }
@@ -616,19 +785,20 @@ body.documentation {
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   overflow: hidden;
-  background: #FFF;
+  background: #fff;
 
   .secondary-navigation-empty {
     text-align: center;
     padding: 50px 0;
     margin: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.125);
-    color: #CCC;
+    color: #ccc;
     font-style: italic;
   }
 
-  a { transition: 350ms ease all; }
-
+  a {
+    transition: 350ms ease all;
+  }
 
   h2 {
     font-size: 1.05rem;
@@ -643,14 +813,20 @@ body.documentation {
     padding: 0;
     width: 100%;
 
-    li { margin-bottom: 0; }
+    li {
+      margin-bottom: 0;
+    }
 
     li.secondary-navigation-submenu {
       &.open {
-        > ul  { max-height: inherit; }
+        > ul {
+          max-height: inherit;
+        }
         > a {
           color: #085b77;
-          &:after { transform: translate(0, -50%) rotate(180deg); }
+          &:after {
+            transform: translate(0, -50%) rotate(180deg);
+          }
         }
       }
 
@@ -679,49 +855,58 @@ body.documentation {
       }
     }
 
-
     li {
       &.current > a {
         font-weight: bold;
         color: #085b77;
       }
 
-      a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+      a {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      }
 
-      &:first-child a { border-top: 1px solid rgba(0, 0, 0, 0.125); }
-      &:last-child a { border-bottom: none; }
+      &:first-child a {
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+      }
+      &:last-child a {
+        border-bottom: none;
+      }
 
       // Second level
       ul {
         overflow: hidden;
         max-height: 0;
 
-        li:first-child a { border-top: none; }
-        li:last-child a { border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+        li:first-child a {
+          border-top: none;
+        }
+        li:last-child a {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        }
 
         a {
-          background: #FAFAFA;
+          background: #fafafa;
           padding-left: 25px;
         }
 
         // Third level
         ul {
           a {
-            background: #F0F0F0;
+            background: #f0f0f0;
             padding-left: 50px;
           }
 
           // Fourth level
           ul {
             a {
-              background: #EAEAEA;
+              background: #eaeaea;
               padding-left: 75px;
             }
 
             // Fifth level
             ul {
               a {
-                background: #E0E0E0;
+                background: #e0e0e0;
                 padding-left: 100px;
               }
             }
@@ -731,11 +916,12 @@ body.documentation {
     }
 
     a {
-      display: block;;
+      display: block;
       padding: 7px 15px;
       text-decoration: none !important;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         color: #085b77;
       }
     }
@@ -774,11 +960,16 @@ body.documentation {
       margin: 15px 0 10px;
     }
 
-    pre { padding: 20px; }
-    pre code { background: none !important; }
+    pre {
+      padding: 20px;
+    }
+    pre code {
+      background: none !important;
+    }
 
     // Inline code
-    li > code, p > code {
+    li > code,
+    p > code {
       white-space: nowrap;
       max-width: 100%;
       background: #fff;
@@ -792,38 +983,52 @@ body.documentation {
       list-style-type: circle;
       padding-left: 19px;
     }
-
-    table {
-      border: 1px solid #e1e4e5;
-
-      td, th { padding: 5px 10px; }
-
-      thead {
-        color: #000;
-        text-align: left;
-        vertical-align: bottom;
-        white-space: nowrap;
-
-        td, th {
-          background: #FFF;
-          border-bottom: 2px solid #e1e4e5;
-          border-left: 1px solid #e1e4e5;
-        }
-      }
-
-      tbody {
-        td {
-          border-bottom: 1px solid #e1e4e5;
-          border-left: 1px solid #e1e4e5;
-          background: #FFF;
-        }
-
-        tr:nth-child(2n) td { background: #FAFAFA; }
-      }
-    }
   }
 }
 
+// Table default styles
+.template-uc-doc .main-content-right-col,
+.article {
+  table {
+    border: 1px solid #e1e4e5;
+    margin-bottom: 10px;
+
+    td,
+    th {
+      padding: 5px 10px;
+    }
+
+    thead {
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+      white-space: nowrap;
+
+      td,
+      th {
+        background: #fff;
+        border-bottom: 2px solid #e1e4e5;
+        border-left: 1px solid #e1e4e5;
+      }
+    }
+
+    tbody {
+      td {
+        border-bottom: 1px solid #e1e4e5;
+        border-left: 1px solid #e1e4e5;
+        background: #fff;
+      }
+
+      tr:nth-child(2n) td {
+        background: #fafafa;
+      }
+    }
+
+    code {
+      white-space: nowrap;
+    }
+  }
+}
 
 // Autolink title anchor
 // --------

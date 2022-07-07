@@ -133,6 +133,51 @@ const getArticles = async (newPageRef) => {
   return articles;
 };
 
+const getTutorials = async (newPageRef) => {
+  const dir = './content/tutorials';
+  const tutorials = [];
+  const files = fs.readdirSync(dir);
+  console.info('generating tutorials');
+
+  files.forEach((file, key) => {
+    const filePath = `${dir}/${file}`;
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    const body = content.split('\n').splice(8).join('\n');
+    const options = {};
+    content
+      .split('\n')
+      .splice(0, 8)
+      .forEach((row) => {
+        const [key, value] = row.split(': ');
+        options[key.toLowerCase()] = value;
+      });
+
+    const summaryNumWords = 40;
+    const strippedContent = striptags(markdownConverter.makeHtml(body));
+    options.summary = strippedContent.split(' ').splice(0, summaryNumWords).join(' ');
+
+    const tutorialPath = `/tutorials/${options.slug}`;
+    if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
+      console.info(`generating tutorial ${key}`);
+
+      tutorials.push(options);
+
+      const tutorialContext = {
+        ...options,
+        body,
+        // Algolia fields
+        title: options.title,
+        description: options.summary,
+        algoliaContent: strippedContent,
+      };
+      newPageRef(tutorialPath, 'tutorials/tutorial', tutorialContext);
+    }
+  });
+
+  return tutorials;
+};
+
 const walk_md_files = (dir, path, acc, index) => {
   const files = fs.readdirSync(dir);
 
@@ -251,6 +296,9 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     // Create blog page
     const articles = await getArticles(newPage);
     await newPage('/blog', 'blog/index', { articles });
+    // Create tutorials page
+    const tutorials = await getTutorials(newPage);
+    await newPage('/tutorials', 'tutorials/index', { tutorials });
     // Create ecosystem page
     await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
 

@@ -181,7 +181,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace;
+  font-family: ui-monospace,monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,;
   font-size: 1em;
 }
 
