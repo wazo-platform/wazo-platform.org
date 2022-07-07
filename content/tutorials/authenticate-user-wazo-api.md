@@ -7,8 +7,6 @@ OgImage: authenticate-user-wazo-api-og.jpg
 Thumbnail: authenticate-user-wazo-api-thumbnail.jpg
 Status: published
 
-> Original content comes from [Refresh Token in Wazo](/blog/wazo-auth-refresh-token) blog post.
-
 ## Introduction
 
 In this tutorial, we will explain how to authenticate a user and explain the refresh token
@@ -149,5 +147,11 @@ DELETE. See the
 
 ## Conclusion
 
-If you are developing a long-lived application that uses Wazo Platform's API use refresh tokens to
-offer a nice user experience and avoid storing sensitive user data.
+If you are developing a long-lived application that uses Wazo Platform's API, then you should use
+refresh tokens to offer a nice user experience and avoid storing sensitive user data.
+
+## References
+
+* Original content of this tutorial comes from the [Refresh Token in
+  Wazo](/blog/wazo-auth-refresh-token) blog post.
+* [API specifications](https://wazo-platform.org/documentation/)
