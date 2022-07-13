@@ -9,6 +9,9 @@ title: Upgrade notes
 - Backup directory has been moved from `/var/backups/xivo` to `/var/backups/wazo`
 - `xivo-backup` script has been renamed to `wazo-backup`. `xivo-backup` is now deprecated and will
   be removed in future version.
+- Admin users of a tenant are now part of an admin group (one group per tenant). The admin
+  permissions policy has been moved to the new admin group, instead of each individual admin user.
+  New admin users are expected to be placed into this group.
 
 Consult the
 [22.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.10)
