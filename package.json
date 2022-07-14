@@ -29,7 +29,7 @@
     "graphiql": "^1.9.13",
     "js-yaml": "^4.1.0",
     "mobx": "^6.6.1",
-    "react": "^16.8.6",
+    "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -42,7 +42,7 @@
     "stickyfill": "^1.1.1-strict",
     "striptags": "^3.2.0",
     "styled-components": "^5.3.5",
-    "swagger-ui-react": "^3.52.5"
+    "swagger-ui-react": "^4.12.0"
   },
   "devDependencies": {
     "dart-sass": "^1.25.0",
