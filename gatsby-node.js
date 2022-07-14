@@ -224,7 +224,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   const installDoc = fs.readFileSync('./content/use-cases.md', 'utf8');
   const installC4Doc = fs.readFileSync('./content/install-c4.md', 'utf8');
   const contributeDoc = fs.readFileSync('./content/contribute.md', 'utf8');
-  const rawSections = yaml.safeLoad(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
+  const rawSections = yaml.load(fs.readFileSync('./content/sections.yaml', { encoding: 'utf-8' }));
   // when CORPORATE is set do not filter section, otherwise only display what is not for developer
   const sections = rawSections.filter((section) => (!corporate ? !section.corporate : true));
   const contributeDocs = walk_md_files('content/contribute', '', {}, 'description.md');
