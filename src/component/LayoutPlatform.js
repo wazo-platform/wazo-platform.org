@@ -8,7 +8,7 @@ import '../styles/platform/pretty-docs.scss';
 import '../styles/platform/documentation.scss';
 import '../styles/platform/styles.scss';
 
-export default ({ children, section, className, pageTitle, pageTitleDate, PageTitleComponent = 'h1' }) => {
+const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitleComponent = 'h1' }) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
 
   const scrollToAnchor = (hash) => {
@@ -27,11 +27,11 @@ export default ({ children, section, className, pageTitle, pageTitleDate, PageTi
     }, 1);
   };
 
-  if (typeof window === 'object') {
-    useEffect(() => {
+  useEffect(() => {
+    if (typeof window === 'object') {
       scrollToAnchor(window.location.hash);
-    });
-  }
+    }
+  });
 
   const bodyAttributes = { class: section };
   const now = new Date();
@@ -221,3 +221,5 @@ export default ({ children, section, className, pageTitle, pageTitleDate, PageTi
     </div>
   );
 };
+
+export default Page

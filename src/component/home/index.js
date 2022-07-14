@@ -5,7 +5,7 @@ import TechnicalLayersImg from '../../assets/Technical_Layers_2019_V3.png';
 
 import Layout from '../Layout';
 
-export default () => (
+const Page = () => (
   <Layout section="home">
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
@@ -146,3 +146,5 @@ export default () => (
     {/* Contact has been moved into Layout.js */}
   </Layout>
 );
+
+export default Page

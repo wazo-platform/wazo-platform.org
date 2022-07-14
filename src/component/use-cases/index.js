@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 import Layout from '../Layout';
 
-export const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
+const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
   <div className="item item-blue col-md-4 col-sm-12">
     <div className="item-inner item-inner-no-hover">
       <div className="text-center">
@@ -30,7 +30,7 @@ export const CardItem = ({ title, introduction, icon, beta, links = [] }) => (
   </div>
 );
 
-export default ({ pageContext: { installDoc } }) => (
+const Page = ({ pageContext: { installDoc } }) => (
   <Layout
     section="use-cases"
     pageTitle="Getting started"
@@ -80,3 +80,5 @@ export default ({ pageContext: { installDoc } }) => (
     </section>
   </Layout>
 );
+
+export default Page

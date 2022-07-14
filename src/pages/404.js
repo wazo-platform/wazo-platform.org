@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../component/Layout';
 
-export default ({ pageContext: { news } }) => (
+const Page = ({ pageContext: { news } }) => (
   <Layout pageTitle="Page not found">
     <div
       style={{
@@ -15,3 +15,5 @@ export default ({ pageContext: { news } }) => (
     </div>
   </Layout>
 );
+
+export default Page

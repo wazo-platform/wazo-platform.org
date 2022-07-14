@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../Layout';
 import ReactMarkdown from 'react-markdown';
 
-export default ({ pageContext: { title, author, category, body, ogimage } }) => (
+const Page = ({ pageContext: { title, author, category, body, ogimage } }) => (
   <Layout pageTitle={title} className="article" section="tutorials">
     <Helmet>
       {ogimage && <meta property="og:image" content={`https://wazo-platform.org/images/tutorials/${ogimage}`} />}
@@ -20,3 +20,5 @@ export default ({ pageContext: { title, author, category, body, ogimage } }) => 
     </div>
   </Layout>
 );
+
+export default Page

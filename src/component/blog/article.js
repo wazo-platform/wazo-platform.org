@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'gatsby';
 
-export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, body } }) => {
+const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, body } }) => {
   const date = new Date(dateRaw);
   const formattedDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
   const tags = tagsRaw && tagsRaw.split(',');
@@ -27,3 +27,4 @@ export default ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, ca
     </Layout>
   );
 }
+export default Page

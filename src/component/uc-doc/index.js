@@ -6,7 +6,7 @@ import TableOfContents from './TableOfContents';
 
 const breadcrumbs = [{ link: '/uc-doc', label: 'UC Use Case Doc', active: true }]
 
-export default ({ pageContext: { content, title = 'Home' }}) => (
+const Page = ({ pageContext: { content, title = 'Home' }}) => (
   <Layout pageTitle="Unified Communication Use Cases" PageTitleComponent="p" breadcrumbs={breadcrumbs} className="template-uc-doc contribute">
     <Helmet>
       <title>{title} - Unified Communication Use Cases - Wazo Platform</title>
@@ -26,3 +26,5 @@ export default ({ pageContext: { content, title = 'Home' }}) => (
     </div>
   </Layout>
 );
+
+export default Page

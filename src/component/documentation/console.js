@@ -60,7 +60,7 @@ const getServiceName = (raw) => {
   return path[2];
 }
 
-export default ({ pageContext: { moduleName, module, modules, auth_url }}) => {
+const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
   const url = new URL(module.redocUrl);
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
 
@@ -240,3 +240,5 @@ export default ({ pageContext: { moduleName, module, modules, auth_url }}) => {
     </Layout>
   );
 }
+
+export default Page

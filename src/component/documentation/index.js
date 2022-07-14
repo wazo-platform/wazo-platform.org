@@ -31,7 +31,7 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   )
 }
 
-export const Module = ({ moduleName, module }) => (
+const Module = ({ moduleName, module }) => (
   <div id={moduleName} className={`item item-blue col-lg-4 col-6`}>
     <div className="item-inner">
       <Link to={module.overview === false ? `#${moduleName}` : module.url || `/documentation/overview/${moduleName}.html`}>
@@ -82,7 +82,7 @@ export const Module = ({ moduleName, module }) => (
   </div>
 );
 
-export default ({ pageContext: { sections } }) => (
+const Page = ({ pageContext: { sections } }) => (
   <Layout section="documentation" className="landing-page" pageTitle="Documentation">
     <Helmet>
       <title>Wazo Platform - Documentation for developers</title>
@@ -107,3 +107,5 @@ export default ({ pageContext: { sections } }) => (
     </section>
   </Layout>
 );
+
+export default Page

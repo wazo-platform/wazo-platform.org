@@ -55,7 +55,7 @@ const styles = {
   },
 };
 
-export default ({ pageContext: { moduleName, module, modules }}) => {
+const Page = ({ pageContext: { moduleName, module, modules }}) => {
   const graphqlRef = useRef(null);
   const url = new URL(module.redocUrl);
 
@@ -209,3 +209,5 @@ export default ({ pageContext: { moduleName, module, modules }}) => {
     </Layout>
   );
 }
+
+export default Page

@@ -4,7 +4,7 @@ import { getModuleSpecUrl } from './helper';
 
 const defaultOptions = { pathInMiddlePanel: true };
 
-export default ({ pageContext: { module } }) => (
+const Page = ({ pageContext: { module } }) => (
   <>
     {/* @patch Fix sticky menu on Chrome 80+ : https://github.com/Redocly/redoc/pull/1185 */}
     <style
@@ -27,3 +27,5 @@ export default ({ pageContext: { module } }) => (
     <RedocStandalone options={defaultOptions} specUrl={getModuleSpecUrl(module)} />;
   </>
 );
+
+export default Page

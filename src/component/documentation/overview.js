@@ -85,7 +85,7 @@ const getContentRenderers = (module, onEnter, onLeave) => ({
   ),
 });
 
-export default ({ pageContext: { moduleName, module, overview } }) => {
+const Page = ({ pageContext: { moduleName, module, overview } }) => {
   const [currentMenus, setCurrentMenu] = useState({});
 
   const onEnter = slug => {
@@ -133,3 +133,5 @@ export default ({ pageContext: { moduleName, module, overview } }) => {
     </Layout>
   );
 };
+
+export default Page
