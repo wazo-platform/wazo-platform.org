@@ -1,5 +1,5 @@
 # Use multistage builds to take node and npm binaries from another base image
-FROM node:14.19.3-buster-slim AS build-node
+FROM node:18.5.0-buster-slim AS build-node
 
 FROM openjdk:14-slim-buster
 COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
