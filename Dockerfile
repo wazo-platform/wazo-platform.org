@@ -7,7 +7,9 @@ COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 # Install Git
 RUN apt-get update && apt-get install -y git graphviz wget ttf-dejavu fontconfig
-RUN wget "http://downloads.sourceforge.net/project/plantuml/1.2018.5/plantuml.1.2018.5.jar" -O plantuml.jar -O $JAVA_HOME/lib/plantuml.jar
+# Use newer version if possible
+ENV PLANTUML_VERSION=1.2022.6
+RUN wget "https://github.com/plantuml/plantuml/releases/download/v$PLANTUML_VERSION/plantuml-$PLANTUML_VERSION.jar" -O plantuml.jar -O $JAVA_HOME/lib/plantuml.jar
 
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm i -g yarn
