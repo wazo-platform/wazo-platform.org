@@ -10,7 +10,7 @@ const Page = ({ pageContext: { title, author, category, body, ogimage } }) => (
     </Helmet>
     <div className="container main">
       <div className="article--content">
-        <ReactMarkdown source={body} />
+        <ReactMarkdown children={body} />
 
         <div className="article--content--footer">
           <span className="article--content--footer-author">{author}</span>

@@ -7,7 +7,7 @@ const renderContributeTitle = title => title === 'Home' ? 'Contribute' : `Contri
 const Page = ({ pageContext: { content, title = 'Home' }}) => (
   <Layout pageTitle={renderContributeTitle(title)} breadcrumbs={[{ link: '/contribute', label: 'Contribute', active: true }]} className="contribute">
     <div className="container principal">
-      <ReactMarkdown source={content} />
+      <ReactMarkdown children={content} />
     </div>
   </Layout>
 );

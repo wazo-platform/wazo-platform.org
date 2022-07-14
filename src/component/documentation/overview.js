@@ -110,8 +110,8 @@ const Page = ({ pageContext: { moduleName, module, overview } }) => {
               <div className="content-inner">
                 <ReactMarkdown
                   moduleName={moduleName}
-                  source={overview}
-                  renderers={getContentRenderers(module, onEnter, onLeave)}
+                  children={overview}
+                  components={getContentRenderers(module, onEnter, onLeave)}
                 />
               </div>
             </div>
@@ -120,9 +120,9 @@ const Page = ({ pageContext: { moduleName, module, overview } }) => {
               <div id="doc-nav" className="doc-nav">
                 <nav id="doc-menu" className="nav doc-menu flex-column sticky">
                   <ReactMarkdown
-                    allowedTypes={['heading', 'text']}
-                    source={overview}
-                    renderers={getMenuRenderers(currentMenus)}
+                    allowedElements={['heading', 'text']}
+                    children={overview}
+                    components={getMenuRenderers(currentMenus)}
                   />
                 </nav>
               </div>

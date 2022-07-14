@@ -5,7 +5,7 @@ import Layout from '../Layout';
 const Page = ({ pageContext: { content }}) => (
   <Layout pageTitle={`Ecosystem`} breadcrumbs={[{ link: '/ecosystem', label: 'Ecosystem', active: true }]} className="ecosystem">
     <div className="ecosystem container principal">
-      <ReactMarkdown source={content} />
+      <ReactMarkdown children={content} />
     </div>
   </Layout>
 );

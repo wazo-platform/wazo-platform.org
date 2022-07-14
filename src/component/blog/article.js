@@ -12,7 +12,7 @@ const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, cate
     <Layout pageTitle={title} pageTitleDate={formattedDate} className="article" section="blog">
       <div className="container main">
         <div className="article--content">
-          <ReactMarkdown source={body} />
+          <ReactMarkdown children={body} />
 
           <div className="article--content--footer">
             <Link className="article--content--footer-author" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>

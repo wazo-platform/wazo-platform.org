@@ -38,7 +38,7 @@ const Page = ({ pageContext: { installDoc } }) => (
   >
     <section id="use-cases" className="about section">
       <div className="container">
-        <ReactMarkdown source={installDoc} />
+        <ReactMarkdown children={installDoc} />
 
         <h2>Use Cases</h2>
         <div className="cards-section">

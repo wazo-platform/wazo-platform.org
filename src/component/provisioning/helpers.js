@@ -24,7 +24,7 @@ const MarkedDown = ({ label, content }) => {
         </tr>
         <tr className="marked-content hidden">
           <td colSpan={2} >
-            <div><ReactMarkdown source={editedContent} /></div>
+            <div><ReactMarkdown children={editedContent} /></div>
           </td>
         </tr>
       </>
