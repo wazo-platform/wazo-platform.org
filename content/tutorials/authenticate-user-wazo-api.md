@@ -101,10 +101,10 @@ Here's the response you'll get from that request.
 }
 ```
 
-| Field           | Description                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `token`         | Is an access token that is valid for the expiration that has been specified on the POST                                             |
-| `request_token` | Is a special token that can be used to create another access token for that user as if the username and password had been&nbsp;used |
+| Field           | Description                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `token`         | Is an access token that is valid for the expiration that has been specified on the POST                                        |
+| `request_token` | Is a special token that can be used to create another access token for that user as if the username and password had been used |
 
 > **Important!** The refresh token that you just created has no expiration and will keep working
 > until it is explicitly deleted.
