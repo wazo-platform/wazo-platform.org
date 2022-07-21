@@ -21,7 +21,7 @@ In `config.js`, you can configure the Algolia credentials used for the search en
 ## Develop
 
 ```shell
-[CORPORATE=1] make develop
+make ENV=CORPORATE=1 develop
 ```
 
 Then open http://localhost:8000 in your favorite browser.
@@ -29,7 +29,7 @@ Then open http://localhost:8000 in your favorite browser.
 ## Building
 
 ```shell
-[CORPORATE=1] make build
+make ENV=CORPORATE=1 build
 ```
 
 The documentation is built in the `public/` folder, you can then run a simple HTTP server:
