@@ -8,7 +8,7 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 RUN apt-get update && apt-get install -y git graphviz wget ttf-dejavu fontconfig make
 
 ENV PLANTUML_VERSION=1.2022.6
-RUN wget "https://github.com/plantuml/plantuml/releases/download/v$PLANTUML_VERSION/plantuml-$PLANTUML_VERSION.jar" -O plantuml.jar -O $JAVA_HOME/lib/plantuml.jar
+RUN wget "https://github.com/plantuml/plantuml/releases/download/v$PLANTUML_VERSION/plantuml-$PLANTUML_VERSION.jar" -O $JAVA_HOME/lib/plantuml.jar
 
 # Test plantuml can be loaded
 RUN java -Djava.awt.headless=true -jar $JAVA_HOME/lib/plantuml.jar -version
