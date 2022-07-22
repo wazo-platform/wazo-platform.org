@@ -150,8 +150,6 @@ for 7 days.
 
 ### Before Restoring the System
 
-**Warning**: Before restoring a Wazo on a fresh install you have to setup Wazo using the wizard.
-
 Stop monit and all the Wazo services:
 
 ```shell
