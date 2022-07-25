@@ -262,8 +262,9 @@ oc_ap", mutex_name=mutex_name@entry=0x562d24d15bb4 "channels", t=t@entry=0x562d2
 Then we want to find the owner of the mutex. Using the address of the underlying `pthread_mutex_t`,
 we can find the owner id. This is the `t` field in the second frame.
 
-```gdb
-gdb> p *((pthread_mutex_t *) 0x562d2713de70)
+```sh
+gdb /usr/sbin/asterisk core_file
+(gdb) p *((pthread_mutex_t *) 0x562d2713de70)
 $1 = pthread_mutex_t = {Type = Recursive, Status = Acquired, possibly with waiters, Owner ID = 1677129, Robust = No, Shared = No, Protocol = None}
 ```
 
@@ -311,7 +312,8 @@ it's parameter and then print it using the apropriate cast to find the calling f
 
 Using the `data` parameter from frame 5 and the type from the source code.
 
-```
+```sh
+gdb /usr/sbin/asterisk core_file
 (gdb) p *((struct ast_bridge_channel *) 0x7fa18c4acc00)
 $1 = ... bridge = 0x7fa18c16b080, ...
 ```
