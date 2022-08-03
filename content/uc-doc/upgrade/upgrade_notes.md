@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 22.11 {#22-11}
+
+Consult the
+[22.11 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.11)
+for more information.
+
 ## 22.10 {#22-10}
 
 - Asterisk version has been updated:
