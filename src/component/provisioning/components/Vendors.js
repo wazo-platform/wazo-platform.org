@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { buildTable } from '../phone';
+import { buildTable } from '../helpers';
 const slugify = require('../../../builder/slugify');
 
-export default ({ plugins, images }) => {
+const Page = ({ plugins, images }) => {
   const [currentVendor, setCurrentVendor] = useState(null);
   const [currentDevice, setCurrentDevice] = useState(null);
 
@@ -39,3 +39,5 @@ export default ({ plugins, images }) => {
       </div>
   ));
 };
+
+export default Page

@@ -5,7 +5,7 @@ import TechnicalLayersImg from '../../assets/Technical_Layers_2019_V3.png';
 
 import Layout from '../Layout';
 
-export default () => (
+const Page = () => (
   <Layout section="home">
     {/* Promo */}
     <section id="promo" className="promo section offset-header">
@@ -42,17 +42,19 @@ export default () => (
     <section id="about" className="about section">
       <div className="container">
         <h2 className="title text-center">What is Wazo Platform?</h2>
-        <p className="intro">
-          Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
-          infrastructures. You can pick and choose the components you need to build your infrastructures with class 5
-          features like audio and video calls, chat, call centers, conferences, voicemail, etc., and class 4 features
-          like security, routing, load balancing, etc. You can augment the platform and integrate it with your
-          subscription and billing capabilities or any value-added services like Speech to Text, A.I. or sentiment
-          analysis. These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
-          containers.
-          <br />
-          <br />
-          Wazo Platform is defined by 4 layers:
+        <div className="intro">
+          <p>
+            Wazo Platform is an Open Source project allowing to build carrier grade programmable IP communication
+            infrastructures. You can pick and choose the components you need to build your infrastructures with class 5
+            features like audio and video calls, chat, call centers, conferences, voicemail, etc., and class 4 features
+            like security, routing, load balancing, etc. You can augment the platform and integrate it with your
+            subscription and billing capabilities or any value-added services like Speech to Text, A.I. or sentiment
+            analysis. These communication infrastructures can be deployed and scaled on bare metal, virtual machines or
+            containers.
+          </p>
+          <p>
+            Wazo Platform is defined by 4 layers:
+          </p>
           <div id="technical-layers">
             <img src={TechnicalLayersImg} alt="Technical Layers" />
           </div>
@@ -79,7 +81,7 @@ export default () => (
               </span>
             </li>
           </ul>
-        </p>
+        </div>
       </div>
     </section>
     <section id="three" className="about section">
@@ -146,3 +148,5 @@ export default () => (
     {/* Contact has been moved into Layout.js */}
   </Layout>
 );
+
+export default Page

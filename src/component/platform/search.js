@@ -15,8 +15,6 @@ import { algoliaIndexPlatform as indexName } from '../../contants'
 
 const config = require('../../../config');
 
-const Root = props => <div className="main-search-box pt-3 pb-4 d-inline-block">{props.children}</div>;
-
 const list = css`
   position: absolute;
   width: 560px;
@@ -101,7 +99,7 @@ const By = styled.span`
   }
 `;
 
-const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchStalled, createURL, ...rest }) => (
+const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchStalled, createURL, collapse }) => (
   <form className="form-inline search-form justify-content-center">
     <input
       type="text"
@@ -109,7 +107,7 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
       placeholder="Search"
       aria-label="Search"
       onChange={e => refine(e.target.value)}
-      {...rest}
+      collapse={collapse}
     />
   </form>
 ));
@@ -170,27 +168,28 @@ export default class Search extends Component {
     }
 
     return (
-      <InstantSearch
-        searchClient={this.searchClient}
-        indexName={indexName}
-        onSearchStateChange={this.updateState}
-        root={{ Root }}
-      >
-        <Input onFocus={this.focus} {...{ collapse, focused }} />
-        <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
-          <Index indexName={indexName}>
-            <Results>
-              <Hits hitComponent={PageHit(this.disableHits)} />
-            </Results>
-          </Index>
-          <By>
-            Powered by{' '}
-            <a href="https://www.algolia.com">
-              <i className="fab fa-algolia" /> Algolia
-            </a>
-          </By>
-        </HitsWrapper>
-      </InstantSearch>
+      <div className="main-search-box pt-3 pb-4 d-inline-block">
+        <InstantSearch
+          searchClient={this.searchClient}
+          indexName={indexName}
+          onSearchStateChange={this.updateState}
+        >
+          <Input onFocus={this.focus} {...{ collapse, focused }} />
+          <HitsWrapper show={query.length > 0 && focused} hitsAsGrid={hitsAsGrid} ref={this.list}>
+            <Index indexName={indexName}>
+              <Results>
+                <Hits hitComponent={PageHit(this.disableHits)} />
+              </Results>
+            </Index>
+            <By>
+              Powered by{' '}
+              <a href="https://www.algolia.com">
+                <i className="fab fa-algolia" /> Algolia
+              </a>
+            </By>
+          </HitsWrapper>
+        </InstantSearch>
+      </div>
     );
   }
 }

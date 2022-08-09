@@ -11,7 +11,7 @@ const sortTutorials = (a) =>
     return 0;
   });
 
-export default ({ pageContext: { tutorials: tutorialsRaw } }) => {
+const Page = ({ pageContext: { tutorials: tutorialsRaw } }) => {
   const [tutorials] = useState(sortTutorials(tutorialsRaw));
 
   return (
@@ -32,3 +32,5 @@ export default ({ pageContext: { tutorials: tutorialsRaw } }) => {
     </Layout>
   );
 };
+
+export default Page

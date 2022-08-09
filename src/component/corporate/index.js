@@ -23,7 +23,7 @@ const ExternalOrInternalLink = ({ children, to, activeClassName, partiallyActive
   );
 };
 
-export const Module = ({ moduleName, module }) => (
+const Module = ({ moduleName, module }) => (
   <div id={moduleName} className={`item item-red col-lg-4 col-6`}>
     <div className="item-inner">
       <ExternalOrInternalLink
@@ -69,7 +69,7 @@ export const Module = ({ moduleName, module }) => (
   </div>
 );
 
-export default ({ pageContext: { sections } }) => (
+const Page = ({ pageContext: { sections } }) => (
   <Layout isHome>
     <Helmet bodyAttributes={{ class: 'landing-page' }}>
       <title>Wazo project documentation for developers</title>
@@ -90,3 +90,5 @@ export default ({ pageContext: { sections } }) => (
     </section>
   </Layout>
 );
+
+export default Page

@@ -10,7 +10,7 @@ const sortArticles = a => a.sort((a, b) => {
   return 0;
 });
 
-export default ({ location, pageContext: { articles: articlesRaw  } }) => {
+const Page = ({ location, pageContext: { articles: articlesRaw  } }) => {
   const [ filter, setFilter ] = useState((location.state && location.state.filter) || {}); 
   const [ articles, setArticles ] = useState(articlesRaw); 
 
@@ -68,3 +68,5 @@ export default ({ location, pageContext: { articles: articlesRaw  } }) => {
     </Layout>
   );
 }
+
+export default Page

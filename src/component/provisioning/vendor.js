@@ -10,7 +10,7 @@ const breadcrumbs = [{
   url: vendorsUrl, label: 'Provd plugins',
 }];
 
-export default ({ pageContext: { name, vendor_plugins, vendor_images } }) => (
+const Page = ({ pageContext: { name, vendor_plugins, vendor_images } }) => (
   <Layout pageTitle={`<a href="${vendorsUrl}">Provd Plugins:</a> ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
     <div className="doc-wrapper provisioning-vendor">
       <div className="container">
@@ -36,3 +36,5 @@ export default ({ pageContext: { name, vendor_plugins, vendor_images } }) => (
     </div>
   </Layout>
 );
+
+export default Page

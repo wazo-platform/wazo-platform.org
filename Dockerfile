@@ -1,28 +1,21 @@
-# Use multistage builds to take node and npm binaries from another base image
-FROM node:14.19.3-buster-slim AS build-node
+# From https://github.com/docker-library/docs/blob/master/eclipse-temurin/README.md#using-a-different-base-image
+FROM node:18.5.0-buster-slim AS build-node
+ENV LANG en_US.UTF-8
+ENV JAVA_HOME=/opt/java/openjdk
+COPY --from=eclipse-temurin:11 $JAVA_HOME $JAVA_HOME
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-FROM openjdk:14-slim-buster
-COPY --from=build-node /usr/local/bin/node /usr/local/bin/node
-COPY --from=build-node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN apt-get update && apt-get install -y git graphviz wget ttf-dejavu fontconfig make
 
-# Install Git
-RUN apt-get update && apt-get install -y git graphviz wget ttf-dejavu fontconfig
-RUN wget "http://downloads.sourceforge.net/project/plantuml/1.2018.5/plantuml.1.2018.5.jar" -O plantuml.jar -O $JAVA_HOME/lib/plantuml.jar
+ENV PLANTUML_VERSION=1.2022.6
+RUN wget "https://github.com/plantuml/plantuml/releases/download/v$PLANTUML_VERSION/plantuml-$PLANTUML_VERSION.jar" -O $JAVA_HOME/lib/plantuml.jar
 
-RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-RUN npm i -g yarn
+# Test plantuml can be loaded
+RUN java -Djava.awt.headless=true -jar $JAVA_HOME/lib/plantuml.jar -version
 
 RUN mkdir /app
 COPY ./package.json /app/package.json
 COPY ./yarn.lock /app/yarn.lock
 
 WORKDIR /app
-
-RUN rm -rf node_modules/
-
-# Install node dependencies
 RUN yarn install
-RUN apt-get install -y make
-ENV LANG en_US.UTF-8
-
-ENTRYPOINT []

@@ -76,7 +76,7 @@ const PageHeader = () => (
   </header>
 );
 
-export default ({children, isHome}) => {
+const Page = ({children, isHome}) => {
   const now = new Date();
   return (
   <div className="page-wrapper">
@@ -114,3 +114,5 @@ export default ({children, isHome}) => {
   </div>
   );
 };
+
+export default Page

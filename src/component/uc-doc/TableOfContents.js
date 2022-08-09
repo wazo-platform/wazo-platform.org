@@ -35,7 +35,7 @@ const generateKeyFromPath = (path) => {
   return keyPath.replace(/\//g, '-')
 }
 
-export default () => {
+const Page = () => {
   const defaultOpenMenus = generateDefaultOpenMenu();
   const [links, setLinks] = useState(null)
   const [openMenus, setOpenMenus] = useState(defaultOpenMenus)
@@ -151,3 +151,5 @@ export default () => {
     </div>
   );
 }
+
+export default Page

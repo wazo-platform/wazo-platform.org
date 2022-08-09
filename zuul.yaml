@@ -107,7 +107,7 @@
     check:
       jobs:
         - yarn-build-copy:
-            nodeset: vm-debian-10-m1s
+            nodeset: vm-debian-10-m2s
         - yarn-prettier-uc-doc:
             nodeset: vm-debian-10-m1s
     gate:

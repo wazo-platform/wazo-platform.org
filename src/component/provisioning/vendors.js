@@ -6,7 +6,7 @@ import Vendors from './components/Vendors';
 import './provisioning.scss';
 
 const breadcrumbs = [{ link: '/uc-doc/ecosystem/supported_devices', label: 'Supported Devices', active: true }]
-export default ({ pageContext: { plugins, images, content, title = 'Supported Devices' }}) => (
+const Page = ({ pageContext: { plugins, images, content, title = 'Supported Devices' }}) => (
   <Layout pageTitle="Supported Devices" PageTitleComponent="p" breadcrumbs={breadcrumbs} className="template-uc-doc contribute">
     <div className="container principal">
       <div className="main-content main-content-on-right-side">
@@ -21,3 +21,5 @@ export default ({ pageContext: { plugins, images, content, title = 'Supported De
     </div>
   </Layout>
 );
+
+export default Page
