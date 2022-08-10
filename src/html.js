@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
+import { withPrefix } from "gatsby"
 import { corporate } from '../config-wazo';
 
 export default function HTML(props) {
@@ -18,7 +19,7 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" />
-        <script type="text/javascript" src="/js/prism.js" />
+        <script type="text/javascript" src={withPrefix("/js/prism.js")} />
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossOrigin="anonymous"></script>
         <script
           type="text/javascript"
@@ -26,7 +27,7 @@ export default function HTML(props) {
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56722061-8"></script>
         <meta name="google-site-verification" content="VfXUU25hamqC0zHjgxvyVDPk8CqGiWjLSRFE8BZ1mmE" />
-        <script type="text/javascript" src="/js/main.js" defer />
+        <script type="text/javascript" src={withPrefix("/js/main.js")} defer />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
