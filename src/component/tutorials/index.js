@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../Layout';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 
 const sortTutorials = (a) =>
   a.sort((a, b) => {
@@ -19,8 +19,8 @@ const Page = ({ pageContext: { tutorials: tutorialsRaw } }) => {
       <div className="container">
         <div className="tutorials-items">
           {tutorials.map(({ title, slug, author, summary, thumbnail }) => (
-            <Link key={slug} to={`/tutorials/${slug}`} className="tutorials-items-item">
-              <div class="thumbnail" style={{ backgroundImage: `url(/images/tutorials/${thumbnail})` }} />
+            <Link key={slug} to={withPrefix(`/tutorials/${slug}`)} className="tutorials-items-item">
+              <div class="thumbnail" style={{ backgroundImage: `url(${withPrefix('/images/tutorials/${thumbnail')}})` }} />
 
               <h2 className="title">{title}</h2>
               <p className="summary">{summary}...</p>

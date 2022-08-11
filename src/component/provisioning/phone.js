@@ -1,23 +1,23 @@
 import React  from 'react';
+import { withPrefix } from "gatsby"
 
 import Layout from '../Layout';
 import { buildTable } from './helpers';
 import './provisioning.scss';
-import { withPrefix } from 'gatsby';
 
 const slugify = require('../../builder/slugify');
 
-const vendorsUrl = '/uc-doc/ecosystem/supported_devices';
+const vendorsUrl = withPrefix('/uc-doc/ecosystem/supported_devices');
 
 
 const Page = ({ pageContext: { name, vendor, phone, vendor_images } }) => {
   const breadcrumbs = [
     { url: vendorsUrl, label: 'Provd plugins' },
-    { url: `/provisioning/${slugify(vendor)}`, label: vendor },
+    { url: withPrefix(`/provisioning/${slugify(vendor)}`), label: vendor },
   ];
 
   return (
-    <Layout pageTitle={`<a href="${vendorsUrl}">Provd Plugins</a> &gt; <a href=withPrefix("/provisioning/${slugify(vendor)}")>${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
+    <Layout pageTitle={`<a href="${vendorsUrl}">Provd Plugins</a> &gt; <a href="${withPrefix(`/provisioning/${slugify(vendor)}`)}">${vendor}</a> &gt; ${name}`} breadcrumbs={breadcrumbs} currentPageName={name}>
       <div className="doc-wrapper provisioning-phone">
         <div className="container">
           <div className="row">
