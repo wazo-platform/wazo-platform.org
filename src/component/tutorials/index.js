@@ -19,7 +19,7 @@ const Page = ({ pageContext: { tutorials: tutorialsRaw } }) => {
       <div className="container">
         <div className="tutorials-items">
           {tutorials.map(({ title, slug, author, summary, thumbnail }) => (
-            <Link key={slug} to={withPrefix(`/tutorials/${slug}`)} className="tutorials-items-item">
+            <Link key={slug} to={`/tutorials/${slug}`} className="tutorials-items-item">
               <div class="thumbnail" style={{ backgroundImage: `url(${withPrefix('/images/tutorials/${thumbnail')}})` }} />
 
               <h2 className="title">{title}</h2>

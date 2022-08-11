@@ -126,7 +126,7 @@ const Page = () => {
   const renderLinks = () => {
     return (
       <ul>
-        <li><Link to={withPrefix("/uc-doc/")}>Wazo Documentation</Link></li>
+        <li><Link to="/uc-doc/">Wazo Documentation</Link></li>
         { renderLinksRecurse(links['introduction']) }
         { renderLinksRecurse(links['installation']) }
         { renderLinksRecurse(links['upgrade']) }

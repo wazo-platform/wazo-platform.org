@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../Layout';
 import ReactMarkdown from 'react-markdown';
-import { Link, withPrefix } from 'gatsby';
+import { Link } from 'gatsby';
 
 const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, body } }) => {
   const date = new Date(dateRaw);
@@ -15,10 +15,10 @@ const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, cate
           <ReactMarkdown children={body} />
 
           <div className="article--content--footer">
-            <Link className="article--content--footer-author" to={withPrefix("/blog")} state={{ filter: { type: 'author', value: author }}}>{author}</Link>
-            <p>Category: <Link to={withPrefix("/blog")} state={{ filter: { type: 'category', value: category }}}>{category}</Link></p>
+            <Link className="article--content--footer-author" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>
+            <p>Category: <Link to="/blog" state={{ filter: { type: 'category', value: category }}}>{category}</Link></p>
             {tags && tags.length && (
-              <p className="tags">Tags: {tags.map(item => <Link key={item} to={withPrefix("/blog")} state={{ filter: { type: 'tag', value: item }}}>{item}</Link>)}</p>
+              <p className="tags">Tags: {tags.map(item => <Link key={item} to="/blog" state={{ filter: { type: 'tag', value: item }}}>{item}</Link>)}</p>
             )}
           </div>
         </div>

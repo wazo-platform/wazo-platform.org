@@ -57,7 +57,7 @@ const PageHeader = () => (
       <div>
         <div className="branding">
           <h1 className="logo">
-            <Link to={withPrefix("/")}>
+            <Link to="/">
               <span className="text-bold">Documentation</span>
             </Link>
           </h1>
@@ -65,7 +65,7 @@ const PageHeader = () => (
 
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link to={withPrefix("/")}>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="breadcrumb-item active">Quick Start</li>
         </ol>

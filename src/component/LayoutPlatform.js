@@ -68,7 +68,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
 
       <header id="header" className="header">
         <div className="container">
-          <Link to={withPrefix("/")}>
+          <Link to="/">
             <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
           </Link>
           <nav id="main-nav" className={navigationClasses.join(' ')} role="navigation">
@@ -87,31 +87,31 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={withPrefix("/documentation")} activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to="/documentation" activeClassName="active" partiallyActive>
                     API
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={withPrefix("/use-cases")} activeClassName="active">
+                  <Link className="nav-link" to="/use-cases" activeClassName="active">
                     Use Cases
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={withPrefix("/blog")} activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
                     Blog
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={withPrefix("/tutorials")} activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to="/tutorials" activeClassName="active" partiallyActive>
                     Tutorials
                   </Link>
                 </li>                <li className="nav-item">
-                                       <Link className="nav-link" to={withPrefix("/contribute")} activeClassName="active" partiallyActive>
+                                       <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
                     Contribute
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={withPrefix("/ecosystem")} activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to="/ecosystem" activeClassName="active" partiallyActive>
                     Ecosystem
                   </Link>
                 </li>
