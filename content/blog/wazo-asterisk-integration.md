@@ -21,8 +21,7 @@ Dialplan is used to modify the flow of a call. The easiest way to add dialplan t
 Wazo is through its web interface in the `Services -> IPBX -> Configuration files`
 menu. The `xivo-extrafeatures` context is available to all users and can be used
 to add new extensions to your dial plan. New contexts can also be added using the
-[Asterisk dialplan](http://the-asterisk-book.com/1.6/dialplan-grundlagen.html)
-syntax.
+Asterisk dialplan syntax.
 
 ![Customizing asterisk configuration files](../../images/blog/wazo-asterisk-integration/xivo-extrafeatures.png)
 
