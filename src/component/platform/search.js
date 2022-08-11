@@ -99,7 +99,7 @@ const By = styled.span`
   }
 `;
 
-const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchStalled, createURL, collapse }) => (
+const Input = connectSearchBox(({ refine, onFocus, collapse }) => (
   <form className="form-inline search-form justify-content-center">
     <input
       type="text"
@@ -108,6 +108,7 @@ const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchSt
       aria-label="Search"
       onChange={e => refine(e.target.value)}
       collapse={collapse}
+      onFocus={onFocus}
     />
   </form>
 ));
