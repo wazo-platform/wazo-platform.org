@@ -9,7 +9,7 @@ const WazoHeader = () => {
     <div className="wazo-header">
       <div className="container">
         <div className="site-logo">
-          <a href="/" title="Wazo" rel="home">
+          <a href={withPrefix("/")} title="Wazo" rel="home">
             <img className="header-image" alt="Wazo" src="https://i1.wp.com/wazo.io/wp-content/uploads/2020/03/WAZO-LogoWAZO-transparent-2.png?resize=300%2C79&ssl=1" title="Wazo" />
           </a>
         </div>
@@ -57,7 +57,7 @@ const PageHeader = () => (
       <div>
         <div className="branding">
           <h1 className="logo">
-            <Link to="/">
+            <Link to={withPrefix("/")}>
               <span className="text-bold">Documentation</span>
             </Link>
           </h1>
@@ -65,7 +65,7 @@ const PageHeader = () => (
 
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
+            <Link to={withPrefix("/")}>Home</Link>
           </li>
           <li className="breadcrumb-item active">Quick Start</li>
         </ol>

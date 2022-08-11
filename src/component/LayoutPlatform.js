@@ -1,6 +1,6 @@
 import Helmet from 'react-helmet';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import Search from './platform/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
@@ -56,7 +56,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
         <title>{headTitle.replace(/<\/?[^>]+(>|$)/g, '')}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href={withPrefix("/favicon.ico")} />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
@@ -68,7 +68,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
 
       <header id="header" className="header">
         <div className="container">
-          <Link to="/">
+          <Link to={withPrefix("/")}>
             <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
           </Link>
           <nav id="main-nav" className={navigationClasses.join(' ')} role="navigation">
@@ -82,36 +82,36 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
             <div className="navbar-collapse collapse" id="navbar-collapse">
               <ul className="nav navbar-nav">
                 <li className="nav-item sr-only">
-                  <a className="nav-link scrollto" href="/#promo">
+                  <a className="nav-link scrollto" href={withPrefix("/#promo")}>
                     Home
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/documentation" activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to={withPrefix("/documentation")} activeClassName="active" partiallyActive>
                     API
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/use-cases" activeClassName="active">
+                  <Link className="nav-link" to={withPrefix("/use-cases")} activeClassName="active">
                     Use Cases
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/blog" activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to={withPrefix("/blog")} activeClassName="active" partiallyActive>
                     Blog
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/tutorials" activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to={withPrefix("/tutorials")} activeClassName="active" partiallyActive>
                     Tutorials
                   </Link>
                 </li>                <li className="nav-item">
-                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
+                                       <Link className="nav-link" to={withPrefix("/contribute")} activeClassName="active" partiallyActive>
                     Contribute
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/ecosystem" activeClassName="active" partiallyActive>
+                  <Link className="nav-link" to={withPrefix("/ecosystem")} activeClassName="active" partiallyActive>
                     Ecosystem
                   </Link>
                 </li>

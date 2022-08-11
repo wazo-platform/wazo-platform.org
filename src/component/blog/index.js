@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../Layout';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 
 const sortArticles = a => a.sort((a, b) => {
   const dateA = new Date(a.date);
@@ -11,8 +11,8 @@ const sortArticles = a => a.sort((a, b) => {
 });
 
 const Page = ({ location, pageContext: { articles: articlesRaw  } }) => {
-  const [ filter, setFilter ] = useState((location.state && location.state.filter) || {}); 
-  const [ articles, setArticles ] = useState(articlesRaw); 
+  const [ filter, setFilter ] = useState((location.state && location.state.filter) || {});
+  const [ articles, setArticles ] = useState(articlesRaw);
 
   // sort articles
   sortArticles(articles);
@@ -49,22 +49,21 @@ const Page = ({ location, pageContext: { articles: articlesRaw  } }) => {
             const date = new Date(dateRaw);
             const formattedDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
             const tags = tagsRaw && tagsRaw.split(',');
- 
+
             return <div key={slug} className="item">
-              <Link to={`/blog/${slug}`} className="title">{title}</Link>
+              <Link to={withPrefix(`/blog/${slug}`)} className="title">{title}</Link>
               <div className="summary">{summary}...</div>
               <div className="head">
                 Posted on {formattedDate}  {" "}
-                in <Link className="hilite" to="/blog" state={{ filter: { type: 'category', value: category }}}>{category}</Link> {" "}
-                by <Link className="hilite" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>  {" "}
+                in <Link className="hilite" to={withPrefix("/blog")} state={{ filter: { type: 'category', value: category }}}>{category}</Link> {" "}
+                by <Link className="hilite" to={withPrefix("/blog")} state={{ filter: { type: 'author', value: author }}}>{author}</Link>  {" "}
                 {tags && tags.length &&
-                  <span className="tags"> * Tagged with {tags.map(item => <Link key={item} className="hilite" to="/blog" state={{ filter: { type: 'tag', value: item }}}>{item}</Link>)}</span>}
-              </div> 
-            </div>; 
+                 <span className="tags"> * Tagged with {tags.map(item => <Link key={item} className="hilite" to={withPrefix("/blog")} state={{ filter: { type: 'tag', value: item }}}>{item}</Link>)}</span>}
+              </div>
+            </div>;
           })}
         </div>
       </div>
-      
     </Layout>
   );
 }
