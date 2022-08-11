@@ -702,7 +702,8 @@ for more information.
 - The Wazo Client and `xivo-ctid` have been removed.
 - `wazo-dird` is now configured using its REST API. The previous configuration files have been
   removed and a new profile `default` is now created for each new tenant.
-- `Entity concept has been replaced by `Tenant`. The previous concept was not completely sealed and we have fixed it with the `tenanti`.
+- Entity concept has been replaced by `Tenant`. The previous concept was not completely sealed and
+  we have fixed it with the `tenant`.
 
   - Existing devices are migrated automatically to the tenant of their first associated line. If a
     device is in autoprov mode, it will be migrated to the default tenant. See

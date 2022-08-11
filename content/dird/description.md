@@ -58,4 +58,4 @@ The database is used to store:
 
 ## See also
 
-* [Gloassary](contact-glossary.html)
+* [Glossary](contact-glossary.html)
