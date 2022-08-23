@@ -124,4 +124,4 @@
     periodic:
       jobs:
         - yarn-build-test:
-            nodeset: vm-debian-10-m1s
+            nodeset: vm-debian-10-m1m
