@@ -48,7 +48,8 @@ When an authentication request is received for username `alice`, password `userp
 5. If the search returns exactly 1 LDAP user, do an LDAP "bind" operation with the user's DN and the
    password `userpass`
 6. If the LDAP "bind" operation is successful, search in wazo-auth a user with an email matching the
-   `mail` attribute of the LDAP user
+   `mail` attribute of the LDAP user. Since Wazo Platform 22.12, the search will fail if the user in
+   wazo-auth has upper-case characters in the email address.
 7. If a wazo-auth user is found, success
 
 ### No service bind authentication flow
