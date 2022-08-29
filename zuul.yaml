@@ -103,13 +103,19 @@
     description: Run prettier
     run: zuul.d/run-prettier.yaml
 
+- nodeset:
+    name: vm-debian-10-m1s-openstack2
+    nodes:
+      - name: vm-debian-10-m1s-openstack2
+        label: vm-debian-10-m1s-openstack2
+
 - project:
     check:
       jobs:
         - yarn-build-copy:
-            nodeset: vm-debian-10-m2s
+            nodeset: vm-debian-10-m1s-openstack2
         - yarn-prettier-uc-doc:
-            nodeset: vm-debian-10-m1s
+            nodeset: vm-debian-10-m1s-openstack2
     gate:
       jobs:
         - yarn-build-search-copy:

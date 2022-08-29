@@ -1,4 +1,4 @@
-# Wazo Platform website
+# Wazo Platform web site
 
 This repo contains the source and building scripts for generating http://www.wazo-platform.org/.
 
