@@ -48,7 +48,8 @@ When an authentication request is received for username `alice`, password `userp
 5. If the search returns exactly 1 LDAP user, do an LDAP "bind" operation with the user's DN and the
    password `userpass`
 6. If the LDAP "bind" operation is successful, search in wazo-auth a user with an email matching the
-   `mail` attribute of the LDAP user
+   `mail` attribute of the LDAP user. Since Wazo Platform 22.12, the search will fail if the user in
+   wazo-auth has upper-case characters in the email address.
 7. If a wazo-auth user is found, success
 
 ### No service bind authentication flow
@@ -102,11 +103,8 @@ Each tenant has an LDAP configuration. It is not possible for now to have more t
 LDAP server (or domain) for a tenant. If you want to do so, it must be done through the LDAP server
 itself.
 
-### Explanation behind the `tenant_id` field
+### Explanation behind the `domain_name` field
 
-When creating a token using the LDAP backend, it is necessary to provide a `tenant_id`. The first
-question that may arise is why is it necessary? The answer is pretty simple: it is not possible to
-determine which LDAP configuration to use (from all the tenants) before an LDAP server has
-authenticated the user. Not having a provided `tenant_id` would mean that we would have to try all
-the LDAP servers before finding the right one, which is both a very bad security leak and would be
-really slow. Also, usernames on the LDAP server may not match the usernames on wazo-auth.
+When creating a token using the LDAP backend, it is necessary to provide a `domain_name` in order to
+determine the tenant. Once the tenant is determined, the Wazo server can contact the LDAP server
+configured in the tenant in order to verify the credentials.
