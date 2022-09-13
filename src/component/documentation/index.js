@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link as GatsbyLink} from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 
 import Search from '../corporate/search';
 import { corporate } from '../../../config-wazo';
@@ -65,6 +65,12 @@ const Module = ({ moduleName, module }) => (
             </Link>
           )}
 
+          {module.redocUrl && (
+            <Link to={`/documentation/events/${moduleName}`} className="list-group-item">
+              API Events
+            </Link>
+          )}
+
           {module.graphql && (
             <Link to={`/documentation/graphql/${moduleName}`} className="list-group-item">
               GraphQL
@@ -89,11 +95,11 @@ const Page = ({ pageContext: { sections } }) => (
     </Helmet>
 
     {/* Add search here, only if on corporate site */}
-    { corporate && <Search /> }
+    {corporate && <Search />}
 
     <section className="cards-section text-center">
       {sections.map(section => (
-        <div key={section.name} id={section.slug} style={{paddingTop: 70}}>
+        <div key={section.name} id={section.slug} style={{ paddingTop: 70 }}>
           <h3>{section.name}</h3>
           <div className="container">
             <div className="cards-wrapper row">
