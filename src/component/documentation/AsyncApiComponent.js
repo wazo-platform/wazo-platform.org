@@ -16,10 +16,6 @@ const AsyncApiComponent = ({ module }) => {
   const [loading, setLoading] = useState(false);
   const [none, setNone] = useState(true);
 
-  const onError = () => {
-
-  }
-
   const load = async () => {
     setNone(false);
     setLoading(true);
@@ -27,7 +23,7 @@ const AsyncApiComponent = ({ module }) => {
     try {
       const response = await fetch(`http://localhost:8080/${module}`);
       if (response.status !== 200) {
-        throw new Error('null page');
+        throw new Error(`There are no event listing available for service "${module}"`);
       }
 
       const schema = await response.text();
@@ -36,9 +32,8 @@ const AsyncApiComponent = ({ module }) => {
         schema,
         config,
       }, ref.current);
-
-
     } catch (e) {
+      console.warn(e);
       setNone(true)
     }
 
@@ -55,7 +50,7 @@ const AsyncApiComponent = ({ module }) => {
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 60 }}>
           {loading && (
             <div className="spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           )}
           {none && <h5>Error loading events for service "{module}"</h5>}
