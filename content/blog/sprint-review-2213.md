@@ -15,9 +15,9 @@ Here is a short review of the Wazo Platform 22.13 release.
 - **Configuration API**: A new API has been added easily create an extension and attach it to a line at the same time
 
 ## Ongoing Features
-- New user API: We are working on a new high level API endpoint to create a user and all of its related resources (user, line, extension, voicemail, incoming call) in a single HTTP request.
-- Events: All events are being documented in order to better facilitate developpers effort to use the event system.
-- Major upgrade: We are preparing the upgrade to Debian 11 Buster. This requires migrating the remaining code written in Python 2 to Python 3.
+- **New user API**: We are working on a new high level API endpoint to create a user and all of its related resources (user, line, extension, voicemail, incoming call) in a single HTTP request.
+- **Events**: All events are being documented in order to better facilitate developers effort to use the event system.
+- **Major upgrade**: We are preparing the upgrade to Debian 11 Buster. This requires migrating the remaining code written in Python 2 to Python 3.
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.13).
 
