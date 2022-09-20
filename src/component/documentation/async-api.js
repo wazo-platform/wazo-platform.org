@@ -191,7 +191,7 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url } }) => {
           <div className="list-group" style={{ margin: '60px 20px 60px 0' }}>
             {Object.keys(modules).map(m => {
 
-              return modules[m].redocUrl && <Link key={m} to={`/documentation/events/${m}`} className={`list-group-item list-group-item-action ${m === moduleName ? 'disabled' : ''}`}>
+              return modules[m].apiEvents && <Link key={m} to={`/documentation/events/${m}`} className={`list-group-item list-group-item-action ${m === moduleName ? 'disabled' : ''}`}>
                 {modules[m].title}
                 <div style={styles.subtitle}>{modules[m].repository}</div>
               </Link>
