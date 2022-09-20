@@ -6,7 +6,6 @@ import AsyncApiStandalone from '@asyncapi/react-component/browser/standalone';
 const config = {
   schemaID: 'custom-spec',
   show: {
-    operations: false,
     errors: false,
   },
 };
@@ -16,32 +15,30 @@ const AsyncApiComponent = ({ module }) => {
   const [loading, setLoading] = useState(false);
   const [none, setNone] = useState(true);
 
-  const load = async () => {
-    setNone(false);
-    setLoading(true);
+  useEffect(() => {
+    (async () => {
+      setNone(false);
+      setLoading(true);
 
-    try {
-      const response = await fetch(`http://localhost:8080/${module}`);
-      if (response.status !== 200) {
-        throw new Error(`There are no event listing available for service "${module}"`);
+      try {
+        const response = await fetch(`http://localhost:8080/${module}`);
+        if (response.status !== 200) {
+          throw new Error(`There are no event listing available for service "${module}"`);
+        }
+
+        const schema = await response.text();
+
+        await AsyncApiStandalone.render({
+          schema,
+          config,
+        }, ref.current);
+      } catch (e) {
+        console.warn(e);
+        setNone(true)
       }
 
-      const schema = await response.text();
-
-      await AsyncApiStandalone.render({
-        schema,
-        config,
-      }, ref.current);
-    } catch (e) {
-      console.warn(e);
-      setNone(true)
-    }
-
-    setLoading(false);
-  }
-
-  useEffect(() => {
-    load();
+      setLoading(false);
+    })();
   }, [module]);
 
   return (
@@ -53,7 +50,7 @@ const AsyncApiComponent = ({ module }) => {
               <span className="sr-only">Loading...</span>
             </div>
           )}
-          {none && <h5>Error loading events for service "{module}"</h5>}
+          {none && <h5>No event listing is provided for service "{module}"</h5>}
         </div>
       )}
       <div ref={ref} />
