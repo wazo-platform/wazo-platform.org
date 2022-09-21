@@ -65,7 +65,7 @@ const Module = ({ moduleName, module }) => (
             </Link>
           )}
 
-          {module.redocUrl && (
+          {module.apiEvents && (
             <Link to={`/documentation/events/${moduleName}`} className="list-group-item">
               API Events
             </Link>
