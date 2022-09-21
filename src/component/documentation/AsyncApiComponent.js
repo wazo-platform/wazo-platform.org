@@ -21,7 +21,7 @@ const AsyncApiComponent = ({ module }) => {
       setLoading(true);
 
       try {
-        const response = await fetch(`http://localhost:8080/${module}`);
+        const response = await fetch(`http://localhost:8080/${module.replace('-', '_')}`);
         if (response.status !== 200) {
           throw new Error(`There are no event listing available for service "${module}"`);
         }
