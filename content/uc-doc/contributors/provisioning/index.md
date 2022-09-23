@@ -2,7 +2,7 @@
 title: Provisioning
 ---
 
-This section describes the informations and tools for wazo-provd.
+This section describes the information and tools for wazo-provd.
 
 - [Managing DHCP Server Configuration](/uc-doc/contributors/provisioning/managing_dhcp_server_configuration)
 - [Managing Plugins](/uc-doc/contributors/provisioning/managing_plugins)

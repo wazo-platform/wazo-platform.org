@@ -82,11 +82,11 @@ There are tons of models that we can use to fit our dataset. We'll quickly intro
 ![scikit.png](../../images/blog/machine-learning/scikit.png "Scikit logo")
 
 ### Linear model
-Linear models come directly from statistics. They aren't complex models but they can achieve good performances for a lot of problems. Furthermore, linear models can be fitted without crazy hardware requirements and are very well manageable in production.
+Linear models come directly from statistics. They aren't complex models, but they can achieve good performance for a lot of problems. Furthermore, linear models can be fitted without crazy hardware requirements and are very well manageable in production.
 ### Tree-based methods
 Tree-based methods, as their name suggests are based on decision trees. They are a bit harder to fit well because they can be subject to overfitting quite easily. You can tune quite a few parameters and must avoid [overfitting](https://en.wikipedia.org/wiki/Overfitting). The most popular tree-based algorithms are the Random Forest and the Gradient Boosting algorithms.
 ### Neural Networks
-Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for big datasets, they are an option you may want to consider.
+Neural networks are very popular in machine learning. However, they are difficult to tune on tabular data and often less efficient than tree-based methods. But for large datasets, they are an option you may want to consider.
 
 ![neural-net.png](../../images/blog/machine-learning/neural-net.png "Neural network pattern")
 
@@ -95,7 +95,7 @@ A good testing methodology is crucial to estimate the performances of your model
 For example, feature engineering can be a source of information leakage.
 A typical example is a normalization operation: to compute the mean and standard deviation of a variable, you should use your training samples only.
 ### Cross-validation
-The first good practice is to perform [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). This method allows you to test your model on unseen data while maximizing the use of your data samples. This is especially important if you have a little dataset. Furthermore, the final metric will be based on multiple random seeds, avoiding "lucky" seeds.
+The first good practice is to perform [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). This method allows you to test your model on unseen data while maximizing the use of your data samples. This is especially important if you have a small dataset. Furthermore, the final metric will be based on multiple random seeds, avoiding "lucky" seeds.
 ### Metrics
 The metrics that you can use depend on the task you want to achieve.
 For classification, you may use [accuracy, precision](https://en.wikipedia.org/wiki/Accuracy_and_precision), [F1](https://en.wikipedia.org/wiki/F-score), or [AUC ROC](https://fr.wikipedia.org/wiki/Courbe_ROC)
