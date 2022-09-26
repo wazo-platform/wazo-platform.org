@@ -325,7 +325,7 @@ for more information.
   done for ACL. Endpoints and fields have been deprecated. See
   [wazo-auth changelog 20.16](https://github.com/wazo-platform/wazo-auth/blob/master/CHANGELOG.md#2016)
 - wazo-dird backend plugins now support `match_all` method. See
-  [wazo-dird](/uc-doc/system/wazo-dird/developer) for more informations
+  [wazo-dird](/uc-doc/system/wazo-dird/developer) for more information
 - Asterisk configuration files in `/etc/asterisk` are required to have a name ending with `.conf` to
   be applied.
 
@@ -728,8 +728,8 @@ for more information.
   - All the existing skill rules have been associated to the tenant of the first queue found in the
     database. If there were no queue configured in the system, the skill rules have been deleted.
   - Call logs are now multi-tenant. Each call log that cannot be associated to a tenant has been
-    associated to the `master` tenant. Also for all call logs created after the upgrade, if the
-    tenant cannot be extracted from call informations, they will be associated to the master tenant.
+    associated to the `master` tenant. Also, for all call logs created after the upgrade, if the
+    tenant cannot be extracted from call information, they will be associated to the master tenant.
   - [Migration of sound files to tenants](/uc-doc/upgrade/upgrade_notes_details/19-03/sounds)
   - We needed to do some guesswork for ambiguous resources that shared other resources from
     different entities. These resources have been migrated to the most logical tenants. However, it
@@ -812,7 +812,7 @@ for more information.
   [Asterisk configuration files](/uc-doc/system/configuration_files#asterisk-configuration) for more
   details.
 - The skill rules internal names have been changed to use the format `skillrule-<id>`. If you were
-  using custom dialplan with a preprocess subroutine to handle your skill rules, we recommend
+  using custom dialplan with a preprocessing subroutine to handle your skill rules, we recommend
   removing it and using the REST API (see
   [Apply Skill Rule Sets](/uc-doc/contact_center/skillbasedrouting#skill-apply)). If you really want
   to keep it, you must change the name used in the variable `XIVO_QUEUESKILLRULESET` to use the new
@@ -935,7 +935,7 @@ Consult the roadmaps for more information:
     value in the administation interface `Services --> IPBX --> General Settings --> SIP Protocol`
     in tab `Default`. See
     [Asterisk sip.conf sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
-    for more informations.
+    for more information.
 - The NAT configuration of every SIP line and SIP trunk has been automatically changed from
   `nat=auto_force_rport` to nothing, so that they inherit this setting from the General SIP
   settings.

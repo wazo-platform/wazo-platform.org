@@ -158,7 +158,7 @@ class DigiumPlugin(common['BaseDigiumPlugin']):
     pg_associator = common['DigiumPgAssociator'](VERSION)
 ```
 
-In `1.1.0.0/pkgs/pkgs.db`, put the informations needed to download the firmwares:
+In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmwares:
 
 ```ini
 [pkg_firmware]
@@ -178,7 +178,7 @@ size: 100111361
 sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
 ```
 
-In `common/common.py`, put the code needed to extract informations about the phone:
+In `common/common.py`, put the code needed to extract information about the phone:
 
 ```python
 class DigiumDHCPDeviceInfoExtractor(object):
@@ -372,7 +372,7 @@ class BaseDigiumPlugin(StandardPlugin):
         )
 ```
 
-Then you can create the configuration templates with Jinja syntax. Here are some examples:
+Then you can create the configuration templates using Jinja templates. Here are some examples:
 
 - [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl)
 - [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)

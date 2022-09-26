@@ -9,10 +9,10 @@ title: Archived Upgrade Notes
 - The default NAT option has changed from `no` to `auto_force_rport`. This makes NAT configuration
   easier but has no impact on environments without NAT.
   - In the rare cases where you want to keep `nat=no` you must explicitly change this value in the
-    administation interface `Services --> IPBX --> General Settings --> SIP Protocol` in tab
+    administration interface `Services --> IPBX --> General Settings --> SIP Protocol` in tab
     `Default`. See
     [Asterisk sip.conf sample](https://github.com/asterisk/asterisk/blob/15.1.1/configs/samples/sip.conf.sample#L869)
-    for more informations.
+    for more information.
 - The `sources` section of the `xivo-dird` service configuration has been changed to be a key-value
   setting.
 
@@ -145,8 +145,8 @@ title: Archived Upgrade Notes
 
 ### 17.08
 
-- The call logs has been improved by adding `date_end` and `date_answer` informations. If you want
-  to add these new informations to the old call logs, you need to regenerate them. For example, to
+- The call logs have been improved by adding `date_end` and `date_answer` information. If you want
+  to add this new information to the old call logs, you need to regenerate them. For example, to
   regenerate the last month of call logs:
 
       xivo-call-logs delete -d 30

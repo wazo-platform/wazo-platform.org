@@ -11,7 +11,7 @@ Status: published
 
 
 ## Introduction
-In our pursuit of enabling companies to build their IP communication infrastructure and deliver innovative communication services with our open-source, API-centric solutions Wazo's Class 4 engine can be easily deployed with different methods:
+In our pursuit of enabling companies to build their IP communication infrastructure and deliver innovative communication services with our open-source, API-centric solutions, Wazo's Class 4 engine can be easily deployed with different methods:
 
 * **Docker compose:** run the platform on a single machine using the Docker images together with docker-compose.
 * **Kubernetes:** install the platform using our Helm chart and run the platform on your Kubernetes cluster.
@@ -223,4 +223,4 @@ $ ansible-playbook -i inventories/c4-router-vagrant c4-router.yaml
 
 
 ## Conclusions
-Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as you can see, just following a few simple steps. For detailed informations and other install methods please refer to [the official Wazo C4 Install guide](/use-cases/class-4).
+Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as you can see, just by following a few simple steps. For more detailed information and other installation methods please refer to [the official Wazo C4 Install guide](/use-cases/class-4).
