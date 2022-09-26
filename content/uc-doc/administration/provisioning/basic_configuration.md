@@ -37,10 +37,10 @@ The installation and management of `provd` plugins is done via the `wazo-provd` 
 **Warning**: If you uninstall a plugin that is used by some of your devices, they will be left in an
 unconfigured state and won't be associated with another plugin automatically.
 
-It's possible that there will be more than one plugin compatible with a given device. In these cases, the
-difference between the two plugins is usually just the firmware version the plugin targets. If you
-are unsure about which version you should install, you should look for more information on the
-vendor's website.
+It's possible that there will be more than one plugin compatible with a given device. In these
+cases, the difference between the two plugins is usually just the firmware version the plugin
+targets. If you are unsure about which version you should install, you should look for more
+information on the vendor's website.
 
 It's good practice to only install the plugins you need and no more.
 
@@ -123,9 +123,9 @@ server, you can then connect your devices to your network.
 But first, `GET /devices`. You will then see that no devices are currently known by your Wazo
 
 You can then power on your devices on your LAN. For example, after you power on an Aastra 6731i and
-give it the time to boot and maybe upgrade its firmware, you should then see the phone has its
-first line configured as 'autoprov', and if you `GET /devices`, you should see that your Wazo now
-knows about your 6731i with `status: not_configured`
+give it the time to boot and maybe upgrade its firmware, you should then see the phone has its first
+line configured as 'autoprov', and if you `GET /devices`, you should see that your Wazo now knows
+about your 6731i with `status: not_configured`
 
 You can then dial from your Aastra 6731i the provisioning code associated with a line of one of your
 user. You will hear a prompt thanking you and your device should then reboot in the next few
