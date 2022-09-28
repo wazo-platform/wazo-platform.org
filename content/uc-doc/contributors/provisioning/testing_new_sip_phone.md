@@ -206,7 +206,7 @@ for a specific firmware version.
 | ------------------------------------------ | ----- |
 | Provisioning                               | Y     |
 | H-A                                        | Y     |
-| Directory XIVO                             | Y     |
+| Directory Wazo                             | Y     |
 | Funckeys                                   | 8     |
 | **Supported programmable keys**            |       |
 | User with supervision function             | Y     |
