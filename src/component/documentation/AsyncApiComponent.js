@@ -3,6 +3,8 @@ import "@asyncapi/react-component/styles/default.min.css";
 import "./async-api.css";
 import AsyncApiStandalone from '@asyncapi/react-component/browser/standalone';
 
+const SERVER_ROOT = 'http://asyncapi.wazo.community/wazo-platform';
+
 const config = {
   schemaID: 'custom-spec',
   show: {
@@ -20,8 +22,10 @@ const AsyncApiComponent = ({ module }) => {
       setNone(false);
       setLoading(true);
 
+      const filename = `wazo-${module.replace('-', '_')}.yml`;
+
       try {
-        const response = await fetch(`http://localhost:8080/${module.replace('-', '_')}`);
+        const response = await fetch(`${SERVER_ROOT}/${filename}`);
         if (response.status !== 200) {
           throw new Error(`There are no event listing available for service "${module}"`);
         }
