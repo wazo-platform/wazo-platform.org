@@ -50,8 +50,11 @@ const AsyncApiComponent = ({ module }) => {
       {(loading || none) && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 60 }}>
           {loading && (
-            <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
+            <div className="async-loader">
+              <div className="spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+              <div className="label">Loading events</div>
             </div>
           )}
           {none && <h5>No event listing is provided for service "{module}"</h5>}

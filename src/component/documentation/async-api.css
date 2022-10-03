@@ -40,3 +40,14 @@
   color: #494d55 !important;
   border-color: #a9adb5 !important;
 }
+
+.async-loader {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.async-loader .label {
+  margin-top: 10px;
+}
