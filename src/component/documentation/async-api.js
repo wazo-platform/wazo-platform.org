@@ -28,7 +28,7 @@ const getServiceName = (raw) => {
 }
 
 const Page = ({ pageContext: { moduleName, module, modules, auth_url } }) => (
-  <Layout pageTitle={`Console - ${module.title}`} breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
+  <Layout pageTitle={`API Events - ${module.title}`} breadcrumbs={[{ link: '/install', label: 'Install', active: true }]} className="body-green">
     <section id="console" className="console section">
       <div className="container" style={styles.container}>
         <div className="list-group" style={styles.listGroup}>
