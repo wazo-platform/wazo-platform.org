@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "@asyncapi/react-component/styles/default.min.css";
 import "./async-api.css";
-import AsyncApiStandalone from '@asyncapi/react-component/browser/standalone';
 
 const SERVER_ROOT = 'http://asyncapi.wazo.community/wazo-platform';
 
@@ -32,6 +31,7 @@ const AsyncApiComponent = ({ module }) => {
 
         const schema = await response.text();
 
+        const AsyncApiStandalone = require('@asyncapi/react-component/browser/standalone');
         await AsyncApiStandalone.render({
           schema,
           config,
