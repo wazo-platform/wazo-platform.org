@@ -278,7 +278,11 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
   // Generate puml to svg
   console.info(`generating svg diagrams in ${diagramOutputDir}...`);
-  const output = execSync(`make plantuml-diagrams DIAGRAM_DIRECTORY=${diagramOutputDir}`);
+  try {
+    execSync(`make plantuml-diagrams DIAGRAM_DIRECTORY=${diagramOutputDir}`);
+  } catch (e) {
+    console.error('error generating diagrams', e);
+  }
   console.info(`done generating svg diagrams`);
 
   // Create homepage
@@ -412,6 +416,22 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
       (moduleName) =>
         !!section.modules[moduleName].redocUrl &&
         newPage(`/documentation/console/${moduleName}`, 'documentation/console', {
+          moduleName,
+          module: section.modules[moduleName],
+          modules: section.modules,
+          auth_url: !section.modules[moduleName].corporate
+            ? allModules['authentication'].redocUrl
+            : section.modules['euc-authentication'].redocUrl,
+        })
+    )
+  );
+
+  // Create async-ap pages
+  sections.forEach((section) =>
+    Object.keys(section.modules).forEach(
+      (moduleName) =>
+        !!section.modules[moduleName].redocUrl &&
+        newPage(`/documentation/events/${moduleName}`, 'documentation/async-api', {
           moduleName,
           module: section.modules[moduleName],
           modules: section.modules,

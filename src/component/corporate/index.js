@@ -52,9 +52,16 @@ const Module = ({ moduleName, module }) => (
               API Reference
             </Link>
           )}
+
           {module.redocUrl && (
             <Link to={`/documentation/console/${moduleName}`} className="list-group-item">
               API Console
+            </Link>
+          )}
+
+          {module.apiEvents && (
+            <Link to={`/documentation/events/${moduleName}`} className="list-group-item">
+              API Events
             </Link>
           )}
 
