@@ -12,7 +12,7 @@ In line with launching our new [event documentation](https://wazo-platform.org/d
 we have been busy refactoring our events subsystem in Wazo to make it simpler for developers and ourselves.  
 
 The first change, and most important, is that events are now fully _tenant-aware_, meaning they will never be dispatched to users outside
-of it's intended tenant.
+of its intended tenant.
 
 We have also rewritten the way they work to streamline their use; events are now divided into 3 main types:
 
@@ -29,7 +29,7 @@ These events usually represent specific actions targeting a user (i.e: joining a
 receiving a chat message, receiving a call, etc)
 
 
-At a more technical level, here is how we implement it within wazo:
+At a more technical level, here is how we implement it within Wazo:
 
 For an event to be forwarded to a user connected through the websocket, the event must meet the following criteria:
 * Headers must have an entry `tenant_uuid` = <tenant uuid>
@@ -39,7 +39,7 @@ Any event will always be available to services, but to be relayed to users, thes
 
 # Sounds cool, but how does it work in practice
 
-Here’s a coding example of how we recommend we define, for instance a new user event
+Here’s a coding example of how we recommend defining, for instance, a new user event
 
 ```py
 class CustomUserEvent(UserEvent):
@@ -80,7 +80,7 @@ In our example, because our event is derived from `UserEvent`, the headers will 
 # What if I need **all** events?
 
 In the old system, it was possible for a user to have access to all events (as long as it had the correct permissions).  
-But what if I still need that behavior, i.e in a m2m (machine to machine) forwarding/dispatching scenario?
+But what if I still need that behavior, e.g in a m2m (machine to machine) forwarding/dispatching scenario?
 
 Well, we have you covered!
 
