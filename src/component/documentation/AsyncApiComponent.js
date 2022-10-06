@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import "@asyncapi/react-component/styles/default.min.css";
 import "./async-api.css";
 
-const SERVER_ROOT = 'http://asyncapi.wazo.community/wazo-platform';
+const SERVER_ROOT = 'https://asyncapi.wazo.community/wazo-platform';
 
 const config = {
   schemaID: 'custom-spec',
