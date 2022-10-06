@@ -107,20 +107,20 @@
     check:
       jobs:
         - yarn-build-copy:
-            nodeset: vm-debian-10-m2s
+            nodeset: vm-debian-10-m1m
         - yarn-prettier-uc-doc:
             nodeset: vm-debian-10-m1s
     gate:
       jobs:
         - yarn-build-search-copy:
-            nodeset: vm-debian-10-m1s
+            nodeset: vm-debian-10-m1m
     auto-merge:
       jobs:
         - noop
     post:
       jobs:
         - yarn-build-publish:
-            nodeset: vm-debian-10-m1s
+            nodeset: vm-debian-10-m1m
     periodic:
       jobs:
         - yarn-build-test:
