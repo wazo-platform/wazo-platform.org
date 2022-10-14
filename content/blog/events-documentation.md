@@ -11,10 +11,10 @@ Hello Wazo community!
 In line with launching our new [event documentation](https://wazo-platform.org/documentation) section on our website, in the last few months, 
 we have been busy refactoring our events subsystem in Wazo to make it simpler for developers and ourselves.  
 
-The first change, and most important, is that events are now fully _tenant-aware_, meaning they will never be dispatched to users outside
+The first and most important change is that events are now fully _tenant-aware_, meaning they will never be dispatched to users outside
 of its intended tenant.
 
-We have also rewritten the way they work to streamline their use; events are now divided into 3 main types:
+We also rewrote the way they work to streamline their use; events are now divided into 3 main types:
 
 - **Service-Level Events:**
 Meant to be consumed by internal services (and plugins).  Will never be received by users.
@@ -29,7 +29,7 @@ These events usually represent specific actions targeting a user (i.e: joining a
 receiving a chat message, receiving a call, etc)
 
 
-At a more technical level, here is how we implement it within Wazo:
+At a more technical level, here's how we implement it within Wazo:
 
 For an event to be forwarded to a user connected through the websocket, the event must meet the following criteria:
 - Headers must have an entry `tenant_uuid` = <tenant uuid>
@@ -37,9 +37,9 @@ For an event to be forwarded to a user connected through the websocket, the even
 
 Any event will always be available to services, but to be relayed to users, these entries are mandatory.
 
-## Sounds cool, but how does it work in practice
+## Sounds cool, but how does it work in practice?
 
-Here’s a coding example of how we recommend defining, for instance, a new user event
+Here’s a code example of how we now recommend defining a new user event
 
 ```py
 class CustomUserEvent(UserEvent):
@@ -52,7 +52,7 @@ class CustomUserEvent(UserEvent):
 		super().__init__(content, tenant_uuid, user_uuid)
 ```
 
-and somewhere else in code (service or plugin)
+and somewhere else in the code (service or plugin)
 
 ```py
 event = CustomUserEvent(resource_val1, resource_val2, user.tenant_uuid, user.uuid)
