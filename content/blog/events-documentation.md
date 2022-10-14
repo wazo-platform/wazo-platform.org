@@ -1,5 +1,5 @@
 Title: New Events Documentation
-Date: 2022-10-04 13:00:00
+Date: 2022-10-22 13:00:00
 Author: Julien Alie
 Category: Wazo Platform
 Tags: Applications, Documentation
@@ -32,8 +32,8 @@ receiving a chat message, receiving a call, etc)
 At a more technical level, here's how we implement it within Wazo:
 
 For an event to be forwarded to a user connected through the websocket, the event must meet the following criteria:
-- Headers must have an entry `tenant_uuid` = <tenant uuid>
-- Headers must have an entry `user_uuid:<user uuid>` = true (or `user_uuid:*` = true for all users) 
+- Headers must have an entry `tenant_uuid` = `<tenant uuid>`
+- Headers must have an entry `user_uuid:<user uuid>` = `true` (or `user_uuid:*` = `true` for all users) 
 
 Any event will always be available to services, but to be relayed to users, these entries are mandatory.
 
