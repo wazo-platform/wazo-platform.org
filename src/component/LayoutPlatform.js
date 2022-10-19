@@ -1,6 +1,6 @@
 import Helmet from 'react-helmet';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import Search from './platform/search';
 import LogoHoriz from '../assets/logo.horiz.svg';
 
@@ -56,7 +56,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
         <title>{headTitle.replace(/<\/?[^>]+(>|$)/g, '')}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href={withPrefix("/favicon.ico")} />
         <meta property="og:image" content="https://wazo-platform.org/images/og-image.jpg" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
@@ -82,7 +82,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
             <div className="navbar-collapse collapse" id="navbar-collapse">
               <ul className="nav navbar-nav">
                 <li className="nav-item sr-only">
-                  <a className="nav-link scrollto" href="/#promo">
+                  <a className="nav-link scrollto" href={withPrefix("/#promo")}>
                     Home
                   </a>
                 </li>
@@ -106,7 +106,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                     Tutorials
                   </Link>
                 </li>                <li className="nav-item">
-                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
+                                       <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
                     Contribute
                   </Link>
                 </li>

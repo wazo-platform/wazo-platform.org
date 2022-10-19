@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import Search from './corporate/search';
 
 const WazoHeader = () => {
@@ -9,7 +9,7 @@ const WazoHeader = () => {
     <div className="wazo-header">
       <div className="container">
         <div className="site-logo">
-          <a href="/" title="Wazo" rel="home">
+          <a href={withPrefix("/")} title="Wazo" rel="home">
             <img className="header-image" alt="Wazo" src="https://i1.wp.com/wazo.io/wp-content/uploads/2020/03/WAZO-LogoWAZO-transparent-2.png?resize=300%2C79&ssl=1" title="Wazo" />
           </a>
         </div>

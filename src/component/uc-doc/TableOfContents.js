@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 
 import { tableOfContentLinksOrdering } from './utils'
 
@@ -42,7 +42,7 @@ const Page = () => {
   let undefinedKeyIndex = 0;
 
   useEffect(() => {
-    fetch('/json/uc-doc-submenu.json', {
+    fetch(withPrefix('/json/uc-doc-submenu.json'), {
       method: 'GET',
       headers: {}
     }).then(response => response.json()).then(data => {

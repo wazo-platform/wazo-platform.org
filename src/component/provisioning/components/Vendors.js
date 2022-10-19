@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withPrefix } from "gatsby"
 
 import { buildTable } from '../helpers';
 const slugify = require('../../../builder/slugify');
@@ -19,17 +20,17 @@ const Page = ({ plugins, images }) => {
 
   return Object.keys(plugins).map(vendor => (
       <div className="vendor" key={vendor}>
-        <a className="title" href={`/provisioning/${slugify(vendor)}`} id={vendor} onClick={onVendorClick}>{vendor}</a>
+        <a className="title" href={withPrefix(`/provisioning/${slugify(vendor)}`)} id={vendor} onClick={onVendorClick}>{vendor}</a>
         {vendor === currentVendor && 
           <div className="phones">
             {Object.keys(plugins[vendor]).sort().map(name => {
               const id = `${slugify(vendor)}-${slugify(name)}`;
               return <div className={id === currentDevice ? 'selected' : ''} key={id} >
-                <a href={`/provisioning/${slugify(vendor)}/${slugify(name)}`} onClick={onDeviceClick} id={id}>{name}</a>
+                <a href={withPrefix(`/provisioning/${slugify(vendor)}/${slugify(name)}`)} onClick={onDeviceClick} id={id}>{name}</a>
                 {id === currentDevice && <div className="slide">
                   <div className="image">
                     <div className="name">{name}</div>
-                    {images[slugify(vendor)] && images[slugify(vendor)].indexOf(`${slugify(name)}.png`) !== -1 ? <img src={`/provisioning/${slugify(vendor)}-${slugify(name)}.png`} alt={`${slugify(vendor)}-${name}`}/> : <img src='/provisioning/img-placeholder.png' alt={`${slugify(vendor)}-${name}`} />}
+                    {images[slugify(vendor)] && images[slugify(vendor)].indexOf(`${slugify(name)}.png`) !== -1 ? <img src={withPrefix(`/provisioning/${slugify(vendor)}-${slugify(name)}.png`)} alt={`${slugify(vendor)}-${name}`}/> : <img src={withPrefix('/provisioning/img-placeholder.png')} alt={`${slugify(vendor)}-${name}`} />}
                   </div>
                   <div className="content">{buildTable(plugins[vendor][name])}</div>
             </div>}
