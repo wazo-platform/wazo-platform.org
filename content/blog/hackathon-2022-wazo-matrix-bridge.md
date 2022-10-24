@@ -8,7 +8,9 @@ Status: published
 
 # Hackathon 2022 - Bridging Wazo and Matrix
 
-There were multiple teams working on different projects. Our team decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as testing out adding some new features to the existing chat. This article is focused on the former.
+Every year Wazo organizes a Hackathon with their employees, and as many of us as possible get together to work on some fun projects and see what we can learn.
+There were multiple teams working on different projects. Our team consisted of Charles, Francis, Francois and I (Jesse). 
+We decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as [testing out adding some new features to the existing chat](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo), but this article is focused on the former. 
 
 ## The Objective
 
@@ -26,23 +28,23 @@ A user that exists on both platforms can have the two accounts mapped to each ot
 - [aiohttp](https://docs.aiohttp.org/en/stable/)  - API calls and server for webooks
 - [python markdown](https://python-markdown.github.io/)  - Rendering Markdown text to HTML
 
-In order to create the bridge we decided to use the [Mautrix](https://github.com/mautrix/python) Library since it is very feature complete, written in Python and they have many well established bridges already. We spent a lot of time looking through the library and looking at the other implementations to figure how how we might do something sililair for Wazo. Then we created the base structure of the project and the models needed to store information about the users, puppets and groups in order to create a mapping between the two systems.
+In order to create the bridge we decided to use the [Mautrix](https://github.com/mautrix/python) Library since it is very feature complete, written in Python, and they have many well established bridges already. We spent a lot of time looking through the library and looking at the other implementations to figure out how we might do something similar for Wazo. Then we created the base structure of the project and the models needed to store information about the users, puppets and groups in order to create a mapping between the two systems.
 
 ## Step 1: Understanding, planning and the database
 
-Our first step, but to figure out how Mautrix works. Their bridges are very feature rich, but we were unable to find much documentation for the actual library so we needed to spend a lot of time reading the library code and looking at other bridges to figure out how they worked. Also lots of testing was needed. Then we needed to make the Database models for the different items that need to be saved in the bridge, such as Wazo-Matrix mappings for users and groups. Typically we use PostgreSQL, but for our test we simply used sqlite because it required less configuration and it would be easier to copy the database around for our tests.
+Our first step, but to figure out how Mautrix works. Their bridges are very feature rich, but we were unable to find much documentation for the actual library, so we needed to spend a lot of time reading the library code and looking at other bridges to figure out how they worked. Also, lots of testing was needed. Then we needed to make the Database models for the different items that need to be saved in the bridge, such as Wazo-Matrix mappings for users and groups. Typically, we use PostgreSQL, but for our test we simply used sqlite because it required less configuration and it would be easier to copy the database around for our tests.
 
 ## Step 2: Bridge Wazo to Matrix
 
-In order to test something, we needed at least one direction to work. So we started with the Wazo side. We needed to know as soon as a message was sent to our user so we could create the groups/users and forward the message to Matrix. To do this, we created a a small HTTP server using aiohttp and setup a webhook with Webhookd. The webhook listens for an new message event in chatd and then posts the message information to a URL that our bridge exposes. When the message content is recieved the bridge checks to whom the message is being sent. If the users don't already in the bridge and Matrix, then it must create them and the room. The user of Matrix recives and invite to the new room which contains puppeted users. Once the room and users already exist, the bridge simply forwards the new messages to the correct group in Matrix.
+In order to test something, we needed at least one direction to work. So we started with the Wazo side. We needed to know as soon as a message was sent to our user so we could create the groups/users and forward the message to Matrix. To do this, we created a small HTTP server using aiohttp and set up a webhook with Webhookd. The webhook listens for an new message event in chatd and then posts the message information to a URL that our bridge exposes. When the message content is received the bridge checks to whom the message is being sent. If the users don't already in the bridge and Matrix, then it must create them and the room. The user of Matrix receives and invite to the new room which contains puppeted users. Once the room and users already exist, the bridge simply forwards the new messages to the correct group in Matrix.
 
 ## Step 3: Different message formats
 
-Parallel to the bridge, we were also working on supporting new types of content in chatd such as Markdown, emoji, files and reactions. (You can read about that here). The Matrix protocol already supports these things as does the client we were using (Element). In order to support Markdown, we simply used a python library python-markdown to render the text into HTML and send that as the `formatted_body` to Matrix. This allowed for rich text content such as lists, tables, bold, italic, strike-through, embeded images and more. As for emoji, since they are simply unicode characters, no special logic was needed. However, sadly, we did not have time to add reactions or file handling to the bridge during the event.
+Parallel to the bridge, we were also working on supporting new types of content in chatd such as Markdown, emoji, files and reactions. ([You can read about that here](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo)). The Matrix protocol already supports these things as does the client we were using (Element). In order to support Markdown, we simply used a python library python-markdown to render the text into HTML and send that as the `formatted_body` to Matrix. This allowed for rich text content such as lists, tables, bold, italic, strike-through, embedded images and more. As for emoji, since they are simply unicode characters, no special logic was needed. However, sadly, we did not have time to add reactions or file handling to the bridge during the event.
 
 ## Step 4: Bridge Matrix to Wazo
 
-The next step would have been to send the messages written in Matrix to chatd via the API. We got fairly far along on this, but sadly did not complete it in time so it was not functional for our demo and the bridge remained one sided. So any messages written in chatd were correctly recieved in the Matrix client, but it was not possible to respond in the client.
+The next step would have been to send the messages written in Matrix to chatd via the API. We got fairly far along on this, but sadly did not complete it in time, so it was not functional for our demo and the bridge remained one-sided. So any messages written in chatd were correctly received in the Matrix client, but it was not possible to respond in the client.
 
 ## Possible improvements
 
@@ -51,7 +53,7 @@ Nonetheless, it was a very interesting project.
 
 ## What we learned
 
-We learned a lot about how Mautrix works and, more generally, the things we could do with a bridge. All platforms are a bit different and provide different tools for linking them to other services, but in a lot of cases it is possible to do something like this to allow for different platforms to be linked together. Its always nice when you can make platforms work together.
+We learned a lot about how Mautrix works and, more generally, the things we could do with a bridge. All platforms are a bit different and provide different tools for linking them to other services, but in a lot of cases it is possible to do something like this to allow for different platforms to be linked together. It's always nice when you can make platforms work together.
 
 We also got a lot of ideas of things that it would be nice to add to improve chatd, maybe sometime in the future.
 
