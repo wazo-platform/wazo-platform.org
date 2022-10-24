@@ -55,4 +55,4 @@ We learned a lot about how Mautrix works and, more generally, the things we coul
 
 We also got a lot of ideas of things that it would be nice to add to improve chatd, maybe sometime in the future.
 
-The code for the bridge is [located here](https://github.com/sopelj/mautrix-wazo), but keep in mind it was juste a test for the Hackathon and is not fully functional.
+The code for the bridge is [located here](https://github.com/wazo-platform/hackathon-2022-mautrix-wazo), but keep in mind it was just a test for the Hackathon and is not fully functional.
