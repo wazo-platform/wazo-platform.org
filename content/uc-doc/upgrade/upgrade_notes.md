@@ -2,6 +2,18 @@
 title: Upgrade notes
 ---
 
+## 22.15 {#22-15}
+
+- The SIP template `webrtc_video` was merged into the SIP template `webrtc`. If you modified the
+  template `webrtc_video` prior to the migration to 22.15, the `webrtc_video` template has been left
+  in place, though all references from other templates will be moved to `webrtc` instead. You will
+  have to either move your SIP template custom config to `webrtc` or restore the references from
+  other SIP templates.
+
+Consult the
+[22.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.15)
+for more information.
+
 ## 22.14 {#22-14}
 
 Consult the
