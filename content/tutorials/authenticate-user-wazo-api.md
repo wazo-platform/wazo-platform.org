@@ -1,11 +1,13 @@
-Title: How to Authenticate a User From Wazo APIs
-Date: 2022-06-22 10:00:00
-Author: Pascal Cadotte Michaud
-Category: Developer Tutorial
-Slug: authenticate-user-wazo-api
-OgImage: authenticate-user-wazo-api-og.jpg
-Thumbnail: authenticate-user-wazo-api-thumbnail.jpg
-Status: published
+---
+title: How to Authenticate a User From Wazo APIs
+date: 2022-06-22 10:00:00
+author: Pascal Cadotte Michaud
+category: Developer Tutorial
+slug: authenticate-user-wazo-api
+ogimage: authenticate-user-wazo-api-og.jpg
+thumbnail: authenticate-user-wazo-api-thumbnail.jpg
+status: published
+---
 
 ## Introduction
 

@@ -2,17 +2,8 @@ import React, { useState } from 'react';
 import Layout from '../Layout';
 import { Link } from 'gatsby';
 
-const sortTutorials = (a) =>
-  a.sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    if (dateA > dateB) return -1;
-    if (dateA < dateB) return 1;
-    return 0;
-  });
-
-const Page = ({ pageContext: { tutorials: tutorialsRaw } }) => {
-  const [tutorials] = useState(sortTutorials(tutorialsRaw));
+const Tutorials = ({ pageContext: { tutorials: tutorialsRaw } }) => {
+  const [tutorials] = useState(tutorialsRaw);
 
   return (
     <Layout pageTitle="Tutorials" section="tutorials" className="tutorials">
@@ -33,4 +24,4 @@ const Page = ({ pageContext: { tutorials: tutorialsRaw } }) => {
   );
 };
 
-export default Page
+export default Tutorials
