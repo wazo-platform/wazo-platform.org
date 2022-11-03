@@ -1,5 +1,5 @@
 ---
-title: Testing Interactions Between Mobile Applications: A Bumpy Ride
+title: "Testing Interactions Between Mobile Applications: A Bumpy Ride"
 date: 2019-02-22 13:14:00
 author: Emmanuel QUENTIN
 category: Wazo IPBX

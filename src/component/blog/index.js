@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../Layout';
 import { Link } from 'gatsby';
 
-const sortArticles = a => a.sort((a, b) => {
-  const dateA = new Date(a.date);
-  const dateB = new Date(b.date);
-  if(dateA > dateB) return -1;
-  if(dateA < dateB) return 1;
-  return 0;
-});
+import Layout from '../Layout';
 
 const Page = ({ location, pageContext: { articles: articlesRaw  } }) => {
   const [ filter, setFilter ] = useState(location?.state?.filter || {});
   const [ articles, setArticles ] = useState(articlesRaw);
-
-  // sort articles
-  sortArticles(articles);
 
   useEffect(() => {
     const { value: newFilterValue, type: newFilterType } = location?.state?.filter || {};

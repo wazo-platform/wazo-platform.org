@@ -71,7 +71,7 @@ const getArticles = async (graphql, newPageRef) => {
           fileAbsolutePath: { regex: "/blog/" },
           frontmatter: { status: { eq: "published" } }
         }
-        sort: { fields: [frontmatter___title], order: ASC }
+        sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
           node {
