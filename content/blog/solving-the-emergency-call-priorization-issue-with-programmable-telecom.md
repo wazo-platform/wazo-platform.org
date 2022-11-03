@@ -1,24 +1,24 @@
-Title: Solving the emergency call prioritization issue with programmable telecom
-Date: 2019-04-26 15:45:00
-Author: Jérome Pascal
-Category: Hackathon
-Tags: emergency, programmable telecom, hackathon, voip
-Slug: solving-the-emergency-call-prioritization-issue-with-programmable-telecom
-Status: published
-
-
+---
+title: Solving the emergency call prioritization issue with programmable telecom
+date: 2019-04-26 15:45:00
+author: Jérome Pascal
+category: Hackathon
+tags: emergency, programmable telecom, hackathon, voip
+slug: solving-the-emergency-call-prioritization-issue-with-programmable-telecom
+status: published
+---
 
 ## A CRITICAL PAIN POINT FOR EMERGENCY CALL SERVICES
 
 With the advent of the ubiquitous cell phone, the task of the emergency contact centers to prioritize a huge number of calls has become a tough challenge. The kind of challenge that needs to aggregate heterogenous pieces of technology to be addressed efficiently.
 
-In the past, when a damaging event would occur - may it be a car accident, a terrorist attack or a climate disaster - only a limited number of people went to the nearby pharmacy or to the closest phone booth to warn the emergency service. In these times, adequate staffing was not so difficult for emergency contact centers: the call operator capacity was a mere function of the number of incidents. 
+In the past, when a damaging event would occur - may it be a car accident, a terrorist attack or a climate disaster - only a limited number of people went to the nearby pharmacy or to the closest phone booth to warn the emergency service. In these times, adequate staffing was not so difficult for emergency contact centers: the call operator capacity was a mere function of the number of incidents.
 
-Now, with so many devices in so many hands, should a mishap take place in a crowded place, you can be sure that everyone will try to reach the emergency contact center at the same time. The operators are then overwhelmed by a large number of simultaneous calls which all convey inefficiently the same pieces of information. Bad luck for the absent-minded woodcutter who left his chain saw inappropriately on at the same time a terrorist attack is taking place: our clumsy woodcutter will not be able to reach any emergency operator. 
+Now, with so many devices in so many hands, should a mishap take place in a crowded place, you can be sure that everyone will try to reach the emergency contact center at the same time. The operators are then overwhelmed by a large number of simultaneous calls which all convey inefficiently the same pieces of information. Bad luck for the absent-minded woodcutter who left his chain saw inappropriately on at the same time a terrorist attack is taking place: our clumsy woodcutter will not be able to reach any emergency operator.
 
 The situation could be described as an unintended yet effective denial of service attack.
 
-We will show here, how in less than a 3-day period - during a short hackathon - a team of developers, with no prior knowledge of the Wazo programmable platform, was able to put in place an effective solution to this prioritization issue, and save lives. 
+We will show here, how in less than a 3-day period - during a short hackathon - a team of developers, with no prior knowledge of the Wazo programmable platform, was able to put in place an effective solution to this prioritization issue, and save lives.
 
 
 ## DEMONSTRATION OF THE FLEXIBILITY AND SIMPLICITY OF USE OF THE WAZO PROGRAMMABLE PLATFORM
@@ -40,7 +40,7 @@ In the afternoon, it was agreed to build a mini emergency call center that could
 All this, of course, in full web with a phone using WebRTC.
 
 
-## HOW DID IT GO? 
+## HOW DID IT GO?
 
 We formed several groups of people according to their favourite taste: C lovers, Python devotees or JavaScript aficionados.
 
@@ -50,7 +50,7 @@ Our initial plan was that, during a call, we would:
 - Send it to a tool to transcribe the feed into text;
 - Then notify the result of the text analysis in the Wazo websocket service.
 
-Unfortunately, it was not possible to do this, based directly on Asterisk. Still, there were existing alternative ways to proceed: 
+Unfortunately, it was not possible to do this, based directly on Asterisk. Still, there were existing alternative ways to proceed:
 
 - through EAGI;
 - through a project that can be found on GitHub: https://github.com/CyCoreSystems/audiosocket;
@@ -78,18 +78,18 @@ Source of this interface could be found here : <https://github.com/wazo-platform
 
 The next day, we started the dev phase, each group apart working on its own subject.
 
-In the afternoon, we already had all our functional pieces ready. Time had come to aggregate those pieces. The project seemed to progress well. But in the evening everything was still not glued together. The Asterisk module still returned some segfault because the first implementation was not robust enough. We were almost done with the second implementation at the beginning of the evening but… it was definitely high time to have a dinner! 
+In the afternoon, we already had all our functional pieces ready. Time had come to aggregate those pieces. The project seemed to progress well. But in the evening everything was still not glued together. The Asterisk module still returned some segfault because the first implementation was not robust enough. We were almost done with the second implementation at the beginning of the evening but… it was definitely high time to have a dinner!
 
-The next and last day, we first showcased to the participants our internal daily routine (daily scrum). After that, it took us no more than 15 minutes to have our demo up and running. 
+The next and last day, we first showcased to the participants our internal daily routine (daily scrum). After that, it took us no more than 15 minutes to have our demo up and running.
 
-Then began a very funny time when we could test and try our demo. We decided to play the “Neither yes, nor no” game. Once the call was picked up, the operator tried to push the guest to say either “Yes” or “No”. Whenever the guest said either of the two words, the call was automatically ended. 
+Then began a very funny time when we could test and try our demo. We decided to play the “Neither yes, nor no” game. Once the call was picked up, the operator tried to push the guest to say either “Yes” or “No”. Whenever the guest said either of the two words, the call was automatically ended.
 
 We had plenty of time to stage our demo. And we could indeed showcase our IVR speech keyword detection demo in front of our colleagues and soon-to-be colleagues who joined us in the evening. Everything went so well that it was finally decided during our sprint retrospective to share our work.
 
 
 ## FUNCTIONAL CONCLUSION
 
-This live speech-to-text keyword detection demo was a very basic - yet useful - way to help emergency call centers enhance the quality of their services. With the Wazo programmable platform, we offer the opportunity to develop much more sophisticated ways to deal with peak visitor encumbrance, including automatic platform scaling, location-based sorting and routing, coupling IVR and AI, … 
+This live speech-to-text keyword detection demo was a very basic - yet useful - way to help emergency call centers enhance the quality of their services. With the Wazo programmable platform, we offer the opportunity to develop much more sophisticated ways to deal with peak visitor encumbrance, including automatic platform scaling, location-based sorting and routing, coupling IVR and AI, …
 
 
 ## KEY TAKEAWAYS

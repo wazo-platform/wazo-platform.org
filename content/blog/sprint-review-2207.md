@@ -1,10 +1,12 @@
-Title: Wazo Platform 22.07 Released
-Date: 2022-05-11T17:11:00
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2207
-Status: published
+---
+title: Wazo Platform 22.07 Released
+date: 2022-05-11T17:11:00
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2207
+status: published
+---
 
 Hello Wazo Platform community!
 

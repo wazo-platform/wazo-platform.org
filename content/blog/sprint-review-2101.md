@@ -1,10 +1,12 @@
-Title: Wazo Platform 21.01 Released
-Date: 2021-01-25
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2101
-Status: published
+---
+title: Wazo Platform 21.01 Released
+date: 2021-01-25
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2101
+status: published
+---
 
 Hello Wazo Platform community!
 

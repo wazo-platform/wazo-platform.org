@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.12 Released
-Date: 2020-08-31
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2012
-Status: published
+---
+title: Wazo Platform 20.12 Released
+date: 2020-08-31
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2012
+status: published
+---
 
 Hello Wazo Platform community!
 

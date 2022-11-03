@@ -1,10 +1,12 @@
-Title: Wazo Platform 19.16 Released
-Date: 2019-11-18
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: sprint-review-1916
-Status: published
+---
+title: Wazo Platform 19.16 Released
+date: 2019-11-18
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: sprint-review-1916
+status: published
+---
 
 Hello Wazo Platform community!
 

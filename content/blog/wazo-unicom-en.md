@@ -1,9 +1,11 @@
-Title: No hardware for your phone system?
-Date: 2017-06-12
-Author: Sylvain Boily
-Category: Wazo
-Slug: wazo-unicom-en
-Status: published
+---
+title: No hardware for your phone system?
+date: 2017-06-12
+author: Sylvain Boily
+category: Wazo
+slug: wazo-unicom-en
+status: published
+---
 
 
 I am asked quite regularly the difference between XiVO and Wazo in terms of features. There are now many, but one of the first that we implemented was simply to provide a completely user-oriented web interface to manage your day to day telephony. The development of this interface was completely web-based, using our APIs and meant to be "cloud" based. It had to be simple to use, easy to set up and mobility was a requirement. Finally Unicom was born.

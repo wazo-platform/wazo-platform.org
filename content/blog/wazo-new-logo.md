@@ -1,9 +1,11 @@
-Title: Voici notre nouveau logo
-Date: 2017-06-07
-Author: Sylvain Boily
-Category: Wazo
-Slug: wazo-new-logo-fr
-Status: published
+---
+title: Voici notre nouveau logo
+date: 2017-06-07
+author: Sylvain Boily
+category: Wazo
+slug: wazo-new-logo-fr
+status: published
+---
 
 
 Nous sommes très fiers de vous dévoiler notre nouveau logo pour Wazo ! Sans plus attendre le voici :)

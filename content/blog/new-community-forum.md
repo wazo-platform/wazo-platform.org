@@ -1,10 +1,12 @@
-Title: New community forum
-Date: 2019-11-21
-Author: Rémy Garrigue
-Category: Wazo Platform
-Tags: wazo-platform, community
-Slug: new-community-forum
-Status: published
+---
+title: New community forum
+date: 2019-11-21
+author: Rémy Garrigue
+category: Wazo Platform
+tags: wazo-platform, community
+slug: new-community-forum
+status: published
+---
 
 # New community forum
 

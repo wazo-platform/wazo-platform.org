@@ -1,10 +1,12 @@
-Title: Creating a Cross Environment push-to-talk Application Using Wazo
-Date: 2021-10-12 12:30:00
-Author: Emmanuel QUENTIN
-Category: Hackathon
-Tags: VOIP, WebRTC, push-to-talk, react, expo
-Slug: creating-cross-platform-push-to-talk-app
-Status: published
+---
+title: Creating a Cross Environment push-to-talk Application Using Wazo
+date: 2021-10-12 12:30:00
+author: Emmanuel QUENTIN
+category: Hackathon
+tags: VOIP, WebRTC, push-to-talk, react, expo
+slug: creating-cross-platform-push-to-talk-app
+status: published
+---
 
 ## Creating a Cross Environment push-to-talk Application Using Wazo
 
@@ -125,7 +127,7 @@ We're using and improving our [Javascript SDK](https://github.com/wazo-platform/
 // Setting the wazo's server
 Wazo.Auth.setHost('wazo.my-company.com');
 
-// Authenticating the user 
+// Authenticating the user
 const session = await Wazo.Auth.logIn(username, password);
 
 // Joining a conference

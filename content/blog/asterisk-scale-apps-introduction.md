@@ -1,10 +1,12 @@
-Title: Scaling Asterisk applications
-Date: 2020-01-13 14:00:00
-Author: Sylvain Baubeau and Sylvain Afchain
-Category: Wazo Platform
-Tags: Asterisk, Applications, Stasis, Scalability
-Slug: scale-asterisk-apps
-Status: published
+---
+title: Scaling Asterisk applications
+date: 2020-01-13 14:00:00
+author: Sylvain Baubeau and Sylvain Afchain
+category: Wazo Platform
+tags: Asterisk, Applications, Stasis, Scalability
+slug: scale-asterisk-apps
+status: published
+---
 
 # Scaling Asterisk applications
 

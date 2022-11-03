@@ -1,10 +1,12 @@
-Title: How to Make your VoIP Application Always Reachable
-Date: 2019-03-19 12:30:00
-Author: Emmanuel QUENTIN
-Category: Wazo IPBX
-Tags: Mobile, notification, VoIP, CallKit, ConnectionService, PushKit
-Slug: how-to-make-your-voip-application-always-reachable
-Status: published
+---
+title: How to Make your VoIP Application Always Reachable
+date: 2019-03-19 12:30:00
+author: Emmanuel QUENTIN
+category: Wazo IPBX
+tags: Mobile, notification, VoIP, CallKit, ConnectionService, PushKit
+slug: how-to-make-your-voip-application-always-reachable
+status: published
+---
 
 ![call-keep](https://user-images.githubusercontent.com/2076632/54532019-213ddf80-495d-11e9-85ee-7d2aa38a3fe9.gif)
 
@@ -31,13 +33,13 @@ At Wazo we use React Native to build our mobile application, the community of de
 
 A thing I love with Wazo, it's the commitment to its values around FOSS. We use open source everyday and contribute to it. We've [open sourced](https://github.com/wazo-platform/) everything since the beginning of our journey. When we saw the opportunity of developing a software that the community can benefit we've opened our IDE and start coding.
 
-Developing a react-native module in Java is very easy, even if Java was not our preferred language, and after 3 days we ended with a working module that integrates all features of ConnectionService. 
+Developing a react-native module in Java is very easy, even if Java was not our preferred language, and after 3 days we ended with a working module that integrates all features of ConnectionService.
 
 ![ConnectionService](https://user-images.githubusercontent.com/2076632/54477272-c7161080-47dc-11e9-939e-f6d1faa49840.png)
 
 ## Improve the Developer Experience
 
-So we now have 2 libraries dealing with the same goal: displaying incall system UI. But why should we install, setup and abstract 2 libraries with the same point ? 
+So we now have 2 libraries dealing with the same goal: displaying incall system UI. But why should we install, setup and abstract 2 libraries with the same point ?
 `react-native-callkit` uses the name of the iOS Framework, it would be misunderstood if we integrate the Android feature in it. So we've decided to fork it and create a new [`react-native-callkeep`](https://github.com/react-native-webrtc/react-native-callkeep) repository with both Android and iOS implementation.
 
 With it, we can seamlessly notify both Android and iOS users of an incoming call, and even using Wazo to make calls from the native Phone application:

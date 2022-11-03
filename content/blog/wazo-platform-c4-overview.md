@@ -1,16 +1,18 @@
-Title: Wazo Platform C4 overview
-Date: 2019-10-28
-Author: Aleksandar Sosic and Fabio Tranchitella
-Category: Wazo C4
-Tags: wazo-platform, c4
-Slug: wazo-platform-c4-overview
-Status: published
+---
+title: Wazo Platform C4 overview
+date: 2019-10-28
+author: Aleksandar Sosic and Fabio Tranchitella
+category: Wazo C4
+tags: wazo-platform, c4
+slug: wazo-platform-c4-overview
+status: published
+---
 
 # Wazo Platform C4 overview
 
 ## Introduction
 
-Wazo Platform allows you to build your own IP communication infrastructure and deliver innovative communication services. Fully open-source, API-centric, Cloud-native & multi-tenant, the project is designed around the famous open-source frameworks [Asterisk](https://www.asterisk.org/) & [Kamailio](https://www.kamailio.org/w/). 
+Wazo Platform allows you to build your own IP communication infrastructure and deliver innovative communication services. Fully open-source, API-centric, Cloud-native & multi-tenant, the project is designed around the famous open-source frameworks [Asterisk](https://www.asterisk.org/) & [Kamailio](https://www.kamailio.org/w/).
 
 If you want to know more about Wazo Platform, we encourage you to discover [Frédéric Lepied's presentation introduced at the Astricon 2019](https://www.slideshare.net/flepied/wazo-platform-astricon19).
 

@@ -1,9 +1,12 @@
-Title: New partnership with Loway's Queuemetrics-Live
-Date: 2017-10-13
-Author: The Wazo Authors
-Category: Wazo
-Slug: wazo-queuemetrics-partnership
-Status: published
+---
+title: New partnership with Loway's Queuemetrics-Live
+date: 2017-10-13
+author: The Wazo Authors
+category: Wazo
+Tags:
+slug: wazo-queuemetrics-partnership
+status: published
+---
 
 We are proud to announce our successful integration with Loway's QueueMetrics-Live call-center suite.
 

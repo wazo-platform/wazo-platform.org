@@ -1,9 +1,11 @@
-Title: The new web interface of Wazo
-Date: 2017-05-11
-Author: The Wazo Authors
-Category: Wazo
-Slug: wazo-admin-ui
-Status: published
+---
+title: The new web interface of Wazo
+date: 2017-05-11
+author: The Wazo Authors
+category: Wazo
+slug: wazo-admin-ui
+status: published
+---
 
 Wazo 17.07 is the first release embedding the future replacement of the administration web interface of Wazo.
 

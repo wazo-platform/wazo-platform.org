@@ -1,10 +1,12 @@
-Title: Have an itch with your communication system?
-Date: 2017-02-01
-Author: The Wazo Authors
-Category: Wazo IPBX
-Tags: wazo
-Slug: itch-communication-system
-Status: published
+---
+title: Have an itch with your communication system?
+date: 2017-02-01
+author: The Wazo Authors
+category: Wazo IPBX
+tags: wazo
+slug: itch-communication-system
+status: published
+---
 
 *French/Français: Une version française plus bas*
 
