@@ -1,9 +1,11 @@
-Title: Un système de téléphonie sans matériel ?
-Date: 2017-06-12
-Author: Sylvain Boily
-Category: Wazo
-Slug: wazo-unicom-fr
-Status: published
+---
+title: Un système de téléphonie sans matériel ?
+date: 2017-06-12
+author: Sylvain Boily
+category: Wazo
+slug: wazo-unicom-fr
+status: published
+---
 
 
 On me demande assez régulièrement la différence entre XiVO et Wazo en terme de fonctionnalités. Il en existe maintenant beaucoup, mais une des premières que nous avons mises en œuvre était tout simplement de fournir une interface complètement web orientée utilisateur pour gérer sa téléphonie de tous les jours. Le développement de cette interface se voulait complètement web, utilisant nos APIs et aussi orienté vers l'aspect "CLOUD". Il fallait que cela soit simple à utiliser, simple à mettre en place et que la mobilité soit au rendez-vous. Finalement Unicom est né.

@@ -1,10 +1,12 @@
-Title: Sprint Review 18.03
-Date: 2018-03-05
-Author: The Wazo Authors
-Category: Wazo IPBX
-Tags: wazo, development
-Slug: sprint-review-1803
-Status: published
+---
+title: Sprint Review 18.03
+date: 2018-03-05
+author: The Wazo Authors
+category: Wazo IPBX
+tags: wazo, development
+slug: sprint-review-1803
+status: published
+---
 
 ## New features in this sprint
 

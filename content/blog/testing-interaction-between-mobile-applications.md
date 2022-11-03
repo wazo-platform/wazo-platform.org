@@ -1,10 +1,12 @@
-Title: Testing Interactions Between Mobile Applications: A Bumpy Ride
-Date: 2019-02-22 13:14:00
-Author: Emmanuel QUENTIN
-Category: Wazo IPBX
-Tags: Mobile, testing
-Slug: testing-interaction-between-mobile-applications
-Status: published
+---
+title: "Testing Interactions Between Mobile Applications: A Bumpy Ride"
+date: 2019-02-22 13:14:00
+author: Emmanuel QUENTIN
+category: Wazo IPBX
+tags: Mobile, testing
+slug: testing-interaction-between-mobile-applications
+status: published
+---
 
 ![callkeep](https://user-images.githubusercontent.com/2076632/52963046-ca98b200-336c-11e9-8c82-590c0bed8839.gif)
 
@@ -25,7 +27,7 @@ Testing interactions on a single application is pretty straightforward: tap on a
 To launch another device, we needed another instance of `Detox`, and to call `launchApp` on its `device` attribute:
 ```js
 // Takes configuration from package.json (our tests are run with `yarn e2e:test:ios` or `yarn e2e:test:android` so can we check the environment variable `npm_lifecycle_event`)
-const deviceConfig = require('../package.json').detox.configurations[process.env.npm_lifecycle_event === 'e2e:test:ios' ? 'ios.sim.debug' : 'android.emu.debug']; 
+const deviceConfig = require('../package.json').detox.configurations[process.env.npm_lifecycle_event === 'e2e:test:ios' ? 'ios.sim.debug' : 'android.emu.debug'];
 const otherDetox = new Detox({ deviceConfig });
 await otherDetox.device.launchApp();
 
@@ -78,7 +80,7 @@ Another way to avoid this cache is to make a class from the module. Set the `inv
 // ...
 - this.expect = require('../../ios/expect');
 - this.expect.setInvocationManager(new InvocationManager(this.client));
-+ this.expect = new IosExpect(new InvocationManager(this.client));	
++ this.expect = new IosExpect(new InvocationManager(this.client));
 ```
 
 Jest is also aware of each method of our class and can mock them automatically!

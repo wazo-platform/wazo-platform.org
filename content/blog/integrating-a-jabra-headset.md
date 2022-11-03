@@ -1,10 +1,12 @@
-Title: Integrating a Jabra Headset?
-Date: 2020-01-21 12:30:00
-Author: Emmanuel QUENTIN
-Category: Wazo Software
-Tags: Headset, Switchboard, VOIP, Jabra
-Slug: integrating-a-jabra-headset
-Status: published
+---
+title: Integrating a Jabra Headset?
+date: 2020-01-21 12:30:00
+author: Emmanuel QUENTIN
+category: Wazo Software
+tags: Headset, Switchboard, VOIP, Jabra
+slug: integrating-a-jabra-headset
+status: published
+---
 
 We've been tasked with integrating the Jabra headset in our Web and Desktop applications, the task may appear simple but we had some unexpected challenges imposed by Jabra.
 
@@ -35,7 +37,7 @@ To work around this problem, the Gang of Four introduced the [Factory pattern](h
 
 There is [a lot of ways](https://github.com/electron/electron/issues/2288) to check if, we'll use :
 
-```js 
+```js
 const isOnDesktop = navigator.userAgent.toLowerCase().indexOf(' electron/') > -1;
 ```
 
@@ -44,8 +46,8 @@ const isOnDesktop = navigator.userAgent.toLowerCase().indexOf(' electron/') > -1
 This class deals with the various events fired by Jabra devices, we chose to emulate Jabra's Electron API. This class will extend `EventEmitter` so we can listen to events with a `.on()` like the Electron SDK :
 
 ```js
-export class GenericJabraDevice extends EventEmitter {  
-  constructor(realDevice) {    
+export class GenericJabraDevice extends EventEmitter {
+  constructor(realDevice) {
     super();
     this.realDevice = realDevice
     this._bindDevice();
@@ -56,13 +58,13 @@ export class GenericJabraDevice extends EventEmitter {
   unMute = () => isDesktop ? this.realDevice.unmuteAsync() : this.realDevice.unmute();
   // ...
 
-  _bindDevice = () => {    
-    if (isDesktop) {      
+  _bindDevice = () => {
+    if (isDesktop) {
       this.realDevice.on('btnPress', (btnType, value) => this.emit('btnPress', btnType, value));
       return;
     }
 
-    // Browser    
+    // Browser
     this.realDevice.addEventListener('reject', () => this.emit('btnPress', enumDeviceBtnType.RejectCall));
     // ...
   }
@@ -76,25 +78,25 @@ When a browser `acceptcall`, `endcall`, ... is fired, we replicate the same beha
 We only want to handle the `attach` and `detach` event. But as the browser SDK doesn't trigger it automatically, we have to do you by ourselves. This class also extends `EventEmitter` so we can listen to events like the Electron SDK.
 
 ```js
-export class GenericJabraClient extends EventEmitter {  
-  constructor(realClient) {    
+export class GenericJabraClient extends EventEmitter {
+  constructor(realClient) {
     super();
     this.realClient = realClient;
-  
+
     this._bindClient();
   }
-    
-  _bindClient = () => {    
-    if (isDesktop) {      
+
+  _bindClient = () => {
+    if (isDesktop) {
       this.realClient.on('attach', device => this.emit('attach', new GenericJabraDevice(device)));
       this.realClient.on('detach', () => this.emit('detach'));
       return;
     }
-  
-    // Browser    
+
+    // Browser
     this.realClient.addEventListener('device attached', () => this.emit('attach', new GenericJabraDevice(this.realClient)));
     this.realClient.addEventListener('device detached', () => this.emit('detach'));
-  
+
     this.realClient.getDevices().then(devices => devices.length && this.emit('attach', new GenericJabraDevice(this.realClient)));
   }
 }

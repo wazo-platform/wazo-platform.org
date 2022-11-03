@@ -1,10 +1,12 @@
-Title: Installing the Wazo Class 4 engine with Ansible
-Date: 2020-02-18
-Author: Fabio Tranchitella and Aleksandar Sosic
-Category: Wazo Platform C4
-Tags: wazo-platform, c4, ansible
-Slug: install-wazo-c4-with-ansible
-Status: published
+---
+title: Installing the Wazo Class 4 engine with Ansible
+date: 2020-02-18
+author: Fabio Tranchitella and Aleksandar Sosic
+category: Wazo Platform C4
+tags: wazo-platform, c4, ansible
+slug: install-wazo-c4-with-ansible
+status: published
+---
 
 
 # Installing the Wazo Class 4 engine with Ansible

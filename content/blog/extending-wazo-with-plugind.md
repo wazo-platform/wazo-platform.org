@@ -1,9 +1,11 @@
-Title: Extending Wazo with Plugins
-Date: 2017-06-26
-Author: Pascal Cadotte Michaud
-Category: Wazo
-Slug: extending-wazo-plugins-en
-Status: published
+---
+title: Extending Wazo with Plugins
+date: 2017-06-26
+author: Pascal Cadotte Michaud
+category: Wazo
+slug: extending-wazo-plugins-en
+status: published
+---
 
 
 One of the strengths of Wazo is that the administrator can modify the system to add new features or override default behaviors that are not appropriate to its use case. There are many ways to extend Wazo.

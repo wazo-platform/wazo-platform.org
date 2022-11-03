@@ -1,9 +1,11 @@
-Title: Ngrok and Wazo integration
-Date: 2017-05-26
-Author: Sylvain Boily
-Category: Wazo
-Slug: wazo-ngrok-en
-Status: published
+---
+title: Ngrok and Wazo integration
+date: 2017-05-26
+author: Sylvain Boily
+category: Wazo
+slug: wazo-ngrok-en
+status: published
+---
 
 Cliquez [ici](http://blog.wazo.community/wazo-ngrok-fr.html) pour la version française.
 

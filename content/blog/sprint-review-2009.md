@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.09 Released
-Date: 2020-06-29
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2009
-Status: published
+---
+title: Wazo Platform 20.09 Released
+date: 2020-06-29
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2009
+status: published
+---
 
 Hello Wazo Platform community!
 

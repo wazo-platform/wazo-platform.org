@@ -1,10 +1,12 @@
-Title: wazo-tester - an introduction to our SIP testing tool
-Date: 2019-10-29
-Author: Aleksandar Sosic
-Category: Wazo Platform C4
-Tags: wazo-platform, c4, kamailio, sip, test
-Slug: wazo-tester-introduction
-Status: published
+---
+title: wazo-tester - an introduction to our SIP testing tool
+date: 2019-10-29
+author: Aleksandar Sosic
+category: Wazo Platform C4
+tags: wazo-platform, c4, kamailio, sip, test
+slug: wazo-tester-introduction
+status: published
+---
 
 # wazo-tester - an introduction to our SIP testing tool
 
@@ -117,7 +119,7 @@ teardown:
   - type: api
     method: DELETE
     uri: "/tenants/{tenant.id}"
-    
+
 workers:
   - scenario: "test_did_ok.xml"
     number: 1
@@ -138,7 +140,7 @@ As you can observe we launch a bunch of API calls to define a `tenant`, a `domai
 
 The `worker` part uses a sipp scenario and calls a user on this number `39040123456` which will match our did rule and with our Kamailio C4 routing will route the call to our ipbx. The `ipbx` will then respond with a predefined scenario and make the sipp test pass.
 
-The `scenario` file is a template sipp XML file which we parse with python and substitute the `values` defined in the `workers` part of our YAML. 
+The `scenario` file is a template sipp XML file which we parse with python and substitute the `values` defined in the `workers` part of our YAML.
 
 For example, the `%(to_user)s` in our XML example is changed into `39040123456` and only then sipp is run with the generated XML file.
 
@@ -153,7 +155,7 @@ Or from our repository [wazo-tester](https://github.com/wazo-platform/wazo-teste
 
 
 ## Preparing a testing environment
-  
+
 The best way to try wazotester is with the Wazo C4 is to run Wazo C4 from our repository `https://github.com/wazo-platform/wazo-kamailio-config` using `Docker` with `docker-compose` which runs different containers defined in the `docker-compose.yaml` file.
 
 
@@ -164,7 +166,7 @@ Options:
   -t, --target TEXT      IP address of the SIP server to use as target
   -e, --executable TEXT  Command to exec for running sipp
   -d, --directory PATH   Working directory, if not specified a temporary
-                         directory is created. 
+                         directory is created.
   -s, --seed INTEGER     Initialize the Python random machine with this seed
                          value.
   -a, --apiurl TEXT      [default: http://router-confd:8000]

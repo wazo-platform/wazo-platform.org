@@ -1,10 +1,12 @@
-Title: Introducing Wazo Platform 19.13
-Date: 2019-09-20
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: wazo-platform-1913
-Status: published
+---
+title: Introducing Wazo Platform 19.13
+date: 2019-09-20
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: wazo-platform-1913
+status: published
+---
 
 Hello Wazo community!
 

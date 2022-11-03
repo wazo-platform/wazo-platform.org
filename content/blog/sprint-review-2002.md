@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.02 Released
-Date: 2020-02-03
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2002
-Status: published
+---
+title: Wazo Platform 20.02 Released
+date: 2020-02-03
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2002
+status: published
+---
 
 Hello Wazo Platform community!
 

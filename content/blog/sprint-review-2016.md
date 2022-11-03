@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.16 Released
-Date: 2020-12-01 12:00:00
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2016
-Status: published
+---
+title: Wazo Platform 20.16 Released
+date: 2020-12-01 12:00:00
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2016
+status: published
+---
 
 Hello Wazo Platform community!
 

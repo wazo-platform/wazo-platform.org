@@ -1,15 +1,17 @@
-Title: New Events Documentation
-Date: 2022-10-22 13:00:00
-Author: Julien Alie
-Category: Wazo Platform
-Tags: Applications, Documentation
-Slug: new-events-documentation
-Status: published
+---
+title: New Events Documentation
+date: 2022-10-22 13:00:00
+author: Julien Alie
+category: Wazo Platform
+tags: Applications, Documentation
+slug: new-events-documentation
+status: published
+---
 
-Hello Wazo community!  
+Hello Wazo community!
 
-In line with launching our new [event documentation](https://wazo-platform.org/documentation) section on our website, in the last few months, 
-we have been busy refactoring our events subsystem in Wazo to make it simpler for developers and ourselves.  
+In line with launching our new [event documentation](https://wazo-platform.org/documentation) section on our website, in the last few months,
+we have been busy refactoring our events subsystem in Wazo to make it simpler for developers and ourselves.
 
 The first and most important change is that events are now fully _tenant-aware_, meaning they will never be dispatched to users outside
 of its intended tenant.
@@ -24,8 +26,8 @@ Meant to be consumed by all connected users of a tenant.
 These events usually represent changes at the tenant level on the stack (i.e: configuration setting changed)
 
 - **User-Level Events:**
-Meant to be consumed by individual users.  
-These events usually represent specific actions targeting a user (i.e: joining a meeting or a conference, 
+Meant to be consumed by individual users.
+These events usually represent specific actions targeting a user (i.e: joining a meeting or a conference,
 receiving a chat message, receiving a call, etc)
 
 
@@ -33,7 +35,7 @@ At a more technical level, here's how we implement it within Wazo:
 
 For an event to be forwarded to a user connected through the websocket, the event must meet the following criteria:
 - Headers must have an entry `tenant_uuid` = `<tenant uuid>`
-- Headers must have an entry `user_uuid:<user uuid>` = `true` (or `user_uuid:*` = `true` for all users) 
+- Headers must have an entry `user_uuid:<user uuid>` = `true` (or `user_uuid:*` = `true` for all users)
 
 Any event will always be available to services, but to be relayed to users, these entries are mandatory.
 
@@ -65,8 +67,8 @@ A few things to note here are the required properties when writing new events:
 * _name_: name of the event, used for routing the message
 * _routing_key_fmt_: routing key used to route messages in a topic exchange (compatibility with older version)
 
-Now, when we publish this event using our publisher, headers will be generated automatically. 
-In our example, because our event is derived from `UserEvent`, the headers will be (using example values): 
+Now, when we publish this event using our publisher, headers will be generated automatically.
+In our example, because our event is derived from `UserEvent`, the headers will be (using example values):
 ```py
 {
 	'name': 'do_something',
@@ -79,14 +81,14 @@ In our example, because our event is derived from `UserEvent`, the headers will 
 
 ## What if I need **all** events?
 
-In the old system, it was possible for a user to have access to all events (as long as it had the correct permissions).  
+In the old system, it was possible for a user to have access to all events (as long as it had the correct permissions).
 But what if I still need that behavior, e.g in a m2m (machine to machine) forwarding/dispatching scenario?
 
 Well, we have you covered!
 
-If a user belongs to the stack's _master tenant_ (in opposition to a regular tenant), from the bus perspective, that user 
+If a user belongs to the stack's _master tenant_ (in opposition to a regular tenant), from the bus perspective, that user
 is considered an admin and will be able to receive all events it is registered to, independently of headers.
- 
+
 
 ## TLDR
 

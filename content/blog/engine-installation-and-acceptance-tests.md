@@ -1,10 +1,12 @@
-Title: Development environment for Wazo Platform and acceptance tests
-Date: 2019-11-20
-Author: Mehdi Abaakouk
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: engine-installation-acceptance-tests
-Status: published
+---
+title: Development environment for Wazo Platform and acceptance tests
+date: 2019-11-20
+author: Mehdi Abaakouk
+category: Wazo Platform
+tags: wazo-platform, development
+slug: engine-installation-acceptance-tests
+status: published
+---
 
 
 # Run acceptance tests on freshly installed virtual machine

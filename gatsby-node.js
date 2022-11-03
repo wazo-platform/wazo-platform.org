@@ -62,11 +62,46 @@ const walk = (dir) => {
   });
 };
 
-const getArticles = async (newPageRef) => {
-  const dir = './content/blog';
-  const articles = [];
-  const files = fs.readdirSync(dir);
+const getArticles = async (graphql, newPageRef) => {
   console.info('generating articles');
+  const articlesResponses = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/blog/" },
+          frontmatter: { status: { eq: "published" } }
+        }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            frontmatter {
+              author
+              category
+              date(formatString: "DD MMMM YYYY")
+              slug
+              status
+              tags
+              title
+            }
+            html
+            algoliaContent: excerpt(format: PLAIN, pruneLength: 10000)
+            summary: excerpt(format: PLAIN, pruneLength: 250, truncate: true)
+          }
+        }
+      }
+    }
+  `);
+
+  // Handle errors
+  if (articlesResponses.errors) {
+    reporter.panicOnBuild(`Error while running "blog articles" GraphQL query.`);
+    return;
+  }
+
+  const articles = [];
 
   var rssFeed = new RSS({
     title: siteTitle,
@@ -77,52 +112,35 @@ const getArticles = async (newPageRef) => {
     site_url: `${siteUrl}/`,
   });
 
-  files.forEach((file, key) => {
-    const filePath = `${dir}/${file}`;
-
-    const content = fs.readFileSync(filePath, 'utf8');
-    const body = content.split('\n').splice(8).join('\n');
-    const options = {};
-    content
-      .split('\n')
-      .splice(0, 7)
-      .forEach((row) => {
-        const [key, value] = row.split(': ');
-        options[key.toLowerCase()] = value;
-      });
-
-    const summaryNumWords = 40;
-    const strippedContent = striptags(markdownConverter.makeHtml(body));
-    options.summary = strippedContent.split(' ').splice(0, summaryNumWords).join(' ');
+  articlesResponses.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const options = {
+      summary: node.summary,
+      ...node.frontmatter,
+    }
 
     const blogPath = `/blog/${options.slug}`;
-    if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
-      console.info(`generating article ${key}`);
+    console.info(`- generating article: ${blogPath}`);
 
-      articles.push(options);
+    articles.push(options);
+    const articleContext = {
+      ...options,
+      content: node.html,
+      description: node.summary,
+      algoliaContent: node.algoliaContent,
+    };
+    newPageRef(blogPath, 'blog/article', articleContext);
 
-      const articleContext = {
-        ...options,
-        body,
-        // Algolia fields
-        title: options.title,
-        description: options.summary,
-        algoliaContent: strippedContent,
-      };
-      newPageRef(blogPath, 'blog/article', articleContext);
-
-      rssFeed.item({
-        title: options.title,
-        description: options.summary + '...',
-        url: `${siteUrl}${blogPath}`,
-        author: options.author,
-        categories: [options.category],
-        date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
-        enclosure: {
-          url: `${siteUrl}/images/og-image.jpg`, // @todo change image, change when og:image per article
-        },
-      });
-    }
+    rssFeed.item({
+      title: options.title,
+      description: options.summary + '...',
+      url: `${siteUrl}${blogPath}`,
+      author: options.author,
+      categories: [options.category],
+      date: options.date.indexOf(':') !== -1 ? options.date : `${options.date} 14:00:00`,
+      enclosure: {
+        url: `${siteUrl}/images/og-image.jpg`, // @todo change image, change when og:image per article
+      },
+    });
   });
 
   console.log('generating articles rss feed');
@@ -133,46 +151,68 @@ const getArticles = async (newPageRef) => {
   return articles;
 };
 
-const getTutorials = async (newPageRef) => {
-  const dir = './content/tutorials';
-  const tutorials = [];
-  const files = fs.readdirSync(dir);
+const getTutorials = async (graphql, newPageRef) => {
   console.info('generating tutorials');
+  const tutorialsResponse = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/tutorials/" },
+          frontmatter: { status: { eq: "published" } }
+        }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            frontmatter {
+              author
+              category
+              date(formatString: "DD MMMM YYYY")
+              slug
+              status
+              tags
+              title
+              ogimage
+              thumbnail
+            }
+            html
+            algoliaContent: excerpt(format: PLAIN, pruneLength: 10000)
+            summary: excerpt(format: PLAIN, pruneLength: 250, truncate: true)
+          }
+        }
+      }
+    }
+  `);
 
-  files.forEach((file, key) => {
-    const filePath = `${dir}/${file}`;
+  // Handle errors
+  if (tutorialsResponse.errors) {
+    reporter.panicOnBuild(`Error while running "tutorials" GraphQL query.`);
+    return;
+  }
 
-    const content = fs.readFileSync(filePath, 'utf8');
-    const body = content.split('\n').splice(8).join('\n');
-    const options = {};
-    content
-      .split('\n')
-      .splice(0, 8)
-      .forEach((row) => {
-        const [key, value] = row.split(': ');
-        options[key.toLowerCase()] = value;
-      });
+  const tutorials = [];
 
-    const summaryNumWords = 40;
-    const strippedContent = striptags(markdownConverter.makeHtml(body));
-    options.summary = strippedContent.split(' ').splice(0, summaryNumWords).join(' ');
+  // files.forEach((file, key) => {
+  tutorialsResponse.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const options = {
+      summary: node.summary,
+      ...node.frontmatter,
+    }
 
     const tutorialPath = `/tutorials/${options.slug}`;
-    if (!fs.statSync(filePath).isDirectory() && options.status === 'published') {
-      console.info(`generating tutorial ${key}`);
+    console.info(`- generating tutorial: ${tutorialPath}`);
 
-      tutorials.push(options);
+    tutorials.push(options);
 
-      const tutorialContext = {
-        ...options,
-        body,
-        // Algolia fields
-        title: options.title,
-        description: options.summary,
-        algoliaContent: strippedContent,
-      };
-      newPageRef(tutorialPath, 'tutorials/tutorial', tutorialContext);
-    }
+    const tutorialContext = {
+      ...options,
+      content: node.html,
+      description: options.summary,
+      algoliaContent: node.algoliaContent,
+    };
+    newPageRef(tutorialPath, 'tutorials/tutorial', tutorialContext);
   });
 
   return tutorials;
@@ -298,10 +338,10 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     // Create contribute page
     await newPage('/contribute', 'contribute/index', { content: contributeDoc });
     // Create blog page
-    const articles = await getArticles(newPage);
+    const articles = await getArticles(graphql, newPage);
     await newPage('/blog', 'blog/index', { articles });
     // Create tutorials page
-    const tutorials = await getTutorials(newPage);
+    const tutorials = await getTutorials(graphql, newPage);
     await newPage('/tutorials', 'tutorials/index', { tutorials });
     // Create ecosystem page
     await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
@@ -320,7 +360,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 
     // Create uc-doc pages
     // ---------
-    const ucDocsResult = await graphql(`
+    const ucDocsResponse = await graphql(`
       {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/uc-doc/" } }
@@ -344,13 +384,13 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     `);
 
     // Handle errors
-    if (ucDocsResult.errors) {
+    if (ucDocsResponse.errors) {
       reporter.panicOnBuild(`Error while running UC-DOC GraphQL query.`);
       return;
     }
 
     let dynamicUcDocMenu = {};
-    ucDocsResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    ucDocsResponse.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const pagePath = node.fileAbsolutePath.split('content/')[1].split('.')[0].replace('index', '');
 
       newPage(pagePath, 'uc-doc/index', {

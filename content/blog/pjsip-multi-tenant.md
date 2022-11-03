@@ -1,10 +1,12 @@
-Title: A Multi Tenant API for PJSIP
-Date: 2020-03-03 14:00:00
-Author: Pascal Cadotte Michaud
-Category: Wazo Platform
-Tags: wazo-platform, asterisk, pjsip, voip, api
-Slug: pjsip-multi-tenant
-Status: published
+---
+title: A Multi Tenant API for PJSIP
+date: 2020-03-03 14:00:00
+author: Pascal Cadotte Michaud
+category: Wazo Platform
+tags: wazo-platform, asterisk, pjsip, voip, api
+slug: pjsip-multi-tenant
+status: published
+---
 
 # Towards a Multi Tenant API for PJSIP
 

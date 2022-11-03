@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../Layout';
-import ReactMarkdown from 'react-markdown';
 import { Link } from 'gatsby';
 
-const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, body } }) => {
+import Layout from '../Layout';
+
+const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, category, content } }) => {
   const date = new Date(dateRaw);
   const formattedDate = `${date.getDate()} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
   const tags = tagsRaw && tagsRaw.split(',');
@@ -12,7 +12,7 @@ const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, cate
     <Layout pageTitle={title} pageTitleDate={formattedDate} className="article" section="blog">
       <div className="container main">
         <div className="article--content">
-          <ReactMarkdown children={body} />
+          <div dangerouslySetInnerHTML={{ __html: content}} />
 
           <div className="article--content--footer">
             <Link className="article--content--footer-author" to="/blog" state={{ filter: { type: 'author', value: author }}}>{author}</Link>
@@ -27,4 +27,5 @@ const Page = ({ pageContext: { title, author, tags: tagsRaw, date: dateRaw, cate
     </Layout>
   );
 }
+
 export default Page

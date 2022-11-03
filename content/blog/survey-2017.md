@@ -1,9 +1,11 @@
-Title: Survey
-Date: 2017-11-23
-Author: The Wazo Authors
-Category: Business
-Slug: survey-2017
-Status: published
+---
+title: Survey
+date: 2017-11-23
+author: The Wazo Authors
+category: Business
+slug: survey-2017
+status: published
+---
 
 *La version française suit*
 

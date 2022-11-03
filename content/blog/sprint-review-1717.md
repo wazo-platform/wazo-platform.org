@@ -1,10 +1,12 @@
-Title: Sprint Review 17.17
-Date: 2017-12-11
-Author: The Wazo Authors
-Category: Wazo IPBX
-Tags: wazo, development
-Slug: sprint-review-1717
-Status: published
+---
+title: Sprint Review 17.17
+date: 2017-12-11
+author: The Wazo Authors
+category: Wazo IPBX
+tags: wazo, development
+slug: sprint-review-1717
+status: published
+---
 
 Hello Wazo community!
 

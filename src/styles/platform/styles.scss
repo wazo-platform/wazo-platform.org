@@ -432,8 +432,12 @@ body.documentation {
     font-style: italic;
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
+
     a {
-      margin-left: 20px;
+      font-weight: bold;
+      display: block;
+      font-style: normal;
+      color: #98c451;
     }
   }
   .articles {

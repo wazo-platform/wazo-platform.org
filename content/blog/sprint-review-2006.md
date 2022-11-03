@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.06 Released
-Date: 2020-04-27
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2006
-Status: published
+---
+title: Wazo Platform 20.06 Released
+date: 2020-04-27
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2006
+status: published
+---
 
 Hello Wazo Platform community!
 

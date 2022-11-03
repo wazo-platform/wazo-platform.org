@@ -1,9 +1,11 @@
-Title: Introducing Wazo
-Date: 2016-12-05 13:00
-Author: The Wazo Authors
-Category: Wazo software
-Slug: introducing-wazo
-Status: published
+---
+title: Introducing Wazo
+date: 2016-12-05 13:00
+author: The Wazo Authors
+category: Wazo software
+slug: introducing-wazo
+status: published
+---
 
 
 *French/Français: La [version française](#french) suit la version anglaise.*

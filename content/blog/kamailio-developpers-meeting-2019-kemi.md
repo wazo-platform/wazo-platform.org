@@ -1,10 +1,12 @@
-Title: Kamailio developpers meeting 2019 - kemi framework
-Date: 2019-12-06
-Author: Mathias WOLFF
-Category: kamailio
-Tags: wazo-platform, development, kamailio, KEMI
-Slug: kamailio-developpers-meeting-2019-kemi
-Status: published
+---
+title: Kamailio developpers meeting 2019 - kemi framework
+date: 2019-12-06
+author: Mathias WOLFF
+category: kamailio
+tags: wazo-platform, development, kamailio, KEMI
+slug: kamailio-developpers-meeting-2019-kemi
+status: published
+---
 
 ![kamailio developpers event 2019](/images/blog/kamailio-dev-meeting-2019/kamailio_dev_event_2019.jpeg)
 

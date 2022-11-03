@@ -1,10 +1,12 @@
-Title: Creating our WebRTC demo
-Date: 2021-11-16 10:00:00
-Author: Manon Gerray
-Category: Wazo Platform
-Tags: wazo platform, webrtc, front-end
-Slug: creating-our-webrtc-demo
-Status: published
+---
+title: Creating our WebRTC demo
+date: 2021-11-16 10:00:00
+author: Manon Gerray
+category: Wazo Platform
+tags: wazo platform, webrtc, front-end
+slug: creating-our-webrtc-demo
+status: published
+---
 
 ## Introduction
 
@@ -68,7 +70,7 @@ const updateScenes = status => {
   $('#calls-handler').html('');
 
   ///[...]
-  
+
   Object.keys(sessions).forEach(sessionId => {
     const callSession = sessions[sessionId];
     const newScene = addScene(callSession, callSession.cameraEnabled);
@@ -94,7 +96,7 @@ const switchCall = event => {
 
   const sessionId = $(event.target).attr('data-sessionid');
   const callSession = sessions[sessionId];
-  
+
   if (currentSession.is(callSession)) {
     console.log('active call, no switching');
     return;

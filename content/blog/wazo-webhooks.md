@@ -1,9 +1,11 @@
-Title: Webhook coming in Wazo
-Date: 2017-05-18
-Author: Sylvain Boily
-Category: Wazo
-Slug: wazo-webhook
-Status: published
+---
+title: Webhook coming in Wazo
+date: 2017-05-18
+author: Sylvain Boily
+category: Wazo
+slug: wazo-webhook
+status: published
+---
 
 Depuis plusieurs mois nous travaillons activement pour améliorer Wazo et le rendre le plus ouvert possible. La dernière version 17.07 mets en lumière nos derniers travaux et nos développements actuels autour de Wazo.  Vous découvrirez ainsi : une nouvelle interface web basée sur nos APIs REST, une place de marché pour permettre d'étendre Wazo facilement, des nouvelles fonctionnalités comme les menus vocaux, les lignes multiples pour un utilisateur, etc.
 

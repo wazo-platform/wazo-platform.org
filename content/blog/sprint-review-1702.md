@@ -1,10 +1,12 @@
-Title: Sprint Review 17.02
-Date: 2017-01-30
-Author: The Wazo Authors
-Category: Wazo IPBX
-Tags: wazo, development
-Slug: sprint-review-1702
-Status: published
+---
+title: Sprint Review 17.02
+date: 2017-01-30
+author: The Wazo Authors
+category: Wazo IPBX
+tags: wazo, development
+slug: sprint-review-1702
+status: published
+---
 
 Hello Wazo community! Here comes the release of Wazo 17.02!
 

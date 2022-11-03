@@ -1,10 +1,12 @@
-Title: Wazo Platform 20.08 Released
-Date: 2020-06-08
-Author: The Wazo Authors
-Category: Wazo Platform
-Tags: wazo-platform, development
-Slug: release-review-2008
-Status: published
+---
+title: Wazo Platform 20.08 Released
+date: 2020-06-08
+author: The Wazo Authors
+category: Wazo Platform
+tags: wazo-platform, development
+slug: release-review-2008
+status: published
+---
 
 Hello Wazo Platform community!
 
