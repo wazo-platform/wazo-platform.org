@@ -1,27 +1,28 @@
 
 ---
 Title: Hackapong fun at the shop!
-Date: 2022-11-04 13::55:00
+Date: 2022-11-04 13:55:00
 Author: Jean-Philippe Lamebrt - alex Hoguin
 Category: WDA
 Tags: hackathon, wda
-Slug: hackaton-2022-building-a-pong
+Slug: hackhaton-2022-building-a-pong
 Status: published
 ---
 ## Here Comes the Hackapong 
-Our Yearly hackathon is a very important moment, first of all we use it to bond as a team and work as a team to use our tools and see what we could add in the future. We used this week to build on tools we already use or that are coming to WDA soon.
+Our Yearly hackathon is a very important moment, first of all since we use it to bond and work as a team, and also to use our tools and see what we could add in the future. We used this week to build on tools we already use or that are coming to WDA soon.
 
-Our team decided to put the WDA plugin functionnality to good use and we decided to build a pong game that would be playable between two callers using WDA. 
+Our team decided to put the WDA plugin functionality to good use and we decided to build a pong game that would be playable between two callers using WDA.
 
-To accomplish that feat we used existing tools from the platform, webrtc, asterisk, nginx, etc and some that are not yet available i.e. the plugin interface that is in the works WDA. 
+To accomplish that feat we used existing tools from the wazo platform as well as webrtc, asterisk, nginx, etc, and some that are not yet available i.e. the plugin interface that is in the works for WDA.
 
-We started by finding a pong javascript [codebase](https://gist.github.com/straker/81b59eecf70da93af396f963596dfdc5) that was functional and had all the feature we needed. We used an open-source project and we built on that. 
+We started by finding a pong javascript [codebase](https://gist.github.com/straker/81b59eecf70da93af396f963596dfdc5) that was functional and had all the features we needed. We used an open-source project and we built on that. 
 
 The issues we faced were mostly related to synchronisation and control of the paddles for the players. 
 
 ## Intercommunication 
 
-Since we used DTMF's to control the paddles ( we wanted it to work with a plastic phone too ) we had to use the wazo-sdk javascript library. We linked the user control ( arrow up and arrow down ) to send DTMF's to the stack. 
+We wanted it to work with a plastic phone too, so we chose to use DTMFs to control the paddles. 
+For this we had to use the wazo-sdk javascript library. We linked the user controls ( arrow up and arrow down ) to send DTMFs to the stack. 
 
 ```javascript
 /**
@@ -50,7 +51,7 @@ Wazo.Websocket.on('call_dtmf_created', ({ data }) => {
 
 ```
 
-We also had to decide how to synchronise the ball between the two users, since we are not using a netcode library, we decided to make the caller the source of truth. One of the interesting part is that we are able to speak while playing the game. Oh and if you are very good at pong your calls wont be very long, we needed a way to make a winner so when you get to 20 points the game ends and the call hangs-up. 
+We also had to decide how to synchronize the ball between the two users, since we are not using a netcode library, we decided to make the caller the source of truth. One of the interesting part is that we are able to speak while playing the game. Oh and if you are very good at pong your calls wont be very long, we needed a way to make a winner so when you get to 20 points the game ends and the call hangs-up.
 ```javascript
 setOnGameEndedCallback(idPlayer => {
 	Wazo.Phone.sendMessage(JSON.stringify({ type: 'playerWon', idPlayer }), call.sipSession);
@@ -83,7 +84,7 @@ For **(2)** & **(3)**
 - Nginx sites-available project name => hackapong
 - A FQDN for the incoming requests => hackapong.wazo.io
 
-The arising variable file :
+The ensuing variable file :
 ```yaml
 cat defaults/main.yml
 ---
@@ -122,7 +123,8 @@ cat tasks/main.yml
     path: /etc/nginx/sites-enabled/{{ project_name }}
   notify: restart nginx
 ```
-Handler was specified above, we need to add it in its own file  
+
+notify clauses above specify a handler, we need to add it in its own file 
 ```yaml
 cat handlers/main.yml
 ---
@@ -188,7 +190,7 @@ ansible-playbook -i hosts playbook.yml
 ```
 
 ### Manual steps
-Two steps remain, we need to create a domain name for this service and generate its certificate. The certificate is not an option as Wazo App won't send requests to a non-secured receiver.
+Two steps remain, we need to create a domain name for this service and generate its certificate. Using a certificate is not optional as Wazo App won't send requests to a non-secured receiver.
 
 On your favorite cloud provider, create a domain name `hackapong.wazo.io`.
 Then ssh on the instance where the plugin is deployed and ask certbot to handle the certificate.
@@ -206,7 +208,7 @@ And voila !
 ## Conclusion
 What is a hackathon without fun and teamwork? 
 
-The goal of our project was to use our tools and bond together in a way that would be fun. The use of a game taught our little trio that if a tool , like the plugin interface, is well built we can develop many tools using it without a lot of hassle. 
+The goal of our project was to use our tools and bond together in a way that would be fun. The use of a game taught our little trio that if a tool , like the plugin interface, is well built then we can develop many more tools using it without a lot of hassle. 
 
 Many thanks at Wazo for the opportunity to find another great way to use our tooling, and for the meals, and the housing, and the beer, and the beers, and the b... 
 
