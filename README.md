@@ -1,8 +1,8 @@
-# Wazo Platform website
+# Wazo Platform Website
 
 This repo contains the source and building scripts for generating http://www.wazo-platform.org/.
 
-## Content change
+## Content Change
 
 The content is authored using [the markdown language](https://en.wikipedia.org/wiki/Markdown) in [the content
 directory](content). The build process is done using [Gatsby](https://www.gatsbyjs.org/).
