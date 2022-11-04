@@ -1,11 +1,11 @@
 
 ---
-Title: Hackapong fun at the shop!
+Title: Hackapong Fun at the Shop!
 Date: 2022-11-04 13:55:00
-Author: Jean-Philippe Lamebrt - alex Hoguin
-Category: WDA
-Tags: hackathon, wda
-Slug: hackhaton-2022-building-a-pong
+Author: Jean-Philippe Lambert & Alex Hoguin
+Category: Hackathon
+Tags: hackathon, dtmf, websocket
+Slug: hackathon-2022-building-a-pong
 Status: published
 ---
 ## Here Comes the Hackapong 
@@ -75,7 +75,6 @@ Let's take a minute to think about it.
 We need to **(1)** download a project from git, **(2)** upload the nginx configuration and **(3)** enable this new site.
 
 We fill the variables with the necessary values first.
-Are needed the different values.
 For **(1)**
 - The code repository
 - Path of the cloned project=> /var/www/hackapong
