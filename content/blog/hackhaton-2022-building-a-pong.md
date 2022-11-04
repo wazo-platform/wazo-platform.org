@@ -66,7 +66,7 @@ Let's make it (not) production ready:
 
 ### Industrialize deployment
 We use ansible to deploy this quickly. Fortunately we already have an nginx service running.
-First of all, let's create the ansible project
+First of all, let's create the ansible project.
 ```
 ansible-galaxy init ansible-role-hackapong
 cd ansible-role-hackapong
@@ -95,7 +95,7 @@ project_key_file: '/root/.ssh/hackapong_ed25519' # we use a specific key, to kee
 fqdn: hackapong.wazo.io
 ```
 
-The tasks file is as simple as this
+The tasks file is as simple as this:
 ```yaml
 cat tasks/main.yml
 ---
@@ -133,7 +133,7 @@ cat handlers/main.yml
     name: nginx
     state: restarted
 ```
-And finally, the template that configures the nginx route
+And finally, the template that configures the nginx route:
 ```nginx
 cat templates/nginx.conf.j2
 server {
