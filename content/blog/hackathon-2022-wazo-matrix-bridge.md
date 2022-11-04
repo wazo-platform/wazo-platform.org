@@ -1,3 +1,4 @@
+---
 Title: Hackathon 2022 - Bridging Wazo and Matrix
 Date: 2022-10-20 12:00:00
 Author: Jesse Sopel
@@ -5,12 +6,13 @@ Category: Hackathon
 Tags: Chat, Python, Matrix, Bridge, Hackathon
 Slug: hackathon-2022-bridging-wazo-and-matrix
 Status: published
+---
 
 # Hackathon 2022 - Bridging Wazo and Matrix
 
 Every year Wazo organizes a Hackathon with their employees, and as many of us as possible get together to work on some fun projects and see what we can learn.
-There were multiple teams working on different projects. Our team consisted of Charles, Francis, Francois and I (Jesse). 
-We decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as [testing out adding some new features to the existing chat](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo), but this article is focused on the former. 
+There were multiple teams working on different projects. Our team consisted of Charles, Francis, Francois and I (Jesse).
+We decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as [testing out adding some new features to the existing chat](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo), but this article is focused on the former.
 
 ## The Objective
 
