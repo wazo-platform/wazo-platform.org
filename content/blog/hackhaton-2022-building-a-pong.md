@@ -26,7 +26,7 @@ For this we had to use the wazo-sdk javascript library. We linked the user contr
 
 ```javascript
 /**
-* When using the wazo-sdk we have directly acces to Wazo websocket events 
+* When using the wazo-sdk we have direct acces to Wazo websocket events 
 * without too much work. 
 */
 Wazo.Websocket.on('call_dtmf_created', ({ data }) => {
@@ -51,7 +51,7 @@ Wazo.Websocket.on('call_dtmf_created', ({ data }) => {
 
 ```
 
-We also had to decide how to synchronize the ball between the two users, since we are not using a netcode library, we decided to make the caller the source of truth. One of the interesting part is that we are able to speak while playing the game. Oh and if you are very good at pong your calls wont be very long, we needed a way to make a winner so when you get to 20 points the game ends and the call hangs-up.
+We also had to decide how to synchronise the ball between the two users. Since we are not using a netcode library, we decided to make the caller the source of truth. One of the interesting part is that we are able to speak while playing the game. Oh and if you are very good at pong your calls wont be very long, we needed a way to choose a winner so when you get to 20 points the game ends and the call hangs-up.
 ```javascript
 setOnGameEndedCallback(idPlayer => {
 	Wazo.Phone.sendMessage(JSON.stringify({ type: 'playerWon', idPlayer }), call.sipSession);
@@ -74,7 +74,7 @@ cd ansible-role-hackapong
 Let's take a minute to think about it. 
 We need to **(1)** download a project from git, **(2)** upload the nginx configuration and **(3)** enable this new site.
 
-We fill the variables first.
+We fill the variables with the necessary values first.
 Are needed the different values.
 For **(1)**
 - The code repository
@@ -96,7 +96,7 @@ project_key_file: '/root/.ssh/hackapong_ed25519' # we use a specific key, to kee
 fqdn: hackapong.wazo.io
 ```
 
-The tasks file is as easy as this
+The tasks file is as simple as this
 ```yaml
 cat tasks/main.yml
 ---
@@ -124,7 +124,7 @@ cat tasks/main.yml
   notify: restart nginx
 ```
 
-notify clauses above specify a handler, we need to add it in its own file 
+notify clauses above specify a handler, we need to add it in its own file:
 ```yaml
 cat handlers/main.yml
 ---
