@@ -16,7 +16,7 @@ We decided to both work on creating a bridge between Wazo's built-in chat system
 
 The goal was to create a bidirectional bridge between Wazo's [Chatd](https://wazo-platform.org/documentation/overview/chat.html) and a [Matrix](https://matrix.org/) Homeserver.
 
-A user that exists on both platforms can have the two accounts mapped to each other, but in case they do not exist or have no account configured the bridge then "puppet" accounts should be created for them. This allows the Matrix user to chat with any user on Wazo as if they were using it directly. This is known as a [Double Puppeting](https://matrix.org/docs/guides/types-of-bridging#double-puppeted-bridge). Now, we didn't quite get there, but we made some good progress and learned some new things.
+A user that exists on both platforms can have the two accounts mapped to each other, but in case they do not exist or have no account configured in the bridge, then "puppet" accounts should be created for them. This allows the Matrix user to chat with any user on Wazo as if they were using it directly. This is known as a [Double Puppeting](https://matrix.org/docs/guides/types-of-bridging#double-puppeted-bridge). Now, we didn't quite get there, but we made some good progress and learned some new things.
 
 ## Technologies/Libraries used
 
