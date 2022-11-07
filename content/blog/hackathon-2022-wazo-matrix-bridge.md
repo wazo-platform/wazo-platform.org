@@ -25,7 +25,7 @@ A user that exists on both platforms can have the two accounts mapped to each ot
 - [Confd](https://wazo-platform.org/documentation/overview/configuration.html) - Get user information
 - [Matrix Synapse](https://matrix.org/docs/projects/server/synapse) - The Matrix homeserver
 - [Mautrix](https://github.com/mautrix/python) - Library for the bridge
-- [aiohttp](https://docs.aiohttp.org/en/stable/)  - API calls and server for webooks
+- [aiohttp](https://docs.aiohttp.org/en/stable/)  - API calls and server for webhooks
 - [python markdown](https://python-markdown.github.io/)  - Rendering Markdown text to HTML
 
 In order to create the bridge we decided to use the [Mautrix](https://github.com/mautrix/python) Library since it is very feature complete, written in Python, and they have many well established bridges already. We spent a lot of time looking through the library and looking at the other implementations to figure out how we might do something similar for Wazo. Then we created the base structure of the project and the models needed to store information about the users, puppets and groups in order to create a mapping between the two systems.
