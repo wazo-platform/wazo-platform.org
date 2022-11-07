@@ -20,12 +20,12 @@ life, since not everyone lives around Quebec City.
 
 ## Kick-Off
 
-One subject for the hackathon was to build a chat app powered by Wazo supporting : GIFs, emojis,
+One subject for the hackathon was to build a chat app powered by Wazo supporting: GIFs, emojis,
 reactions on messages, files attachment and Markdown. Also behind the scene, we wanted to
 [build a bridge between Wazo And Matrix](/blog/hackathon-2022-bridging-wazo-and-matrix) to explore
 methods for integrating Wazo with third-party platforms.
 
-At this time, we team up Jesse, Charles, Francois and I (Francis) to explore these ideas further.
+Jesse, Charles, Francois and I (Francis) teamed up to explore these ideas further.
 
 ## Works on Wazo-Platform to Support Group Chat
 
@@ -34,7 +34,7 @@ At this time, we team up Jesse, Charles, Francois and I (Francis) to explore the
 Firstly, we needed to remove the hard limit of two members per room. This part was the easiest since
 it’s a
 [hardcoded condition set by us](https://github.com/wazo-platform/wazo-chatd/blob/master/wazo_chatd/plugins/rooms/http.py#L37-L40).
-However, several questions need to be addressed to make it production ready:
+However, several questions would need to be addressed to make it production ready:
 
 - How to handle privacy when a member is added to the conversation later
 - How to define max participants
@@ -70,7 +70,7 @@ class RoomMessageReaction(Base):
     )
 ```
 
-The second part, is to add real-time reaction in the chat, so we created two new events for this :
+The second part, is to add real-time reactions in the chat, so we created two new events for this :
 
 - `chatd_users_room_message_reaction_created`
 - `chatd_users_room_message_reaction_deleted`
@@ -187,16 +187,16 @@ ws.on('chatd_user_room_created', (message) => {
 
 We found that the most challenging parts of a group chat application are :
 
-- Creating a feature-rich interface. We maybe don’t realize it at first, but chat apps are powerful
-  tools with a lot of shortcuts. Shortcut examples: editing previous message, switch to new
-  channels, alias in message (@mention, emoji syntax `:smile:`, link detection, etc.)
-- Other details not regarding the core feature (send and receiving messages). Examples: threads,
+- Creating a feature-rich interface. We may have not realized it at first, but chat apps are powerful
+  tools with a lot of shortcuts. Shortcut examples: editing previous messages, switching to new
+  channels, aliases in messages (@mention, emoji syntax `:smile:`, link detection, etc.)
+- Other details that are not about the core feature (sending and receiving messages). Examples: threads,
   notifications, participants management, privacy, etc.
 
 ## Conclusion
 
 The hackathon was a great opportunity for us to work closely with our colleagues and try new
-technologies. Also, it gives us good feedback on what is missing and how much efforts we should
+technologies. Also, it gave us good feedback on what is missing and how much effort we should
 deploy to implement a complete group chat application.
 
 ### Code reference: show me the code
