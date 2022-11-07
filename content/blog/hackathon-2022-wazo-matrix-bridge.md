@@ -48,7 +48,7 @@ The next step would have been to send the messages written in Matrix to chatd vi
 
 ## Possible improvements
 
-A side from simply completing the other side of the bridge there are many other things we wanted to add. We also wanted to handle files and other media content as well as reactions. The Mautrix library also has tools for using chatbots to perform the initial configuration and authentication of bridged users, which would have been ideal. In our case, it was simply configured in the config file.
+Aside from simply completing the other side of the bridge there are many other things we wanted to add. We also wanted to handle files and other media content as well as reactions. The Mautrix library also has tools for using chatbots to perform the initial configuration and authentication of bridged users, which would have been ideal. In our case, it was simply configured in the config file.
 Nonetheless, it was a very interesting project.
 
 ## What we learned
