@@ -27,7 +27,7 @@ methods for integrating Wazo with third-party platforms.
 
 Jesse, Charles, Francois and I (Francis) teamed up to explore these ideas further.
 
-## Works on Wazo-Platform to Support Group Chat
+## Working on Wazo-Platform to Support Group Chat and Reactions
 
 ### Support Multiple Recipients
 
@@ -36,15 +36,15 @@ it’s a
 [hardcoded condition set by us](https://github.com/wazo-platform/wazo-chatd/blob/master/wazo_chatd/plugins/rooms/http.py#L37-L40).
 However, several questions would need to be addressed to make it production ready:
 
-- How to handle privacy when a member is added to the conversation later
+- How do we handle message history visibility when a new member is added to a conversation
 - How to define max participants
 - How to leave a conversation
 - etc…
 
-### Adding Reactions on Messages
+### Adding Reactions to Messages
 
 We added a new table **chatd_room_message_reaction**. This table will be in charge of storing all
-reactions added by a user on a message. A user can add as many emojis as he wants on a message, but
+reactions added by a user to a message. Users can add as many emojis as they wants to a message, but
 not the same twice.
 
 ```python
@@ -75,7 +75,7 @@ The second part, is to add real-time reactions in the chat, so we created two ne
 - `chatd_users_room_message_reaction_created`
 - `chatd_users_room_message_reaction_deleted`
 
-These events send the following messages. That allows the app to add/remove the reactions on a
+These events look like this and allow the app to add/remove the reactions to a
 specific message in real-time.
 
 ```json
@@ -104,7 +104,7 @@ For the UI part, we used the [SolidJS](https://www.solidjs.com/) reactive librar
 straightforward since our SDK handled token creation and allowed us to use the preconfigured
 WebSocket Client.
 
-### Live Chat Logics
+### Live Chat Logic
 
 A Group Chat is mainly HTTP Requests and WebSocket listeners. Here’s the HTTP Request that we need
 to make in the app:
@@ -128,7 +128,7 @@ await client.chatd.sendRoomMessage(ROOM_UUID, {
 ```
 
 The second part is about listening to WebSocket messages. We used the wazo-js-sdk WebSocket client.
-Here are the events that we listened on :
+Here are the events that we listened to :
 
 ```javascript
 // Initialize websocket client
@@ -146,7 +146,7 @@ const ws = new WazoWebSocketClient({
 
 // Main events to listen
 ws.on('chatd_user_room_message_created', (message) => {
-  // Listen to "room message created" events
+  // Listen for "room message created" events
   // - Validate the message is in the displayed room
   // - Add message to all messages
   //
@@ -164,7 +164,7 @@ ws.on('chatd_user_room_message_created', (message) => {
 });
 
 ws.on('chatd_user_room_created', (message) => {
-  // Listen to "room created" events
+  // Listen for "room created" events
   // - Add new room to the listing
   //
   // Message Payload Example
@@ -187,17 +187,17 @@ ws.on('chatd_user_room_created', (message) => {
 
 We found that the most challenging parts of a group chat application are :
 
-- Creating a feature-rich interface. We may have not realized it at first, but chat apps are powerful
-  tools with a lot of shortcuts. Shortcut examples: editing previous messages, switching to new
-  channels, aliases in messages (@mention, emoji syntax `:smile:`, link detection, etc.)
-- Other details that are not about the core feature (sending and receiving messages). Examples: threads,
-  notifications, participants management, privacy, etc.
+- Creating a feature-rich interface. We may have not realized it at first, but chat apps are
+  powerful tools with a lot of shortcuts. For example: editing previous messages, switching
+  to new channels, aliases in messages (@mention, emoji syntax `:smile:`, link detection, etc.).
+- More complex features and settings are common as well: threads, notifications, participant
+  management, privacy settings, etc.
 
 ## Conclusion
 
 The hackathon was a great opportunity for us to work closely with our colleagues and try new
-technologies. Also, it gave us good feedback on what is missing and how much effort we should
-deploy to implement a complete group chat application.
+technologies. It also gives us a good idea about what is missing and how much effort would be
+required to implement and deploy these features
 
 ### Code reference: show me the code
 
