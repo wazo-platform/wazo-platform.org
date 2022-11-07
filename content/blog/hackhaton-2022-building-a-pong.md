@@ -1,12 +1,11 @@
-
 ---
-Title: Hackapong Fun at the Shop!
-Date: 2022-11-04 13:55:00
-Author: Jean-Philippe Lambert & Alex Hoguin
-Category: Hackathon
-Tags: hackathon, dtmf, websocket
-Slug: hackathon-2022-building-a-pong
-Status: published
+title: Hackapong Fun at the Shop!
+date: 2022-11-04
+author: Jean-Philippe Lambert & Alex Hoguin
+category: Hackathon
+tags: hackathon, dtmf, websocket
+slug: hackathon-2022-building-a-pong
+status: published
 ---
 ## Here Comes the Hackapong 
 Our Yearly hackathon is a very important moment, first of all since we use it to bond and work as a team, and also to use our tools and see what we could add in the future. We used this week to build on tools we already use or that are coming to WDA soon.
