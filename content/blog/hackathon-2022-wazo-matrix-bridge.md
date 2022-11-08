@@ -9,7 +9,7 @@ Status: published
 ---
 
 Every year Wazo organizes a Hackathon with their employees, and as many of us as possible get together to work on some fun projects and see what we can learn.
-There were multiple teams working on different projects. Our team consisted of Charles, Francis, Francois and I (Jesse).
+There were multiple teams working on different projects. Our team consisted of [Charles](https://github.com/DrPyser), [Francis](https://github.com/chartrandf), [Francois](https://github.com/fblackburn1) and [I (Jesse)](https://github.com/sopelj).
 We decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as [testing out adding some new features to the existing chat](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo), but this article is focused on the former.
 
 ## The Objective
@@ -20,13 +20,13 @@ A user that exists on both platforms can have the two accounts mapped to each ot
 
 ## Technologies/Libraries used
 
-- [Chatd](https://wazo-platform.org/documentation/overview/chat.html)- Chat messages
+- [Chatd](https://wazo-platform.org/documentation/overview/chat.html) - Chat messages
 - [Webhookd](https://wazo-platform.org/documentation/overview/webhook.html) - Listen for messages and forward to bridge
 - [Confd](https://wazo-platform.org/documentation/overview/configuration.html) - Get user information
-- [Matrix Synapse](https://matrix.org/docs/projects/server/synapse) - The Matrix homeserver
+- [Matrix Synapse](https://matrix.org/docs/projects/server/synapse) - The Matrix Homeserver
 - [Mautrix](https://github.com/mautrix/python) - Library for the bridge
-- [aiohttp](https://docs.aiohttp.org/en/stable/)  - API calls and server for webhooks
-- [python markdown](https://python-markdown.github.io/)  - Rendering Markdown text to HTML
+- [aiohttp](https://docs.aiohttp.org/en/stable/) - API calls and server for webhooks
+- [python markdown](https://python-markdown.github.io/) - Rendering Markdown text to HTML
 
 In order to create the bridge we decided to use the [Mautrix](https://github.com/mautrix/python) Library since it is very feature complete, written in Python, and they have many well established bridges already. We spent a lot of time looking through the library and looking at the other implementations to figure out how we might do something similar for Wazo. Then we created the base structure of the project and the models needed to store information about the users, puppets and groups in order to create a mapping between the two systems.
 
@@ -55,6 +55,6 @@ Nonetheless, it was a very interesting project.
 
 We learned a lot about how Mautrix works and, more generally, the things we could do with a bridge. All platforms are a bit different and provide different tools for linking them to other services, but in a lot of cases it is possible to do something like this to allow for different platforms to be linked together. It's always nice when you can make platforms work together.
 
-We also got a lot of ideas of things that it would be nice to add to improve chatd, maybe sometime in the future.
+We also got lots of ideas of things that would be nice to add to or improve in chatd, maybe sometime in the future.
 
 The code for the bridge is [located here](https://github.com/wazo-platform/hackathon-2022-mautrix-wazo), but keep in mind it was just a test for the Hackathon and is not fully functional.
