@@ -1,11 +1,11 @@
 ---
-Title: Building a Group Chat with Wazo
-Date: 2022-11-02 10:00:00
-Author: Francis Chartrand
-Category: Wazo Platform
-Tags: hackathon, chat, websocket, solidjs
-Slug: hackaton-2022-building-group-chat-with-wazo
-Status: published
+title: Building a Group Chat with Wazo
+date: 2022-11-08 10:00:00
+author: Francis Chartrand
+category: Wazo Platform
+tags: hackathon, chat, websocket, solidjs
+slug: hackaton-2022-building-group-chat-with-wazo
+status: published
 ---
 
 ## 2022 Hackathon
@@ -25,7 +25,8 @@ reactions on messages, files attachment and Markdown. Also behind the scene, we 
 [build a bridge between Wazo And Matrix](/blog/hackathon-2022-bridging-wazo-and-matrix) to explore
 methods for integrating Wazo with third-party platforms.
 
-Jesse, Charles, Francois and I (Francis) teamed up to explore these ideas further.
+[Jesse](https://github.com/sopelj), [Charles](https://github.com/DrPyser), [Francois](https://github.com/fblackburn1)
+and I ([Francis](https://github.com/chartrandf)) teamed up to explore these ideas further.
 
 ## Working on Wazo-Platform to Support Group Chat and Reactions
 
