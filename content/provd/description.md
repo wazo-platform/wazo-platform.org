@@ -17,14 +17,14 @@ The REST API for wazo-provd is available [here](../api/provisioning.html)
 
 ## Plugins
 
-Each model of phone must have its plugin to be supported by wazo-provd. Plugins are located
+Each model of phone must have its plugin supported by wazo-provd. Plugins are located
 [here](https://github.com/wazo-platform/wazo-provd-plugins)
 
-Plugins are meant to be installed and upgraded independently of the OS to be able to use firmware
+Plugins are meant to be installed and upgraded independently of the OS to be able to use the firmware
 version that works best for your use case.
 
 Supported plugins are hosted on
-[provd.wazo.community](http://provd.wazo.community/plugins/1/stable/)
+[provd.wazo.community](http://provd.wazo.community/plugins/2/stable/)
 
 ## Auto provisioning
 

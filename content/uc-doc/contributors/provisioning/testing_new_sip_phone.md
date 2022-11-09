@@ -2,9 +2,9 @@
 title: Testing a new SIP phone
 ---
 
-Let's suppose you have received a brand new SIP phone that is not supported by the provisioning
-system of Wazo. You would like to know if it's possible to add auto-provisioning support for it.
-That said, you have never tested the phone before.
+Let's suppose you have received a brand-new SIP phone that is not supported by Wazo's provisioning
+system. You would like to know if it's possible to add auto-provisioning support for it. That said,
+you have never tested the phone before.
 
 This guide will help you get through the different steps that are needed to add auto-provisioning
 support for a phone to Wazo.
@@ -21,7 +21,7 @@ Before continuing, you'll need the following:
 Although it's possible to do all the testing directly on a Wazo, it's more comfortable and usually
 easier to do on a separate, dedicated machine.
 
-That said, you'll still need a Wazo near, since we'll be doing the call testing part on it and not
+That said, you'll still need a Wazo nearby, since we'll be doing the call testing part on it and not
 on a separate asterisk.
 
 So, for the rest of this guide, we'll suppose you are doing your tests on a _Debian_ server with the
@@ -60,7 +60,7 @@ following configuration:
   }
   ```
 
-- Example content of the `/etc/default/tftpd-hpa` file (restart `tftpd-hpa` after modifcation):
+- Example contents of the `/etc/default/tftpd-hpa` file (restart `tftpd-hpa` after changes):
 
   ```
   TFTP_USERNAME="tftp"
@@ -77,49 +77,49 @@ via HTTP in the `/var/www` directory.
 Adding auto-provisioning support for a phone is mostly a question of finding answers to the
 following questions.
 
-1.  _Is it worth the time adding auto-provisioning support for the phone ?_
+1.  _Is it worth the time adding auto-provisioning support for the phone?_
 
-    Indeed. Adding quality auto-provisioning support for a phone to Wazo requires a non negligible
-    amount of work, if you don't meet any real problem and are comfortable with provisioning in
-    Wazo. Not all phones are born equal. Some are cheap. Some are old and slow. Some are made to
-    work on proprietary system and will only work in degraded mode on anything else.
+    Indeed. Adding quality auto-provisioning support for a phone to Wazo requires a non-negligible
+    amount of work, even if you don't run into any real problems and are comfortable provisioning in
+    Wazo. Not all phones are created equal. Some are cheap. Some are old and slow. Some are made to
+    work on proprietary systems and will only work in limited capacity on anything else.
 
-    That said, if you are uncertain, testing will help you clarifying your idea.
+    That said, if you are uncertain, testing will help you decide.
 
-2.  _What is the vendor, model, MAC address and firmware version (if available) of your phone ?_
+2.  _What is the vendor, model, MAC address and firmware version (if available) of your phone?_
 
     Having the vendor and model name is essential when looking for documentation or other
     information. The MAC address will be needed later on for some tests, and it's always good to
-    know the firmware version of the phone if you are trying to upgrade to a newer firmware version
+    know the firmware version of the phone if you are trying to upgrade to a newer firmware version,
     and you're having some troubles, and when reading the documentation.
 
-3.  _Is the official administrator guide/documentation available publicly on the vendor web site ?
-    Is it available only after registering and login to the vendor web site ?_
+3.  _Is the official administration guide/documentation available publicly on the vendor website? Or
+    only available after registering and logging into the vendor's website?_
 
-    Having access to the administrator guide/documentation of the phone is also essential. Once
+    Having access to the administration guide/documentation of the phone is also essential. Once
     you've found it, download it and keep the link to the URL. If you can't find it, it's probably
     not worth going further.
 
-4.  _Is the latest firmware of the phone available publicly on the vendor web site ? Is it available
-    only after registering and login to the vendor web site ?_
+4.  _Is the latest firmware of the phone available publicly on the vendor website? Is it available
+    only after registering and logging into the vendor website?_
 
     Good auto-provisioning support means you need to have an easy way to download the latest
-    firmware of the phone. Ideally, this mean the firmware is downloadable from an URL, with no
-    authentication whatsoever. In the worst case, you'll need to login on some web portal before
+    firmware of the phone. Ideally, this mean the firmware is downloadable from a URL, with no
+    authentication whatsoever. In the worst case, you'll need to log in on some web portal before
     being able to download the firmware, which will be cumbersome to automatize and probably
     fragile. If this is the case, it's probably not worth going further.
 
-5.  _Does the phone need other files, like language files ? If so, are these files available
-    publicly on the vendor web site ? After registering ?_
+5.  _Does the phone need other files, like language files? If so, are these files available publicly
+    on the vendor's website? After registering?_
 
-    Although you might not be able to answer to this question yet because you might not know if the
+    Although you might not be able to answer this question yet because you might not know if the
     phone needs such files to be either in English or in French (the two officially supported
-    language in Wazo), you'll need to have an easy access to these files if its the case.
+    language in Wazo), you'll need to have easy access to these files if it's the case.
 
-6.  _Does the phone supports auto-provisioning via DHCP + HTTP (or TFTP) ?_
+6.  _Does the phone support auto-provisioning via DHCP + HTTP (or TFTP)?_
 
     The provisioning system in Wazo is based on the popular method of using a DHCP server to tell
-    the phone where to download its configuration files, and a HTTP (or TFTP) server to serve these
+    the phone where to download its configuration files, and an HTTP (or TFTP) server to serve these
     configuration files. Some phones support other methods of provisioning (like TR-069), but that's
     of no use here. Also, if your phone is only configurable via its web interface, although it's
     technically possible to configure it automatically by navigating its web interface, it's an
@@ -129,14 +129,14 @@ following questions.
     If the phone supports both HTTP and TFTP, pick HTTP, it usually works better with the
     provisioning server of Wazo.
 
-7.  _What are the default usernames/passwords on the phone to access administrator menus (phone UI
-    and web UI) ? How do you do a factory reset of the phone ?_
+7.  _What are the default usernames/passwords on the phone to access administration menus (phone UI
+    and web UI)? How do you do a factory reset of the phone?_
 
-    Although this step is optional, it might be handy later to have these kind of information. Try
-    to find them now, and note them somewhere.
+    Although this step is optional, it might be handy later to have this information. Try to find
+    them now, and note them somewhere.
 
-8.  _What are the DHCP options and their values to send to the phones to tell it where its
-    configuration files are located ?_
+8.  _What are the DHCP options and their values to send to the phones to tell it where the
+    configuration files are located?_
 
     Once you know that the phone supports DHCP + HTTP provisioning, the next question is what do you
     need to put in the DHCP response to tell the phone where its configuration files are located.
@@ -153,7 +153,7 @@ following questions.
     ```
 
 9.  _What are the configuration files the phone needs (filename and content) and what do we need to
-    put in it for the phone to minimally be able to make and receive calls on Wazo ?_
+    put in it for the phone to minimally be able to make and receive calls on Wazo?_
 
     Now that you are able to tell your phone where to look for its configuration files, you need to
     write these files with the right content in it. Again, at this step, you'll need to look through
@@ -162,15 +162,15 @@ following questions.
     Note that you only want to have the most basic configuration here, i.e. only configure 1 line,
     with the right SIP registrar and proxy, and the associated username and password.
 
-10. _Do basic telephony services, like transfer, works correctly when using the phone buttons ?_
+10. _Do basic telephony services, like transfers, works correctly when using the phone buttons?_
 
-    On most phones, it's possible to do transfer (both attended and direct), three-way conferences
+    On most phones, it's possible to do transfers (both attended and direct), three-way conferences
     or put someone on hold directly from the phone. Do some tests to see if it works correctly.
 
-    Also at this step, it's a good idea to check how the phone handle non-ascii characters, either
+    Also, in this step, it's a good idea to check how the phone handles non-ascii characters, either
     in the caller ID or in its configuration files.
 
-11. _Does other "standard" features work correctly on the phone ?_
+11. _Do other "standard" features work correctly on the phone?_
 
     For quality auto-provisioning support, you must find how to configure and make the following
     features work:

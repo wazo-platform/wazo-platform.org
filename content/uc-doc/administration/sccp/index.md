@@ -36,11 +36,11 @@ There's two settings in `GET /asterisk/sccp/general` influencing the auto-provis
 
 - the `guest` option must be enabled to allow SCCP devices to connect to the server and allow a
   provisioning code from being dialed from them. Disabling this option can provide some additional
-  security if your Wazo is in an hostile environment, at the cost of making auto-provisioning
-  support unavailable for SCCP devices.
+  security if your Wazo is in a hostile environment, at the cost of making auto-provisioning support
+  unavailable for SCCP devices.
 - the `max_guests` option limits the number of SCCP devices that can simultaneously connect to the
   server in autoprov mode. You should set this value to the maximum number of SCCP devices you
-  expect to be in autoprov mode at any moment, unless your Wazo is in an hostile environment, where
+  expect to be in autoprov mode at any moment, unless your Wazo is in a hostile environment, where
   you should probably set it to a fairly low value.
 
 ## SCCP General Settings

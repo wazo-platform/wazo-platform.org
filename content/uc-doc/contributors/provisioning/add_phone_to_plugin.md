@@ -3,14 +3,14 @@ title: Add a phone model to an existing plugin
 ---
 
 Sometimes, all you want to do is for a plugin to support a phone model that is closely related to
-models already present in it. In that case, all that is necessary to do most of the time is to add
-the model to the list of recognized models by that plugin to make it work.
+models that are already supported. In that case, all that is necessary to do most of the time is to
+add the model to the list of recognized models by that plugin to make it work.
 
 ## Preparation
 
 ### Knowledge
 
-This guide supposes that you know how to use git in a basic way. To learn more about git, GitHub
+This guide presumes that you have a basic working knowledge of git. To learn more about git, GitHub
 provides a [pretty good tutorial](https://docs.github.com/en/github/using-git).
 
 ### Provisioning plugins repository
@@ -38,10 +38,10 @@ Switched to a new branch 'yealink-v85-add-T4X'
 
 ## Example case: adding the T41S to `wazo-yealink-v85`
 
-We will list the files and higlight where you should make changes for the model to work. We will add
-the T41S to the `wazo-yealink-v85` plugin in this example. The information about the number of line
-keys, memory keys, SIP accounts, etc. was found in the datasheets available in the documentation
-provided on the Yealink website.
+We will list the files and highlight where you should make changes for the model to work. We will
+add the T41S to the `wazo-yealink-v85` plugin in this example. The information about the number of
+line keys, memory keys, SIP accounts, etc. was found in the datasheets available in the
+documentation provided on the Yealink website.
 
 ### `plugins/wazo-yealink/v85/common.py`
 
@@ -62,7 +62,7 @@ This file is also used to define the number of line keys, memory keys and SIP ac
    ```python
    _NB_LINEKEY = {
        # (...)
-       u'T41S': 15,
+       'T41S': 15,
        # (...)
    }
    ```
@@ -74,7 +74,7 @@ This file is also used to define the number of line keys, memory keys and SIP ac
    ```python
    _NB_MEMORYKEY = {
        # (...)
-       u'T41S': 0,
+       'T41S': 0,
        # (...)
    }
    ```
@@ -86,14 +86,14 @@ This file is also used to define the number of line keys, memory keys and SIP ac
    ```python
    _NB_SIP_ACCOUNTS = {
        # (...)
-       u'T41S': 6,
+       'T41S': 6,
        # (...)
    }
    ```
 
 ### `plugins/wazo-yealink/v85/entry.py`
 
-This file is used to define the supported firmware version for the model and the firmware filename.
+This file is used to define the supported firmware versions for the model and the firmware filename.
 
 1. Find the `MODEL_VERSIONS` dictionary and add the model.
 
@@ -102,7 +102,7 @@ This file is used to define the supported firmware version for the model and the
    ```python
    MODEL_VERSIONS = {
        # (...)
-       u'T41S': u'66.85.0.5',
+       'T41S': '66.85.0.5',
        # (...)
    }
    ```
@@ -114,7 +114,7 @@ This file is used to define the supported firmware version for the model and the
    ```python
    COMMON_FILES = [
        # (...)
-       {'y000000000066.cfg', u'T46S(T48S,T42S,T41S)-66.85.0.5.rom', 'model.tpl'},
+       {'y000000000066.cfg', 'T46S(T48S,T42S,T41S)-66.85.0.5.rom', 'model.tpl'},
        # (...)
    ]
    ```
@@ -128,15 +128,15 @@ Example for the W60B:
 COMMON_FILES_DECT = [
     # (...)
     {
-        'filename': u'y000000000077.cfg',
-        'fw_filename': u'W60B-77.85.0.20.rom',
+        'filename': 'y000000000077.cfg',
+        'fw_filename': 'W60B-77.85.0.20.rom',
         'handsets_fw': {
-            'w53h': u'W53H-88.85.0.20.rom',
-            'w56h': u'W56H-61.85.0.20.rom',
-            'w59r': u'W59R-115.85.0.20.rom',
-            'cp930w': u'CP930W-87.85.0.20.rom',
+            'w53h': 'W53H-88.85.0.20.rom',
+            'w56h': 'W56H-61.85.0.20.rom',
+            'w59r': 'W59R-115.85.0.20.rom',
+            'cp930w': 'CP930W-87.85.0.20.rom',
         },
-        'tpl_filename': u'dect_model.tpl',
+        'tpl_filename': 'dect_model.tpl',
     },
 ]
 ```
@@ -161,8 +161,8 @@ install: yealink-fw
 The `files` option naming is important: it will use the files from the file section with the
 corresponding name, prepended by `file_`. So `file_T46S_T48S_T42S_T41S-fw`.
 
-Also, the package will use the `yealink-fw` install method. It is already in the file, so **you do
-not need to add it**, but to be clear this is its content:
+Also, the package will use the `yealink-fw` installation method. It is already in the file, so **you
+do not need to add it**, but to be clear this the contents:
 
 ```
 [install_yealink-fw]
@@ -172,8 +172,8 @@ a-b: cp *.rom firmware/
 As you can see, it will copy the ROM file to the `firmware` directory. The `firmware` directory in
 question is located in the `tftpboot` directory in the installed plugin, located at
 `/var/lib/wazo-provd/plugins/wazo-yealink-v85/var/tftpboot/firmware`. It is possible to have more
-than one step in the install method. To see how it is done, look at what is done with the language
-packages already present in the `pkgs.db` file.
+than one step in the installation method. To see how it is done, look at what is done with the
+language packages already present in the `pkgs.db` file.
 
 The _file definition_ is usually at the bottom of the `pkgs.db` file:
 
