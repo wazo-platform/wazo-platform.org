@@ -2,6 +2,14 @@
 title: Upgrade notes
 ---
 
+## 22.16 {#22-16}
+
+- `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
+
+Consult the
+[22.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.16)
+for more information.
+
 ## 22.15 {#22-15}
 
 - The SIP template `webrtc_video` was merged into the SIP template `webrtc`. If you modified the
