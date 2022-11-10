@@ -126,39 +126,6 @@ Things to be aware when writing a client/consumer:
 - The following message has been added:
   - [`auth_user_external_auth_authorized`](/uc-doc/api_sdk/message_bus#bus-external-auth-authorized)
 
-## 17.17
-
-- The following messages have been added:
-  - [`auth_user_external_auth_added`](/uc-doc/api_sdk/message_bus#bus-external-auth-added)
-  - [`auth_user_external_auth_deleted`](/uc-doc/api_sdk/message_bus#bus-external-auth-deleted)
-
-### 17.16
-
-- The following messages have been added:
-  - [`relocate_initiated`](/uc-doc/api_sdk/message_bus#bus-relocate-initiated)
-  - [`relocate_answered`](/uc-doc/api_sdk/message_bus#bus-relocate-answered)
-  - [`relocate_completed`](/uc-doc/api_sdk/message_bus#bus-relocate-completed)
-  - [`relocate_ended`](/uc-doc/api_sdk/message_bus#bus-relocate-ended)
-
-### 17.14
-
-- The `chat_message_sent` bus message has been added.
-- The `chat_message_received` bus message has been added.
-- The `chat_message_event` bus message has been deprecated.
-
-### 17.08
-
-- The [`plugin_install_progress`](/uc-doc/api_sdk/message_bus#bus-plugin-install-progress) bus
-  message has been added.
-- The [`plugin_uninstall_progress`](/uc-doc/api_sdk/message_bus#bus-plugin-uninstall-progress) bus
-  message has been added.
-
-### 17.01
-
-- The [`favorite_added`](/uc-doc/api_sdk/message_bus#bus-favorite-added) bus message has been added.
-- The [`favorite_deleted`](/uc-doc/api_sdk/message_bus#bus-favorite-deleted) bus message has been
-  added.
-
 ## Events {#bus-events}
 
 Events that are sent to the bus use a JSON serialization format with the content-type

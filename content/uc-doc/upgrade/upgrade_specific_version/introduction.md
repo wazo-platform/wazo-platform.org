@@ -13,6 +13,5 @@ upgrade to the latest (which is not recommended, but sometimes necessary).
 [version specific upgrade](/uc-doc/upgrade/introduction#version-specific-upgrade). You must follow
 the version-specific procedure _before_ running the following procedures.
 
-- [Upgrade from Wazo \< 18.01](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-jessie)
 - [Upgrade from Wazo \< 19.04](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-stretch)
 - [Upgrade from Wazo \> 19.12](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-buster)
