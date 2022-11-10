@@ -30,6 +30,5 @@ Said Lorenzo Emilitri, Founder of Loway.
 Said Sylvain Boily, Wazo development team Leader.
 
 QueueMetrics call center suite is available both on premise and hosted cloud service.
-For more information about QueueMetrics visit the official website at [www.queuemetrics.com](https://www.queuemetrics.com/).
 
 For more information about the Wazo project visit [wazo.community](http://wazo.community/).
