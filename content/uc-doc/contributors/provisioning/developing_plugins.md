@@ -155,7 +155,7 @@ class DigiumPlugin(common['BaseDigiumPlugin']):
     pg_associator = common['DigiumPgAssociator'](VERSION)
 ```
 
-In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmwares:
+In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmware:
 
 ```ini
 [pkg_firmware]
@@ -226,7 +226,7 @@ class DigiumHTTPDeviceInfoExtractor:
             dev_info = {'vendor': 'Digium'}
             raw_mac = match.group(1)
             if raw_mac and raw_mac != '000000000000':
-                dev_info[u'mac'] = norm_mac(raw_mac)
+                dev_info['mac'] = norm_mac(raw_mac)
             return dev_info
 ```
 

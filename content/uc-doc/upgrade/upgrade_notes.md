@@ -796,7 +796,7 @@ for more information.
   be edited and users moved from interceptors to targets and vice versa.
 - Since the feature for managing certificates from the "orange" web-interface is gone, all
   certificates must now be managed manually. The directory to access to certificates is
-  `/var/lib/xivo/certificates` and is not backuped or synchronized for HA anymore.
+  `/var/lib/xivo/certificates` and is not backed up or synchronized for HA anymore.
 - If a group or queue was named `general`, then it has been renamed with one or more suffix `_`
   (e.g. `general_`). The name `general` is not allowed anymore.
 - `xivo-sysconfd` is now asynchronous by default. This implies that changes made via the API or via

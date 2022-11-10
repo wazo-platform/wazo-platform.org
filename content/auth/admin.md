@@ -43,7 +43,7 @@ wazo-auth-bootstrap setup && systemctl restart wazo-auth
 
 ### Bootstrapping wazo-auth
 
-Once wazo-auth is ready to be bootstraped, calling the init resource with a username, password and
+Once wazo-auth is ready to be bootstrapped, calling the init resource with a username, password and
 the content of the key file will create a new user. The username and password can then be used to create
 a token with the `auth.#` acl. This can be done using the `wazo-auth-bootstrap` command.
 

@@ -45,7 +45,7 @@ Building on this, configuring one of the supported phone on Wazo is as simple as
 3. Powering on the phone
 4. Dialing the user's provisioning code from the phone
 
-And _voila_, once the phone has rebooted, your user is ready to make and receive calls. No manual
+And _voilà_, once the phone has rebooted, your user is ready to make and receive calls. No manual
 editing of configuration files nor fiddling in the phone's web interface.
 
 ## Tenant assignation
@@ -58,8 +58,8 @@ it anyway, you must delete the device and restart it manually.
 
 ## Limitations
 
-- Device synchronisation does not work in the situation where multiple devices are connected from
-  behind a NAPT network equipment. The devices must be resynchronised manually.
+- Device synchronisation does not work in situations where multiple devices are connected from
+  behind NAPT network equipment. The devices must be re-synchronised manually.
 - There may be an issue if you are using an analog gateway with lines that are not in the same
   tenant. Indeed, in the case that the gateway is only one device and each port is a separate line,
   the device will only be seen by the tenant of the first line that was added.

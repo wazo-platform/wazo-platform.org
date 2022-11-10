@@ -32,7 +32,7 @@ So the idea is simple: create an application that connects us to a conference, a
 
 We're Wazo, meaning «bird» in French; our colleague Pascal came up with an excellent name for the project: «Woodpecker» -- always pecking that tree the way we hit that push-to-talk button.
 
-### Bootstraping the Project
+### Bootstrapping the Project
 
 After drawing some mockups, we considered various tools and libraries, with the goal of discovering and testing new ways to expand our skillset.
 

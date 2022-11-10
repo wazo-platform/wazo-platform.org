@@ -1,11 +1,10 @@
 ### Creating Custom Templates
 
-Custom templates comes in handy when you have some really specific configuration
-to make on your telephony devices.
+Custom templates comes in handy when you have really specific configuration
+needs for your telephony devices.
 
 Templates are handled on a per-plugin basis. It's not possible for a template to be
-shared by more than one plugin since it's a design limitation of the plugin system
-of `provd`.
+shared by more than one plugin since it's a design limitation of the `provd` plugin system.
 
 **Note**:
 When you install a new plugin, templates are not migrated automatically, so you must manually copy them from the old plugin directory to the new one. This does not apply for a plugin upgrade.
@@ -93,7 +92,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 ### Custom template for a specific model
 
-Let's supose we want to customize the template for our 6739i
+Let's suppose we want to customize the template for our 6739i
 
 ```shell
 cp templates/6739i.tpl var/templates
@@ -104,7 +103,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 ### Custom template for a specific device
 
 To create a custom template for a specific device you have to create a device-specific template
-named `<device_specific_file_with_extension>.tpl` in the `var/templates/` directory :
+named `<device_specific_file_with_extension>.tpl` in the `var/templates/` directory:
 
 * for an Aastra phone, if you want to customize the file `00085D2EECFB.cfg` you will have
   to create a template file named `00085D2EECFB.cfg.tpl`,

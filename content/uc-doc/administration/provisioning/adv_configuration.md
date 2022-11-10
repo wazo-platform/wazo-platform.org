@@ -141,7 +141,7 @@ Typically, the model template will be a good choice, but it might not always be 
 
 ## Changing the Plugin Used by a Device {#provd-changing-device-plugin}
 
-From time to time, new firmwares are released by the device's manufacturer. This sometimes translate
+From time to time, new firmware is released by the device's manufacturer. This sometimes translate
 to a new plugin being available for these devices.
 
 When this happens, it almost always means the new plugin renders the older one obsolete. The older

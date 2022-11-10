@@ -288,7 +288,7 @@ locked, it can be interesting to find out what triggered the current threads.
 
 In this example on frame 5 we can see that we are most likely in a scheduled thread because of the
 name of the function `bridge_channel_ind_thread` searching through the code we can find the type of
-it's parameter and then print it using the apropriate cast to find the calling function.
+it's parameter and then print it using the appropriate cast to find the calling function.
 
 ```gdb
 #0  __lll_lock_wait () at ../sysdeps/unix/sysv/linux/x86_64/lowlevellock.S:103
@@ -318,7 +318,7 @@ gdb /usr/sbin/asterisk core_file
 $1 = ... bridge = 0x7fa18c16b080, ...
 ```
 
-Then searching bt-threads we can find which thread scheduled this one using the bridge adress.
+Then searching bt-threads we can find which thread scheduled this one using the bridge address.
 
 ```
 Thread 143 (Thread 0x7fa136236700 (LWP 1680912)):

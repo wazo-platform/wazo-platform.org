@@ -4,7 +4,7 @@ title: SCCP Configuration
 
 ## Provisioning
 
-To be able to provision SCCP phones you should :
+To be able to provision SCCP phones you should:
 
 - activate the [DHCP Server](/uc-doc/system/dhcp),
 - activate the
@@ -18,10 +18,10 @@ sccp-9.4 or both.
 
 **Note**: Please refer to the
 [Provisioning page](/uc-doc/ecosystem/supported_devices#cisco-provisioning) for more information on
-how to install CISCO firmwares.
+how to install CISCO firmware.
 
-Once your plugin is installed, you'll be able to edit which firmwares and locales you need. If you
-are unsure, you can choose all without any problem.
+Once your plugin is installed, you'll be able to edit which firmware versions and locales you need.
+If you are unsure, you can choose all without any problem.
 
 Now if you connect your first SCCP phone, you should be able to see it with `GET /devices`.
 
@@ -60,7 +60,7 @@ Creating a user with a SCCP line:
 - `PUT /lines/{line_id}/endpoints/sccp/{sccp_id}`
 - `PUT /lines/{line_id}/devices/{device_id}`
 
-Congratulations ! Your SCCP phone is now ready to be called !
+Congratulations! Your SCCP phone is now ready to be called !
 
 ## Function keys
 

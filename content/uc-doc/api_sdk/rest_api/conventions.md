@@ -133,11 +133,11 @@ A request to the web services may return an error. An error will always be assoc
 error code, and eventually to one or more error messages. The following errors are common to all web
 services:
 
-| Error code | Error message   | Description                                                                                                         |
-| ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| 406        | empty           | Accept header missing or contains an unsupported content type                                                       |
-| 415        | empty           | Content-Type header missing or contains an unsupported content type                                                 |
-| 500        | list of ierrors | An error occured on the server side; the content of the errors message depends of the type of errors which occurred |
+| Error code | Error message  | Description                                                                                                          |
+| ---------- | -------------- | -------------------------------------------------------------------------------------------------------------------- |
+| 406        | empty          | Accept header missing or contains an unsupported content type                                                        |
+| 415        | empty          | Content-Type header missing or contains an unsupported content type                                                  |
+| 500        | list of errors | An error occurred on the server side; the content of the errors message depends of the type of errors which occurred |
 
 The 400, 404 and 412 errors depend on the web service you are requesting. They are separately
 described for each of them.

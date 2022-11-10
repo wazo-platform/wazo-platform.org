@@ -46,7 +46,7 @@ are the steps to follow :
 1. Copy folder `plugins/xivo-snom/8.7.3.25` to `plugins/xivo-snom/8.7.3.25.5`
 2. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/entry.py`
 3. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/plugin-info`
-4. Download the new firmwares files (`.bin` files from
+4. Download the new firmware files (`.bin` files from
    [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
 5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
@@ -117,10 +117,10 @@ http://provd.wazo.community/plugins/2/testing/
 You can then update the list of plugins and check the version number for the plugin that you
 modified. Don't forget to install the plugin to test it.
 
-#### Mass-install all firmwares related to a given plugin
+#### Mass-install all firmware related to a given plugin
 
-Using wazo-provd-cli on a Wazo server, one can mass-install firmwares. Following example installs
-all firmware for xivo-snom 8.7.3.25.5 plugin (note the auto-completion):
+Using wazo-provd-cli on a Wazo server, one can mass-install firmware. Following example installs all
+firmware for xivo-snom 8.7.3.25.5 plugin (note the auto-completion):
 
 ```shell
 wazo-provd-cli> list(plugins.installed())
