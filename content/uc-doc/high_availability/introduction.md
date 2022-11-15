@@ -174,10 +174,6 @@ Here's the list of limitations that are more relevant on an administrator standp
 - The master status is up or down, there's no middle status. This mean that if Asterisk is crashed
   the Wazo is still up and the failover will NOT happen.
 
-## Berofos Integration
-
-- [berofos](/uc-doc/high_availability/berofos)
-
 ## Troubleshooting {#troubleshooting}
 
 When replicating the database between master and slave, if you encounter problems related to the
