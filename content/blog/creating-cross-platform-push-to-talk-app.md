@@ -86,7 +86,7 @@ if (typeof document !== 'undefined' && navigator.mediaSession) {
 
 #### For desktop application
 
-Electron provides a [globalShortcut](https://www.electronjs.org/docs/api/global-shortcut) that could be great for our project as the doc says :
+Electron provides a [globalShortcut](https://www.electronjs.org/docs/latest/api/global-shortcut) that could be great for our project as the doc says :
 > You can use the globalShortcut module to detect keyboard events even when the application does not have keyboard focus.
 
 But the only event we receive is when the user presses the shortcut, not when he releases it. With such constraint, the user would have to press the shortcut twice, that's not what we want.
