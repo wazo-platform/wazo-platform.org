@@ -41,7 +41,7 @@ Wazo comes with iptables installed but does not configure any security rules. Th
 Wazo has with iptables are:
 
 - fail2ban
-- wazo-upgrade blocks SIP trafic during an upgrade, to avoid SIP phones to become temporarily
+- wazo-upgrade blocks SIP traffic during an upgrade, to avoid SIP phones to become temporarily
   unusable after the upgrade.
 
 It is highly recommended that you configure firewall rules on your Wazo.

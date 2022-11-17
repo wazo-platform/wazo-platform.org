@@ -45,12 +45,12 @@ retriever](/images/blog/provd/device-retriever_m.jpg 'Device retriever, avr. 201
 
 The device retriever will ask one at a time the different other device retrievers until one returns
 something. In our example, since the provd server doesn't know yet about our Aastra, the "mac device
-retriever" will returns nothing because there is no device with the MAC address 00:11:22:33:44:55 in
-the device database, then the "SN (serial number) device retriever" will returns nothing because no
-SN is used with Aastra, then the "ip device retriever" will also returns nothing, and finally, the
+retriever" will return nothing because there is no device with the MAC address 00:11:22:33:44:55 in
+the device database, then the "SN (serial number) device retriever" will return nothing because no
+SN is used with Aastra, then the "ip device retriever" will also return nothing, and finally, the
 "add device retriever" will add the new device to the database and return it.
 
-On the next requests of our Aastra, the "mac device retriever" will search for a device with the
+On the next request of our Aastra, the "mac device retriever" will search for a device with the
 given MAC and will then return the device object that was added previously.
 
 From what we just learned, we can see that it's at this step that devices are automatically added to
@@ -59,12 +59,12 @@ provd. That said, the automatic plugin association and automatic config associat
 details in my next blog post.
 
 If provd had to support only Aastra phones, only the "mac device retriever" and the "add device
-retriever" would be needed (and some part of provd would be a whole lot simpler also). That said,
-the reality is more complex. Some phones are only doing TFTP requests, which means no User-Agent
-header and little information to extract for some requests, sometimes only the IP address. This is
-where the "ip device retriever" comes in handy. It's usually able to find the right device by only
-using the IP address. This is possible because provd always try to maintain the most up to date info
-about IP address used by devices.
+retriever" would be needed (and some part of provd would be a lot simpler also). That said, the
+reality is more complex. Some phones are only doing TFTP requests, which means no User-Agent header
+and little information to extract for some requests, sometimes only the IP address. This is where
+the "ip device retriever" comes in handy. It's usually able to find the right device by only using
+the IP address. This is possible because provd always try to maintain the most up-to-date info about
+IP address used by devices.
 
 That said, for some devices, there is some scenarios where the system just isn't powerful enough:
 
@@ -90,7 +90,7 @@ That said, for some devices, there is some scenarios where the system just isn't
 
 The system still works in these cases. The only problem is that you get junk devices in provd
 device's database, and these can only be removed manually. They are not causing any real harm except
-then adding some confusion as to why theses devices are in the database.
+then adding some confusion as to why these devices are in the database.
 
 There is a way to get by this problem, and it's called "dhcp integration". Yes. Just believe me.
 

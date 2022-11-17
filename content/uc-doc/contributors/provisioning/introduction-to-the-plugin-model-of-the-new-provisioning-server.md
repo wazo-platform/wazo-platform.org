@@ -2,7 +2,7 @@
 title: Introduction to the plugin model of the new provisioning server
 ---
 
-What must be understood is that if you install provd but you do not install any plugins, the server
+What must be understood is that if you install provd, but you do not install any plugins, the server
 won't be able to configure anything. This means that without plugins, provd is pretty useless.
 
 Each plugin can configure devices from configuration specifications. Plugins can also offer some
@@ -28,12 +28,12 @@ server to process the requests, since it handles these requests by itself. This 
 necessary with the introduction of the plugin system and the 'dynamic' request processing.
 
 Now, if you are a mentally sane person, you might be asking yourself if this whole system is based
-on sound principles. And I have a good news for you; you are not insane, this system is not based on
+on sound principles. And I have good news for you; you are not insane, this system is not based on
 sound principles _a priori_.
 
 In fact, for this system to becomes reliable, a precondition must be true: for each request, it
 should be possible to unambiguously identify which device is behind it. With this unambiguous
-information available, we can then lookup in our device database for the complete information we
+information available, we can then look up in our device database for the complete information we
 have on this device, and then find which plugin should handle the request, and redirect the request
 to this plugin.
 
@@ -44,7 +44,7 @@ That said, some device doesn't give as much information, like the Cisco 7900, wh
 requests. This means that sometimes, and only for some requests, the only 'unique' information we
 can extract from a request is the IP address. This does not generally cause problem, except if you
 are constantly changing the IP addresses on your network. And if you enable the provd-DHCP server
-integration, it will make sure that the MAC-IP association is always up to date, and this means the
+integration, it will make sure that the MAC-IP association is always up-to-date, and this means the
 system will be reliable once again.
 
 So, part of provd is only about making this system reliable and finely tunable if there's any need
@@ -70,7 +70,7 @@ flow](/images/blog/provd/provd-http-request-flow_m.jpg 'Example HTTP request flo
     MAC XX:XX:XX:XX:XX:XX in the device database, so we retrieve it.
 5.  The third step is to update the retrieved device using the extracted information. For example,
     we can update information we didn't know about the device. We can also do generic operation in
-    this step if we needs to. Anyway, in our case, this step is actually a no-op.
+    this step if we need to. Anyway, in our case, this step is actually a no-op.
 6.  The last step is to route the request to the HTTP handler that will answer the request. In our
     case, from the device retrieved at 4, we know that its associated plugin is
     xivo-aastra-2.6.0.2019, so the request is routed to the HTTP handler of the

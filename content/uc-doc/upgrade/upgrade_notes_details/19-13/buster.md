@@ -21,7 +21,7 @@ After the upgrade, the system will need to be rebooted.
   than 2 GiB available in the file system that holds the `/var` and `/` directories.
 - Remove the `freeradius` package. If you have recompiled Asterisk on you server you most likely
   installed the `libfreeradius-dev` package, which pulled `freeradius`. This package cannot be
-  confiugred on Debian Buster under some circunstances that are not under our control. You can
+  configured on Debian Buster under some circumstances that are not under our control. You can
   remove it with the following command `apt purge freeradius`
 - If you have customized the Debian system of your Wazo in some nontrivial way, you might want to
   review the [official Debian release notes](https://www.debian.org/releases/buster/releasenotes)
@@ -66,11 +66,11 @@ wazo-dist-upgrade -d
   override your local customization. For example, the vim package provides a new `/etc/vim/vimrc`
   file. If you have customized this file, after the upgrade you\'ll have both a `/etc/vim/vimrc` and
   `/etc/vim/vimrc.dpkg-old` file, the former containing the new version of the file shipped by the
-  vim package while the later is your customized version. You should merge back your customization
+  vim package while the latter is your customized version. You should merge your customizations back
   into the new file, then delete the `.dpkg-old` file.
 
   You can see a list of affected files by running `find /etc -name '*.dpkg-old'`. If some files show
-  up that you didn\'t modify by yourself, you can ignore them.
+  up that you didn't modify yourself, you can ignore them.
 
 - Purge removed packages. You can see the list of packages in this state by running
   `dpkg -l | awk '/^rc/ { print $2 }'` and purge all of them with

@@ -162,7 +162,7 @@ wazo-service stop
 
 System files are stored in the data.tgz file located in the `/var/backups/wazo` directory.
 
-This file contains for example, voicemail files, musics, voice guides, phone sets firmwares,
+This file contains for example, voicemail files, musics, voice guides, phone set firmware,
 provisioning server configuration database.
 
 To restore the file :
@@ -185,7 +185,7 @@ Once the database and files have been restored, you can
   [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore-keep-system-config).
 
 Database backups are created as `db.tgz` files in the `/var/backups/wazo` directory. These tarballs
-contains a dump of the database used in Wazo.
+contain a dump of the database used in Wazo.
 
 In this example, we'll restore the database from a backup file named `db.tgz` placed in the home
 directory of root.

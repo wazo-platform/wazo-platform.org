@@ -11,7 +11,7 @@ preceded by a `git pull`.
 
 ## Updating a Plugin
 
-We will be using the `xivo-cisco-spa` plugins family as an example on this page
+We will be using the `xivo-cisco-spa` plugin family as an example on this page
 
 There is one directory per family. Here is the directory structure for `xivo-cisco-spa`:
 
@@ -40,13 +40,13 @@ models.
 
 ### Use Case: Update Firmwares for a given plugin
 
-Let us suppose we want to update firmwares for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here are
-the steps to follow :
+Let us suppose we want to update the firmware for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here
+are the steps to follow :
 
 1. Copy folder `plugins/xivo-snom/8.7.3.25` to `plugins/xivo-snom/8.7.3.25.5`
 2. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/entry.py`
 3. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/plugin-info`
-4. Download the new firmwares files (`.bin` files from
+4. Download the new firmware files (`.bin` files from
    [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
 5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
@@ -111,29 +111,29 @@ Afterwards, you must modify the `plugin_server`. This can be changed with `wazo-
 `/provd/configure/plugin_server`.
 
 ```
-http://provd.wazo.community/plugins/1/testing/
+http://provd.wazo.community/plugins/2/testing/
 ```
 
 You can then update the list of plugins and check the version number for the plugin that you
 modified. Don't forget to install the plugin to test it.
 
-#### Mass-install all firmwares related to a given plugin
+#### Mass-install all firmware related to a given plugin
 
-Using wazo-provd-cli on a Wazo server, one can mass-install firmwares. Following example installs
-all firmwares for xivo-snom 8.7.3.25.5 plugin (note the auto-completion):
+Using wazo-provd-cli on a Wazo server, one can mass-install firmware. Following example installs all
+firmware for xivo-snom 8.7.3.25.5 plugin (note the auto-completion):
 
 ```shell
-wazo-provd-cli> plugins.installed().keys()
-[u'xivo-snom-8.7.3.15',
- u'xivo-cisco-sccp-legacy',
- u'xivo-snom-8.4.35',
- u'xivo-snom-8.7.3.25',
- u'xivo-aastra-switchboard',
- u'xivo-aastra-3.2.2-SP3',
- u'xivo-aastra-3.2.2.1136',
- u'xivo-cisco-sccp-9.0.3',
- u'null',
- u'xivo-snom-8.7.3.25.5']
+wazo-provd-cli> list(plugins.installed())
+['xivo-snom-8.7.3.15',
+ 'xivo-cisco-sccp-legacy',
+ 'xivo-snom-8.4.35',
+ 'xivo-snom-8.7.3.25',
+ 'xivo-aastra-switchboard',
+ 'xivo-aastra-3.2.2-SP3',
+ 'xivo-aastra-3.2.2.1136',
+ 'xivo-cisco-sccp-9.0.3',
+ 'null',
+ 'xivo-snom-8.7.3.25.5']
 wazo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
 wazo-provd-cli> p.install_all()
 ```
@@ -151,7 +151,7 @@ make download-archive
 ```
 
 Go to the `plugins/_build` directory and delete the plugins that are going to be updated. Note that
-if you are not updating a plugin but you are instead removing it "once and for all", you should
+if you are not updating a plugin, but you are instead removing it "once and for all", you should
 instead move it to the archive directory:
 
 ```shell
@@ -171,9 +171,9 @@ make upload-stable
 make upload-archive
 ```
 
-The file are now up to date and you can test by putting back the `stable` url in the web-interface's
-configuration:
+The files are now up-to-date, and you can test by putting back the `stable` url in the
+web-interface's configuration:
 
 ```
-http://provd.wazo.community/plugins/1/stable/
+http://provd.wazo.community/plugins/2/stable/
 ```

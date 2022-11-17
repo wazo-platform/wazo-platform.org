@@ -24,7 +24,7 @@ for Aastra 6700.
 Custom templates comes in handy when you have some really specific configuration to make on your
 telephony devices.
 
-Templates are handled on a per plugin basis. It's not possible for a template to be shared by more
+Templates are handled on a per-plugin basis. It's not possible for a template to be shared by more
 than one plugin since it's a design limitation of the plugin system of `provd`.
 
 **Note**: When you install a new plugin, templates are not migrated automatically, so you must
@@ -85,14 +85,14 @@ the custom templates.
 A few things to know before writing your first custom template:
 
 - templates use the [Jinja2 template engine](http://jinja.pocoo.org/docs/templates/).
-- when doing an `include` or an `extend` from a template, the file is first looked up in the
+- when doing an `include` or an `extends` from a template, the file is first looked up in the
   `var/templates` directory and then in the `templates` directory.
 - device in autoprov mode are affected by templates, because from the point of view of `provd`,
   there's no difference between a device in autoprov mode or fully configured. This means there's
   usually no need to modify static files in `var/tftpboot`. And this is a bad idea since a plugin
   upgrade will override these files.
 
-### Custom template for every devices
+### Custom template for every device
 
     cp templates/base.tpl var/templates
     vi var/templates/base.tpl
@@ -104,7 +104,7 @@ Once this is done, if you want to synchronize all the affected devices, use the 
 
 ### Custom template for a specific model
 
-Let's supose we want to customize the template for our 6739i:
+Let's suppose we want to customize the template for our 6739i:
 
     cp templates/6739i.tpl var/templates
     vi var/templates/6739i.tpl
@@ -141,11 +141,11 @@ Typically, the model template will be a good choice, but it might not always be 
 
 ## Changing the Plugin Used by a Device {#provd-changing-device-plugin}
 
-From time to time, new firmwares are released by the devices manufacturer. This sometimes translate
+From time to time, new firmware is released by the device's manufacturer. This sometimes translate
 to a new plugin being available for these devices.
 
-When this happens, it almost always means the new plugin obsoletes the older one. The older plugin
-is then considered "end-of-life", and won't receive any new updates nor be available for new
+When this happens, it almost always means the new plugin renders the older one obsolete. The older
+plugin is then considered "end-of-life", and won't receive any new updates nor be available for new
 installation.
 
 Let's suppose we have the old `xivo-aastra-3.2.2.1136` plugin installed on our Wazo and want to use
@@ -175,7 +175,7 @@ You can check that all went well by looking at `GET /devices` page.
 ## NAT
 
 The provisioning server has partial support for environment where the telephony devices are behind a
-[NAT](http://en.wikipedia.org/wiki/NAT) equipment.
+[NAT](http://en.wikipedia.org/wiki/NAT).
 
 By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes
 sure that only one device has the source IP address of the request. This is not a desirable

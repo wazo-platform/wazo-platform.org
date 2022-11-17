@@ -8,18 +8,18 @@ title: Jitsi
 
 Jitsi (<http://jitsi.org/>) is an opensource softphone (previously SIP Communicator).
 
-Wazo now support Jitsi sofphones provisioning. Here are the steps to follow :
+Wazo now support Jitsi sofphones provisioning. Here are the steps to follow:
 
 ## Requirements
 
-This how to needs :
+To start, you first need:
 
 1.  Jitsi installed,
-2.  SIP line created
+2.  a SIP line created
 
 ## Add Jitsi plugin on Wazo
 
-Install the Jitsi plugin you want to use : e.g.:
+Install the Jitsi plugin you want to use: e.g.:
 
 ```text
 xivo-jitsi-1
@@ -30,8 +30,8 @@ You can now launch your Jitsi softphone
 ## Configuring Jitsi
 
 1.  Launch Jitsi,
-2.  If you don't have any accounts configured Jitsi will launch a windows and you can click
-3.  Use online provisioning. Otherwise go to `Tools -> Options -> Advanced -> Provisioingo`, Click
+2.  If you don't have any accounts configured Jitsi will launch a windows, and you can click
+3.  Use online provisioning. Otherwise, go to `Tools -> Options -> Advanced -> Provisioning`, Click
     on `Enable provisioning`
 4.  Select Manually specify a provisioning URI,
 5.  Enter the following URI where `<provd_ip>` is the VoIP interface IP address of your Wazo and

@@ -51,11 +51,11 @@ supported devices.
 
 This can be changed with `wazo-provd` endpoint `/provd/configure/plugin_server`
 
-- `http://provd.wazo.community/plugins/1/stable/` --
+- `http://provd.wazo.community/plugins/2/stable/` --
   [community supported devices](/uc-doc/ecosystem/supported_devices) "stable" repository
-- `http://provd.wazo.community/plugins/1/testing/` -- officially supported devices "testing"
+- `http://provd.wazo.community/plugins/2/testing/` -- officially supported devices "testing"
   repository
-- `http://provd.wazo.community/plugins/1/archive/` -- officially supported devices "archive"
+- `http://provd.wazo.community/plugins/2/archive/` -- officially supported devices "archive"
   repository
 
 The difference between the stable and testing repositories is that the latter might contain plugins
@@ -117,7 +117,7 @@ button.
 
 ## Autoprovisioning a Device
 
-Once you have installed the proper provd plugins for your devices and setup correctly your DHCP
+Once you have installed the right provd plugins for your devices and correctly set up your DHCP
 server, you can then connect your devices to your network.
 
 But first, `GET /devices`. You will then see that no devices are currently known by your Wazo

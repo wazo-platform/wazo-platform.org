@@ -91,7 +91,7 @@ The default login/password are wazo/superpass
 
 Then the Debian installation is finished, the server reboot.
 
-You can retrieve the IP address of the your virtual machine with:
+You can retrieve the IP address of your virtual machine with:
 
 ```ShellSession
 $ sudo virsh net-dhcp-leases wazo

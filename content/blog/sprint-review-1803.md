@@ -17,7 +17,7 @@ status: published
 
 ## Contributions
 
-**Aastra/Mitel firmwares**: We thank Alexis de Lattre and José Herbrecht for submitting updates to the provisioning plugins for Aastra/Mitel phones.
+**Aastra/Mitel firmware**: We thank Alexis de Lattre and José Herbrecht for submitting updates to the provisioning plugins for Aastra/Mitel phones.
 
 
 ## Technical features

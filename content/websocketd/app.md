@@ -18,12 +18,12 @@ first visiting the `https://<wazo-ip>:9502/` URL and adding a security exception
 this problem are described in the
 [connection section](https://wazo-platform.org/uc-doc/system/https_certificate).
 
-After a succesful connection and authentication to the service, the server will send the following
+After a successful connection and authentication to the service, the server will send the following
 message:
 
     {"op": "init", "code": 0, "data": {"version": 2}}
 
-This indicate that the server is ready to accept more commands from the client. Had an error
+This indicates that the server is ready to accept more commands from the client. Had an error
 happened, the server would have closed the connection, possibly with one of the
 [service specific WebSocket close code](https://wazo-platform.org/uc-doc/api_sdk/websocket#ws-status-code).
 

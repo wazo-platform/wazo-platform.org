@@ -4,7 +4,7 @@ title: Developing Provisioning Plugins
 
 Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
 code
-[on Github](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
+[on GitHub](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
 
 If instead you want to add a model to an existing provisioning plugin, see the
 [corresponding guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
@@ -119,46 +119,43 @@ from subprocess import check_call
 
 @target('1.1.0.0', 'xivo-digium-1.1.0.0')
 def build_1_1_0_0(path):
-    check_call(['rsync', '-rlp', '--exclude', '.*',
-                'common/', path])
-    check_call(['rsync', '-rlp', '--exclude', '.*',
-                '1.1.0.0/', path])
+    check_call(['rsync', '-rlp', '--exclude', '.*', 'common/', path])
+    check_call(['rsync', '-rlp', '--exclude', '.*',  '1.1.0.0/', path])
 ```
 
 In `1.1.0.0/plugin-info`:
 
-```python
+```json
 {
-    "version": "0.3",
-    "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
-    "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.1.0.0.",
-    "capabilities": {
-        "Digium, D40, 1.1.0.0": {
-            "sip.lines": 2
-        },
-        "Digium, D50, 1.1.0.0": {
-            "sip.lines": 4
-        },
-        "Digium, D70, 1.1.0.0": {
-            "sip.lines": 6
-        }
+  "version": "0.3",
+  "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
+  "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.1.0.0.",
+  "capabilities": {
+    "Digium, D40, 1.1.0.0": {
+      "sip.lines": 2
+    },
+    "Digium, D50, 1.1.0.0": {
+      "sip.lines": 4
+    },
+    "Digium, D70, 1.1.0.0": {
+      "sip.lines": 6
     }
+  }
 }
 ```
 
 In `1.1.0.0/entry.py`:
 
 ```python
-# -*- coding: UTF-8 -*-
 common = {}
 execfile_('common.py', common)
-VERSION = u'1.1.0.0.48178'
+VERSION = '1.1.0.0.48178'
 class DigiumPlugin(common['BaseDigiumPlugin']):
     IS_PLUGIN = True
     pg_associator = common['DigiumPgAssociator'](VERSION)
 ```
 
-In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmwares:
+In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmware:
 
 ```ini
 [pkg_firmware]
@@ -181,19 +178,25 @@ sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
 In `common/common.py`, put the code needed to extract information about the phone:
 
 ```python
-class DigiumDHCPDeviceInfoExtractor(object):
+import re
+from provd.util import norm_mac, format_mac
+from twisted.internet import defer
+from provd.servers.http_site import Request
+from provd.devices.ident import RequestType, DHCPRequest
+
+class DigiumDHCPDeviceInfoExtractor:
 
     _VDI_REGEX = re.compile(r'^digium_(D\d\d)_([\d_]+)$')
 
-    def extract(self, request, request_type):
+    def extract(self, request: DHCPRequest, request_type: RequestType):
         return defer.succeed(self._do_extract(request))
 
-    def _do_extract(self, request):
+    def _do_extract(self, request: DHCPRequest):
         options = request['options']
         if 60 in options:
             return self._extract_from_vdi(options[60])
 
-    def _extract_from_vdi(self, vdi):
+    def _extract_from_vdi(self, vdi: str):
         # Vendor Class Identifier:
         #   digium_D40_1_0_5_46476
         #   digium_D40_1_1_0_0_48178
@@ -201,29 +204,29 @@ class DigiumDHCPDeviceInfoExtractor(object):
         #   digium_D70_1_1_0_0_48178
         match = self._VDI_REGEX.match(vdi)
         if match:
-            model = match.group(1).decode('ascii')
-            fw_version = match.group(2).replace('_', '.').decode('ascii')
-            dev_info = {u'vendor': u'Digium',
-                        u'model': model,
-                        u'version': fw_version}
-            return dev_info
+            model = match.group(1)
+            fw_version = match.group(2).replace('_', '.')
+            return {
+                'vendor': 'Digium',
+                'model': model,
+                'version': fw_version,
+            }
 
 
-class DigiumHTTPDeviceInfoExtractor(object):
+class DigiumHTTPDeviceInfoExtractor:
 
     _PATH_REGEX = re.compile(r'^/Digium/(?:([a-fA-F\d]{12})\.cfg)?')
 
-    def extract(self, request, request_type):
+    def extract(self, request: Request, request_type: RequestType):
         return defer.succeed(self._do_extract(request))
 
-    def _do_extract(self, request):
-        match = self._PATH_REGEX.match(request.path)
+    def _do_extract(self, request: Request):
+        match = self._PATH_REGEX.match(request.path.decode('ascii'))
         if match:
-            dev_info = {u'vendor': u'Digium'}
+            dev_info = {'vendor': 'Digium'}
             raw_mac = match.group(1)
             if raw_mac and raw_mac != '000000000000':
-                mac = norm_mac(raw_mac.decode('ascii'))
-                dev_info[u'mac'] = mac
+                dev_info['mac'] = norm_mac(raw_mac)
             return dev_info
 ```
 
@@ -231,7 +234,7 @@ You should see in the logs (`/var/log/wazo-provd.log`):
 
 ```shell
 provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
-provd[1090]: <11> Extracted device info: {u'ip': u'10.42.1.100', u'mac': u'00:0f:d3:05:48:48', u'vendor': u'Digium'}
+provd[1090]: <11> Extracted device info: {'ip': '10.42.1.100', 'mac': '00:0f:d3:05:48:48', 'vendor': 'Digium'}
 provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
 provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
 ```
@@ -239,34 +242,50 @@ provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
 Still in `common/common.py`, put the code needed to associate the phone with the plugin:
 
 ```python
+from provd.devices.pgasso import BasePgAssociator, DeviceSupport
+
 class DigiumPgAssociator(BasePgAssociator):
 
-    _MODELS = [u'D40', u'D50', u'D70']
+    _MODELS = ['D40', 'D50', 'D70']
 
     def __init__(self, version):
-        BasePgAssociator.__init__(self)
+        super().__init__()
         self._version = version
 
     def _do_associate(self, vendor, model, version):
-        if vendor == u'Digium':
+        if vendor == 'Digium':
             if model in self._MODELS:
                 if version == self._version:
-                    return FULL_SUPPORT
-                return COMPLETE_SUPPORT
-            return PROBABLE_SUPPORT
-        return IMPROBABLE_SUPPORT
+                    return DeviceSupport.EXACT
+                return DeviceSupport.COMPLETE
+            return DeviceSupport.PROBABLE
+        return DeviceSupport.IMPROBABLE
 ```
 
 Then, the last piece: the generation of the phone configuration:
 
 ```python
+import os
+import re
+import logging
+
+from provd import synchronize
+from provd.util import norm_mac, format_mac
+from provd.plugins import StandardPlugin, FetchfwPluginHelper, TemplatePluginHelper
+from provd.servers.http import HTTPNoListingFileService
+
+
+logger = logging.getLogger('plugin.wazo-digium')
+
+
 class BaseDigiumPlugin(StandardPlugin):
 
     _ENCODING = 'UTF-8'
     _CONTACT_TEMPLATE = 'contact.tpl'
+    _SENSITIVE_FILENAME_REGEX = re.compile(r'^[0-9a-f]{12}\.cfg$')
 
     def __init__(self, app, plugin_dir, gen_cfg, spec_cfg):
-        StandardPlugin.__init__(self, app, plugin_dir, gen_cfg, spec_cfg)
+        super().__init__(app, plugin_dir, gen_cfg, spec_cfg)
 
         self._tpl_helper = TemplatePluginHelper(plugin_dir)
         self._digium_dir = os.path.join(self._tftpboot_dir, 'Digium')
@@ -278,7 +297,6 @@ class BaseDigiumPlugin(StandardPlugin):
         self.http_service = HTTPNoListingFileService(self._tftpboot_dir)
 
     dhcp_dev_info_extractor = DigiumDHCPDeviceInfoExtractor()
-
     http_dev_info_extractor = DigiumHTTPDeviceInfoExtractor()
 
     def configure(self, device, raw_config):
@@ -293,7 +311,7 @@ class BaseDigiumPlugin(StandardPlugin):
         raw_config['XX_mac'] = self._format_mac(device)
         raw_config['XX_main_proxy_ip'] = self._get_main_proxy_ip(raw_config)
         raw_config['XX_funckeys'] = self._transform_funckeys(raw_config)
-        raw_config['XX_lang'] = raw_config.get(u'locale')
+        raw_config['XX_lang'] = raw_config.get('locale')
 
         path = os.path.join(self._digium_dir, filename)
         contact_path = os.path.join(self._digium_dir, contact_filename)
@@ -313,63 +331,41 @@ class BaseDigiumPlugin(StandardPlugin):
             except OSError as e:
                 logger.info('error while removing file %s: %s', path, e)
 
-    if hasattr(synchronize, 'standard_sip_synchronize'):
-        def synchronize(self, device, raw_config):
-            return synchronize.standard_sip_synchronize(device)
-
-    else:
-        # backward compatibility with older wazo-provd server
-        def synchronize(self, device, raw_config):
-            try:
-                ip = device[u'ip'].encode('ascii')
-            except KeyError:
-                return defer.fail(Exception('IP address needed for device synchronization'))
-            else:
-                sync_service = synchronize.get_sync_service()
-                if sync_service is None or sync_service.TYPE != 'AsteriskAMI':
-                    return defer.fail(Exception('Incompatible sync service: %s' % sync_service))
-                else:
-                    return threads.deferToThread(sync_service.sip_notify, ip, 'check-sync')
+    def synchronize(self, device, raw_config):
+        return synchronize.standard_sip_synchronize(device)
 
     def get_remote_state_trigger_filename(self, device):
-        if u'mac' not in device:
+        if 'mac' not in device:
             return None
-
         return self._dev_specific_filename(device)
 
     def is_sensitive_filename(self, filename):
         return bool(self._SENSITIVE_FILENAME_REGEX.match(filename))
 
     def _check_device(self, device):
-        if u'mac' not in device:
+        if 'mac' not in device:
             raise Exception('MAC address needed to configure device')
 
     def _get_main_proxy_ip(self, raw_config):
-        if raw_config[u'sip_lines']:
-            line_no = min(int(x) for x in raw_config[u'sip_lines'].keys())
+        if raw_config['sip_lines']:
+            line_no = min(int(x) for x in raw_config['sip_lines'])
             line_no = str(line_no)
-            return raw_config[u'sip_lines'][line_no][u'proxy_ip']
-        else:
-            return raw_config[u'ip']
-
+            return raw_config['sip_lines'][line_no]['proxy_ip']
+        return raw_config['ip']
 
     def _format_mac(self, device):
-         return format_mac(device[u'mac'], separator='', uppercase=False)
-
-    _SENSITIVE_FILENAME_REGEX = re.compile(r'^[0-9a-f]{12}\.cfg$')
+         return format_mac(device['mac'], separator='', uppercase=False)
 
     def _dev_specific_filename(self, device):
-        filename = '%s.cfg' % self._format_mac(device)
-        return filename
+        return f'{self._format_mac(device)}.cfg'
 
     def _dev_contact_filename(self, device):
-        contact_filename = '%s-contacts.xml' % self._format_mac(device)
-        return contact_filename
+        return f'{self._format_mac(device)}-contacts.xml'
 
     def _transform_funckeys(self, raw_config):
-        return dict(
-            (int(k), v) for k, v in raw_config['funckeys'].iteritems()
-        )
+        return {
+            int(k): v for k, v in raw_config['funckeys'].items()
+        }
 ```
 
 Then you can create the configuration templates using Jinja templates. Here are some examples:

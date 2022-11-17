@@ -1,17 +1,15 @@
 ### Creating Custom Templates
 
-Custom templates comes in handy when you have some really specific configuration
-to make on your telephony devices.
+Custom templates comes in handy when you have really specific configuration
+needs for your telephony devices.
 
-Templates are handled on a per plugin basis. It's not possible for a template to be
-shared by more than one plugin since it's a design limitation of the plugin system
-of `provd`.
+Templates are handled on a per-plugin basis. It's not possible for a template to be
+shared by more than one plugin since it's a design limitation of the `provd` plugin system.
 
 **Note**:
 When you install a new plugin, templates are not migrated automatically, so you must manually copy them from the old plugin directory to the new one. This does not apply for a plugin upgrade.
 
-Let's suppose we have installed the ``xivo-aastra-3.3.1-SP2`` plugin and
-want to write some custom templates for it.
+Let's suppose we have installed the ``xivo-aastra-3.3.1-SP2`` plugin, and we want to write some custom templates for it.
 
 First thing to do is to go into the directory where the plugin is installed:
 
@@ -53,7 +51,7 @@ The interesting directories are:
 
 * templates:
 
-   This is where the original templates lies. You *should not** edit these files
+   This is where the original templates are located. You *should not** edit these files
    directly but instead copy the one you want to modify in the var/templates directory.
 
 * var/templates:
@@ -62,8 +60,8 @@ The interesting directories are:
 
 * var/tftpboot:
 
-   This is where the configuration files lies once they have been generated from the templates.
-   You should look at them to confirm that your custom templates are giving you the result you are expecting.
+   This is where the configuration files lie once they have been generated from the templates.
+   You should look at them to confirm that your custom templates are giving you the results you are expecting.
 
 **Warning**:
 When you uninstall a plugin, the plugin directory is removed altogether, including all the custom templates.
@@ -71,14 +69,14 @@ When you uninstall a plugin, the plugin directory is removed altogether, includi
 A few things to know before writing your first custom template:
 
 * templates use the [Jinja2 template engine](http://jinja.pocoo.org/docs/templates/).
-* when doing an ``include`` or an ``extend`` from a template, the file is first looked up
+* when doing an ``include`` or an ``extends`` from a template, the file is first looked up
   in the `var/templates` directory and then in the `templates` directory.
 * device in autoprov mode are affected by templates, because from the point of view
   of ``provd``, there's no difference between a device in autoprov mode or fully configured.
   This means there's usually no need to modify static files in `var/tftpboot`. And this
   is a bad idea since a plugin upgrade will override these files.
 
-### Custom template for every devices
+### Custom templates for every device
 
 ```shell
 cp templates/base.tpl var/templates
@@ -86,7 +84,7 @@ vi var/templates/base.tpl
 wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 ```
 
-Once this is done, if you want to synchronize all the affected devices, use the following command:
+Once this is done, if you want to synchronize all the affected devices, using the following command:
 
 ```shell
 wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
@@ -94,7 +92,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
 
 ### Custom template for a specific model
 
-Let's supose we want to customize the template for our 6739i
+Let's suppose we want to customize the template for our 6739i
 
 ```shell
 cp templates/6739i.tpl var/templates
@@ -105,7 +103,7 @@ wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
 ### Custom template for a specific device
 
 To create a custom template for a specific device you have to create a device-specific template
-named `<device_specific_file_with_extension>.tpl` in the `var/templates/` directory :
+named `<device_specific_file_with_extension>.tpl` in the `var/templates/` directory:
 
 * for an Aastra phone, if you want to customize the file `00085D2EECFB.cfg` you will have
   to create a template file named `00085D2EECFB.cfg.tpl`,
@@ -136,23 +134,23 @@ Typically, the model template will be a good choice, but it might not always be 
 
 ### Changing the Plugin Used by a Device
 
-From time to time, new firmwares are released by the devices manufacturer.
-This sometimes translate to a new plugin being available for these devices.
+From time to time, new firmware versions are released by the device's manufacturer.
+This sometimes translates to a new plugin being available for these devices.
 
-When this happens, it almost always means the new plugin obsoletes the older one.
+When this happens, it almost always means the new plugin renders the old one obsolete.
 The older plugin is then considered "end-of-life", and won't receive any new updates
-nor be available for new installation.
+nor be available for new installations.
 
 Let's suppose we have the old ``xivo-aastra-3.2.2.1136`` plugin installed on our
 Wazo and want to use the newer ``xivo-aastra-3.3.1-SP2`` plugin.
 
-Both these plugins can be installed at the same time, and you can manually change
+Both of these plugins can be installed at the same time, and you can manually change
 the plugin used by a phone with ``PUT /devices/{device_id}``.
 
 If you are using custom templates in your old plugin, you should copy
 them to the new plugin and make sure that they are still compatible.
 
-Once you take the decision to migrate all your phones to the new plugin, you can
+Once you make the decision to migrate all your phones to the new plugin, you can
 use the following command:
 
 ```shell
@@ -165,16 +163,15 @@ Or, if you also want to synchronize (i.e. reboot) them at the same time:
 wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
 ```
 
-You can check that all went well by looking at ``GET /devices``
-output.
+You can check that all went well by looking at output of ``GET /devices``.
 
 ## Advanced Configuration
 
 ### DHCP Integration
 
-DHCP integration is enabled by default without possibility to disable it.
+DHCP integration is enabled by default without the possibility to disable it.
 
-What DHCP integration does is that, on every DHCP request made by one of your
+What DHCP integration does is that, for every DHCP request made by one of your
 phones, the DHCP server sends information about the request to ``provd``, which
 can then use this information to update its device database.
 
@@ -190,7 +187,7 @@ like the Cisco 7900; it has no effect for Aastra 6700.
 
 ### NAT
 
-The provisioning server has partial support for environment where the telephony devices are behind a [NAT](http://en.wikipedia.org/wiki/NAT) equipment.
+The provisioning server has partial support for environment where the telephony devices are behind a [NAT](http://en.wikipedia.org/wiki/NAT).
 
 By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes sure that only one device has the source IP address of the request. This is not a desirable behaviour when the provisioning server is used in a NAT environment, since in this case, it's normal that more than 1 devices have the same source IP address (from the point of view of the server).
 
@@ -198,17 +195,17 @@ If *all* your devices used on your Wazo are behind a NAT, you should disable thi
 
 Enabling the NAT option will also improve the performance of the provisioning server in this scenario.
 
-If you have many devices behind a NAT equipment, you should also check the security section to make sure the IP address of your NAT equipment doesn't get banned unintentionally.
+If you have many devices behind a NAT, you should also check the security section to make sure the IP address of your NAT equipment doesn't get banned unintentionally.
 
 ### Limitations
 
-* You must only have phones of the following brands:
+* You must only have phones from the following brands:
 
   * Aastra
   * Cisco SPA
   * Yealink
 
-* All your devices must be behind a NAT equipment (the devices may be grouped behind different NAT equipments, not necessarily the same one)
+* All your devices must be behind the NAT (the devices may be grouped behind different NAT equipment, not necessarily the same one)
 * You must provision the devices via REST API ``PUT /lines/{line_id}/devices/{device_id}``. Using
   the 6-digit provisioning code on the phone will produce unexpected results (i.e. the wrong device
   will be provisioned)
