@@ -1,6 +1,6 @@
 ---
 title: Building a Group Chat with Wazo
-date: 2022-11-08 10:00:00
+date: 2022-11-18 10:00:00
 author: Francis Chartrand
 category: Wazo Platform
 tags: hackathon, chat, websocket, solidjs
