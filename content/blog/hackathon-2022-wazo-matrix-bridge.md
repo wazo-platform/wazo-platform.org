@@ -1,11 +1,11 @@
 ---
-Title: Hackathon 2022 - Bridging Wazo and Matrix
-Date: 2022-10-20 12:00:00
-Author: Jesse Sopel
-Category: Hackathon
-Tags: Chat, Python, Matrix, Bridge, Hackathon
-Slug: hackathon-2022-bridging-wazo-and-matrix
-Status: published
+title: Hackathon 2022 - Bridging Wazo and Matrix
+date: 2022-11-18 12:00:00
+author: Jesse Sopel
+category: Hackathon
+tags: Chat, Python, Matrix, Bridge, Hackathon
+slug: hackathon-2022-bridging-wazo-and-matrix
+status: published
 ---
 
 Every year Wazo organizes a Hackathon with their employees, and as many of us as possible get together to work on some fun projects and see what we can learn.
