@@ -493,10 +493,12 @@ body.documentation {
     }
 
     img {
+      box-sizing: border-box;
       max-width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #EEE;
     }
     img[alt~='(small)'] {
       max-width: 33%;
