@@ -11,12 +11,12 @@ preceded by a `git pull`.
 
 ## Updating a Plugin
 
-We will be using the `xivo-cisco-spa` plugin family as an example on this page
+We will be using the `wazo-cisco-spa` plugin family as an example on this page
 
-There is one directory per family. Here is the directory structure for `xivo-cisco-spa`:
+There is one directory per family. Here is the directory structure for `wazo-cisco-spa`:
 
 ```shell
-plugins/xivo-cisco-spa/
+plugins/wazo-cisco-spa/
 +-- model_name_xxx
 +-- model_name_xxx
 +-- common
@@ -30,7 +30,7 @@ After modifying a plugin, you must increment the version number. You can modify 
 `plugin-info` to change the version number:
 
 ```shell
-plugins/xivo-cisco-spa/
+plugins/wazo-cisco-spa/
 +-- model_name_xxx
     +-- plugin-info
 ```
@@ -40,19 +40,19 @@ models.
 
 ### Use Case: Update Firmwares for a given plugin
 
-Let us suppose we want to update the firmware for xivo-snom from `8.7.3.25` to `8.7.3.25.5`. Here
+Let us suppose we want to update the firmware for wazo-snom from `8.7.3.25` to `8.7.3.25.5`. Here
 are the steps to follow :
 
-1. Copy folder `plugins/xivo-snom/8.7.3.25` to `plugins/xivo-snom/8.7.3.25.5`
-2. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/entry.py`
-3. Update `VERSION` number in `plugins/xivo-snom/8.7.3.25.5/plugin-info`
+1. Copy folder `plugins/wazo-snom/8.7.3.25` to `plugins/wazo-snom/8.7.3.25.5`
+2. Update `VERSION` number in `plugins/wazo-snom/8.7.3.25.5/entry.py`
+3. Update `VERSION` number in `plugins/wazo-snom/8.7.3.25.5/plugin-info`
 4. Download the new firmware files (`.bin` files from
    [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
-5. Update `VERSION` number and URIs in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
+5. Update `VERSION` number and URIs in `plugins/wazo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
-6. Update sizes and SHA1 checksums in `plugins/xivo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper
+6. Update sizes and SHA1 checksums in `plugins/wazo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper
    script `wazo-tools/dev-tools/check_fw`)
-7. Update `plugins/xivo-snom/build.py` (duplicate and update section `8.7.3.25` to `8.7.3.25.5`)
+7. Update `plugins/wazo-snom/build.py` (duplicate and update section `8.7.3.25` to `8.7.3.25.5`)
 
 ### Test your changes
 
@@ -73,7 +73,7 @@ Edit the files in `/var/lib/wazo-provd/plugins`
 To apply your changes, go in `wazo-provd-cli` and run:
 
 ```python
-plugins.reload('xivo-cisco-spa-7.5.4')
+plugins.reload('wazo-cisco-spa-7.5.5')
 ```
 
 #### Disable plugin caching
@@ -120,21 +120,19 @@ modified. Don't forget to install the plugin to test it.
 #### Mass-install all firmware related to a given plugin
 
 Using wazo-provd-cli on a Wazo server, one can mass-install firmware. Following example installs all
-firmware for xivo-snom 8.7.3.25.5 plugin (note the auto-completion):
+firmware for wazo-snom 8.7.5.35 plugin (note the auto-completion):
 
 ```shell
 wazo-provd-cli> list(plugins.installed())
-['xivo-snom-8.7.3.15',
- 'xivo-cisco-sccp-legacy',
- 'xivo-snom-8.4.35',
- 'xivo-snom-8.7.3.25',
- 'xivo-aastra-switchboard',
- 'xivo-aastra-3.2.2-SP3',
- 'xivo-aastra-3.2.2.1136',
- 'xivo-cisco-sccp-9.0.3',
- 'null',
- 'xivo-snom-8.7.3.25.5']
-wazo-provd-cli> p = plugins['xivo-snom-8.7.3.25.5']
+['wazo-snom-8.7.5.35',
+ 'wazo-cisco-sccp-legacy',
+ 'wazo-snom-8.9.3.40',
+ 'wazo-aastra-4.2.0',
+ 'wazo-aastra-3.3.1-SP4',
+ 'wazo-aastra-3.2.2.1136',
+ 'wazo-cisco-sccp-9.4',
+ 'null']
+wazo-provd-cli> p = plugins['wazo-snom-8.7.5.35']
 wazo-provd-cli> p.install_all()
 ```
 
@@ -155,13 +153,13 @@ if you are not updating a plugin, but you are instead removing it "once and for 
 instead move it to the archive directory:
 
 ```shell
-rm -fi stable/xivo-cisco-spa*
+rm -fi stable/wazo-cisco-spa*
 ```
 
 Copy the files from the directory `testing` to `stable`:
 
 ```shell
-cp testing/xivo-cisco-spa* stable
+cp testing/wazo-cisco-spa* stable
 ```
 
 Go back to the `plugins` directory and upload the files to the stable and archive repo:

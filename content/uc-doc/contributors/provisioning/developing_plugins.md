@@ -4,7 +4,7 @@ title: Developing Provisioning Plugins
 
 Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
 code
-[on GitHub](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/xivo-digium).
+[on GitHub](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/wazo-digium).
 
 If instead you want to add a model to an existing provisioning plugin, see the
 [corresponding guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
@@ -96,13 +96,18 @@ dhcpcd-update -d
 In `wazo-provd-plugins/plugins`, create the directory tree:
 
 ```shell
-xivo-digium/
+wazo-digium/
     build.py
-    1.1.0.0/
+    1.4.0.0/
         plugin-info
         entry.py
         pkgs/
             pkgs.db
+        templates
+            D40.tpl
+            D50.tpl
+            D70.tpl
+            firmware.tpl
     common/
         common.py
         var/
@@ -117,39 +122,57 @@ In `build.py`:
 
 from subprocess import check_call
 
-@target('1.1.0.0', 'xivo-digium-1.1.0.0')
-def build_1_1_0_0(path):
+@target('1.4.0.0', 'wazo-digium-1.4.0.0')
+def build_1_4_0_0(path):
     check_call(['rsync', '-rlp', '--exclude', '.*', 'common/', path])
-    check_call(['rsync', '-rlp', '--exclude', '.*',  '1.1.0.0/', path])
+    check_call(['rsync', '-rlp', '--exclude', '.*',  '1.4.0.0/', path])
 ```
 
-In `1.1.0.0/plugin-info`:
+In `1.4.0.0/plugin-info`:
 
 ```json
 {
-  "version": "0.3",
-  "description": "Plugin for Digium D40, D50 and D70 in version 1.1.0.0.",
-  "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.1.0.0.",
+  "version": "1.1.0",
+  "description": "Plugin for Digium D40, D50 and D70 in version 1.4.0.0.",
+  "description_fr": "Greffon pour Digium D40, D50 et D70 en version 1.4.0.0.",
   "capabilities": {
-    "Digium, D40, 1.1.0.0": {
-      "sip.lines": 2
+    "Digium, D40, 1.4.0.0": {
+      "lines": 2,
+      "high_availability": true,
+      "function_keys": 0,
+      "expansion_modules": 0,
+      "switchboard": false,
+      "type": "deskphone",
+      "protocol": "sip"
     },
-    "Digium, D50, 1.1.0.0": {
-      "sip.lines": 4
+    "Digium, D50, 1.4.0.0": {
+      "lines": 4,
+      "high_availability": true,
+      "function_keys": 0,
+      "expansion_modules": 0,
+      "switchboard": false,
+      "type": "deskphone",
+      "protocol": "sip"
     },
-    "Digium, D70, 1.1.0.0": {
-      "sip.lines": 6
+    "Digium, D70, 1.4.0.0": {
+      "lines": 6,
+      "high_availability": true,
+      "function_keys": 0,
+      "expansion_modules": 0,
+      "switchboard": false,
+      "type": "deskphone",
+      "protocol": "sip"
     }
   }
 }
 ```
 
-In `1.1.0.0/entry.py`:
+In `1.4.0.0/entry.py`:
 
 ```python
 common = {}
 execfile_('common.py', common)
-VERSION = '1.1.0.0.48178'
+VERSION = '1.4.0.0.57389'
 class DigiumPlugin(common['BaseDigiumPlugin']):
     IS_PLUGIN = True
     pg_associator = common['DigiumPgAssociator'](VERSION)
@@ -161,18 +184,20 @@ In `1.1.0.0/pkgs/pkgs.db`, put the information needed to download the firmware:
 [pkg_firmware]
 description: Firmware for all Digium phones
 description_fr: Micrologiciel pour tous les téléphones Digium
-version: 1.1.0.0
+version: 1.4.0.0
 files: firmware
 install: digium-fw
 
+
 [install_digium-fw]
 a-b: untar $FILE1
-b-c: cp */*.eff firmware/
+b-c: cp */*.eff Digium/firmware/
+
 
 [file_firmware]
-url: http://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_1_0_0_package.tar.gz
-size: 100111361
-sha1sum: 1d44148b996eaf270fd35995f3c5d69ff0438c5b
+url: http://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_4_0_0_package.tar.gz
+size: 101303480
+sha1sum: 626273aaf6dd33e1927f3acb4a90f86a6e4e9f25
 ```
 
 In `common/common.py`, put the code needed to extract information about the phone:
@@ -206,11 +231,7 @@ class DigiumDHCPDeviceInfoExtractor:
         if match:
             model = match.group(1)
             fw_version = match.group(2).replace('_', '.')
-            return {
-                'vendor': 'Digium',
-                'model': model,
-                'version': fw_version,
-            }
+            return {'vendor': 'Digium', 'model': model, 'version': fw_version}
 
 
 class DigiumHTTPDeviceInfoExtractor:
@@ -226,7 +247,8 @@ class DigiumHTTPDeviceInfoExtractor:
             dev_info = {'vendor': 'Digium'}
             raw_mac = match.group(1)
             if raw_mac and raw_mac != '000000000000':
-                dev_info['mac'] = norm_mac(raw_mac)
+                mac = norm_mac(raw_mac)
+                dev_info['mac'] = mac
             return dev_info
 ```
 
@@ -236,7 +258,7 @@ You should see in the logs (`/var/log/wazo-provd.log`):
 provd[1090]: Processing HTTP request: /Digium/000fd3054848.cfg
 provd[1090]: <11> Extracted device info: {'ip': '10.42.1.100', 'mac': '00:0f:d3:05:48:48', 'vendor': 'Digium'}
 provd[1090]: <11> Retrieved device id: 254374beec8d40209ff70393326b0b13
-provd[1090]: <11> Routing request to plugin xivo-digium-1.1.0.0
+provd[1090]: <11> Routing request to plugin wazo-digium-1.4.0.0
 ```
 
 Still in `common/common.py`, put the code needed to associate the phone with the plugin:
@@ -246,13 +268,15 @@ from provd.devices.pgasso import BasePgAssociator, DeviceSupport
 
 class DigiumPgAssociator(BasePgAssociator):
 
-    _MODELS = ['D40', 'D50', 'D70']
+    _MODELS = ['D40', 'D45', 'D50', 'D60', 'D62', 'D65', 'D70']
 
     def __init__(self, version):
         super().__init__()
         self._version = version
 
-    def _do_associate(self, vendor, model, version):
+    def _do_associate(
+        self, vendor: str, model: Optional[str], version: Optional[str]
+    ) -> DeviceSupport:
         if vendor == 'Digium':
             if model in self._MODELS:
                 if version == self._version:
@@ -321,7 +345,7 @@ class BaseDigiumPlugin(StandardPlugin):
     def deconfigure(self, device):
         filenames = [
             self._dev_specific_filename(device),
-            self._dev_contact_filename(device)
+            self._dev_contact_filename(device),
         ]
 
         for filename in filenames:
@@ -348,31 +372,29 @@ class BaseDigiumPlugin(StandardPlugin):
 
     def _get_main_proxy_ip(self, raw_config):
         if raw_config['sip_lines']:
-            line_no = min(int(x) for x in raw_config['sip_lines'])
+            line_no = min(int(x) for x in list(raw_config['sip_lines']))
             line_no = str(line_no)
             return raw_config['sip_lines'][line_no]['proxy_ip']
         return raw_config['ip']
 
     def _format_mac(self, device):
-         return format_mac(device['mac'], separator='', uppercase=False)
+        return format_mac(device['mac'], separator='', uppercase=False)
 
-    def _dev_specific_filename(self, device):
+    def _dev_specific_filename(self, device: Dict[str, str]) -> str:
         return f'{self._format_mac(device)}.cfg'
 
     def _dev_contact_filename(self, device):
         return f'{self._format_mac(device)}-contacts.xml'
 
     def _transform_funckeys(self, raw_config):
-        return {
-            int(k): v for k, v in raw_config['funckeys'].items()
-        }
+        return {int(k): v for k, v in raw_config['funckeys'].items()}
 ```
 
 Then you can create the configuration templates using Jinja templates. Here are some examples:
 
-- [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/base.tpl)
-- [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/common/templates/contact.tpl)
-- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/xivo-digium/1.4.0.0/templates/D40.tpl)
+- [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/common/templates/base.tpl)
+- [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/common/templates/contact.tpl)
+- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/1.4.0.0/templates/D40.tpl)
 
 ## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
@@ -382,17 +404,17 @@ First, change the source of your plugins (cf.
 For a development version:
 
 ```shell
-cd xivo-skaro/provisioning/plugins
+cd wazo-provd-plugins/plugins
 make upload
 ```
 
 For a stable version:
 
 ```shell
-cd xivo-skaro/provisioning/plugins
+cd wazo-provd-plugins/plugins
 make download-stable
 cd _build
-cp dev/xivo-digium-1.1.0.0-0.3.tar.bz2 stable/
+cp dev/wazo-digium-1.4.0.0.tar.bz2 stable/
 cd ..
 make upload-stable
 ```

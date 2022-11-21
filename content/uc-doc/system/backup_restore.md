@@ -93,7 +93,7 @@ The following files/folders are excluded from this backup:
   - `/var/lib/wazo-provd/plugins/*/var/cache/*`
   - `/var/spool/asterisk/monitor/`
 - files
-  - `/var/lib/wazo-provd/plugins/xivo-polycom*/var/tftpboot/*.ld`
+  - `/var/lib/wazo-provd/plugins/wazo-polycom*/var/tftpboot/*.ld`
 - _log_ files, _coredump_ files
 - audio recordings
 - and, files greater than 10 MiB or folders containing more than 100 files if they belong to one of
