@@ -31,13 +31,13 @@ than one plugin since it's a design limitation of the plugin system of `provd`.
 manually copy them from the old plugin directory to the new one. This does not apply for a plugin
 upgrade.
 
-Let's suppose we have installed the `xivo-aastra-3.3.1-SP2` plugin and want to write some custom
+Let's suppose we have installed the `wazo-aastra-3.3.1-SP4` plugin and want to write some custom
 templates for it.
 
 First thing to do is to go into the directory where the plugin is installed:
 
 ```shell
-cd /var/lib/wazo-provd/plugins/xivo-aastra-3.3.1-SP2
+cd /var/lib/wazo-provd/plugins/wazo-aastra-3.3.1-SP4
 ```
 
 Once you are there, you can see there's quite a few files and directories:
@@ -96,11 +96,11 @@ A few things to know before writing your first custom template:
 
     cp templates/base.tpl var/templates
     vi var/templates/base.tpl
-    wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+    wazo-provd-cli -c 'devices.using_plugin("wazo-aastra-3.3.1-SP4").reconfigure()'
 
 Once this is done, if you want to synchronize all the affected devices, use the following command:
 
-    wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").synchronize()'
+    wazo-provd-cli -c 'devices.using_plugin("wazo-aastra-3.3.1-SP4").synchronize()'
 
 ### Custom template for a specific model
 
@@ -108,7 +108,7 @@ Let's suppose we want to customize the template for our 6739i:
 
     cp templates/6739i.tpl var/templates
     vi var/templates/6739i.tpl
-    wazo-provd-cli -c 'devices.using_plugin("xivo-aastra-3.3.1-SP2").reconfigure()'
+    wazo-provd-cli -c 'devices.using_plugin("wazo-aastra-3.3.1-SP4").reconfigure()'
 
 ### Custom template for a specific device
 
@@ -148,8 +148,8 @@ When this happens, it almost always means the new plugin renders the older one o
 plugin is then considered "end-of-life", and won't receive any new updates nor be available for new
 installation.
 
-Let's suppose we have the old `xivo-aastra-3.2.2.1136` plugin installed on our Wazo and want to use
-the newer `xivo-aastra-3.3.1-SP2` plugin.
+Let's suppose we have the old `wazo-aastra-3.3.1-SP2` plugin installed on our Wazo and want to use
+the newer `wazo-aastra-3.3.1-SP4` plugin.
 
 Both these plugins can be installed at the same time, and you can manually change the plugin used by
 a phone with `PUT /devices/{device_id}`.
@@ -161,13 +161,13 @@ Once you take the decision to migrate all your phones to the new plugin, you can
 command:
 
 ```shell
-wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2")'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4")'
 ```
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time:
 
 ```shell
-wazo-provd-cli -c 'helpers.mass_update_devices_plugin("xivo-aastra-3.2.2.1136", "xivo-aastra-3.3.1-SP2", synchronize=True)'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4", synchronize=True)'
 ```
 
 You can check that all went well by looking at `GET /devices` page.
@@ -242,10 +242,10 @@ compatible:
 
 | Plugin family   | Version |
 | --------------- | ------- |
-| xivo-aastra     | >= 1.6  |
-| xivo-cisco-sccp | >= 1.1  |
-| xivo-cisco-spa  | >= 1.0  |
-| xivo-digium     | >= 1.0  |
-| xivo-polycom    | >= 1.7  |
-| xivo-snom       | >= 1.6  |
-| xivo-yealink    | >= 1.26 |
+| wazo-aastra     | >= 1.6  |
+| wazo-cisco-sccp | >= 1.1  |
+| wazo-cisco-spa  | >= 1.0  |
+| wazo-digium     | >= 1.0  |
+| wazo-polycom    | >= 1.7  |
+| wazo-snom       | >= 1.6  |
+| wazo-yealink    | >= 1.26 |

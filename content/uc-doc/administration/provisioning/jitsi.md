@@ -22,7 +22,7 @@ To start, you first need:
 Install the Jitsi plugin you want to use: e.g.:
 
 ```text
-xivo-jitsi-1
+wazo-jitsi-1
 ```
 
 You can now launch your Jitsi softphone

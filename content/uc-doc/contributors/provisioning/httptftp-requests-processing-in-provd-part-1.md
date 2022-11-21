@@ -13,8 +13,8 @@ The device info extractor object is in fact only merging results from two others
 extractor.
 
 The "all plugins device info extractor" ask for each installed plugin to extract info from the
-request. In this case, the xivo-aastra plugin is of course able to extract a lot of information by
-looking at the User-Agent header, but the xivo-cisco-sccp plugin is of no help. The results are then
+request. In this case, the wazo-aastra plugin is of course able to extract a lot of information by
+looking at the User-Agent header, but the wazo-cisco-sccp plugin is of no help. The results are then
 merged and returned.
 
 The "standard device info extractor" extract the IP address. Its role is to only extract basic
@@ -43,8 +43,8 @@ TFTP requests are really simple, especially if you compare them to HTTP requests
 interesting information an RRQ (read request) can have is the filename. But a filename can contain a
 lot of information.
 
-TFTP requests take a similar flow as HTTP requests in provd. In our example, the xivo-aastra plugin
-will return no information from it, but the xivo-cisco-sccp plugin will be able to extract both the
+TFTP requests take a similar flow as HTTP requests in provd. In our example, the wazo-aastra plugin
+will return no information from it, but the wazo-cisco-sccp plugin will be able to extract both the
 vendor and the MAC address. For this request, it's not possible to determine the model nor the
 firmware version.
 
