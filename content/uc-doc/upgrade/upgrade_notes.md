@@ -10,6 +10,13 @@ title: Upgrade notes
   `http://provd.wazo.community/plugins/2/stable` (python 3). This change should be automatic, but if
   you are using a custom URL it will need to be updated to one containing Python 3 compatible
   plugins.
+- Room API from `wazo-chatd` introduces a behavior change. Now room is unique by participants in the
+  room. Ex: Bob and Alice can only have one room. To leave time to migrate, creating another room
+  will return the same room instead of raising 409. But this behaviour will change in future.
+
+    * **Important**: To allow this modification, all rooms with the same set of users have been
+      merged together.
+
 - `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
 
 Consult the
