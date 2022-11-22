@@ -4,14 +4,13 @@ title: Upgrade notes
 
 ## 22.16 {#22-16}
 
-- `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
-
-- Provd now uses Python 3. The latest version of all plugins have been updated to use Python 3 as
+- `wazo-provd` now uses Python 3. The latest version of all plugins have been updated to use Python 3 as
   well. The default plugin repository has been changed from
   `http://provd.wazo.community/plugins/1/stable` (python 2) to
   `http://provd.wazo.community/plugins/2/stable` (python 3). This change should be automatic, but if
   you are using a custom URL it will need to be updated to one containing Python 3 compatible
   plugins.
+- `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
 
 Consult the
 [22.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.16)
