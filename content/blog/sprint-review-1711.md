@@ -20,7 +20,7 @@ Hello Wazo community! Here comes the release of Wazo 17.11!
 
 **Asterisk**: Asterisk was updated from 14.5.0 to [14.6.0](http://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-14.6.0)
 
-**Chat**: We have integrated a new software in Wazo, namely [MongooseIM](https://mongooseim.readthedocs.io/en/latest/). We will progressively insert MongooseIM in the heart of the Wazo chat, so that we can benefit from its features: chat history, chat rooms, mobile push notifications, and maybe XMPP connectivity...
+**Chat**: We have integrated a new software in Wazo, namely MongooseIM. We will progressively insert MongooseIM in the heart of the Wazo chat, so that we can benefit from its features: chat history, chat rooms, mobile push notifications, and maybe XMPP connectivity...
 
 ## Ongoing features
 
