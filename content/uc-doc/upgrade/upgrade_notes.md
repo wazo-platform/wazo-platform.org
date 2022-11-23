@@ -4,14 +4,21 @@ title: Upgrade notes
 
 ## 22.16 {#22-16}
 
-- `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
-
-- Provd now uses Python 3. The latest version of all plugins have been updated to use Python 3 as
-  well. The default plugin repository has been changed from
+- `wazo-provd` now uses Python 3. The latest version of all plugins have been updated to use Python
+  3 as well. The default plugin repository has been changed from
   `http://provd.wazo.community/plugins/1/stable` (python 2) to
   `http://provd.wazo.community/plugins/2/stable` (python 3). This change should be automatic, but if
   you are using a custom URL it will need to be updated to one containing Python 3 compatible
   plugins.
+- There is a behaviour change to the room API from `wazo-chatd`. There can only be one room for the
+  same participants. For example, Bob and Alice can only have one chat room with each other. To
+  leave time to migrate, creating another room will return the same room instead of raising a 409
+  error. However, this behaviour will change in the future.
+
+  - **Important**: To implement this change with existing chat rooms, all rooms with the same set of
+    users have been merged together.
+
+- `xivo-berofos` CLI and `bntools` package have been removed and are not supported anymore
 
 Consult the
 [22.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.16)
