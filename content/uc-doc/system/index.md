@@ -7,7 +7,6 @@ title: System
 - [Backup Restore](/uc-doc/system/backup_restore)
 - [HTTPS Certificate](/uc-doc/system/https_certificate)
 - [Configuration Files](/uc-doc/system/configuration_files)
-- [Consul](/uc-doc/system/consul)
 - [Log Files](/uc-doc/system/log_files)
 - [nginx](/uc-doc/system/nginx)
 - [NTP](/uc-doc/system/ntp)

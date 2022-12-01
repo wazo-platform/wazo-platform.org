@@ -24,13 +24,6 @@ Network Flow table (IN) :
 | munin           | HTTP         | TCP      | 4949 | 127.0.0.1 | no             | yes     |
 | postgresql      | SQL          | TCP      | 5432 | 127.0.0.1 | yes            | yes     |
 | rabbitMQ        | AMQP         | TCP      | 5672 | 0.0.0.0   | yes            | yes     |
-| consul          | Consul RPC   | TCP      | 8300 | 127.0.0.1 | yes            | yes     |
-| consul          | Consul Serf  | TCP/UDP  | 8301 | 127.0.0.1 | yes            | yes     |
-|                 | LAN          |          |      |           |                |         |
-| consul          | Consul Serf  | TCP/UDP  | 8302 | 127.0.0.1 | yes            | yes     |
-|                 | WAN          |          |      |           |                |         |
-| consul          | Consul HTTP  | TCP      | 8500 | 127.0.0.1 | both           | yes     |
-| consul          | Consul HTTPS | TCP      | 8501 | 127.0.0.1 | both           | yes     |
 | wazo-provd      | HTTP         | TCP      | 8666 | 127.0.0.1 | yes            | yes     |
 | wazo-provd      | HTTP         | TCP      | 8667 | 127.0.0.1 | no             | yes     |
 | wazo-confgend   | HTTP         | TCP      | 8669 | 127.0.0.1 | no             | yes     |
