@@ -77,7 +77,7 @@ const Page = () => (
               Technical layer: the internal services for the Operating System, HTTP, internal messaging, database, ...
               <br />
               <span className="small">
-                Debian and Services: nginx, rabbitmq, postgresql, auth, consul, webhookd, websocketd
+                Debian and Services: nginx, rabbitmq, postgresql, auth, webhookd, websocketd
               </span>
             </li>
           </ul>
@@ -122,7 +122,7 @@ const Page = () => (
                 The core Telecom engine is implemented using the <a href="https://www.asterisk.org/">Asterisk</a>,{' '}
                 <a href="https://github.com/sipwise/rtpengine">RTPEngine</a> and{' '}
                 <a href="https://www.kamailio.org/">Kamailio</a> projects. The technical core engine is based on{' '}
-                <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://www.consul.io/">Consul</a>,{' '}
+                <a href="https://www.rabbitmq.com/">RabbitMQ</a>,{' '}
                 <a href="https://nginx.org/">NGinx</a> and <a href="https://www.postgresql.org/">PostgreSQL</a>.
               </p>
             </div>
