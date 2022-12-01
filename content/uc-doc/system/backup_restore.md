@@ -37,7 +37,6 @@ Backup location:
 Here is the list of folders and files that are backed-up:
 
 - `/etc/asterisk/`
-- `/etc/consul/`
 - `/etc/crontab`
 - `/etc/dahdi/`
 - `/etc/dhcp/`
@@ -75,7 +74,6 @@ Here is the list of folders and files that are backed-up:
 - `/usr/local/share/`
 - `/usr/share/wazo/WAZO-VERSION`
 - `/var/lib/asterisk/`
-- `/var/lib/consul/`
 - `/var/lib/wazo-auth-keys/`
 - `/var/lib/wazo-provd/`
 - `/var/lib/wazo/`
@@ -86,10 +84,6 @@ Here is the list of folders and files that are backed-up:
 The following files/folders are excluded from this backup:
 
 - folders:
-  - `/var/lib/consul/checks`
-  - `/var/lib/consul/raft`
-  - `/var/lib/consul/serf`
-  - `/var/lib/consul/services`
   - `/var/lib/wazo-provd/plugins/*/var/cache/*`
   - `/var/spool/asterisk/monitor/`
 - files
