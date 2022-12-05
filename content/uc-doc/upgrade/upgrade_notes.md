@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 22.17 {#22-17}
+
+- `consul` has been removed from wazo dependency by default. If you rely on this component, make
+  sure to follow steps before upgrade:
+
+  - Mark this package as manually installed: `apt-mark manual consul`
+  - Enable service discovery for each service. An example can be found in `config.yml` of the
+    service
+
 ## 22.16 {#22-16}
 
 - `wazo-provd` now uses Python 3. The latest version of all plugins have been updated to use Python
