@@ -8,7 +8,7 @@ be enabled with [Custom Configuration File](/uc-doc/system/configuration_files).
 ```yaml
 consul:
   scheme: http
-  host: <consul.example.con>
+  host: consul.example.com
   port: 8500
   token: 'the_one_ring'
 
