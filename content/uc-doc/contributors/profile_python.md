@@ -29,7 +29,7 @@ Here's an example on how to profile wazo-auth for CPU/time usage:
    To profile wazo-confgend, you must use this command instead of the one above:
 
    ```shell
-   twistd -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
+   twistd3 -p test.profile --profiler=cprofile --savestats -no --python=/usr/bin/wazo-confgend
    ```
 
    Note that profiling multi-threaded program (wazo-agid, wazo-confd) doesn't work reliably.
