@@ -4,6 +4,13 @@ title: Upgrade notes
 
 ## 22.17 {#22-17}
 
+- A new database index is being added on call logs. This operation can be time consuming on systems
+  with many existing call logs.
+
+  For systems with millions of existing call logs, the index can be created manually while the
+  system is running to avoid downtime using the following command:
+  `sudo -u postgres psql asterisk -c "create index if not exists call_logd_call_log_participant__idx__call_log_id on call_logd_call_log_participant (call_log_id)"`
+
 - `consul` has been removed from wazo dependency by default. If you rely on this component, make
   sure to follow steps before upgrade:
 
