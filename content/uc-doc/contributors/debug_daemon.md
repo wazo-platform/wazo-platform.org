@@ -22,7 +22,7 @@ systemctl stop monit.service
 ## wazo-confgend {#wazo-confgend}
 
 ```shell
-twistd -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
+twistd3 -no -u wazo-confgend -g wazo-confgend --python=/usr/bin/wazo-confgend --logger wazo_confgend.bin.daemon.twistd_logs
 ```
 
 No debug mode in wazo-confgend.
@@ -30,7 +30,7 @@ No debug mode in wazo-confgend.
 ## wazo-provd {#wazo-provd}
 
 ```shell
-twistd -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
+twistd3 -no -u wazo-provd -g wazo-provd --logger provd.main.twistd_logs wazo-provd -s -v
 ```
 
 - `-s`: for logging to `stderr`
