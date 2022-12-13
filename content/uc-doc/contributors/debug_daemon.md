@@ -30,7 +30,7 @@ No debug mode in wazo-confgend.
 ## wazo-provd {#wazo-provd}
 
 ```shell
-twistd3 -no -u wazo-provd -g wazo-provd -r epoll --logger provd.main.twistd_logs wazo-provd -s -v
+twistd3 -no -u wazo-provd -g wazo-provd --logger provd.main.twistd_logs wazo-provd -s -v
 ```
 
 - `-s`: for logging to `stderr`
