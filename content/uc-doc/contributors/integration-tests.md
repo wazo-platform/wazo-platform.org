@@ -5,8 +5,8 @@ This document describes the conventional setup for per-component integration tes
 The integration tests rely directly on docker(or an equivalent drop-in) and docker-compose, 
 and assume that functional `docker-compose`[^1] and `docker`[^2] commands are available in the environment.
 
-Required python dependencies are made available in the [test-requirements.txt](./test-requirements.txt) file, 
-which can(and should) be installed into a specific virtual environment.
+Additional python dependencies(including test runners, frameworks and any tool and library used by the tests) are made available in 
+a pip requirements.txt file, to be be installed into a specific virtual environment.
 
 ## Structure
 (As a general guide on conventional project structure, see also [Wazo daemon file structure](https://github.com/wazo-platform/wazo-notebook/blob/master/file-structure.md) 
@@ -27,7 +27,8 @@ tox -e integration
 tox takes care of creating the virtual environment containing the dependencies for the tests.
 
 The `integration_tests/Makefile` should define a target `test-setup` to prepare the test environment(e.g. build docker images),
-and a `test` target to run the tests. Those targets can be used directly, and should be used by the tox `integration` environment.
+and a `test` target to run the tests. 
+Those targets can be used directly, and should be used by the tox `integration` environment.
 To run the tests without tox from the `integration_tests` directory:
 ```shell
 # make test dependencies available in a virtual environment
