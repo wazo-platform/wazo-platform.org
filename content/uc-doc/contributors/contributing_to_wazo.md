@@ -44,11 +44,12 @@ tox -e py37
 
 ### Integration tests {#integration-tests}
 
-Integration tests exercise a service as a black box. It uses the public API of the service and use
-the API to assert that the test passes. Our integration tests use docker to avoid installing too
-many dependencies on your system. You can find the integration tests in the `integration_tests`
-directory of most repository. Executing the following command from the root directory of a project
-should execute all integration tests.
+Integration tests models a service under test as a black box with some interface. 
+Those tests rely on the public API of the service and make assertions based on the observed behavior of that API. 
+Those tests rely on docker and docker-compose to isolate the components under tests and their dependencies. 
+You can find the integration tests in the `integration_tests` directory of most repositories. 
+A tox environment "integration" should be available, 
+allowing integration tests to be run using the following command from the project root directory: 
 
 ```shell
 tox -eintegration
@@ -61,6 +62,8 @@ cd integration_tests
 make test-setup
 make test
 ```
+For more details see [integration tests documentation](/uc-doc/contributors/integration-tests.md).
+
 
 ### Acceptance tests {#acceptance-tests}
 
