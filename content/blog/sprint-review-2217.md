@@ -22,7 +22,7 @@ Here is a short review of the Wazo Platform 22.17 release.
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.17).
 
-See you at the next sprint review!
+Note that the next release will be on mid-January. Happy Holidays!
 
 ## Resources
 
