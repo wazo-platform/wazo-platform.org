@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 22.17 Released
-date: 2022-12-14T21:33:00
+date: 2022-12-19T21:33:00
 author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
@@ -13,7 +13,7 @@ Hello Wazo Platform community!
 Here is a short review of the Wazo Platform 22.17 release.
 
 ## Technical Features
-- **Python3**: Migrated wazo-agid and wazo-confgend services to Python 3. They were the latest services written in Python 2
+- **Python 3**: Migrated wazo-agid and wazo-confgend services to Python 3. They were the last services written in Python 2
 - **Asterisk**: Asterisk has been upgraded to 19.7.1. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-19-7-1-now-available-security-release/)
 
 ## Ongoing Features
