@@ -59,6 +59,43 @@ line 206 with the above, then restart wazo-provd with `systemctl restart wazo-pr
 would get loaded. If not, it's only a question of repeating the above procedure until there is no
 Traceback on wazo-provd startup.
 
+### Other possible errors due to the Python 3 migration
+
+It is possible that you may encounter other errors due to the changes made to the provisioning
+server in preparation to the Python 3 migration. Some of the changes are:
+
+- Replace plugin device support constants by an `Enum`
+
+  ```python
+  from provd.devices.pgasso import BasePgAssociator, DeviceSupport
+
+
+  class DigiumPgAssociator(BasePgAssociator):
+
+  _MODELS = ['D40', 'D45', 'D50', 'D60', 'D62', 'D65', 'D70']
+
+  def __init__(self, version):
+  	super().__init__()
+  	self._version = version
+
+  def _do_associate(
+  	self, vendor: str, model: Optional[str], version: Optional[str]
+  ) -> DeviceSupport:
+  	if vendor == 'Digium':
+  		if model in self._MODELS:
+  			if version == self._version:
+  				return DeviceSupport.EXACT
+  			return DeviceSupport.COMPLETE
+  		return DeviceSupport.PROBABLE
+  	return DeviceSupport.IMPROBABLE
+  ```
+
+- Remove the unicode string prefixes. Strings in Python 3 are unicode by default.
+- Remove the `object` inheritance. It is implicit in Python 3.
+
+To see how a provisioning plugin is developed, you can read the
+[guide on developing a plugin](https://wazo-platform.org/uc-doc/contributors/provisioning/developing_plugins).
+
 ## Replace the plugin used by the affected devices by a newer version
 
 If the plugin that is failing has an equivalent plugin supported by Wazo but uses a slightly newer
