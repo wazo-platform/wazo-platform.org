@@ -38,7 +38,7 @@ possible fixes are:
 ## Remove the affected plugins
 
 If you decide to actually remove the plugin, you can use `wazo-provd-cli` to do so. The CLI comes
-with helpers that makes it easy to do such tasks.
+with helpers that make it easy to do such tasks.
 
 ```shell
 root@stack:~# wazo-provd-cli
@@ -47,8 +47,8 @@ wazo-provd-cli> plugins.uninstall('xivo-polycom-4.0.9')
 
 ## Manually update the plugin code to fix the issues
 
-One of the possible way to fix the loading issue is to look at what the Traceback is about and to
-fix it. In our example, it is a simple SyntaxError. The correct syntax is:
+One of the possible ways to fix the loading issue is to look at what the Traceback says and to fix
+the errors. In our example, it is a simple SyntaxError. The correct syntax is:
 
 ```python
 except tzinform.TimezoneNotFoundError as e:
@@ -56,15 +56,15 @@ except tzinform.TimezoneNotFoundError as e:
 
 We then replace the code in the file "/var/lib/wazo-provd/plugins/xivo-polycom-4.0.9/common.py" at
 line 206 with the above, then restart wazo-provd with `systemctl restart wazo-provd` and our plugin
-would get loaded. If not, it's only a question of repeating the above procedure until there is no
-Traceback on wazo-provd startup.
+should load. If not, it's only a question of repeating the above steps until there are no more
+errors on wazo-provd startup.
 
 ### Other possible errors due to the Python 3 migration
 
 It is possible that you may encounter other errors due to the changes made to the provisioning
-server in preparation to the Python 3 migration. Some of the changes are:
+server in preparation for the Python 3 migration. Some changes are:
 
-- Replace plugin device support constants by an `Enum`
+- The device support constants were replaced with an `Enum`, `DeviceSupport`
 
   ```python
   from provd.devices.pgasso import BasePgAssociator, DeviceSupport
@@ -90,10 +90,12 @@ server in preparation to the Python 3 migration. Some of the changes are:
   	return DeviceSupport.IMPROBABLE
   ```
 
-- Remove the unicode string prefixes. Strings in Python 3 are unicode by default.
-- Remove the `object` inheritance. It is implicit in Python 3.
+Other changes from Python 2 to 3 include:
 
-To see how a provisioning plugin is developed, you can read the
+- Removing the unicode string prefixes. Strings in Python 3 are unicode by default.
+- Removing the `object` inheritance. It is implicit in Python 3.
+
+To see how a provisioning plugin is developed and some examples, you can read the
 [guide on developing a plugin](https://wazo-platform.org/uc-doc/contributors/provisioning/developing_plugins).
 
 ## Replace the plugin used by the affected devices by a newer version
