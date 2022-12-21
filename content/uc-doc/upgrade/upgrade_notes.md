@@ -2,9 +2,14 @@
 title: Upgrade notes
 ---
 
+## 23.01 {#23-01}
+
+- All wazo clients are now only built in Python 3. So, if it gets uninstalled you might need to
+  install it again with the suffix `-python3`.
+
 ## 22.17 {#22-17}
 
-- A new database index is being added on call logs. This operation can be time consuming on systems
+- A new database index is being added on call logs. This operation can be time-consuming on systems
   with many existing call logs.
 
   For systems with millions of existing call logs, the index can be created manually while the
@@ -702,7 +707,7 @@ for more information.
 
 ## 19.15 {#19-15}
 
-- We have standardize the stevedore entry point namespace for our python client. If you have custom
+- We have standardized the stevedore entry point namespace for our python client. If you have custom
   plugins, Be sure to use the full client name for the namespace. (e.g. `auth_client.commands` -->
   `wazo_auth_client.commands`)
 - The directed call pickup extension `*8XXXX` has been disabled by default on new installations,
