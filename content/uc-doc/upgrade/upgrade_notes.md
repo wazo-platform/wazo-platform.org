@@ -9,6 +9,10 @@ title: Upgrade notes
   Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
   installed with `apt`. eg. `apt install wazo-provd-client-python3`
 
+Consult the
+[23.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.01)
+for more information.
+
 ## 22.17 {#22-17}
 
 - A new database index is being added on call logs. This operation can be time-consuming on systems
@@ -24,6 +28,10 @@ title: Upgrade notes
   - Mark this package as manually installed: `apt-mark manual consul`
   - Enable service discovery for each service. An example can be found in `config.yml` of the
     service
+
+Consult the
+[22.17 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.17)
+for more information.
 
 ## 22.16 {#22-16}
 
