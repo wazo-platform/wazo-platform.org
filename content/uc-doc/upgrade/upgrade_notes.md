@@ -2,9 +2,20 @@
 title: Upgrade notes
 ---
 
+## 23.01 {#23-01}
+
+- All wazo clients are now only compatible with Python 3.7 (the version included in the current
+  distro). So, if you have any custom python scripts written in Python 2, you must upgrade them to
+  Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
+  installed with `apt`. eg. `apt install wazo-provd-client-python3`
+
+Consult the
+[23.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.01)
+for more information.
+
 ## 22.17 {#22-17}
 
-- A new database index is being added on call logs. This operation can be time consuming on systems
+- A new database index is being added on call logs. This operation can be time-consuming on systems
   with many existing call logs.
 
   For systems with millions of existing call logs, the index can be created manually while the
@@ -17,6 +28,10 @@ title: Upgrade notes
   - Mark this package as manually installed: `apt-mark manual consul`
   - Enable service discovery for each service. An example can be found in `config.yml` of the
     service
+
+Consult the
+[22.17 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.17)
+for more information.
 
 ## 22.16 {#22-16}
 
@@ -702,7 +717,7 @@ for more information.
 
 ## 19.15 {#19-15}
 
-- We have standardize the stevedore entry point namespace for our python client. If you have custom
+- We have standardized the stevedore entry point namespace for our python client. If you have custom
   plugins, Be sure to use the full client name for the namespace. (e.g. `auth_client.commands` -->
   `wazo_auth_client.commands`)
 - The directed call pickup extension `*8XXXX` has been disabled by default on new installations,
