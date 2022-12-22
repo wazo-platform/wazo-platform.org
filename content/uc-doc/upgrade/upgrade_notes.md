@@ -4,8 +4,10 @@ title: Upgrade notes
 
 ## 23.01 {#23-01}
 
-- All wazo clients are now only built in Python 3. So, if it gets uninstalled you might need to
-  install it again with the suffix `-python3`.
+- All wazo clients are now only compatible with Python 3.7 (the version included in the current
+  distro). So, if you have any custom python scripts written in Python 2, you must upgrade them to
+  Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
+  installed with `apt`. eg. `apt install wazo-provd-client-python3`
 
 ## 22.17 {#22-17}
 
