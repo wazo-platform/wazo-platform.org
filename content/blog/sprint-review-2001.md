@@ -21,7 +21,7 @@ Here is a short review of the Wazo Platform 20.01 release.
 
 ## Contributions
 
-* **Hardware**: While not directly related to this version, we're excited to share with you the announcement of a distribution for Wazo Platform on Raspberry Pi, named [Sparrow](https://sparrow.b5.pm/). You can find the announcement [on our forums](https://wazo-platform.discourse.group/t/sparrow-run-wazo-engine-on-raspberry-pi/126).
+* **Hardware**: While not directly related to this version, we're excited to share with you the announcement of a distribution for Wazo Platform on Raspberry Pi, named Sparrow [`https://sparrow.b5.pm`]. You can find the announcement [on our forums](https://wazo-platform.discourse.group/t/sparrow-run-wazo-engine-on-raspberry-pi/126).
 
 ## Technical features
 
