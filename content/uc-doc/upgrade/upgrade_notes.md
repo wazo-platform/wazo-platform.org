@@ -8,10 +8,10 @@ title: Upgrade notes
   distro). So, if you have any custom python scripts written in Python 2, you must upgrade them to
   Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
   installed with `apt`. eg. `apt install wazo-provd-client-python3`
-- Support for legacy patterns of pre-dial handlers in dialplan config have been deprecated since
-  21.01 in favor of `wazo-add-pre-dial-hook`. Automatic conversion of the legacy patterns to the new
-  patterns is now removed, and any remaining legacy configurations will now need to be updated
-  accordingly. See [pre-dial handlers](/uc-doc/api_sdk/subroutine) and
+- Support for the `b` `Dial` option in the XIVO_CALLOPTIONS in subroutine has been deprecated since
+  21.01 in favor of `wazo-add-pre-dial-hook`. Automatic conversion of the `b` option to the new
+  pre-dial-hook system is now removed, and any remaining legacy configurations will now need to be
+  updated accordingly. See [pre-dial handlers](/uc-doc/api_sdk/subroutine) and
   [21.01 release notes](.#21.01) for more details.
 
 Consult the
