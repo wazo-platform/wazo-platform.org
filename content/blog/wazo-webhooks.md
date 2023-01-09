@@ -11,7 +11,7 @@ Depuis plusieurs mois nous travaillons activement pour améliorer Wazo et le ren
 
 Mais nous avons encore quelques surprises pour vous au cours des prochains mois ! Avec en tête l'objectif de créer une plateforme de téléphonie à votre image, vous permettant de construire votre système sur mesure, il nous est apparu nécessaire de développer un outil rendant possible l'interconnexion avec une plateforme proposant plus de 700 autres produits intéressants sur le marché.
 
-J'ai donc commencé un travail d'un connecteur sur une plateforme appelée Zapier. Pour ceux qui ne connaissent pas rendez-vous directement sur leur [site web](http://zapier.com) et créez vous un compte pour tester, c'est gratuit.
+J'ai donc commencé un travail d'un connecteur sur une plateforme appelée Zapier. Pour ceux qui ne connaissent pas rendez-vous directement sur leur [site web](https://zapier.com) et créez vous un compte pour tester, c'est gratuit.
 
 ![zapier.png](../../images/blog/wazo-webhook/zapier.png "Zapier website")
 
