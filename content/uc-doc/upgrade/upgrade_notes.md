@@ -8,11 +8,19 @@ title: Upgrade notes
   distro). So, if you have any custom python scripts written in Python 2, you must upgrade them to
   Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
   installed with `apt`. eg. `apt install wazo-provd-client-python3`
+
 - Support for the `b` `Dial` option in the XIVO_CALLOPTIONS in subroutine has been deprecated since
   21.01 in favor of `wazo-add-pre-dial-hook`. Automatic conversion of the `b` option to the new
   pre-dial-hook system is now removed, and any remaining legacy configurations will now need to be
   updated accordingly. See [pre-dial handlers](/uc-doc/api_sdk/subroutine) and
   [21.01 release notes](.#21.01) for more details.
+
+- Bus configuration changes for all services (excluding wazo-auth). If you use custom configuration,
+  you might have to review these settings
+
+  - key `exchange_name` now defaults to `wazo-headers` instead of `xivo`
+  - key `exchange_type` has been removed (recent versions have migrated to headers routing and is no
+    longer configurable)
 
 Consult the
 [23.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.01)
