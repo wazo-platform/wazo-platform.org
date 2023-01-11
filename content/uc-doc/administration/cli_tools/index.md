@@ -47,8 +47,8 @@ After using it, you need to pass the wizard once again.
 
 ### wazo-upgrade
 
-`wazo-upgrade` is used to upgrade Wazo to a later version. Beginning with Wazo 17.17, `wazo-upgrade`
-will not upgrade to a later major Debian version. For this, you have to use `wazo-dist-upgrade`.
+`wazo-upgrade` is used to upgrade Wazo to a later version. To upgrade to a later major Debian
+version, you have to use `wazo-dist-upgrade`.
 
 ## Service-specific tools
 

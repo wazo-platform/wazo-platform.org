@@ -11,10 +11,10 @@ Planned deprecation calendar:
 
 | Date       | Deprecated versions |
 | ---------- | ------------------- |
-| 2020-01-01 | older than 16.01    |
-| 2021-01-01 | older than 17.01    |
 | 2022-01-01 | older than 18.01    |
 | 2023-01-01 | older than 19.01    |
+| 2024-01-01 | older than 20.01    |
+| 2025-01-01 | older than 21.01    |
 
 ### What does it mean to be in a deprecated version?
 
