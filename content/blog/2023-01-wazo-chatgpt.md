@@ -151,5 +151,7 @@ the bot will answer instead of answer to the participant by default.
 
 So i had fun with Gregory yesterday morning and finally the bot said we have a super great support at Wazo and GPT can't replace them ;),
 
+![wazo chagpt app (small)](/images/blog/wazo-chatgpt/result-wazo.png)
+
 Have fun, and happy new year 2023 to everybody.
 Sylvain
