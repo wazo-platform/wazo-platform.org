@@ -9,10 +9,10 @@ title: Upgrade notes
   Python 3. The Python 3 version of most wazo packages are suffixed with `-python3`and can be
   installed with `apt`. eg. `apt install wazo-provd-client-python3`
 
-- All Wazo components are now only compatible with Python 3.7 (the version included in the current
+- All Wazo components are now only compatible with Python 3 (the version included in the current
   distro) and only no longer provide any Python 2 builds. If you have any custom scripts or
   libraries that extend wazo components, and they are written in Python 2, you may need to update
-  them. For libraries that had separate packages for Python 2 and 3 you may need to install the
+  them. For wazo libraries that had separate packages for Python 2 and 3 you may need to install the
   Python 3 version. They are usually suffixed by `-python3`.
 
 - Support for the `b` `Dial` option in the XIVO_CALLOPTIONS in subroutine has been deprecated since
