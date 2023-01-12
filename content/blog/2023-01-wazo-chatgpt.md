@@ -10,7 +10,7 @@ status: published
 
 ## ChatGPT, chatgpt
 
-Hey my new friend, please i need you for my creativity. If you don't know what's is chatGPT yet
+Hey my new friend, please i need you for my creativity. If you don't know what ChatGPT is yet
 please look on your social network, internet etc... because this is the latest big trend for 2023.
 ChatGPT could be everywhere in everything and this could probably be, the tech world next huge company.
 This chat has been built on the top of the openAI, which is the company surrently developing the AI. This tool is very powerful
