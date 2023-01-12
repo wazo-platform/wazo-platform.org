@@ -10,23 +10,23 @@ status: published
 
 ## ChatGPT, chatgpt
 
-Hey my new friend, please i need you for my creativity. If you don't know what's is chatGPT
-please check network social, internet etc... because this is the big new hype for this new year 2023.
-ChatGPT is everywhere for everything and there is probably the next huge company in the tech world.
-This chat has been build on the top of the openAI company developement for the AI and it's very powerful
-and interesting for building many new application.
+Hey my new friend, please i need you for my creativity. If you don't know what's is chatGPT yet
+please look on your social network, internet etc... because this is the latest big trend for 2023.
+ChatGPT could be everywhere in everything and this could probably be, the tech world next huge company.
+This chat has been built on the top of the openAI, which is the company surrently developing the AI. This tool is very powerful
+and interesting and could be used to build many new applications.
 
-So, like many people i played with chatGPT and i finally ask him to write a blog entry about Wazo and chatGPT.
+So, like many people I played with chatGPT and I ended up asked it to write a blog entry about Wazo and chatGPT.
 
 This is the result here:
 
 ![wazo chagpt blog (small)](/images/blog/wazo-chatgpt/result.png)
 
-So finally my question was also, hey please write code to connect them together and the result was:
+So finally i ended up asking ChatGPT, if it could write the code to connect Wazo and ChatGPT, this was the result:
 
 ![wazo chagpt code (small)](/images/blog/wazo-chatgpt/result-code.png)
 
-Well, so this is not simple like that, so i decided to write a very short demo.
+Well, I admit it is not as simple as that, so I decided to write a very short working demo.
 
 ```python
 import openai
@@ -143,13 +143,12 @@ asyncio.run(main())
 
 ## Conclusion
 
-So this code permit to have two features.
-1. By default everybody send me a chat at Wazo have a conversation with my bot instead of me, so you can talk with me all
+This code implemented two features:
+1. By default, everybody sending me a chat at Wazo will have a conversation with my bot instead of me, so you can talk with me all
 the time and about everything now ;) 
-2. I just added a prompt /assistant to also play with it and my participant. So if me and the participant start his sentence with /assistant do something,
-the bot will answer instead of answer to the participant by default.
+2. I just added a prompt /assistant to play with the bot and my participant. So if me or the participant start a sentence with `/assistant do something`,the bot will answer in place of the participant.
 
-So i had fun with Gregory yesterday morning and finally the bot said we have a super great support at Wazo and GPT can't replace them ;),
+So I had fun with Gregory yesterday morning and finally the bot said we have a super great support at Wazo and GPT can't replace them ;),
 
 ![wazo chagpt app (small)](/images/blog/wazo-chatgpt/result-wazo.png)
 
