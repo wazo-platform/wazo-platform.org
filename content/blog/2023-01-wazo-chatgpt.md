@@ -16,7 +16,7 @@ ChatGPT could be everywhere in everything, and this could probably be the tech w
 This chatbot has been built by OpenAI, which is a company currently developing AI technology. This tool is very powerful
 and interesting and could be used to build many new applications.
 
-So, like many people I played with chatGPT and I ended up asked it to write a blog entry about Wazo and chatGPT.
+So, like many people I played with chatGPT and I ended up asking it to write a blog entry about Wazo and ChatGPT.
 
 This is the result here:
 
