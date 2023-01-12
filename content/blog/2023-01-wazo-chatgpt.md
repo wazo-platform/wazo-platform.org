@@ -148,7 +148,7 @@ This code implemented two features:
 the time and about everything now ;) 
 2. I just added a prompt /assistant to play with the bot and my participant. So if me or the participant start a sentence with `/assistant do something`,the bot will answer in place of the participant.
 
-So I had fun with Gregory yesterday morning and finally the bot said we have a super great support at Wazo and GPT can't replace them ;),
+So I had fun with Gregory yesterday morning and finally the bot said we have a super great support team at Wazo and ChatGPT can't replace them ;),
 
 ![wazo chagpt app (small)](/images/blog/wazo-chatgpt/result-wazo.png)
 
