@@ -40,7 +40,7 @@ from wazo_websocketd_client import Client as Websocket
 from wazo_websocketd_client.exceptions import AlreadyConnectedException
 
 
-username = "" # check you have the good ACL for talk with chatd, auth, and websoketd
+username = "" # check you have the right ACL to talk with chatd, auth, and websocketd
 password = ""
 host = "<your_wazo_server>"
 client_id = 'wazo-chatgpt'
