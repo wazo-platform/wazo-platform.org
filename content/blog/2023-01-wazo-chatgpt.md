@@ -12,7 +12,7 @@ status: published
 
 Hey my new friend, please i need you for my creativity. If you don't know what ChatGPT is yet
 please look in your social networks, the internet, etc... Because this is the latest big trend for 2023.
-ChatGPT could be everywhere in everything and this could probably be, the tech world next huge company.
+ChatGPT could be everywhere in everything, and this could probably be the tech world's next huge company.
 This chat has been built on the top of the openAI, which is the company surrently developing the AI. This tool is very powerful
 and interesting and could be used to build many new applications.
 
