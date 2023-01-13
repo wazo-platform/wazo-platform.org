@@ -38,37 +38,21 @@ from io import StringIO
 from urllib.parse import urlencode
 ```
 
-### Black
+### General Style Rules
 
-When possible, use black to validate your code.
+To try and maintain a clean and consistent code base we use `black` which is a tool that enforces a
+slightly stricter subset of Python's [PEP8](https://peps.python.org/pep-0008/) and `flake8`. There
+is a good explanation of the rules and reasons on
+[its website](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html). You
+can run linters in all projects via `tox` with `tox -e linters` to check if you code is correctly
+formatted. The CI will run this automatically too and warn if the code doesn't conform.
 
-#### Example:
-
-```shell
-tox -e black
-```
-
-### Avoid backslashes for escaping
-
-When possible, avoid using backslashes to separate lines.
-
-#### Bad Example:
-
-```python
-user = session.query(User).filter(User.first_name == first_name)\
-                          .filter(User.last_name == last_name)\
-                          .filter(User.number == number)\
-                          .all()
-```
-
-#### Good Example:
-
-```python
-user = (session.query(User).filter(User.first_name == first_name)
-                           .filter(User.last_name == last_name)
-                           .filter(User.number == number)
-                           .all())
-```
+In newer projects we also have [`pre-commit`](https://pre-commit.com/) to run and apply the fixes
+automatically in some cases as well as [`mypy`](https://mypy.readthedocs.io/en/stable/) for static
+type checking (see [type checking below](#typing). Pre-commit can be installed via pip
+(`pip install pre-commit`) and either run manually via `pre-commit run --all-files` or automatically
+as a hook (just run `pre-commit install` in the repo and it will run automatically in future before
+each commit). For backwards compatibility it can also be run via `tox -e linters`.
 
 ### Strings {#strings}
 
@@ -77,13 +61,13 @@ instead.
 
 #### Bad Example:
 
-```
+```python
 phone_interface = 'SIP' + '/' + username + '-' + password
 ```
 
 #### Good Example:
 
-```
+```python
 phone_interface = f'SIP/{username}-{password}'
 ```
 
@@ -109,40 +93,6 @@ def created_on_week_day(meeting: Meeting) -> bool:
 
 if created_on_week_day(meeting):
     calendar.add(meeting)
-```
-
-### Conditions {#conditions}
-
-Avoid using parenthesis around if statements, unless the statement expands on multiple lines, or you
-need to nest your conditions.
-
-#### Bad Examples:
-
-```python
-if (x == 3):
-    print("condition is true")
-
-if (x == 3 and y == 4):
-    print("condition is true")
-```
-
-#### Good Examples:
-
-```python
-if x == 3:
-    print("condition is true")
-
-if x == 3 and y == 4:
-    print("condition is true")
-
-if (extremely_long_variable == 3
-    and another_long_variable == 4
-    and yet_another_variable == 5):
-
-    print("condition is true")
-
-if (2 + 3 + 4) - (1 + 1 + 1) == 6:
-    print("condition is true")
 ```
 
 ### Use functions for clarity
@@ -310,7 +260,7 @@ class UserTestCase(TestCase):
 
         self.assertEquals(expected, fullname)
 
-    def _prepare_expected_user(self, first_name: str, last_name: str, number: int) -> User:
+    def _prepare_expected_user(self, first_name: str, last_name: str, number: str) -> User:
         user = User()
         user.first_name = first_name
         user.last_name = last_name
