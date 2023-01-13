@@ -1,11 +1,9 @@
-# integration tests
-
 This document describes the conventional setup for per-component integration tests in wazo projects.
 
 ## Requirements
 
 The integration tests rely directly on docker(or an equivalent drop-in) and docker-compose,
-and assume that functional `docker-compose`[^1] and `docker`[^2] commands are available in the environment.
+and assume that functional [`docker-compose`](https://docs.docker.com/compose/) and [`docker`](https://docs.docker.com/) commands are available in the environment.
 
 Additional python dependencies(including test runners, frameworks and any tool and library used by the tests) are made available in
 a pip requirements.txt file, to be be installed into a specific virtual environment.
@@ -21,7 +19,7 @@ a pip requirements.txt file, to be be installed into a specific virtual environm
 - `integration_tests/test-requirements.txt` (or a differently named pip requirements file) should contain all python requirements required for the test environment, such as the test runner, and other tools and libraries used by the tests.
 - `integration_tests/Makefile` should exist and define an interface to interact with the test setup using the `make` utility.
 
-## Running tests
+## Running Tests
 
 A tox interface should be available, enabling integration tests to be executed from the project root directory through
 
@@ -46,23 +44,23 @@ make test
 
 ### pytest
 
-The tests suites usually use `pytest`[^3] as a test runner and framework, which should be made available through the test python requirements file.
+The tests suites usually use [`pytest`](https://docs.pytest.org/en/7.2.x/) as a test runner and framework, which should be made available through the test python requirements file.
 
 For example, to run a single test file and all tests contained:
 
-```
+```shell
 pytest suite/test_confgen.py
 ```
 
 To run all tests:
 
-```
+```shell
 pytest suite/
 ```
 
 and to run only tests matching a specific marker and a specified name pattern:
 
-```
+```shell
 pytest -m 'critical' -k 'pjsip_conf' suite/
 ```
 
@@ -91,7 +89,7 @@ To test that the image is functional:
 docker run --rm -it -v $(readlink ..):/usr/local/src/$projectname wazoplatform/$projectname:local
 ```
 
-(note this will mount the project root directory as a volume to provide in-development source code for testing).
+**Note**: This will mount the project root directory as a volume to provide in-development source code for testing)
 This should start a container from the built image, which should run the component entrypoint(usually a daemon implemented by the codebase).
 
 Once the image is made available locally, the docker-compose configurations should be able to use it and pull any other required images from the relevant registries.
@@ -132,7 +130,3 @@ docker-compose -f assets/docker-compose.yml -f assets/docker-compose.base.overri
 ### denv
 
 [denv](https://github.com/wazo-platform/denv) is a utility to simplify the usage patterns of docker-compose for integration tests.
-
-[^1]: https://docs.docker.com/compose/
-[^2]: https://docs.docker.com/
-[^3]: https://docs.pytest.org/en/7.2.x/
