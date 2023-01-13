@@ -44,12 +44,12 @@ tox -e py37
 
 ### Integration tests {#integration-tests}
 
-Integration tests models a service under test as a black box with some interface.
-Those tests rely on the public API of the service and make assertions based on the observed behavior of that API.
-Those tests rely on docker and docker-compose to isolate the components under tests and their dependencies.
-You can find the integration tests in the `integration_tests` directory of most repositories.
-A tox environment "integration" should be available,
-allowing integration tests to be run using the following command from the project root directory:
+Integration tests models a service under test as a black box with some interface. Those tests rely
+on the public API of the service and make assertions based on the observed behavior of that API.
+Those tests rely on docker and docker-compose to isolate the components under tests and their
+dependencies. You can find the integration tests in the `integration_tests` directory of most
+repositories. A tox environment "integration" should be available, allowing integration tests to be
+run using the following command from the project root directory:
 
 ```shell
 tox -eintegration
