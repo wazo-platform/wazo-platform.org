@@ -52,7 +52,7 @@ repositories. A tox environment "integration" should be available, allowing inte
 run using the following command from the project root directory:
 
 ```shell
-tox -eintegration
+tox -e integration
 ```
 
 If `tox` is not configured to execute integration tests, you can execute the following commands.
