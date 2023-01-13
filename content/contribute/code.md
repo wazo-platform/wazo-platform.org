@@ -1,5 +1,4 @@
-How to contribute to Wazo Platform code base
-============================================
+# How to contribute to Wazo Platform code base
 
 In order to contribute to Wazo Platform you need to be able to
 retrieve the source code, edit the code, try your changes and contribute
@@ -48,8 +47,8 @@ environment in the same state, no files laying around.
 
 You can execute unittests with the following command
 
-```ShellSession
-$ tox -epy37
+```shell
+tox -e py37
 ```
 
 ## Integration tests
@@ -58,22 +57,24 @@ Integration tests exercise a service as a black box. Each test uses
 the public API of the service to assert that it passes. Our
 integration tests use docker to avoid installing too many dependencies
 on your system. You can find the integration tests in the
-integration\_tests directory of most repositories. Executing the
+`integration_tests` directory of most repositories. Executing the
 following command from the root directory of a project should execute
 all integration tests.
 
-```ShellSession
-$ tox -eintegration
+```shell
+tox -e integration
 ```
 
 If tox is not configured to execute integration tests, you can execute
 the following commands.
 
-```ShellSession
-$ cd integration_tests
-$ make test-setup
-$ make test
+```shell
+cd integration_tests
+make test-setup
+make test
 ```
+
+For more details see [integration tests documentation](/uc-doc/contributors/integration-tests.md)
 
 ## Acceptance tests
 
