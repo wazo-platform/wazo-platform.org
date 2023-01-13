@@ -7,6 +7,7 @@ This repo contains the source and building scripts for generating http://www.waz
 The content is authored using [the markdown language](https://en.wikipedia.org/wiki/Markdown) in [the content
 directory](content). The build process is done using [Gatsby](https://www.gatsbyjs.org/).
 
+
 ## Installation
 
 Build the builder container:
@@ -25,6 +26,14 @@ make ENV=CORPORATE=1 develop
 ```
 
 Then open http://localhost:8000 in your favorite browser.
+
+
+## styling
+
+There is a top-level [`.prettierrc`](/.prettierrc) file for the [prettier](https://github.com/prettier/prettier) formatter.
+
+For `uc-doc` markdown documents, the command `prettier --check --print-width 100 --prose-wrap always 'content/uc-doc/**/*.md'` should be used(and will be checked by CI).
+
 
 ## Building
 
