@@ -374,14 +374,13 @@ except UserNotFoundError as e:
 ## Type Hinting {#typing}
 
 When possible code should include type hints to help avoid ambiguity, help with debugging and, allow
-for static type checking. More examples on Type Hinting in Python can be found in the documentation
-for [Python](https://docs.python.org/3.10/library/typing.html). Mypy also has a very helpful
-[Cheatsheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+for static type checking. For some common use cases and more examples please see
+[Type hinting examples](/uc-doc/typing.md)
 
 ### Clarity
 
-This allows one to clearly identify what a function receives and what it returns. The more precise
-you can get with your typing the easier the code will be to understand.
+Type hinting allows one to clearly identify what a function receives and what it returns. The more
+precise you can get with your typing the easier the code will be to understand.
 
 #### Bad Example:
 
@@ -418,57 +417,14 @@ We use [`mypy`](https://mypy.readthedocs.io/en/stable/) to do type checking, and
 (after `pre-commit install` in your repo), manually with `pre-commit run --all-files` or via tox
 with `tox -e linters`. It is configured in the `pyproject.toml` file.
 
-### Lazy Annotation / `ìf TYPE_CHECKING:` {#typing-lazy-evaluation}
+### Laziness
 
-You can import `annotations` from `__future__` to delay the evaluation of annotations. So, then they
-are only evaluated by type checkers or if you specifically inspect that type in your code.
+Any file that contains type annotations should, ideally, include
+`from __future__ import annotations` at the top. This ensures:
 
-If you have annotations it’s always good to use this import since:
+- We don't waste effort evaluating types at runtime
+- We can use features from later version of Python without errors at runtime
+- You can reference classes before they are defined
 
-- It prevents wasted processing of annotations at runtime
-- It allows you to use classes that are defined in the same file, or currently being defined, as
-  type annotations
-- It allows you to use features and syntax of later versions of Python if your type checker is run
-  with them. E.g. You can use the union operator from Python 3.10 in code that runs in 3.7 at
-  runtime so long as your type checking is done with 3.10 or later and you use the lazy evaluation.
-
-You can also use `if TYPE_CHECKING:` to encompass code that is only necessary for type checking or
-that you don’t want to run at runtime.
-
-This allows you to for example:
-
-- Create `TypedDict` or `Protocol` classes for typing (if these aren’t supported in the current
-  version)
-- Do some unfortunate workaround for typing in older languages
-- Import things from typing that don’t exist in older versions of Python like `Literal`
-- Import things that either aren’t needed or could create problems if imported at runtime.
-
-#### Example:
-
-```python
-from __future__ import annotations
-
-import threading
-from typing import TYPE_CHECKING
-
-
-if TYPE_CHECKING:
-    from typing import Callable, Collection, TypedDict  # don't exist in 3.7
-
-    from wazo_auth_client.client import AuthClient  # only imported when type checking
-
-    Callback = Callable[[Collection[str]], None]
-    CallbackDict = TypedDict('CallbackDict', {'method': Callback, 'details': bool})
-
-
-class TokenRenewer:
-    def __int__(self, auth_client: AuthClient) -> None:
-        self._auth_client = auth_client
-        self._callback_lock = threading.Lock()
-        self._callbacks: list[CallbackDict] = []
-
-    def subscribe_to_token_change(self, callback: Callback) -> None:
-        with self._callback_lock:
-            self._callbacks.append({'method': callback, 'details': False})
-
-```
+Always including it will avoid accidentally forgetting it when adding new types too. See more about
+[lazy type annotations here](/uc-doc/typing#lazy-annotations)
