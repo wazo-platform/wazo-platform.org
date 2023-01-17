@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   # Used to run a server to be used by test
   server:
@@ -6,14 +6,15 @@ services:
     volumes:
       - ./public:/app/public:ro
     expose:
-      - "8000"
+      - '8000'
     command: bash -c "cd /app/public && python -m http.server 8000"
+
   # Allow to run scrap tests before deployment
   test:
     build: tests
     volumes:
       - ./tests/src:/app/src:ro
       - ./tests/package.json:/app/package.json:ro
-    links:
-      - server
     command: yarn test
+    depends_on:
+      - server
