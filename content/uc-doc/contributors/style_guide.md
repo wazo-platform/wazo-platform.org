@@ -40,12 +40,12 @@ from urllib.parse import urlencode
 
 ### General Style Rules
 
-To try and maintain a clean and consistent code base we use `black` which is a tool that enforces a
+To try and maintain a clean and consistent code base we use `black`, which is a tool that enforces a
 slightly stricter subset of Python's [PEP8](https://peps.python.org/pep-0008/) and `flake8`. There
 is a good explanation of the rules and reasons on
 [its website](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html). You
-can run linters in all projects via `tox` with `tox -e linters` to check if you code is correctly
-formatted. The CI will run this automatically too and warn if the code doesn't conform.
+can run linters in all projects via `tox` with `tox -e linters` to check if your code is correctly
+formatted. The CI will run this automatically too and fail if the code isn't conform.
 
 In newer projects we also have [`pre-commit`](https://pre-commit.com/) to run and apply the fixes
 automatically in some cases as well as [`mypy`](https://mypy.readthedocs.io/en/stable/) for static
@@ -373,9 +373,9 @@ except UserNotFoundError as e:
 
 ## Type Hinting {#typing}
 
-When possible code should include type hints to help avoid ambiguity, help with debugging and, allow
-for static type checking. For some common use cases and more examples please see
-[Type hinting examples](/uc-doc/typing.md)
+When possible, code should include [type hints](https://peps.python.org/pep-0484) to help avoid
+ambiguity, help with debugging and, allow for static type checking. For some common use cases and
+more examples, please see [Type hinting examples](/uc-doc/typing.md).
 
 ### Clarity
 
@@ -388,7 +388,7 @@ precise you can get with your typing the easier the code will be to understand.
 def get_user(user_id):
     user = find_user(user_id)
     if not user:
-      rais UserNotFound(user_id)
+      raise UserNotFound(user_id)
     return user
 ```
 
@@ -398,15 +398,18 @@ In this example, it is unclear what we are dealing with. Is the `user_id` a `str
 #### Good example:
 
 ```python
-from typing import TypedDict, Union
+from typing import TypedDict, Union, TYPE_CHECKING
 
-UserData = TypedDict('UserData', {'first_name': str, 'last_name': str, 'email': Union[str, None]})
+class UserData(TypedDict):
+    first_name: str
+    last_name: str
+    email: str | None
 
 
 def get_user(user_id: str) -> UserData:
     user = find_user(user_id)
     if not user:
-      rais UserNotFound(user_id)
+      raise UserNotFound(user_id)
     return user
 ```
 

@@ -11,10 +11,16 @@ examples, but more examples on Type Hinting in Python can be found in the docume
 ## Basics {#basics}
 
 You can type any variable _at or before_ its definition by placing a `: ` followed by the type after
-it, eg. `potato: Potato`. Any built-in type or class can be used as a type annotation as well as
-some specialized Generics.
+it, eg. `potato: Potato`,
 
-### Typing functions {#typing-functions}
+```python
+from idaho import Potato
+
+potato: Potato = Potato()  # Just an example, the type hint here is not required.
+```
+
+Any built-in type or class can be used as a type annotation as well as some specialized classes
+classed [Generics](#generics)
 
 You can type the return value with a `->` followed by the type between the end of the method and the
 `:`, eg `def return_potato() -> Potato: ...`. If the function does not return anything
@@ -60,9 +66,10 @@ class MyClass:
 
 ### Multiple types (Unions) {#union-types}
 
-If multiple types are accepted they can be specified using the generic `Union` type or even better
-the union expression `|` as of python 3.10. _Note_: this can still be used on older version of
-Python in annotation as long as you use [lazy annotations](#lazy-annotations).
+If multiple types are accepted they can be specified using the generic `Union`, which can also be
+more succinctly expressed using the pipe symbol `|` as of python 3.10. _Note_: this can still be
+used on older version of Python in annotation as long as you use
+[lazy annotations](#lazy-annotations).
 
 ```python
 from __future__ import annotations
@@ -75,10 +82,10 @@ alphanumeric_list: list[Union[int, str]] = ['a', 1]
 
 ### Type classes vs instances {#type-class}
 
-Using a class s type indicates it is an instance of said class. If you instead which to say that the
-variable is the class itself, for example factories, you can use the `type` (or `Type` < 3.9)
-generic. If the class is defined in the same file, use [lazy annotations](#lazy-annotations) or put
-the class name in quotes.
+Using a class as the type, it indicates that the variable is an instance of said class. If you
+instead wish to say that the variable is the class itself, for example for factories which receive
+the class and return an instance, you can use the `type` (or `Type` < 3.9) generic. If the class is
+defined in the same file, use [lazy annotations](#lazy-annotations) or put the class name in quotes.
 
 ```python
 from __future__ import annotations
@@ -95,8 +102,8 @@ def my_factory(factory_class: type[MyClass]) -> MyClass:
 
 ### Typing Async methods {#typing-async}
 
-Although async methods technically return coroutines, when using annotations, you specify the actual
-return value of the function as if it were not async.
+Although async methods and functions technically return coroutines, when using annotations, you
+specify the actual return value of the function as if it were not async.
 
 ```python
 from typing import Awaitable
@@ -110,15 +117,17 @@ user_ids_coroutine: Awaitable[list[int]] = get_user_ids()
 
 ### Type Stubs {#type-stubs}
 
-Type stubs (see: https://github.com/python/typeshed). Type stubs are
-[stub files (.pyi)](https://mypy.readthedocs.io/en/stable/stubs.html) that contain the type
-definitions for libraries that not themselves typed. They can be installed through pip for type
-checking. They are less and less required as more and more libraries are using types, but were used
-a lot when both Python 2 & 3 support was required. ex: - `types-requests` - `types-pytz`.
+Type stubs are [stub files (.pyi)](https://mypy.readthedocs.io/en/stable/stubs.html) that contain
+the type definitions for libraries that are not themselves typed directly. They can be installed
+through pip for type checking. They are less and less required as more and more libraries are using
+types, but were used a lot when both Python 2 & 3 support was required. ex: - `types-requests` -
+`types-pytz`. The main repo that collects all of these is called
+[typeshed](https://github.com/python/typeshed), but stub files can also be included in projects,
+even if that is no longer needed as the code can be directly typed.
 
 ### Lazy Annotations / `ìf TYPE_CHECKING:` {#lazy-annotations}
 
-You can import `annotations` from `__future__` to delay the evaluation of annotations. So, then they
+You can import `annotations` from `__future__` to delay the evaluation of annotations. Thus, they
 are only evaluated by type checkers or if you specifically inspect that type in your code.
 
 If you have annotations it’s always good to use this import since:
@@ -133,13 +142,14 @@ If you have annotations it’s always good to use this import since:
 You can also use `if TYPE_CHECKING:` to encompass code that is only necessary for type checking or
 that you don’t want to run at runtime.
 
-This allows you to for example:
+This allows you to, for example:
 
 - Create `TypedDict` or `Protocol` classes for typing (if these aren’t supported in the current
   version)
-- Do some unfortunate workaround for typing in older languages
+- Do some unfortunate workaround for typing in older language versions
 - Import things from typing that don’t exist in older versions of Python like `Literal`
-- Import things that either aren’t needed or could create problems if imported at runtime.
+- Import things that either aren’t needed or could create problems if imported at runtime (e.g.
+  avoid circular import errors).
 
 #### Example:
 
@@ -170,13 +180,13 @@ class TokenRenewer:
             self._callbacks.append({'method': callback, 'details': False})
 ```
 
-## Parametric typing & Generics {#gnerics}
+## Parametric typing & Generics {#generics}
 
-[Generics](https://mypy.readthedocs.io/en/stable/generics.html) are types that can be passed options
-to ensure a useful definition. For example, it’s good to know your method receives a list, but it’s
-not super useful if you don’t know what said list contains. So you can pass options to the `list`
-type to specify its contents (eg. `list[int | str]`). You can create custom ones, but a lot of
-builtin ones exist eg.:
+[Generics](https://mypy.readthedocs.io/en/stable/generics.html) are types that can be passed
+parameters to ensure a useful definition. For example, it’s good to know your method receives a
+list, but it’s not super useful if you don’t know what said list contains. So you can pass options
+to the `list` type to specify its contents (eg. `list[int | str]`). You can create custom ones, but
+a lot of builtin ones exist eg.:
 
 ### Generic built-in collections {#built-in-generics}
 
@@ -201,7 +211,7 @@ a variable number of items in a tuple, type the first entry and follow it with a
 ### Callables {#callables}
 
 When passing around methods as callbacks you can use the built-in generic
-`[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)` The first option is the
+`[Callable](https://docs.python.org/3/library/typing.html#typing.Callable)`. The first option is the
 arguments and the second is the return value. For more complex cases see [Protocols](#protocols)
 
 ```python
@@ -221,7 +231,7 @@ process_hander(my_handler)
 
 ### Literal values {#literals}
 
-To allow only a limited selection of values you can use
+To allow only a specific set of values you can use
 `[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)`. It is useful for when you
 expect specific strings like `'on'` or `'off'`. The standard library uses this for read/write modes
 for example.
@@ -293,17 +303,21 @@ class ComplexCallable(Protocol):
 
 ### Mixins {#typing-mixins}
 
-Mixin can be challenging to type if they have implicit dependency on other interfaces (i.e. expect
+Mixins can be challenging to type if they have implicit dependency on other interfaces (i.e. expect
 the inheriting class to implement other methods used by the mixin implementation). Intersection
 types are not supported yet, but would allow specifying a self-type that combines the mixin’s
-interface.
+interfaces.
+
+Intersection types are equivalent to ad-hoc subclasses of the types in the intersection. To type a
+mixin properly, the implicit dependencies must be made explicit, for example through a separate
+protocol or ABC defining the required interface, which the mixin can subclass.
 
 ### `Self` with inheritance {#typing-self}
 
 `Self` was introduced in 3.11, but is equivalent to `Self = TypeVar("Self", bound="MyClass")`. This
-can be important for classes that return themselves because simply using the class name with result
-in issues if the class is extended. In simple cases you can return the class itself, but `Self` is a
-safer option.
+can be important for class methods that return instances of themselves because simply using the
+class name with result in issues if the class is extended. In simple cases you can return the class
+itself, but `Self` is a safer option.
 
 ```python
 from typing import Self  # Self was added in 3.11
@@ -320,10 +334,6 @@ class ChildClass(ParentClass):
         # If we had used `-> ParentClass` this would then return the wrong type as it is now `ChildClass`
         return super().return_self()
 ```
-
-## Other useful built-in types {#more-useful-built-in-types}
-
-- `Any` compatible with any type. Use only when needed or temporarily.
 
 ### Type Aliases {#type-aliases}
 
@@ -359,6 +369,11 @@ def get_user(user_id: UserId) -> User:
 get_user(42)          # invalid
 get_user(UserId(42))  # valid
 ```
+
+This also enables quickly creating a thin abstraction over the underlying type, which helps reduce
+future refactoring. The actual implementation type can later be changed(for example to a custom
+class implementation) without breaking typing consistency everywhere and having to rewrite all
+interfaces.
 
 ## Integrating into workflow {#integrating-into-workflow}
 
@@ -405,7 +420,7 @@ ignore_missing_imports = true
 
 ### **Pre-commit** {#pre-commit}
 
-To Install /run
+To Install and run
 
 ```bash
 pip install pre-commit
@@ -448,7 +463,7 @@ repos:
 
 ### Tox {#tox}
 
-We can also use `tox` to run mypy with our other linters via `pre-commit` this allows for a unified
+We can also use `tox` to run mypy with our other linters via `pre-commit`. This allows for a unified
 workflow, and it is run in our CI.
 
 ```
@@ -464,21 +479,21 @@ commands = pre-commit run --all-files
 ### PyCharm {#pycharm}
 
 [PyCharm](https://www.jetbrains.com/pycharm/download/#section=linux) supports Type Hinting and code
-completion out of the box
+completion out of the box.
 
 ### VSCode {#vscode}
 
-[VSCode](https://code.visualstudio.com/download) supports with via the
+[VSCode](https://code.visualstudio.com/download) supports type checking via the
 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) extension
-and can be enabled with this in your `settings.json`
+and can be enabled by adding this option to your `settings.json` file.
 
 ```json
 {"python.analysis.typeCheckingMode": "basic"}  # or "strict"
 ```
 
-Also, mypy
-plugin([https://code.visualstudio.com/docs/python/linting#\_mypy](https://code.visualstudio.com/docs/python/linting#_mypy),
-[https://marketplace.visualstudio.com/items?itemName=matangover.mypy](https://marketplace.visualstudio.com/items?itemName=matangover.mypy))
+Also, the [mypy plugin](https://marketplace.visualstudio.com/items?itemName=matangover.mypy)
+directly
+[supports mypy as the type checker](https://code.visualstudio.com/docs/python/linting#_mypy).
 
 ### Jedi {#jedi}
 
@@ -489,13 +504,13 @@ VSCode, Vim, Emacs, Kate and many others can also make use of them via
 
 ### Unknown type {#unknown-type}
 
-If it is not possible to know what type a function can return or it can accept any value, you can
-use `TypeVar` to pass through the value or use `Any` which matches any type. Try to avoid as much as
-possible though and instead use TypeVar or [Generics](#generics).
+If it is not possible to know what type a function can return, or if it can accept any value, you
+can use `TypeVar` to pass through the value or use `Any` which matches any type. Try to avoid `Any`
+as much as possible though and instead use TypeVar or [Generics](#generics).
 
 ### Ignoring types {#ignoring-types}
 
-In rare cases it might be required to ignore a type.
+In rare cases it might be required to tell type checkers to ignore a line of code.
 
 ```python
 test: int  # type: ignore
