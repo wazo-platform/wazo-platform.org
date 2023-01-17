@@ -24,22 +24,9 @@ def my_method(db: Database) -> None:
     self.db: Database = db
 ```
 
-If a function always
-
-### Typing attributes {#typing-attributes}
-
-```python
-class MyClass:
-    default_number: int = 1
-    will_be_set_later: str = None  # type: ignore[assignment]
-
-    def __init__(self, db: Database) -> None:  # __init__ always returns None
-        self.db: Database = db
-```
-
-If there is no `return` statement or value methods will still transparently return `None` behind the
-scenes and thus should be typed with `-> None`. However, if a method _always_ raise an exception you
-can use the special `NoReturn` type which indicates the code after will eb inaccessible.
+If there are no `return` statements or values, methods will still transparently return `None` behind
+the scenes and thus should be typed with `-> None`. However, if a method _always_ raise an exception
+you can use the special `NoReturn` type which indicates the code after will be inaccessible.
 
 ```python
 from typing import NoReturn
@@ -49,6 +36,26 @@ def fail() -> NoReturn:
 
 def do_nothing() -> None:
     pass  # This method does nothing, but still "returns" None as it does not raise an exception.
+
+class MyClass:
+    def __init__(self) -> None:  # __init__ returns None
+        ...
+```
+
+### Typing attributes {#typing-attributes}
+
+```python
+class MyClass:
+    default_number: int = 1
+    will_be_set_later: str = None  # type: ignore[assignment]
+
+    def __init__(self, timeout: int = 15) -> None:
+        self.timeout = timeout  # No need to type this as it is inferred from above
+        self.names: list[str] = []  # when creating collections, it's important to type future contents
+        self.setup()
+
+    def setup(self) -> None:
+        self.will_be_set_later = 'hello'
 ```
 
 ### Multiple types (Unions) {#union-types}
@@ -454,12 +461,12 @@ commands = pre-commit run --all-files
 
 ## Editor integrations {#editor-integration}
 
-### PyCharm
+### PyCharm {#pycharm}
 
 [PyCharm](https://www.jetbrains.com/pycharm/download/#section=linux) supports Type Hinting and code
 completion out of the box
 
-### VSCode
+### VSCode {#vscode}
 
 [VSCode](https://code.visualstudio.com/download) supports with via the
 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) extension
@@ -473,20 +480,20 @@ Also, mypy
 plugin([https://code.visualstudio.com/docs/python/linting#\_mypy](https://code.visualstudio.com/docs/python/linting#_mypy),
 [https://marketplace.visualstudio.com/items?itemName=matangover.mypy](https://marketplace.visualstudio.com/items?itemName=matangover.mypy))
 
-### Jedi
+### Jedi {#jedi}
 
 VSCode, Vim, Emacs, Kate and many others can also make use of them via
 [Jedi](https://github.com/davidhalter/jedi).
 
-## Special cases:
+## Special cases {#special-cases}
 
-### Unknown type
+### Unknown type {#unknown-type}
 
 If it is not possible to know what type a function can return or it can accept any value, you can
 use `TypeVar` to pass through the value or use `Any` which matches any type. Try to avoid as much as
 possible though and instead use TypeVar or [Generics](#generics).
 
-### Ignoring types:
+### Ignoring types {#ignoring-types}
 
 In rare cases it might be required to ignore a type.
 
@@ -494,4 +501,24 @@ In rare cases it might be required to ignore a type.
 test: int  # type: ignore
 # https://mypy.readthedocs.io/en/stable/error_codes.html#error-codes
 test: int = None  # type: ignore[error-code]
+```
+
+For example, sometimes variables are set to `None`, but are initialized before anything is run, and
+thus are never really `None`. In theses cases, you can ignore the type for assignment only.
+
+```python
+from configparser import RawConfigParser
+
+MY_CONFIG: RawConfigParser = None  # type: ignore[assignment]
+
+def is_debug() -> bool:
+  return MY_CONFIG['DEBUG'] is True  # mypy knows this is not None
+
+
+def init() -> None:
+    global MY_CONFIG
+    with open('config.ini') as f:
+        config = RawConfigParser()
+        config.read_file(f)
+        MY_CONFIG = config
 ```
