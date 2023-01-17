@@ -25,7 +25,7 @@ desired repositories on you hard drive and start coding.
 Most of Wazo Platform is written in Python, following the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can
 use a tool such as [flake8](http://flake8.pycqa.org/en/latest/) to
-validate that your code respects the standards. Some repositories also
+validate that your code respects the standards. Most repositories also
 include the appropriate configuration to check your code using the tox
 command `tox -e linters`. More details in the [Style Guide](/uc-doc/contributors/style_guide)
 
@@ -92,10 +92,10 @@ After writing your code and checking that it does not break any tests,
 you should try it. The "easiest" way to do so is to use a virtual
 machine with a working engine. You should avoid testing in a production
 environment to avoid outage for you and your users. To install your test
-engine follow the [install](/uc-doc/installation/install-system) documentation.
+engine follow the [installation](/uc-doc/installation/install-system) documentation.
 
 Now that you have a test engine, you want to try your code on it. Before
-starting I suggest you take a snapshot of your virtual machine to be
+starting, I suggest you take a snapshot of your virtual machine to be
 able to come back to a clean install whenever needed. Then you can use
 [wdk](http://github.com/wazo-platform/wazo-sdk) to update the code running on
 your test platform.

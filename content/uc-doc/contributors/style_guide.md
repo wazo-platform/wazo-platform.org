@@ -8,10 +8,10 @@ title: Style Guide
 
 Python files the GPLv3 license. A blank line should separate the license from the imports
 
-Example:
+#### Example:
 
 ```python
-# Copyright 2021 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import argparse
@@ -20,11 +20,11 @@ import argparse
 ### Spacing {#spacing}
 
 - Lines should not go further than 80 to 100 characters.
-- In python, indentation blocks use 4 spaces
-- Imports should be ordered alphabetically
+- In Python, indentation blocks use 4 spaces
+- Imports should be sorted alphabetically
 - Separate module imports and `from` imports with a blank line
 
-Example:
+#### Example:
 
 ```python
 import argparse
@@ -34,53 +34,40 @@ import re
 import shutil
 import tempfile
 
-from StringIO import StringIO
-from urllib import urlencode
+from io import StringIO
+from urllib.parse import urlencode
 ```
 
-### Black
+### General Style Rules
 
-When possible, use black to validate your code.
+To try and maintain a clean and consistent code base we use `black`, which is a tool that enforces a
+slightly stricter subset of Python's [PEP8](https://peps.python.org/pep-0008/) and `flake8`. There
+is a good explanation of the rules and reasons on
+[its website](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html). You
+can run linters in all projects via `tox` with `tox -e linters` to check if your code is correctly
+formatted. The CI will run this automatically too and fail if the code isn't conform.
 
-Example:
-
-```shell
-tox -e black
-```
-
-When possible, avoid using backslashes to separate lines.
-
-Bad Example:
-
-```python
-user = session.query(User).filter(User.firstname == firstname)\
-                          .filter(User.lastname == lastname)\
-                          .filter(User.number == number)\
-                          .all()
-```
-
-Good Example:
-
-```python
-user = (session.query(User).filter(User.firstname == firstname)
-                           .filter(User.lastname == lastname)
-                           .filter(User.number == number)
-                           .all())
-```
+In newer projects we also have [`pre-commit`](https://pre-commit.com/) to run and apply the fixes
+automatically in some cases as well as [`mypy`](https://mypy.readthedocs.io/en/stable/) for static
+type checking (see [type checking below](#typing). Pre-commit can be installed via pip
+(`pip install pre-commit`) and either run manually via `pre-commit run --all-files` or automatically
+as a hook (just run `pre-commit install` in the repo and it will run automatically in future before
+each commit). For backwards compatibility it can also be run via `tox -e linters`.
 
 ### Strings {#strings}
 
-Avoid using the `+` operator for concatenating strings. Use format string instead.
+Avoid using the `+` operator for concatenating strings. Use string interpolation ("f-strings")
+instead.
 
-Bad Example:
+#### Bad Example:
 
-```
+```python
 phone_interface = 'SIP' + '/' + username + '-' + password
 ```
 
-Good Example:
+#### Good Example:
 
-```
+```python
 phone_interface = f'SIP/{username}-{password}'
 ```
 
@@ -88,73 +75,42 @@ phone_interface = f'SIP/{username}-{password}'
 
 Redundant comments should be avoided. Instead, effort should be put on making the code clearer.
 
-Bad Example:
+#### Bad Example:
 
 ```python
-#Add the meeting to the calendar only if it was created on a week day
-#(monday to friday)
+# Add the meeting to the calendar only if it was created on a week day
+# (monday to friday)
 if meeting.day > 0 and meeting.day < 7:
     calendar.add(meeting)
 ```
 
-Good Example:
+#### Good Example:
 
 ```python
-def created_on_week_day(meeting):
-    return meeting.day > 0 and meeting.day < 7
+def created_on_week_day(meeting: Meeting) -> bool:
+    return 0 < meeting.day < 7
+
 
 if created_on_week_day(meeting):
     calendar.add(meeting)
 ```
 
-### Conditions {#conditions}
-
-Avoid using parenthesis around if statements, unless the statement expands on multiple lines or you
-need to nest your conditions.
-
-Bad Examples:
-
-```python
-if(x == 3):
-    print("condition is true")
-
-if(x == 3 and y == 4):
-    print("condition is true")
-```
-
-Good Examples:
-
-```python
-if x == 3:
-    print("condition is true")
-
-if x == 3 and y == 4:
-    print("condition is true")
-
-if (extremely_long_variable == 3
-    and another_long_variable == 4
-    and yet_another_variable == 5):
-
-    print("condition is true")
-
-if (2 + 3 + 4) - (1 + 1 + 1) == 6:
-    print("condition is true")
-```
+### Use functions for clarity
 
 Consider refactoring your statement into a function if it becomes too long, or the meaning isn't
 clear.
 
-Bad Example:
+#### Bad Example:
 
 ```python
 if price * tax - bonus / reduction + fee < money:
     product.pay(money)
 ```
 
-Good Example:
+#### Good Example:
 
 ```python
-def calculate_price(price, tax, bonus, reduction, fee):
+def calculate_price(price: float, tax: float, bonus: float, reduction: float, fee: float) -> float:
     return price * tax - bonus / reduction + fee
 
 final_price = calculate_price(price, tax, bonus, reduction, fee)
@@ -165,19 +121,20 @@ if final_price < money:
 
 ## Naming {#naming}
 
-- Class names are in `CamelCase`
-- File names are in `lower_underscore_case`
+- Class names are in `PascalCase` (Upper Camel Case)
+- File, method and variable names are in `lower_snake_case`
+- "constants" are in `UPPER_CASE`
 
-Conventions for functions prefixed by `find`:
+### Conventions for functions prefixed by `find`:
 
 - Return None when nothing is found
 - Return an object when a single entity is found
 - Return the first element when multiple entities are found
 
-Example:
+#### Example:
 
 ```python
-def find_by_username(username):
+def find_by_username(username: str) -> User | None:
     users = [user1, user2, user3]
     user_search = [user for user in users if user.username == username]
 
@@ -187,34 +144,34 @@ def find_by_username(username):
     return user_search[0]
 ```
 
-Conventions for functions prefixed by `get`:
+### Conventions for functions prefixed by `get`:
 
 - Raise an Exception when nothing is found
 - Return an object when a single entity is found
 - Return the first element when multiple entities are found
 
-Example:
+#### Example:
 
 ```python
-def get_user(userid):
+def get_user(user_id: str) -> User:
     users = [user1, user2, user3]
-    user_search = [user for user in users if user.userid == userid]
+    user_search = [user for user in users if user.userid == user_id]
 
     if len(user_search) == 0:
-        raise UserNotFoundError(userid)
+        raise UserNotFoundError(user_id)
 
     return user_search[0]
 ```
 
-Conventions for functions prefixed by `find_all`:
+### Conventions for functions prefixed by `find_all`:
 
 - Return an empty list when nothing is found
-- Return a list of objects when multiple entites are found
+- Return a list of objects when multiple entities are found
 
-Example:
+#### Example:
 
 ```python
-def find_all_users_by_username(username):
+def find_all_users_by_username(username: str) -> list[User]:
     users = [user1, user2, user3]
     user_search = [user for user in users if user.username == username]
 
@@ -223,14 +180,14 @@ def find_all_users_by_username(username):
 
 ### Magic numbers {#magic-numbers}
 
-Magic numbers should be avoided. Arbitrary values should be assigned to variables with a clear name
+Magic numbers should be avoided. Arbitrary values should be assigned to variables with a clear name.
 
-Bad example:
+#### Bad example:
 
 ```python
-class TestRanking(unittest.TestCase):
+class TestRanking(TestCase):
 
-    def test_ranking(self):
+    def test_ranking(self) -> None:
         rank = Rank(1, 2, 3)
 
         self.assertEquals(rank.position, 1)
@@ -238,12 +195,12 @@ class TestRanking(unittest.TestCase):
         self.assertEquals(rank.session, 3)
 ```
 
-Good example:
+#### Good example:
 
 ```python
-class TestRanking(unittest.TestCase):
+class TestRanking(TestCase):
 
-    def test_ranking(self):
+    def test_ranking(self) -> None:
         position = 1
         grade = 2
         session = 3
@@ -257,27 +214,31 @@ class TestRanking(unittest.TestCase):
 
 ## Tests {#tests}
 
+### Place tests along side the code
+
 Tests for a package are placed in their own folder named `tests` inside the package.
 
-Example:
+#### Example:
 
 ```
-package1/
-__init__.py
-mod1.py
-tests/
-    __init__.py
-    test_mod1.py
-package2/
-__init__.py
-mod9.py
-tests/
-    __init__.py
-    test_mod9.py
+├── package1
+│   ├── __init__.py
+│   ├── mod1.py
+│   └── tests/
+│       ├── __init__.py
+│       └── test_mod1.py
+├── package2/
+│   ├── __init__.py
+│   ├── mod9.py
+│   └── tests/
+│       ├── __init__.py
+│       └── test_mod9.py
 ```
+
+### Short and clear tests
 
 Unit tests should be short, clear and concise in order to make the test easy to understand. A unit
-test is separated into 3 sections :
+test is separated into 3 sections:
 
 - Preconditions / Preparations
 - Thing to test
@@ -286,30 +247,29 @@ test is separated into 3 sections :
 Sections are separated by a blank line. Sections that become too big should be split into smaller
 functions.
 
-Example:
+#### Example:
 
 ```python
-class UserTestCase(unittest.TestCase):
+class UserTestCase(TestCase):
 
-    def test_fullname(self):
+    def test_full_name(self) -> None:
         user = User(firstname='Bob', lastname='Marley')
         expected = 'Bob Marley'
 
-        fullname = user.fullname()
+        fullname = user.full_name()
 
         self.assertEquals(expected, fullname)
 
-    def _prepare_expected_user(self, firstname, lastname, number):
+    def _prepare_expected_user(self, first_name: str, last_name: str, number: str) -> User:
         user = User()
-        user.firstname = firstname
-        user.lastname = lastname
+        user.first_name = first_name
+        user.last_name = last_name
         user.number = number
-
         return user
 
-    def _assert_users_are_equal(expected_user, actual_user):
-        self.assertEquals(expected_user.firstname, actual_user.firstname)
-        self.assertEquals(expected_user.lastname, actual_user.lastname)
+    def _assert_users_are_equal(self, expected_user: User, actual_user: User) -> None:
+        self.assertEquals(expected_user.first_name, actual_user.first_name)
+        self.assertEquals(expected_user.last_name, actual_user.last_name)
         self.assertEquals(expected_user.number, actual_user.number)
 
     def test_create_user(self):
@@ -322,17 +282,18 @@ class UserTestCase(unittest.TestCase):
 
 ## Exceptions {#exceptions}
 
+### Don't use exceptions for flow control
+
 Exceptions should not be used for flow control. Raise exceptions only for edge cases, or when
 something that isn't usually expected happens.
 
-Bad Example:
+#### Bad Example:
 
 ```python
-def is_user_available(user):
+def is_user_available(user: User) -> bool:
     if user.available():
         return True
-    else:
-        raise Exception("User isn't available")
+    raise Exception("User isn't available")
 
 try:
     is_user_available(user)
@@ -340,55 +301,58 @@ except Exception:
     disable_user(user)
 ```
 
-Good Example:
+#### Good Example:
 
 ```python
-def is_user_available(user):
-    if user.available():
-        return True
-    else:
-        return False
+def is_user_available(user: User) -> bool:
+    return user.available()
 
 
 if not is_user_available(user):
     disable_user(user)
 ```
 
-Avoid throwing `Exception`. Use one of Python's built-in Exceptions, or create your own custom
-Exception. A list of exceptions is available on
+### Avoid throwing a generic `Exception`
+
+Use one of Python's built-in Exceptions, or create your own custom Exception class. This helps
+ensure that the cause of the Exception is clear and allows you to safely catch expected exceptions
+and not accidentally silence unexpected ones. A list of exceptions is available on
 [the Python documentation website](https://docs.python.org/3/library/exceptions.html).
 
-Bad Example:
+#### Bad Example:
 
 ```python
-def get_user(userid):
-    user = session.query(User).get(userid)
+def get_user(user_id: str) -> User:
+    user = session.query(User).get(user_id)
 
     if not user:
         raise Exception("User not found")
 ```
 
-Good Example:
+#### Good Example:
 
 ```python
 class UserNotFoundError(LookupError):
 
-    def __init__(self, userid):
-        message = f"user with id {userid} not found"
-        LookupError.__init__(self, message)
+    def __init__(self, user_id: str) -> None:
+        super().__init__(f"User with id {user_id} not found")
 
-def get_user(userid):
-    user = session.query(User).get(userid)
+def get_user(user_id: str) -> User:
+    user = session.query(User).get(user_id)
 
     if not user:
         raise UserNotFoundError(userid)
+    return user
 ```
+
+### Always specify an Exception in `except:` blocks
 
 Never use `except:` without specifying any exception type. The reason is that it will also catch
 important exceptions, such as `KeyboardInterrupt` and `OutOfMemory` exceptions, making your program
-unstoppable or continuously failing, instead of stopping when wanted.
+unstoppable or continuously failing, instead of stopping when wanted. This also avoids accidentally
+catching unexpected issues which then fail silently.
 
-Bad Example:
+#### Bad Example:
 
 ```python
 try:
@@ -397,7 +361,7 @@ except:
     logger.exception("There was an error")
 ```
 
-Good Example:
+#### Good Example:
 
 ```python
 try:
@@ -406,3 +370,64 @@ except UserNotFoundError as e:
     logger.error(e.message)
     raise
 ```
+
+## Type Hinting {#typing}
+
+When possible, code should include [type hints](https://peps.python.org/pep-0484) to help avoid
+ambiguity, help with debugging and, allow for static type checking. For some common use cases and
+more examples, please see [Type hinting examples](/uc-doc/typing.md).
+
+### Clarity
+
+Type hinting allows one to clearly identify what a function receives and what it returns. The more
+precise you can get with your typing the easier the code will be to understand.
+
+#### Bad Example:
+
+```python
+def get_user(user_id):
+    user = find_user(user_id)
+    if not user:
+      raise UserNotFound(user_id)
+    return user
+```
+
+In this example, it is unclear what we are dealing with. Is the `user_id` a `str`, an `int`, a
+`UUID`? What is the `user` we return? A `User` object, a dict (if so what keys?), a name?
+
+#### Good example:
+
+```python
+from typing import TypedDict, Union, TYPE_CHECKING
+
+class UserData(TypedDict):
+    first_name: str
+    last_name: str
+    email: str | None
+
+
+def get_user(user_id: str) -> UserData:
+    user = find_user(user_id)
+    if not user:
+      raise UserNotFound(user_id)
+    return user
+```
+
+### Running the type checker (mypy) {#typing-checking}
+
+We use [`mypy`](https://mypy.readthedocs.io/en/stable/) to do type checking, and it is run via
+[`pre-commit`](https://pre-commit.com/). It can either be run automatically as a git pre-commit hook
+(after `pre-commit install` in your repo), manually with `pre-commit run --all-files` or via tox
+with `tox -e linters`. It is configured in the `pyproject.toml` file.
+
+### Laziness
+
+Any file that contains type annotations should, ideally, include
+`from __future__ import annotations` at the top. This ensures:
+
+- We don't waste effort evaluating types at runtime
+- We can use features from later version of Python without errors at runtime
+- You can reference classes before they are defined
+
+Always including it will avoid accidentally forgetting it when adding new types too. See more about
+[lazy type annotations here](/uc-doc/typing#lazy-annotations)
