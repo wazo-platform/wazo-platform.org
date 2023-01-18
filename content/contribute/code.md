@@ -74,7 +74,7 @@ make test-setup
 make test
 ```
 
-For more details see [integration tests documentation](/uc-doc/contributors/integration-tests.md)
+For more details see [integration tests documentation](/uc-doc/contributors/integration-tests)
 
 ## Acceptance tests
 
