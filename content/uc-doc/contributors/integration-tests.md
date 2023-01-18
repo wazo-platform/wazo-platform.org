@@ -7,7 +7,7 @@ The integration tests rely directly on [`docker`](https://docs.docker.com/) and
 
 Additional python dependencies (including test runners, frameworks and any tool and library used by
 the tests) are made available in a pip `integration_tests/test-requirements.txt` file, to be be
-installed into a specific virtual environment.
+installed into a virtual environment.
 
 ## Structure
 
@@ -78,7 +78,7 @@ pytest -k 'pjsip_conf' suite/
 ## Docker
 
 The tests rely on a containerized deployment of the codebase under test. The container image for the
-codebase can be built using the a dockerfile available in the `integration_tests/docker` directory.
+codebase can be built using the dockerfile available in the `integration_tests/docker` directory.
 
 Current conventions prescribe the pattern `Dockerfile-<service>` for the name of the dockerfiles,
 where `<service>` might be a short name descriptive of the purpose of the image (e.g.
