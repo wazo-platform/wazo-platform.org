@@ -5,7 +5,7 @@ services:
     image: python:3.7-buster
     volumes:
       - ./public:/app/public:ro
-    expose:
+    ports:
       - '8000'
     command: bash -c "cd /app/public && python -m http.server 8000"
 
