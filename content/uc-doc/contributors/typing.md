@@ -3,10 +3,10 @@ title: Type Hinting
 ---
 
 Here are some examples and basics on typing. More information on the why and how to run type
-checking can be found in [our style guide](style_guide.md) This is just a summary and some common
-examples, but more examples on Type Hinting in Python can be found in the documentation for
-[Python](https://docs.python.org/3.10/library/typing.html) and mypy also has a very helpful
-[Cheatsheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+checking can be found in [our style guide](/uc-doc/contributors/style_guide) This is just a summary
+and some common examples, but more examples on Type Hinting in Python can be found in the
+documentation for [Python](https://docs.python.org/3.10/library/typing.html) and mypy also has a
+very helpful [Cheatsheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 
 ## Basics {#basics}
 

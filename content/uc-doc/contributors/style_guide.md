@@ -375,7 +375,7 @@ except UserNotFoundError as e:
 
 When possible, code should include [type hints](https://peps.python.org/pep-0484) to help avoid
 ambiguity, help with debugging and, allow for static type checking. For some common use cases and
-more examples, please see [Type hinting examples](/uc-doc/typing.md).
+more examples, please see [Type hinting examples](/uc-doc/typing).
 
 ### Clarity
 
