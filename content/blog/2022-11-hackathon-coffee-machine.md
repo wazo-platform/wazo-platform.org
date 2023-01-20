@@ -10,7 +10,7 @@ status: published
 
 Like every year, the Wazo hackathon was the occasion to try something new. There were various teams building in various directions, our team said "What if we made a virtual coffee machine? How far can we push Wazo to accomodate specific workflows?"
 
-Our team was composed of [Sylvain Boily](https://github.com/sboily), tinkerer of Doom and founder of Wazo, [Jean-François Gauthier](https://github.com/bogue), able to hide the most dreadful hacks behind delightful UIs and [Sébastien Duthil](https://github.com/sduthil), backend developer.
+Our team was composed of [Sylvain Boily](https://github.com/sboily), tinkerer of Doom and founder of Wazo, [Jean-François Gauthier](https://github.com/bogue), able to hide the most dreadful hacks behind delightful UIs and [Sébastien Duthil](https://github.com/sduthil), Wazo's puppet master.
 
 We used the commercial Wazo application to create the Coffee Machine The app usually looks like this:
 
@@ -38,8 +38,6 @@ Same thing, as a diagram:
 
 For the Coffee Machine we needed a few extra API in the Wazo server to add the plugin-specific logic we could not handle in the browser: music start and pause, music volume, relaying server events to a plugin-specific WebSocket. Those APIs were also added in the form of a server plugin.
 
-The code of the Coffee Machine plugin can be found at https://github.com/TinxHQ/hackathon-coffee. This is only an example of what Wazo can do, and keep in mind that it was written in only a few hours, so it may not be the cleanest code ever...
+The code of the Coffee Machine plugin can be found on [Github](https://github.com/TinxHQ/hackathon-coffee). This is only an example of what Wazo can do, and keep in mind that it was written in only a few hours, so it may not be the cleanest code ever...
 
-The documentation for writing plugins can be found at https://wazo-communication.github.io/euc-plugins-js-sdk/docs/web-desktop-application/
-
-
+Curious how our enterprise's SDK enable customization for our apps easily? Take a look at our [plugin documentation](https://wazo-communication.github.io/euc-plugins-js-sdk/docs/web-desktop-application/).
