@@ -6,9 +6,8 @@ title: Upgrade notes
 
 - This version introduces the removal of various deprecated classes in the bus library:
 
-  - `Marshaller`, `PublishingQueue`, `FailFastPublisher`, `LongLivedPublisher`
-
-  - `BaseEvent`, `ResourceConfigEvent` and `ArbitraryEvent` have been removed
+  - `Marshaller`, `PublishingQueue`, `FailFastPublisher`, `LongLivedPublisher`,  `BaseEvent`, 
+    `ResourceConfigEvent` and `ArbitraryEvent` have been removed
 
   If you have custom scripts still relying on `ArbitraryEvent`, you should update your code to use
   either `ServiceEvent`, `TenantEvent` or `UserEvent` instead.
