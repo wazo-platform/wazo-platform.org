@@ -2,6 +2,21 @@
 title: Upgrade notes
 ---
 
+## 23.02 {#23-02}
+
+- This version introduces the removal of various deprecated classes in the bus library:
+
+  - `Marshaller`, `PublishingQueue`, `FailFastPublisher`, `LongLivedPublisher`
+
+  - `BaseEvent`, `ResourceConfigEvent` and `ArbitraryEvent` have been removed
+
+  If you have custom scripts still relying on `ArbitraryEvent`, you should update your code to use
+  either `ServiceEvent`, `TenantEvent` or `UserEvent` instead.
+
+Consult the
+[23.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.02)
+for more information.
+
 ## 23.01 {#23-01}
 
 - All Wazo clients are now only compatible with Python 3 (the version included in the current
