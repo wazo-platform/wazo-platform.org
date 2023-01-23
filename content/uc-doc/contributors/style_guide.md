@@ -375,7 +375,7 @@ except UserNotFoundError as e:
 
 When possible, code should include [type hints](https://peps.python.org/pep-0484) to help avoid
 ambiguity, help with debugging and, allow for static type checking. For some common use cases and
-more examples, please see [Type hinting examples](/uc-doc/typing).
+more examples, please see [Type hinting examples](/uc-doc/contributors/typing).
 
 ### Clarity
 
@@ -430,4 +430,4 @@ Any file that contains type annotations should, ideally, include
 - You can reference classes before they are defined
 
 Always including it will avoid accidentally forgetting it when adding new types too. See more about
-[lazy type annotations here](/uc-doc/typing#lazy-annotations)
+[lazy type annotations here](/uc-doc/contributors/typing#lazy-annotations)
