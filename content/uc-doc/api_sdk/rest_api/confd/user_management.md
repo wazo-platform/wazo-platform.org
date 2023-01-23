@@ -220,8 +220,8 @@ OR
 As you may see in the previous chapter, there are a lot of steps to follow, in a specific order, to be able to correctly set up a new “telephony” user with all main features enabled.
 
 To help developers to quickly create new users and easily understand the information needed, the user creation process has been recently revamped. This allows developers to create new users with just one endpoint (instead of having to call many endpoints) and to properly/automatically manage at the server-side:
-the attachments (the link between the user and their related resources) 
-the rollback in case of errors (if one of the resource creations fails).
+* the attachments (the link between the user and their related resources) 
+* the rollback in case of errors (if one of the resource creations fails)
 
 
 **Warning**:
