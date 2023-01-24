@@ -20,7 +20,7 @@ There is a case where directed pickup does not work, which is the following:
 
 ```gherkin
 Given you have a user U with a line of type "customized"
-Given this custom line is using DAHDI technology
+Given this custom line is using Custom technology
 Given this user is a member of group G
 When a call is made to group G
 Then you won't be able to intercept the call made to U by pressing *8<line number of U>
@@ -31,7 +31,7 @@ If you find yourself in this situation, you'll need to write a bit of dialplan.
 For example, if you have the following:
 
 - a user with a custom line with number 1001 in context default
-- a custom line with interface `DAHDI/g1/5551234`
+- a custom line with interface `Custom/g1/5551234`
 
 Then add the following, or similar:
 
@@ -39,7 +39,7 @@ Then add the following, or similar:
 [custom_lines]
 exten = line1001,1,NoOp()
 same  = n,Set(__PICKUPMARK=1001%default)
-same  = n,Dial(DAHDI/g1/5551234)
+same  = n,Dial(Custom/g1/5551234)
 same  = n,Hangup()
 ```
 

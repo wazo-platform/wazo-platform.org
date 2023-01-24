@@ -407,8 +407,7 @@ for more information.
 
 - dahdi-linux-modules has been removed by default if no configuration found (i.e.
   `/etc/asterisk/dahdi_channels.conf`). Moreover, wazo-upgrade will stop to upgrade this package by
-  default. If you need dahdi and want to keep automatic upgrade, see
-  [dahdi upgrade section](/uc-doc/administration/hardware/chan_dahdi.md#dahdi-upgrade)
+  default.
 
 Consult the
 [21.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.01)

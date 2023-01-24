@@ -37,7 +37,7 @@ this example) : if a fax is detected, receive it otherwise route the call normal
 **Note**: This workaround works only:
 
 - on incoming calls towards an User (and an User only),
-- if the incoming trunk is a DAHDI or a SIP trunk,
+- if the incoming trunk is a SIP trunk,
 - if the user has a voicemail which is activated and with the email field filled
 
 Be aware that this workaround will probably not survive any upgrade.
@@ -58,9 +58,7 @@ Be aware that this workaround will probably not survive any upgrade.
    same  =   n(return),Return()
 
    exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-   same  =     n,GotoIf($["${CHANNEL(channeltype)}" = "DAHDI"]?changeechocan:continue)
-   same  =     n(changeechocan),Set(CHANNEL(echocan_mode)=fax) ; if chan type is dahdi set echo canceller in fax mode
-   same  =     n(continue),Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+   same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
    ```
 
 2. In the file `/etc/xivo/asterisk/xivo_globals.conf` set the global user subroutine to
@@ -70,7 +68,7 @@ Be aware that this workaround will probably not survive any upgrade.
    XIVO_PRESUBR_GLOBAL_USER = pre-user-global-faxdetection
    ```
 
-3. Reload asterisk configuration (both for dialplan and dahdi):
+3. Reload asterisk configuration (for dialplan):
 
    ```shell
    asterisk -rx 'core reload'

@@ -38,7 +38,6 @@ Here is the list of folders and files that are backed-up:
 
 - `/etc/asterisk/`
 - `/etc/crontab`
-- `/etc/dahdi/`
 - `/etc/dhcp/`
 - `/etc/hostname`
 - `/etc/hosts`
