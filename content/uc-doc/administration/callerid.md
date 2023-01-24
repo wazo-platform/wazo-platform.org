@@ -25,9 +25,9 @@ The current logic for outgoing calls is:
 
 - If the call is not emitted by a user: use the outgoing call's CallerID
 - If the call is emitted by a user:
-  - If the `ougoing_caller_id` is Default, use the outgoing call's CallerID
-  - If the `ougoing_caller_id` is Anonymous, remove the CallerID
-  - If the `ougoing_caller_id` is set, use it
+  - If the `outgoing_caller_id` is Default, use the outgoing call's CallerID
+  - If the `outgoing_caller_id` is Anonymous, remove the CallerID
+  - If the `outgoing_caller_id` is set, use it
 
 Once the call is sent into the trunk, the operator may still override the CallerID before routing
 the call to the destination. Each operator has its own rules about CallerID: some will always
