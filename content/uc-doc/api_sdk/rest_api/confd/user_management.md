@@ -14,6 +14,32 @@ The purpose of this page is to explain how to set up a fully operational “tele
 
 Want more information about the user's API, consult the [API documentation](/documentation/api/configuration.html#tag/users/operation/create_user).
 
+## Create User (the new way)
+
+As you may see in the previous chapter, there are a lot of steps to follow, in a specific order, to be able to correctly set up a new “telephony” user with all main features enabled.
+
+To help developers to quickly create users and easily understand the information needed, the user creation process has been revamped. This allows developers to use one single endpoint, instead of having to call many endpoints. Also relations and complete validation/rollback are handled at the server-side:
+
+- the attachments (the link between the user and their related resources)
+- the rollback in case of errors (if one of the resource creations fails)
+
+**Warning**:
+The following resources must be created before, when needed:
+
+- Switchboards
+- Groups
+- Functions Keys Templates
+
+Below is the only step to create the user.
+
+### A Single `POST` Request
+
+- Create the “telephony” user and all the required resources needed to be fully operational ([API Reference](/documentation/api/configuration.html#tag/users/operation/create_user)):
+  ```markdown
+  POST /users
+  ```
+  Voilà! The user and related resources will be created from this single endpoint. If the payload is not right, nothing will be created and you will receive a complete error message.
+
 ## Create User (the old way)
 
 The Wazo REST API historically provides HTTP endpoints helping developers to manage resources at a very low level (i.e. developers manage the resources, one by one).
@@ -223,29 +249,3 @@ OR
   ```markdown
   PUT /users/<user_id>/funckeys/templates/<template_id>
   ```
-
-## Create User (the new way)
-
-As you may see in the previous chapter, there are a lot of steps to follow, in a specific order, to be able to correctly set up a new “telephony” user with all main features enabled.
-
-To help developers to quickly create users and easily understand the information needed, the user creation process has been revamped. This allows developers to use one single endpoint, instead of having to call many endpoints. Also relations and complete validation/rollback are handled at the server-side:
-
-- the attachments (the link between the user and their related resources)
-- the rollback in case of errors (if one of the resource creations fails)
-
-**Warning**:
-The following resources must be created before, when needed:
-
-- Switchboards
-- Groups
-- Functions Keys Templates
-
-Below is the only step to create the user.
-
-### A Single `POST` Request
-
-- Create the “telephony” user and all the required resources needed to be fully operational ([API Reference](/documentation/api/configuration.html#tag/users/operation/create_user)):
-  ```markdown
-  POST /users
-  ```
-  Voilà! The user and related resources will be created from this single endpoint. If the payload is not right, nothing will be created and you will receive a complete error message.
