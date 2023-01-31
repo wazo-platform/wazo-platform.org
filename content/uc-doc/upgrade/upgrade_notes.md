@@ -19,7 +19,6 @@ title: Upgrade notes
   - `apt purge wazo-asterisk-extra-modules`
   - Remove `/usr/share/wazo-upgrade/pre-start.d/upgrade-dahdi-linux-modules.sh`
 
-
 Consult the
 [23.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.02)
 for more information.
