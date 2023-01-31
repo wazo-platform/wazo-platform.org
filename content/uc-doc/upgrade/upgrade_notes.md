@@ -12,6 +12,13 @@ title: Upgrade notes
   If you have custom scripts still relying on `ArbitraryEvent`, you should update your code to use
   either `ServiceEvent`, `TenantEvent` or `UserEvent` instead.
 
+- `dahdi-linux-modules` is not supported anymore. Any custom installation using wazo packages must
+  be removed manually:
+  - Remove `/etc/wazo-confgend/conf.d/chan_dahdi.yml`
+  - Remove `chan_dahdi.so` from `/etc/asterisk/modules.conf`
+  - `apt purge wazo-asterisk-extra-modules`
+  - Remove `/usr/share/wazo-upgrade/pre-start.d/upgrade-dahdi-linux-modules.sh`
+
 Consult the
 [23.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.02)
 for more information.
@@ -407,8 +414,7 @@ for more information.
 
 - dahdi-linux-modules has been removed by default if no configuration found (i.e.
   `/etc/asterisk/dahdi_channels.conf`). Moreover, wazo-upgrade will stop to upgrade this package by
-  default. If you need dahdi and want to keep automatic upgrade, see
-  [dahdi upgrade section](/uc-doc/administration/hardware/chan_dahdi.md#dahdi-upgrade)
+  default.
 
 Consult the
 [21.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.01)

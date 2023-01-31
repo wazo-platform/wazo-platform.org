@@ -132,11 +132,10 @@ match on the trunk SIP endpoint to get those calls routed to this endpoint.
 
 ### Customized interconnections
 
-Customized interconnections are mainly used for interconnections using DAHDI or Local channels:
+Customized interconnections are mainly used for interconnections using Local channels:
 
 - `name`: it is the name which will appear in the outcall interconnections list,
-- `interface`: this is the channel name (for DAHDI see
-  [DAHDI interconnections](/uc-doc/administration/interconnections/introduction#interco-dahdi-conf))
+- `interface`: this is the channel name
 - `interface_suffix`: a suffix added after the dialed number (in fact the Dial command will dial:
 
   ```ascii
@@ -144,27 +143,6 @@ Customized interconnections are mainly used for interconnections using DAHDI or 
   ```
 
 - `Context` : currently not relevant
-
-#### DAHDI interconnections {#interco-dahdi-conf}
-
-To use your DAHDI links you must create a customized interconnection.
-
-**name**: the name of the interconnection like `e1_span1` or `bri_port1`
-
-**interface**: must be of the form `dahdi/[group order][group number]` where :
-
-- `group order` is one of :
-  - `g` : pick the first available channel in group, searching from lowest to highest,
-  - `G` : pick the first available channel in group, searching from highest to lowest,
-  - `r` : pick the first available channel in group, going in round-robin fashion (and remembering
-    where it last left off), searching from lowest to highest,
-  - `R` : pick the first available channel in group, going in round-robin fashion (and remembering
-    where it last left off), searching from highest to lowest.
-- `group number` is the group number to which belongs the span as defined in the
-  [/etc/asterisk/dahdi-channels.conf](/uc-doc/administration/hardware/introduction#asterisk-dahdi-channel-conf).
-
-**Warning**: if you use a BRI card you MUST use per-port dahdi groups. You should not use a group
-like g0 which spans over several spans.
 
 ## Debug
 
