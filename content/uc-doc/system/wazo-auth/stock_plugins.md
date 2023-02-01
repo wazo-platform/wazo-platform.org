@@ -9,12 +9,28 @@ Backend name: `wazo_user`
 Purpose: Authenticate a user created by wazo-auth. These users do not map to telephony users at the
 moment.
 
+Note that email addresses and usernames are interchangeable: a user can login with a username /
+password credential or with a email / password credential. As a consequence, a username or an email
+must be unique among all usernames and emails, in order for wazo-auth to identify a user uniquely.
+Furthermore, usernames and emails are case-insensitive. This makes it impossible to have a user A
+with username `bob@example.com` and a user B with an email address `Bob@example.com`. In case of
+conflict, the first user with a matching email address will be logged in.
+
 ## LDAP {#auth-backends-ldap}
 
 Backend name: `ldap_user`
 
 Purpose: Authenticate with an LDAP user. In this case, the LDAP server is used to authenticate while
 wazo-auth is used to identify. This means that an LDAP user must match a user present in wazo-auth.
+
+Note that email addresses and usernames are interchangeable: a user can login with a username /
+password credential or with a email / password credential. As a consequence, a username or an email
+must be unique among all usernames and emails, in order for wazo-auth to identify a user uniquely.
+In case of conflict, the first wazo-auth user with a matching email address will be logged in.
+
+wazo-auth ignores the case of the email addresses on both the LDAP server and on wazo-auth. This
+means that if we have multiple users that match the email address fetched from the LDAP server, the
+first user found on wazo-auth's side will be used.
 
 The LDAP backend is configured for each tenant through a
 [wazo-auth REST API endpoint](/documentation/api/authentication.html#operation/updateLDAPBackendConfig).
