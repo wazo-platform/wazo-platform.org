@@ -275,8 +275,7 @@ for more information.
   create new conference rooms using the conferences API or the `wazo-ui` interface.
 - `DAHDI` is not longer a mandatory dependency of Wazo: it will not be installed on new installs
   anymore. Upgraded Wazo Platform will keep DAHDI installed if it was configured in
-  `/etc/asterisk/dahdi_channels.conf`. Otherwise, DAHDI will be removed. To install or remove DAHDI
-  manually, see [Enabling Chan Dahdi](/uc-doc/administration/hardware/chan_dahdi).
+  `/etc/asterisk/dahdi_channels.conf`. Otherwise, DAHDI will be removed.
 - Some dependencies have been removed from the `asterisk` package. If you used one of the following
   modules you must install the `wazo-asterisk-extra-modules` to keep using those modules. Note that
   all modules listed here are disabled by default on Wazo. You have to manually modify
