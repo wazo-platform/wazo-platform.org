@@ -14,6 +14,7 @@ title: Upgrade notes
 
 - `dahdi-linux-modules` is not supported anymore. Any custom installation using wazo packages must
   be removed manually:
+
   - Remove `/etc/wazo-confgend/conf.d/chan_dahdi.yml`
   - Remove `chan_dahdi.so` from `/etc/asterisk/modules.conf`
   - `apt purge wazo-asterisk-extra-modules`
