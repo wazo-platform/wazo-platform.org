@@ -30,7 +30,7 @@ Then open http://localhost:8000 in your favorite browser.
 
 There is a top-level [`.prettierrc`](/.prettierrc) file for the [prettier](https://github.com/prettier/prettier) formatter.
 
-For `uc-doc` markdown documents, the command `prettier --prose-wrap always 'content/uc-doc/**/*.md'` should be used(and will be checked by CI).
+For `uc-doc` markdown documents, the command `yarn format:uc-doc` should be used (and will be checked by CI).
 
 ## Building
 
