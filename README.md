@@ -26,6 +26,12 @@ make ENV=CORPORATE=1 develop
 
 Then open http://localhost:8000 in your favorite browser.
 
+## styling
+
+There is a top-level [`.prettierrc`](/.prettierrc) file for the [prettier](https://github.com/prettier/prettier) formatter.
+
+For `uc-doc` markdown documents, the command `yarn format:uc-doc` should be used (and will be checked by CI).
+
 ## Building
 
 ```shell
