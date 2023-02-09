@@ -18,18 +18,15 @@ Want more information about the user's API, consult the
 
 ## Create User (the new way)
 
-As you may see in the previous chapter, there are a lot of steps to follow, in a specific order, to
-be able to correctly set up a new “telephony” user with all main features enabled.
-
-To help developers to quickly create users and easily understand the information needed, the user
+To help developers quickly create users and easily understand the information needed, the user
 creation process has been revamped. This allows developers to use one single endpoint, instead of
-having to call many endpoints. Also relations and complete validation/rollback are handled at the
+having to call many endpoints. Also, relations and complete validation/rollback are handled on the
 server-side:
 
 - the attachments (the link between the user and their related resources)
 - the rollback in case of errors (if one of the resource creations fails)
 
-**Warning**: The following resources must be created before, when needed:
+**Warning**: If needed, the following resources must be created before user creation:
 
 - Switchboards
 - Groups
@@ -234,7 +231,7 @@ OR
 
 OR
 
-- For each existing switchboards needed to be attached to the user:
+- For each existing switchboard needed to be attached to the user:
 
   - Retrieve one switchboard with its existing members
     ([API Reference](/documentation/api/configuration.html#tag/switchboards/paths/~1switchboards~1%7Bswitchboard_uuid%7D/get)):
