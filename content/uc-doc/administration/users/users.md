@@ -3,6 +3,7 @@ title: Configuration
 ---
 
 - [csv_import](/uc-doc/administration/users/csv_import)
+- [User Management](/uc-doc/api_sdk/rest_api/confd/user_management)
 
 ## Function keys
 
