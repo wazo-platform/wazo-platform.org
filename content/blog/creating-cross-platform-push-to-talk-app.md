@@ -154,7 +154,7 @@ That's all! The SDK takes care of the rest: Setting up WebRTC (html elements, ev
 
 The project is not finished yet, we've stumbled upon some drawbacks with the build of `iohook` on certain architectures. That's a issue we should address, or maybe find another library to catch keystrokes outside an electron app.
 
-We had to [eject](https://docs.expo.dev/expokit/eject/) our expo application in order to add `react-native-webrtc`, so we lost some cool features provided by expo during the process.
+We had to [eject](https://docs.expo.dev/workflow/glossary-of-terms/#eject) our expo application in order to add `react-native-webrtc`, so we lost some cool features provided by expo during the process.
 
 Another improvement would be to use the [accelerometer](https://react-native-sensors.github.io/), so we can check when the mobile device is in vertical position and trigger the talk position. When the device will go in horizontal position (eg: put on the table) the call could be muted.
 
