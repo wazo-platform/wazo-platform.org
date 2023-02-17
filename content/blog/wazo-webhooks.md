@@ -23,7 +23,7 @@ Zapier est une plateforme cloud, avec des centaines de connecteurs vous permetta
 - Une action
 - Un "search" (qui est une action aussi)
 
-Le "trigger" est une action à un temps donné. Exemple avec le cas de Wazo, récupère moi mes derniers journaux d'appel. Une petite particularité dans Zapier, c'est qu'un trigger est exécuté par défaut toutes les 5 ou 15 minutes selon votre type de compte. Bien sur il existe aussi un autre type de "trigger" appel "instant trigger" qui lui permet de recevoir un évènement. Le mécanisme de Zapier est appelé REST hooks et ils ont fait un [site web](https://resthooks.org) pour en expliquer leur vision.
+Le "trigger" est une action à un temps donné. Exemple avec le cas de Wazo, récupère moi mes derniers journaux d'appel. Une petite particularité dans Zapier, c'est qu'un trigger est exécuté par défaut toutes les 5 ou 15 minutes selon votre type de compte. Bien sur il existe aussi un autre type de "trigger" appel "instant trigger" qui lui permet de recevoir un évènement. Le mécanisme de Zapier est appelé REST hooks et ils ont fait un site web (`https://resthooks.org`) pour en expliquer leur vision.
 
 Une fois que vous avez choisi votre "trigger", zapier vous offre la possibilité avec le résultat d'en faire une action. Les applications Zapier doivent donc offrir un mécanisme de "IN" et de "OUT". Prenons toujours notre exemple avec Wazo, mon "IN" sera donc un trigger de mes journaux d'appels et mon "OUT" sera par exemple une action pour envoyer mes données vers une feuille de calcul Google Sheets.
 
