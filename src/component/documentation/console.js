@@ -216,7 +216,12 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
                   // make sure it starts with /api
                   const url = new URL(req.url);
                   if (baseUrl && url.pathname.indexOf('/api') === -1) {
-                    req.url = `${url.origin}/api/${getServiceName(module.redocUrl)}${url.pathname}`;
+                    let overridedUrl = `${url.origin}/api/${getServiceName(module.redocUrl)}${url.pathname}`;
+                    if(!!url.search) {
+                      overridedUrl = overridedUrl + url.search
+                    }
+
+                    req.url = overridedUrl;
                   }
                   // if there's content in the apiKey field, let's use it
                   if(apiKey) {
@@ -230,6 +235,7 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
                         delete req.headers['Authorization'];
                     }
                   }
+
                   return req;
                 }}
               />
