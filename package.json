@@ -43,7 +43,7 @@
     "stickyfill": "^1.1.1-strict",
     "striptags": "^3.2.0",
     "styled-components": "^5.3.5",
-    "swagger-ui-react": "^4.12.0"
+    "swagger-ui-react": "^4.15.5"
   },
   "devDependencies": {
     "dart-sass": "^1.25.0",
