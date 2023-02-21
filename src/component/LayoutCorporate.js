@@ -14,7 +14,7 @@ const WazoHeader = () => {
           </a>
         </div>
 
-        <nav id="site-navigation" className="has-sticky-branding main-navigation stuckElement" itemtype="https://schema.org/SiteNavigationElement">
+        <nav id="site-navigation" className="has-sticky-branding main-navigation stuckElement" itemType="https://schema.org/SiteNavigationElement">
           <div className="inside-navigation grid-container grid-parent">
 
             <div id="primary-menu" className="main-nav">
