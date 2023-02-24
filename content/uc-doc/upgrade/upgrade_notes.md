@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.03 {#23-03}
+
+Consult the
+[23.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.03)
+for more information.
+
 ## 23.02 {#23-02}
 
 - This version introduces the removal of various deprecated classes in the bus library:
