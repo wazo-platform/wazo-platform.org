@@ -18,6 +18,7 @@ Here is a short review of the Wazo Platform 23.03 release.
 ## Ongoing Features
 - **New user API**: We are working on a new high level API endpoint to update a user and all of its related resources (user, line, extension, voicemail, incoming call) in a single HTTP request.
 - **Major upgrade**: We are preparing the upgrade to Debian 11 Bullseye.
+- **Scalability**: We are adding tools to be able to observe the state of a Wazo stack
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.03).
 
