@@ -2,6 +2,11 @@
 title: Upgrade notes
 ---
 
+## 23.04 {#24-04}
+
+- Asterisk version has been updated: ￼ -
+  [Asterisk 19 to 20 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-04/asterisk_20)
+
 ## 23.03 {#23-03}
 
 Consult the
