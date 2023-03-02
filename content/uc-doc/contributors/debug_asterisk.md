@@ -27,7 +27,7 @@ Follow the instructions in the sub-section that matches the version you are curr
    ```shell
    apt-get update
    apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbgsym wazo-libsccp-dbg
    ```
 
 4. Switch back to the production mirror:
@@ -55,7 +55,7 @@ Follow the instructions in the sub-section that matches the version you are curr
    ```shell
    apt-get update
    apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbgsym wazo-libsccp-dbg
    ```
 
 4. Switch back to the production mirror:
@@ -83,7 +83,7 @@ Follow the instructions in the sub-section that matches the version you are curr
    ```shell
    apt-get update
    apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
+   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbgsym wazo-libsccp-dbg
    ```
 
 4. Switch back to the production mirror:
