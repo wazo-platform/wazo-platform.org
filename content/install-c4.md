@@ -36,8 +36,8 @@ To install the Class 4 engine in an all-in-one setup, do the following steps:
 3. Get the Wazo Platform installer and its dependencies:
 
 ```ShellSession
-# git clone https://github.com/wazo-platform/wazo-ansible.git
-# cd wazo-ansible
+# git clone https://github.com/wazo-platform/wazo-c4-ansible.git
+# cd wazo-c4-ansible
 # ansible-galaxy install -r requirements-postgresql.yml
 ```
 
@@ -139,7 +139,7 @@ rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198
 rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198.51.100.2
 ```
 
-The various variables that can be customized are described at <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
+The various variables that can be customized are described at <https://github.com/wazo-platform/wazo-c4-ansible/blob/master/README.md#variables>.
 
 By default, Wazo Platform will install the development version. To install
 the latest stable version, activate the following settings in your inventory:
