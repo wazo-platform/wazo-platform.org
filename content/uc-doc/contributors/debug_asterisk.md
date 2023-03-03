@@ -463,7 +463,7 @@ To install the vanilla version of Asterisk (replace 19.13 with your current vers
 ```shell
 wazo-dist -a wazo-19.13
 apt-get update
-apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbg
+apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbgsym
 xivo-fix-paths-rights
 wazo-dist -m pelican-buster
 ```
