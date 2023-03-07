@@ -26,7 +26,7 @@ Here is a short review of the Wazo Platform 22.15 release.
 
 - **New user API**: We are working on a new high level API endpoint to create a user and all of its
   related resources (user, line, extension, voicemail, incoming call) in a single HTTP request.
-- **Major upgrade**: We are preparing the upgrade to Debian 11 Buster. This requires migrating the
+- **Major upgrade**: We are preparing the upgrade to Debian 11 Bullseye. This requires migrating the
   remaining code written in Python 2 to Python 3.
 
 For more details about the aforementioned topics, please see the
