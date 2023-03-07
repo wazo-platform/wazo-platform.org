@@ -2,6 +2,17 @@
 title: Upgrade notes
 ---
 
+## 23.06 {#23-06}
+
+- **Debian has been upgraded from version 10 (buster) to 11 (bullseye).** Please consult the
+  following detailed upgrade notes for more information:
+
+  - [Debian 11 (Bullseye) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-06/bullseye)
+
+Consult the
+[23.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.06)
+for more information.
+
 ## 23.04 {#23-04}
 
 - Asterisk version has been updated: ￼ -
