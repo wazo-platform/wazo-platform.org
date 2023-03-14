@@ -21,7 +21,8 @@ for more information.
     `ResourceConfigEvent` and `ArbitraryEvent` have been removed
 
   If you have custom scripts still relying on `ArbitraryEvent`, you should update your code to use
-  either `ServiceEvent`, `TenantEvent` or `UserEvent` instead.
+  either `ServiceEvent`, `TenantEvent` or `UserEvent` instead. For more details and examples, please
+  see our [blog article about Wazo Platform events](/blog/new-events-documentation).
 
 - `dahdi-linux-modules` is not supported anymore. Any custom installation using wazo packages must
   be removed manually:
