@@ -2,10 +2,14 @@
 title: Upgrade notes
 ---
 
-## 23.04 {#24-04}
+## 23.04 {#23-04}
 
 - Asterisk version has been updated: ￼ -
   [Asterisk 19 to 20 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-04/asterisk_20)
+
+Consult the
+[23.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.04)
+for more information.
 
 ## 23.03 {#23-03}
 
