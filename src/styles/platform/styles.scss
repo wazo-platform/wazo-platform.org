@@ -400,25 +400,35 @@ body.documentation {
 }
 
 .footer {
+  background: $fakeBlack;
+  text-align: left;
+  padding: 0 !important;
+
   a,
   #contact a {
     color: $green;
     font-weight: bold;
+    text-decoration: none;
+
+    &:hover, &:active {
+      text-decoration: underline 2px $green;
+    }
   }
+
   h2 {
     font-size: 1.4em;
     font-weight: bold;
   }
-  background: $fakeBlack;
-  text-align: left;
-  padding: 0 !important;
+
   #contact {
     background: $fakeDarkGray;
   }
+
   .small-print {
     padding: 10px 0;
     background: $fakeBlack;
     color: #999;
+
     .container {
       display: flex;
       justify-content: space-between;
