@@ -145,46 +145,40 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
           <div className="container">
             <div className="col-wrapper one">
               <div className="coll">
-                <h2>Support</h2>
+                <h2>Community Supported</h2>
                 <p>
-                  The Wazo Platform project is supported by its community. Use the various channels below to reach out
-                  to us.
+                  Wazo Platform is supported by its community. Use our various channels to reach out.
                 </p>
+
+                <ul>
+                  <li>
+                    <a href="https://mm.wazo.community/wazo-platform/">Mattermost</a>
+                  </li>
+                  <li>
+                    <a href="https://wazo-platform.discourse.group">Forum</a>
+                  </li>
+                  <li>
+                    <a href="https://wazo-dev.atlassian.net/">Bug tracking (JIRA)</a>
+                  </li>
+                </ul>
               </div>
               <div className="coll">
                 <div>
                   <h2>Publications</h2>
                   <p>
-                    Video @ Kamailio World 2019: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
+                    Video @ Kamailio World: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
                   </p>
                   <p>
-                    Video @ the Telecom Application Development Summit 2018:{' '}
+                    Video @ the Telecom Application Development Summit:{' '}
                     <a href="https://youtu.be/JxKlxPDDnsk">What can you do with Wazo?</a>
                   </p>
                   <p>
-                    Video @ the Telecom Application Development Summit 2017:{' '}
+                    Video @ the Telecom Application Development Summit:{' '}
                     <a href="https://youtu.be/vh43Vt40myY">WAZO Keynote: xCPaaS</a>
                   </p>
                 </div>
-              </div>
-            </div>
-            <div className="col-wrapper">
-              <div className="coll">
-                <h2>Contact</h2>
-                <ul>
-                  <li>
-                    <a href="https://wazo-platform.discourse.group">Forum</a>
-                  </li>
-                  <li>
-                    <a href="https://wazo-dev.atlassian.net/">Bug tracking</a>
-                  </li>
-                  <li>
-                    <a href="https://mm.wazo.community/wazo-platform/">Mattermost</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="coll">
-                <h2>Get Connected! Contribute! Build value!</h2>
+
+                <h2>Get Connected, Contribute & Build value!</h2>
                 <ul className="social-icons list-inline">
                   <li className="list-inline-item">
                     <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
