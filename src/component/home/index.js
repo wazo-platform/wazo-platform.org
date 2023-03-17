@@ -53,9 +53,9 @@ const Page = () => (
               <h3>Easy to Consume (API-First)</h3>
               <p>
                 We designed the platform with an API-First approach. Building blocks are
-                micro-services developed in Python. All APIs are described in{' '}
+                micro-services developed in Python. All APIs are described through{' '}
                 <a className="soft-link" href="https://www.openapis.org/">
-                  OpenAPI specification
+                  OpenAPI specifications
                 </a>
                 .
               </p>
@@ -144,7 +144,7 @@ const Page = () => (
               <span className="small">Services: calld, confd, agentd</span>
             </li>
             <li>
-              <strong>Engine layer</strong>: internal services for audio/video, provisioning, ...
+              <strong>Engine layer</strong>: internal services for core functionalities(audio/video, provisioning, ...)
               <br />
               <span className="small">
                 Services: asterisk, confd, agid, amid, provd, kamailio, rtpengine
@@ -173,7 +173,7 @@ const Page = () => (
         <div className="info">
           <p>
             You may copy, distribute and modify the software as long as you track changes/dates in
-            source files. Any modifications to or software including (via compiler) GPL-licensed
+            source files. Any modifications to our software including (via compiler) GPL-licensed
             code must also be made available under the GPL along with build & install instructions.
             More details at{' '}
             <a href="https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)">
