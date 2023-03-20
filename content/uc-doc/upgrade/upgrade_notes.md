@@ -9,6 +9,8 @@ title: Upgrade notes
 
   - [Debian 11 (Bullseye) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-06/bullseye)
 
+- The deprecated (since 20.16) `i386` (32 bits) architecture has been dropped from our mirror.
+
 Consult the
 [23.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.06)
 for more information.
