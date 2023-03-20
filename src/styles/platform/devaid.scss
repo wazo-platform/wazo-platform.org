@@ -19,30 +19,38 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    // color: #17baef;
   }
 
   a {
-    color: #17baef;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
+    color: #212327;
+    text-decoration: underline 1px #212327;
+
+    &.soft-link {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    &:hover, &:active {
+      text-decoration: underline 2px #98c451
+    }
+
+    &.list-group-item {
+      color: #17baef;
+      text-decoration: none;
+
+      &:hover, &:active {
+        color: #0e98c5;
+      }
+    }
   }
 
-  a:hover {
-    text-decoration: underline;
-    color: #0e98c5;
-  }
 
   .btn, a.btn {
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
+    transition: all 250ms ease;
     font-family: 'Montserrat', arial, sans-serif;
     padding: 8px 16px;
     font-weight: bold;
+    text-decoration: none !important;
   }
 
   .btn .svg-inline--fa, a.btn .svg-inline--fa {
@@ -231,6 +239,7 @@ body {
 
   .promo .intro {
     font-size: 28px;
+    line-height: 37px;
     max-width: 680px;
     margin: 0 auto;
     margin-bottom: 30px;
@@ -630,6 +639,7 @@ body {
     background-clip: padding-box;
     margin-right: 8px;
     float: left;
+    text-decoration: none !important;
   }
 
   .contact .social-icons a:hover {

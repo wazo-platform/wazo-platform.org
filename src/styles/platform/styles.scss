@@ -183,12 +183,13 @@ pre {
 
   #wazo-platform {
     transition: opacity 0.2s linear;
-    width: 50%;
-    @media (min-width: 768px) {
-      width: 25%;
-    }
     height: auto;
     padding: 20px 0 60px;
+    width: 50%;
+
+    @media (min-width: 768px) {
+      width: 20%;
+    }
   }
 
   #promo {
@@ -200,7 +201,10 @@ pre {
     background: $fakeDarkGray;
     padding: 60px 0 20px;
     color: #ccc;
-    h2 {
+
+
+
+    h2, h3 {
       color: #fff;
     }
   }
@@ -208,9 +212,11 @@ pre {
   #about {
     padding: 70px 0 30px;
     background: #fff;
+
     #technical-layers {
       text-align: center;
-      padding: 30px 14px;
+      padding: 0 14px;
+
       img {
         margin: 0 auto;
         max-width: 100%;
@@ -400,25 +406,35 @@ body.documentation {
 }
 
 .footer {
+  background: $fakeBlack;
+  text-align: left;
+  padding: 0 !important;
+
   a,
   #contact a {
     color: $green;
     font-weight: bold;
+    text-decoration: none;
+
+    &:hover, &:active {
+      text-decoration: underline 2px $green;
+    }
   }
+
   h2 {
     font-size: 1.4em;
     font-weight: bold;
   }
-  background: $fakeBlack;
-  text-align: left;
-  padding: 0 !important;
+
   #contact {
     background: $fakeDarkGray;
   }
+
   .small-print {
     padding: 10px 0;
     background: $fakeBlack;
     color: #999;
+
     .container {
       display: flex;
       justify-content: space-between;
