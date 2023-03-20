@@ -16,6 +16,7 @@ Here is a short review of the Wazo Platform 23.04 release.
 
 - **Asterisk**: Asterisk has been upgraded to 20.1.0. See the [Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-20-1-0-now-available/)
 - **Scalability**: `Wazo-websocketd` now serves connection using multiple processes, which improves delivery speed when a high number of clients are connected
+- **New user API**: A new high level API endpoint is now available to update a user and all of its related resources (user, line, extension, voicemail, incoming call) in a single HTTP request.
 
 ## Ongoing Features
 
