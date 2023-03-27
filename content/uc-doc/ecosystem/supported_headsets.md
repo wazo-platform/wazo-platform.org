@@ -19,5 +19,7 @@ We've hand-tested several devices and can confirm their successful compatibility
   - BH 72 Lite Teams (Yealink BT51 dongle)
 - **Poly**
   - Voyager 4220 UC (Poly BT600 dongle)
+- **Logitech**
+  - H570e
 
 Please note that a Bluetooth connection to your computer will not work. To connect your headset, you'll need to use either a direct USB connection or a USB dongle.
