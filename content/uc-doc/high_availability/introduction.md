@@ -144,6 +144,20 @@ Less importantly, these are also excluded:
   disable services accordingly.
 - xivo-sync is used to sync directories from master to slave.
 
+Additionally, 3 files are created and automatically managed to reflect the state of the HA
+configuration:
+
+- `/etc/xivo/ha.conf`: contains the json configuration corresponding to the current state of the
+  node when HA is enabled
+- `/var/lib/wazo/is-primary`: a sentinel file whose existence reflects the status of the node as a
+  primary("master") wazo stack
+- `/var/lib/wazo/is-secondary`: a sentinel file whose existence reflects the status of the node as a
+  secondary("slave") wazo stack
+
+Those files are created, updated and removed automatically by the wazo services and should not be
+changed by the administrators, at the risk of putting the system in an inconsistent state with
+unexpected and undesirable results.
+
 ## Limitations
 
 When the master node is down, some features are not available and some behave a bit differently.

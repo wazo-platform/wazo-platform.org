@@ -2,6 +2,17 @@
 title: Upgrade notes
 ---
 
+## 23.05 {#23.05}
+
+- HA: xivo-check-master-status now relies on new sentinel files created and managed by wazo-sysconfd
+  in order to check the state of the HA configuration and minimize race conditions.
+  `/var/lib/wazo/is-primary` and `/var/lib/wazo/is-secondary` will now be created to reflect the HA
+  mode of the stack, and will be automatically managed through config changes.  
+  This also introduces a shift in terminology for HA modes(node types), where "primary" and
+  "secondary" refer respectively to the "master" and "slave" node types currently in use in public
+  APIs and internally. While currently no existing public API has changed, "primary" and "secondary"
+  will eventually replace "master" and "slave" in public APIs(see future upgrade notes).
+
 ## 23.04 {#23-04}
 
 - Asterisk version has been updated: ￼ -
