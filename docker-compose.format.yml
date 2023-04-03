@@ -1,0 +1,6 @@
+version: '3'
+services:
+  doc:
+    volumes:
+      - ./src:/app/src:rw
+      - ./content:/app/content:rw
