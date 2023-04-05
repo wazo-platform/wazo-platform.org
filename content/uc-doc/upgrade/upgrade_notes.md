@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.05 {#23-05}
+
+Consult the
+[23.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.05)
+for more information.
+
 ## 23.04 {#23-04}
 
 - Asterisk version has been updated: ￼ -
