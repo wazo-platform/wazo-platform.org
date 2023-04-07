@@ -12,8 +12,8 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 23.05 release.
 
-Since Wazo Platform 19.13, the only compatible version of Debian has been Debian 10 (Buster). This release, 23.05, is intended to be the last to support Debian 10 (Buster).
-Next release(23.06) will be based on Debian 11(Bullseye).
+Since Wazo Platform 19.13, the only compatible version of Debian has been Debian 10 (Buster). However, this release, 23.05, is intended to be the last to support it.
+The next release, 23.06, will be based on Debian 11(Bullseye).
 It is recommended to upgrade to 23.05 before that release to avoid a large changeset and minimize upgrade issues.
 
 ## Technical Features
