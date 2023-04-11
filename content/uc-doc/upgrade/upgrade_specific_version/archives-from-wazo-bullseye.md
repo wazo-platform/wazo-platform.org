@@ -14,10 +14,10 @@ wazo-upgrade
 wazo-dist -m pelican-bullseye
 ```
 
-## My Wazo is stuck in a specific version
+## My Wazo is stuck on a specific version
 
-Procedures for upgrading to specific versions may freeze the version of your Wazo. Run the following
-commands to get the latest updates:
+The procedure for upgrading to specific version may freeze the version of your Wazo. Run the
+following commands to get the latest version:
 
 ```shell
 wazo-dist -m pelican-bullseye
