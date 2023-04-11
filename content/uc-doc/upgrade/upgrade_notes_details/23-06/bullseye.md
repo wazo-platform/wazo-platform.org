@@ -5,7 +5,7 @@ title: Debian 11 (Bullseye) Upgrade Notes
 The upgrade to Wazo 23.06 or later will take longer than usual, because the whole Debian system will
 be upgraded.
 
-The database management system (postgresql) will also be upgraded from version 11 to version 13 at
+The database management system (PostgreSQL) will also be upgraded from version 11 to version 13 at
 the same time. This will upgrade the database used by Wazo. This operation should take at most a few
 minutes.
 
@@ -14,7 +14,7 @@ After the upgrade, the system will need to be rebooted.
 ## Before the upgrade
 
 - Make sure your version of Wazo is at least 19.13. You can run `wazo-upgrade` to check the version
-  currently installed. If your version of Wazo is older that 19.13, you should first upgrade your
+  currently installed. If your version of Wazo is older than 19.13, you should first upgrade your
   Wazo to Debian Buster, following the procedure described in
   [Debian 10 (buster) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/19-13/buster).
 - Make sure your have sufficient space for the upgrade. You might run into trouble if you have less
@@ -51,11 +51,11 @@ wazo-dist-upgrade -d
 
 ## After the upgrade
 
-- Check that customization to your configuration files is still effective.
+- Verify that any changes you had made to your configuration files are still present and working.
 
-  During the upgrade, new version of configuration files are going to be installed, and these might
-  override your local customization. For example, the vim package provides a new `/etc/vim/vimrc`
-  file. If you have customized this file, after the upgrade you'll have both a `/etc/vim/vimrc` and
+  During the upgrade, new versions of configuration files are installed, and these might override
+  your local changes. For example, the vim package provides a new `/etc/vim/vimrc` file. If you have
+  customized this file, after the upgrade you'll have both a `/etc/vim/vimrc` and
   `/etc/vim/vimrc.dpkg-old` file, the former containing the new version of the file shipped by the
   vim package while the latter is your customized version. You should merge your customizations back
   into the new file, then delete the `.dpkg-old` file.
