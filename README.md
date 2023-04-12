@@ -52,4 +52,3 @@ Then open http://localhost:8000 in your favorite browser.
 ```shell
 make test
 ```
-
