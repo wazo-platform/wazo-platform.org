@@ -2,6 +2,19 @@
 title: Upgrade notes
 ---
 
+## 23.06 {#23-06}
+
+- **Debian has been upgraded from version 10 (Buster) to 11 (Bullseye).** Please see the following
+  detailed upgrade notes for more information:
+
+  - [Debian 11 (Bullseye) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-06/bullseye)
+
+- The `i386` (32 bit) architecture (deprecated since 20.16) has been dropped from our mirror.
+
+Consult the
+[23.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.06)
+for more information.
+
 ## 23.05 {#23-05}
 
 Consult the

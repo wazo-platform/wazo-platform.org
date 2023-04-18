@@ -15,3 +15,4 @@ the version-specific procedure _before_ running the following procedures.
 
 - [Upgrade from Wazo \< 19.04](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-stretch)
 - [Upgrade from Wazo \> 19.12](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-buster)
+- [Upgrade from Wazo \> 23.05](/uc-doc/upgrade/upgrade_specific_version/archives-from-wazo-bullseye)
