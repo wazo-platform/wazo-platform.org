@@ -83,13 +83,13 @@ optional arguments:
 ## Maintenance
 
 After an execution of `wazo-purge-db`, postgresql's
-[Autovacuum Daemon](https://www.postgresql.org/docs/11/static/routine-vacuuming.html#AUTOVACUUM)
-should perform a [VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) ANALYZE
+[Autovacuum Daemon](https://www.postgresql.org/docs/13/static/routine-vacuuming.html#AUTOVACUUM)
+should perform a [VACUUM](https://www.postgresql.org/docs/13/static/sql-vacuum.html) ANALYZE
 automatically (after 1 minute). This command marks memory as reusable but does not actually free
 disk space, which is fine if your disk is not getting full. In the case when `wazo-purge-db` hasn't
 run for a long time (e.g. when [`days_to_keep`](/uc-doc/system/purge_logs#purge-logs-config-file) is
 decreased), some administrator may want to perform a
-[VACUUM](https://www.postgresql.org/docs/11/static/sql-vacuum.html) FULL to recover disk space.
+[VACUUM](https://www.postgresql.org/docs/13/static/sql-vacuum.html) FULL to recover disk space.
 
 **Warning**: VACUUM FULL will require a service interruption. This may take several hours depending
 on the size of purged database.
