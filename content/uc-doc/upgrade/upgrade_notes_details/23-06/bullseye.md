@@ -32,6 +32,9 @@ After the upgrade, the system will need to be rebooted.
     `apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')`
   - Remove `.dpkg-*`, `.ucf-*` and `.merge-error` files from previous upgrade. You can see a list of
     these files by running `find /etc -name '*.dpkg-*' -o -name '*.ucf-*' -o -name '*.merge-error'`.
+- Make sure you do not have the Gnome Desktop installed, specifically the `gnome-core` package, as
+  it can cause dependency conflicts for the upgrade. In theory, it can be reinstalled after, but
+  this is not supported.
 
 ## Upgrade
 
