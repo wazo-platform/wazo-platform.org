@@ -19,6 +19,8 @@ After the upgrade, the system will need to be rebooted.
   [Debian 10 (buster) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/19-13/buster).
 - Make sure your have sufficient space for the upgrade. You might run into trouble if you have less
   than 2 GiB available in the file system that holds the `/var` and `/` directories.
+- Make sure you do not have the Gnome Desktop installed, specifically the `gnome-core` package, as
+  it can cause dependency conflicts for the upgrade.
 - If you have customized the Debian system of your Wazo in some nontrivial way, you might want to
   review the [official Debian release notes](https://www.debian.org/releases/bullseye/releasenotes)
   before the upgrade. Most importantly, you should:
