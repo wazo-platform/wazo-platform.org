@@ -97,11 +97,7 @@ const Page = ({children, isHome}) => {
     <footer className="footer text-center">
       <div className="container">
         <small className="copyright">
-          Designed with <i className="fas fa-heart" /> by{' '}
-          <a href="https://themes.3rdwavemedia.com/" target="_blank" rel="noopener noreferrer">
-                  Xiaoying Riley
-          </a>{' '}
-                for developers
+          Designed with <i className="fas fa-heart" /> by Xiaoying Riley for developers
         </small>
 
         <div>

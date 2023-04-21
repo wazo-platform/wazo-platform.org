@@ -199,15 +199,11 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
         <div className="small-print">
           <div className="container">
             <small className="copyright">
-              Designed with <i className="fas fa-heart" /> by{' '}
-              <a href="https://themes.3rdwavemedia.com" target="_blank" rel="noopener noreferrer">
-                Xiaoying Riley
-              </a>{' '}
-              for developers
+              Designed with <i className="fas fa-heart" /> by Xiaoying Riley for developers
             </small>
 
             <small className="copyright">
-              Copyright &copy; 2016-{now.getFullYear()} <a href="https://wazo.io">Wazo Communication</a>
+              Copyright 2016-2023 The Wazo Authors  (see the AUTHORS file)
             </small>
           </div>
         </div>
