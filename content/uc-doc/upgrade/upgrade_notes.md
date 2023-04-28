@@ -9,6 +9,9 @@ title: Upgrade notes
 
   - [Debian 11 (Bullseye) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-06/bullseye)
 
+- As part of the upgrade to Debian 11, many packages will be updated, notably this includes
+  PostgreSQL from 11 to 13 and Python from 3.7 to 3.9, so be sure to check for compatibility and
+  changes if there are any custom scripts or plugins.
 - The `i386` (32 bit) architecture (deprecated since 20.16) has been dropped from our mirror.
 
 Consult the
