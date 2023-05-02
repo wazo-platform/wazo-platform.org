@@ -24,6 +24,10 @@ Here is a short review of the Wazo Platform 23.06 release.
   So, if you have any custom script please ensure they are compatible with the newer versions.
 - **PostgreSQL**: The database system PostgreSQL has also been upgrade from version 11 to 13.
 
+## Ongoing Features
+
+- **Scalability**: Continuing optimizations to improve efficiency in order to allow for better performance with greater numbers of users
+
 For more information on the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.06).
 
 See you at the next sprint review!
