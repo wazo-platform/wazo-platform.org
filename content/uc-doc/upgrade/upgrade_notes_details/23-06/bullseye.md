@@ -21,6 +21,9 @@ After the upgrade, the system will need to be rebooted.
   than 2 GiB available in the file system that holds the `/var` and `/` directories.
 - Make sure you do not have the Gnome Desktop installed, specifically the `gnome-core` package, as
   it can cause dependency conflicts for the upgrade.
+- For Wazo originally installed before 14.01, you must remove `plpythonu` postgresql extension:
+    - `DROP EXTENSION IF EXISTS plpythonu;`
+
 - If you have customized the Debian system of your Wazo in some nontrivial way, you might want to
   review the [official Debian release notes](https://www.debian.org/releases/bullseye/releasenotes)
   before the upgrade. Most importantly, you should:
