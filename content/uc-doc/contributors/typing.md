@@ -69,7 +69,7 @@ class MyClass:
 If multiple types are accepted they can be specified using the generic `Union`, which can also be
 more succinctly expressed using the pipe symbol `|` as of python 3.10. _Note_: this can still be
 used on older version of Python in annotation as long as you use
-[lazy annotations](#lazy-annotations).
+[lazy annotations](#lazy-annotations), and it is not assigned to a variable.
 
 ```python
 from __future__ import annotations
@@ -136,7 +136,7 @@ If you have annotations it’s always good to use this import since:
 - It allows you to use classes that are defined in the same file, or currently being defined, as
   type annotations
 - It allows you to use features and syntax of later versions of Python if your type checker is run
-  with them. E.g. You can use the union operator from Python 3.10 in code that runs in 3.7 at
+  with them. E.g. You can use the union operator from Python 3.10 in code that runs in 3.9 at
   runtime so long as your type checking is done with 3.10 or later and you use the lazy evaluation.
 
 You can also use `if TYPE_CHECKING:` to encompass code that is only necessary for type checking or
@@ -144,10 +144,10 @@ that you don’t want to run at runtime.
 
 This allows you to, for example:
 
-- Create `TypedDict` or `Protocol` classes for typing (if these aren’t supported in the current
-  version)
+- Create `Self`, `NotRequired` or other types/options for typing (if these aren’t supported in the
+  current version)
 - Do some unfortunate workaround for typing in older language versions
-- Import things from typing that don’t exist in older versions of Python like `Literal`
+- Import things from typing that don’t exist in older versions of Python like `StringLiteral`
 - Import things that either aren’t needed or could create problems if imported at runtime (e.g.
   avoid circular import errors).
 
@@ -157,16 +157,21 @@ This allows you to, for example:
 from __future__ import annotations
 
 import threading
-from typing import TYPE_CHECKING
+from collections.abc import Callable, Collection
+from typing import TYPE_CHECKING, TypedDict
 
 
 if TYPE_CHECKING:
-    from typing import Callable, Collection, TypedDict  # don't exist in 3.7
+    from typing import NotRequired  # Only exists in 3.11+
 
     from wazo_auth_client.client import AuthClient  # only imported when type checking
 
     Callback = Callable[[Collection[str]], None]
-    CallbackDict = TypedDict('CallbackDict', {'method': Callback, 'details': bool})
+
+    class CallbackDict(TypedDict):
+        method: Callback
+        details: bool
+        extra: NotRequired[str]
 
 
 class TokenRenewer:
@@ -180,19 +185,43 @@ class TokenRenewer:
             self._callbacks.append({'method': callback, 'details': False})
 ```
 
+### Typing from the future
+
+If you would like to use typing feature have been added to the language, but do not exist in the
+version you are using, you have two options:
+
+1. You can use `ìf TYPE_CHECKING` and Lazy Annotations and run your linting with a more modern
+   version of Python to run as [mentioned above](#lazy-annotations).
+
+2. You can use [Typing Extensions](https://pypi.org/project/typing-extensions/) which is a library
+   that backports certain types to older versions of Python. So you can simply import them from
+   their if they are available. However, if you use any imports from that library outside an
+   `if TYPE_CHECKING` block, you must add it as a runtime dependency or else you will get an
+   `ImportError` at runtime. Wazo includes a backport of
+   [version 4.4.0](https://github.com/python/typing_extensions/blob/main/CHANGELOG.md#release-440-october-6-2022)
+
+   ```python
+   # from typing import Self # Only exists in Python 3.11+
+   from typing_extensions import Self  # use the backport
+
+   class MyClass:
+       @classmethod
+       def setup(cls) -> Self:
+           return cls()
+   ```
+
 ## Parametric typing & Generics {#generics}
 
 [Generics](https://mypy.readthedocs.io/en/stable/generics.html) are types that can be passed
 parameters to ensure a useful definition. For example, it’s good to know your method receives a
 list, but it’s not super useful if you don’t know what said list contains. So you can pass options
-to the `list` type to specify its contents (eg. `list[int | str]`). You can create custom ones, but
-a lot of builtin ones exist eg.:
+to the `list` type to specify its contents (e.g. `list[int | str]`). You can create custom ones, but
+a lot of builtin ones exist e.g.:
 
 ### Generic built-in collections {#built-in-generics}
 
 All the basic types that contain other types can be passed parameters to specify their contents (ie.
-`list`, `tuple`, `dict`, `set`). Before Python 3.9 you have to use their capitalised namesakes
-imported from `typing` if not using [lazy annotations](#lazy-annotations).
+`list`, `tuple`, `dict`, `set`).
 
 ```python
 import string
@@ -215,7 +244,7 @@ When passing around methods as callbacks you can use the built-in generic
 arguments and the second is the return value. For more complex cases see [Protocols](#protocols)
 
 ```python
-from typing import Callable
+from collections.abc import Callable
 
 def my_handler(name: str, timeout: int = 5) -> bool:
     with contextlib.suppress(KeyError):
@@ -262,11 +291,9 @@ def get_first(items: list[T]) -> T | None:
 ```
 
 This allows for mypy and other type checkers to replace `T` based on what is passed to the function.
-For example if you pass a list of `int` it knows that it we return a single `int` or `None`
+For example if you pass a list of `int` it knows that it will return a single `int` or `None`
 
 ## Protocols and structural typing {#protocols-strutural-typing}
-
-(available since Python 3.8)
 
 Protocols are used to implement essentially “static duck typing” 🦆. Where the actual type is not
 important so much as what it implements. Do you _need_ a `list` or would anything that is iterable
@@ -278,7 +305,7 @@ work?
 - `Sequence` an iterable that defines `__len__` , `__getitem__` and a few others. Eg.
 
   ```python
-  from typing import Sequence
+  from collections.abc import Sequence
 
   def check_len(items: Sequence[int], limit: int) -> bool:
       return len(items) <= limit
@@ -286,7 +313,7 @@ work?
 
 ### Protocols {#protocols}
 
-Protocols allow you type an object that has a specific signature. eg. implements a given method or
+Protocols allow you type an object that has a specific signature. e.g. implements a given method or
 has a given property. You can also use them to handle more complex cases of callables.
 
 ```python
@@ -324,6 +351,7 @@ from typing import Self  # Self was added in 3.11
 
 # For the same result on Python < 3.11 you can create a TypeVar bound to the class.
 # Self = TypeVar("Self", bound="ParentClass")
+# Or you can import from typing_extensions if you have it installed.
 
 class ParentClass:
    def return_self(self: Self) -> Self:
@@ -343,6 +371,7 @@ manually specifying the type each time, but can be more readable especially when
 complicated and it can avoid copy/paste errors and ensure the type is always the same.
 
 ```python
+from collections.abc import Callable
 from typing import TypeAlias
 
 HandleFunction = Callable[[FastAGI, DictCursor, list], None]
@@ -417,6 +446,10 @@ warn_unused_configs = true
 follow_imports = "skip"
 ignore_missing_imports = true
 ```
+
+If you have any settings that are unique to just one particular repo, you should add a comment
+separating them from the rest and indicate why the option was added in case it is no longer required
+in future.
 
 ### **Pre-commit** {#pre-commit}
 
@@ -519,7 +552,7 @@ test: int = None  # type: ignore[error-code]
 ```
 
 For example, sometimes variables are set to `None`, but are initialized before anything is run, and
-thus are never really `None`. In theses cases, you can ignore the type for assignment only.
+thus are never really `None`. In these cases, you can ignore the type for assignment only.
 
 ```python
 from configparser import RawConfigParser
