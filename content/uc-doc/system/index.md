@@ -10,6 +10,7 @@ title: System
 - [Log Files](/uc-doc/system/log_files)
 - [nginx](/uc-doc/system/nginx)
 - [NTP](/uc-doc/system/ntp)
+- [Performance](/uc-doc/system/performance)
 - [Proxy](/uc-doc/system/proxy)
 - [Service Discovery](/uc-doc/system/service_discovery)
 - [Service Authentication](/uc-doc/system/service_authentication)
