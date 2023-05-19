@@ -37,7 +37,7 @@
     "react-in-viewport": "^1.0.0-alpha.28",
     "react-instantsearch-dom": "^6.30.1",
     "react-markdown": "^8.0.3",
-    "redoc": "^2.0.0-rc.72",
+    "redoc": "^2.0.0",
     "rss": "^1.2.2",
     "showdown": "^2.1.0",
     "stickyfill": "^1.1.1-strict",
