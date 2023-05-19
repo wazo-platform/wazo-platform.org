@@ -13,7 +13,7 @@ const theme = {
     },
   },
   logo: {
-    gutter: '10px',
+    gutter: '30px',
   },
   sidebar: {
     groupItems: {
