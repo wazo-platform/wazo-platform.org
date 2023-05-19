@@ -2,30 +2,35 @@ import React from 'react';
 import { RedocStandalone } from 'redoc';
 import { getModuleSpecUrl } from './helper';
 
-const defaultOptions = { pathInMiddlePanel: true };
+import './api.css';
+
+const theme = {
+  typography: {
+    fontSize: '15px',
+    code: {
+      fontSize: '14px',
+      lineHeight: '1.5em',
+    },
+  },
+  logo: {
+    gutter: '10px',
+  },
+  sidebar: {
+    groupItems: {
+      activeTextColor: 'var(--main-color)',
+    },
+  },
+};
+
+const defaultOptions = {
+  pathInMiddlePanel: true,
+  sortOperationsAlphabetically: true,
+  sortTagsAlphabetically: true,
+  theme,
+};
 
 const Page = ({ pageContext: { module } }) => (
-  <>
-    {/* @patch Fix sticky menu on Chrome 80+ : https://github.com/Redocly/redoc/pull/1185 */}
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
-    @media (min-width: 801px) {
-      .menu-content {
-        position: fixed !important;
-        z-index: 10;
-      }
-
-      .api-content {
-        width: 100% !important;
-        padding-left: 260px;
-      }
-    }
-  `,
-      }}
-    />
-    <RedocStandalone options={defaultOptions} specUrl={getModuleSpecUrl(module)} />;
-  </>
+  <RedocStandalone options={defaultOptions} specUrl={getModuleSpecUrl(module)} />
 );
 
-export default Page
+export default Page;

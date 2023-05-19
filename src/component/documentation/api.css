@@ -1,0 +1,27 @@
+.redoc-wrap { background: #FFF; }
+
+.redoc-wrap h3 {
+  font-size: 1.05rem;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Logo background */
+.redoc-wrap .menu-content > div:first-child {
+  background-color: #FAFAFA !important;
+}
+
+.redoc-wrap .menu-content > div:first-child > a {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+/* Active section link */
+.redoc-wrap .menu-content label[type="tag"].active {
+  font-weight: bold;
+  color: #000;
+}
+
+.redoc-wrap .menu-content label[role="menuitem"].active {
+  color: #000;
+}
