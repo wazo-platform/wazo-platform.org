@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.07 {#23-07}
+
+Consult the
+[23.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.07)
+for more information.
+
 ## 23.06 {#23-06}
 
 - **Debian has been upgraded from version 10 (Buster) to 11 (Bullseye).** Please see the following
