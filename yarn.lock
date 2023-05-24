@@ -9943,7 +9943,7 @@ recursive-readdir@^2.2.2:
   dependencies:
     minimatch "^3.0.5"
 
-redoc@^2.0.0-rc.72:
+redoc@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redoc/-/redoc-2.0.0.tgz#8b3047ca75b84d31558c6c92da7f84affef35c3e"
   integrity sha512-rU8iLdAkT89ywOkYk66Mr+IofqaMASlRvTew0dJvopCORMIPUcPMxjlJbJNC6wsn2vvMnpUFLQ/0ISDWn9BWag==
