@@ -8,19 +8,19 @@ When creating a new tenant on a Wazo stack, it can be convenient to be able to c
 single bulk action. [A tool](https://github.com/wazo-platform/wazo-export-import) is available to
 configure a new tenant using a spreadsheet.
 
-There are two use cases to use the import tool.
+There are two use cases for the import tool.
 
-1. To create a tenant from scratch using a spreadsheet document to define all resources.
-2. To create a tenant based on an existing system without recreating everything from scratch
+1. To create a tenant from scratch using a spreadsheet in order to define all resources.
+2. To create a tenant based on an existing system without recreating everything from scratch.
 
 ## Installation
 
-Installing the import tool is required on the exporting and importing system.
+The import tool must be installed on both the systems we will be exporting from and importing to.
 
-To install it on a debian based system uses the following commands on the command line.
+To install it on a Debian based system use the following commands in the command line.
 
 ```shell
-# Debian Buster (10)
+# Debian Bullseye (11)
 apt update && apt install git python3-pip python3-setuptools sudo
 cd /tmp
 git clone https://github.com/wazo-platform/wazo-export-import.git
@@ -54,13 +54,13 @@ wazo-generate-dump list fields --<resource name>
 To create a tenant from scratch you will first need to create a spreadsheet file that will be used
 as the scaffold for your import.
 
-To create a spreadsheet ready to type in your data you can use the following command.
+To create a spreadsheet in which to enter your data you can use the following command.
 
 ```shell
 wazo-generate-dump new <filename.ods>
 ```
 
-This will create a file that can be opened with Microsoft Excel, Libre Office or Google Spreadsheet.
+This will create a file that can be opened with Microsoft Excel, LibreOffice or Google Sheets.
 
 The new file will contain many tabs and each tab contain many columns. The column named `ref` is
 used to reference other resources between each tab of the file.

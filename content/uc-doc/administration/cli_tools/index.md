@@ -19,16 +19,16 @@ See `wazo-debug --help` for a list of available operations.
 wazo-dist is the wazo repository sources manager. It is used to switch between distributions
 (production, development, release candidate, archived version). Example use cases :
 
-- switch to production repository : `wazo-dist -m pelican-buster`
-- switch to development repository : `wazo-dist -m wazo-dev-buster`
-- switch to release candidate repository : `wazo-dist -m wazo-rc-buster`
+- switch to production repository : `wazo-dist -m pelican-bullseye`
+- switch to development repository : `wazo-dist -m wazo-dev-bullseye`
+- switch to release candidate repository : `wazo-dist -m wazo-rc-bullseye`
 - switch to an archived version's repository: `wazo-dist -a wazo-18.02`
 
 ### wazo-dist-upgrade
 
 `wazo-dist-upgrade` is used to upgrade Wazo when a major Debian upgrade is required, e.g. upgrading
-from Wazo Platform 19.12 (Debian Stretch) to Wazo Platform 19.13 (Debian Buster).
-`wazo-dist-upgrade` can only be used when a Debian upgrade is required. Usually, upgrades are done
+from Wazo Platform 23.05 (Debian Buster) to Wazo Platform 23.06 (Debian Bullseye).
+`wazo-dist-upgrade` can only be used when a Debian upgrade is required. Standard upgrades are done
 with `wazo-upgrade`.
 
 ### wazo-reset {#wazo-reset}
@@ -36,7 +36,7 @@ with `wazo-upgrade`.
 wazo-reset is a tool to reset some of the state of a Wazo installation to a pre-wizard state. It
 does not try to reset everything and will _not_ give the same result as a fresh new Wazo
 installation. For example, all customizations that you have made that are not stored in the database
-(e.g. installing Debian packages, adding custom configuration files, etc), will not be reset. This
+(e.g. installing Debian packages, adding custom configuration files, etc.), will not be reset. This
 tool should be used with extra care.
 
 After using it, you need to pass the wizard once again.
