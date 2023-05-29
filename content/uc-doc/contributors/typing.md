@@ -282,7 +282,8 @@ type without knowing it. For example, a generic method that receives a list of i
 first. It doesn't matter what the list contains. Just that you will return the first item if it is
 not empty.
 
-```python from typing import TypeVar
+```python
+from typing import TypeVar
 
 T = TypeVar('T')
 
