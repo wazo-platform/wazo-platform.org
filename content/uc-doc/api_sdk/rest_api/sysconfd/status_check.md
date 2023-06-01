@@ -5,13 +5,13 @@ title: Status check
 ## Query
 
 ```
-GET /status_check
+GET /status
 ```
 
 ## Example request
 
 ```
-GET /status_check HTTP/1.1
+GET /status HTTP/1.1
 Host: wazoserver
 Content-Type: application/json
 ```

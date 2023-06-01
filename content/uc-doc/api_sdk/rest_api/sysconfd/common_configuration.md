@@ -7,7 +7,7 @@ title: Common configuration
 ### Query
 
 ```markdown
-GET /commonconf_apply
+GET /commonconf
 ```
 
 ## Generate configuration
@@ -15,7 +15,7 @@ GET /commonconf_apply
 ### Query
 
 ```markdown
-POST /commonconf_generate
+PUT /commonconf
 ```
 
 ## Change ownership of the Asterisk autoprov configuration files

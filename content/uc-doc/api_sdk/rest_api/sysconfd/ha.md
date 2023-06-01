@@ -7,7 +7,7 @@ title: HA configuration
 ### Query
 
 ```
-    GET /get_ha_config
+    GET /ha
 ```
 
 ## Update HA configuration
@@ -15,5 +15,5 @@ title: HA configuration
 ### Query
 
 ```
-POST /update_ha_config
+PUT /ha
 ```

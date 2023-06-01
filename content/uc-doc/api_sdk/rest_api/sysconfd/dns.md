@@ -7,7 +7,7 @@ title: DNS configuration
 ### Query
 
 ```markdown
-POST /hosts
+PUT /hosts
 ```
 
 ## Resolv.conf configuration
@@ -15,5 +15,5 @@ POST /hosts
 ### Query
 
 ```markdown
-POST /resolv_conf
+PUT /resolv_conf
 ```
