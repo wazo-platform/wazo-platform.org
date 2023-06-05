@@ -85,7 +85,7 @@ $ curl -X PUT HTTP://${CONSUL_URI}/v1/agent/service/deregister/$HOSTNAME
 
 ## Using consul-template
 
-[Consul-template](HTTPs://github.com/hashicorp/consul-template) is a template rendering, notifier, and supervisor for Consul also provided by [Hashicorp](HTTPs://www.hashicorp.com/).
+[Consul-template](https://github.com/hashicorp/consul-template) is a template rendering, notifier, and supervisor for Consul also provided by [Hashicorp](https://www.hashicorp.com/).
 
 It's a daemon that runs queries to and listens to events from your Consul cluster and updates different specified templates on the file system. It can optionally run commands after completing the update process.
 
@@ -97,7 +97,7 @@ An example of a template for the dispatcher list on our SBC node follows:
 {{end}}
 ```
 
-It queries the consul API for services defined as `router` then lists them in a Kamailio dispatcher format. The format of the template is standard [GoLang templating](https://pkg.go.dev/text/template) with the addition of several [functions](HTTPs://github.com/hashicorp/consul-template/blob/master/template/funcs.go).
+It queries the consul API for services defined as `router` then lists them in a Kamailio dispatcher format. The format of the template is standard [GoLang templating](https://pkg.go.dev/text/template) with the addition of several [functions](https://github.com/hashicorp/consul-template/blob/master/template/funcs.go).
 
 To run the consul-template daemon, we use the following command:
 
@@ -111,7 +111,7 @@ As you can see, `consul-template` uses the dispatcher list template shown above 
 
 ## What's next?
 
-We now want to use Consul's KV store to keep all the environmental variables in Consul and populate them at boot on our machines instead of using env files in docker-compose or Kubernetes. There's another tool from Hashicorp called [envconsul](HTTPs://github.com/hashicorp/envconsul) that provides exactly that functionality.
+We now want to use Consul's KV store to keep all the environmental variables in Consul and populate them at boot on our machines instead of using env files in docker-compose or Kubernetes. There's another tool from Hashicorp called [envconsul](https://github.com/hashicorp/envconsul) that provides exactly that functionality.
 
 ## Conclusions
 
