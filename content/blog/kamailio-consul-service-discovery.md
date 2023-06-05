@@ -97,7 +97,7 @@ An example of a template for the dispatcher list on our SBC node follows:
 {{end}}
 ```
 
-It queries the consul API for services defined as `router` then lists them in a Kamailio dispatcher format. The format of the template is standard [GoLang templating](HTTPs://golang.org/pkg/text/template/) with the addition of several [functions](HTTPs://github.com/hashicorp/consul-template/blob/master/template/funcs.go).
+It queries the consul API for services defined as `router` then lists them in a Kamailio dispatcher format. The format of the template is standard [GoLang templating](https://pkg.go.dev/text/template) with the addition of several [functions](HTTPs://github.com/hashicorp/consul-template/blob/master/template/funcs.go).
 
 To run the consul-template daemon, we use the following command:
 
