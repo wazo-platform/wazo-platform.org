@@ -11,7 +11,7 @@ title: Installing the System
 
 To install the Unified Communication use case in an all-in-one setup, do the following steps:
 
-1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset.
+1. Install a Debian 11 Bullseye system with a default locale with an UTF-8 charset.
 2. Run the following commands as root on the Debian system to provision sudo, git and Ansible:
 
    ```shell
@@ -49,8 +49,8 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 
    ```ini
    [uc_engine:vars]
-   wazo_distribution = pelican-buster
-   wazo_distribution_upgrade = pelican-buster
+   wazo_distribution = pelican-bullseye
+   wazo_distribution_upgrade = pelican-bullseye
    ```
 
    If you want to install the web user interface, activate the following in your inventory:

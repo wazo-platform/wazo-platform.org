@@ -33,7 +33,7 @@ Follow the instructions in the sub-section that matches the version you are curr
 4. Switch back to the production mirror:
 
    ```shell
-    wazo-dist -m pelican-buster
+    wazo-dist -m pelican-bullseye
    ```
 
 ### Wazo >= 19.04
@@ -465,7 +465,7 @@ wazo-dist -a wazo-19.13
 apt-get update
 apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbgsym
 xivo-fix-paths-rights
-wazo-dist -m pelican-buster
+wazo-dist -m pelican-bullseye
 ```
 
 This command should replace the `asterisk` package with `asterisk-vanilla`.
@@ -480,7 +480,7 @@ wazo-dist -a wazo-19.13
 apt-get update
 apt-get install -t wazo-19.13 asterisk
 xivo-fix-paths-rights
-wazo-dist -m pelican-buster
+wazo-dist -m pelican-bullseye
 ```
 
 ## Running Asterisk under Valgrind {#running-asterisk-under-valgrind}

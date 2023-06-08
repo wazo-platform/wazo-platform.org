@@ -16,7 +16,7 @@ title: "wazo-dird developer's guide"
 
 The wazo-dird architecture uses plugins as extension points for most of its job. It uses
 [stevedore](http://docs.openstack.org/developer/stevedore/) to do the plugin instantiation and
-discovery and [ABC](https://docs.python.org/2/library/abc.html) classes to define the required
+discovery and [ABC](https://docs.python.org/3.9/library/abc.html) classes to define the required
 interface.
 
 Plugins in wazo-dird use setuptools' entry points. That means that installing a new plugin to

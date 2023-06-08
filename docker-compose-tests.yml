@@ -2,7 +2,7 @@ version: '3'
 services:
   # Used to run a server to be used by test
   server:
-    image: python:3.7-buster
+    image: python:3.9-bullseye
     volumes:
       - ./public:/app/public:ro
     expose:
