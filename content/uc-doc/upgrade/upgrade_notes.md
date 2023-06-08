@@ -2,6 +2,17 @@
 title: Upgrade notes
 ---
 
+## 23.08 {#23-08}
+
+- Music on hold files are now validated to avoid issues with asterisk. The validation occurs only if
+  the music class is of mode `files`. The validation ensures that only WAV files in mono, 8kHz/16kHz
+  sample rate and a bit depth of no more than 16 bits can be uploaded. The invalid files are going
+  to be migrated to the `/var/lib/asterisk/moh/.invalid` directory and removed from the MOH class.
+
+Consult the
+[23.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.08)
+for more information.
+
 ## 23.07 {#23-07}
 
 Consult the
