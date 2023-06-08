@@ -34,8 +34,6 @@ Follow the instructions in the sub-section that matches the version you are curr
 
    ```shell
     wazo-dist -m pelican-bullseye
-    # or on Wazo <= 23.05
-    wazo-dist -m pelican-buster
    ```
 
 ### Wazo >= 19.04
