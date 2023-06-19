@@ -23,7 +23,7 @@ A user that exists on both platforms can have the two accounts mapped to each ot
 - [Chatd](https://wazo-platform.org/documentation/overview/chat.html) - Chat messages
 - [Webhookd](https://wazo-platform.org/documentation/overview/webhook.html) - Listen for messages and forward to bridge
 - [Confd](https://wazo-platform.org/documentation/overview/configuration.html) - Get user information
-- [Matrix Synapse](https://matrix.org/docs/projects/server/synapse) - The Matrix Homeserver
+- [Matrix Synapse](https://github.com/matrix-org/synapse) - The Matrix Homeserver
 - [Mautrix](https://github.com/mautrix/python) - Library for the bridge
 - [aiohttp](https://docs.aiohttp.org/en/stable/) - API calls and server for webhooks
 - [python markdown](https://python-markdown.github.io/) - Rendering Markdown text to HTML
