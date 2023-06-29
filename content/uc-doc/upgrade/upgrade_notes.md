@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.09 {#23-09}
+
+Consult the
+[23.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.09)
+for more information.
+
 ## 23.08 {#23-08}
 
 - Music on hold files are now validated to avoid issues with asterisk. The validation occurs only if
