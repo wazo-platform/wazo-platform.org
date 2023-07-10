@@ -104,13 +104,13 @@
     run: zuul.d/run-prettier.yaml
 
 - project:
-    check:
+    wazo-check:
       jobs:
         - yarn-build-copy:
             nodeset: vm-debian-11-m1m
         - yarn-prettier-uc-doc:
             nodeset: vm-debian-11-m1s
-    gate:
+    wazo-gate:
       jobs:
         - yarn-build-search-copy:
             nodeset: vm-debian-11-m1m
