@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.10 {#23-10}
+
+Consult the
+[23.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.10)
+for more information.
+
 ## 23.09 {#23-09}
 
 Consult the
