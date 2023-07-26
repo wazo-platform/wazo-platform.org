@@ -45,6 +45,13 @@ root@stack:~# wazo-provd-cli
 wazo-provd-cli> plugins.uninstall('xivo-polycom-4.0.9')
 ```
 
+You should also clean the wazo-provd cache. This will prevent wazo-provd from trying to reinstall
+the old plugin.
+
+```shell
+root@stack:~# rm -r /var/cache/wazo-provd/*
+```
+
 ## Manually update the plugin code to fix the issues
 
 One of the possible ways to fix the loading issue is to look at what the Traceback says and to fix
