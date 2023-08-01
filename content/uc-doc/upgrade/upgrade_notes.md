@@ -2,6 +2,17 @@
 title: Upgrade notes
 ---
 
+## 23.11 {#23-11}
+
+- Added required field 'phonebook_uuid' to phonebook source resource (`/backend/phonebook/sources`).
+  This attribute should point to a valid existing phonebook.
+  Existing phonebook sources created without this attribute may be deleted by a database migration in a future release.
+
+Consult the
+[23.11 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.11)
+for more information.
+
+
 ## 23.10 {#23-10}
 
 Consult the
