@@ -62,3 +62,34 @@ For other devices, you need to change the passwords manually.
 See the list of network ports that are listening to `[0.0.0.0]` in the
 [network ports](/uc-doc/contributors/network) page. Change the service
 [configuration](/uc-doc/system/configuration_files) for services that do not need to be accessible.
+
+## Limiting who can connect to Asterisk via IP addresses access control lists (ACLs)
+
+As an additionnal security layer, you can also use ACLs on your trunk SIP templates and on your
+endpoint SIP templates.
+
+### Keywords
+
+The usual way of defining ACLs for a PJSIP template is to use the `permit`/`deny` keywords. However,
+wazo-confgend does not generate options in order in the PJSIP configuration file. This means that
+sometimes the `permit` options appear before the `deny` and sometimes the reverse is true. To
+counter this, it is possible and recommended to _only_ use the `permit` keyword with the following
+techniques, depending on how you want to use the ACL
+
+### Allowing only certain IP addresses
+
+```
+permit = !0.0.0.0/0,10.20.30.0/24,1.2.3.4
+```
+
+The `permit` rule above would disallow traffic coming from everywhere except the `10.20.30.0/24`
+network and the `1.2.3.4` IP address.
+
+### Allowing all traffic but disallowing certain IP addresses
+
+```
+permit = 0.0.0.0/0,!10.20.30.0/24,!1.2.3.4
+```
+
+The `permit` rule above would allow traffic for everyone except the `10.20.30.0/24` network and the
+`1.2.3.4` IP address.
