@@ -72,9 +72,10 @@ endpoint SIP templates.
 
 The usual way of defining ACLs for a PJSIP template is to use the `permit`/`deny` keywords. However,
 wazo-confgend does not generate options in order in the PJSIP configuration file. This means that
-sometimes the `permit` options appear before the `deny` and sometimes the reverse is true. To
-counter this, it is possible and recommended to _only_ use the `permit` keyword with the following
-techniques, depending on how you want to use the ACL
+sometimes the `permit` options appear before the `deny` and sometimes the reverse is true. To work
+around this, it is possible and recommended to _only_ use the `permit` keyword along with
+exclamation marks in order to both allow and exclude specific addresses, such as demonstrated in the
+following examples.
 
 ### Allowing only certain IP addresses
 
