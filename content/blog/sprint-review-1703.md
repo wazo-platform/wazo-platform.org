@@ -20,7 +20,7 @@ Technical features
 
 **Consul**: Consul has been updated from 0.7.2 to [0.7.3](https://github.com/hashicorp/consul/blob/v0.7.3/CHANGELOG.md). Consul is used for service discovery across multiple Wazo installation.
 
-**libpri**: LibPRI has been updated from 1.5.0 to [1.6.0](http://downloads.asterisk.org/pub/telephony/libpri/ChangeLog-1.6.0). LibPRI is used for some hardware telephony cards (E1, T1, J1).
+**libpri**: LibPRI has been updated from 1.5.0 to [1.6.0](http://downloads.asterisk.org/pub/telephony/libpri/releases/ChangeLog-1.6.0). LibPRI is used for some hardware telephony cards (E1, T1, J1).
 
 Ongoing features
 ----------------
