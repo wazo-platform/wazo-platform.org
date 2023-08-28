@@ -100,16 +100,16 @@ line, where as the last one uses SCCP:
 
 ```csv
 firstname,lastname,exten,context,line_protocol
-John,Doe,1000,default,sip
-George,Clinton,1001,default,sip
-Bill,Bush,1002,default,sccp
+John,Doe,1000,ctx-<tenant slug>-internal-<UUID>,sip
+George,Clinton,1001,ctx-<tenant slug>-internal-<UUID>,sip
+Bill,Bush,1002,ctx-<tenant slug>-internal-<UUID>,sccp
 ```
 
 The following example imports a user with a phone number and a voicemail:
 
 ```csv
 firstname,lastname,exten,context,line_protocol,voicemail_name,voicemail_number,voicemail_context
-John,Doe,1000,default,sip,Voicemail for John Doe,1000,default
+John,Doe,1000,ctx-<tenant slug>-internal-<UUID>,sip,Voicemail for John Doe,1000,ctx-<tenant slug>-internal-<UUID>
 ```
 
 The following exmple imports a user with both an internal and external phone number (e.g. incoming
@@ -117,7 +117,7 @@ call):
 
 ```csv
 firstname,lastname,exten,context,line_protocol,incall_exten,incall_context
-John,Doe,1000,default,sip,2050,from-extern
+John,Doe,1000,ctx-<tenant slug>-internal-<UUID>,sip,2050,ctx-<tenant slug>-incall-<UUID>
 ```
 
 ## CSV Update

@@ -1,19 +1,19 @@
 @startuml
 
-Alice -> confd: <b>Create Line</b>\nPOST /lines\n{"context": "default"}
+Alice -> confd: <b>Create Line</b>\nPOST /lines\n{"context": "ctx-<tenant slug>-internal-<uuid>"}
 confd --> Alice: {"id": 11, ...}
 
-Alice -> confd: <b>Create an extension</b>\nPOST /extensions\n{"exten": "1234", "context": "default"}
+Alice -> confd: <b>Create an extension</b>\nPOST /extensions\n{"exten": "1234", "context": "ctx-<tenant slug>-internal-<uuid>"}
 confd --> Alice: {"id": 22, ...}
 
 Alice -> confd: <b>Associate the line-extension</b>\nPUT /lines/11/extensions/22
-confd --> Alice: 
+confd --> Alice:
 
 Alice -> confd: <b>Create a user</b>\nPOST /users\n{"firstname": "Alice"}
 confd -> Alice: {"uuid": "44444444-...", ...}
 
 Alice -> confd: <b>Associate the user-line</b>\nPUT /users/44444444-.../lines/11
-confd -> Alice: 
+confd -> Alice:
 
 Alice -> confd: <b>Create the SIP endpoint</b>\nPOST /endpoints/sip\n{}
 confd -> Alice: {"id": 66, ...}
@@ -30,7 +30,7 @@ confd -> Alice:
 Alice -> confd: <b>Re-synchronize the device (optional):</b>\nPUT /devices/8888/synchronize
 confd -> Alice:
 
-Alice -> confd: <b>Create the voicemail</b>\nPOST /voicemails\n{"name": "Alice's voicemail",  "number": "1234",  "context": "default"}
+Alice -> confd: <b>Create the voicemail</b>\nPOST /voicemails\n{"name": "Alice's voicemail",  "number": "1234",  "context": "ctx-<tenant slug>-internal-<uuid>"}
 confd -> Alice: {"id": 1010, ..}
 
 Alice -> confd: <b>Associate the user-voicemail</b>\nPUT /users/44444444-.../voicemails/1010

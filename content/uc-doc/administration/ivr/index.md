@@ -104,15 +104,15 @@ exten = i,n,Hangup()
 To call the script dp-ivr-example from an external phone, you must create an incoming call and
 redirect the call to the script dp-ivr-example with the command :
 
-- `POST /extensions {"exten": <DID>, "context": "from-extern"}`
+- `POST /extensions {"exten": <DID>, "context": "ctx-<tenant slug>-incall-<UUID>"}`
 - `POST /incalls {"destination": {"type": "custom", "command": "Goto(dp-ivr-example,s,1)"}}`
 - `PUT /incalls/{incall_id}/extensions/{extension_id}`
 
 ### IVR internal dial
 
 To call the script dp-ivr-example from an internal phone you must create an entry in the default
-context (`xivo-extrafeatures` is included in `default`). The best way is to add the extension in the
-file `/etc/asterisk/extensions_extra.d/xivo-extrafeatures.conf`.
+context (`xivo-extrafeatures` is included in `ctx-<tenant slug>-internal-<UUID>`). The best way is
+to add the extension in the file `/etc/asterisk/extensions_extra.d/xivo-extrafeatures.conf`.
 
 ```dialplan
 exten => 8899,1,Goto(dp-ivr-example,s,1)

@@ -642,7 +642,7 @@ Example:
   "data": {
     "id": "1234567.89",
     "call_id": "1234567.89",
-    "context": "internal",
+    "context": "ctx-<tenant slug>-internal-<UUID>",
     "extension": "1234",
     "caller_id": "fax sender <5551234>",
     "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
@@ -677,7 +677,7 @@ Example:
   "data": {
     "id": "1234567.89",
     "call_id": "1234567.89",
-    "context": "internal",
+    "context": "ctx-<tenant slug>-internal-<UUID>",
     "extension": "1234",
     "caller_id": "fax sender <5551234>",
     "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",
@@ -712,7 +712,7 @@ Example:
   "data": {
     "id": "1234567.89",
     "call_id": "1234567.89",
-    "context": "internal",
+    "context": "ctx-<tenant slug>-internal-<UUID>",
     "extension": "1234",
     "caller_id": "fax sender <5551234>",
     "user_uuid": "3c616e3a-611b-4703-bea8-9be4fc4c9fe4",

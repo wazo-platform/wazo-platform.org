@@ -11,7 +11,7 @@ GET /delete_voicemail
 ## Parameters
 
 - `name`: the voicemail name
-- `context`(optional): the voicemail context (default is `default`)
+- `context`(optional): the voicemail context (default is `ctx-<tenant slug>-internal-<UUID>`)
 
 ## Errors {#rest-api-errors}
 

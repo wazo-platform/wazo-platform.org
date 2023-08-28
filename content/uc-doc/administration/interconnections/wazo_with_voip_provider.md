@@ -22,7 +22,7 @@ You need the following information from your provider:
 - a password
 - the name of the provider VoIP server
 - a public phone number
-- `POST /trunks {"context": "from-extern"}` (or another incoming call context)
+- `POST /trunks {"context": "ctx-<tenant slug>-incall-<UUID>"}` (or another incoming call context)
 - `POST /endpoints/sip {"username": <username>, "secret": <password>, "type": "peer", "host": "voip.provider.example.com"}`
 - `PUT /trunks/{trunk_id}/endpoints/sip/{sip_id}`
 - `POST /registers/sip {"auth_username": <username>, "auth_password": <password>, "transport": "udp", "remote_host": "voip.provider.example.com"}`
@@ -48,7 +48,7 @@ trunk.
 
 - `POST /outcalls`
 - `PUT /outcalls/{outcall_id}/trunks`
-- `POST /extensions {"exten": "418.", "context": "to-extern"}`
+- `POST /extensions {"exten": "418.", "context": "ctx-<tenant slug>-outcall-<UUID>"}`
 - `PUT /outcalls/{outcall_id}/extensions/{extension_id}`
 
 This will tell Wazo: if an internal user dials a number beginning with `418`, then try to dial it on
@@ -69,10 +69,11 @@ Now that we have calls going out, we need to route incoming calls.
 To route an incoming call to the right destination in the right context, we will create an incoming
 call.
 
-- `POST /extensions {"exten": <public_phone_number>, "context": "from-extern"}`
+- `POST /extensions {"exten": <public_phone_number>, "context": "ctx-<tenant slug>-incall-<UUID>"}`
 - `POST /incalls {"destination": {"type": "user", "user_id": <the_front_desk_guy_id>}}`
 - `PUT /incalls/{incall_id}/extensions/{extension_id}`
 
 This will tell Wazo: if you receive an incoming call to the public phone number in the context
-`from_extern`, then route it to the user `the_front_desk_guy_id`. The destination context will be
-found automatically, depending on the context of the line of the given user.
+`ctx-<tenant slug>-incall-<UUID>`, then route it to the user `the_front_desk_guy_id`. The
+destination context will be found automatically, depending on the context of the line of the given
+user.

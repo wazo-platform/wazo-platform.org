@@ -27,18 +27,20 @@ Consider Wazo A wants to establish a trunk with Wazo B.
 The `context` field will determine which extensions will be reachable by the other side of the
 trunk:
 
-- If `context` is set to `default`, then every user, group, conf room, queue, etc. that have an
-  extension if the `default` context will be reachable directly by the other end of the trunk. This
-  setting can ease configuration if you manage both ends of the trunk.
+- If `context` is set to `ctx-<tenant slug>-internal-<UUID>`, then every user, group, conf room,
+  queue, etc. that have an extension in the `ctx-<tenant slug>-internal-<UUID>` context will be
+  reachable directly by the other end of the trunk. This setting can ease configuration if you
+  manage both ends of the trunk.
 - If you are establishing a trunk with a provider, you probably don't want everything to be
-  available to everyone else, so you can set the `context` field to `from-extern`. By default, there
-  is no extension available in this context, so we will be able to configure which extension are
-  reachable by the other end. This is the role of the incoming calls: making bridges from the
-  `from-extern` context to other contexts.
+  available to everyone else, so you can set the `context` field to
+  `ctx-<tenant slug>-incall-<UUID>`. By default, there is no extension available in this context, so
+  we will be able to configure which extension are reachable by the other end. This is the role of
+  the incoming calls: making bridges from the `ctx-<tenant slug>-incall-<UUID>` context to other
+  contexts.
 
 On Wazo A, create the other end of the SIP trunk:
 
-- `POST /trunks {"context": "from-extern"}`
+- `POST /trunks {"context": "ctx-<tenant slug>-incall-<UUID>"}`
 - `POST /endpoints/sip {"username": "wazo-trunk", "secret": "pass", "type": "friend", "host": <Wazo B IP address or hostname>}`
 - `PUT /trunks/{trunk_id}/endpoints/sip/{sip_id}`
 - `POST /registers/sip {"auth_username": "wazo-trunk", "auth_password": "pass", "transport": "udp", "remote_host": <Wazo B IP address or hostname>}`
@@ -60,7 +62,7 @@ On the call emitting server(s), add outgoing call.
 
 - `POST /outcalls`
 - `PUT /outcalls/{outcall_id}/trunks`
-- `POST /extensions {"exten": "_**99.", "context": "to-extern"}`
+- `POST /extensions {"exten": "_**99.", "context": "ctx-<tenant slug>-outcall-<UUID>"}`
 - `PUT /outcalls/{outcall_id}/extensions/{extension_id} {"strip_digits": 4}`
 
 This will tell Wazo: if any extension begins with `**99`, then try to dial it on the trunk
@@ -85,13 +87,13 @@ destination.
 To route an incoming call to the right destination in the right context, we will create an incoming
 call
 
-- `POST /extensions {"exten": "101", "context": "from-extern"}`
+- `POST /extensions {"exten": "101", "context": "ctx-<tenant slug>-incall-<UUID>"}`
 - `POST /incalls {"destination": {"type": "user", "user_id": <someone_id>}}`
 - `PUT /incalls/{incall_id}/extensions/{extension_id}`
 
 This will tell Wazo: if you receive an incoming call to the extension `101` in the context
-`from-extern`, then route it to the user `someone_id`. The destination context will be found
-automatically, depending on the context of the line of the given user.
+`ctx-<tenant slug>-incall-<UUID>`, then route it to the user `someone_id`. The destination context
+will be found automatically, depending on the context of the line of the given user.
 
 So, with the outgoing call set earlier on Wazo A, and with the incoming call above set on Wazo B, a
 user on Wazo A will dial `**99101`, and the user `someone_id` will ring on Wazo B.
