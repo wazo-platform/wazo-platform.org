@@ -4,8 +4,22 @@ title: Installing the System
 
 ## Requirements
 
-- Memory: 2 GiB of memory is a tight minimum
-- Storage: 2.5 GiB of storage is a very tight minimum, 8 GiB is comfortable
+### Trying it out
+
+Here are the system minimum requirements if you just want to try out a Wazo Platform instance:
+
+- CPU: 1 CPU is enough for a test server
+- Memory: 2 GiB of memory is a tight minimum for a test server
+- Storage: 8 GiB is comfortable for a test server, except if you plan to use large firmware files
+  for physical phones.
+
+### Production
+
+Here are the expected resources for a small production installation of around 50 users:
+
+- 2 CPU minimum
+- 4 GiB RAM minimum
+- 50 GiB storage minimum
 
 ## Procedure
 
