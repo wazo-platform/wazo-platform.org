@@ -1,16 +1,19 @@
 @startuml
 
 actor Alice
+actor Bob
 
-Alice -> webhookd: listen to 'voicemail_created'
+Alice -> webhookd: Listen to 'user_voicemail_message_created'
 webhookd -> auth: Validate token
-auth --> webhookd: allows
+auth --> webhookd: Token OK
+webhookd -> Bus: Subscribe to 'user_voicemail_message_created'
 webhookd --> Alice: OK
 
-Asterisk -> Bus: via amid
-Bus -> webhookd: listen
-actor Bob
-Bob -> Asterisk: leave voicemail
-webhookd -> "SMS Service\n(external)": push 
+Bob -> Asterisk: Leave voicemail message
+Asterisk -> Bus: AMI event 'MessageWaiting'
+Bus -> "wazo-calld": parse 'MessageWaiting'
+"wazo-calld" -> Bus: Send event 'user_voicemail_message_created'
+Bus -> webhookd: Publish event 'user_voicemail_message_created'
+webhookd -> "SMS Service\n(external)": Make HTTP request
 
 @enduml
