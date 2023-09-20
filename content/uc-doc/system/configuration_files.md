@@ -156,10 +156,10 @@ Here is the process you should follow if you want to use/customize this feature 
      1002@default = myprofile-aastra
      ```
 
-   - or to a whole context (e.g. default):
+   - or to a whole context (e.g. `ctx-<tenant slug>-internal-<UUID>`):
 
      ```ini
-     @default = myprofile-aastra
+     @ctx-<tenant slug>-internal-<UUID> = myprofile-aastra
      ```
 
 5. Restart `wazo-agid` service:
