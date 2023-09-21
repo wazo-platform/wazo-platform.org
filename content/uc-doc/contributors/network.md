@@ -21,7 +21,7 @@ Network Flow table (IN) :
 | sshd            | SSH     | TCP      | 22    | 0.0.0.0   | yes            | yes     |
 | nginx           | HTTP    | TCP      | 80    | 0.0.0.0   | yes            | yes     |
 | nginx           | HTTPS   | TCP      | 443   | 0.0.0.0   | yes            | yes     |
-| nginx           | HTTP    | TCP      | 8667  | 0.0.0.0   | no            | yes     |
+| nginx           | HTTP    | TCP      | 8667  | 0.0.0.0   | no             | yes     |
 | munin           | HTTP    | TCP      | 4949  | 127.0.0.1 | no             | yes     |
 | postgresql      | SQL     | TCP      | 5432  | 127.0.0.1 | yes            | yes     |
 | rabbitMQ        | AMQP    | TCP      | 5672  | 0.0.0.0   | yes            | yes     |
