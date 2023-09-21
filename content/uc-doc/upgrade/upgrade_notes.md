@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 23.13 {#23-13}
+
+- `wazo-provd` now listens on TCP port 18667 locally and is exposed on TCP port 8667 through
+  `nginx`. If you are using any other port than TCP 8667 for provisioning, you may need to change
+  the configuration of `wazo-provd` or `nginx`.
+
+Consult the
+[23.13 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.13)
+for more information.
+
 ## 23.12 {#23-12}
 
 Consult the
