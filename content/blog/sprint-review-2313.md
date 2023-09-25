@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 23.13 Released
-date: 2023-09-20T16:57:00
+date: 2023-09-25T09:00:00
 author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
