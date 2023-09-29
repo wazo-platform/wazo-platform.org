@@ -212,6 +212,37 @@ class TestRanking(TestCase):
         self.assertEquals(rank.session, session)
 ```
 
+### Assertions {#assertions}
+
+Using `assert` in production code is accepted as long as it is _not_ used for validation of
+untrusted input. It must only be used to document critical errors that would cause unexpected
+behavior in code following the `assert`.
+
+#### Bad example:
+
+```python
+    def get_contacts(self, contact_source_id: str) -> PhonebookSourceInfo:
+        try:
+            assert database.contact_source_exists(contact_source_id)
+        except AssertionError:
+            raise LookupError('Contact source id "{contact_source_id}" does not exist')
+        ...
+```
+
+#### Good example:
+
+```python
+    def get_contacts(self, contact_source_id: str) -> PhonebookSourceInfo:
+        contact_source = database.get_contact_source(contact_source_id)
+        if contact_source['type'] == 'phonebook':
+            return get_phonebook_contacts(contact_source)
+
+    def get_phonebook_contacts(self, contact_source: dict):
+        assert 'phonebook_uuid' in source_data
+        phonebook_key = PhonebookKey(uuid=source_data['phonebook_uuid'])
+        ...
+```
+
 ## Tests {#tests}
 
 ### Place tests along side the code
