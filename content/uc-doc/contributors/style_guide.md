@@ -212,6 +212,52 @@ class TestRanking(TestCase):
         self.assertEquals(rank.session, session)
 ```
 
+### Assertions {#assertions}
+
+Using `assert` in production code is accepted as long as it is _not_ used for validation of
+untrusted input. It must only be used to document critical expectations, which if violated would
+result in unexpected behavior in the code following the `assert`. It can also be used in combination
+with type annotations to provide information to a static type checker for
+[type narrowing](https://mypy.readthedocs.io/en/stable/type_narrowing.html).
+
+#### Bad example:
+
+```python
+    def get_contacts(self, contact_source_id: str) -> PhonebookSourceInfo:
+        try:
+            assert database.contact_source_exists(contact_source_id)
+        except AssertionError:
+            raise LookupError('Contact source id "{contact_source_id}" does not exist')
+        ...
+```
+
+In this case `assert` is used to validate an expected error condition which must be accounted for
+and handled. Instead, simply use a conditional statement(e.g.
+`if not database.contact_source_exists(contact_source_id): ...`) to validate those kinds of
+conditions and act appropriately.
+
+#### Good example:
+
+```python
+    def get_contacts(self, contact_source_id: str) -> PhonebookSourceInfo:
+        contact_source = database.get_contact_source(contact_source_id)
+        if contact_source['type'] == 'phonebook':
+            return get_phonebook_contacts(contact_source)
+
+    def get_phonebook_contacts(self, source_data: dict):
+        assert 'phonebook_uuid' in source_data
+        phonebook_key = PhonebookKey(uuid=source_data['phonebook_uuid'])
+        ...
+```
+
+Here, the assertion indicates that the code of `get_phonebook_contacts` expects its input to have a
+specific key, and is not designed to be used with arbitrary arguments that do not contain this key,
+and that there is no intention to handle such a case. An `AssertionError` resulting from a violation
+of that expectation would signal, hopefully during testing, that the function is not used properly
+by the surrounding code. This is similar to the use of static type annotations in informing
+developers on the intended usage of interfaces and guaranteeing correctness of a part of the
+implementation by detecting potential bugs that could otherwise remain silent.
+
 ## Tests {#tests}
 
 ### Place tests along side the code
