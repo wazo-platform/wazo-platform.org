@@ -4,9 +4,7 @@ title: Upgrade notes
 
 ## 23.14 {#23-14}
 
-- database migrations included in this release affect sources of type `phonebook` used by the dird
-  service. Some sources may be modified while others may be deleted. A backup of the database and
-  wazo system prior to upgrading to this version is strongly recommended.
+- Directory sources of type `phonebook` that are configured to an invalid phonebook will be deleted.
 
 Consult the
 [23.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.14)
