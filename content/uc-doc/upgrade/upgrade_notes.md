@@ -2,6 +2,14 @@
 title: Upgrade notes
 ---
 
+## 23.14 {#23-14}
+
+- Directory sources of type `phonebook` that are configured to an invalid phonebook will be deleted.
+
+Consult the
+[23.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.14)
+for more information.
+
 ## 23.13 {#23-13}
 
 - `wazo-provd` now listens on TCP port 18667 locally and is exposed on TCP port 8667 through
