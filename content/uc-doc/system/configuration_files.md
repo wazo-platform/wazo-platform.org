@@ -96,7 +96,7 @@ Wazo.
 - Default configuration directory: `/etc/wazo-phoned/conf.d`
 - Default configuration file: `/etc/wazo-phoned/config.yml`
 
-## wazo-provd
+## wazo-provd {#wazo-provd}
 
 - Default configuration directory: `/etc/wazo-provd/conf.d`
 - Default configuration file: `/etc/wazo-provd/config.yml`

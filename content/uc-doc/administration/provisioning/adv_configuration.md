@@ -214,7 +214,8 @@ By design, the auto-provisioning process is vulnerable to:
   sensitive information, e.g. SIP credentials that are used by SIP phones to make calls. Depending
   on your network configuration and the amount of information an attacker has on your telephony
   ecosystem (phone vendor, MAC address, etc.), he could retrieve the content of some files
-  containing sensitive information.
+  containing sensitive information. Could be avoided with
+  [Remote Provisioning](/uc-doc/administration/provisioning/remote-provisioning)
 - Denial-of-service attack: in its default configuration, each time the provisioning server identify
   a request coming from a new device, it creates a new device object in its database. An attacker
   could spoof requests to the provisioning server to create a huge amount of devices, creating a
