@@ -396,7 +396,7 @@ Then you can create the configuration templates using Jinja templates. Here are 
 - [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/common/templates/contact.tpl)
 - [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/v1_4_0_0/templates/D40.tpl)
 
-## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
+## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd-wazo-community}
 
 First, change the source of your plugins (cf.
 [Alternative plugins repository](/uc-doc/administration/provisioning/basic_configuration#alternative-plugins-repo))
