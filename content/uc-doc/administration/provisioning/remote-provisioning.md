@@ -11,8 +11,8 @@ environments. Available methods are:
 ## Disabled (default) {#disabled}
 
 The authentication system is disabled by default to allow a configuration-free provisioning system.
-Wazo will detect devices and set them in autoprov mode according to some criteria (ex: phone vendors, MAC
-address, etc..). As mentioned in the
+Wazo will detect devices and set them in autoprov mode according to some criteria (ex: phone
+vendors, MAC address, etc..). As mentioned in the
 [security](/uc-doc/administration/provisioning/adv_configuration#provd-security) section, guessing
 this information could be relatively easy. It's why auto-provisioning should only be used locally
 and not on the Internet.
@@ -34,14 +34,20 @@ general:
   http_auth_strategy: url_key
 ```
 
-**Warning**: To avoid leaking provisioning keys, only the HTTPS endpoint should be used for the provisioning URL.
+**Warning**: To avoid leaking provisioning keys, only the HTTPS endpoint should be used for the
+provisioning URL.
 
 ### How to Configure
 
 1. Change the authentication strategy to use [`url_key`](#change-auth-strategy)
-2. Generate a provisioning key (random alphanumeric string). The minimum length is 8 characters and the maximum is 255 characters.
+2. Generate a provisioning key (random alphanumeric string). The minimum length is 8 characters and
+   the maximum is 255 characters.
 3. Use `PUT /configure/provisioning_key` with the right `Wazo-Tenant` header to set the provisioning
-   key for a particular tenant. If no tenant is provided, the tenant of the token used will be configured.
+   key for a particular tenant. If no tenant is provided, the tenant of the token used will be
+   configured.
 4. Manually enter the provisioning URL (including provisioning key) into the device configuration.
 
    - `https://wazo.example.com/device/provisioning/<provisioning-key>/`
+
+**Note**: Provisioning plugins should be updated to a recent version to use this feature (i.e. a
+version released after 2023-10)
