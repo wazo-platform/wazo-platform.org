@@ -14,8 +14,8 @@ The authentication system is disabled by default to allow a configuration-free p
 Wazo will detect devices and set them in autoprov mode according to some criteria (ex: phone
 vendors, MAC address, etc..). As mentioned in the
 [security](/uc-doc/administration/provisioning/adv_configuration#provd-security) section, guessing
-this information could be relatively easy. It's why auto-provisioning should only be used locally
-and not on the Internet.
+this information could be relatively easy. It's why auto-provisioning wihtout authentication
+strategy should only be used locally and not on the Internet.
 
 ## Provisioning Key by Tenant {#provisioning-key-by-tenant}
 
@@ -34,8 +34,9 @@ general:
   http_auth_strategy: url_key
 ```
 
-**Warning**: To avoid leaking provisioning keys, only the HTTPS endpoint should be used for the
-provisioning URL.
+**Warning**: To avoid leaking provisioning keys, the
+[HTTPS for auto-provisioning](/uc-doc/administration/provisioning/basic_configuration#https-autoprovisioning)
+should be used.
 
 ### How to Configure
 
