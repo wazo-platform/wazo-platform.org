@@ -57,7 +57,7 @@ const checkUrl = async (browser, url, fromUrl) => {
   }
 
   const extensionParts = url.split('.');
-  const extension = extensionParts[extensionParts.length -1];
+  const extension = extensionParts[extensionParts.length - 1];
   const isUrlLocal = url.indexOf(baseUrl) !== -1;
 
   if (EXCLUDED_EXTENSIONS.indexOf(extension) !== -1) {
@@ -77,7 +77,7 @@ const checkUrl = async (browser, url, fromUrl) => {
     let result = true;
 
     // One response event for each file on the page
-    browserPage.on('response', res => {
+    browserPage.on('response', (res) => {
       if (res.url().indexOf('favicon.ico') !== -1) {
         return;
       }
@@ -94,9 +94,9 @@ const checkUrl = async (browser, url, fromUrl) => {
       throw new Error(`statuses ${failedResponses.map((response) => response.status())}`);
     }
 
-    let links = await browserPage.evaluate(
-      () =>
-        Array.from(document.getElementsByTagName('a')).map(node => node.href));
+    let links = await browserPage.evaluate(() =>
+      Array.from(document.getElementsByTagName('a')).map((node) => node.href)
+    );
 
     await browserPage.close();
 
@@ -111,7 +111,7 @@ const checkUrl = async (browser, url, fromUrl) => {
         continue;
       }
 
-      result = await checkUrl(browser, link, url) && result;
+      result = (await checkUrl(browser, link, url)) && result;
     }
 
     return result;
@@ -137,7 +137,7 @@ const checkUrl = async (browser, url, fromUrl) => {
 
   if (errorUrl.length) {
     // Listing problem URLs, instead of have to scour the logs
-    console.error("###### PROBLEMS\n", errorUrl.join("\n"))
+    console.error('###### PROBLEMS\n', errorUrl.join('\n'));
   }
 
   process.exit(errorCode);
