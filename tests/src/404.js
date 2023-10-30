@@ -41,6 +41,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // Youtube links are hard to open with automated tools
+  if (url.indexOf('youtu.be') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
