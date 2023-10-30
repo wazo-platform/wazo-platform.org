@@ -115,6 +115,31 @@ settings:
 Save the changes by clicking on the `Confirm` button and then click on the `Autoprovision Now`
 button.
 
+## Using HTTPS for autoprovisioning {#https-autoprovisioning}
+
+By default, autoprovisioning happens over TFTP (for older phones) and HTTP. However, some phones
+also support autoprovisioning over HTTPS. This is the most secure way of provisioning a phone, but
+also the less likely to work out-of-the-box, hence not the default.
+
+In order to autoprovision devices over HTTPS, use the following wazo-confd API:
+
+```http
+PUT /provisioning/networking
+{
+   ...
+   "http_base_url": "https://wazo.example.com/device/provisioning",
+   ...
+}
+```
+
+where `wazo.example.com` is the hostname of your Wazo Platform server.
+
+### Limitations
+
+If you use a HTTPS certificate signed by a recent root CA, such as Let's Encrypt, phones may not be
+able to verify the HTTPS certificate. Make sure you use the most recent firmware for HTTPS
+provisioning.
+
 ## Autoprovisioning a Device
 
 Once you have installed the right provd plugins for your devices and correctly set up your DHCP

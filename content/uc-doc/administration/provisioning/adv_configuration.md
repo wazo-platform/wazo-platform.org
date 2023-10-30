@@ -249,3 +249,9 @@ compatible:
 | wazo-polycom    | >= 1.7  |
 | wazo-snom       | >= 1.6  |
 | wazo-yealink    | >= 1.26 |
+
+### Encryption
+
+If the provisioning transport is unencrypted, the phone credentials could be intercepted in transit.
+See
+[HTTPS provisioning](/uc-doc/administration/provisioning/basic_configuration#https-autoprovisioning).
