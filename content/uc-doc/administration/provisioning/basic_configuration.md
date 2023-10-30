@@ -117,9 +117,9 @@ button.
 
 ## Using HTTPS for autoprovisioning {#https-autoprovisioning}
 
-By default, autoprovisioning happens over FTP (for older phones) and HTTP. However, some phones also
-support autoprovisioning over HTTPS. This is the most secure way of provisioning a phone, but also
-the less likely to work out-of-the-box, hence not the default.
+By default, autoprovisioning happens over TFTP (for older phones) and HTTP. However, some phones
+also support autoprovisioning over HTTPS. This is the most secure way of provisioning a phone, but
+also the less likely to work out-of-the-box, hence not the default.
 
 In order to autoprovision devices over HTTPS, use the following wazo-confd API:
 
