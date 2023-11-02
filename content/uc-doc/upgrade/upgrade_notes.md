@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 23.15 {#23-15}
+
+Consult the
+[23.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.15)
+for more information.
+
 ## 23.14 {#23-14}
 
 - Directory sources of type `phonebook` that are configured to an invalid phonebook will be deleted.
