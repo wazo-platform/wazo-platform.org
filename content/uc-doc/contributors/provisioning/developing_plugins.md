@@ -4,7 +4,7 @@ title: Developing Provisioning Plugins
 
 Here is an example of how to develop a provisioning plugin for Digium phones. You can find all the
 code
-[on GitHub](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/wazo-digium).
+[on GitHub](https://github.com/wazo-platform/wazo-provd-plugins/tree/master/plugins/wazo_digium).
 
 If instead you want to add a model to an existing provisioning plugin, see the
 [corresponding guide](/uc-doc/contributors/provisioning/add_phone_to_plugin) instead.
@@ -96,7 +96,7 @@ dhcpcd-update -d
 In `wazo-provd-plugins/plugins`, create the directory tree:
 
 ```shell
-wazo-digium/
+wazo_digium/
     build.py
     1.4.0.0/
         plugin-info
@@ -299,7 +299,7 @@ from provd.plugins import StandardPlugin, FetchfwPluginHelper, TemplatePluginHel
 from provd.servers.http import HTTPNoListingFileService
 
 
-logger = logging.getLogger('plugin.wazo-digium')
+logger = logging.getLogger('plugin.wazo_digium')
 
 
 class BaseDigiumPlugin(StandardPlugin):
@@ -392,9 +392,9 @@ class BaseDigiumPlugin(StandardPlugin):
 
 Then you can create the configuration templates using Jinja templates. Here are some examples:
 
-- [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/common/templates/base.tpl)
-- [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/common/templates/contact.tpl)
-- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo-digium/1.4.0.0/templates/D40.tpl)
+- [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/common/templates/base.tpl)
+- [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/common/templates/contact.tpl)
+- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/1.4.0.0/templates/D40.tpl)
 
 ## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
