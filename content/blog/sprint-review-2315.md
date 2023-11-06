@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 23.15 Released
-date: 2023-11-06T010:00:00
+date: 2023-11-06T10:30:00
 author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
