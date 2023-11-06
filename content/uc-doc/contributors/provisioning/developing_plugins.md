@@ -98,7 +98,7 @@ In `wazo-provd-plugins/plugins`, create the directory tree:
 ```shell
 wazo_digium/
     build.py
-    1.4.0.0/
+    1_4_0_0/
         plugin-info
         entry.py
         pkgs/
@@ -125,10 +125,10 @@ from subprocess import check_call
 @target('1.4.0.0', 'wazo-digium-1.4.0.0')
 def build_1_4_0_0(path):
     check_call(['rsync', '-rlp', '--exclude', '.*', 'common/', path])
-    check_call(['rsync', '-rlp', '--exclude', '.*',  '1.4.0.0/', path])
+    check_call(['rsync', '-rlp', '--exclude', '_*',  '1_4_0_0/', path])
 ```
 
-In `1.4.0.0/plugin-info`:
+In `1_4_0_0/plugin-info`:
 
 ```json
 {
@@ -167,7 +167,7 @@ In `1.4.0.0/plugin-info`:
 }
 ```
 
-In `1.4.0.0/entry.py`:
+In `1_4_0_0/entry_py`:
 
 ```python
 common = {}
@@ -394,7 +394,7 @@ Then you can create the configuration templates using Jinja templates. Here are 
 
 - [base.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/common/templates/base.tpl)
 - [contact.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/common/templates/contact.tpl)
-- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/1.4.0.0/templates/D40.tpl)
+- [D40.tpl](https://github.com/wazo-platform/wazo-provd-plugins/blob/master/plugins/wazo_digium/1_4_0_0/templates/D40.tpl)
 
 ## Upload the plugin on `provd.wazo.community` {#upload-the-plugin-on-provd.wazo.community}
 
