@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 23.15 Released
-date: 2023-11-07T08:30:00
+date: 2023-11-06T010:00:00
 author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
@@ -21,7 +21,7 @@ Here is a short review of the Wazo Platform 23.15 release.
 - **Asterisk**: Asterisk has been upgraded to 20.5.0.  [See the Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-20-5-0-now-available/)
 
 ## Ongoing Features
-- **Scalability**: We are making Wazo more comfortable to use on large installations
+- **Scalability**: Under the hood changes to make Wazo more performant on large installations
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.15).
 
