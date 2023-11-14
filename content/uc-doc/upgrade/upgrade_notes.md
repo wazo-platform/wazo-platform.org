@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 23.16 {#23-16}
+
+- wazo-provd is now proxied by NGINX service. Since it should not be impactful, you may want to be
+  careful if you have a custom setup.
+
+Consult the
+[23.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.16)
+for more information.
+
 ## 23.15 {#23-15}
 
 Consult the
