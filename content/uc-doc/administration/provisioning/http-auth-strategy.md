@@ -14,7 +14,7 @@ The authentication system is disabled by default to allow a configuration-free p
 Wazo will detect devices and set them in autoprov mode according to some criteria (ex: phone
 vendors, MAC address, etc..). As mentioned in the
 [security](/uc-doc/administration/provisioning/adv_configuration#provd-security) section, guessing
-this information could be relatively easy. It's why auto-provisioning wihtout authentication
+this information could be relatively easy. It's why auto-provisioning without authentication
 strategy should only be used locally and not on the Internet.
 
 ## Provisioning Key by Tenant {#provisioning-key-by-tenant}
