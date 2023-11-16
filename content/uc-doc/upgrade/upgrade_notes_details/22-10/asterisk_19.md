@@ -11,11 +11,10 @@ You might be impacted by the upgrade to Asterisk 19 if you have:
 If you find yourself in one of these cases, you should make sure that your customizations still work
 with Asterisk 19.
 
-In particular, if you are using custom Asterisk modules, you\'ll need to either obtain the Asterisk
+In particular, if you are using custom Asterisk modules, you'll need to either obtain the Asterisk
 19 version of these modules or recompile them against Asterisk 19. Not doing so usually leads to
 major instability issues in Asterisk.
 
 You can see the complete list of changes from the Asterisk website:
 
-- <https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+19>
-- <https://github.com/asterisk/asterisk/blob/19/CHANGES>
+- <https://docs.asterisk.org/Asterisk_19_Documentation/Upgrading>
