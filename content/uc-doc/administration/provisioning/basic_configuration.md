@@ -127,7 +127,7 @@ In order to autoprovision devices over HTTPS, use the following wazo-confd API:
 PUT /provisioning/networking
 {
    ...
-   "http_base_url": "https://wazo.example.com/device/provisioning",
+   "provision_http_base_url": "https://wazo.example.com/device/provisioning",
    ...
 }
 ```

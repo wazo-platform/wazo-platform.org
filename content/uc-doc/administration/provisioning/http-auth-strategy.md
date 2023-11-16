@@ -41,12 +41,24 @@ should be used.
 ### How to Configure
 
 1. Change the authentication strategy to use [`url_key`](#change-auth-strategy)
-2. Generate a provisioning key (random alphanumeric string). The minimum length is 8 characters and
+2. Configure
+   [HTTPS for auto-provisioning](/uc-doc/administration/provisioning/basic_configuration#https-autoprovisioning)
+   and change the `provision_http_base_url`
+3. Generate a provisioning key (random alphanumeric string). The minimum length is 8 characters and
    the maximum is 255 characters.
-3. Use `PUT /configure/provisioning_key` with the right `Wazo-Tenant` header to set the provisioning
-   key for a particular tenant. If no tenant is provided, the tenant of the token used will be
-   configured.
-4. Manually enter the provisioning URL (including provisioning key) into the device configuration.
+4. Use wazo-provd API with the right `Wazo-Tenant` header to set the provisioning key for a
+   particular tenant. If no tenant is provided, the tenant of the token used will be configured.
+
+   ```http
+   PUT /configure/provisioning_key`
+   {
+     "param": {
+       "value": "a1b2c3d4e5f6g7h8"
+     }
+   }
+   ```
+
+5. Manually enter the provisioning URL (including provisioning key) into the device configuration.
 
    - `https://wazo.example.com/device/provisioning/<provisioning-key>/`
 
