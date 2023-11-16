@@ -55,7 +55,8 @@ Random values are calculated based on the random machine seed number printed by 
 ### Example
 This is an example YAML file for running a DID test onto our C4 infrastructure testing the routing:
 
-```setup:
+```yaml
+setup:
   - type: api
     uri: /tenants/
     method: POST
