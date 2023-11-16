@@ -17,5 +17,4 @@ major instability issues in Asterisk.
 
 You can see the complete list of changes from the Asterisk website:
 
-- <https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+18>
-- <https://github.com/asterisk/asterisk/blob/18/CHANGES>
+- <https://docs.asterisk.org/Asterisk_18_Documentation/Upgrading>
