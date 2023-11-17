@@ -7,6 +7,12 @@ title: Upgrade notes
 - wazo-provd is now proxied by NGINX service. Since it should not be impactful, you may want to be
   careful if you have a custom setup.
 
+- The following wazo-provd configuration options have been renamed:
+
+  - `ip` / `external_ip` --> `advertised_http_host`
+  - `http_port` --> `advertised_http_port`
+  - `base_external_url` --> `advertised_base_url`
+
 Consult the
 [23.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.16)
 for more information.
