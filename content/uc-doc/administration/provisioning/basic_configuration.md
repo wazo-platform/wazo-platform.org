@@ -170,10 +170,10 @@ The following sequence is produced when using the provisioning networking API:
 
 ## Proxied Autoprovisioning
 
-Some device plugins need to write the URL to retrieve other files (ex: firmware, language, etc..) in
-their configuration file. By default this value is taken by wazo-confgend from a valid interface.
-However, if this value cannot be discovered (ex: behind a proxy), you'll to configure it manually
-through wazo-confd API.
+Some device plugins need to write the URL to retrieve other files (ex: firmware, language, etc.) in
+their configuration file. By default, this value is taken through wazo-confgend from a valid network
+interface. However, if this value cannot be discovered (ex: behind a proxy), you'll have to
+configure it manually through wazo-confd API.
 
 ```http
 PUT /provisioning/networking
