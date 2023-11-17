@@ -9,9 +9,9 @@ title: Upgrade notes
 
 - The following wazo-provd configuration options have been renamed:
 
-  - `ip` / `external_ip` --> `advertised_http_host`
+  - `ip` / `external_ip` --> `advertised_host`
   - `http_port` --> `advertised_http_port`
-  - `base_external_url` --> `advertised_base_url`
+  - `base_external_url` --> `advertised_http_url`
 
 Consult the
 [23.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.16)
