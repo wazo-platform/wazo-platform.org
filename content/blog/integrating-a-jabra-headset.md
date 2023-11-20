@@ -14,12 +14,12 @@ We've been tasked with integrating the Jabra headset in our Web and Desktop appl
 
 ## Integrating a Jabra Headset with our Desktop app.
 
-Adding the Jabra SDK in our Electron application was pretty straightforward, by following the [documentation](https://github.com/gnaudio/jabra-node-sdk/tree/master/electronrendererhelper) we were able to catch the headset button events and changing it status (on-hook, ringing ...).
+Adding the Jabra SDK in our Electron application was pretty straightforward, we were able to catch the headset button events and changing it status (on-hook, ringing ...).
 After successfully connecting the headset, we had to read the documentation a few times before realizing that the button events weren't fired when the headset wasn't in ringing or on-hook state.
 
 ## Integrating a Jabra Headset with our Web app.
 
-The same code base is shared between our Electron and Web applications, so we thought it would be straightforward to add Jabra headsets support. But upon reading the [documentation for Web integration](https://github.com/gnaudio/jabra-browser-integration) we realized that the initialization flow is totally different from one another.
+The same code base is shared between our Electron and Web applications, so we thought it would be straightforward to add Jabra headsets support. But upon reading Jabra's documentation for Web integration, we realized that the initialization flow is totally different from one another.
 
 With the `electronrendererhelper` we had to call `createApiClient` to retrieve a Jabra client and wait for a `attach` event to retrieve our device. However, there is no `client` with the `jabra-browser-integration`: we had to call first a `init()` method, then check for `getInstallInfo())` to get information about the installation of the [browser plugin](https://chrome.google.com/webstore/detail/jabra-browser-integration/okpeabepajdgiepelmhkfhkjlhhmofma) and wait for a `device attached` event. Complicating matters even more, the `device attached` event is not fired during the initialization process when a device is already attached, unlike the electron flow (**@FIXME**).
 

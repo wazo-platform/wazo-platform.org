@@ -34,7 +34,6 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
   });
 
   const bodyAttributes = { class: section };
-  const now = new Date();
   const headTitle = [pageTitle, 'Wazo Platform'].filter((value) => Boolean(value)).join(' - ');
 
   const navigationClasses = ['main-nav', 'navbar-expand-md'];
