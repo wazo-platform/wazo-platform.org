@@ -179,7 +179,7 @@ configure it manually through wazo-confd API.
 PUT /provisioning/networking
 {
    ...
-   "provision_http_url": http://wazo.example.com:8667,
+   "provision_http_url": "http://wazo.example.com:8667",
    ...
 }
 ```
