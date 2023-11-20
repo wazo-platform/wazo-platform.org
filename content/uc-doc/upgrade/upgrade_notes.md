@@ -12,6 +12,7 @@ title: Upgrade notes
   - `ip` / `external_ip` --> `advertised_host`
   - `http_port` --> `advertised_http_port`
   - `base_external_url` --> `advertised_http_url`
+  - `num_http_proxies` --> `http_proxied_trusted_proxies_count`
 
 Consult the
 [23.16 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.16)
