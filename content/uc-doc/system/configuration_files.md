@@ -173,8 +173,8 @@ Here is the process you should follow if you want to use/customize this feature 
 Asterisk configuration files are located at `/etc/asterisk`. These files are packaged with Wazo and
 you should not modify files that are located at the root of this directory.
 
-To add you own configurations, you must add a new configuration file in the corresponding
-[.d]{.title-ref} directory.
+To add you own configurations, you must add a new configuration file in the corresponding `.d`
+directory.
 
 For example, if you need to add a new user to the `manager.conf` configuration file, you would add a
 new file `/etc/asterisk/manager.d/my_new_user.conf` with the following content:

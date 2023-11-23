@@ -34,8 +34,7 @@ After the upgrade, the system will need to be rebooted.
   - Purge removed packages. You can see the list of packages in this state by running
     `dpkg -l | awk '/^rc/ { print $2 }'` and purge all of them with
     `apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')`
-  - Remove `.dpkg-old`{.interpreted-text role="file"}, `.dpkg-dist`{.interpreted-text role="file"}
-    and `.dpkg-new`{.interpreted-text role="file"} files from previous upgrade. You can see a list
+  - Remove `.dpkg-old`, `.dpkg-dist` and `.dpkg-new` files from previous upgrade. You can see a list
     of these files by running
     `find /etc -name '*.dpkg-old' -o -name '*.dpkg-dist' -o -name '*.dpkg-new'`.
 

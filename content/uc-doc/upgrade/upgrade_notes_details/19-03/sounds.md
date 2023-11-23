@@ -31,8 +31,8 @@ root@wazo:~# tree /var/lib/xivo/sounds
 └── recordings -> ../../asterisk/sounds/custom
 ```
 
-In order to make the sound files available to tenants, you need to move the files in a
-`tenants`{.interpreted-text role="file"} subdirectory, like this:
+In order to make the sound files available to tenants, you need to move the files in a `tenants`
+subdirectory, like this:
 
 ```shell
 root@wazo:~# tree /var/lib/xivo/sounds
@@ -62,8 +62,8 @@ root@wazo:~# tree /var/lib/xivo/sounds
         └── recordings
 ```
 
-Each subdirectory of the `tenants`{.interpreted-text role="file"} directory must be named like the
-UUID of each tenant. In order to know the UUID of tenants, you can use the `wazo-auth-cli` command:
+Each subdirectory of the `tenants` directory must be named like the UUID of each tenant. In order to
+know the UUID of tenants, you can use the `wazo-auth-cli` command:
 
 ```shell
 root@wazo:~# wazo-auth-cli tenant list -c uuid -c name
