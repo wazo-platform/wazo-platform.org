@@ -12,12 +12,11 @@ external to the wazo system.
 Given proper configuration within the wazo integration, those integrated directory sources can
 provide functionalities such as
 
-- automatic reverse lookups on incoming call numbers
+- automatic [reverse lookups](#reverse-lookups) on incoming call numbers
 - global search across all configured directories available to a user
 - allowing users to use wazo to call registered contact using number available from contact source
 - allowing users to keep a list of favorite contacts across all directory sources, which are made
   available for quick access by an appropriate wazo client
-- direct search on that specific dirrectory source for matching contact information
 
 ## Glossary
 
@@ -36,7 +35,7 @@ provide functionalities such as
 - **caller id**: caller identification information, includes a "caller name" and a "caller number",
   often represented in the format `"Caller Name" <caller number>`, can be carried in an incoming
   call by the calling party and can be overriden/completed by the wazo system using directory
-  information(see [**reverse lookup**](#reverse-lookup) section). Alias **caller identification
+  information(see [**reverse lookup**](#reverse-lookups) section). Alias **caller identification
   information**. See also [Caller ID](/uc-doc/administration/callerid.md).
 
 ## Configuring a new directory source
@@ -48,31 +47,46 @@ preliminary steps, such as deploying third-party(non-wazo) software, which will 
 here.
 
 Given any backend-specific preliminary steps performed, the general steps necessary to setup a
-directory source and make it available to wazo users:
+directory source and make it available to wazo users can be summarized:
 
 1. Make sure any necessary plugin for the directory backend is enabled in the wazo-dird
-   configuration
+   configuration; 
 2. Use the source backend API of the backend plugin to create a source entity containing all
-   relevant configuration for that backend
+   relevant configuration for that backend;
 3. Update the directory profile of the tenant to include the newly created source, with the relevant
    configuration specifying the supported functionalities of that source for that profile
 
 Following these steps, a wazo user of that tenant should be able to use the newly configured source
 for its supported functionalities(depending on the configurations at step 2 and 3).
 
-### Generic source configuration options
+### Plugins configuration
 
-All directory source backends require some common configuration options. The value of those options
-can vary between directory backends, and the desirable values for those options might depend on the
-specifics of a backend to be configured. As such some tweakings specific to each wazo platform
-deployment may be required.
+All directory backend plugins already included with wazo platform are enabled by default, but plugins for custom directory backends will require explicit configuration. 
+
+See [wazo-dird configuration](/uc-doc/system/wazo-dird/configuration) for details on wazo-dird configuration.
+
+
+### Creating a source configuration
+
+To configure a new source, a source configuration resource is created using the appropriate backend-specific endpoint of the REST API.
+All backends expose a similar API for manipulating source configurations, 
+through an endpoint of the form `/backends/{backend type}/sources`. 
+An HTTP `POST` request on that endpoint with the proper json configuration would thus create the source.  
+
+See the [wazo-dird API reference for configuration endpoints](/documentation/api/contact.html#tag/configuration) for examples and details of each backend endpoint.
+
+### Common configuration options
+
+All directory source backends require some common configuration options. 
+The desirable values for those options might depend on the specifics of a backend to be configured. 
+As such some tweakings specific to each wazo platform deployment may be required.
 
 - **name**: a name given to that directory source, for purpose of administration. Should be unique
   within a tenant;
 - **first_match_columns**: the contact attributes in the directory source that should be used to
   match a search term to a single contact, as for reverse lookups. This usually will include all
   source attributes that may contain a phone number the contact might use to call in a wazo user(see
-  [**reverse lookup**](#reverse-lookup));
+  [**reverse lookup**](#reverse-lookups));
 - **searched_columns**: a list of contact attributes which should be considered when searching all
   contacts matching a given search term. This usually should include any attributes relevant to the
   wazo users and by which the user may attempt to retrieve a contact entry, such as attributes
@@ -82,7 +96,7 @@ deployment may be required.
   user, and formatting strings that can refer to the contact attributes available in the directory
   source. This option allows the administrator to transform the contact information available in the
   directory source into a more convenient format to present to the wazo system users. This option is
-  also used to affect the result of reverse lookups(see [.#reverse-lookup]).
+  also used to affect the result of reverse lookups(see [reverse lookup](#reverse-lookups)).
 
 As a represensative example, the default configuration for the internal wazo directory source looks
 like such:
@@ -150,7 +164,100 @@ This ensures lookups on the wazo internal source will look at the `firstname`, `
 This ensures a reverse lookup will consider the `exten` and `mobile_phone_number` wazo contact
 attributes in order to match an incoming call to an entry in this directory source.
 
-### reverse lookups
+### Adding a source to a profile
+Once a new source configuration is created, the new source must be added to a "profile" in order for a wazo end-user to have access to it.
+
+The `/directories/{profile}/sources` expose the sources made available to a user through a given `profile`(see the [API reference](/documentation/api/contact.html#tag/directories/paths/~1directories~1%7Bprofile%7D~1sources/get)).
+
+In practice, a single profile of name `default` will be shared amongst all users of a tenant, and sources made available to users of a tenant will be exposed through that `default` profile(`/directories/default/sources`).
+
+To add the source to the `default` profile, one must modify the source configuration accordingly.
+First acquire the uuid of the `default` profile of the tenant with `GET /0.1/profiles`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/list_profile)).
+
+Then query the current configuration of the profile with `GET /0.1/profiles/{profile uuid}`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/get_profile)).  
+The configuration of a profile looks like the following:
+```json
+{
+  "uuid": "026dc75a-6699-471c-8b55-0bdc28990a17",
+  "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521",
+  "name": "default",
+  "display": {
+    "uuid": "1ed80c58-7f00-4e79-bc47-c0a564494d77"
+  },
+  "services": {
+    "favorites": {
+      "sources": [
+          ...
+        ],
+      "options": {
+      }
+    },
+    "lookup": {
+      "sources": [
+        ...
+      ],
+      "options": {
+      }
+    },
+    "reverse": {
+      "sources": [
+        ...
+      ],
+      "options": {
+      }
+    }
+  }
+}
+```
+Notice the three sections under `"services"` refering to the three optional functionalities each source may support, `"favorites"`, `"lookup"`, `"reverse"`.  
+For a source that supports all three functionalities, the new configuration would see the `uuid` of that source added to the `sources` attribute of those three sections, e.g.:
+```
+{
+  "uuid": "026dc75a-6699-471c-8b55-0bdc28990a17",
+  "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521",
+  "name": "default",
+  "display": {
+    "uuid": "1ed80c58-7f00-4e79-bc47-c0a564494d77"
+  },
+  "services": {
+    "favorites": {
+      "sources": [
+          ...
+          {
+            "uuid": "000747d0-5b57-4380-a6b1-f64f9609adb1"
+          }
+        ],
+      "options": {
+      }
+    },
+    "lookup": {
+      "sources": [
+        ...
+        {
+          "uuid": "000747d0-5b57-4380-a6b1-f64f9609adb1"
+        }
+      ],
+      "options": {
+      }
+    },
+    "reverse": {
+      "sources": [
+        ...
+        {
+          "uuid": "000747d0-5b57-4380-a6b1-f64f9609adb1"
+        }
+      ],
+      "options": {
+      }
+    }
+  }
+}
+```
+With that new configuration accounting for the new source, we can update the profile using `PUT /0.1/profiles/{profile uuid}`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/update_profile)).  
+
+The newly configured source should now be available to end-users.
+
+## Reverse lookups
 
 The wazo directory subsystem enables better caller number identification through _reverse lookups_
 in the configured directory sources. This means that an incoming call which is missing relevant
