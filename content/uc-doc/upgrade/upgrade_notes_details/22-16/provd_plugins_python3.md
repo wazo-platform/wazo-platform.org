@@ -118,7 +118,7 @@ wazo-provd-cli> plugins.install('wazo-polycom-4.0.11')
     'download' in progress... 0/7735
     'download' done. 7735/7735
 'install' done.
-wazo-provd-cli> helpers.mass_update_devices_plugin('xivo-polycom-4.0.9', 'wazo-polycom-4.0.11')
+wazo-provd-cli> helpers.mass_update_devices_plugin('xivo-polycom-4.0.9', 'wazo-polycom-4.0.11', recurse=True)
 Error: plugin xivo-polycom-4.0.9 is not installed
 Do you want to proceed anyway? [Y/n] Y
 Updating device 06afddf697f24a3eb0e8bc7dd415a57e

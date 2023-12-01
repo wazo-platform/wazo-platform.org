@@ -156,13 +156,13 @@ Once you make the decision to migrate all your phones to the new plugin, you can
 command:
 
 ```shell
-wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4")'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4", recurse=True)'
 ```
 
 Or, if you also want to synchronize (i.e. reboot) them at the same time:
 
 ```shell
-wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4", synchronize=True)'
+wazo-provd-cli -c 'helpers.mass_update_devices_plugin("wazo-aastra-3.3.1-SP2", "wazo-aastra-3.3.1-SP4", synchronize=True, recurse=True)'
 ```
 
 You can check that all went well by looking at output of `GET /devices`.
