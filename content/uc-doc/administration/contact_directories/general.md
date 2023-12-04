@@ -50,7 +50,7 @@ Given any backend-specific preliminary steps performed, the general steps necess
 directory source and make it available to wazo users can be summarized:
 
 1. Make sure any necessary plugin for the directory backend is enabled in the wazo-dird
-   configuration; 
+   configuration;
 2. Use the source backend API of the backend plugin to create a source entity containing all
    relevant configuration for that backend;
 3. Update the directory profile of the tenant to include the newly created source, with the relevant
@@ -61,25 +61,28 @@ for its supported functionalities(depending on the configurations at step 2 and 
 
 ### Plugins configuration
 
-All directory backend plugins already included with wazo platform are enabled by default, but plugins for custom directory backends will require explicit configuration. 
+All directory backend plugins already included with wazo platform are enabled by default, but
+plugins for custom directory backends will require explicit configuration.
 
-See [wazo-dird configuration](/uc-doc/system/wazo-dird/configuration) for details on wazo-dird configuration.
-
+See [wazo-dird configuration](/uc-doc/system/wazo-dird/configuration) for details on wazo-dird
+configuration.
 
 ### Creating a source configuration
 
-To configure a new source, a source configuration resource is created using the appropriate backend-specific endpoint of the REST API.
-All backends expose a similar API for manipulating source configurations, 
-through an endpoint of the form `/backends/{backend type}/sources`. 
-An HTTP `POST` request on that endpoint with the proper json configuration would thus create the source.  
+To configure a new source, a source configuration resource is created using the appropriate
+backend-specific endpoint of the REST API. All backends expose a similar API for manipulating source
+configurations, through an endpoint of the form `/backends/{backend type}/sources`. An HTTP `POST`
+request on that endpoint with the proper json configuration would thus create the source.
 
-See the [wazo-dird API reference for configuration endpoints](/documentation/api/contact.html#tag/configuration) for examples and details of each backend endpoint.
+See the
+[wazo-dird API reference for configuration endpoints](/documentation/api/contact.html#tag/configuration)
+for examples and details of each backend endpoint.
 
 ### Common configuration options
 
-All directory source backends require some common configuration options. 
-The desirable values for those options might depend on the specifics of a backend to be configured. 
-As such some tweakings specific to each wazo platform deployment may be required.
+All directory source backends require some common configuration options. The desirable values for
+those options might depend on the specifics of a backend to be configured. As such some tweakings
+specific to each wazo platform deployment may be required.
 
 - **name**: a name given to that directory source, for purpose of administration. Should be unique
   within a tenant;
@@ -165,17 +168,26 @@ This ensures a reverse lookup will consider the `exten` and `mobile_phone_number
 attributes in order to match an incoming call to an entry in this directory source.
 
 ### Adding a source to a profile
-Once a new source configuration is created, the new source must be added to a "profile" in order for a wazo end-user to have access to it.
 
-The `/directories/{profile}/sources` expose the sources made available to a user through a given `profile`(see the [API reference](/documentation/api/contact.html#tag/directories/paths/~1directories~1%7Bprofile%7D~1sources/get)).
+Once a new source configuration is created, the new source must be added to a "profile" in order for
+a wazo end-user to have access to it.
 
-In practice, a single profile of name `default` will be shared amongst all users of a tenant, and sources made available to users of a tenant will be exposed through that `default` profile(`/directories/default/sources`).
+The `/directories/{profile}/sources` expose the sources made available to a user through a given
+`profile`(see the
+[API reference](/documentation/api/contact.html#tag/directories/paths/~1directories~1%7Bprofile%7D~1sources/get)).
+
+In practice, a single profile of name `default` will be shared amongst all users of a tenant, and
+sources made available to users of a tenant will be exposed through that `default`
+profile(`/directories/default/sources`).
 
 To add the source to the `default` profile, one must modify the source configuration accordingly.
-First acquire the uuid of the `default` profile of the tenant with `GET /0.1/profiles`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/list_profile)).
+First acquire the uuid of the `default` profile of the tenant with `GET /0.1/profiles`(see
+[API reference](/documentation/api/contact.html#tag/configuration/operation/list_profile)).
 
-Then query the current configuration of the profile with `GET /0.1/profiles/{profile uuid}`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/get_profile)).  
+Then query the current configuration of the profile with `GET /0.1/profiles/{profile uuid}`(see
+[API reference](/documentation/api/contact.html#tag/configuration/operation/get_profile)).  
 The configuration of a profile looks like the following:
+
 ```json
 {
   "uuid": "026dc75a-6699-471c-8b55-0bdc28990a17",
@@ -209,8 +221,12 @@ The configuration of a profile looks like the following:
   }
 }
 ```
-Notice the three sections under `"services"` refering to the three optional functionalities each source may support, `"favorites"`, `"lookup"`, `"reverse"`.  
-For a source that supports all three functionalities, the new configuration would see the `uuid` of that source added to the `sources` attribute of those three sections, e.g.:
+
+Notice the three sections under `"services"` refering to the three optional functionalities each
+source may support, `"favorites"`, `"lookup"`, `"reverse"`.  
+For a source that supports all three functionalities, the new configuration would see the `uuid` of
+that source added to the `sources` attribute of those three sections, e.g.:
+
 ```
 {
   "uuid": "026dc75a-6699-471c-8b55-0bdc28990a17",
@@ -253,7 +269,10 @@ For a source that supports all three functionalities, the new configuration woul
   }
 }
 ```
-With that new configuration accounting for the new source, we can update the profile using `PUT /0.1/profiles/{profile uuid}`(see [API reference](/documentation/api/contact.html#tag/configuration/operation/update_profile)).  
+
+With that new configuration accounting for the new source, we can update the profile using
+`PUT /0.1/profiles/{profile uuid}`(see
+[API reference](/documentation/api/contact.html#tag/configuration/operation/update_profile)).
 
 The newly configured source should now be available to end-users.
 
