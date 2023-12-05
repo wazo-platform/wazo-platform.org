@@ -20,6 +20,29 @@ The `asterisk-wazo` jail watches the Asterisk log file for failed registration a
 This jail protects against brute force attacks attempting to guess SIP accounts usernames and
 password.
 
+#### Whitelisting yourself to avoid getting locked out of your server
+
+When trying out settings, you may get accidentally locked out of the server by fail2ban. If you get
+in this situation, either:
+
+- wait 5 minutes for the ban on your IP address to expire
+- if you have console access, use the following command:
+  ```shell
+  fail2ban-client unbanip 172.16.99.99  # replace the value with your own IP address
+  ```
+
+For a permanent solution, use the following steps:
+
+1. Create a file `/etc/fail2ban/jail.d/ignoreip.conf` with the following content:
+   ```ini
+   [asterisk-wazo]
+   ignoreip = 172.16.99.99  # replace the value with your own IP address
+   ```
+1. Apply the changes:
+   ```shell
+   systemctl restart fail2ban
+   ```
+
 ### wazo-provd
 
 The `wazo-provd` jail will block attempts to create new devices and request for configuration files.
