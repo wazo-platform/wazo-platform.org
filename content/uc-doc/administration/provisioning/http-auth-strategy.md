@@ -24,15 +24,19 @@ added as a path prefix to all provisioning URLs.
 
 ### Change the Authentication Strategy {#change-auth-strategy}
 
-To set the authentication strategy to use a provisioning key, it must be configured through the
-[wazo-provd configuration file](/uc-doc/system/configuration_files#wazo-provd).
+To set the authentication strategy to use a provisioning key:
 
-- `/etc/wazo-provd/conf.d/50-http-auth-strategy.yml`
+1. Change the configuration setting in the
+   [wazo-provd configuration file](/uc-doc/system/configuration_files#wazo-provd).
 
-```yaml
-general:
-  http_auth_strategy: url_key
-```
+   - `/etc/wazo-provd/conf.d/50-http-auth-strategy.yml`
+
+   ```yaml
+   general:
+     http_auth_strategy: url_key
+   ```
+
+2. Restart the provisioning service: `systemctl restart wazo-provd`
 
 **Warning**: To avoid leaking provisioning keys, the
 [HTTPS for auto-provisioning](/uc-doc/administration/provisioning/basic_configuration#https-autoprovisioning)
