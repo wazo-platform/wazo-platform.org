@@ -3,7 +3,7 @@
 
 hide stereotype
 
-Person(phone, "Hardphone")
+Person(phone, "Desktop Phone")
 Person(consumer, "API consumer")
 
 System_Boundary(provd_system, "Provisioning") {

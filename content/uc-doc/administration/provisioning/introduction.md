@@ -10,7 +10,7 @@ telephony devices in an efficient and effortless way.
 
 ## How it works
 
-Here's a simplified view of how auto-provisioning is supported on a typical SIP hardphone:
+Here's a simplified view of how auto-provisioning is supported on a typical SIP desktop phone:
 
 1.  The phone is powered on
 2.  During its boot process, the phone sends a DHCP request to obtain its network configuration
