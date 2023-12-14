@@ -36,7 +36,7 @@ provide functionalities such as
   often represented in the format `"Caller Name" <caller number>`, can be carried in an incoming
   call by the calling party and can be overriden/completed by the wazo system using directory
   information(see [**reverse lookup**](#reverse-lookups) section). Alias **caller identification
-  information**. See also [Caller ID](/uc-doc/administration/callerid.md).
+  information**. See also [Caller ID](/uc-doc/administration/callerid).
 
 ## Configuring a new directory source
 
