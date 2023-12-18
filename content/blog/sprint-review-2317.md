@@ -17,7 +17,6 @@ Here is a short review of the Wazo Platform 23.17 release.
 
 ## Bug Fixes
 - **CDR**: 'user_uuid' filter on /cdr API now only matches source and final destination participants
-- **call-logd**: fixed critical bug in `wazo-call-logd-sync-db` causing loss of data
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.17).
 
