@@ -42,10 +42,10 @@ custom_templates_path = /etc/xivo/custom-templates
 [commonconf]
 commonconf_file = /etc/xivo/common.conf
 commonconf_cmd = /usr/sbin/xivo-update-config
-commonconf_monit = /usr/sbin/xivo-monitoring-update
+commonconf_monit = /usr/sbin/wazo-monitoring-update
 
 [monit]
-monit_checks_dir = /usr/share/xivo-monitoring/checks
+monit_checks_dir = /usr/share/wazo-monitoring/checks
 monit_conf_dir = /etc/monit/conf.d
 
 [request_handlers]
