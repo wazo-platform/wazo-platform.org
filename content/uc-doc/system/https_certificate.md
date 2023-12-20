@@ -24,7 +24,7 @@ change one certificate (the one used by nginx) to enable all APIs to be secured 
 from the outside of the Wazo Engine.
 
 The default HTTPS certificate used by the Wazo Engine is located in
-`/usr/share/xivo-certs/server.crt` with its associated `server.key` private key.
+`/usr/share/wazo-certs/server.crt` with its associated `server.key` private key.
 
 ## Let's Encrypt
 
@@ -60,8 +60,8 @@ You will need:
 Edit the file `/etc/nginx/sites-available/wazo` and replace the following keys:
 
 ```nginx
-ssl_certificate /usr/share/xivo-certs/server.crt;
-ssl_certificate_key /usr/share/xivo-certs/server.key;
+ssl_certificate /usr/share/wazo-certs/server.crt;
+ssl_certificate_key /usr/share/wazo-certs/server.key;
 ```
 
 with:
@@ -87,14 +87,14 @@ Here is the removal procedure:
 
 ```shell
 # backup your certificate / key (optional)
-cp /usr/share/xivo-certs/server.{key,crt} /var/backups
+cp /usr/share/wazo-certs/server.{key,crt} /var/backups
 
 # stop all Wazo Engine services
 wazo-service stop all
 
 # regenerate self-signed certificate
-rm /usr/share/xivo-certs/server.{key,crt}
-dpkg-reconfigure xivo-certs
+rm /usr/share/wazo-certs/server.{key,crt}
+dpkg-reconfigure wazo-certs
 
 # remove custom config files
 rm /etc/xivo/custom/custom-certificate.yml
@@ -110,4 +110,4 @@ Then, the last steps:
 
 - update your directories of type `wazo` to use:
   - the domain `localhost`
-  - the certificate located in `/usr/share/xivo-certs/server.crt`
+  - the certificate located in `/usr/share/wazo-certs/server.crt`
