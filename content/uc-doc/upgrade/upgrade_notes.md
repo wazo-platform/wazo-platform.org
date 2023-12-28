@@ -8,6 +8,13 @@ title: Upgrade notes
   custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
   possible since `xivo-bus` will be removed completely in a future version.
 
+- The following channel variables have been renamed. If you used them in a subroutine you MUST use
+  the new name to maintain a working dialplan in the future. Your dialplan should keep working at
+  the moment and messages will appear in the Asterisk CLI until all usage of these variables have
+  been removed.
+
+  - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
+
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)
 for more information.

@@ -159,7 +159,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   - `0` = the call is not sending any video stream
   - `1` = the call is sending a video stream
 
-- `XIVO_CALLOPTIONS`: the value is a list of options to be passed to the Dial application, e.g.
+- `WAZO_CALLOPTIONS`: the value is a list of options to be passed to the Dial application, e.g.
   `hHtT`. This variable is available in agent, user and outgoing call subroutines. Please note that
   it may not be set earlier, because it will be overwritten.
 - `XIVO_CALLORIGIN`: can have two values:
