@@ -15,6 +15,12 @@ title: Upgrade notes
 
   - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
 
+- The following dialplan context have been renamed. If you used them in your dialplan you MUST use
+  the new name. The old names have been maintained for some time to avoid breaking your dialplan and
+  a warning will be displayed if you do use one of these contexts.
+
+  - `xivo-verbose` -> `wazo-verbose`
+
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)
 for more information.
