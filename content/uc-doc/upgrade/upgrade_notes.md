@@ -14,6 +14,7 @@ title: Upgrade notes
   been removed.
 
   - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
+  - `XIVO_INTERFACE` -> `WAZO_INTERFACE`
   - `XIVO_PICKEDUP` -> `WAZO_PICKEDUP`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use

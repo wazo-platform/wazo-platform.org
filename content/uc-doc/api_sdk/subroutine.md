@@ -179,7 +179,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   in group subroutines.
 - `XIVO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in group subroutines.
-- `XIVO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
+- `WAZO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
   of the
   [Dial application](https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial). This
   variable is only available in the user subroutines.
