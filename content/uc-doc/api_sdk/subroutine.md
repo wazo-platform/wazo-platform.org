@@ -189,7 +189,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   in queue subroutines.
 - `XIVO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in queue subroutines.
-- `XIVO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
+- `WAZO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
   forwarded elsewhere, or hungup if no forwards are configured. This variable can only be used in a
   User subroutine.
 - `XIVO_SRCNUM`: the value is the callerid number of the originator of the call: the internal

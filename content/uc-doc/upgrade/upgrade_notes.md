@@ -16,6 +16,7 @@ title: Upgrade notes
   - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
   - `XIVO_INTERFACE` -> `WAZO_INTERFACE`
   - `XIVO_PICKEDUP` -> `WAZO_PICKEDUP`
+  - `XIVO_RINGSECONDS` -> `WAZO_RINGSECONDS`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use
   the new name. The old names have been maintained for some time to avoid breaking your dialplan and
