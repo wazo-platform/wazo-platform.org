@@ -49,7 +49,7 @@ Be aware that this workaround will probably not survive any upgrade.
    ;; Fax Detection
    [pre-user-global-faxdetection]
    exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
-   same  =   n,GotoIf($["${XIVO_CALLORIGIN}" = "extern"]?:return)
+   same  =   n,GotoIf($["${WAZO_CALLORIGIN}" = "extern"]?:return)
    same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
    same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
    same  =   n,Answer()
