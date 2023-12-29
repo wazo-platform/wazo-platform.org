@@ -187,7 +187,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   This variable is only available in user subroutines.
 - `WAZO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
   in queue subroutines.
-- `XIVO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
+- `WAZO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in queue subroutines.
 - `WAZO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
   forwarded elsewhere, or hungup if no forwards are configured. This variable can only be used in a
