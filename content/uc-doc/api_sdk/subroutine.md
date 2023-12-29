@@ -185,7 +185,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   variable is only available in the user subroutines.
 - `WAZO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
-- `XIVO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
+- `WAZO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
   in queue subroutines.
 - `XIVO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in queue subroutines.
