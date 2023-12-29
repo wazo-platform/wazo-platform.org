@@ -172,7 +172,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   [selecting the ringtone](/uc-doc/system/configuration_files#xivo-ring.conf) for ringing a user.
   This variable is available only in user subroutines.
 
-- `XIVO_DSTNUM`: the value is the extension dialed, as received by Wazo (e.g. an internal extension,
+- `WAZO_DSTNUM`: the value is the extension dialed, as received by Wazo (e.g. an internal extension,
   a DID, or an outgoing extension including the local prefix). This variable is available in all
   subroutines.
 - `XIVO_GROUPNAME`: the value is the name of the group being called. This variable is only available

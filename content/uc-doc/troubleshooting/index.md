@@ -57,7 +57,7 @@ Be aware that this workaround will probably not survive any upgrade.
    same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
    same  =   n(return),Return()
 
-   exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${XIVO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
+   exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${WAZO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
    same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
    ```
 
