@@ -21,6 +21,7 @@ title: Upgrade notes
   - `XIVO_GROUPOPTIONS` -> `WAZO_GROUPOPTIONS`
   - `XIVO_PICKEDUP` -> `WAZO_PICKEDUP`
   - `XIVO_RINGSECONDS` -> `WAZO_RINGSECONDS`
+  - `XIVO_MOBILEPHONENUMBER` -> `WAZO_MOBILEPHONENUMBER`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use
   the new name. The old names have been maintained for some time to avoid breaking your dialplan and

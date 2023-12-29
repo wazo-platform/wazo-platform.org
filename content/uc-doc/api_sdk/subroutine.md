@@ -183,7 +183,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   of the
   [Dial application](https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial). This
   variable is only available in the user subroutines.
-- `XIVO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
+- `WAZO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
 - `XIVO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
   in queue subroutines.
