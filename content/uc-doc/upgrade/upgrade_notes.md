@@ -35,6 +35,7 @@ title: Upgrade notes
 - The following global variables have been renamed. The new names MUST be used
 
   - `XIVO_AGID_IP` -> `WAZO_AGID_IP`
+  - `XIVO_USERID` -> `WAZO_USERID`
 
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)

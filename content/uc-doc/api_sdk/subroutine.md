@@ -195,5 +195,5 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
 - `WAZO_SRCNUM`: the value is the callerid number of the originator of the call: the internal
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
-- `XIVO_USERID`: the user ID of the line that placed the call or receives the call
+- `WAZO_USERID`: the user ID of the line that placed the call or receives the call
 - `XIVO_USERUUID`: the user UUID of the line that placed the call or receives the call
