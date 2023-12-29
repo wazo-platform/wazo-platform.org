@@ -192,7 +192,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
 - `WAZO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
   forwarded elsewhere, or hungup if no forwards are configured. This variable can only be used in a
   User subroutine.
-- `XIVO_SRCNUM`: the value is the callerid number of the originator of the call: the internal
+- `WAZO_SRCNUM`: the value is the callerid number of the originator of the call: the internal
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
 - `XIVO_USERID`: the user ID of the line that placed the call or receives the call

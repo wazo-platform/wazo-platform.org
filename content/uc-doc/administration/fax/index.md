@@ -145,7 +145,7 @@ directory.
 The `convert_to_pdf` option is optional and defaults to 1. If it is set to 0, the TIFF file will not
 be converted to PDF before being sent to the FTP server.
 
-The uploaded file are named like `${XIVO_SRCNUM}-${EPOCH}.pdf`.
+The uploaded file are named like `${WAZO_SRCNUM}-${EPOCH}.pdf`.
 
 ### Using the printer backend
 
