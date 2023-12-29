@@ -36,6 +36,7 @@ title: Upgrade notes
 
   - `XIVO_AGID_IP` -> `WAZO_AGID_IP`
   - `XIVO_USERID` -> `WAZO_USERID`
+  - `XIVO_USERUUID` -> `WAZO_USERUUID`
 
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)

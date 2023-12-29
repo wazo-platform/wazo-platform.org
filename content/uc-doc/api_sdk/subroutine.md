@@ -196,4 +196,4 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
 - `WAZO_USERID`: the user ID of the line that placed the call or receives the call
-- `XIVO_USERUUID`: the user UUID of the line that placed the call or receives the call
+- `WAZO_USERUUID`: the user UUID of the line that placed the call or receives the call
