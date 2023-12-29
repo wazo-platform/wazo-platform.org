@@ -177,7 +177,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   subroutines.
 - `WAZO_GROUPNAME`: the value is the name of the group being called. This variable is only available
   in group subroutines.
-- `XIVO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
+- `WAZO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in group subroutines.
 - `WAZO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
   of the
