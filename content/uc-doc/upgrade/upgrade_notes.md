@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 24.01 {#24-01}
+
+- `xivo-certs` has been renamed to `wazo-certs`. You may need to update custom configuration to
+  point to the new path `/usr/share/wazo-certs/server.{key,cert}`.
+
+Consult the
+[24.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.01)
+for more information.
+
 ## 23.17 {#23-17}
 
 Consult the

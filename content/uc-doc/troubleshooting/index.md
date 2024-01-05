@@ -349,7 +349,7 @@ trust the Ngrok servers, you should ensure that:
 
 - the HTTPS certificate is the right one, i.e. it has the same fingerprint:
   - on the server:
-    `openssl x509 -text -noout -in /usr/share/xivo-certs/server.crt -sha256 -fingerprint | grep Fingerprint`
+    `openssl x509 -text -noout -in /usr/share/wazo-certs/server.crt -sha256 -fingerprint | grep Fingerprint`
   - in the browser, check the details of the certificate to see the fingerprint
 - the SSH key fingerprint of the server is correct, when SSH asks you upon the first connection
   (TOFU)
