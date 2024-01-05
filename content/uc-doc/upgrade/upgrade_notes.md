@@ -30,6 +30,7 @@ title: Upgrade notes
   - `XIVO_FROMGROUP` -> `WAZO_FROMGROUP`
   - `XIVO_FROMQUEUE` -> `WAZO_FROMQUEUE`
   - `XIVO_ENABLEDND` -> `WAZO_ENABLEDND`
+  - `XIVO_ENABLEUNC` -> `WAZO_ENABLEUNC`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use
   the new name. The old names have been maintained for some time to avoid breaking your dialplan and
