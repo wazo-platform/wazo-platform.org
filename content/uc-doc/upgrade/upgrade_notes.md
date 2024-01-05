@@ -27,6 +27,7 @@ title: Upgrade notes
   - `XIVO_RINGSECONDS` -> `WAZO_RINGSECONDS`
   - `XIVO_MOBILEPHONENUMBER` -> `WAZO_MOBILEPHONENUMBER`
   - `XIVO_SRCNUM` -> `WAZO_SRCNUM`
+  - `XIVO_FROMGROUP` -> `WAZO_FROMGROUP`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use
   the new name. The old names have been maintained for some time to avoid breaking your dialplan and
