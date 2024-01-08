@@ -37,7 +37,7 @@ The HA solution is guaranteed to work correctly with
 - Configure one Wazo as a master -> setup the slave address (VoIP interface)
 - Restart services (wazo-service restart) on master
 - Configure the other Wazo as a slave -> setup the master address (VoIP interface)
-- Configure file synchronization by running the script `xivo-sync -i` on the master
+- Configure file synchronization by running the script `wazo-sync -i` on the master
 - Start configuration synchronization by running the script
   `xivo-master-slave-db-replication <slave_ip>` on the master
 - Resynchronize all your devices
@@ -56,7 +56,7 @@ You must configure the `HA (High Availability)` with `PUT /ha`
 
 You can configure the master and slave in whatever order you want.
 
-You must also run `xivo-sync -i` on the master to setup file synchronization. Running `xivo-sync -i`
+You must also run `wazo-sync -i` on the master to setup file synchronization. Running `wazo-sync -i`
 will create a passwordless SSH key on the master, stored under the `/root/.ssh` directory, and will
 add it to the `/root/.ssh/authorized_keys` file on the slave. The following directories will then be
 rsync'ed every hour:
@@ -112,7 +112,7 @@ Replication can be started manually by running the replication scripts on the ma
 
 ```shell
 xivo-master-slave-db-replication <slave_ip>
-xivo-sync
+wazo-sync
 ```
 
 The replication does not copy the full Wazo configuration of the master. Notably, these are
@@ -142,7 +142,7 @@ Less importantly, these are also excluded:
   The services won't be restarted after an upgrade or restart.
 - xivo-check-master-status <master_ip> is used to check the status of the master and enable or
   disable services accordingly.
-- xivo-sync is used to sync directories from master to slave.
+- wazo-sync is used to sync directories from master to slave.
 
 Additionally, 3 files are created and automatically managed to reflect the state of the HA
 configuration:

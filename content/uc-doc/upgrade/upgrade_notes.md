@@ -6,6 +6,8 @@ title: Upgrade notes
 
 - `xivo-certs` has been renamed to `wazo-certs`. You may need to update custom configuration to
   point to the new path `/usr/share/wazo-certs/server.{key,cert}`.
+- `xivo-sync` has been renamed to `wazo-sync`. You must use the new name when configuring high
+  availability.
 
 Consult the
 [24.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.01)
