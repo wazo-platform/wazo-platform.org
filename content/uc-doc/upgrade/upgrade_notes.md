@@ -9,9 +9,10 @@ title: Upgrade notes
   possible since `xivo-bus` will be removed completely in a future version.
 
 - The following channel variables have been renamed. If you used them in a subroutine you MUST use
-  the new name to maintain a working dialplan in the future. Your dialplan should keep working at
-  the moment and messages will appear in the Asterisk CLI until all usage of these variables have
-  been removed.
+  the new name to maintain a working dialplan in the future. The old names have been kept for
+  retrocompatibility, so your dialplan should keep working for the moment. Deprecation messages will
+  appear in the Asterisk CLI if you try to modify those variables. Support for the old variables may
+  be removed in any later release.
 
   - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
   - `XIVO_CALLORIGIN` -> `WAZO_CALLORIGIN`
@@ -33,12 +34,20 @@ title: Upgrade notes
   - `XIVO_ENABLEUNC` -> `WAZO_ENABLEUNC`
 
 - The following dialplan context have been renamed. If you used them in your dialplan you MUST use
-  the new name. The old names have been maintained for some time to avoid breaking your dialplan and
-  a warning will be displayed if you do use one of these contexts.
+  the new name. The old names have been kept for retrocompatibility, so your dialplan should keep
+  working for the moment. Deprecation messages will appear in the Asterisk CLI until all usage of
+  these contexts have been removed. Support for the old contexts may be removed in any later
+  release.
 
   - `xivo-verbose` -> `wazo-verbose`
+  - `xivo-subroutine` -> `wazo-subroutine`
+  - `xivo-global-subroutine` -> `wazo-global-subroutine`
+  - `xivo-fwd-subroutine` -> `wazo-fwd-subroutine`
 
-- The following global variables have been renamed. The new names MUST be used
+- The following global variables have been renamed. The new names MUST be used. If you used them in
+  your dialplan you MUST use the new name to maintain a working dialplan in the future. The old
+  names have been kept for retrocompatibility, so your dialplan should keep working for the moment.
+  Support for the old variables may be removed in any later release.
 
   - `XIVO_AGID_IP` -> `WAZO_AGID_IP`
   - `XIVO_USERID` -> `WAZO_USERID`
