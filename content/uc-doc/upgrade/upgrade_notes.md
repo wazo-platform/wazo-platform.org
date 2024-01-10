@@ -53,6 +53,9 @@ title: Upgrade notes
   - `XIVO_USERID` -> `WAZO_USERID`
   - `XIVO_USERUUID` -> `WAZO_USERUUID`
 
+- If you modified the `*3` feature extension to toggle call recording, you MUST manually update you
+  extension definition to use the `WAZO_AGID_IP` variable instead of `XIVO_AGID_IP`.
+
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)
 for more information.
