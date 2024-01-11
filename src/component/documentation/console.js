@@ -202,6 +202,8 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
             {SwaggerUI && (
               <SwaggerUI
                 url={baseUrl ? `${baseUrl}${pathname}` : getModuleSpecUrl(module)}
+                docExpansion={'none'}
+                tryItOutEnabled={true}
                 responseInterceptor={res => {
                   if (!res.ok) {
                     if(res.body.details && res.body.details.invalid_token){
