@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie';
 
 import Layout from '../Layout';
 import { getModuleSpecUrl } from './helper';
+import './console.css';
 
 const shared = {
   display: 'flex',
@@ -198,7 +199,7 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
               </Link>
             })}
           </div>
-          <div style={{ position: 'relative', flex: 1 }}>
+          <div className="api_console" style={{ position: 'relative', flex: 1 }}>
             {SwaggerUI && (
               <SwaggerUI
                 url={baseUrl ? `${baseUrl}${pathname}` : getModuleSpecUrl(module)}
@@ -209,7 +210,7 @@ const Page = ({ pageContext: { moduleName, module, modules, auth_url }}) => {
                     if(res.body.details && res.body.details.invalid_token){
                       setCookie('apiKey', '');
                       setError('Error: Invalid Token');
-                    }else{
+                    } else {
                       console.error(res.body && res.body.message);
                     }
                   }

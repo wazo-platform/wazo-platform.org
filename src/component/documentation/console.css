@@ -1,0 +1,77 @@
+.api_console {
+    font-size: 0.8em;
+    line-height: 1.25;
+}
+
+.api_console p {
+    line-height: 1.25em;
+}
+
+.swagger-ui .markdown p {
+    margin: 5px auto;
+}
+
+.swagger-ui .opblock {
+    padding: 2px;
+    margin: 0 0 10px;
+}
+
+.swagger-ui .scheme-container {
+    padding: 10px 0;
+    margin: 0 0 5px;
+}
+
+.swagger-ui .opblock-tag {
+    font-size: 1.5em;
+}
+
+.swagger-ui .opblock .opblock-summary svg {
+    width: 15px;
+    height: 15px;
+}
+
+.swagger-ui .opblock .opblock-section-header {
+    padding: 4px 10px;
+    min-height: auto;
+}
+
+.swagger-ui .opblock .opblock-summary-method {
+    min-width: 60px;
+    font-size: 12px;
+}
+
+.arrow {
+    width: 15px;
+    height: 15px;
+}
+
+.swagger-ui .opblock-description-wrapper {
+    padding: 10px;
+}
+
+.swagger-ui textarea {
+    min-height: 100px;
+    resize: both;
+    overflow: scroll;
+}
+
+
+.swagger-ui .responses-inner {
+    padding: 5px 20px;
+}
+
+.swagger-ui .execute-wrapper {
+    padding: 5px 20px;
+}
+
+.swagger-ui .table-container {
+    padding: 5px 20px;
+}
+
+.main pre code {
+    font-size: 1.125em;
+}
+
+.swagger-ui ul.tab {
+    margin-bottom: 5px;
+}
