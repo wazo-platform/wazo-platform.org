@@ -15,8 +15,12 @@ This sprint was mostly dedicated to improve technical stuff and workflow
 
 ## Technical
 
-- **Linters**: Add a lot of pre-commit and linters on most of repositories
-- **Typing**: Add more and more typing in the codebase
+- **Development**: Enable pre-commit and linters on most repositories
+- **Development**: Add more Python typing hints in the codebase
+- **Asterisk**: Asterisk has been upgraded to 20.5.2, including fixes to important security issues.
+  See the [Asterisk release announcement for
+  20.5.2](https://www.asterisk.org/asterisk-news/asterisk-20-5-2-now-available/) and
+  [20.5.1](https://www.asterisk.org/asterisk-news/asterisk-security-release-20-5-1-now-available/).
 
 ## Ongoing Features
 
