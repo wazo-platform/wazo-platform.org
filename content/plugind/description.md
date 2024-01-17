@@ -25,7 +25,7 @@ It can:
 
 The REST API for wazo-plugind is available [here](../api/plugins.html).
 
-The bus events are defined [here](https://github.com/wazo-platform/xivo-bus/blob/master/xivo_bus/resources/plugins/events.py).
+The bus events are defined [here](https://github.com/wazo-platform/wazo-bus/blob/master/wazo_bus/resources/plugins/events.py).
 
 ## What is a plugin
 
@@ -56,7 +56,7 @@ The `rules` file is used to add actions during the installation and uninstallati
 The generated Debian packages have the following names `wazo-plugind-<plugin name>-<plugin namespace>`
 
 ## Related
- 
+
 [wazo-auth](authentication.html)
 
 ## See also
