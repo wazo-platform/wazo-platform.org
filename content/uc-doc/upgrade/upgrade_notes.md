@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 24.02 (#24-02)
+
+- `xivo-bus` has been renamed to `wazo-bus`. We've added a compatibility layer to avoid breaking
+  custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
+  possible since `xivo-bus` will be removed completely in a future version.
+
+Consult the
+[24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)
+for more information.
+
 ## 24.01 {#24-01}
 
 - `xivo-certs` has been renamed to `wazo-certs`. You may need to update custom configuration to
