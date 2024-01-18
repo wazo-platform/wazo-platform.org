@@ -2,8 +2,7 @@
 title: General
 ---
 
-Wazo platform provides extensive and extensible support for managing sources of contact
-information.  
+Wazo platform provides extensive and extensible support for managing sources of contact information.
 This support involves both internal implementations of contact directories that wazo-platform users
 can automatically benefit from, as well as integrations with common external contact directories
 that can serve as sources of information on how to reach people and services both internal and
@@ -185,8 +184,8 @@ First acquire the uuid of the `default` profile of the tenant with `GET /0.1/pro
 [API reference](/documentation/api/contact.html#tag/configuration/operation/list_profile)).
 
 Then query the current configuration of the profile with `GET /0.1/profiles/{profile uuid}`(see
-[API reference](/documentation/api/contact.html#tag/configuration/operation/get_profile)).  
-The configuration of a profile looks like the following:
+[API reference](/documentation/api/contact.html#tag/configuration/operation/get_profile)). The
+configuration of a profile looks like the following:
 
 ```json
 {
@@ -223,9 +222,9 @@ The configuration of a profile looks like the following:
 ```
 
 Notice the three sections under `"services"` refering to the three optional functionalities each
-source may support, `"favorites"`, `"lookup"`, `"reverse"`.  
-For a source that supports all three functionalities, the new configuration would see the `uuid` of
-that source added to the `sources` attribute of those three sections, e.g.:
+source may support, `"favorites"`, `"lookup"`, `"reverse"`. For a source that supports all three
+functionalities, the new configuration would see the `uuid` of that source added to the `sources`
+attribute of those three sections, e.g.:
 
 ```
 {
