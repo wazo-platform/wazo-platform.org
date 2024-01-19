@@ -159,10 +159,10 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   - `0` = the call is not sending any video stream
   - `1` = the call is sending a video stream
 
-- `XIVO_CALLOPTIONS`: the value is a list of options to be passed to the Dial application, e.g.
+- `WAZO_CALLOPTIONS`: the value is a list of options to be passed to the Dial application, e.g.
   `hHtT`. This variable is available in agent, user and outgoing call subroutines. Please note that
   it may not be set earlier, because it will be overwritten.
-- `XIVO_CALLORIGIN`: can have two values:
+- `WAZO_CALLORIGIN`: can have two values:
 
   - `intern` when the call does not involve DID or trunks, e.g. a simple call between two phones or
     one phone and its voicemail
@@ -172,28 +172,28 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   [selecting the ringtone](/uc-doc/system/configuration_files#xivo-ring.conf) for ringing a user.
   This variable is available only in user subroutines.
 
-- `XIVO_DSTNUM`: the value is the extension dialed, as received by Wazo (e.g. an internal extension,
+- `WAZO_DSTNUM`: the value is the extension dialed, as received by Wazo (e.g. an internal extension,
   a DID, or an outgoing extension including the local prefix). This variable is available in all
   subroutines.
-- `XIVO_GROUPNAME`: the value is the name of the group being called. This variable is only available
+- `WAZO_GROUPNAME`: the value is the name of the group being called. This variable is only available
   in group subroutines.
-- `XIVO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
+- `WAZO_GROUPOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in group subroutines.
-- `XIVO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
+- `WAZO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
   of the
   [Dial application](https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial). This
   variable is only available in the user subroutines.
-- `XIVO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
+- `WAZO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.
-- `XIVO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
+- `WAZO_QUEUENAME`: the value is the name of the queue being called. This variable is only available
   in queue subroutines.
-- `XIVO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
+- `WAZO_QUEUEOPTIONS`: the value is a list of options to be passed to the Queue application, e.g.
   `hHtT`. This variable is only available in queue subroutines.
-- `XIVO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
+- `WAZO_RINGSECONDS`: the value is the number of seconds a user will ring before the call is
   forwarded elsewhere, or hungup if no forwards are configured. This variable can only be used in a
   User subroutine.
-- `XIVO_SRCNUM`: the value is the callerid number of the originator of the call: the internal
+- `WAZO_SRCNUM`: the value is the callerid number of the originator of the call: the internal
   extension of a user (outgoing callerid is ignored), or the public extension of an external
   incoming call. This variable is available in all subroutines.
-- `XIVO_USERID`: the user ID of the line that placed the call or receives the call
-- `XIVO_USERUUID`: the user UUID of the line that placed the call or receives the call
+- `WAZO_USERID`: the user ID of the line that placed the call or receives the call
+- `WAZO_USERUUID`: the user UUID of the line that placed the call or receives the call

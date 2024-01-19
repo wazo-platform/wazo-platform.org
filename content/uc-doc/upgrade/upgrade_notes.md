@@ -8,6 +8,54 @@ title: Upgrade notes
   custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
   possible since `xivo-bus` will be removed completely in a future version.
 
+- The following channel variables have been renamed. If you used them in a subroutine you MUST use
+  the new name to maintain a working dialplan in the future. The old names have been kept for
+  retrocompatibility, so your dialplan should keep working for the moment. Deprecation messages will
+  appear in the Asterisk CLI if you try to modify those variables. Support for the old variables may
+  be removed in any later release.
+
+  - `XIVO_CALLOPTIONS` -> `WAZO_CALLOPTIONS`
+  - `XIVO_CALLORIGIN` -> `WAZO_CALLORIGIN`
+  - `XIVO_DSTID` -> `WAZO_DSTID`
+  - `XIVO_DSTNUM` -> `WAZO_DSTNUM`
+  - `XIVO_DST_EXTEN_ID` -> `WAZO_DST_EXTEN_ID`
+  - `XIVO_INTERFACE` -> `WAZO_INTERFACE`
+  - `XIVO_GROUPNAME` -> `WAZO_GROUPNAME`
+  - `XIVO_GROUPOPTIONS` -> `WAZO_GROUPOPTIONS`
+  - `XIVO_PICKEDUP` -> `WAZO_PICKEDUP`
+  - `XIVO_QUEUENAME` -> `WAZO_QUEUENAME`
+  - `XIVO_QUEUEOPTIONS` -> `WAZO_QUEUEOPTIONS`
+  - `XIVO_RINGSECONDS` -> `WAZO_RINGSECONDS`
+  - `XIVO_MOBILEPHONENUMBER` -> `WAZO_MOBILEPHONENUMBER`
+  - `XIVO_SRCNUM` -> `WAZO_SRCNUM`
+  - `XIVO_FROMGROUP` -> `WAZO_FROMGROUP`
+  - `XIVO_FROMQUEUE` -> `WAZO_FROMQUEUE`
+  - `XIVO_ENABLEDND` -> `WAZO_ENABLEDND`
+  - `XIVO_ENABLEUNC` -> `WAZO_ENABLEUNC`
+
+- The following dialplan context have been renamed. If you used them in your dialplan you MUST use
+  the new name. The old names have been kept for retrocompatibility, so your dialplan should keep
+  working for the moment. Deprecation messages will appear in the Asterisk CLI until all usage of
+  these contexts have been removed. Support for the old contexts may be removed in any later
+  release.
+
+  - `xivo-verbose` -> `wazo-verbose`
+  - `xivo-subroutine` -> `wazo-subroutine`
+  - `xivo-global-subroutine` -> `wazo-global-subroutine`
+  - `xivo-fwd-subroutine` -> `wazo-fwd-subroutine`
+
+- The following global variables have been renamed. The new names MUST be used. If you used them in
+  your dialplan you MUST use the new name to maintain a working dialplan in the future. The old
+  names have been kept for retrocompatibility, so your dialplan should keep working for the moment.
+  Support for the old variables may be removed in any later release.
+
+  - `XIVO_AGID_IP` -> `WAZO_AGID_IP`
+  - `XIVO_USERID` -> `WAZO_USERID`
+  - `XIVO_USERUUID` -> `WAZO_USERUUID`
+
+- If you modified the `*3` feature extension to toggle call recording, you MUST manually update you
+  extension definition to use the `WAZO_AGID_IP` variable instead of `XIVO_AGID_IP`.
+
 Consult the
 [24.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02)
 for more information.
