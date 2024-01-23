@@ -168,15 +168,18 @@ No parameters are required for this destination
 | --------- | ------- | ----------- |
 | paging_id | numeric | Paging's id |
 
-### Parking (deprecated)
+### Parking
 
-No parameters are required for this destination
+| Field          | Type    | Value                 |
+|----------------|---------|-----------------------|
+| parking_lot_id | numeric | ID of the parking lot |
 
 ### Parking Position
 
-| Field    | Type           | Value                              |
-| -------- | -------------- | ---------------------------------- |
-| position | numeric string | Position of the parking to pick up |
+| Field          | Type           | Value                                  |
+|----------------|----------------|----------------------------------------|
+| parking_lot_id | numeric        | ID of the parking lot                  |
+| position       | numeric string | Position inside the parking to pick up |
 
 ### Queue
 
