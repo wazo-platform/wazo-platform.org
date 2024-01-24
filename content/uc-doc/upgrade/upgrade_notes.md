@@ -8,6 +8,11 @@ title: Upgrade notes
   custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
   possible since `xivo-bus` will be removed completely in a future version.
 
+- The global parking lot with default extension 700 has been removed. If you need the parking lot
+  feature, you need to create one first.
+- Any leftover function key to parking lots remaining from 18.03 have been deleted, since they were
+  unusable in the later versions.
+
 - The following channel variables have been renamed. If you used them in a subroutine you MUST use
   the new name to maintain a working dialplan in the future. The old names have been kept for
   retrocompatibility, so your dialplan should keep working for the moment. Deprecation messages will
