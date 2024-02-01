@@ -13,6 +13,10 @@ title: Upgrade notes
 - Any leftover function key to parking lots remaining from 18.03 have been deleted, since they were
   unusable in the later versions.
 
+- Python module for provisioning plugins has been renamed from `provd` to `wazo_provd`. For any
+  custom provisioning plugin development, we recommend to upgrade to `wazo_provd` as soon as
+  possible since `provd` name will be removed completely in a future version.
+
 - The following channel variables have been renamed. If you used them in a subroutine you MUST use
   the new name to maintain a working dialplan in the future. The old names have been kept for
   retrocompatibility, so your dialplan should keep working for the moment. Deprecation messages will
