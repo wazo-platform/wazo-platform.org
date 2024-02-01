@@ -2,19 +2,20 @@
 
 To use the service, you need to:
 
-1.  connect to it on port 9502 using an encrypted WebSocket connection.
+1.  connect to it on port 443 through `/api/websocketd` endpoint using an
+    encrypted WebSocket connection.
 2.  authenticate to it by providing a wazo-auth token that has the `websocketd` ACL. If you don't
     know how to obtain a wazo-auth token from your Wazo, consult the
     [documentation on wazo-auth](https://wazo-platform.org/uc-doc/system/wazo-auth/introduction).
 
 For example, if you want to use the service located at `example.org` with the token `some-token-id`,
-you would use the URL `wss://example.org:9502/?token=some-token-id&version=2`.
+you would use the URL `wss://example.org/api/websocketd/?token=some-token-id&version=2`.
 
 The [SSL/TLS certificate](https://wazo-platform.org/uc-doc/system/https_certificate) that is used by
 the WebSocket server is the same as the one used by the Wazo web interface and the REST APIs. By
 default, this is a self-signed certificate, and web browsers will prevent connections from being
 successfully established for security reasons. On most web browsers, this can be circumvented by
-first visiting the `https://<wazo-ip>:9502/` URL and adding a security exception. Other solutions to
+first visiting the `https://<wazo-ip>/api/websocketd/` URL and adding a security exception. Other solutions to
 this problem are described in the
 [connection section](https://wazo-platform.org/uc-doc/system/https_certificate).
 
@@ -77,7 +78,7 @@ function connect() {
 
     var host = document.getElementById("host").value;
     var token_id = document.getElementById("token").value;
-    socket = new WebSocket("wss://" + host + ":9502/?token=" + token_id);
+    socket = new WebSocket("wss://" + host + "/api/websocketd/?token=" + token_id);
     socket.onclose = function(event) {
         socket = null;
         console.log("websocketd closed with code " + event.code + " and reason '" + event.reason + "'");
@@ -142,7 +143,7 @@ button is clicked, the `connect` function is called, and the WebSocket connectio
 18 (using the [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)):
 
 ```sourceCode javascript
-socket = new WebSocket("wss://" + host + ":9502/?version=2&token=" + token_id);
+socket = new WebSocket("wss://" + host + "/api/websocketd/?version=2&token=" + token_id);
 ```
 
 Then, at line 23, a `onmessage` callback is set on the WebSocket object:
@@ -181,10 +182,9 @@ files, you need to restart `wazo-websocketd` with `systemctl restart wazo-websoc
 
 ### Connection
 
-The service is available on port 9502 on all network interfaces by default. This can be changed in
-the configuration file.
+The service is available on port 443 using `/api/websocketd` endpoint
 
-The canonical URL to reach the service is `wss://<host>:9502/`.
+The canonical URL to reach the service is `wss://<host>/api/websocketd/`.
 
 The connection is always encrypted. The certificate and private key used by the server can be
 changed in the configuration file. By default, since the certificate is self-signed, you'll have to
@@ -212,8 +212,8 @@ the token expires.
 ### Events Access Control
 
 Clients connected to `wazo-websocketd` only receive events that they are authorized to receive. For
-example, a client connected with a token obtained from the "wazo_user" `wazo-auth` backend will
-_not_ receive call events of other users.
+example, a client connected with a token obtained from the "wazo*user" `wazo-auth` backend will
+\_not* receive call events of other users.
 
 When a message is received from the bus by `wazo-websocketd`, it extracts the ACL from the
 `required_acl` key of the event. If the field is missing, no clients will receive the event. If the
