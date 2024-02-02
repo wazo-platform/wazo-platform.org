@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 24.02 Released
-date: 2024-01-31T15:54:00
+date: 2024-02-05T08:00:00
 author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
@@ -12,21 +12,20 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 24.02 release.
 
-#################################################################
 ## New Features in This Release
-- **calld API**: added optional 'timeout' parameter in body of `PUT /calls/{call_id}/user/{user_uuid}` endpoint to control dial timeout behavior of call to user
 
-## Bug Fixes
-- **topic**: description
+- **calld API**: Added optional 'timeout' parameter in body of `PUT /calls/{call_id}/user/{user_uuid}` endpoint to control dial timeout behaviour
+  of call to user.
 
 ## Technical
-- **Parking**: In order to use API parking lots with function keys, deprecated default parking lot (700) function keys have been removed
-- **Provisioning**: Python module has been renamed from `provd` to `wazo_provd`. Any custom provisioning plugin should be updated
-- **Bus**: Python library has been renamed from `xivo_bus` to `wazo_bus`.  Any custom plugin using this library should be updated
+
+- **Parking**: In order to use API parking lots with function keys, deprecated default parking lot (700) function keys have been removed.
+- **Provisioning**: Python module has been renamed from `provd` to `wazo_provd`. Any custom provisioning plugin should be updated.
+- **Bus**: Python library has been renamed from `xivo_bus` to `wazo_bus`. Any custom plugin using this library should be updated.
 
 ## Ongoing Features
+
 - **wazo-provd**: Migrate the database from JSON to PostgreSQL
-#################################################################
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.02).
 
