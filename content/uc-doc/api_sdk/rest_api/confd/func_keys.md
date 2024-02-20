@@ -2,29 +2,6 @@
 title: Function Keys
 ---
 
-- [Function Key Template](#function-key-template)
-  - [Parameters](#parameters)
-  - [Example](#example)
-- [Function Key](#function-key)
-  - [Description](#description)
-  - [Example](#example-1)
-- [Destination](#destination)
-  - [Agent](#agent)
-  - [BSFilter](#bsfilter)
-  - [Conference](#conference)
-  - [Custom](#custom)
-  - [Forward](#forward)
-  - [Group](#group)
-  - [Group Member](#group-member)
-  - [Online call recording](#online-call-recording)
-  - [Paging](#paging)
-  - [Parking](#parking)
-  - [Parking Position](#parking-position)
-  - [Queue](#queue)
-  - [Service](#service)
-  - [Transfer](#transfer)
-  - [User](#user)
-
 Function keys can be used as shortcuts for dialing a number, or accomplishing other menial tasks, by
 pushing a button on the phone. A function key's action is determined by its destination.
 
@@ -67,7 +44,7 @@ This page only describes the data models used by the REST API. Consult the
 }
 ```
 
-## Function Key
+## Function Key {#function-key}
 
 ### Description
 
@@ -90,7 +67,7 @@ This page only describes the data models used by the REST API. Consult the
 }
 ```
 
-## Destination
+## Destination {#destination}
 
 A destination determines the number to dial when using a function key. Destinations are composed of
 a parameter named `type` and any additional parameters required by its type.
@@ -117,9 +94,10 @@ Here are the parameters required for each destination:
 
 ### Agent
 
-| Field    | Type    | Value                                                            |
-| -------- | ------- | ---------------------------------------------------------------- |
-| agent_id | numeric | Agent's id What to do with action login/logout/toggle this agent |
+| Field    | Type    | Value                                                           |
+| -------- | ------- | --------------------------------------------------------------- |
+| agent_id | numeric | ID of the agent                                                 |
+| action   | string  | What to do with this agent. Valid values: login, logout, toggle |
 
 ### BSFilter
 
@@ -129,34 +107,35 @@ Here are the parameters required for each destination:
 
 ### Conference
 
-| Field         | Type    | Value           |
-| ------------- | ------- | --------------- |
-| conference_id | numeric | Conference's id |
+| Field         | Type    | Value                |
+| ------------- | ------- | -------------------- |
+| conference_id | numeric | ID of the conference |
 
 ### Custom
 
-| Field | Type   | Value          |
-| ----- | ------ | -------------- |
-| exten | string | Number to dial |
+| Field | Type   | Value             |
+| ----- | ------ | ----------------- |
+| exten | string | Extension to dial |
 
 ### Forward
 
 | Field   | Type   | Value                                                           |
 | ------- | ------ | --------------------------------------------------------------- |
 | forward | string | Type of forward. Possible values: busy, noanswer, unconditional |
-| exten   | string | Number to dial (optional)                                       |
+| exten   | string | Forward destination extension (optional)                        |
 
 ### Group
 
-| Field    | Type    | Value      |
-| -------- | ------- | ---------- |
-| group_id | numeric | Group's id |
+| Field    | Type    | Value           |
+| -------- | ------- | --------------- |
+| group_id | numeric | ID of the group |
 
 ### Group Member
 
-| Field    | Type    | Value                                                          |
-| -------- | ------- | -------------------------------------------------------------- |
-| group_id | numeric | Group's id What to do with action join/leave/toggle this group |
+| Field    | Type    | Value                                                         |
+| -------- | ------- | ------------------------------------------------------------- |
+| group_id | numeric | ID of the group                                               |
+| action   | string  | What to do with this group. Valid values: join, leave, toggle |
 
 ### Online call recording
 
@@ -164,25 +143,28 @@ No parameters are required for this destination
 
 ### Paging
 
-| Field     | Type    | Value       |
-| --------- | ------- | ----------- |
-| paging_id | numeric | Paging's id |
+| Field     | Type    | Value            |
+| --------- | ------- | ---------------- |
+| paging_id | numeric | ID of the paging |
 
-### Parking (deprecated)
+### Parking
 
-No parameters are required for this destination
+| Field          | Type    | Value                 |
+| -------------- | ------- | --------------------- |
+| parking_lot_id | numeric | ID of the parking lot |
 
 ### Parking Position
 
-| Field    | Type           | Value                              |
-| -------- | -------------- | ---------------------------------- |
-| position | numeric string | Position of the parking to pick up |
+| Field          | Type           | Value                                  |
+| -------------- | -------------- | -------------------------------------- |
+| parking_lot_id | numeric        | ID of the parking lot                  |
+| position       | numeric string | Position inside the parking to pick up |
 
 ### Queue
 
-| Field    | Type    | Value     |
-| -------- | ------- | --------- |
-| queue_id | numeric | User's id |
+| Field    | Type    | Value           |
+| -------- | ------- | --------------- |
+| queue_id | numeric | ID of the queue |
 
 ### Service
 
@@ -213,6 +195,6 @@ Currently supported services:
 
 ### User
 
-| Field   | Type    | Value     |
-| ------- | ------- | --------- |
-| user_id | numeric | User's id |
+| Field   | Type    | Value          |
+| ------- | ------- | -------------- |
+| user_id | numeric | ID of the user |
