@@ -2,25 +2,53 @@
 title: Configuring a phonebook directory
 ---
 
-The phonebook directory source enables wazo administrators to maintain custom directories of contacts information directly within the wazo platform database.  
-Those directories are then available to the users of the stack in the same tenant.
+The phonebook directory source enables wazo administrators to maintain custom contact directories
+directly within the wazo platform database. Those directories can then be made available to the wazo
+platform users in the same tenant on the stack.
 
+# Provisioning a new phonebook
 
-## Creating and initializing phonebooks
-The first step to provide a phonebook directory source to users is to create the underlying structure holding the contact information in the database.
-Such basic maintenance operations rely on the [`/phonebooks`](/documentation/api/contact.html#tag/phonebook) API.
-To [create a new phonebook directory](/documentation/api/contact.html#tag/phonebook/operation/create_phonebook), a http request similar to the following would be made:
+Provisioning new phonebook directories follows the general process of any directory source. Since
+the underlying entity storing the contacts is also managed by wazo, and not an external entity,
+additional APIs and maintenance workflows must be considered.
+
+As a summary, provisioning a new phonebook directory would follow these general steps:
+
+1. [Creating the phonebook entity](#creating-and-initializing-phonebooks)
+2. Filling the new phonebook with contact entries()
+3. Creating a phonebook _source_ entity pointing to the underlying phonebook created at step 1
+4. Updating the directory profile with the new phonebook source
+
+Steps 3 and 4 should follow
+[the general guidelines provided in the general section](/uc-doc/administration/contact_directories/general#configuring-a-new-directory-source)
+similarly to any contact directory source.
+
+## Creating phonebooks
+
+The first step to providing a phonebook directory source to users is to create the underlying
+structure holding the contact information in the database. This is done through the
+[`/phonebooks`](/documentation/api/contact.html#tag/phonebook) API. This API can also be used for
+other administrative operations, such as retrieving or updating the phonebook details, adding,
+updating or removing contact entries from the phonebook, and deleting the phonebook entirely. As an
+administrative API, the ACL permissions for this API should only be provided to administrative
+users.
+
+To
+[create a new phonebook directory](/documentation/api/contact.html#tag/phonebook/operation/create_phonebook),
+a http request similar to the following would be made:
+
 ```bash
-curl -XPOST -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" -d
-{
-    "description": "this is a new phonebook",
-    "name": "my-phonebook"
-}
+curl -XPOST -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/phonebooks -d'\
+{\
+    "description": "this is a new phonebook",\
+    "name": "my-phonebook"\
+}'
 ```
 
-A succesful outcome would result in a response like this:
+A succesful outcome would result in a response similar to this:
+
 ```
-HTTP/1.1 201 OK 
+HTTP/1.1 201 OK
 ...
 {
     "description": "this is a new phonebook",
@@ -30,73 +58,165 @@ HTTP/1.1 201 OK
 }
 ```
 
+The `uuid` attribute included in the response can then be used for subsequent retrieval, update or
+delete operations on that phonebook, as well as for creating a directory source linked to that
+phonebook(see [below](#exposing-a-phonebook-source)).
+
+## initializing phonebooks with contacts
+
+As part of the creation of a new phonebook, wazo administrators might want to fill the new phonebook
+with contact entries. The
+[`/phonebooks/<uuid:phonebook_uuid>/contacts`](/documentation/api/contact.html#tag/phonebook/operation/create_phonebook_contact)
+endpoint enables creating a single contact using a `POST` request, while the
+[`/phonebooks/<uuid:phonebook_uuid>/contacts/import`](/documentation/api/contact.html#tag/phonebook/operation/import_phonebook)
+endpoint can be used to perform a bulk import of contacts using a `POST` request containing a CSV
+listing of contact information, where each line will correspond to a new contact.
+
+Phonebook contact entries can have any desirable attribute, as long as they are string values. The
+`id` attribute is reserved and will be generated as a uuid value, which can be used to subsequently
+retrieve, edit or delete the contact entry.
+
+## Managing contacts
+
+Once created, phonebook contacts can also be retrieved, edited and deleted using the
+`/phonebooks/<uuid:phonebook_uuid>/contacts` family of endpoints.
+
+- [`GET /phonebooks/<uuid:phonebook_uuid>/contacts`](/documentation/api/contact.html#tag/phonebook/paths/~1phonebooks~1%7Bphonebook_uuid%7D~1contacts/get)
+  can list all contacts inside a phonebook
+- [`GET /phonebooks/<uuid:phonebook_uuid>/contacts/<uuid:contact_id>`](https://wazo-platform.org/documentation/api/contact.html#tag/phonebook/paths/~1phonebooks~1%7Bphonebook_uuid%7D~1contacts~1%7Bcontact_id%7D/get)
+  can retrieve a single contact
+- [`PUT /phonebooks/<uuid:phonebook_uuid>/contacts/<uuid:contact_id>`](/documentation/api/contact.html#tag/phonebook/paths/~1phonebooks~1%7Bphonebook_uuid%7D~1contacts/get)
+  can modify a single contact
+- [`DELETE /phonebooks/<uuid:phonebook_uuid>/contacts/<uuid:contact_id>`](/documentation/api/contact.html#tag/phonebook/paths/~1phonebooks~1%7Bphonebook_uuid%7D~1contacts~1%7Bcontact_id%7D/delete)
+  can delete a single contact
+
+Client applications(users) will use a
+[different API to retrieve contacts](#retrieving-contacts-from-a-client-application).
+
+## Exposing a phonebook source
+
+To make the phonebook available to users through wazo client applications, the
+[dird phonebook source API](/documentation/api/contact.html#tag/configuration/operation/create_phonebook_source)
+must be used to create a phonebook "source" entity pointing to the actual phonebook created with the
+`/phonebooks` API.
+
+A request similar to the following would be made:
+
+```bash
+curl -XPOST -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/backends/phonebook/sources -d'\
+{
+  "first_matched_columns": [
+    "number",
+    "mobile",
+    "extension",
+    "number_other"
+  ],
+  "format_columns": {
+    "phone": "{number}",
+    "name": "{firstname} {lastname}",
+    "phone_mobile": "{mobile}",
+    "reverse": "{firstname} {lastname}"
+  },
+  "name": "My phonebook source",
+  "searched_columns": [
+    "firstname",
+    "lastname",
+    "number",
+    "mobile",
+    "extension",
+    "number_other",
+    "email"
+  ],
+  "phonebook_uuid": "6818c114-beed-432c-81dd-16b2998823d4"
+}'
+```
+
+This creates a phonebook source pointing to a phonebook with uuid
+`6818c114-beed-432c-81dd-16b2998823d4`, previously created through the `/phonebooks` API(see
+[above](#creating-and-initializing-phonebooks)). This phonebook example is expected to contain
+contacts with fields "number", "mobile", "extension", "number_other", "firstname", "lastname" and
+"email". The actual fields of the contacts depends only what is provided when
+[creating or importing contacts](#initializing-phonebooks-with-contacts).
+
+See [general documentation](/administration/contact_directories/general.md) for more details on the
+meaning of the fields.
+
+Once such a phonebook source entity is created for the new phonebook, this source must be exposed to
+users through a profile resource. See the
+[general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general.md).
+
 ## Updating phonebooks
 
-## Making phonebooks available as directory sources
+## Deleting phonebooks
 
-Once a phonebook has been created and populated with contacts using the aforementionned APIs, the next step for administrators would be to make that phonebook available to wazo platform users by configuring a corresponding directory source, and making that source available to the default profile.
+# Using a phonebook
 
-The directory source API enables separation between the administrative APIs of each directory backends from end-user-oriented APIs which wazo platform clients will consume. As such the source API currently allows read-only access to the underlying phonebook.
+## Retrieving contacts from a client application
 
-### Exposing a phonebook source
-Use the [dird phonebook source API](/documentation/api/contact.html#tag/configuration/operation/create_phonebook_source) to create a phonebook source in order to expose a phonebook to wazo clients.
+Once a phonebook is properly provisioned and filled with contacts, client applications can now use
+the appropriate API to retrieve those contacts from the phonebook source. This relies on the
+phonebook source API, specifically a `GET` request on the
+`/backends/phonebook/sources/<uuid:source_uuid>/contacts` endpoint.
+
+A client application would first need to identify the relevant `source_uuid`, by querying the
+`/directories/<profile name>/sources` endpoint using a `GET` request, which would yield the list of
+directory sources exposed through the profile. Using the conventional `default` profile, such an
+operation would look like
+
+```bash
+curl -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://my-stack-host/api/dird/0.1/directories/default/sources
+```
+
+and would normally result in a json response similar to the following:
 
 ```
-POST /0.1/backends/phonebook/sources
 {
-    "name": "my_phonebook",
-    "format_columns": {
-        "displayname": "{firstname} {lastname}"
-    },
-    "phonebook_uuid": "00000000-0000-4000-a000-000000000001",
-    "searched_columns": [
-        "firstname",
-        "lastname",
-        "number"
-    ]
-}
-```
-Here the `phonebook_uuid` refers to an existing phonebook created previously using the aforementioned `/phonebooks` API.
-
-The phonebook contacts can be read directly through the source API by a client([API reference](/api/contact.html#tag/configuration/operation/list_phonebook_source_contacts))
-
-```
-GET /0.1/backends/phonebooks/sources/{source_uuid}/contacts?limit=100&offset=0&order=firstname
-```
-
-In order for a source to be accessible for lookups, it must be added to a profile.
-
-First, find and get the default profile:
-```
-GET /0.1/profiles
-```
-Identify the default profile from the result list(there should normally be one profile), and update that configuration by adding the new source to the list
-
-```
-PUT /0.1/profiles/{default_uuid}
-{
-  "display": {
-    "uuid": "{same value}"
-  },
-  "name": "default",
-  "services": {
-    "name": {
-      "options": {},
-      "sources": [
-        "string"
-      ]
+  "total": 7,
+  "filtered": 7,
+  "items": [
+    [...]
+    {
+      "backend": "phonebook",
+      "name": "my phonebook",
+      "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521",
+      "uuid": "3e9e087c-8956-44a5-a532-64bef499c39c"
     }
-  }
+  ]
 }
 ```
 
+Using the uuid of the relevant phonebook souce, here `3e9e087c-8956-44a5-a532-64bef499c39c`,
+fetching the contacts of that souce would look like
 
-A client would also want to perform a global lookup of contact information from the sources configured in a profile:
-[here](/api/contact.html#tag/directories/operation/lookup_user)
+```bash
+curl -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://my-stack-host/api/dird/0.1/backends/phonebook/sources/3e9e087c-8956-44a5-a532-64bef499c39c/contacts
 ```
-GET /0.1/directories/lookup/{profile}/{user_uuid}?search={search query}
 
+yielding such a response:
+
+```json
+{
+  "total": 10,
+  "filtered": 10,
+  "items": [
+    {
+      "id": "6e7e7f8c-6e15-45c7-9ef3-bec36e07e8d6",
+      "uuid": "ad5b78cf-6e15-45c7-9ef3-bec36e07e8d6",
+      "firstname": "User",
+      "lastname": "McExample",
+      "email": "user.mcexample@acme.org",
+      "exten": "8001",
+      "mobile_phone_number": null,
+      "voicemail_number": "8001"
+    },
+    ...
+  ]
+}
 ```
+
 ## See also
 
+- [general documentation](/uc-doc/administration/contact_directories/general.md)
 - [wazo-dird](/uc-doc/administration/phonebooks/index.md)
+- [phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
+- [phonebook source API reference](/documentation/api/contact.html#tag/phonebook)
