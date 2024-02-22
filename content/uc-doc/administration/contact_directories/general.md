@@ -180,7 +180,7 @@ In practice, a single profile of name `default` will be shared amongst all users
 sources made available to users of a tenant will be exposed through that `default`
 profile(`/directories/default/sources`).
 
-To add the source to the `default` profile, one must modify the source configuration accordingly.
+To add the source to the `default` profile, one must modify the profile configuration accordingly.
 First acquire the uuid of the `default` profile of the tenant with `GET /0.1/profiles`(see
 [API reference](/documentation/api/contact.html#tag/configuration/operation/list_profile)).
 
@@ -199,8 +199,8 @@ The configuration of a profile looks like the following:
   "services": {
     "favorites": {
       "sources": [
-          ...
-        ],
+        ...
+      ],
       "options": {
       }
     },
