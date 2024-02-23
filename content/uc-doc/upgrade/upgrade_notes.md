@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 24.03 (#24-03)
+
+Consult the
+[24.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.03)
+for more information.
+
 ## 24.02 (#24-02)
 
 - `xivo-bus` has been renamed to `wazo-bus`. We've added a compatibility layer to avoid breaking
