@@ -12,20 +12,21 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 24.03 release.
 
-#################################################################
 ## New Features in This Release
-- **Parking Lot**: Undeprecate and refactor `parking` and `park_position` function keys to work  with parking lots resource
+
+- **Parking Lot**: Undeprecate and refactor `parking` and `park_position` function keys to work with the parking lots resource
 - **wazo-agentd**: Refactor wazo-agentd service to use stevedore plugins to easily integrate third-party development
 
 ## Technical
+
 - **SIP template PUT queries**: improved response time for PUT queries on sip endpoint templates
-- **wazo-confd**: validation of "delete_messages" option in /voicemails configuration to prevent configuration errors
+- **wazo-confd**: validation of `delete_messages` option in `/voicemails` configuration to prevent configuration errors
 - **wazo-stats**: improved resilience of queue stats computation in presence of incomplete queue events
- 
+
 ## Ongoing Features
+
 - **wazo-provd**: Migrate the database from JSON to PostgreSQL
 - **Parking Lot**: new API to control call parking features
-#################################################################
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.03).
 
