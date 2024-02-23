@@ -174,7 +174,7 @@ and would normally result in a json response similar to the following:
   "total": 7,
   "filtered": 7,
   "items": [
-    [...]
+    ...
     {
       "backend": "phonebook",
       "name": "my phonebook",
@@ -196,21 +196,20 @@ yielding such a response:
 
 ```json
 {
-  "total": 10,
-  "filtered": 10,
+  "filtered": 1,
   "items": [
     {
-      "id": "6e7e7f8c-6e15-45c7-9ef3-bec36e07e8d6",
-      "uuid": "ad5b78cf-6e15-45c7-9ef3-bec36e07e8d6",
       "firstname": "User",
       "lastname": "McExample",
-      "email": "user.mcexample@acme.org",
-      "exten": "8001",
-      "mobile_phone_number": null,
-      "voicemail_number": "8001"
-    },
-    ...
-  ]
+      "email": "user.mcexample@example.com",
+      "phone": "9999999999",
+      "mobile_phone": "9991111111",
+      "fax": "9191919191",
+      "phonebook_uuid": "291e442f-1251-4eab-b795-e2c0725e4ef3",
+      "id": "884a0f07-2c64-4367-9dae-d98f007e3f3e"
+    }
+  ],
+  "total": 1
 }
 ```
 
