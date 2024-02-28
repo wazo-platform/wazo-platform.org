@@ -4,7 +4,9 @@ title: Configuring a phonebook directory
 
 The phonebook directory source enables wazo administrators to maintain custom contact directories
 directly within the wazo platform database. Those directories can then be made available to the wazo
-platform users in the same tenant on the stack.
+platform users in the same tenant of the stack.
+
+Phonebooks are managed by the wazo-dird component
 
 # Provisioning a new phonebook
 
@@ -20,7 +22,7 @@ As a summary, provisioning a new phonebook directory would follow these general 
 4. Updating the directory profile with the new phonebook source
 
 Steps 3 and 4 should follow
-[the general guidelines provided in the general section](/uc-doc/administration/contact_directories/general#configuring-a-new-directory-source)
+[the general guidelines provided in the general section](/uc-doc/administration/contact_directories/general#configuring-a-new-directory-source),
 similarly to any contact directory source.
 
 ## Creating phonebooks
@@ -129,6 +131,8 @@ curl -XPOST -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https:
   ],
   "phonebook_uuid": "6818c114-beed-432c-81dd-16b2998823d4"
 }'
+HTTP/1.1 201 Created
+...
 ```
 
 This creates a phonebook source pointing to a phonebook with uuid
@@ -145,9 +149,71 @@ Once such a phonebook source entity is created for the new phonebook, this sourc
 users through a profile resource. See the
 [general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general.md).
 
+# Maintaining phonebooks
+
 ## Updating phonebooks
 
+Phonebooks details can be modified using the `/phonebooks` API. Phonebook sources configuration can
+be modified using the `/phonebooks/sources` API(see [above](#exposing-a-phonebook-source) and
+[general documentation on source configuration](/uc-doc/administration/contact_directories/general.md)).
+
+```bash
+curl -i -XPUT -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/backends/phonebook/sources/6818c114-beed-432c-81dd-16b2998823d4 -d'\
+{
+  "first_matched_columns": [
+    "number",
+    "mobile",
+    "extension",
+    "number_other"
+  ],
+  "format_columns": {
+    "phone": "{number}",
+    "name": "{firstname} {lastname}",
+    "phone_mobile": "{mobile}",
+    "reverse": "{firstname} {lastname}"
+  },
+  "name": "My phonebook source",
+  "searched_columns": [
+    "firstname",
+    "lastname",
+    "number",
+    "mobile",
+    "extension",
+    "number_other",
+    "email"
+  ],
+  "phonebook_uuid": "6818c114-beed-432c-81dd-16b2998823d4"
+}'
+HTTP/1.1 200 OK
+...
+```
+
 ## Deleting phonebooks
+
+Phonebooks can be deleted using the `/phonebooks` API.
+
+```bash
+curl -i -XDELETE -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/phonebooks/6818c114-beed-432c-81dd-16b2998823d4
+HTTP/1.1 204 NO CONTENT
+...
+```
+
+This will also delete any associated phonebook source entity pointing to that phonebook(through the
+`phonebook_uuid` attribute).
+
+Alternatively, a phonebook source entity can be deleted directly without deleting the underlying
+phonebook and its contacts, using the `/phonebooks/sources` API.
+
+```bash
+$ curl -i -XDELETE -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/backends/phonebook/sources/6818c114-beed-432c-81dd-16b2998823d4
+HTTP/1.1 204 NO CONTENT
+...
+```
+
+A phonebook _source_ cannot exist without an underlying phonebook to point to, while a phonebook(and
+its contacts) can exist without any phonebook _source_ pointing to it(though it would not be
+accessible by end users through end user APIs described
+[below](#retrieving-contacts-from-a-client-application)).
 
 # Using a phonebook
 
@@ -215,7 +281,7 @@ yielding such a response:
 
 ## See also
 
-- [general documentation](/uc-doc/administration/contact_directories/general.md)
+- [general contact directory documentation](/uc-doc/administration/contact_directories/general.md)
 - [wazo-dird](/uc-doc/administration/phonebooks/index.md)
 - [phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
 - [phonebook source API reference](/documentation/api/contact.html#tag/phonebook)
