@@ -8,7 +8,7 @@ platform users in the same tenant of the stack.
 
 Phonebooks are managed by the wazo-dird component
 
-# Provisioning a new phonebook
+## Provisioning a new phonebook
 
 Provisioning new phonebook directories follows the general process of any directory source. Since
 the underlying entity storing the contacts is also managed by wazo, and not an external entity,
@@ -25,7 +25,7 @@ Steps 3 and 4 should follow
 [the general guidelines provided in the general section](/uc-doc/administration/contact_directories/general#configuring-a-new-directory-source),
 similarly to any contact directory source.
 
-## Creating phonebooks
+### Creating phonebooks
 
 The first step to providing a phonebook directory source to users is to create the underlying
 structure holding the contact information in the database. This is done through the
@@ -64,7 +64,7 @@ The `uuid` attribute included in the response can then be used for subsequent re
 delete operations on that phonebook, as well as for creating a directory source linked to that
 phonebook(see [below](#exposing-a-phonebook-source)).
 
-## initializing phonebooks with contacts
+### Initializing phonebooks with contacts
 
 As part of the creation of a new phonebook, wazo administrators might want to fill the new phonebook
 with contact entries. The
@@ -78,7 +78,7 @@ Phonebook contact entries can have any desirable attribute, as long as they are 
 `id` attribute is reserved and will be generated as a uuid value, which can be used to subsequently
 retrieve, edit or delete the contact entry.
 
-## Managing contacts
+### Managing contacts
 
 Once created, phonebook contacts can also be retrieved, edited and deleted using the
 `/phonebooks/<uuid:phonebook_uuid>/contacts` family of endpoints.
@@ -95,7 +95,7 @@ Once created, phonebook contacts can also be retrieved, edited and deleted using
 Client applications(users) will use a
 [different API to retrieve contacts](#retrieving-contacts-from-a-client-application).
 
-## Exposing a phonebook source
+### Exposing a phonebook source
 
 To make the phonebook available to users through wazo client applications, the
 [dird phonebook source API](/documentation/api/contact.html#tag/configuration/operation/create_phonebook_source)
@@ -136,7 +136,7 @@ HTTP/1.1 201 Created
 ```
 
 This creates a phonebook source pointing to a phonebook with uuid
-`6818c114-beed-432c-81dd-16b2998823d4`, previously created through the `/phonebooks` API(see
+`6818c114-beed-432c-81dd-16b2998823d4`, previously created through the `/phonebooks` API (see
 [above](#creating-and-initializing-phonebooks)). This phonebook example is expected to contain
 contacts with fields "number", "mobile", "extension", "number_other", "firstname", "lastname" and
 "email". The actual fields of the contacts depends only what is provided when
@@ -149,12 +149,12 @@ Once such a phonebook source entity is created for the new phonebook, this sourc
 users through a profile resource. See the
 [general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general.md).
 
-# Maintaining phonebooks
+## Maintaining phonebooks
 
-## Updating phonebooks
+### Updating phonebooks
 
 Phonebooks details can be modified using the `/phonebooks` API. Phonebook sources configuration can
-be modified using the `/phonebooks/sources` API(see [above](#exposing-a-phonebook-source) and
+be modified using the `/phonebooks/sources` API (see [above](#exposing-a-phonebook-source) and
 [general documentation on source configuration](/uc-doc/administration/contact_directories/general.md)).
 
 ```bash
@@ -188,7 +188,7 @@ HTTP/1.1 200 OK
 ...
 ```
 
-## Deleting phonebooks
+### Deleting phonebooks
 
 Phonebooks can be deleted using the `/phonebooks` API.
 
@@ -198,7 +198,7 @@ HTTP/1.1 204 NO CONTENT
 ...
 ```
 
-This will also delete any associated phonebook source entity pointing to that phonebook(through the
+This will also delete any associated phonebook source entity pointing to that phonebook (through the
 `phonebook_uuid` attribute).
 
 Alternatively, a phonebook source entity can be deleted directly without deleting the underlying
@@ -210,14 +210,14 @@ HTTP/1.1 204 NO CONTENT
 ...
 ```
 
-A phonebook _source_ cannot exist without an underlying phonebook to point to, while a phonebook(and
-its contacts) can exist without any phonebook _source_ pointing to it(though it would not be
+A phonebook _source_ cannot exist without an underlying phonebook to point to, while a phonebook
+(and its contacts) can exist without any phonebook _source_ pointing to it (though it would not be
 accessible by end users through end user APIs described
 [below](#retrieving-contacts-from-a-client-application)).
 
-# Using a phonebook
+## Using a phonebook
 
-## Retrieving contacts from a client application
+### Retrieving contacts from a client application
 
 Once a phonebook is properly provisioned and filled with contacts, client applications can now use
 the appropriate API to retrieve those contacts from the phonebook source. This relies on the
@@ -279,7 +279,7 @@ yielding such a response:
 }
 ```
 
-## See also
+### See also
 
 - [general contact directory documentation](/uc-doc/administration/contact_directories/general.md)
 - [wazo-dird](/uc-doc/administration/phonebooks/index.md)
