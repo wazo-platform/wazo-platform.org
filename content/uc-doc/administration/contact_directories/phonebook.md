@@ -283,3 +283,4 @@ yielding such a response:
 
 - [General contact directory documentation](/uc-doc/administration/contact_directories/general)
 - [Phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
+- [Phonebook source API reference](/documentation/api/contact.html#tag/configuration/operation/create_phonebook_source)
