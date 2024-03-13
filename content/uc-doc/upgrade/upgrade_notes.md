@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 24.04 (#24-04)
+
+Consult the
+[24.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.04)
+for more information.
+
 ## 24.03 (#24-03)
 
 Consult the
