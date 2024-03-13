@@ -142,12 +142,12 @@ contacts with fields "number", "mobile", "extension", "number_other", "firstname
 "email". The actual fields of the contacts depends only what is provided when
 [creating or importing contacts](#initializing-phonebooks-with-contacts).
 
-See [general documentation](/administration/contact_directories/general.md) for more details on the
-meaning of the fields.
+See [general documentation](/uc-doc/administration/contact_directories/general) for more details on
+the meaning of the fields.
 
 Once such a phonebook source entity is created for the new phonebook, this source must be exposed to
 users through a profile resource. See the
-[general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general.md).
+[general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general).
 
 ## Maintaining phonebooks
 
@@ -155,7 +155,7 @@ users through a profile resource. See the
 
 Phonebooks details can be modified using the `/phonebooks` API. Phonebook sources configuration can
 be modified using the `/phonebooks/sources` API (see [above](#exposing-a-phonebook-source) and
-[general documentation on source configuration](/uc-doc/administration/contact_directories/general.md)).
+[general documentation on source configuration](/uc-doc/administration/contact_directories/general)).
 
 ```bash
 curl -i -XPUT -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/backends/phonebook/sources/6818c114-beed-432c-81dd-16b2998823d4 -d'\
@@ -281,7 +281,5 @@ yielding such a response:
 
 ### See also
 
-- [general contact directory documentation](/uc-doc/administration/contact_directories/general.md)
-- [wazo-dird](/uc-doc/administration/phonebooks/index.md)
-- [phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
-- [phonebook source API reference](/documentation/api/contact.html#tag/phonebook)
+- [General contact directory documentation](/uc-doc/administration/contact_directories/general)
+- [Phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
