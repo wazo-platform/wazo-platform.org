@@ -8,7 +8,7 @@ The global voicemail configuration is provided by `/asterisk/voicemail` endpoint
 
 To customize the email sent when a voicemail is received, you can use a few variables. The complete
 list is available on the
-[Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/VoiceMail+Channel+Variables).
+[Asterisk wiki](https://docs.asterisk.org/Configuration/Dialplan/Variables/Channel-Variables/Asterisk-Standard-Channel-Variables/VoiceMail-Channel-Variables/).
 
 ## Deleting a voicemail
 
