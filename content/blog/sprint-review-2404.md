@@ -23,7 +23,7 @@ Here is a short review of the Wazo Platform 24.04 release.
 - **Scalability**: Performance has been improved when processing calls by reducing the amount of internal events, reducing the CPU usage of Asterisk and RabbitMQ
 
 ## Ongoing Features
-- **Provisioning Server**: wazo-provd is being modified to use Postgresql as it datastorage instead using json files on the file system
+- **Provisioning Server**: wazo-provd is being modified to use PostgreSQL as its datastorage instead of using JSON files on the file system
 - **Parking Lot**: new API to control call parking features
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.04).
