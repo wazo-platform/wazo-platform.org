@@ -20,7 +20,7 @@ configuration to a `chan_pjsip` one.
 The translation system we are using at the moment does not deliver all the
 values we could get from a properly configured `chan_pjsip`. Moreover, the
 standard format of the `pjsip.conf` file is hard to override without using the
-[PJSIP Wizard](https://wiki.asterisk.org/wiki/display/AST/PJSIP+Configuration+Wizard).
+[PJSIP Wizard](https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/PJSIP-Configuration-Wizard).
 
 We chose to use this change in API to make the SIP configuration as multi tenant
 as possible.
@@ -98,7 +98,7 @@ for all of its endpoints.
 Another problem of the `chan_sip` channel driver and `chan_pjsip` with our current
 implementation is the need to reload the configuration for each modification.
 The new API will leverage a configuration system named
-[Sorcery](https://wiki.asterisk.org/wiki/display/AST/Sorcery). It will allow
+[Sorcery](https://docs.asterisk.org/Fundamentals/Asterisk-Configuration/Sorcery). It will allow
 each configuration to be updated individually. Every time a configuration change
 is done, Wazo Platform will be able to update the modified sections of the configuration
 only for the impacted resources instead of reloading the entire channel driver.

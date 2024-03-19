@@ -523,5 +523,4 @@ Running asterisk under valgrind takes a lots of extra memory, so make sure you h
 
 ## External links {#external-links}
 
-- <https://wiki.asterisk.org/wiki/display/AST/Debugging>
-- <https://wiki.asterisk.org/wiki/display/AST/Valgrind>
+- <https://docs.asterisk.org/Development/Debugging>

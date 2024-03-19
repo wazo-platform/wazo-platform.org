@@ -181,7 +181,7 @@ Some of the Wazo variables can be used and modified in subroutines (non exhausti
   `hHtT`. This variable is only available in group subroutines.
 - `WAZO_INTERFACE`: the value is the Technology/Resource pairs that are used as the first argument
   of the
-  [Dial application](https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Application_Dial). This
+  [Dial application](https://docs.asterisk.org/Configuration/Applications/Dial-Application). This
   variable is only available in the user subroutines.
 - `WAZO_MOBILEPHONENUMBER`: the value is the phone number of a user, as set in the web interface.
   This variable is only available in user subroutines.

@@ -2,7 +2,7 @@
 
 ## Description
 
-A daemon for interacting with [Asterisk's AMI](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239) :
+A daemon for interacting with [Asterisk's AMI](https://docs.asterisk.org/Configuration/Interfaces/Asterisk-Manager-Interface-AMI) :
 
 * forward AMI events to RabbitMQ ;
 * expose HTTP JSON interface for AMI actions.

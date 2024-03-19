@@ -75,7 +75,7 @@ The most useful special characters to match extensions are:
 - `X`: will match only one character
 
 You can find more details about pattern matching in Asterisk (hence in Wazo) on
-[the Asterisk wiki](https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching).
+[the Asterisk wiki](https://docs.asterisk.org/Configuration/Dialplan/Pattern-Matching).
 
 ## Set the incoming calls
 
