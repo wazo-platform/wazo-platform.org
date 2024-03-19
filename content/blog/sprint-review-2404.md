@@ -12,6 +12,9 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 24.04 release.
 
+## New Features This Release
+- **Translations**: Added french translations to wazo-ui, it now supports english and french
+
 ## Bug Fixes
 - **Websocket**: Fixed a bug where a user could miss some events when its authentication token expired
 
