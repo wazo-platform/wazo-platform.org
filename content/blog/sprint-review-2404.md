@@ -20,7 +20,7 @@ Here is a short review of the Wazo Platform 24.04 release.
 
 ## Technical
 - **Documentation**: The phonebook configuration documentation has been improved to allow an administrator to create a phonebook and add it to the directory service to make it available to its users
-- **Scalability**: A load issue during dialplan reloads has been fixed reducing the load on RabbitMQ
+- **Scalability**: Performance has been improved when processing calls by reducing the amount of internal events, reducing the CPU usage of Asterisk and RabbitMQ
 
 ## Ongoing Features
 - **Provisioning Server**: wazo-provd is being modified to use Postgresql as it datastorage instead using json files on the file system
