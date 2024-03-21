@@ -32,8 +32,10 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    apt update
    apt install -yq sudo git ansible curl
    ```
-   **Note:** Ansible is a suite of software tools that enables infrastructure as code. It is open-source and the suite includes software provisioning, configuration management, and application deployment functionality. https://en.wikipedia.org/wiki/Ansible_(software)
 
+   **Note:** Ansible is a suite of software tools that enables infrastructure as code. It is
+   open-source and the suite includes software provisioning, configuration management, and
+   application deployment functionality. https://en.wikipedia.org/wiki/Ansible_(software)
 
 3. Extract the Wazo Platform installer
 
@@ -56,8 +58,8 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    ansible-galaxy install -r requirements-postgresql.yml
    ```
 
-6. Edit the file `inventories/uc-engine` to add your preferences and passwords. The
-   various variables that can be customized are described at
+6. Edit the file `inventories/uc-engine` to add your preferences and passwords. The various
+   variables that can be customized are described at
    <https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables>.
 
    By default, Wazo Platform will install the development version. To install the latest stable
@@ -69,21 +71,26 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    wazo_distribution_upgrade = pelican-bullseye
    ```
 
-   If you want to install the web user interface, activate the following in your `inventories/uc-engine`:
+   If you want to install the web user interface, activate the following in your
+   `inventories/uc-engine`:
 
    ```ini
    [uc_ui:children]
    uc_engine_host
    ```
 
-   To create the `root` account at installation time and be able to use the web user interface and
-   REST APIs, you need to add the following variables:
+   The following variables allow you to create the `root` account at installation time, to be able
+   to use the web user interface and an API user to be able to use the REST APIs:
 
    ```ini
    [uc_engine:vars]
    engine_api_configure_wizard = true
    engine_api_root_password = <YOUR_ROOT_PASSWORD>
+   api_client_name = <YOUR_API_USERNAME>
+   api_client_password = <YOUR_API_PASSWORD>
    ```
+
+   Note: this API user will only have permissions for configuration REST API (wazo-confd).
 
 7. Launch the installation by running the following command:
 
@@ -91,11 +98,11 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    ansible-playbook -i inventories/uc-engine uc-engine.yml
    ```
 
-8. Once the installation completed, execute the following command to verify that all the Wazo services (wazo-plugind, wazo-webhookd, ...) are up and running:
+8. Once the installation completed, execute the following command to verify that all the Wazo
+   services (wazo-plugind, wazo-webhookd, ...) are up and running:
    ```shell
    wazo-service status
    ```
-
 
 ## Use the REST API
 
@@ -104,33 +111,32 @@ You may now use the REST API from outside your system (here `wazo.example.com`).
 1. Get an authentication token for 1 hour:
 
    Execute from the Debian system:
+
    ```shell
-   wazo-auth-cli token create --auth-user root --auth-password <YOUR_ROOT_PASSWORD>
+   wazo-auth-cli token create --auth-user <YOUR_API_USERNAME> --auth-password <YOUR_API_PASSWORD>
    ```
 
-   Or with curl from anywhere:
+   Or with `curl` from anywhere:
 
    ```shell
-   curl -k -X POST -u root:<YOUR_ROOT_PASSWORD> -H 'Content-Type: application/json' -d '{"expiration": 3600}' https://wazo.example.com/api/auth/0.1/token
+   curl -k -X POST -u <YOUR_API_USERNAME>:<YOUR_API_PASSWORD> -H 'Content-Type: application/json' -d '{"expiration": 3600}' https://wazo.example.com/api/auth/0.1/token
    ```
 
 2. Use any REST API you want.
 
    Note: You must replace `<YOUR_TOKEN>` with the authentication token
 
-
    To obtain the version of Wazo:
+
    ```shell
    curl -k -X GET -H 'X-Auth-Token: <YOUR_TOKEN>' -H 'Content-Type: application/json'  https://wazo.example.com/api/confd/1.1/infos
    ```
 
    To list the telephony users configured on the system:
+
    ```shell
    curl -k -X GET -H 'X-Auth-Token: <YOUR_TOKEN>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
    ```
-
-
-   Note: the token that you have now only has permissions for configuration REST API (wazo-confd).
 
 ## Optional post-install steps
 
