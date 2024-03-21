@@ -135,7 +135,7 @@ You may now use the REST API from outside your system (here `wazo.example.com`).
    To list the telephony users configured on the system:
 
    ```shell
-   curl -k -X GET -H 'X-Auth-Token: <YOUR_TOKEN>' -H 'Content-Type: application/json' -d '{"firstname": "user1"}' https://wazo.example.com/api/confd/1.1/users
+   curl -k -X GET -H 'X-Auth-Token: <YOUR_TOKEN>' -H 'Content-Type: application/json' https://wazo.example.com/api/confd/1.1/users
    ```
 
 ## Optional post-install steps
