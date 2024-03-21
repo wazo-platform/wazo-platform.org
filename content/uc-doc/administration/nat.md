@@ -55,4 +55,4 @@ work in all situations:
 ## References
 
 If you need more details, you may find an answer in the
-[Asterisk SIP documentation about NAT](https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT)
+[Asterisk SIP documentation about NAT](https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/Configuring-res_pjsip-to-work-through-NAT)

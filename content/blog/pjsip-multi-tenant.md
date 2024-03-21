@@ -20,14 +20,13 @@ configuration to a `chan_pjsip` one.
 The translation system we are using at the moment does not deliver all the
 values we could get from a properly configured `chan_pjsip`. Moreover, the
 standard format of the `pjsip.conf` file is hard to override without using the
-[PJSIP Wizard](https://wiki.asterisk.org/wiki/display/AST/PJSIP+Configuration+Wizard).
+[PJSIP Wizard](https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/PJSIP-Configuration-Wizard).
 
 We chose to use this change in API to make the SIP configuration as multi tenant
 as possible.
 
 In this article we will look into the process of making this new API multi
 tenant.
-
 
 # Differences Between `chan_sip` and `chan_pjsip`
 
@@ -45,7 +44,6 @@ used to be a single section for a peer in `sip.conf` is now multiple sections in
 `chan_sip` also accepted a `general` section that could be used to set default
 values for the whole channel driver.
 
-
 # How Wazo Platform Migrated from `chan_sip` to `chan_pjsip`
 
 To be able to move quickly from `chan_sip` to `chan_pjsip`, we chose to use a
@@ -55,12 +53,11 @@ script that is available in the Asterisk source code. This solution was
 sufficient to get us started but we have not been able to leverage the full
 power of the new SIP channel driver.
 
-
 # A Multi Tenant SIP Configuration
 
 The current SIP configuration is not completely multi tenant. What this means is
 that there is still a SIP general configuration that is shared by all SIP
-endpoints, lines and trunks. This general configuration is applied to *all*
+endpoints, lines and trunks. This general configuration is applied to _all_
 tenants of a given engine. The lines and trunks themselves are multi tenant. To
 make matters worse, the old API did not support configuration templates. So a
 tenant A that wants a different configuration from the general configuration of
@@ -80,7 +77,7 @@ password. All other configuration options can be inherited from the general
 configuration; WebRTC configuration and user preferences configuration for
 example.
 
-![Configuration Example](../../images/blog/pjsip-multi-tenant/pjsip_template.png "Template Hierarchy Example")
+![Configuration Example](../../images/blog/pjsip-multi-tenant/pjsip_template.png 'Template Hierarchy Example')
 
 In this example we have three lines owned by two users. Each line inherits from
 the user's preference template and from the SIP or WebRTC template. The SIP and
@@ -92,17 +89,15 @@ configuration and will be able to manage the SIP configuration of all of its
 endpoints independently from the others without duplicating the configuration
 for all of its endpoints.
 
-
 # Reloading
 
 Another problem of the `chan_sip` channel driver and `chan_pjsip` with our current
 implementation is the need to reload the configuration for each modification.
 The new API will leverage a configuration system named
-[Sorcery](https://wiki.asterisk.org/wiki/display/AST/Sorcery). It will allow
+[Sorcery](https://docs.asterisk.org/Fundamentals/Asterisk-Configuration/Sorcery). It will allow
 each configuration to be updated individually. Every time a configuration change
 is done, Wazo Platform will be able to update the modified sections of the configuration
 only for the impacted resources instead of reloading the entire channel driver.
-
 
 # Migrating to the New API
 
@@ -115,7 +110,6 @@ wazo-ui.
 At the moment, there is no plan to keep the old and new API working together. If
 you do use the SIP configuration API, get in touch with us on the
 [forum](https://wazo-platform.discourse.group/t/blog-a-multi-tenant-api-for-pjsip/248)
-
 
 # Conclusion
 

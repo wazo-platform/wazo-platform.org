@@ -20,5 +20,5 @@ your `cel.conf` or `cel.d/*` you will have to remove that line from your configu
 
 You can see the complete list of changes from the Asterisk website:
 
-- <https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+16>
+- <https://docs.asterisk.org/Asterisk_16_Documentation/Upgrading>
 - <https://github.com/asterisk/asterisk/blob/16/CHANGES>
