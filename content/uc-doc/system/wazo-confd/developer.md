@@ -18,7 +18,7 @@ The following diagram outlines the most important parts of a plugin:
 wazo-confd](/images/uc-doc/system/wazo-confd/wazo-confd-plugin-architecture.png)
 
 - `Resource`: Class that receives and handles HTTP requests. Resources use
-  [flask-restful](http://flask-restful.readthedocs.org) for handling requests. There are 2 kinds of
+  [flask-restful](https://flask-restful.readthedocs.org) for handling requests. There are 2 kinds of
   resources:
 
   - `ListResource` will handle creating a resource (`POST`) and searching through a list of

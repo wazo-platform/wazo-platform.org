@@ -11,9 +11,9 @@ The source code for the Wazo Platform is available on [GitHub](https://github.co
 Our GitHub organization contains over 200 repositories. Finding the one you want to contribute can
 be a daunting task.
 
-The [Wazo developers page](http://developers.wazo.io/) can help you find which repository you should
-be working on. [Asking for help](/uc-doc/contributors/contributing_to_wazo#asking-for-help) is
-always an option when looking at the less popular corners of the source code.
+The [Wazo developers page](https://developers.wazo.io/) can help you find which repository you
+should be working on. [Asking for help](/uc-doc/contributors/contributing_to_wazo#asking-for-help)
+is always an option when looking at the less popular corners of the source code.
 
 You can then [clone](https://help.github.com/en/articles/cloning-a-repository) the desired
 repositories on you hard drive and start coding.
@@ -22,7 +22,7 @@ repositories on you hard drive and start coding.
 
 Most of the Wazo Platform is written in Python, our code follows the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can use a tool such as
-[flake8](http://flake8.pycqa.org/en/latest/) to validate that you code respects the standards. Some
+[flake8](https://flake8.pycqa.org/en/latest/) to validate that you code respects the standards. Some
 repositories also include the appropriate configuration to check your code using the tox command
 `tox -e linters`.
 
@@ -70,7 +70,7 @@ For more details see [integration tests documentation](/uc-doc/contributors/inte
 Acceptance tests are longer tests that uses the Wazo to test a feature from end-to-end. These tests
 are usually longer to execute and require a dedicated Wazo Platform. As a contributor you are not
 expected to execute these tests if you are not contributing to them. Some of the acceptance tests
-are automatic [wazo-acceptance](http://github.com/wazo-platform/wazo-acceptance) and other are
+are automatic [wazo-acceptance](https://github.com/wazo-platform/wazo-acceptance) and other are
 executed manually at the end of each sprint.
 
 ## Trying your code {#trying-your-code}
@@ -82,7 +82,7 @@ follow the [Installing the System](/uc-doc/installation/install-system) document
 
 Now that you have a test engine, you want to try your code on it. Before starting I suggest you make
 a snapshot of your virtual machine to be able to come back to a clean install whenever needed. Then
-you can use [wdk](http://github.com/wazo-platform/wazo-sdk) to update the code running on your test
+you can use [wdk](https://github.com/wazo-platform/wazo-sdk) to update the code running on your test
 platform.
 
 The installation instructions for wdk are contained in its

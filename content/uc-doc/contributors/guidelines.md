@@ -49,7 +49,7 @@ To be in accordance with our goal, a Wazo daemon must (if applicable):
 
 ### Adding a Migration Script
 
-The database migration is handled by [alembic](http://alembic.readthedocs.org).
+The database migration is handled by [alembic](https://alembic.readthedocs.org).
 
 #### Example
 

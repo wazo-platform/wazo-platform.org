@@ -21,7 +21,7 @@ token-based authentication process.
 ## HTTP status codes
 
 Standard HTTP status codes are used. For the full definition see
-[IANA definition](http://www.iana.org/assignments/http-status-codes/http-status-codes.xml).
+[IANA definition](https://www.iana.org/assignments/http-status-codes/http-status-codes.xml).
 
 - 200: Success
 - 201: Created
@@ -40,7 +40,7 @@ about error codes.
 Example usage of general parameters:
 
 ```markdown
-GET http://<wazo_address>/api/confd/1.1/voicemails?limit=X&offset=Y
+GET https://<wazo_address>/api/confd/1.1/voicemails?limit=X&offset=Y
 ```
 
 ### Parameters

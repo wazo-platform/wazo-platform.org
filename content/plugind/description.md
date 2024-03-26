@@ -1,17 +1,17 @@
 # [plugind](https://github.com/wazo-platform/wazo-plugind)
 
-A service to manage plugins in the [Wazo](http://wazo.community) platform.
+A service to manage plugins in the [Wazo](https://wazo-platform.org) platform.
 
 wazo-plugind allow the administrator to manage plugins installed on a Wazo platform using
 a simple HTTP interface.
 
 It can:
 
-* list available plugins
-* install plugins
-* uninstall plugins
-* list installed plugins
-* update plugins
+- list available plugins
+- install plugins
+- uninstall plugins
+- list installed plugins
+- update plugins
 
 ## Schema
 
@@ -35,16 +35,16 @@ A plugin is a set of additions made to a custom Wazo platform installation to ad
 
 Wazo plugins allow a third party to add almost anything to Wazo. Most of our services have extension points that can be used together to create a complete feature as a plugin.
 
-* Add configuration files to wazo services in /etc/*/conf.d/
-* Add configuration files and dialplan files to Asterisk
-* Reload services to complete the installation
-* Extend wazo services using the available extension points
+- Add configuration files to wazo services in /etc/\*/conf.d/
+- Add configuration files and dialplan files to Asterisk
+- Reload services to complete the installation
+- Extend wazo services using the available extension points
 
-  * wazo-auth
-  * wazo-calld
-  * wazo-confd
-  * wazo-dird
-  * wazo-confgend
+  - wazo-auth
+  - wazo-calld
+  - wazo-confd
+  - wazo-dird
+  - wazo-confgend
 
 ## How it works
 
@@ -61,4 +61,4 @@ The generated Debian packages have the following names `wazo-plugind-<plugin nam
 
 ## See also
 
-* [Admin notes](plugins-admin.html)
+- [Admin notes](plugins-admin.html)

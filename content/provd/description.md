@@ -24,7 +24,7 @@ Plugins are meant to be installed and upgraded independently of the OS to be abl
 version that works best for your use case.
 
 Supported plugins are hosted on
-[provd.wazo.community](http://provd.wazo.community/plugins/2/stable/)
+[provd.wazo.community](https://provd.wazo.community/plugins/2/stable/)
 
 ## Auto provisioning
 

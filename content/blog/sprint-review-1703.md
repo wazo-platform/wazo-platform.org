@@ -10,20 +10,17 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.03!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
 **Music on hold API**: There are new REST API for managing music on hold classes and audio files related to music on hold. Music on hold control what callers hear when they arrive in a queue or user group, while agents or users are ringing. One music on hold class may contain multiple sound files that will be played one after the other.
 
-Technical features
-------------------
+## Technical features
 
 **Consul**: Consul has been updated from 0.7.2 to [0.7.3](https://github.com/hashicorp/consul/blob/v0.7.3/CHANGELOG.md). Consul is used for service discovery across multiple Wazo installation.
 
-**libpri**: LibPRI has been updated from 1.5.0 to [1.6.0](http://downloads.asterisk.org/pub/telephony/libpri/releases/ChangeLog-1.6.0). LibPRI is used for some hardware telephony cards (E1, T1, J1).
+**libpri**: LibPRI has been updated from 1.5.0 to [1.6.0](https://downloads.asterisk.org/pub/telephony/libpri/releases/ChangeLog-1.6.0). LibPRI is used for some hardware telephony cards (E1, T1, J1).
 
-Ongoing features
-----------------
+## Ongoing features
 
 **Switchboard API**: We are changing the internals of the Switchboard feature so that we can control more precisely how calls are answered, transferred, etc. We are also adding a REST API over the switchboard feature, to allow different interfaces for the switchboard, be it web or desktop client.
 
@@ -37,5 +34,5 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.03/upgrade/upgrade.html#upgrade-notes)
-* [xivo-confd REST API Changelog](http://wazo.readthedocs.io/en/wazo-17.03/api_sdk/rest_api/confd/changelog.html)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.03/upgrade/upgrade.html#upgrade-notes)
+- [xivo-confd REST API Changelog](https://wazo.readthedocs.io/en/wazo-17.03/api_sdk/rest_api/confd/changelog.html)

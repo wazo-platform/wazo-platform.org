@@ -195,7 +195,7 @@ b-c: cp */*.eff Digium/firmware/
 
 
 [file_firmware]
-url: http://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_4_0_0_package.tar.gz
+url: https://downloads.digium.com/pub/telephony/res_digium_phone/firmware/firmware_1_4_0_0_package.tar.gz
 size: 101303480
 sha1sum: 626273aaf6dd33e1927f3acb4a90f86a6e4e9f25
 ```

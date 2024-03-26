@@ -10,25 +10,19 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.06!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
 **REST API**: We have added a new REST API to get call logs in JSON format, instead of the current CSV format. The CSV format was mainly chosen for compatibility and JSON is easier to create new web interfaces.
 
-
-Technical features
-------------------
+## Technical features
 
 **Asterisk**: Asterisk was updated from 14.3.0 to 14.4.0
 
-Important bug fixes
--------------------
+## Important bug fixes
 
 **CTI Client**: Transfers made via the client could cause Asterisk to take all CPU of the machine, blocking the transfer and losing the call, in some circumstances.
 
-
-Ongoing features
-----------------
+## Ongoing features
 
 **Call logs**: We are attaching more data to the call logs, so that we can filter call logs more easily. This mainly includes filtering call logs by user, so that call logs analysis becomes less tedious. See https://wazo-platform.org/documentation in section xivo-call-logs for more details.
 
@@ -46,4 +40,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.06/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.06/upgrade/upgrade.html#upgrade-notes)

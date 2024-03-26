@@ -3,7 +3,7 @@ title: Wazo confgend developer's guide
 ---
 
 wazo-confgend uses drivers to implement the logic required to generate configuration files. It uses
-[stevedore](http://docs.openstack.org/developer/stevedore/) to do the driver instantiation and
+[stevedore](https://docs.openstack.org/developer/stevedore/) to do the driver instantiation and
 discovery.
 
 Plugins in wazo-confgend use setuptools' entry points. That means that installing a new plugin to
@@ -42,7 +42,7 @@ Here is a typical `setup.py`:
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright 2016 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2016-2024 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from setuptools import setup
@@ -78,7 +78,7 @@ With the following package structure:
 
 ```python
 # -*- coding: utf-8 -*-
-# Copyright 2016 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2016-2024 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 

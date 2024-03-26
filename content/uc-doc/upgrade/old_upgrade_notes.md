@@ -35,8 +35,8 @@ for more information.
 
 - This version contains a security update for Asterisk. All systems should be upgraded.
 
-  - [AST-2020-002: Outbound INVITE loop on challenge with different nonce](http://downloads.asterisk.org/pub/security/AST-2020-002.html)
-  - [AST-2020-001: Remote crash in res_pjsip_session](http://downloads.asterisk.org/pub/security/AST-2020-001.html)
+  - [AST-2020-002: Outbound INVITE loop on challenge with different nonce](https://downloads.asterisk.org/pub/security/AST-2020-002.html)
+  - [AST-2020-001: Remote crash in res_pjsip_session](https://downloads.asterisk.org/pub/security/AST-2020-001.html)
 
 Consult the
 [20.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D20.15)

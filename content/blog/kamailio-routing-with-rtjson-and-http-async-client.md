@@ -20,9 +20,9 @@ Our goal was while supporting high degrees of flexibility and ease to configure,
 
 To provide flexible, API-driven routing features in the Wazo Platform C4 Softswitch we decided to implement it on the foundations of the [`rtjson`](https://kamailio.org/docs/modules/stable/modules/rtjson.html) module. This module not only allows you to push the routing destination `URI` and the outbound proxy, but it also supports the normalization of the `From` and `To` headers, the insertion of additional headers as well as various settings related to the transaction management and its timers.
 
-Together with the [`http_async_client`](http://kamailio.org/docs/modules/stable/modules/http_async_client.html) Kamailio module, it offers a perfect solution to manage very complex and dynamic routing rules of SIP messages delegating the routing logic to an external, HTTP-based web service. The biggest advantage of `http_async_client` is that, as the name suggests, it is asynchronous: the HTTP request to the API server doesn't block the Kamailio worker process which is immediately released, ready to serve subsequent SIP message requests. As soon as the HTTP request completes and the `http_async_client` worker process managing it collects the response, it resumes the Kamailio transaction and calls the Kamailio `route` designated to manage the API responses, resuming the processing of the SIP message and its transaction.
+Together with the [`http_async_client`](https://kamailio.org/docs/modules/stable/modules/http_async_client.html) Kamailio module, it offers a perfect solution to manage very complex and dynamic routing rules of SIP messages delegating the routing logic to an external, HTTP-based web service. The biggest advantage of `http_async_client` is that, as the name suggests, it is asynchronous: the HTTP request to the API server doesn't block the Kamailio worker process which is immediately released, ready to serve subsequent SIP message requests. As soon as the HTTP request completes and the `http_async_client` worker process managing it collects the response, it resumes the Kamailio transaction and calls the Kamailio `route` designated to manage the API responses, resuming the processing of the SIP message and its transaction.
 
-In order to parse `JSON` response provided by the `API` we use the ubiquitous [`jansson`](http://kamailio.org/docs/modules/stable/modules/jansson.html) module, extracting the `rtjson` payload from the `JSON` response of the API.
+In order to parse `JSON` response provided by the `API` we use the ubiquitous [`jansson`](https://kamailio.org/docs/modules/stable/modules/jansson.html) module, extracting the `rtjson` payload from the `JSON` response of the API.
 
 ## Implementation
 
@@ -157,8 +157,8 @@ After several stress test sessions in our C4 lab, we determined the overhead of 
 
 The main advantages of moving complex routing logic out of Kamailio to external APIs are:
 
-* Ease of unit testing the routing logic
-* More powerful and rich programming language than the Kamailio config file
-* Possibility to scale independently the SIP routing component (Kamailio) and the API web service (FastAPI/Python), in a true micro-service architecture.
+- Ease of unit testing the routing logic
+- More powerful and rich programming language than the Kamailio config file
+- Possibility to scale independently the SIP routing component (Kamailio) and the API web service (FastAPI/Python), in a true micro-service architecture.
 
 The Wazo Platform C4 is in continuous development to offer: our goal is delivering a true cloud-native telecom solution with strong and solid foundations. Stay tuned!

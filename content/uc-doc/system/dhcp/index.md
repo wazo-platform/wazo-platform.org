@@ -54,7 +54,7 @@ DHCP server should have been restarted and should now use the new routing addres
 By default, the Wazo DHCP server serves only known hosts. That is:
 
 - either hosts which MAC address prefix (the
-  [OUI](http://en.wikipedia.org/wiki/Organizationally_unique_identifier)) is known
+  [OUI](https://en.wikipedia.org/wiki/Organizationally_unique_identifier)) is known
 - or hosts which Vendor Identifier is known
 
 Known OUIs and Vendor Class Identifiers are declared in `/etc/dhcp/dhcpd_update/*` files.

@@ -7,10 +7,9 @@ slug: wazo-new-logo-fr
 status: published
 ---
 
-
 Nous sommes très fiers de vous dévoiler notre nouveau logo pour Wazo ! Sans plus attendre le voici :)
 
-![wazo-logo-full.png](../../images/blog/wazo-new-logo/wazo-logo-full.png "Wazo logo")
+![wazo-logo-full.png](../../images/blog/wazo-new-logo/wazo-logo-full.png 'Wazo logo')
 
 # Son histoire
 
@@ -32,7 +31,7 @@ Lors d'une soirée organisée avec l'équipe, des amis, du vin et du fromage, no
 
 Merci Antoine, tu viens de commencer notre nouvelle histoire, Wazo est né, il est temps de le voir s'envoler. Wazo deviendra le nom de notre logiciel et son nom de code sera Phoenix.
 
-Une bien belle histoire, nous avions trouvé le nom, mais il nous fallait un logo. Nous avons alors fait appel à une agence à Québec, appelé [Safran](http://www.safran.ca) pour bâtir notre nouvelle identité, notre nouveau logo. Mais il était important de se retrouver dans notre histoire, dans notre métier.
+Une bien belle histoire, nous avions trouvé le nom, mais il nous fallait un logo. Nous avons alors fait appel à une agence à Québec, appelé [Safran](https://safran.ca) pour bâtir notre nouvelle identité, notre nouveau logo. Mais il était important de se retrouver dans notre histoire, dans notre métier.
 
 Suite à différentes discussions avec leur équipe, ils nous firent la proposition suivante:
 

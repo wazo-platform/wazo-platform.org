@@ -84,7 +84,7 @@ the custom templates.
 
 A few things to know before writing your first custom template:
 
-- templates use the [Jinja2 template engine](http://jinja.pocoo.org/docs/templates/).
+- templates use the [Jinja2 template engine](https://jinja.pocoo.org/docs/templates/).
 - when doing an `include` or an `extends` from a template, the file is first looked up in the
   `var/templates` directory and then in the `templates` directory.
 - device in autoprov mode are affected by templates, because from the point of view of `provd`,
@@ -175,7 +175,7 @@ You can check that all went well by looking at `GET /devices` page.
 ## NAT
 
 The provisioning server has partial support for environment where the telephony devices are behind a
-[NAT](http://en.wikipedia.org/wiki/NAT).
+[NAT](https://en.wikipedia.org/wiki/NAT).
 
 By default, each time the provisioning server receives an HTTP/TFTP request from a device, it makes
 sure that only one device has the source IP address of the request. This is not a desirable
@@ -221,7 +221,7 @@ By design, the auto-provisioning process is vulnerable to:
   could spoof requests to the provisioning server to create a huge amount of devices, creating a
   denial-of-service condition.
 
-That said, Wazo adds [Fail2ban](http://www.fail2ban.org/) support to the provisioning server to
+That said, Wazo adds [Fail2ban](https://www.fail2ban.org/) support to the provisioning server to
 drastically lower the likelihood of such attacks. Every time a request for a file potentially
 containing sensitive information is requested, a log line is appended to the
 `/var/log/wazo-provd-fail2ban.log` file, which is monitored by fail2ban. The same thing happens when

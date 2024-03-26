@@ -7,7 +7,7 @@ be triggered. For this, subscriptions are defined using a templating "language",
 where to use variables that will be replaced with event data.
 
 Templates use the Jinja2 syntax. See
-[the Jinja documentation for more details](http://jinja.pocoo.org/docs/2.9/templates/).
+[the Jinja documentation for more details](https://jinja.pocoo.org/docs/2.9/templates/).
 
 The following parts of the request are templated:
 
@@ -42,7 +42,7 @@ Available variables:
 ### Query string
 
 If you want to create a query string from an event, you can use Jinja's
-[builtin filter feature](http://jinja.pocoo.org/docs/2.9/templates/#list-of-builtin-filters):
+[builtin filter feature](https://jinja.pocoo.org/docs/2.9/templates/#list-of-builtin-filters):
 
 - The template: `https://example.com/query?{{ event|urlencode }}`
 - gives an URL: `https://example.com/query?key1=value1&key2=value2`
