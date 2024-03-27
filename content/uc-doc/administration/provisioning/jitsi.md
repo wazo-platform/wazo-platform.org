@@ -6,7 +6,7 @@ title: Jitsi
 - [Add Jitsi plugin on Wazo](#add-jitsi-plugin-on-wazo)
 - [Configuring Jitsi](#configuring-jitsi)
 
-Jitsi (<http://jitsi.org/>) is an opensource softphone (previously SIP Communicator).
+Jitsi (<https://jitsi.org/>) is an opensource softphone (previously SIP Communicator).
 
 Wazo now support Jitsi sofphones provisioning. Here are the steps to follow:
 

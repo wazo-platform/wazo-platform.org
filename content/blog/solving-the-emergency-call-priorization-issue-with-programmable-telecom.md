@@ -20,11 +20,9 @@ The situation could be described as an unintended yet effective denial of servic
 
 We will show here, how in less than a 3-day period - during a short hackathon - a team of developers, with no prior knowledge of the Wazo programmable platform, was able to put in place an effective solution to this prioritization issue, and save lives.
 
-
 ## DEMONSTRATION OF THE FLEXIBILITY AND SIMPLICITY OF USE OF THE WAZO PROGRAMMABLE PLATFORM
 
 By solving this issue, our hidden objective was to demonstrate how easy it is to create a useful feature in a very short time frame based on the Wazo open programmable communication platform.
-
 
 ## THE SETTING
 
@@ -32,13 +30,11 @@ The team gathered in an apartment that we rented on the famous place of the Oper
 
 ![opera](../../images/blog/hackathon/2.png)
 
-
 The first morning was dedicated to get to know each other and also to share and explain the Wazo programmable platform, its ambition, its purpose and how it works.
 
 In the afternoon, it was agreed to build a mini emergency call center that could automatically prioritize calls - even before an operator picks up the call - depending on what the person would say in the [IVR](https://en.wikipedia.org/wiki/Interactive_voice_response). Overall the user story was: when calling an emergency service, if the IVR hears "heart attack" or similar keywords, the priority given to the call would be higher and therefore an operator would answer the call.
 
 All this, of course, in full web with a phone using WebRTC.
-
 
 ## HOW DID IT GO?
 
@@ -63,10 +59,8 @@ Meanwhile, the other team was looking for the right transcription engine. Google
 
 We then regrouped to draw this wonderful Miró-style piece of art:
 
-
 ![postit](../../images/blog/hackathon/3.png)
 ![miro](../../images/blog/hackathon/4.png)
-
 
 So, the decision was made to build an Asterisk module where a given channel would get the voice feed in a websocket, for any incoming call within the Wazo voice programmable application.
 
@@ -86,11 +80,9 @@ Then began a very funny time when we could test and try our demo. We decided to 
 
 We had plenty of time to stage our demo. And we could indeed showcase our IVR speech keyword detection demo in front of our colleagues and soon-to-be colleagues who joined us in the evening. Everything went so well that it was finally decided during our sprint retrospective to share our work.
 
-
 ## FUNCTIONAL CONCLUSION
 
 This live speech-to-text keyword detection demo was a very basic - yet useful - way to help emergency call centers enhance the quality of their services. With the Wazo programmable platform, we offer the opportunity to develop much more sophisticated ways to deal with peak visitor encumbrance, including automatic platform scaling, location-based sorting and routing, coupling IVR and AI, …
-
 
 ## KEY TAKEAWAYS
 
@@ -100,8 +92,6 @@ This live speech-to-text keyword detection demo was a very basic - yet useful - 
 
 We would like to thank the participants, but also the part of the Wazo Quebec team who went to France to host this hackathon. We will clearly do this type of event again in the future.
 
-
-
-In conclusion, we remind you that Wazo is still [hiring developers](http://wazo.io/#jobs) in Canada or in France, or as a talented remote developer anywhere on the globe. So, if you have any interest in open-source programmable telecom, please let us know!
+In conclusion, we remind you that Wazo is still [hiring developers](https://wazo.io/careers/) in Canada or in France, or as a talented remote developer anywhere on the globe. So, if you have any interest in open-source programmable telecom, please let us know!
 
 Wazo, unlock your communication.

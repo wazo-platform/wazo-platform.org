@@ -10,8 +10,7 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.07!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
 **Admin UI**: The new web interface based on our REST API is now available for preview. See [Wazo admin UI](/blog/wazo-admin-ui)
 
@@ -29,16 +28,13 @@ New features in this sprint
 
 **REST API**: CDR can now be queried by user to get its own call logs.
 
-
-Ongoing features
-----------------
+## Ongoing features
 
 **Call logs**: We are attaching more data to the call logs and generating new views to have a summary for a given query instead of a list of call logs.
 
 **Admin UI**: We are working to improve the new web interface.
 
 **Plugin management**: There is still a lot to be done to the plugin management service. e.g. dependency, upgrade, wazo version constraint, HA, ..
-
 
 ---
 
@@ -50,4 +46,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.07/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.07/upgrade/upgrade.html#upgrade-notes)

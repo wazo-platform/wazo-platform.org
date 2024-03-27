@@ -240,7 +240,7 @@ The WebSocket connection might be closed by the server using one of following st
   operation was missing.
 
 The server also uses the
-[pre-defined WebSocket status codes](http://tools.ietf.org/html/rfc6455#section-7.4).
+[pre-defined WebSocket status codes](https://tools.ietf.org/html/rfc6455#section-7.4).
 
 ### Protocol
 

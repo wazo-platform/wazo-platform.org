@@ -18,7 +18,7 @@ Hello Wazo community! Here comes the release of Wazo 17.11!
 
 ## Technical features
 
-**Asterisk**: Asterisk was updated from 14.5.0 to [14.6.0](http://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-14.6.0)
+**Asterisk**: Asterisk was updated from 14.5.0 to [14.6.0](https://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-14.6.0)
 
 **Chat**: We have integrated a new software in Wazo, namely MongooseIM. We will progressively insert MongooseIM in the heart of the Wazo chat, so that we can benefit from its features: chat history, chat rooms, mobile push notifications, and maybe XMPP connectivity...
 
@@ -26,7 +26,7 @@ Hello Wazo community! Here comes the release of Wazo 17.11!
 
 **Plugin management**: There is still a lot to be done to the plugin management service. e.g. upgrade, HA, ...
 
-**Webhooks**: We are adding a new way of interconnecting Wazo with other software: webhooks. Outgoing webhooks allow Wazo to notify other applications about events that happen on the telephony server, e.g. when a call arrives, when it is answered, hung up, when a new contact is added, etc. Incoming webhooks also allow Wazo to be notified of events happening on other applications, e.g. a new customer was added in your CRM, a new employee was added in your directory, etc. Unfortunately, there is no magic and the application in question must be able to send or receive webhooks so that Wazo can talk with it. See also this [blog post (sorry, it's in French)](http://blog.wazo.community/wazo-webhook.html#wazo-webhook) about Wazo and webhooks.
+**Webhooks**: We are adding a new way of interconnecting Wazo with other software: webhooks. Outgoing webhooks allow Wazo to notify other applications about events that happen on the telephony server, e.g. when a call arrives, when it is answered, hung up, when a new contact is added, etc. Incoming webhooks also allow Wazo to be notified of events happening on other applications, e.g. a new customer was added in your CRM, a new employee was added in your directory, etc. Unfortunately, there is no magic and the application in question must be able to send or receive webhooks so that Wazo can talk with it. See also this [blog post (sorry, it's in French)](https://wazo-platform.org/blog/wazo-webhook) about Wazo and webhooks.
 
 ---
 
@@ -38,4 +38,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.11/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.11/upgrade/upgrade.html#upgrade-notes)

@@ -180,7 +180,7 @@ The _file definition_ is usually at the bottom of the `pkgs.db` file:
 ```
 [file_T46S_T48S_T42S_T41S-fw]
 filename: T46S(T48S,T42S,T41S)-66.85.0.5.rom
-url: http://support.yealink.com/forward2download?path=ZIjHOJbWuW/DFrGTLnGypkTJASVqwzX/x71yaViKhXSKOgYSKl0Pb7N9IXFpYf7YAOhOJmV0fGjbcYgmf0b9uxGdQ1IFTWkfgTz2m4g5Uoy1NWm3/S6JBTsplusSymbolM5UOVemCq9Kf2pvmyoc=
+url: https://support.yealink.com/forward2download?path=ZIjHOJbWuW/DFrGTLnGypkTJASVqwzX/x71yaViKhXSKOgYSKl0Pb7N9IXFpYf7YAOhOJmV0fGjbcYgmf0b9uxGdQ1IFTWkfgTz2m4g5Uoy1NWm3/S6JBTsplusSymbolM5UOVemCq9Kf2pvmyoc=
 size: 25559152
 sha1sum: 091d469ba3ce13b424a5212fb74f0e1b59c31a6a
 ```

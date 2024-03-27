@@ -9,7 +9,7 @@ text-to-speech services.
 The following procedure will generate prompts for `pt_BR` (portuguese from Brazil) based on the
 Google TTS service.
 
-**Note**: There are two sets of prompts: the [Asterisk prompts](http://www.asterisksounds.org/en)
+**Note**: There are two sets of prompts: the [Asterisk prompts](https://www.asterisksounds.org/en)
 and the Wazo prompts. This procedure only covers the Wazo prompts, but it may be adapted for
 Asterisk prompts.
 

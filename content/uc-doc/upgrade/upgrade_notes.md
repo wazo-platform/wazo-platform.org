@@ -311,9 +311,9 @@ for more information.
 
 - `wazo-provd` now uses Python 3. The latest version of all plugins have been updated to use Python
   3 as well. The default plugin repository has been changed from
-  `http://provd.wazo.community/plugins/1/stable` (python 2) to
-  `http://provd.wazo.community/plugins/2/stable` (python 3). This change should be automatic, but if
-  you are using a custom URL it will need to be updated to one containing Python 3 compatible
+  `https://provd.wazo.community/plugins/1/stable` (python 2) to
+  `https://provd.wazo.community/plugins/2/stable` (python 3). This change should be automatic, but
+  if you are using a custom URL it will need to be updated to one containing Python 3 compatible
   plugins. If you happen to have devices using a plugin that is no longer provided by us, it will
   not be possible to use it anymore without manual intervention. See the
   [detailed upgrade notes](/uc-doc/upgrade/upgrade_notes_details/22-16/provd_plugins_python3) for

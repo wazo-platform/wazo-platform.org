@@ -10,18 +10,15 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.04!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
 **CSV import of a phonebook**: The CSV import had been removed from the web interface when we allowed many phonebooks to be available on the same Wazo. Many administrators have reported that they used that feature for their end users. You told us and we heard you. The CSV import is back.
 
-Technical features
-------------------
+## Technical features
 
 **Asterisk**: Asterisk has been updated from 14.2.1 to 14.3.0
 
-Ongoing features
-----------------
+## Ongoing features
 
 **Switchboard API**: We are changing the internals of the Switchboard feature so that we can control more precisely how calls are answered, transferred, etc. We are also adding a REST API over the switchboard feature, to allow different interfaces for the switchboard, be it web or desktop client.
 
@@ -39,4 +36,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.04/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.04/upgrade/upgrade.html#upgrade-notes)

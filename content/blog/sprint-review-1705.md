@@ -10,33 +10,29 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.05!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
-**Call recording**: We added some configuration options to control the naming of the call recordings. This allows administrators to dispatch recording files more easily between entities. You can read all about it [in the documentation](http://wazo.readthedocs.io/en/latest/administration/call_recording/call_recording.html#file-names).
+**Call recording**: We added some configuration options to control the naming of the call recordings. This allows administrators to dispatch recording files more easily between entities. You can read all about it [in the documentation](https://wazo.readthedocs.io/en/latest/administration/call_recording/call_recording.html#file-names).
 
 **REST API**: We added the possibility to pause/unpause an agent from the REST API of xivo-agentd. An agent in pause does not receive any more calls distributed from the call queues. Until now, agents could only enter the pause through the CTI client. Also, it is now possible to specify the reason for the pause. This allows supervisors to have a better understanding of the agents availability. You can see this new feature in action in [Unicom](https://phone.wazo.community).
 
-**REST API**: The ``calls`` API in xivo-ctid-ng has been improved to reflect the direction of each call: a graphical interface such as [Unicom](https://phone.wazo.community) may now display if the call is received or sent.
+**REST API**: The `calls` API in xivo-ctid-ng has been improved to reflect the direction of each call: a graphical interface such as [Unicom](https://phone.wazo.community) may now display if the call is received or sent.
 
-Important bug fixes
--------------------
+## Important bug fixes
 
 **Database**: One of Wazo services (xivo-dird) was not closing the connections to the database. It blocked other services from accessing the database in some circumstances.
 
 **CTI Client**: Transfers made via the client had a performance issue that would take up all CPU of the machine after a few transfers, causing other issues as a result.
 
-Contributions
--------------
+## Contributions
 
 **Web interface**: We thank Paolo Ornati for submitting a patch fixing a bug in the list of phonebooks in the web interface.
 
 **Translations**: We thank Rafał Perczyński and Ania Perczyńska for making polish sound files available in the web interface and translating the CTI client interface in polish with [Transifex](https://www.transifex.com/wazo/wazo/). The CTI client translations will be shipped in a future version.
 
-**Yealink firware**: We thank Damien Barbier for submitting a new firmware for Yealink phones. The provisioning plugin for firmware v81 is now available in the [testing](http://wazo.readthedocs.io/en/latest/administration/provisioning/basic_configuration.html#alternative-plugins-repo) plugins repository.
+**Yealink firware**: We thank Damien Barbier for submitting a new firmware for Yealink phones. The provisioning plugin for firmware v81 is now available in the [testing](https://wazo.readthedocs.io/en/latest/administration/provisioning/basic_configuration.html#alternative-plugins-repo) plugins repository.
 
-Ongoing features
-----------------
+## Ongoing features
 
 **Call logs**: We are attaching more data to the call logs, so that we can filter call logs more easily. This mainly includes filtering call logs by user, so that call logs analysis becomes less tedious.
 
@@ -54,4 +50,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.05/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.05/upgrade/upgrade.html#upgrade-notes)

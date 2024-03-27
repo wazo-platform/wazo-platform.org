@@ -32,4 +32,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.16/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.16/upgrade/upgrade.html#upgrade-notes)

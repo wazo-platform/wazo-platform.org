@@ -10,8 +10,7 @@ status: published
 
 Hello Wazo community! Here comes the release of Wazo 17.09!
 
-New features in this sprint
----------------------------
+## New features in this sprint
 
 **Plugins**: We added a command-line utility (`wazo-plugind-cli`) to ease the installation of plugins from shell scripts. This should be useful for automatically installing new Wazo machines, with plugins pre-installed.
 
@@ -23,17 +22,15 @@ New features in this sprint
 
 **Provisioning plugins**: Until now, there were two main repositories for provisioning plugins: `stable` and `addons`. `stable` contained the previously "officially supported" plugins and `addons` contained the "community-contributed" plugins. We have merged those two repositories: all provisioning plugins are now available in `stable`, the default provisioning repository.
 
-Technical features
-------------------
+## Technical features
 
 **Asterisk**: Asterisk was updated from 14.4.0 to 14.5.0
 
-Ongoing features
-----------------
+## Ongoing features
 
 **Plugin management**: There is still a lot to be done to the plugin management service. e.g. dependency, upgrade, wazo version constraint, HA, ...
 
-**Webhooks**: We are adding a new way of interconnecting Wazo with other software: webhooks. Outgoing webhooks allow Wazo to notify other applications about events that happen on the telephony server, e.g. when a call arrives, when it is answered, hung up, when a new contact is added, etc. Incoming webhooks also allow Wazo to be notified of events happening on other applications, e.g. a new customer was added in your CRM, a new employee was added in your directory, etc. Unfortunately, there is no magic and the application in question must be able to send or receive webhooks so that Wazo can talk with it. See also this [blog post (sorry, it's in French)](http://blog.wazo.community/wazo-webhook.html#wazo-webhook) about Wazo and webhooks.
+**Webhooks**: We are adding a new way of interconnecting Wazo with other software: webhooks. Outgoing webhooks allow Wazo to notify other applications about events that happen on the telephony server, e.g. when a call arrives, when it is answered, hung up, when a new contact is added, etc. Incoming webhooks also allow Wazo to be notified of events happening on other applications, e.g. a new customer was added in your CRM, a new employee was added in your directory, etc. Unfortunately, there is no magic and the application in question must be able to send or receive webhooks so that Wazo can talk with it. See also this [blog post (sorry, it's in French)](https://wazo-platform.org/blog/wazo-webhook) about Wazo and webhooks.
 
 ---
 
@@ -45,4 +42,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](http://wazo.readthedocs.io/en/wazo-17.09/upgrade/upgrade.html#upgrade-notes)
+- [Upgrade notes](https://wazo.readthedocs.io/en/wazo-17.09/upgrade/upgrade.html#upgrade-notes)

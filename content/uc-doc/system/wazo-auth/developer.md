@@ -54,7 +54,7 @@ a new kind of authentication is quite simple.
 2. Install the python module with an entry point `wazo_auth.backends`
 
 An example backend implementation is available
-[here](http://github.com/wazo-platform/wazo-auth-example-backend).
+[here](https://github.com/wazo-platform/wazo-auth-example-backend).
 
 ### External Auth
 

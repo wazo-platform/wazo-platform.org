@@ -16,7 +16,6 @@ status: published
 
 **Admin-UI web interface**: A lot of management plugins have been improved. Also, plugins for managing sound files, SIP trunks, IAX trunks and SIP, SCCP and custom lines have been added.
 
-
 ## Ongoing features
 
 **User and Tenant Management**: We are currently reworking the user and entities (a.k.a tenant) configuration. This should make installations with multiple entities feel more natural in future versions.
@@ -26,7 +25,7 @@ status: published
 ---
 
 The instructions for [installing Wazo](/uc-doc/installation/install-system) are available in the documentation.
-The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-18.02/upgrade/upgrade_notes.html).
+The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](https://wazo.readthedocs.io/en/wazo-18.02/upgrade/upgrade_notes.html).
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -34,4 +33,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
+- [Upgrade notes](/uc-doc/upgrade/upgrade_notes)

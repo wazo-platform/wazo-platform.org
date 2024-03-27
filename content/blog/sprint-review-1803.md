@@ -14,16 +14,13 @@ status: published
 
 **Admin-UI web interface**: The login page has been redesigned.
 
-
 ## Contributions
 
 **Aastra/Mitel firmware**: We thank Alexis de Lattre and José Herbrecht for submitting updates to the provisioning plugins for Aastra/Mitel phones.
 
-
 ## Technical features
 
 **Asterisk**: Asterisk was updated from 15.2.0 to 15.2.2, fixing 6 security issues.
-
 
 ## Ongoing features
 
@@ -36,7 +33,7 @@ status: published
 ---
 
 The instructions for [installing Wazo](/uc-doc/installation/install-system) are available in the documentation.
-The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-18.03/upgrade/upgrade_notes.html).
+The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](https://wazo.readthedocs.io/en/wazo-18.03/upgrade/upgrade_notes.html).
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -44,4 +41,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
+- [Upgrade notes](/uc-doc/upgrade/upgrade_notes)

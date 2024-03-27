@@ -40,7 +40,7 @@ Purpose: Expose REST API to search in configured directories for Aastra phone.
 View name: cisco_view
 
 Purpose: Expose REST API to search in configured directories for Cisco phone (see
-[CiscoIPPhone_XML_Objects](http://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/8_5_1/xsi_dev_guide/xmlobjects.html)).
+[CiscoIPPhone_XML_Objects](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/9-1-1/CUIP_BK_P82B3B16_00_phones-services-application-development-notes/CUIP_BK_P82B3B16_00_phones-services-application-development-notes_chapter_011.html?dtid=osscdc000283)).
 
 ### polycom_view
 

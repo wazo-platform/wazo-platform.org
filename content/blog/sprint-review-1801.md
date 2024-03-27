@@ -11,25 +11,23 @@ status: published
 ## New features in this sprint
 
 **REST API**: REST APIs have been added for:
-  * SCCP general configuration
-  * IAX trunks configuration
-  * ConfBridge configuration
-  * Special extensions configuration, e.g. setting DND extension to `*55` instead of `*25`, etc.
-  * Sound files
-  * Trunk registrations
 
+- SCCP general configuration
+- IAX trunks configuration
+- ConfBridge configuration
+- Special extensions configuration, e.g. setting DND extension to `*55` instead of `*25`, etc.
+- Sound files
+- Trunk registrations
 
 ## Technical features
 
-**System**: the underlying Debian GNU/Linux system is upgraded to Debian 9 Stretch. The upgrade procesure is a bit different than usual and will take longer than previous upgrades. See the [specific release notes](http://wazo.readthedocs.io/en/latest/upgrade/18.01/stretch.html) for more details.
+**System**: the underlying Debian GNU/Linux system is upgraded to Debian 9 Stretch. The upgrade procesure is a bit different than usual and will take longer than previous upgrades. See the [specific release notes](https://wazo.readthedocs.io/en/latest/upgrade/18.01/stretch.html) for more details.
 
 **Asterisk**: Asterisk is upgraded to the latest version [15.2.0](https://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-15.2.0).
-
 
 ## Contributions
 
 **Yealink**: The provisioning plugin for Yealink now includes the v82 firmware. Thanks to DamienB505 for the patches!
-
 
 ## Ongoing features
 
@@ -40,7 +38,7 @@ status: published
 ---
 
 The instructions for [installing Wazo](/uc-doc/installation/install-system) are available in the documentation.
-The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](http://wazo.readthedocs.io/en/wazo-18.01/upgrade/upgrade_notes.html).
+The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also available in the documentation. Be sure to read the [breaking changes](https://wazo.readthedocs.io/en/wazo-18.01/upgrade/upgrade_notes.html).
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
@@ -48,4 +46,4 @@ See you at the next sprint review!
 
 Sources:
 
-* [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
+- [Upgrade notes](/uc-doc/upgrade/upgrade_notes)
