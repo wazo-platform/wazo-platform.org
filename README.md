@@ -1,6 +1,6 @@
 # Wazo Platform Website
 
-This repo contains the source and building scripts for generating https:/wazo-platform.org/.
+This repo contains the source and building scripts for generating https://wazo-platform.org/.
 
 ## Content Change
 
