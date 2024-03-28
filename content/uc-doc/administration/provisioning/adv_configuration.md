@@ -84,7 +84,8 @@ the custom templates.
 
 A few things to know before writing your first custom template:
 
-- templates use the [Jinja2 template engine](https://jinja.pocoo.org/docs/templates/).
+- templates use the
+  [Jinja2 template engine](https://jinja.palletsprojects.com/en/2.11.x/templates/).
 - when doing an `include` or an `extends` from a template, the file is first looked up in the
   `var/templates` directory and then in the `templates` directory.
 - device in autoprov mode are affected by templates, because from the point of view of `provd`,
