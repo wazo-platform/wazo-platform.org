@@ -14,10 +14,10 @@ Here is a short review of the Wazo Platform 24.05 release.
 
 ## Bug Fixes
 
-- **Context ranges**: The context range API now return the extension ranges based on the DID length parameter of the context
-- **Tenants**: The wazo-auth /tenants list now filter using it's uuids query parameter properlly
-- **Chat**: room chat participants can no longer read messages of rooms they are not part of
-- **Chat**: room chat participants can now create rooms which include all participants of an existing room
+- **Context ranges**: The context range API now returns the extension ranges based on the DID length parameter of the context
+- **Tenants**: The wazo-auth `/tenants` API now filters using the `uuids` query parameter properly
+- **Chat**: Room chat participants can no longer read messages of rooms they are not part of
+- **Chat**: Room chat participants can now create rooms which include all participants of an existing room
 
 ## Technical
 
