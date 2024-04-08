@@ -8,6 +8,10 @@ title: Upgrade notes
 
   - [Asterisk 20 to 21 Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/24-05/asterisk_21)
 
+Consult the
+[24.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.05)
+for more information.
+
 ## 24.04 (#24-04)
 
 Consult the
