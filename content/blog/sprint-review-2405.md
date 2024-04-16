@@ -27,7 +27,6 @@ Here is a short review of the Wazo Platform 24.05 release.
 
 ## Technical
 
-- **Parking**: A new API has been added to control parked calls
 - **Asterisk**: Asterisk has been upgraded to 21.1.0 [See the Asterisk release announcement](https://www.asterisk.org/asterisk-news/asterisk-version-21-1-0-now-available/)
 
 ## Ongoing Features
