@@ -34,6 +34,36 @@ the call to the destination. Each operator has its own rules about CallerID: som
 rewrite the CallerID that is attached to the trunk, others will leave the CallerID untouched, some
 operators will only rewrite the CallerID if you use an unauthorized CallerID, etc.
 
+### Anonymous CallerID
+
+If the user needs to do anonymous calls there are a few things to consider.
+
+The effects of making anonymous calls are as follows:
+
+1. The `From` header is set to `“Anonymous” <sip:anonymous@anonymous.invalid>`
+2. The `Privacy` header is added with the value `id`
+3. The `P-Asserted-Identity` header is added with the value `tel:<Caller ID number>`
+
+This means that Wazo needs to be able to choose a number to set in the `P-Asserted-Identity` header
+for the feature to work.
+
+The prefered way to add a number to the `P-Asserted-Identity` header is to configure the caller ID
+field in your outgoing call extension list. If the outgoing call uses multiple trunks it might not
+be possible to select a caller ID for the extensions.
+
+If this is not possible the `callerid` field of the `endpoint` section of the trunk can also be
+configured.
+
+Finaly, the PJSIP `endpoint` options `send_pai` and `trust_id_outbound` can be set to `yes`. This
+will send internal information to the provider for all calls made using that trunk instead of a
+public phone number.
+
+For more information conserning anonymous caller ID see the following links
+
+- https://www.asterisk.org/asterisk-call-party-privacy-and-header-presentation/
+- https://www.ietf.org/rfc/rfc3323.txt
+- https://www.ietf.org/rfc/rfc3325.txt
+
 ## CallerID for incoming calls (from a trunk)
 
 There are multiple settings coming into play, in order of priority:
