@@ -17,12 +17,14 @@ Users calling each other will see the CallerID configured in the `caller_id` fie
 
 There are multiple settings coming into play:
 
+- [Dynamic caller ID selection](/uc-doc/administration/callerid#dynamic-caller-id)
 - The calling user's `outgoing_caller_id`
 - The outgoing call's `caller_id` (one for each `extension`)
 - The trunk's operator rules
 
 The current logic for outgoing calls is:
 
+- If the call uses dynamic caller ID selection use the received CallerID
 - If the call is not emitted by a user: use the outgoing call's CallerID
 - If the call is emitted by a user:
   - If the `outgoing_caller_id` is Default, use the outgoing call's CallerID
@@ -63,6 +65,26 @@ For more information conserning anonymous caller ID see the following links
 - https://www.asterisk.org/asterisk-call-party-privacy-and-header-presentation/
 - https://www.ietf.org/rfc/rfc3323.txt
 - https://www.ietf.org/rfc/rfc3325.txt
+
+### Dynamic Caller ID Choice {#dynamic-caller-id}
+
+Wazo allows the client SIP user agent to specify a caller ID when a call is launched. This is done
+using the `X-Wazo-Selected-Caller-ID` SIP header on the `INVITE` of the call. This method of
+selecting the caller ID has precedence over any other method for choosing a caller ID.
+
+The `X-Wazo-Selected-Caller-ID` header must have the following format where `5555551234` and
+`John Doe` can be replaced with appropriate values:
+
+- `anonymous`
+- `5555551234`
+- `"John Doe" <5555551234>`
+
+The client can use the resource `/api/confd/1.1/users/<uuid>/callerids/outgoing` to find which
+caller ID they can use.
+
+**Note**: The operator will not allow the user to send a caller ID it does not recongnize as valid.
+The number must either be a DID that has been bought from that provider or another number that has
+been verified by the provider.
 
 ## CallerID for incoming calls (from a trunk)
 
