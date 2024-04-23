@@ -64,6 +64,26 @@ For more information conserning anonymous caller ID see the following links
 - https://www.ietf.org/rfc/rfc3323.txt
 - https://www.ietf.org/rfc/rfc3325.txt
 
+## Dynamic Caller ID Choice
+
+Wazo allows the client SIP user agent to specify a caller ID when a call is launched. This is done
+using the `X-Wazo-Selected-Caller-ID` SIP header on the `INVITE` of the call. This method of
+selecting the caller ID has precedence over any other method for choosing a caller ID.
+
+The `X-Wazo-Selected-Caller-ID` header must have the following format where `5555551234` and
+`John Doe` can be replaced with appropriate values:
+
+- `anonymous`
+- `5555551234`
+- `"John Doe" <5555551234>`
+
+The client can use the resource `/api/confd/1.1/users/<uuid>/callerids/outgoing` to find which
+caller ID they can use.
+
+**Note**: The operator will not allow the user to send a caller ID it does not recongnize as valid.
+The number must either be a DID that has been bought from that provider or another number that has
+been verified by the provider.
+
 ## CallerID for incoming calls (from a trunk)
 
 There are multiple settings coming into play, in order of priority:
