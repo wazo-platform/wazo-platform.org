@@ -17,12 +17,14 @@ Users calling each other will see the CallerID configured in the `caller_id` fie
 
 There are multiple settings coming into play:
 
+- [Dynamic caller ID selection](/uc-doc/administration/callerid#dynamic-caller-id)
 - The calling user's `outgoing_caller_id`
 - The outgoing call's `caller_id` (one for each `extension`)
 - The trunk's operator rules
 
 The current logic for outgoing calls is:
 
+- If the call uses dynamic caller ID selection use the received CallerID
 - If the call is not emitted by a user: use the outgoing call's CallerID
 - If the call is emitted by a user:
   - If the `outgoing_caller_id` is Default, use the outgoing call's CallerID
@@ -64,7 +66,7 @@ For more information conserning anonymous caller ID see the following links
 - https://www.ietf.org/rfc/rfc3323.txt
 - https://www.ietf.org/rfc/rfc3325.txt
 
-## Dynamic Caller ID Choice
+### Dynamic Caller ID Choice {#dynamic-caller-id}
 
 Wazo allows the client SIP user agent to specify a caller ID when a call is launched. This is done
 using the `X-Wazo-Selected-Caller-ID` SIP header on the `INVITE` of the call. This method of
