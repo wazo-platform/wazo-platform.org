@@ -30,7 +30,7 @@ Here is a short review of the Wazo Platform 24.06 release.
 - **Provisioning Server**: wazo-provd is being modified to use Postgresql as its data storage backend instead using json files on the file system
 - **Authentication**: A new feature is being added for users to be able to login using the SAML protocol
 - **linear ring group**: reimplementation of ring groups for the linear ring strategy, to fix outstanding issue with Asterisk Queue-based implementation requiring a complete reboot.
-  See [this documentation page](/blog/linear-ring-group-preview) for more details.
+  An upcoming blog post will provide more details.
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.06).
 
