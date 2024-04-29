@@ -14,8 +14,8 @@ Here is a short review of the Wazo Platform 24.06 release.
 
 ## New Features
 
-- **CallerID**: The anonymous feature is now RFC compliant and should work out ofthe box for most configurations (see [documentation](https://wazo-platform.org/uc-doc/administration/callerid#anonymous-callerid))
-- **CallerID**: In order to faciliate custom caller ID integration, it can be now configured through SIP header (see [documentation](https://wazo-platform.org/uc-doc/administration/callerid#dynamic-caller-id))
+- **CallerID**: The anonymous feature is now RFC compliant and should work out of the box for most configurations (see [documentation](https://wazo-platform.org/uc-doc/administration/callerid#anonymous-callerid))
+- **CallerID**: In order to facilitate custom caller ID integration, it can be now configured through SIP header (see [documentation](https://wazo-platform.org/uc-doc/administration/callerid#dynamic-caller-id))
 
 ## Bug Fixes
 
