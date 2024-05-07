@@ -39,16 +39,16 @@
     name: publication
     data:
       private_key: !encrypted/pkcs1-oaep
-        - Ve7kty+jVOnl/QJ0iFnYWrCo8DGvV0CIBIDObrcrNDEh3o1aypwE380jLZlTJKL6ABPKq
-          fBC5gFtIlhm9+GBk9136l9zyLNf74JXI3Pejz4P27W+RLTTQlB0ee1zxeWLg3KORgxyud
-          RoDSKgtKV7zUriLoRDYPLQv2fMTHB8l6YJCW86GxuwEkND93SQQemaDD6uYlwuOGNoxjW
-          Ew5YNx/qIdRi4aUtMNV4t0XEpRpxp26RQYGvihlFlsR8Dj41yWK9Xa4KX9PjGlPw1Dp6L
-          AKxlRkCRHOXbBTTKgpWMCz8s+FbjzRypAEwAiKdHbQJEla+6/AVZQYj84dI1H4YUsJvsd
-          PaC3Po4ERP8JlnpTU2hmwU23X3BI7Zj7WNMNeKtVCF+qJR42Z2IOYZ6xl3EOQWHNT+NcP
-          +27Hn2MiL7ZMdTQkp/n0dXLdyHRdWpGUO/bkgBKY3Az+OeBULm1XrQFHnLTXueNJXZ4C8
-          X2q9yNca/WLtvroI9hGK/efVuD7f+YurLCPyGS7N8L9swetTUeq5bvc9dalW+Iocdy9p8
-          8fwDg4nNrfYoR1PzxJT2gWBPNUhamby7jAS9ss++XqMCrDcxO5ny0bE/Yhd8SCGbwDBDP
-          cWynT4XeBJ4s3xyqlViOf2g/Gi6UieHJNRJkpaY/gOU12hT0bNQtPUmf8fuXsA=
+        - owO0HaJvbxRJ8It7hg+2FtoxPcJ7GT37keEzmCPT2+WGtDjUf8GrReYqfV8U8tJipoa3e
+          DaLrOHIOLkhTcT/+iIK84vf2taMZLd5AgfOaKNgxlaJGlzgZ9wkKradYjwgsbYLIUFP4z
+          R0r23M0CQJQpI/rKI7ePQZSFceIee8AlAReNi5Tg7HxOi/WoD+VEoHtLxmPogefIka8Vu
+          gPBF6HdVSzujOgE1yqu2t4tDMmBRlXKsp7aABHL1HMZ9vsGyT2e8Z1Yk6onL/fun+ROiY
+          fWNWpKDNNAsPPemmrCMeIjQ/2fwVgmm+IcI6ZcB5btat7sDQ0UTCVeummcki/FQDS6/Ux
+          Q6+OOQTKnJrEjuLas5jkJEEJqEBm0KOONb0hI4/PHTzX7jrqrrJbmUks1S5K8LemVYD6Q
+          hlt+TSa6OfmjQaSAeD+SyBGQTkHDxLmXqfAefZMNVyrSpKLmJw/R+bsjlzqyTpPiPBC9C
+          OMjvhF7bwtyJje/r+29T6oZaOnOkDIY9WrGMruiN3VLNQkJnRCB8BCWKyEuDiupQJhpbS
+          MZ96dL2UUZE8m8ELkGEGV6G8YQshGTpmJLcSiG6MgQyDyJWV8CYhGuCFBDfdqYavW9sgA
+          JGnbCddpJq4kv4O8INPlz99rfq8TVRbYyaBpoREBkFCXKQHya9TXjsqbuB/vus=
 
 - secret:
     name: mattermost
