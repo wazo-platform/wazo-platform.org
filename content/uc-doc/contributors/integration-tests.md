@@ -3,7 +3,7 @@ This document describes the conventional setup for per-component integration tes
 ## Requirements
 
 The integration tests rely directly on [`docker`](https://docs.docker.com/) and
-[`docker-compose`](https://docs.docker.com/compose/)
+[`docker compose`](https://docs.docker.com/compose/)
 
 Additional python dependencies (including test runners, frameworks and any tool and library used by
 the tests) are made available in a pip `integration_tests/test-requirements.txt` file, to be be
@@ -13,7 +13,7 @@ installed into a virtual environment.
 
 - All files related to integration tests should be present under an `integration_tests` directory
   directly below a project root directory.
-- `integration_tests/assets` should contain docker-compose yaml files as well as configuration and
+- `integration_tests/assets` should contain docker compose yaml files as well as configuration and
   static assets required for tests at runtime (usually mounted as volumes configured in the compose
   files).
 - `integration_tests/docker` should contain custom dockerfiles and other files required to build
@@ -96,7 +96,7 @@ docker build -f docker/Dockerfile-<service> -t wazoplatform/<project-name>:local
 ```
 
 The tag given with `-t` must match the image name expected by the corresponding service descriptions
-in the docker-compose files.
+in the docker compose files.
 
 To test that the image is functional:
 
@@ -110,46 +110,46 @@ code for testing.
 This should start a container from the built image, which should run the component entrypoint
 (usually a daemon implemented by the codebase).
 
-Once the image is made available locally, the docker-compose configurations should be able to use it
+Once the image is made available locally, the docker compose configurations should be able to use it
 and pull any other required images from the docker hub registry.
 
-## docker-compose
+## Docker Compose
 
-The wazo test framework used by the test code takes care of controlling `docker-compose` to bring up
-the services required by the tests. The `docker-compose` command can be used directly to debug and
+The wazo test framework used by the test code takes care of controlling `docker compose` to bring up
+the services required by the tests. The `docker compose` command can be used directly to debug and
 manually interact with the test setup.
 
-The docker-compose _stack_ (all services and resources managed by docker-compose) is defined through
+The docker compose _stack_ (all services and resources managed by docker compose) is defined through
 multiple compose files. A base `docker-compose.yml` file is combined with override files which can
 offer different configuration profiles for the test environment. At a minimum, a
 `docker-compose.base.override.yml` would define the settings for a default "baseline" test
 environment.
 
-To deploy the docker-compose stack for the base environment,
+To deploy the docker compose stack for the base environment,
 
 ```shell
-docker-compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml up
+docker compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml up
 ```
 
-Then to stop the services and cleanup active resources managed by docker-compose:
+Then to stop the services and cleanup active resources managed by docker compose:
 
 ```shell
-docker-compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml down
+docker compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml down
 ```
 
 To run a specific service and its dependencies:
 
 ```shell
-docker-compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml run <service>
+docker compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml run <service>
 ```
 
 To execute a command inside the container environment of a specific service already deployed:
 
 ```shell
-docker-compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml exec <service> <command>
+docker compose -f assets/docker-compose.yml -f assets/docker-compose.base.override.yml exec <service> <command>
 ```
 
 ### denv
 
-[denv](https://github.com/wazo-platform/denv) is a utility to simplify the usage patterns of
-docker-compose for integration tests.
+[denv](https://github.com/wazo-platform/denv) is a utility to simplify the usage patterns of docker
+compose for integration tests.
