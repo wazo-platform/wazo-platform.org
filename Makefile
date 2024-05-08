@@ -1,30 +1,30 @@
 builder:
-	docker-compose build
+	docker compose build
 
 develop:
-	docker-compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
+	docker compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
 check-format-uc-doc:
-	docker-compose run --no-TTY doc yarn check-format:uc-doc
+	docker compose run --no-TTY doc yarn check-format:uc-doc
 
 format:
-	docker-compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format
+	docker compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format
 
 format-uc-doc:
-	docker-compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format:uc-doc
+	docker compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format:uc-doc
 
 build:
 	rm -rf public
-	docker-compose up -d doc
-	docker-compose exec -T doc env $(ENV) yarn build
-	docker cp "$$(docker-compose ps -q doc)":/app/public public
-	docker-compose down
+	docker compose up -d doc
+	docker compose exec -T doc env $(ENV) yarn build
+	docker cp "$$(docker compose ps -q doc)":/app/public public
+	docker compose down
 
 test:
-	docker-compose -f docker-compose.yml -f docker-compose-tests.yml up --exit-code-from test test
+	docker compose -f docker-compose.yml -f docker-compose-tests.yml up --exit-code-from test test
 
 clean:
-	docker-compose down
+	docker compose down
 
 import:
 	./import-plantuml.sh
