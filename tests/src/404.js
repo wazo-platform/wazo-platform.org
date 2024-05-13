@@ -46,6 +46,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // Gigaset wiki links are flaky
+  if (url.indexOf('https://teamwork.gigaset.com/gigawiki') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
