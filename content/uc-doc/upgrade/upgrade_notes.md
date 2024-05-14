@@ -2,13 +2,22 @@
 title: Upgrade notes
 ---
 
-## 24.06 (#24.06)
+## 24.07 {#24-07}
+
+- `wazo-webhookd` now supports Firebase Cloud Messaging v1 API. The current mobile notifications
+  configuration using FCM must be migrated to the new credentials before June 2024, using the
+  `fcm_service_account_info` field of `wazo-auth` `/0.1/external/mobile/config`. The contents of
+  this field must be the contents of the JSON file provided by Google in their
+  [migration documentation](https://firebase.google.com/docs/cloud-messaging/migrate-v1#provide-credentials-manually).
+  Please note that the `fcm_sender_id` field is still necessary, only `fcm_api_key` is deprecated.
+
+## 24.06 {#24-06}
 
 Consult the
 [24.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.06)
 for more information.
 
-## 24.05 (#24.05)
+## 24.05 {#24-05}
 
 - Asterisk version has been updated:
 
@@ -18,19 +27,19 @@ Consult the
 [24.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.05)
 for more information.
 
-## 24.04 (#24-04)
+## 24.04 {#24-04}
 
 Consult the
 [24.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.04)
 for more information.
 
-## 24.03 (#24-03)
+## 24.03 {#24-03}
 
 Consult the
 [24.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.03)
 for more information.
 
-## 24.02 (#24-02)
+## 24.02 {#24-02}
 
 - `xivo-bus` has been renamed to `wazo-bus`. We've added a compatibility layer to avoid breaking
   custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
