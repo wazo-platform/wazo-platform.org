@@ -2,13 +2,13 @@
 title: Upgrade notes
 ---
 
-## 24.06 (#24.06)
+## 24.06 {#24-06}
 
 Consult the
 [24.06 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.06)
 for more information.
 
-## 24.05 (#24.05)
+## 24.05 {#24-05}
 
 - Asterisk version has been updated:
 
@@ -18,19 +18,19 @@ Consult the
 [24.05 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.05)
 for more information.
 
-## 24.04 (#24-04)
+## 24.04 {#24-04}
 
 Consult the
 [24.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.04)
 for more information.
 
-## 24.03 (#24-03)
+## 24.03 {#24-03}
 
 Consult the
 [24.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.03)
 for more information.
 
-## 24.02 (#24-02)
+## 24.02 {#24-02}
 
 - `xivo-bus` has been renamed to `wazo-bus`. We've added a compatibility layer to avoid breaking
   custom development depending on `xivo-bus`. We recommend to upgrade to `wazo-bus` as soon as
