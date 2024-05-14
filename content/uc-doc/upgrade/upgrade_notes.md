@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 24.07 {#24-07}
+
+- `wazo-webhookd` now supports Firebase Cloud Messaging v1 API. The current mobile notifications
+  configuration using FCM must be migrated to the new credentials before June 2024, using the
+  `fcm_service_account_info` field of `wazo-auth` `/0.1/external/mobile/config`. The contents of
+  this field must be the contents of the JSON file provided by Google in their
+  [migration documentation](https://firebase.google.com/docs/cloud-messaging/migrate-v1#provide-credentials-manually).
+  Please note that the `fcm_sender_id` field is still necessary, only `fcm_api_key` is deprecated.
+
 ## 24.06 {#24-06}
 
 Consult the
