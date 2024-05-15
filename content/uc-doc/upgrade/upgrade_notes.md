@@ -11,6 +11,10 @@ title: Upgrade notes
   [migration documentation](https://firebase.google.com/docs/cloud-messaging/migrate-v1#provide-credentials-manually).
   Please note that the `fcm_sender_id` field is still necessary, only `fcm_api_key` is deprecated.
 
+Consult the
+[24.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.07)
+for more information.
+
 ## 24.06 {#24-06}
 
 Consult the
