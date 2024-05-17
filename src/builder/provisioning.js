@@ -18,41 +18,50 @@ module.exports = async newPage => {
   Object.keys(images).forEach(basePath => {
     const vendorName = basePath.split('/').pop();
     const isVendor = vendorName === 'vendors';
-  
+
     Object.keys(images[basePath]).forEach(fileName => {
       const filePath = `${destPath}/${isVendor ? '' : `${vendorName}-`}${fileName}`;
-      
+
       if (!imgs[vendorName]) imgs[vendorName] = [];
       imgs[vendorName].push(fileName);
-  
+
       fs.writeFileSync(filePath, images[basePath][fileName], { encoding: 'binary' });
     });
   });
 
   // Create vendors page
-  newPage('/uc-doc/ecosystem/supported_devices', 'provisioning/vendors', { plugins, images: imgs });
+  await newPage('/uc-doc/ecosystem/supported_devices', 'provisioning/vendors', {
+    plugins,
+    images: imgs,
+  });
 
   // Create external page
-  newPage('/provisioning/external', 'provisioning/external', { plugins, images: imgs });
+  await newPage('/provisioning/external', 'provisioning/external', { plugins, images: imgs });
 
   // Create vendor pages
-  Object.keys(plugins).forEach(vendor =>
-    newPage(`/provisioning/${slugify(vendor)}`, 'provisioning/vendor', {
-      name: vendor,
-      vendor_plugins: plugins[vendor],
-      vendor_images: imgs[slugify(vendor)],
-    })
+  await Promise.all(
+    Object.keys(plugins).map(vendor =>
+      newPage(`/provisioning/${slugify(vendor)}`, 'provisioning/vendor', {
+        name: vendor,
+        vendor_plugins: plugins[vendor],
+        vendor_images: imgs[slugify(vendor)],
+      })
+    )
   );
 
   // Create phone pages
+  const phonePagesPromises = [];
   Object.keys(plugins).forEach(vendor => {
     Object.keys(plugins[vendor]).forEach(name => {
-      newPage(`/provisioning/${slugify(vendor)}/${slugify(name)}`, 'provisioning/phone', {
-        name,
-        vendor,
-        phone: plugins[vendor][name],
-        vendor_images: imgs[slugify(vendor)],
-      });
+      phonePagesPromises.push(
+        newPage(`/provisioning/${slugify(vendor)}/${slugify(name)}`, 'provisioning/phone', {
+          name,
+          vendor,
+          phone: plugins[vendor][name],
+          vendor_images: imgs[slugify(vendor)],
+        })
+      );
     });
   });
+  await Promise.all[phonePagesPromises];
 };
