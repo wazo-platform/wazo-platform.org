@@ -5,8 +5,11 @@ author: The Wazo Authors
 category: Wazo Platform
 tags: wazo-platform, development
 slug: linear-ring-group-preview
-status: draft
+status: published
 ---
+
+**Publication Note**: due to a publishing mistake, this post was left unpublished following its redaction. As it concerns the 24.06 release, the new 24.07 release might imply some changes to the information presented here.
+For up-to-date information on the state of this feature in the latest release, please refer to release notes and related publications for release version 24.07 or later.
 
 As a companion to the 24.06 sprint review blog post, here's some detail on a feature that is made available behind a feature flag in this sprint.
 
