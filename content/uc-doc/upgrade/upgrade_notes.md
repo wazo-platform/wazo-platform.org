@@ -2,6 +2,13 @@
 title: Upgrade notes
 ---
 
+## 24.08 {#24-08}
+
+- Users and tenants now have `authentication_method` and `default_authentication_method`. Tenants
+  using ldap authentication MUST set there administration accounds to use the `native`
+  `authentication_method` in `Credentials -> Identities` and there tenant's
+  `default_authentication_method` to `ldap` in `Global Settings -> Tenants`
+
 ## 24.07 {#24-07}
 
 - `wazo-webhookd` now supports Firebase Cloud Messaging v1 API. The current mobile notifications
