@@ -4,10 +4,13 @@ title: Upgrade notes
 
 ## 24.08 {#24-08}
 
-- Users and tenants now have `authentication_method` and `default_authentication_method`. Tenants
-  using ldap authentication MUST set there administration accounds to use the `native`
-  `authentication_method` in `Credentials -> Identities` and there tenant's
-  `default_authentication_method` to `ldap` in `Global Settings -> Tenants`
+- Users and tenants now have `authentication_method` and `default_authentication_method` fields.
+  Tenants using LDAP authentication MUST set their administrative user accounts to use
+  `authentication_method: native` and set their tenant to use `default_authentication_method: ldap`.
+
+Consult the
+[24.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.08)
+for more information.
 
 ## 24.07 {#24-07}
 
