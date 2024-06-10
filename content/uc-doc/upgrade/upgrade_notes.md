@@ -7,6 +7,7 @@ title: Upgrade notes
 - Users and tenants now have `authentication_method` and `default_authentication_method` fields.
   Tenants using LDAP authentication MUST set their administrative user accounts to use
   `authentication_method: native` and set their tenant to use `default_authentication_method: ldap`.
+- Calls will be hung up automatically after 10 hours.
 
 Consult the
 [24.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.08)
