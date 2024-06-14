@@ -5,5 +5,5 @@ title: Services daemon
 ## Query
 
 ```
-POST /services
+PUT /services
 ```
