@@ -25,15 +25,28 @@ The available options can depend on the type of user lines being used.
 
 ### SIP endpoints
 
-SIP endpoints support a number of options that can affect call duration.
+A user line or a trunk using the SIP protocol is associated with a SIP endpoint.
+
+SIP endpoints support a number of configuration options that can affect call duration.
 
 Those options are supported by way of the
 [Asterisk pjsip driver](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip)
 endpoints configuration.
 
-SIP endpoints created through the wazo platform APIs can be configured through SIP templates. Each
-tenant is assigned a 'global' SIP template that is used as a parent template and for common options
-of any SIP device. SIP templates can be listed with `GET /api/confd/1.1/endpoints/sip/templates`
+SIP endpoint options can be configured in two ways:
+
+1. through SIP templates, which apply to all or a subset of SIP endpoints in a tenant Each tenant
+   has a global SIP template which represent common options which can apply to all SIP endpoints.
+   Other templates can specify options for a specific subset of SIP endpoints. See
+   [SIP templates documentation](/uc-doc/administration/sip_templates) for information on how to
+   query and configure SIP templates.
+
+2. directly through a SIP endpoint's individual configuration. Individual endpoint configuration can
+   be changed through the `/api/confd/1.1/endpoints/sip/{sip_uuid}` REST API endpoint. See
+   [API reference](/documentation/api/configuration.html#tag/endpoints/operation/update_endpoint_sip)
+   for details.
+
+SIP endpoint options relevant for controlling call duration include
 
 - [`rtp_timeout`](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip/?h=rtp_timeout#rtp_timeout):
   this option sets a timeout(in seconds) when no RTP traffic is flowing to this endpoint(meaning no
@@ -52,6 +65,3 @@ of any SIP device. SIP templates can be listed with `GET /api/confd/1.1/endpoint
 in global SIP templates, thus limiting all calls using SIP endpoints to 10 hours by default. This
 timeout value can be changed by changing this option in the endpoint options of the global SIP
 template of a tenant.
-
-For more details on how to change the endpoint options of SIP templates, see
-[SIP templates documentation](/uc-doc/administration/sip_templates).
