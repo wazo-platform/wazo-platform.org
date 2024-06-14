@@ -31,17 +31,17 @@ queried([see API reference](/documentation/api/configuration.html#tag/endpoints/
   "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521",
   "name": "lp3wc06e",
   "label": "global",
-  "aor_section_options": [],
-  "auth_section_options": [],
+  "aor_section_options": [...],
+  "auth_section_options": [...],
   "endpoint_section_options": [
     ...
     ["set_var", "TIMEOUT(absolute)=36000"]
   ],
-  "identify_section_options": [],
-  "registration_section_options": [],
-  "registration_outbound_auth_section_options": [],
-  "outbound_auth_section_options": [],
-  "templates": [],
+  "identify_section_options": [...],
+  "registration_section_options": [...],
+  "registration_outbound_auth_section_options": [...],
+  "outbound_auth_section_options": [...],
+  "templates": [...],
   "transport": {
     "uuid": "4003f00a-9190-492b-9271-e8ce811e4059"
   },
