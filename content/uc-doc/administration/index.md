@@ -32,3 +32,5 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
 - [Sound Files](/uc-doc/administration/sound_files)
 - [Users](/uc-doc/administration/users)
 - [Voicemails](/uc-doc/administration/voicemails)
+- [SIP Templates](/uc-doc/administration/sip_templates)
+- [Call Policy](/uc-doc/administration/call_policy)
