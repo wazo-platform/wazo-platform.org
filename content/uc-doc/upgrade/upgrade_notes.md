@@ -2,6 +2,16 @@
 title: Upgrade notes
 ---
 
+## 24.09 {#24.09}
+
+- New restriction in place which prevents a user from creating too many tokens simultaneously. By
+  default, the limit is set to 100, but can be modified in wazo-auth configuration files. If a user
+  tries to create more than the allowed limit, an error will be returned.
+
+Consult the
+[24.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.09)
+for more information.
+
 ## 24.08 {#24-08}
 
 - Users and tenants now have `authentication_method` and `default_authentication_method` fields.
