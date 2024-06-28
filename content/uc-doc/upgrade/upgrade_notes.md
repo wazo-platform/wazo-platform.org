@@ -4,6 +4,8 @@ title: Upgrade notes
 
 ## 24.09 {#24.09}
 
+- New restriction in place which prevents a user from creating more than 100 concurrent sessions.
+
 Consult the
 [24.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.09)
 for more information.
