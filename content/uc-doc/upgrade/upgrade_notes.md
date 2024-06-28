@@ -2,7 +2,7 @@
 title: Upgrade notes
 ---
 
-## 24.09 {#24.09}
+## 24.09 {#24-09}
 
 - New restriction in place which prevents a user from creating too many tokens simultaneously. By
   default, the limit is set to 100, but can be modified in wazo-auth configuration files. If a user
