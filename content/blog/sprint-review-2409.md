@@ -14,7 +14,7 @@ Here is a short review of the Wazo Platform 24.09 release.
 
 ## New Features in This Release
 
-- **API**: New limit on maximum number of tokens a user can create simultaneously. The limit is set to 100 tokens per user by default, but can be changed in wazo-auth configuration files.
+- **API**: New limit on maximum number of sessions (tokens) a user can have. By default, the limit is set to 100 per user but can be changed in wazo-auth configuration files.
 - **Call Logs**: Added `conversation_id` to CDR which can also be used as a search filter. This is the link between the realtime call API and call logs API.
 
 ## Ongoing Features
