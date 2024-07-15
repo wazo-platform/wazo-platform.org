@@ -2,6 +2,15 @@
 title: Upgrade notes
 ---
 
+## 24.10 {#24-10}
+
+- The Calls API is now tenant-aware for read operations. API calls from the root tenant now require
+  the `recurse` argument.
+
+Consult the
+[24.10 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.10)
+for more information.
+
 ## 24.09 {#24-09}
 
 - New restriction in place which prevents a user from creating too many tokens simultaneously. By
