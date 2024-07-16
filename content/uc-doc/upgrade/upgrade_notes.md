@@ -4,6 +4,9 @@ title: Upgrade notes
 
 ## 24.10 {#24-10}
 
+- The default authentication method has been changed from `default` to `native` for `external_api`
+  users. If you relied on an `external_api` user using `saml` or `ldap` authentication you will need
+  to update that user's authentication method to the desired value.
 - The Calls API is now tenant-aware for read operations. API calls from the root tenant now require
   the `recurse` argument.
 
