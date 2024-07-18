@@ -95,8 +95,20 @@ resynchronize the devices or restart them manually.
 In choosing the `node_type: master` you must enter the `remote_address` **of the VoIP interface** of
 the slave node.
 
-**Note**: You have to restart all services (wazo-service restart) once the master node is
-configured.
+After the master node is configured, you need to apply some changes:
+
+1. On the master node:
+
+```shell
+wazo-service restart
+xivo-master-slave-db-replication <slave_node_address>
+```
+
+2. On the slave node:
+
+```shell
+wazo-service restart
+```
 
 ### Slave node
 
