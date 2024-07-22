@@ -1,0 +1,154 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const config: Config = {
+  title: 'Wazo Platform',
+  tagline: 'An Open Source project to build your own IP telecom platform',
+  favicon: 'images/favicon.ico',
+  staticDirectories: ['static'],
+  markdown: {
+     mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
+  // Set the production url of your site here
+  url: 'https://beta.wazo-platform.org',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'wazo-platform', // Usually your GitHub org/user name.
+  projectName: 'wazo-platform.org', // Usually your repo name.
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+        },
+        blog: {
+          showReadingTime: true,
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themeConfig: {
+    // Replace with your project's social card
+    // image: 'images/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: 'Wazo Platform',
+      logo: {
+        alt: 'Wazo Platform',
+        src: 'images/logo-light.svg',
+        srcDark: 'images/logo-horiz.svg',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/release-notes', label: 'Release notes', position: 'left'},
+        {
+          href: 'https://github.com/wazo-platform',
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Docs',
+              to: '/docs/intro',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Mattermost',
+              href: 'https://mm.wazo.community/wazo-platform/',
+            },
+            {
+              label: 'Forum',
+              href: 'https://wazo-platform.discourse.group/',
+            },
+            {
+              label: 'Bug tracking (JIRA)',
+              href: 'https://wazo-dev.atlassian.net/',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'Release notes',
+              to: '/release-notes',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/wazo-platform',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Wazo Platform`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.oneDark,
+    },
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
+  } satisfies Preset.ThemeConfig,
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'release-notes',
+        routeBasePath: 'release-notes',
+        path: './release-notes',
+      }
+    ]
+  ]
+};
+
+export default config;
