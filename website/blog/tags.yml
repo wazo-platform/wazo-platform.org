@@ -1,0 +1,244 @@
+hackathon:
+  label: Hackathon
+  permalink: /hackathon
+  description: Hackathon tag description
+chat:
+  label: Chat
+  permalink: /chat
+  description: Chat tag description
+websocket:
+  label: Websocket
+  permalink: /websocket
+  description: Websocket tag description
+solidjs:
+  label: SolidJS
+  permalink: /solidjs
+  description: SolidJS tag description
+web:
+  label: Web
+  permalink: /web
+  description: Web tag description
+plugin:
+  label: Plugin
+  permalink: /plugin
+  description: Plugin tag description
+coffee:
+  label: Coffee
+  permalink: /coffee
+  description: Coffee tag description
+machine:
+  label: Machine
+  permalink: /machine
+  description: Machine tag description
+app:
+  label: App
+  permalink: /app
+  description: App tag description
+hack:
+  label: Hack
+  permalink: /hack
+  description: Hack tag description
+chatgpt:
+  label: ChatGPT
+  permalink: /chatgpt
+  description: ChatGPT tag description
+openai:
+  label: OpenAI
+  permalink: /openai
+  description: OpenAI tag description
+asterisk:
+  label: Asterisk
+  permalink: /asterisk
+  description: Asterisk tag description
+applications:
+  label: Applications
+  permalink: /applications
+  description: Applications tag description
+stasis:
+  label: Stasis
+  permalink: /stasis
+  description: Stasis tag description
+scalability:
+  label: Scalability
+  permalink: /scalability
+  description: Scalability tag description
+voip:
+  label: VoIP
+  permalink: /voip
+  description: VoIP tag description
+webrtc:
+  label: WebRTC
+  permalink: /webrtc
+  description: WebRTC tag description
+push-to-talk:
+  label: Push-to-Talk
+  permalink: /push-to-talk
+  description: Push-to-Talk tag description
+react:
+  label: React
+  permalink: /react
+  description: React tag description
+expo:
+  label: Expo
+  permalink: /expo
+  description: Expo tag description
+wazo-platform:
+  label: Wazo Platform
+  permalink: /wazo-platform
+  description: Wazo Platform tag description
+development:
+  label: Development
+  permalink: /development
+  description: Development tag description
+wazo:
+  label: Wazo
+  permalink: /wazo
+  description: Wazo tag description
+c4:
+  label: C4
+  permalink: /c4
+  description: C4 tag description
+mobile:
+  label: Mobile
+  permalink: /mobile
+  description: Mobile tag description
+testing:
+  label: Testing
+  permalink: /testing
+  description: Testing tag description
+frontend:
+  label: Frontend
+  permalink: /frontend
+  description: Frontend tag description
+kubernetes:
+  label: Kubernetes
+  permalink: /kubernetes
+  description: Kubernetes tag description
+docker:
+  label: Docker
+  permalink: /docker
+  description: Docker tag description
+cloud:
+  label: Cloud
+  permalink: /cloud
+  description: Cloud tag description
+documentation:
+  label: Documentation
+  permalink: /documentation
+  description: Documentation tag description
+python:
+  label: Python
+  permalink: /python
+  description: Python tag description
+matrix:
+  label: Matrix
+  permalink: /matrix
+  description: Matrix tag description
+bridge:
+  label: Bridge
+  permalink: /bridge
+  description: Bridge tag description
+dtmf:
+  label: DTMF
+  permalink: /dtmf
+  description: DTMF tag description
+notification:
+  label: Notification
+  permalink: /notification
+  description: Notification tag description
+callkit:
+  label: CallKit
+  permalink: /callkit
+  description: CallKit tag description
+connection-service:
+  label: Connection Service
+  permalink: /connection-service
+  description: Connection Service tag description
+pushkit:
+  label: PushKit
+  permalink: /pushkit
+  description: PushKit tag description
+headset:
+  label: Headset
+  permalink: /headset
+  description: Headset tag description
+switchboard:
+  label: Switchboard
+  permalink: /switchboard
+  description: Switchboard tag description
+jabra:
+  label: Jabra
+  permalink: /jabra
+  description: Jabra tag description
+kamailio:
+  label: Kamailio
+  permalink: /kamailio
+  description: Kamailio tag description
+sip:
+  label: SIP
+  permalink: /sip
+  description: SIP tag description
+test:
+  label: Test
+  permalink: /test
+  description: Test tag description
+kemi:
+  label: KEMI
+  permalink: /kemi
+  description: KEMI tag description
+ha:
+  label: HA
+  permalink: /ha
+  description: HA tag description
+routing:
+  label: Routing
+  permalink: /routing
+  description: Routing tag description
+consul:
+  label: Consul
+  permalink: /consul
+  description: Consul tag description
+stt:
+  label: STT
+  permalink: /stt
+  description: STT tag description
+astricon:
+  label: Astricon
+  permalink: /astricon
+  description: Astricon tag description
+community:
+  label: Community
+  permalink: /community
+  description: Community tag description
+pjsip:
+  label: PJSIP
+  permalink: /pjsip
+  description: PJSIP tag description
+api:
+  label: API
+  permalink: /api
+  description: API tag description
+emergency:
+  label: Emergency
+  permalink: /emergency
+  description: Emergency tag description
+ansible:
+  label: Ansible
+  permalink: /ansible
+  description: Ansible tag description
+authentication:
+  label: Authentication
+  permalink: /authentication
+  description: Authentication tag description
+machine-learning:
+  label: Machine Learning
+  permalink: /machine-learning
+  description: Machine Learning tag description
+data-science:
+  label: Data Science
+  permalink: /data-science
+  description: Data Science tag description
+programmable-telecom:
+  label: Programmable Telecom
+  permalink: /programmable-telecom
+  description: Programmable Telecom tag description

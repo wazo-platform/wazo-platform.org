@@ -1,0 +1,6 @@
+# @TODO: add real authors
+jdoe:
+  name: John Doe
+  title: Developer
+  url: https://github.com/{}
+  image_url: https://github.com/{}.png
