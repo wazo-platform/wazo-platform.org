@@ -12,6 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <img src="/images/logo-square.svg" alt="Wazo Platform icon" width={196} height={196} />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
@@ -32,7 +33,6 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
       description={siteConfig.tagline}>
       <HomepageHeader />
       <main>

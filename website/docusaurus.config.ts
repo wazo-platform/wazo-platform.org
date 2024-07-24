@@ -63,7 +63,6 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Wazo Platform',
       logo: {
         alt: 'Wazo Platform',
         src: 'images/logo-light.svg',
@@ -146,6 +145,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-content-blog',
       {
+        blogTitle: 'Release notes',
         id: 'release-notes',
         routeBasePath: 'release-notes',
         path: './release-notes',
