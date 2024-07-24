@@ -9,7 +9,7 @@
     "docusaurus": "docusaurus",
     "prepare": "sh -c '[ ! -L ./static ] && ln -s ../static ./static && echo \"Symlink to static assets created.\" || echo \"Symlink already exists.\"'",
     "start": "yarn run prepare && docusaurus start",
-    "build": "docusaurus build",
+    "build": "yarn run prepare && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
