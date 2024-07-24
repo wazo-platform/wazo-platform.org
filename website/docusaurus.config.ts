@@ -2,6 +2,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const config: Config = {
   title: 'Wazo Platform',
   tagline: 'An Open Source project to build your own IP telecom platform',
@@ -16,7 +18,7 @@ const config: Config = {
   url: 'https://beta.wazo-platform.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: isDev ? '/' : '/wazo-platform.org/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
