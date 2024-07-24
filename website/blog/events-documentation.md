@@ -16,6 +16,8 @@ we have been busy refactoring our events subsystem in Wazo to make it simpler fo
 The first and most important change is that events are now fully _tenant-aware_, meaning they will never be dispatched to users outside
 of its intended tenant.
 
+<!-- truncate -->
+
 We also rewrote the way they work to streamline their use; events are now divided into 3 main types:
 
 - **Service-Level Events:**

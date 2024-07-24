@@ -8,9 +8,9 @@ slug: value-cdr-machine-learning
 status: published
 ---
 
-# Value your CDR with Machine learning
-
 The CDR service allows you to keep track of the activity going on your stack. It's a data source that could be valuable in numerous ways. In this article, we will see how to make value out of your CDR using machine learning.
+
+<!-- truncate -->
 
 ## Why machine learning
 

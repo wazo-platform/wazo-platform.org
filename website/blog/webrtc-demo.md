@@ -12,11 +12,16 @@ status: published
 
 Hello everyone! Six months ago I started a one year work/study training program at Wazo as a front-end developer. Wazo has a huge development framework to get used to, and what is better than a concrete project to learn the Wazo SDK?
 
-That is how I have been assigned to the WebRTC demonstration project, which will be useful to anyone wondering what we are able to do with the Wazo SDK. The main goals I had when I took over the project were the following :
+That is how I have been assigned to the WebRTC demonstration project, which will be useful to anyone wondering what we are able to do with the Wazo SDK.
+
+<!-- truncate -->
+
+The main goals I had when I took over the project were the following :
 
 - Totally redesign the application to improve user experience
 - Set up phone & video call, transfer & indirect transfer
 - Being able to call another number while already on call & switch between interlocutors
+
 
 ## Launching the Demo at Home
 

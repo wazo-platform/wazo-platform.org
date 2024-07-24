@@ -14,9 +14,12 @@ Every year, Wazo organizes a hackathon in the region of Quebec with all the memb
 engineering team. For us, the hackathon is a great way to do some team building and meet in real
 life, since not everyone lives around Quebec City.
 
-![banner cottage huard (small)](../static/images/blog/hackathon-2022/huard-cottage.jpg)
 ![front view cottage (small)](../static/images/blog/hackathon-2022/cottage-front-huard.jpg)
+
+<!-- truncate -->
+
 ![rear view cottage lake (small)](../static/images/blog/hackathon-2022/cottage-from-lake.jpg)
+![banner cottage huard (small)](../static/images/blog/hackathon-2022/huard-cottage.jpg)
 
 ## Kick-Off
 

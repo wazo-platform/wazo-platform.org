@@ -14,7 +14,10 @@ Our Yearly hackathon is a very important moment, first of all since we use it to
 
 Our team decided to put the WDA plugin functionality to good use and we decided to build a pong game that would be playable between two callers using WDA.
 
+<!-- truncate -->
+
 To accomplish that feat we used existing tools from the wazo platform as well as webrtc, asterisk, nginx, etc, and some that are not yet available i.e. the plugin interface that is in the works for WDA.
+
 
 We started by finding a pong javascript [codebase](https://gist.github.com/straker/81b59eecf70da93af396f963596dfdc5) that was functional and had all the features we needed. We used an open-source project and we built on that.
 

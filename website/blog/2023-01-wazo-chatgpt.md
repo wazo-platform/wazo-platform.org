@@ -22,6 +22,8 @@ This is the result here:
 
 ![wazo chagpt blog (small)](../static/images/blog/wazo-chatgpt/result.png)
 
+<!-- truncate -->
+
 So finally I ended up asking ChatGPT if it could write the code to connect Wazo and ChatGPT. This was the result:
 
 ![wazo chagpt code (small)](../static/images/blog/wazo-chatgpt/result-code.png)

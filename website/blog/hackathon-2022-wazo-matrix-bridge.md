@@ -12,6 +12,8 @@ Every year Wazo organizes a Hackathon with their employees, and as many of us as
 There were multiple teams working on different projects. Our team consisted of [Charles](https://github.com/DrPyser), [Francis](https://github.com/chartrandf), [Francois](https://github.com/fblackburn1) and [I (Jesse)](https://github.com/sopelj).
 We decided to both work on creating a bridge between Wazo's built-in chat system and a Matrix server, as well as [testing out adding some new features to the existing chat](https://wazo-platform.org/blog/hackaton-2022-building-group-chat-with-wazo), but this article is focused on the former.
 
+<!-- truncate -->
+
 ## The Objective
 
 The goal was to create a bidirectional bridge between Wazo's [Chatd](https://wazo-platform.org/documentation/overview/chat.html) and a [Matrix](https://matrix.org/) Homeserver.

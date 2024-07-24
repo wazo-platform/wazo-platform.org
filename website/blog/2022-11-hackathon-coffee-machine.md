@@ -16,6 +16,8 @@ We used the commercial Wazo application to create the Coffee Machine The app usu
 
 ![wazo-app.svg](../static/images/blog/hackathon-2022/wazo-app.svg 'Wazo app screenshot, showing a mosaic of video streams of conference participants')
 
+<!-- truncate -->
+
 And without further ado, the Coffee Machine looks like this:
 
 ![coffee-machine-screenshot.png](../static/images/blog/hackathon-2022/coffee-machine.png "Coffee machine screenshot, showing a list of participant names and durations, a button 'Have a SIP!', and a music player on the right, over a comforting coffee cup image on the background")

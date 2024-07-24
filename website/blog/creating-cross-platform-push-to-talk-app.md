@@ -16,6 +16,8 @@ Here some pictures of the super place where our hackathon took place:
 
 ![What a wonderful view](../static/images/blog/hackathon-2021/big.jpg)
 
+<!-- truncate -->
+
 ![Our office (small)](../static/images/blog/hackathon-2021/inside.jpg)
 ![Can you spot François and Pascal ? (small)](../static/images/blog/hackathon-2021/lake.jpg)
 ![Looks like an album cover (small)](../static/images/blog/hackathon-2021/river.jpg)

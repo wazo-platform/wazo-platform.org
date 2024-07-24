@@ -8,17 +8,12 @@ slug: linear-ring-group-preview
 status: published
 ---
 
-**Publication Note**: due to a publishing mistake, this post was left unpublished following its redaction. As it concerns the 24.06 release, the new 24.07 release might imply some changes to the information presented here.
-For up-to-date information on the state of this feature in the latest release, please refer to release notes and related publications for release version 24.07 or later.
-
-As a companion to the 24.06 sprint review blog post, here's some detail on a feature that is made available behind a feature flag in this sprint.
-
-The linear ring group feature is a reimplementation of our ring group feature in order to address a longstanding issue within the existing implementation.
-
 ## Some context
 
 The existing implementation is based on Asterisk's `Queue` application from the `app_queue` asterisk module.
 This asterisk application is powerful and suitable for the ring group feature, as it allows a call to ring on a number of destinations simultaneously or following a specific distribution strategy, and be answered by any of a group of participants(the queue members).
+
+<!-- truncate -->
 
 This provides support for many ring strategies for our ring groups, from the conventional "ring all"(ring all members concurrently, first to answer wins) to more complex strategies like "fewest calls"(which tracks the completed calls of each members and tries to even the scores).
 Of course another conventional strategy is _linear_, that is ringing each member one after the other in a defined order.
@@ -27,6 +22,14 @@ Unfortunately, an outstanding bug/limitation of the `app_queue` module is the in
 This is of course problematic for high-load deployments of the Wazo Platform, and has been a torn in the foot of many community users as well as commercial partners for a while.
 
 After many attempts to evaluate viable solution paths, and considering undertaking patches to the Asterisk `app_queue` module, we finally found a simpler, more viable solution for us: that of implementing the linear strategy for ring groups without relying on the `Queue` application and the `app_queue` module.
+
+> **Publication Note**: due to a publishing mistake, this post was left unpublished following its redaction. As it concerns the 24.06 release, the new 24.07 release might imply some changes to the information presented here.
+For up-to-date information on the state of this feature in the latest release, please refer to release notes and related publications for release version 24.07 or later.
+>
+> As a companion to the 24.06 sprint review blog post, here's some detail on a feature that is made available behind a feature flag in this sprint.
+>
+> The linear ring group feature is a reimplementation of our ring group feature in order to address a longstanding issue within the existing implementation.
+
 
 ## Some explanation
 
