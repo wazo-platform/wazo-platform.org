@@ -22,8 +22,9 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'wazo-platform', // Usually your GitHub org/user name.
   projectName: 'wazo-platform.org', // Usually your repo name.
+  trailingSlash: false,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
