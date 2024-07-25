@@ -16,6 +16,8 @@ In a complex microservice VoIP architecture testing the functionalities or stres
 
 With our experience with scalable VoIP infrastructure and a lot of trials and errors, creating a mess with a lot of bash scripts doing different things preparing the environment for launching sipp tests and scenarios we decided to start from a clean slate and redesign or way to do tests.
 
+<!-- truncate -->
+
 ## The scenario files
 
 We wanted to have a descriptive method for defining procedures and running tests and came up with a simple YAML configuration file with the following root keys:

@@ -24,6 +24,8 @@ At Astricon 2019 we presented that module. Unfortunately, the presentations at
 Astricon have not been recorded. This article will get you started playing with
 our Asterisk module.
 
+<!-- truncate -->
+
 ## Motivation
 
 Being able to stream audio out of Asterisk can be used to solve a variety of

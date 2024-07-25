@@ -14,6 +14,8 @@ This guide will show how to quickly get a development environment of
 Wazo Platform inside a virtual machine to run the acceptance tests. To do so,
 we will use libvirt, virt-installer and the Wazo Platform iso.
 
+<!-- truncate -->
+
 ## Requirements
 
 I'm currently running Debian Buster and installed the following packages:

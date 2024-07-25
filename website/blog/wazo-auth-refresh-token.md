@@ -15,6 +15,8 @@ almost anything else is to authenticate. The process of authentication on Wazo P
 is basically creating a token using your username and password. This can be done
 using the `/token` API of wazo-auth. Here's an example from the command line.
 
+<!-- truncate -->
+
 ```ShellSession
 $ curl -k -XPOST -H "Content-Type: application/json" -u "<username>:<password>" "https://<hostname>/api/auth/0.1/token" -d '{"expiration": 3600}'
 ```

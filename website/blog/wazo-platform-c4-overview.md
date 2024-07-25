@@ -20,6 +20,8 @@ To fulfill Wazo Platform's vision to bring a full-featured, open-source, cloud-n
 
 Keeping in mind our microservice architecture, we also wanted to further strip down some of the Asterisk dependant functionalities and try to use different tools.
 
+<!-- truncate -->
+
 ## What is a C4?
 
 Basically, a C4 softswitch routes traffic between C5 softswitches.

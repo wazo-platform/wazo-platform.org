@@ -13,6 +13,8 @@ Ngrok est un logiciel permettant de monter simplement un tunnel inversé pour ac
 
 ![ngrok.png](../static/images/blog/wazo-ngrok/ngrok.png 'Ngrok website')
 
+<!-- truncate -->
+
 # Ngrok
 
 Pour utiliser ngrok avec Wazo c'est aussi très simple. La première chose à faire est de vous inscrire sur le [site](https://ngrok.com) (c'est gratuit) et de récupérer votre token d'authentification. Il est nécessaire pour monter des tunnels.

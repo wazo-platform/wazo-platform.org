@@ -11,6 +11,8 @@ Nous sommes très fiers de vous dévoiler notre nouveau logo pour Wazo ! Sans pl
 
 ![wazo-logo-full.png](../static/images/blog/wazo-new-logo/wazo-logo-full.png 'Wazo logo')
 
+<!-- truncate -->
+
 # Son histoire
 
 Maintenant que nous vous l'avons dévoilé, il me semble important de vous raconter son histoire. J'ai toujours aimé travailler autour d'une histoire humaine, d'une rencontre, d'une idée et ce logo, et même le nom de Wazo, possède une histoire.

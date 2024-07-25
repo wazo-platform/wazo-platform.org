@@ -15,6 +15,8 @@ J'ai donc commencé un travail d'un connecteur sur une plateforme appelée Zapie
 
 ![zapier.png](../static/images/blog/wazo-webhook/zapier.png 'Zapier website')
 
+<!-- truncate -->
+
 # Zapier
 
 Zapier est une plateforme cloud, avec des centaines de connecteurs vous permettant de faire 3 choses.

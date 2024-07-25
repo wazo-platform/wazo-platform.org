@@ -12,6 +12,8 @@ We've been tasked with integrating the Jabra headset in our Web and Desktop appl
 
 ![Jabra headset](https://user-images.githubusercontent.com/2076632/71919321-659ba580-3152-11ea-8095-d27f22a6958b.jpg)
 
+<!-- truncate -->
+
 ## Integrating a Jabra Headset with our Desktop app.
 
 Adding the Jabra SDK in our Electron application was pretty straightforward, we were able to catch the headset button events and changing it status (on-hook, ringing ...).

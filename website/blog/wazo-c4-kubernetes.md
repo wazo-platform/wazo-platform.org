@@ -20,6 +20,8 @@ In our pursuit of enabling companies to build their IP communication infrastruct
 
 We started with a deployment of our C4 (Class 4) SBC and routing solution on a Kubernetes Cluster through a Helm chart.
 
+<!-- truncate -->
+
 ## Wazo Platform C4 solution
 
 We've already introduced our C4 platform in a recent [blog post](/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales. It is a fairly new project of ours but we've done giant leaps toward a complete C4 solution just in the last weeks.

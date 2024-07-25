@@ -12,6 +12,8 @@ We are proud to announce our successful integration with Loway's QueueMetrics-Li
 
 Loway's QueueMetrics-Live call-center suite, is now fully integrated with Wazo IPBX.
 
+<!-- truncate -->
+
 Wazo is a unified communication platform and a full-featured IPBX based on Asterisk technology, oriented towards enterprise communications.
 
 QueueMetrics-Live suite collects Asterisk data and generates analytical reports for over 180 metrics, covering all the key categories of call center effective management: Reporting, Supervisor page, Agent page, Quality assessment and much more.

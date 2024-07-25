@@ -16,6 +16,8 @@ Our application is always connected with our server via WebSocket, but there are
 
 We can't force the application to stay foreground, so how can we get rid of theses limitations?
 
+<!-- truncate -->
+
 ## Poor Man's Solution: Push Notification
 
 At the first time, we have set up Push Notification thanks to Firebase Cloud Messaging. When the user receives a call, we can detect if the websocket connection status and send a push if the application is not connected.

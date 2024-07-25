@@ -12,6 +12,8 @@ status: published
 
 This article is the first one of a series about the work that we do at Wazo around Asterisk application scalability. For this first post, we will describe some high level aspects of the approach we take to scale Stasis applications. We will explain which components are involved and their role. Let’s take a simple application as an example.
 
+<!-- truncate -->
+
 # Our sample application
 
 Our application will be a simple conference app : when a user calls the 8000 extension, he will be placed in a conference.

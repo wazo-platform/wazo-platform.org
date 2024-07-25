@@ -14,6 +14,8 @@ For the past couple weeks, we've been working on the creation of automated integ
 
 Avoiding regressions on such a large application is a huge challenge. We are making big steps in the automation process to fulfill this goal.
 
+<!-- truncate -->
+
 ## You Must Choose, but Choose Wisely
 
 The first step of our journey was the choose a testing framework that would fit our needs. Software like Selenium or Appium have proven their value, but they are slow and flaky. At the end of our investigation, we've selected [Detox](https://github.com/wix/Detox) to run our tests. Detox generates less flaky tests, because it monitors the app and waits for interactions or requests to finish before moving on to the next instruction.

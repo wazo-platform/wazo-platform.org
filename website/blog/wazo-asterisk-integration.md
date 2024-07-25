@@ -16,6 +16,8 @@ sometimes what you need is simply missing. This article will show some common wa
 modify your Wazo server to use features from Asterisk that are not available in the
 wide range of Wazo tools.
 
+<!-- truncate -->
+
 ## Dialplan
 
 Dialplan is used to modify the flow of a call. The easiest way to add dialplan to

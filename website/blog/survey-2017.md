@@ -7,7 +7,7 @@ slug: survey-2017
 status: published
 ---
 
-*La version française suit*
+_La version française suit_
 
 Dear Wazo users,
 
@@ -17,9 +17,11 @@ We would like to call on a couple of minutes of your time to help us improve Waz
 
 This survey should only take a few minutes or so and we promise to keep you informed of how we will use it to improve the roadmap.
 
-* ~~Survey in English~~ (closed)
+- ~~Survey in English~~ (closed)
 
 Thank you for contributing to the Wazo project.
+
+<!-- truncate -->
 
 ---
 
@@ -31,7 +33,7 @@ Nous vous sollicitons afin de mieux vous connaître et de faire évoluer positiv
 
 Ce questionnaire devrait prendre quelques minutes de votre temps et nous ne manquerons pas de vous faire un retour sur les actions que nous mènerons.
 
-* ~~Sondage en français~~ (fermé)
+- ~~Sondage en français~~ (fermé)
 
 Merci d'avance pour votre contribution au projet Wazo.
 

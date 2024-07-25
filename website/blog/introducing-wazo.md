@@ -13,6 +13,8 @@ Hi everyone, long time no see!
 
 We've been quite busy the last few days, but we are pleased to announce the birth of a new project in the world of communications, introducing: [Wazo](https://wazo-platform.org).
 
+<!-- truncate -->
+
 ## What is Wazo?
 
 [Wazo](https://wazo-platform.org) is a unified communication platform and a full-featured IPBX based on Asterisk, oriented towards enterprise communications. Wazo was forked from XiVO on November 25th, 2016, starting off the development version following XiVO 16.13. Every feature of XiVO 16.13 is still available in Wazo, and there are more to come...
