@@ -18,6 +18,8 @@ Dynamic scaling brought additional complexity in the configuration of our Kamail
 
 We wanted to deploy Wazo on different kinds of platforms, not only containerized with Kubernetes but also with Docker compose or on Virtual machines using Ansible recipes. We had to choose a tool that will help us in service discovery and the flexible configuration of our components. That's where we decided that [HashiCorp Consul](https://www.consul.io) was the right tool to use.
 
+<!-- truncate -->
+
 ## What is Consul?
 
 The [official](https://www.consul.io) definition of Consul is:

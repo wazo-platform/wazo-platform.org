@@ -20,6 +20,8 @@ The situation could be described as an unintended yet effective denial of servic
 
 We will show here, how in less than a 3-day period - during a short hackathon - a team of developers, with no prior knowledge of the Wazo programmable platform, was able to put in place an effective solution to this prioritization issue, and save lives.
 
+<!-- truncate -->
+
 ## DEMONSTRATION OF THE FLEXIBILITY AND SIMPLICITY OF USE OF THE WAZO PROGRAMMABLE PLATFORM
 
 By solving this issue, our hidden objective was to demonstrate how easy it is to create a useful feature in a very short time frame based on the Wazo open programmable communication platform.

@@ -11,6 +11,8 @@ On me demande assez régulièrement la différence entre XiVO et Wazo en terme d
 
 ![unicom.png](../static/images/blog/wazo-unicom/unicom.png 'Unicom')
 
+<!-- truncate -->
+
 # Unicom
 
 Mais qu'est-ce donc qu'Unicom? J'ai eu beaucoup de discussions et j'avais en tête deux cibles lorsque je l'ai mis à disposition de tous. La première était de fournir un logiciel SaaS (Software as a Service), donc pas de mise à jour à gérer, pas d'installation à faire, une mobilité accrue, mais aussi de montrer une voie possible avec Wazo pour les personnes souhaitant développer leur propre valeur ajoutée autour de Wazo en utilisant nos APIs. Cela permet d'en faire un démonstrateur mais aussi une source à idées permettant d'échanger de manière constructive avec les acteurs du marché.

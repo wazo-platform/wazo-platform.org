@@ -20,6 +20,8 @@ In our pursuit of enabling companies to build their IP communication infrastruct
 
 So, beside the fast containerized way with docker-compose or helm chart for Kubernetes, Wazo's C4 can be deployed with Ansible on virtual machines or bare-metal.
 
+<!-- truncate -->
+
 ## Wazo Platform C4 solution
 
 We've already introduced our C4 platform in a previous [blog post](/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales.

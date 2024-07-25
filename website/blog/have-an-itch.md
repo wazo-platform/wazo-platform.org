@@ -22,6 +22,8 @@ be able to start with what matters most to our users.
 
 If you are a telecommunications solution provider tell us about you needs.
 
+<!-- truncate -->
+
 What are your customers asking for?
 What would make you more productive?
 

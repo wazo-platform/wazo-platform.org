@@ -13,6 +13,8 @@ Ngrok is a software allowing its users to create reverse tunnels to access a ser
 
 ![ngrok.png](../static/images/blog/wazo-ngrok/ngrok.png 'Ngrok website')
 
+<!-- truncate -->
+
 # Ngrok
 
 Using Ngrok from Wazo is very simple. The first step is to register to the ngrok service [site](https://ngrok.com) (which is free, as in beer) and to retrieve your authentication token. The token is necessary to create tunnels.

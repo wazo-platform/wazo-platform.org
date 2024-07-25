@@ -28,6 +28,8 @@ as possible.
 In this article we will look into the process of making this new API multi
 tenant.
 
+<!-- truncate -->
+
 # Differences Between `chan_sip` and `chan_pjsip`
 
 `chan_sip` is the old channel driver that has been in Asterisk for ages to handle

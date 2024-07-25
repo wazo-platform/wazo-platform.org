@@ -23,6 +23,8 @@ You can augment the platform and integrate it with your subscription and billing
 
 These communication infrastructures can be deployed and scaled on bare metal, virtual machines or containers.
 
+<!-- truncate -->
+
 ## What's the future of Wazo?
 
 Wazo’s vision is that no single communication system can address appropriately the vast diversity of the communication needs of organizations, either for team collaboration or for customer engagement.

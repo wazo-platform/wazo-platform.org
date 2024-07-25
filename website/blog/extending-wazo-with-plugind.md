@@ -19,6 +19,8 @@ One of the aspect that was still cruelly missing was a way to distribute and eas
 
 Wazo plugins will fill that gap.
 
+<!-- truncate -->
+
 # Meet wazo-plugind
 
 Plugind is a service that we developed to help manage third party plugins as well as official plugins. At the moment we are using plugins to add features to the new administration interface, but in the future we will be able to ship complete features using plugins. We could still package and enable official features with our services, the way we always did, but we think that the only way to get a good and flexible plugin system that will be usable by the community is to use it ourselves.

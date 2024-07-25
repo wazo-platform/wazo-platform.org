@@ -13,6 +13,8 @@ The current admin interface of Wazo is aging, and its internal design is signifi
 
 So, you can try this admin interface by visiting `https://<wazo_ip>/admin`.
 
+<!-- truncate -->
+
 # Login
 
 Once you enter the same credentials as the other admin interface, you'll see a small Plugins menu on the left: this is where you choose what you want to see in the admin interface: no more frighteningly long list of menus, you can select only what you need.

@@ -14,6 +14,8 @@ This is the first of a series of blog posts about the HA features of the [Wazo P
 
 The routers are not accessed directly from carriers nor the termination IPBXs, as they are behind the SBC infrastructure. We assume then the routers are on an internal, non-externally accessible network segment and communicate with the SBC using the SIP protocol over UDP.
 
+<!-- truncate -->
+
 ## Stateful load balancing of the routers from the SBC with failover
 
 When a new SIP message reaches our SBC and satisfies our strict requirements regarding security and validation and thus it is ready to be forwarded to the routing layer, the target host is selected from a list managed using the [dispatcher module](https://kamailio.org/docs/modules/stable/modules/dispatcher.html).

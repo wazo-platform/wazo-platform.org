@@ -11,6 +11,8 @@ I am asked quite regularly the difference between XiVO and Wazo in terms of feat
 
 ![unicom.png](../static/images/blog/wazo-unicom/unicom.png 'Unicom')
 
+<!-- truncate -->
+
 # Unicom
 
 But what is Unicom? I had a lot of discussions and I had in mind two targets when I made it available to everyone. The first was to provide Software as a Service (SaaS) software, meaning: no upgrade to manage, no installation to do, increased mobility; but also to show that it was possible to develop new tools that would bring more value-added services, using Wazo and its APIs. This makes it a demonstration and also a source of ideas to exchange with the market players.

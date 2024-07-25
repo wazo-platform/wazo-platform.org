@@ -16,6 +16,8 @@ In the [Wazo Platform C4](/blog/wazo-platform-c4-overview) we are committed to d
 
 Our goal was while supporting high degrees of flexibility and ease to configure, to avoid any compromise regarding performances: we aim to support a high number of concurrent calls, high call rates with predictable and linear degradation of performances in case of overload.
 
+<!-- truncate -->
+
 ## The solution
 
 To provide flexible, API-driven routing features in the Wazo Platform C4 Softswitch we decided to implement it on the foundations of the [`rtjson`](https://kamailio.org/docs/modules/stable/modules/rtjson.html) module. This module not only allows you to push the routing destination `URI` and the outbound proxy, but it also supports the normalization of the `From` and `To` headers, the insertion of additional headers as well as various settings related to the transaction management and its timers.

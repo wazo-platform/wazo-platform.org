@@ -16,6 +16,8 @@ An important subject was approached in detail: KEMI (Kamailio Embedded Interface
 
 KEMI is a framework allowing to use a language other than native language to program our Kamailio engine. With KEMI, we can use Javascript, LUA, Python, LUA, Ruby and Squirrel.
 
+<!-- truncate -->
+
 The advantages in the use of KEMI are numerous.
 
 First of all, the use of a standard language used and well known by developers guarantees an enhanced code quality.
