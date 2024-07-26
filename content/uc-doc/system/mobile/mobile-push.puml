@@ -1,0 +1,25 @@
+@startuml
+!include C4_Container.puml
+
+hide stereotype
+
+System_Boundary(wazo_platform, "Wazo Platform"){
+    Container(webhookd, "wazo-webhookd", "Python", "Webhook service")
+    Container(db, "Postgresql", "C", "Database")
+    Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+    Container(auth, "wazo-auth", "Python", "Authentication service") [["../documentation/overview/authentication.html"]]
+}
+
+System_Ext(external_push_server, "Supported push message service", "e.g. FCM, APNS")
+actor MobileUser
+
+Rel_R(MobileUser, wazo_platform, "Logs in through mobile app", "REST")
+
+Rel_U(webhookd, db, "SQL(store subscriptions)")
+Rel_D(bus, webhookd, "Relays Wazo platform events", "AMQP")
+
+Rel_R(webhookd, auth, "Authenticates", "REST")
+Rel_U(auth, bus, "generate user login events", "AMQP")
+Rel_D(webhookd, external_push_server, "Send push notifications", "HTTP")
+
+@enduml

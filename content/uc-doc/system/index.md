@@ -24,3 +24,4 @@ title: System
 - [wazo-phoned](/uc-doc/system/wazo-phoned)
 - [wazo-purge-db](/uc-doc/system/purge_logs)
 - [wazo-sysconfd](/uc-doc/system/wazo-sysconfd)
+- [mobile](/uc-doc/system/mobile)
