@@ -56,9 +56,9 @@ The configuration procedure is as follow:
    console;  
    See
    [Firebase documentation](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments).
-4. **create an external config in wazo-auth, providing the content of the downloaded service account
-   credentials**  
-   Using wazo-auth REST API, the endpoint `/0.1/external/mobile/config` is used to manage the
+4. **create or update the external mobile config in wazo-auth, providing the content of the
+   downloaded service account credentials**  
+   Using the wazo-auth REST API, the endpoint `/0.1/external/mobile/config` is used to manage the
    configuration for mobile push notifications support;  
    `POST` on that endpoint will create a fresh configuration if none exist, and `PUT` will allow
    updating the fields of that configuration;  
@@ -66,6 +66,43 @@ The configuration procedure is as follow:
    from step 3(as a json string);  
    the `fcm_sender_id` is also required and should be the FCM project number assigned to the
    project, as shown in the firebase console;  
+   see the
+   [API reference](/documentation/api/authentication.html#tag/external/paths/~1external~1%7Bauth_type%7D~1config/post)
+   for more details on that endpoint.
+
+### Configuring APNS support
+
+To support push notifications to iOS devices, the requirements and procedure are similar to FCM
+support. An apple developer account is required.  
+This account is used to register an apple app(the mobile client), which support push
+notifications.  
+A certificate is generated for that app, and is provided to the wazo-platform stack for
+authentication to APNS when delivering the push notifications.
+
+1. **Enroll in the apple developer program** To provide push notifications to a mobile client on an
+   iOS device, an apple developer account is required See
+   [Apple documentation](https://developer.apple.com/support/app-account/#organization);
+2. **Register an app** An app corresponding to the iOS mobile client should be registered
+3. **Enable push notification support for the app** Push notifications through APNS must be enabled
+   for the registered app; See
+   [Apple documentation](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns);
+4. **Generate certificates for the app** A VoIP services certificate tied to the registered apple
+   app must be generated to secure the connection between the wazo-platform stack and the APNS
+   servers; See
+   [Apple documentation on this subject](https://developer.apple.com/documentation/usernotifications/establishing-a-certificate-based-connection-to-apns);
+   See also
+   [more apple documentation on creating a certificate for your apple app](https://developer.apple.com/help/account/create-certificates/create-voip-services-certificates)
+5. **Create or update the external mobile config in wazo-auth, providing the certificate content**
+   An external credential configuration of type `mobile` must be created in the wazo-platform stack,
+   through which the previously generated certificate can be provided; Using the wazo-auth REST API,
+   the endpoint `/0.1/external/mobile/config` is used to manage the configuration for mobile push
+   notifications support;  
+   `POST` on that endpoint will create a fresh configuration if none exist, and `PUT` will allow
+   updating the fields of that configuration;  
+   the `ios_apn_certificate` field must be filled with the content of the public part of the
+   certificate created in step 4;  
+   the `ios_apn_private` field must be filled with the certificate signing request created in step
+   4;  
    see the
    [API reference](/documentation/api/authentication.html#tag/external/paths/~1external~1%7Bauth_type%7D~1config/post)
    for more details on that endpoint.
