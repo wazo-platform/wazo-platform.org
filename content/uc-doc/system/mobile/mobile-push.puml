@@ -18,7 +18,6 @@ Rel_R(MobileUser, wazo_platform, "Logs in through mobile app", "REST")
 Rel_U(webhookd, db, "SQL(store subscriptions)")
 Rel_D(bus, webhookd, "Relays Wazo platform events", "AMQP")
 
-Rel_R(webhookd, auth, "Authenticates", "REST")
 Rel_U(auth, bus, "generate user login events", "AMQP")
 Rel_D(webhookd, external_push_server, "Send push notifications", "HTTP")
 
