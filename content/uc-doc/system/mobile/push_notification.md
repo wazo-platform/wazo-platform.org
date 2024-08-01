@@ -139,15 +139,15 @@ is required to have an active mobile session registered with the Wazo stack.
 For example:
 
 ```shell
-
-curl -X POST -H "X-Auth-Token: $token" -H "Content-Type: application/json" -H "Wazo-Tenant: $tenant_uuid" \
+curl -X POST \
+-H "X-Auth-Token: $token" -H "Content-Type: application/json" -H "Wazo-Tenant: $tenant_uuid" \
 -d '{"title": "Example notification", "body": "This is an example notification", "notification_type": "exampleNotification", "extra": {"mykey": "myvalue"}, "user_uuid": "123e4567-e89b-12d3-a456-426614174000"}' \
 'https://mystack.example.com/api/wazo-webhookd/1.0/mobile/notifications'
 ```
 
 Here you need to substitute
 
-- `$token`: an authentication token with appropriate permissions,
+- `$token`: an authentication token with appropriate permissions(e.g. an admin token),
 - `$tenant_uuid`: the uuid of the tenant of the user being targeted
 - `"123e4567-e89b-12d3-a456-426614174000"`: the uuid of the user being targeted
 
@@ -202,4 +202,5 @@ test_notification = {
 webhookd.mobile_notifications.send(test_notification)
 ```
 
-The user `user_uuid` will receive push notification on his registered mobile sessions(if any exist).
+The targeted user (`user_uuid`) will receive the push notification on his registered mobile
+sessions(if any exist).
