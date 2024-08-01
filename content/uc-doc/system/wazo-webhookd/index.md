@@ -46,7 +46,7 @@ notification service providers APIs (e.g. FCM, APNS).
 Note: those subscriptions can not be created manually through the REST API.
 
 For more details on configuring and using push notifications, see
-[the push notification page](/uc-doc/system/mobile/push_notification.md).
+[the push notification page](/uc-doc/system/mobile/push_notification).
 
 ![Mobile push notifications diagram](/diagrams/wazo-webhookd-mobile-push.svg)
 
