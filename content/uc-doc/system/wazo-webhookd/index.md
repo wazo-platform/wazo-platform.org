@@ -10,9 +10,8 @@ title: 'wazo-webhookd'
 
 ## Overview
 
-wazo-webhookd is a component responsible for managing subscriptions to internal platform events,
-such that custom behavior can be triggered in reaction to those events.
-
+wazo-webhookd is a component responsible for managing _subscriptions_ to internal platform events,
+such that custom behavior can be triggered in reaction to those events.  
 This can be used to allow components external to the Wazo Platform to be notified of those events,
 in effect allowing for asynchronous integrations with other systems.
 
@@ -20,10 +19,10 @@ A subscription is a resource managed through wazo-webhookd, which associates a l
 events to some type of reaction mechanism which is to be triggered from those events.
 
 Different types of subscriptions are supported, and one can extend the types of subscription
-supported(the mechanism by which the events will be processed) through python plugins for the
-`wazo-webhookd.services` namespace(see [below](#how-to-add-a-new-webhookd-type-a.k.a-service)).
+supported (the mechanism by which the events will be processed) through Python plugins for the
+`wazo-webhookd.services` namespace (see [below](#how-to-add-a-new-webhookd-type-a.k.a-service)).
 
-The types of subscription currently supported natively(in the core implementation of wazo-webhookd)
+The types of subscription currently supported natively (in the core implementation of wazo-webhookd)
 are:
 
 - http subscriptions
@@ -31,7 +30,7 @@ are:
 
 ## mobile subscriptions
 
-As well as supporting configuration of custom behaviors through http subscriptions and custom python
+As well as supporting configuration of custom behaviors through http subscriptions and custom Python
 plugins, wazo-webhookd can also automatically create and manage special subscriptions for mobile
 users.  
 These _mobile subscriptions_ can provide push notification services for Wazo Platform events
@@ -42,7 +41,7 @@ wazo-webhookd, which in turn creates a mobile subscription for that user. That s
 specifies the internal events which are relevant for push notifications to mobile users.  
 When those events are emitted by the platform, the subscription triggers the "hook" code that
 generates the relevant push notifications, by interacting with the configured third-party push
-notification service providers APIs(e.g. FCM, APNS).
+notification service providers APIs (e.g. FCM, APNS).
 
 Note: those subscriptions can not be created manually through the REST API.
 
