@@ -28,9 +28,9 @@ are:
 - http subscriptions
 - mobile subscriptions
 
-## mobile subscriptions
+## Mobile Subscriptions
 
-As well as supporting configuration of custom behaviors through http subscriptions and custom Python
+As well as supporting configuration of custom behaviors through HTTP subscriptions and custom Python
 plugins, wazo-webhookd can also automatically create and manage special subscriptions for mobile
 users.  
 These _mobile subscriptions_ can provide push notification services for Wazo Platform events
