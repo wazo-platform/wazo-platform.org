@@ -444,7 +444,6 @@ python_version = "3.10"
 show_error_codes = true
 check_untyped_defs = true
 warn_unused_configs = true
-follow_imports = "skip"
 ignore_missing_imports = true
 ```
 
