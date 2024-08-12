@@ -51,6 +51,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // wazo.io website links are flaky
+  if (url.indexOf('https://wazo.io') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
@@ -87,7 +92,7 @@ const checkUrl = async (browser, url, fromUrl) => {
     let result = true;
 
     // One response event for each file on the page
-    browserPage.on('response', (res) => {
+    browserPage.on('response', res => {
       if (res.url().indexOf('favicon.ico') !== -1) {
         return;
       }
@@ -96,16 +101,16 @@ const checkUrl = async (browser, url, fromUrl) => {
 
     await browserPage.goto(url, { waitUntil: 'networkidle2' });
 
-    const mainResponse = responses.find((response) => response.url() === url);
-    const isResponseFailed = (response) => response && response.status() >= 400;
-    const failedResponses = responses.filter((response) => isResponseFailed(response));
+    const mainResponse = responses.find(response => response.url() === url);
+    const isResponseFailed = response => response && response.status() >= 400;
+    const failedResponses = responses.filter(response => isResponseFailed(response));
     const allResponsesOk = failedResponses.length === 0;
     if (isResponseFailed(mainResponse) || (isUrlLocal && !allResponsesOk)) {
-      throw new Error(`statuses ${failedResponses.map((response) => response.status())}`);
+      throw new Error(`statuses ${failedResponses.map(response => response.status())}`);
     }
 
     let links = await browserPage.evaluate(() =>
-      Array.from(document.getElementsByTagName('a')).map((node) => node.href)
+      Array.from(document.getElementsByTagName('a')).map(node => node.href)
     );
 
     await browserPage.close();
