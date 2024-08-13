@@ -20,9 +20,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/preset-classic": "3.4.0",
-    "@docusaurus/theme-mermaid": "^3.4.0",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/theme-mermaid": "^3.5.2",
     "@iconify/react": "^5.0.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
@@ -32,13 +32,17 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/tsconfig": "3.4.0",
-    "@docusaurus/types": "3.4.0",
+    "@docusaurus/module-type-aliases": "^3.5.2",
+    "@docusaurus/tsconfig": "^3.5.2",
+    "@docusaurus/types": "^3.5.2",
     "typescript": "~5.2.2"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 3 chrome version",
       "last 3 firefox version",
