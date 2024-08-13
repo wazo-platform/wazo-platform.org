@@ -1,7 +1,7 @@
 ---
 title: Un système de téléphonie sans matériel ?
 date: 2017-06-12
-author: Sylvain Boily
+authors: sboily
 category: Wazo
 slug: wazo-unicom-fr
 status: published

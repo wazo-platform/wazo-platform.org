@@ -1,7 +1,7 @@
 ---
 title: Hey ChatGPT, write an article about Wazo and you
 date: 2023-01-11 10:00:00
-author: Sylvain BOILY
+authors: sboily
 category: Wazo Platform
 tags: [hack, chat, websocket, chatgpt, openai]
 slug: 2023-chatgpt-with-wazo

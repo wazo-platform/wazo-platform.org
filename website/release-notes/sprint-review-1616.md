@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 16.16
 date: 2016-12-12
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1616
@@ -44,7 +44,9 @@ We will describe here the changes made since XiVO 16.13, which is the release of
 
 ---
 
-Thanks for you support and encouragement and see you at the next sprint review!
+Thanks for you support and encouragement and See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

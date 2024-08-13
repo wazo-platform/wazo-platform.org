@@ -1,7 +1,7 @@
 ---
 title: Kamailio routing with rtjson and http_async_client
 date: 2019-11-11
-author: Fabio Tranchitella
+authors: ftranchitella
 category: Wazo Platform C4
 tags: [wazo-platform, c4, kamailio, sip, routing]
 slug: kamailio-routing-with-rtjson-and-http-async-client

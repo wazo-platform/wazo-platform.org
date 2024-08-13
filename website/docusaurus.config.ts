@@ -1,6 +1,6 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Wazo Platform',
@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'images/favicon.ico',
   staticDirectories: ['static'],
   markdown: {
-     mermaid: true,
+    mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
 
@@ -73,8 +73,8 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/release-notes', label: 'Release notes', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/release-notes', label: 'Release notes', position: 'left' },
         {
           href: 'https://github.com/wazo-platform',
           label: 'GitHub',
@@ -136,7 +136,7 @@ const config: Config = {
       darkTheme: prismThemes.oneDark,
     },
     mermaid: {
-      theme: {light: 'neutral', dark: 'dark'},
+      theme: { light: 'neutral', dark: 'dark' },
     },
   } satisfies Preset.ThemeConfig,
   plugins: [
@@ -147,9 +147,10 @@ const config: Config = {
         id: 'release-notes',
         routeBasePath: 'release-notes',
         path: './release-notes',
-      }
-    ]
-  ]
+        authorsMapPath: '../blog/authors.yml',
+      },
+    ],
+  ],
 };
 
 export default config;

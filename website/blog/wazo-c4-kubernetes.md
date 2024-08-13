@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform C4 now deployable on Kubernetes
 date: 2019-11-26
-author: Fabio Tranchitella and Aleksandar Sosic
+authors: [ftranchitella, asosic]
 category: Wazo Platform C4
 tags: [wazo-platform, c4, kubernetes, docker, cloud]
 slug: wazo-platform-c4-on-kubernetes

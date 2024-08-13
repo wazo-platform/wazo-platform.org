@@ -1,7 +1,7 @@
 ---
 title: New community forum
 date: 2019-11-21
-author: Rémy Garrigue
+authors: rgarrigue
 category: Wazo Platform
 tags: [wazo-platform, community]
 slug: new-community-forum
@@ -17,3 +17,5 @@ As you might have known, 2 months ago the old Wazo Community forum (`https://pro
 Here is the new forum : [https://wazo-platform.discourse.group/](https://wazo-platform.discourse.group/).
 
 And if a forum doesn't fit you, feel free to come talk with the community on our Mattermost [https://mm.wazo.community/wazo-platform](https://mm.wazo.community/wazo-platform).
+
+<!-- truncate -->

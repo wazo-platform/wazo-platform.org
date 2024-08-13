@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 20.13 Released
 date: 2020-09-28 12:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2013
@@ -55,6 +55,8 @@ Here is a short review of the Wazo Platform 20.13 release.
 For more details about the aforementioned topics, please see the roadmap linked below.
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

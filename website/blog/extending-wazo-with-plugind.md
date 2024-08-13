@@ -1,7 +1,7 @@
 ---
 title: Extending Wazo with Plugins
 date: 2017-06-26
-author: Pascal Cadotte Michaud
+authors: pcadottemichaud
 category: Wazo
 slug: extending-wazo-plugins-en
 status: published

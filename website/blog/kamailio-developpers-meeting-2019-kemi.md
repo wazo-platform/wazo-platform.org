@@ -1,7 +1,7 @@
 ---
 title: Kamailio developpers meeting 2019 - kemi framework
 date: 2019-12-06
-author: Mathias WOLFF
+authors: mwolff
 category: kamailio
 tags: [wazo-platform, development, kamailio, kemi]
 slug: kamailio-developpers-meeting-2019-kemi

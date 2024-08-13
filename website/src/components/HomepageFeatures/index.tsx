@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
 import { Icon } from '@iconify/react';
+import Heading from '@theme/Heading';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
@@ -15,16 +15,19 @@ const FeatureList: FeatureItem[] = [
     Svg: () => <Icon fontSize={64} icon="mdi:monitor-mobile-phone" />,
     description: (
       <>
-All the programmable interfaces are mobile and web friendly: WebRTC, REST API, WebSockets and Webhooks.
+        All the programmable interfaces are mobile and web friendly: WebRTC,
+        REST API, WebSockets and Webhooks.
       </>
     ),
   },
   {
     title: 'Easy to Consume',
-    Svg: () => <Icon fontSize={64} icon="mdi:api"/>,
+    Svg: () => <Icon fontSize={64} icon="mdi:api" />,
     description: (
       <>
-We designed the platform with an API-First approach. Building blocks are micro-services developed in Python. All APIs are described through OpenAPI specifications.
+        We designed the platform with an API-First approach. Building blocks are
+        micro-services developed in Python. All APIs are described through
+        OpenAPI specifications.
       </>
     ),
   },
@@ -33,13 +36,15 @@ We designed the platform with an API-First approach. Building blocks are micro-s
     Svg: () => <Icon fontSize={64} icon="mdi:shield" />,
     description: (
       <>
-The core Telecom engine is implemented using the Asterisk, RTPEngine and Kamailio projects. The technical core engine is based on RabbitMQ, NGinx and PostgreSQL.
+        The core Telecom engine is implemented using the Asterisk, RTPEngine and
+        Kamailio projects. The technical core engine is based on RabbitMQ, NGinx
+        and PostgreSQL.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -58,8 +63,8 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props) => (
+            <Feature key={props.title} {...props} />
           ))}
         </div>
       </div>

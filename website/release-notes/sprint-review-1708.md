@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 17.08
 date: 2017-06-01
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1708
@@ -31,6 +31,8 @@ The instructions for [installing Wazo](/uc-doc/installation/install-system) or [
 For more details about the aforementioned topics, please see the roadmap linked below.
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

@@ -1,7 +1,7 @@
 ---
 title: Integrating a Jabra Headset?
 date: 2020-01-21 12:30:00
-author: Emmanuel QUENTIN
+authors: equentin
 category: Wazo Software
 tags: [headset, switchboard, voip, jabra]
 slug: integrating-a-jabra-headset

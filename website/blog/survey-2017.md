@@ -1,7 +1,7 @@
 ---
 title: Survey
 date: 2017-11-23
-author: The Wazo Authors
+authors: wazoplatform
 category: Business
 slug: survey-2017
 status: published

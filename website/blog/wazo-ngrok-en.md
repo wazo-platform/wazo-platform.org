@@ -1,7 +1,7 @@
 ---
 title: Ngrok and Wazo integration
 date: 2017-05-26
-author: Sylvain Boily
+authors: sboily
 category: Wazo
 slug: wazo-ngrok-en
 status: published

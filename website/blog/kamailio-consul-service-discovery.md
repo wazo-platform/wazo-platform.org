@@ -1,7 +1,7 @@
 ---
 title: Kamailio service discovery with Consul
 date: 2019-12-02
-author: Fabio Tranchitella
+authors: ftranchitella
 category: Wazo Platform C4
 tags: [wazo-platform, c4, consul, kubernetes, cloud, kamailio, sip]
 slug: kamailio-consul-service-discovery

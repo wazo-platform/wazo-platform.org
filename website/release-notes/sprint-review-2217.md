@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 22.17 Released
 date: 2022-12-19T21:33:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2217
@@ -25,6 +25,8 @@ Here is a short review of the Wazo Platform 22.17 release.
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.17).
 
 Note that the next release will be on mid-January. Happy Holidays!
+
+<!-- truncate -->
 
 ## Resources
 

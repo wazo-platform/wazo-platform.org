@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 17.02
 date: 2017-01-30
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1702
@@ -29,6 +29,8 @@ We're back to our usual 3-weeks release cycle :)
 ---
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

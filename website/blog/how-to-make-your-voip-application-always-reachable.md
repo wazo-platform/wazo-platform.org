@@ -1,7 +1,7 @@
 ---
 title: How to Make your VoIP Application Always Reachable
 date: 2019-03-19 12:30:00
-author: Emmanuel QUENTIN
+authors: equentin
 category: Wazo IPBX
 tags: [mobile, notification, voip, callkit, connection-service, pushkit]
 slug: how-to-make-your-voip-application-always-reachable

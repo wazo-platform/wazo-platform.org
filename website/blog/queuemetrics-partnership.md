@@ -1,7 +1,7 @@
 ---
 title: New partnership with Loway's Queuemetrics-Live
 date: 2017-10-13
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo
 Tags:
 slug: wazo-queuemetrics-partnership

@@ -1,6 +1,59 @@
-# @TODO: add real authors
-jdoe:
-  name: John Doe
-  title: Developer
-  url: https://github.com/{}
-  image_url: https://github.com/{}.png
+wazoplatform:
+  name: The Wazo Platform team
+
+ahoguin:
+  name: Alexandre Hoguin
+
+asosic:
+  name: Aleksandar Sosic
+
+equentin:
+  name: Emmanuel Quentin
+
+fchartrand:
+  name: Francis Chartrand
+
+ftranchitella:
+  name: Fabio Tranchitella
+
+jalie:
+  name: Julien Alie
+
+jlambert:
+  name: Jean-Philippe Lambert
+
+jpascal:
+  name: Jérome Pascal
+
+jsopel:
+  name: Jesse Sopel
+
+mabaakouk:
+  name: Mehdi Abaakouk
+
+mgerray:
+  name: Manon Gerray
+
+mwolff:
+  name: Mathias Wolff
+
+pcadottemichaud:
+  name: Pascal Cadotte Michaud
+
+rgarrigue:
+  name: Rémy Garrigue
+
+safchain:
+  name: Sylvain Afchain
+
+sbaubeau:
+  name: Sylvain Baubeau
+
+sboily:
+  name: Sylvain Boily
+
+sduthil:
+  name: Sébastien Duthil
+
+tboyer:
+  name: Théo Boyer

@@ -1,7 +1,7 @@
 ---
 title: Have an itch with your communication system?
 date: 2017-02-01
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo]
 slug: itch-communication-system

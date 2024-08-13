@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 20.01 Released
 date: 2020-01-14
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: sprint-review-2001
@@ -35,7 +35,9 @@ Here is a short review of the Wazo Platform 20.01 release.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 
-See you at the next release!
+See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

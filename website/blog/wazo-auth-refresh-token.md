@@ -1,7 +1,7 @@
 ---
 title: Refresh Token in Wazo
 date: 2019-12-02
-author: Pascal Cadotte Michaud
+authors: pcadottemichaud
 category: Wazo Platform
 slug: wazo-auth-refresh-token
 tags: [wazo-platform, api, authentication]
