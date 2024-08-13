@@ -1,7 +1,7 @@
 ---
 title: Authenticate a user
 date: 2022-06-22 10:00:00
-authors: Pascal Cadotte Michaud
+authors: pcadottemichaud
 category: Developer Tutorial
 slug: authenticate-user-wazo-api
 ogimage: authenticate-user-wazo-api-og.jpg
