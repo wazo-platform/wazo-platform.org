@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 23.04 Released
 date: 2023-03-21T19:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2304
@@ -25,6 +25,8 @@ Here is a short review of the Wazo Platform 23.04 release.
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D23.04).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

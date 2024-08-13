@@ -1,7 +1,7 @@
 ---
 title: Creating our WebRTC demo
 date: 2021-11-16 10:00:00
-author: Manon Gerray
+authors: mgerray
 category: Wazo Platform
 tags: [wazo-platform, webrtc, frontend]
 slug: creating-our-webrtc-demo
@@ -21,7 +21,6 @@ The main goals I had when I took over the project were the following :
 - Totally redesign the application to improve user experience
 - Set up phone & video call, transfer & indirect transfer
 - Being able to call another number while already on call & switch between interlocutors
-
 
 ## Launching the Demo at Home
 

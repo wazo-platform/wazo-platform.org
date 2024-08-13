@@ -1,7 +1,7 @@
 ---
 title: Voici notre nouveau logo
 date: 2017-06-07
-author: Sylvain Boily
+authors: sboily
 category: Wazo
 slug: wazo-new-logo-fr
 status: published

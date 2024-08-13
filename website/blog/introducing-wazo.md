@@ -1,7 +1,7 @@
 ---
 title: Introducing Wazo
 date: 2016-12-05 13:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo software
 slug: introducing-wazo
 status: published

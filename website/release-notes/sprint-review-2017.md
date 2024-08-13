@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 20.17 Released
 date: 2020-12-21
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2017
@@ -32,6 +32,8 @@ below.
 We wish everybody happy holidays!
 
 See you next year for the release of Wazo Platform 21.01!
+
+<!-- truncate -->
 
 ## Resources
 

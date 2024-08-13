@@ -1,7 +1,7 @@
 ---
 title: Introducing Wazo Platform 19.13
 date: 2019-09-20
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: wazo-platform-1913

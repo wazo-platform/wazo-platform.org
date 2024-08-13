@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 21.16 Released
 date: 2021-12-03T15:14:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2116
@@ -41,6 +41,8 @@ For more details about the aforementioned topics, please see the
 [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.16).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

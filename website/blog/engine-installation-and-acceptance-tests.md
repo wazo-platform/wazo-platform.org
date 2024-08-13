@@ -1,7 +1,7 @@
 ---
 title: Development environment for Wazo Platform and acceptance tests
 date: 2019-11-20
-author: Mehdi Abaakouk
+authors: mabaakouk
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: engine-installation-acceptance-tests

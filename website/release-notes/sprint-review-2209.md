@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 22.09 Released
 date: 2022-06-21T21:08:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2209
@@ -35,6 +35,8 @@ Shout-out to user BnLG for his contributions which help to make Wazo platform ev
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.09).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

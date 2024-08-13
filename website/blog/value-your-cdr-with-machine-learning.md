@@ -1,7 +1,7 @@
 ---
 title: Value your CDR with Machine learning
 date: 2021-09-17 17:00:00
-author: Théo Boyer
+authors: tboyer
 category: Wazo Platform
 tags: [asterisk, applications, stasis, scalability, machine-learning, data-science]
 slug: value-cdr-machine-learning

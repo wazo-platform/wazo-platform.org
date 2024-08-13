@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 22.05 Released
 date: 2022-04-04T19:47:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2205
@@ -33,6 +33,8 @@ Here is a short review of the Wazo Platform 22.05 release.
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D22.05).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

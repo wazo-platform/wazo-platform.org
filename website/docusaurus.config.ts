@@ -147,6 +147,7 @@ const config: Config = {
         id: 'release-notes',
         routeBasePath: 'release-notes',
         path: './release-notes',
+        authorsMapPath: '../blog/authors.yml',
       },
     ],
   ],

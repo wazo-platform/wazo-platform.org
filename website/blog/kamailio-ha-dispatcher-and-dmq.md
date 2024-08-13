@@ -1,7 +1,7 @@
 ---
 title: 'Kamailio HA: dispatcher and dmq modules'
 date: 2019-11-15
-author: Fabio Tranchitella
+authors: ftranchitella
 category: Wazo Platform C4
 tags: [wazo-platform, c4, ha, kamailio, sip]
 slug: kamailio-ha-dispatcher-and-dmq

@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 17.17
 date: 2017-12-11
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1717
@@ -34,6 +34,8 @@ The instructions for [upgrading Wazo](/uc-doc/upgrade/introduction) as also avai
 For more details about the aforementioned topics, please see the roadmap linked below.
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

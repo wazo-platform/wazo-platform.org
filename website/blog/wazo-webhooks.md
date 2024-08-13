@@ -1,7 +1,7 @@
 ---
 title: Webhook coming in Wazo
 date: 2017-05-18
-author: Sylvain Boily
+authors: sboily
 category: Wazo
 slug: wazo-webhook
 status: published

@@ -1,7 +1,7 @@
 ---
 title: Hackapong Fun at the Shop!
 date: 2022-11-04
-author: Jean-Philippe Lambert & Alex Hoguin
+authors: [ahoguin, jlambert]
 category: Hackathon
 tags: [hackathon, dtmf, websocket]
 slug: hackathon-2022-building-a-pong
@@ -17,7 +17,6 @@ Our team decided to put the WDA plugin functionality to good use and we decided 
 <!-- truncate -->
 
 To accomplish that feat we used existing tools from the wazo platform as well as webrtc, asterisk, nginx, etc, and some that are not yet available i.e. the plugin interface that is in the works for WDA.
-
 
 We started by finding a pong javascript [codebase](https://gist.github.com/straker/81b59eecf70da93af396f963596dfdc5) that was functional and had all the features we needed. We used an open-source project and we built on that.
 

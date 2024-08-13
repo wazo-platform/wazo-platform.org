@@ -1,7 +1,7 @@
 ---
 title: Live Conversation Transcript
 date: 2020-01-03
-author: Pascal Cadotte Michaud
+authors: pcadottemichaud
 category: Wazo Platform
 tags: [wazo-platform, asterisk, stt, astricon]
 slug: live-transcript-demo-astricon-19

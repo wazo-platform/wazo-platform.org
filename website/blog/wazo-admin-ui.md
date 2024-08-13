@@ -1,7 +1,7 @@
 ---
 title: The new web interface of Wazo
 date: 2017-05-11
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo
 slug: wazo-admin-ui
 status: published

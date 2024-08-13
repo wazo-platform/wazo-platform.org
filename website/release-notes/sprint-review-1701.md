@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 17.01
 date: 2017-01-09
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1701
@@ -29,6 +29,8 @@ We took a bit of extra time to release this version, due to the holidays here in
 ---
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

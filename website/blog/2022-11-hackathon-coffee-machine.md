@@ -1,7 +1,7 @@
 ---
 title: Hackathon 2022 - The Virtual Coffee Machine
 date: 2023-01-19 12:00:00
-author: Sébastien Duthil
+authors: sduthil
 category: Hackathon
 tags: [web, plugin, coffee, machine, app]
 slug: hackathon-2022-virtual-coffee-machine

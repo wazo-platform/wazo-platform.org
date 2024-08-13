@@ -1,7 +1,7 @@
 ---
 title: Hackathon 2022 - Bridging Wazo and Matrix
 date: 2022-11-18 12:00:00
-author: Jesse Sopel
+authors: jsopel
 category: Hackathon
 tags: [chat, python, matrix, bridge, hackathon]
 slug: hackathon-2022-bridging-wazo-and-matrix

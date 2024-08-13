@@ -1,7 +1,7 @@
 ---
 title: Preview of linear ring group feature
 date: 2024-04-25T13:17:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: linear-ring-group-preview
@@ -24,12 +24,11 @@ This is of course problematic for high-load deployments of the Wazo Platform, an
 After many attempts to evaluate viable solution paths, and considering undertaking patches to the Asterisk `app_queue` module, we finally found a simpler, more viable solution for us: that of implementing the linear strategy for ring groups without relying on the `Queue` application and the `app_queue` module.
 
 > **Publication Note**: due to a publishing mistake, this post was left unpublished following its redaction. As it concerns the 24.06 release, the new 24.07 release might imply some changes to the information presented here.
-For up-to-date information on the state of this feature in the latest release, please refer to release notes and related publications for release version 24.07 or later.
+> For up-to-date information on the state of this feature in the latest release, please refer to release notes and related publications for release version 24.07 or later.
 >
 > As a companion to the 24.06 sprint review blog post, here's some detail on a feature that is made available behind a feature flag in this sprint.
 >
 > The linear ring group feature is a reimplementation of our ring group feature in order to address a longstanding issue within the existing implementation.
-
 
 ## Some explanation
 

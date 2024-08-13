@@ -1,7 +1,7 @@
 ---
 title: Sprint Review 17.04
 date: 2017-03-13
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo IPBX
 tags: [wazo, development]
 slug: sprint-review-1704
@@ -33,6 +33,8 @@ Hello Wazo community! Here comes the release of Wazo 17.04!
 The instructions for [installing Wazo](/uc-doc/installation/install-system) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 Sources:
 

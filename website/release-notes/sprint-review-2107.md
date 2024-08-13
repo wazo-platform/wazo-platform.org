@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 21.07 Released
 date: 2021-05-28T17:31:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2107
@@ -31,6 +31,8 @@ Here is a short review of the Wazo Platform 21.07 release.
 For more details about the aforementioned topics, please see the roadmap linked below.
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

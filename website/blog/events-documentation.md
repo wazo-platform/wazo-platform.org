@@ -1,7 +1,7 @@
 ---
 title: New Events Documentation
 date: 2022-10-22 13:00:00
-author: Julien Alie
+authors: jalie
 category: Wazo Platform
 tags: [applications, documentation]
 slug: new-events-documentation

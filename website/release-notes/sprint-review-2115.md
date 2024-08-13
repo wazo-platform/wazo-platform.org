@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 21.15 Released
 date: 2021-11-15T08:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2115
@@ -30,6 +30,8 @@ For more details about the aforementioned topics, please see the
 [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D21.15).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 

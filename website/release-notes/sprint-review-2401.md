@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 24.01 Released
 date: 2024-01-15T08:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2401
@@ -29,6 +29,8 @@ This sprint was mostly dedicated to improve technical stuff and workflow
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.01).
 
 See you at the next sprint review!
+
+<!-- truncate -->
 
 ## Resources
 
