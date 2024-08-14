@@ -1,0 +1,44 @@
+.demo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.description {
+    margin: 0 0 10rem 0;
+    flex: 0 0 70ch;
+    text-wrap: pretty;
+}
+
+.animation {
+    flex: 0 0 640px;
+    height: 640px;
+    width: 100%;
+    max-width: 640px;
+    margin-top: -96px !important;
+}
+
+@media (max-width: 1280px) {
+    .demo {
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: center;
+    }
+
+    .description {
+        flex: 1;
+        margin: 2rem;
+        max-width: 70ch;
+        text-align: center;
+    }
+
+    .animation {
+        margin-top: -192px !important;
+    }
+}

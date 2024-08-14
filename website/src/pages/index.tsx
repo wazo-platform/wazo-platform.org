@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Showcase from '../components/Showcase';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -37,14 +38,17 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
+const Home = () => {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <Showcase />
       </main>
     </Layout>
   );
-}
+};
+
+export default Home;

@@ -2514,6 +2514,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lottiefiles/react-lottie-player@npm:^3.5.4":
+  version: 3.5.4
+  resolution: "@lottiefiles/react-lottie-player@npm:3.5.4"
+  dependencies:
+    lottie-web: "npm:^5.12.2"
+  peerDependencies:
+    react: 16 - 18
+  checksum: 10c0/fbd154c1291648d1c652e37cbd95e71991a48c6c6da2f1de7cc632fd6c4b4e5ab35336ee788cf65f01c036dae89f7cfbe89638c6ee6048590b0c9a671289e480
+  languageName: node
+  linkType: hard
+
 "@mdx-js/mdx@npm:^3.0.0":
   version: 3.0.1
   resolution: "@mdx-js/mdx@npm:3.0.1"
@@ -7899,6 +7910,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-web@npm:^5.12.2":
+  version: 5.12.2
+  resolution: "lottie-web@npm:5.12.2"
+  checksum: 10c0/0aeaf631b10a76afd025df70c2a1486543530708e07a316946c08e55891dac483ffbaf2bf3648ae0b9c54c733118a0a086fd150aa76f7848606214c67ad72c30
+  languageName: node
+  linkType: hard
+
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -12600,6 +12618,7 @@ __metadata:
     "@docusaurus/tsconfig": "npm:^3.5.2"
     "@docusaurus/types": "npm:^3.5.2"
     "@iconify/react": "npm:^5.0.1"
+    "@lottiefiles/react-lottie-player": "npm:^3.5.4"
     "@mdx-js/react": "npm:^3.0.0"
     clsx: "npm:^2.0.0"
     prism-react-renderer: "npm:^2.3.0"
