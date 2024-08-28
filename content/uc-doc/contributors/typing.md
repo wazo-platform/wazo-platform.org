@@ -151,6 +151,9 @@ This allows you to, for example:
 - Import things that either aren’t needed or could create problems if imported at runtime (e.g.
   avoid circular import errors).
 
+In general, use `TYPE_CHECKING` only if necessary. Typing-only imports should be treated as any
+other import.
+
 #### Example:
 
 ```python
