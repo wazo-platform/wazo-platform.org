@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 24.12 {#24-12}
+
+Consult the
+[24.12 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.12)
+for more information.
+
 ## 24.11 {#24-11}
 
 - Wazo services logs are no longer captured by `rsyslog` and written in `/var/log/daemon.log` and
