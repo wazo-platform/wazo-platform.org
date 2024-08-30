@@ -148,8 +148,8 @@ This allows you to, for example:
   current version)
 - Do some unfortunate workaround for typing in older language versions
 - Import things from typing that don’t exist in older versions of Python like `StringLiteral`
-- Import things that either aren’t needed or could create problems if imported at runtime (e.g.
-  avoid circular import errors).
+- Import things that could create problems if imported at runtime (e.g. avoid circular import
+  errors).
 
 In general, use `TYPE_CHECKING` only if necessary. Typing-only imports should be treated as any
 other import.
@@ -157,24 +157,24 @@ other import.
 #### Example:
 
 ```python
+# Copyright ...
+
 from __future__ import annotations
 
 import threading
 from collections.abc import Callable, Collection
 from typing import TYPE_CHECKING, TypedDict
 
+from wazo_auth_client.client import AuthClient  # only needed for type checking
 
 if TYPE_CHECKING:
     from typing import NotRequired  # Only exists in 3.11+
 
-    from wazo_auth_client.client import AuthClient  # only imported when type checking
-
-    Callback = Callable[[Collection[str]], None]
-
-    class CallbackDict(TypedDict):
-        method: Callback
-        details: bool
-        extra: NotRequired[str]
+Callback = Callable[[Collection[str]], None]
+class CallbackDict(TypedDict):
+    method: Callback
+    details: bool
+    extra: NotRequired[str]
 
 
 class TokenRenewer:
