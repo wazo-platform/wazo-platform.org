@@ -259,8 +259,14 @@ Once the database and files have been restored, you can
 
    Then edit `/etc/systemd/system.conf` to update `XIVO_UUID` in `DefaultEnvironment`
 
-2. You may reboot the system, or execute the following steps.
-3. Update systemd runtime configuration:
+1. Synchronize the restored database with configuration files:
+
+   ```shell
+   xivo-update-config
+   ```
+
+1. You may reboot the system, or execute the following steps.
+1. Update systemd runtime configuration:
 
    ```shell
    source /etc/profile.d/xivo_uuid.sh
@@ -268,7 +274,7 @@ Once the database and files have been restored, you can
    systemctl daemon-reload
    ```
 
-4. Restart the services you stopped in the first step:
+1. Restart the services you stopped in the first step:
 
    ```shell
    wazo-service start
