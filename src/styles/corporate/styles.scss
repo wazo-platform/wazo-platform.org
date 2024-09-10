@@ -34,24 +34,42 @@ section.cards-section > div > h3 {
 }
 
 .cards-section {
-  .cards-wrapper {
-    max-width: inherit;
-  }
+  > div { padding: 60px 0 }
+
+  .cards-wrapper { max-width: inherit; }
 
   .item-inner {
+    transition: 250ms ease background, 250ms ease box-shadow;
     padding: 20px 30px 30px;
+    border-top: 1px solid #f0f0f0 !important;
+    border-bottom: 3px solid var(--wazo-blue) !important;
+    background: #fff;
+
     &:hover {
-      background: #fff;
+      background: #FCFCFC !important;
+      box-shadow: 0 0 30px rgba(0,0,0,.05);
+
+      h3 { color: var(--wazo-blue) !important; }
     }
-    a {
+
+    h3 {
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      color: var(--wazo-blue);
+      font-weight: bold;
+    }
+
+    > a {
+      text-decoration: none;
+      .icon { color: var(--wazo-blue); }
+    }
+
+    .list-group a {
       text-decoration: none;
       color: #212529;
-      &:hover {
-        background: #f0f4f9;
-      }
-      h3 {
-        color: #494d55;
-      }
+
+      &:hover { background: #f0f4f9; }
+
     }
   }
 
