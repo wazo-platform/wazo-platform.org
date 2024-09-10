@@ -237,35 +237,6 @@ select {
 }
 
 /* ====== Header ====== */
-header.header {
-  background: #323699;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 15px 0;
-
-  a {
-    color: #fff;
-  }
-
-  .container {
-    position: relative;
-  }
-}
-
-.branding {
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.branding .logo {
-  font-size: 28px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.branding .logo a {
-  text-decoration: none;
-}
-
 .branding .text-highlight {
   color: #40babd;
 }
@@ -1206,72 +1177,7 @@ header.header {
   display: table;
 }
 
-/* ======= Landing Page ======= */
-.landing-page .header {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.landing-page .header a {
-  color: #fff;
-}
-
-.landing-page .branding {
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.landing-page .branding .logo {
-  font-size: 38px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.landing-page .branding .text-bold {
-  font-weight: 800;
-  color: #fff;
-}
-
-.landing-page .branding .icon {
-  font-size: 32px;
-  color: #40babd;
-}
-
-.landing-page .tagline {
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.landing-page .tagline p {
-  margin-bottom: 5px;
-}
-
-.landing-page .tagline p:last-child {
-  margin-bottom: 0;
-}
-
-.landing-page .tagline .text-highlight {
-  color: #266f71;
-}
-
-.landing-page .fa-heart {
-  color: #EA5395;
-}
-
-.landing-page .cta-container {
-  margin-top: 30px;
-}
-
-.landing-page .social-container .twitter-tweet {
-  display: inline-block;
-  margin-right: 5px;
-  position: relative;
-  top: 5px;
-}
-
-.landing-page .social-container .fab-like {
-  display: inline-block;
-}
-
+/* ======= Cards ======= */
 .cards-section {
   padding: 60px 0;
   background: #f9f9fb;
