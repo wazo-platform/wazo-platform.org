@@ -5,73 +5,100 @@ import { Link } from 'gatsby';
 import Search from './corporate/search';
 
 const WazoHeader = () => {
-  return <>
-    <div className="wazo-header">
-      <div className="container">
-        <div className="site-logo">
-          <a href="/" title="Wazo" rel="home">
-            <img className="header-image" alt="Wazo" src="https://i1.wp.com/wazo.io/wp-content/uploads/2020/03/WAZO-LogoWAZO-transparent-2.png?resize=300%2C79&ssl=1" title="Wazo" />
-          </a>
-        </div>
-
-        <nav id="site-navigation" className="has-sticky-branding main-navigation stuckElement" itemType="https://schema.org/SiteNavigationElement">
-          <div className="inside-navigation grid-container grid-parent">
-
-            <div id="primary-menu" className="main-nav">
-              <ul id="menu-nav_light" className=" menu sf-menu">
-                  <li id="menu-item-1286" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1286"><a href="https://wazo.io/">Corporate Site</a></li>
-                  <li id="menu-item-1287" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1287"><a href="https://support.wazo.io/hc/en-us">Documentation</a></li>
-              </ul>
-            </div>
+  return (
+    <>
+      <div className="wazo-header">
+        <div className="container">
+          <div className="site-logo">
+            <a href="/" title="Wazo" rel="home">
+              <img
+                className="header-image"
+                alt="Wazo"
+                src="https://wazo.io/wp-content/uploads/2023/04/logo-wazo.svg"
+                title="Wazo"
+              />
+            </a>
           </div>
-        </nav>
+
+          <nav
+            id="site-navigation"
+            className="has-sticky-branding main-navigation stuckElement"
+            itemType="https://schema.org/SiteNavigationElement"
+          >
+            <div className="inside-navigation grid-container grid-parent">
+              <div id="primary-menu" className="main-nav">
+                <ul id="menu-nav_light" className=" menu sf-menu">
+                  <li>
+                    <a target="_blank" rel="noreferrer" href="https://developers.wazo.io">Developers Docs</a>
+                  </li>
+                  <li>
+                    <a target="_blank" rel="noreferrer" href="https://wazo.io/">Corporate Site</a>
+                  </li>
+                  <li>
+                    <a target="_blank" rel="noreferrer" href="https://support.wazo.io/hc/en-us">Support</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
-  </>;
+    </>
+  );
 }
 
-const HomeHeader = () => (
+const Header = ({ children }) => (
   <header className="header">
     <WazoHeader />
-    <div className="container text-center" style={{ marginTop: 20 }}>
+
+    <div className='sub'>
+      { children }
+    </div>
+  </header>
+)
+
+const HomeHeader = () => (
+  <Header>
+    <div className="container text-center">
       <div className="branding">
         <h1 className="logo">
-          <span className="text-bold">Welcome to Wazo Developers Center</span>
+          <span className="text-bold">API References</span>
         </h1>
       </div>
       <div className="tagline">
-        <p>
-        A rich library of 450+ APIs & SDKs
-        </p>
+        <p>A rich library of 450+ APIs & SDKs</p>
       </div>
 
       <Search />
     </div>
-  </header>
+  </Header>
 );
 
 const PageHeader = () => (
   <header className="header">
     <WazoHeader />
-    <div className="container sub">
-      <div>
-        <div className="branding">
-          <h1 className="logo">
-            <Link to="/">
-              <span className="text-bold">Documentation</span>
-            </Link>
-          </h1>
+
+    <div className="sub">
+      <div className="container">
+        <div>
+          <div className="branding">
+            <h1 className="logo">
+              <Link to="/">
+                <span className="text-bold">Documentation</span>
+              </Link>
+            </h1>
+          </div>
+
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item active">Quick Start</li>
+          </ol>
         </div>
 
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="breadcrumb-item active">Quick Start</li>
-        </ol>
-     </div>
-
-    <Search />
+        <Search />
+      </div>
     </div>
   </header>
 );
