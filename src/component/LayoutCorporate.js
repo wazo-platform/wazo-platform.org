@@ -129,7 +129,7 @@ const Page = ({children, isHome}) => {
 
         <div>
           <small className="copyright">
-            &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication</a>
+            Copyright &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication Inc</a>
           </small>
         </div>
       </div>

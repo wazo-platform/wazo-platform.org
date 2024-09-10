@@ -186,9 +186,9 @@ header.header {
 
 // Footer
 // ---------
-.footer {
-  margin-top: 20px;
-  padding: 30px 0;
+footer.footer {
+  background: #262829;
+  padding: 30px 0 50px !important;
 
   a { color: #fff; }
 
@@ -196,6 +196,14 @@ header.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+
+  }
+}
+
+@media (max-width: 650px) {
+  footer.footer .container {
+    flex-direction: column;
   }
 }
 
