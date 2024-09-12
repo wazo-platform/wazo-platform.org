@@ -14,7 +14,7 @@ const WazoHeader = () => {
               <img
                 className="header-image"
                 alt="Wazo"
-                src="https://wazo.io/wp-content/uploads/2023/04/logo-wazo.svg"
+                src="/images/logo-wazo.svg"
                 title="Wazo"
               />
             </a>

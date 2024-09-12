@@ -184,20 +184,61 @@ header.header {
   }
 }
 
+@media (max-width: 790px) {
+  .wazo-header {
+    padding: 10px;
+
+    ul li a {
+      padding: 12px 10px;
+
+      &[href^=https] {
+        padding-right: 20px;
+        &::after { right: 8px }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .wazo-header {
+    .container {
+      max-width: 100%;
+    }
+
+    // Keep only link to developers.wazo.io
+    ul li {
+      display: none;
+      &:first-child { display: block; }
+
+      a {
+        font-size: 0.85rem;
+        padding: 12.5px 5px
+      }
+    }
+  }
+}
+
+
 // Footer
 // ---------
 footer.footer {
   background: #262829;
   padding: 30px 0 50px !important;
 
-  a { color: #fff; }
+  .fa-heart { color: var(--wazo-red); }
+
+  a {
+    color: #fff;
+    text-decoration: underline 2px #262829;
+
+    &:hover, &:active { text-decoration: underline 2px var(--wazo-red); }
+  }
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-
   }
 }
 
