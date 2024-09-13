@@ -39,7 +39,7 @@ systemctl restart nginx
 ```
 
 For more details, see the official
-[Certbot documentation](https://certbot.eff.org/instructions?ws=nginx&os=debianbuster).
+[Certbot documentation](https://certbot.eff.org/instructions?ws=nginx&os=snap).
 
 ## Use your own certificate
 
