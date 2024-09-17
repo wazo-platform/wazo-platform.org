@@ -42,4 +42,4 @@ For the Coffee Machine we needed a few extra API in the Wazo server to add the p
 
 The code of the Coffee Machine plugin can be found on [Github](https://github.com/TinxHQ/hackathon-coffee). This is only an example of what Wazo can do, and keep in mind that it was written in only a few hours, so it may not be the cleanest code ever...
 
-Curious how our enterprise's SDK enable customization for our apps easily? Take a look at our [plugin documentation](https://wazo-communication.github.io/euc-plugins-js-sdk/docs/plugins/introduction).
+Curious how our enterprise's SDK enable customization for our apps easily? Take a look at our [plugin documentation](https://developers.wazo.io/docs/plugins/ui/get-started/).
