@@ -14,7 +14,7 @@ Here is a short review of the Wazo Platform 24.13 release.
 
 ## New Features in This Release
 
-- **Voicemail**: The API to manage voicemails are now tenant-aware
+- **Voicemail**: The APIs to manage voicemails are now tenant-aware
 - **Call Logs**: Added a new property `requested_user_uuid` to CDRs which
   provides the UUID of the user originally being called.
 
