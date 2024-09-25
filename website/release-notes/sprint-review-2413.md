@@ -1,9 +1,9 @@
 ---
 title: Wazo Platform 24.13 Released
 date: 2024-09-23T07:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
-tags: wazo-platform, development
+tags: [wazo-platform, development]
 slug: release-review-2413
 status: published
 ---

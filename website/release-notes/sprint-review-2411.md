@@ -1,9 +1,9 @@
 ---
 title: Wazo Platform 24.11 Released
 date: 2024-08-12T08:00:00
-author: The Wazo Authors
+authors: wazoplatform
 category: Wazo Platform
-tags: wazo-platform, development
+tags: [wazo-platform, development]
 slug: release-review-2411
 status: published
 ---
