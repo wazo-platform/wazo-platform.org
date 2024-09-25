@@ -6,6 +6,7 @@ services:
       - '8000:8000'
     volumes:
       - ./src:/app/src:ro
+      - ./scripts:/app/scripts:ro
       - ./content:/app/content:ro
       - ./.prettierrc:/app/.prettierrc:ro
       - ./static:/app/static:ro
