@@ -59,6 +59,7 @@ typings/
 public
 config.js
 config-wazo.js
+content/blog/sprint-review-*.md
 
 # Mac files
 .DS_Store
