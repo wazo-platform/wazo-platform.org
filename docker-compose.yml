@@ -7,7 +7,9 @@ services:
     volumes:
       - ./src:/app/src:ro
       - ./scripts:/app/scripts:ro
-      - ./content:/app/content:ro
+      - ./content:/app/content
+      - ./website/release-notes:/app/website/release-notes:ro
+      - ./website/blog:/app/website/blog:ro
       - ./.prettierrc:/app/.prettierrc:ro
       - ./static:/app/static:ro
       - ./gatsby-node.js:/app/gatsby-node.js:ro

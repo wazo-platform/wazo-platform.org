@@ -4,7 +4,7 @@
 # 1. Sync release note & blog posts
 echo "🔃 Sync release note & blog posts from docusaurus\n"
 rm -r content/blog || true
-mkdir content/blog
+mkdir content/blog || true
 cp website/release-notes/*.md website/blog/*.md content/blog/
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
