@@ -59,6 +59,7 @@ typings/
 public
 config.js
 config-wazo.js
+content/blog/*
 
 # Mac files
 .DS_Store
