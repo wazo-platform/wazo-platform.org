@@ -2,6 +2,13 @@
 title: Upgrade notes
 ---
 
+## 24.14 {#24-14}
+
+- The `xivo-fix-paths-rights` upgrade script has been removed from the `pre-start.d` script
+  collection. The core of the changes that this script does has been included in the asterisk
+  packaging. If you have any issues with file permissions, it is still possible to run it manually
+  by executing `xivo-fix-paths-rights`.
+
 ## 24.13 {#24-13}
 
 Consult the
