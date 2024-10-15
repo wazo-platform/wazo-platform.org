@@ -14,14 +14,17 @@ Here is a short review of the Wazo Platform 24.14 release.
 
 ## Technical
 
-- **Call Logs**: Call logs now better handles call forwarding. The requested fields will contain the call's intended target information while destination fields
-  will contain the forwarded callee information
+- **Call Logs**: Call logs now better handles call forwarding. The requested fields will contain the
+  call's intended target information while destination fields will contain the forwarded callee
+  information
 
 ## Ongoing Features
 
-- **Phone numbers**: We are working on a new phone number API that will be used in conjunction with incoming calls and the selection of outgoing caller ID
+- **Phone numbers**: We are working on a new phone number API that will be used in conjunction with
+  incoming calls and the selection of outgoing caller ID
 
-For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.14).
+For more details about the aforementioned topics, please see the
+[changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D24.14).
 
 See you at the next sprint review!
 

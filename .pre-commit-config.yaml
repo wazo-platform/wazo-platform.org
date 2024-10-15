@@ -14,5 +14,5 @@ repos:
         alias: prettier-uc-doc
         name: 'prettier formatting for uc-doc documents'
         args: ['--config', '.prettierrc', '--prose-wrap', 'always']
-        files: ^content/uc-doc/.+?\.md$
+        files: '^(content/uc-doc|website)/.+?\.md$'
         types_or: [markdown]
