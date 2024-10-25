@@ -1,5 +1,6 @@
 ---
-title: "wazo-dird developer's guide"
+title: "Developer's guide (wazo-dird)"
+sidebar_label: Developer's Guide
 ---
 
 ![wazo-dird startup flow](/images/uc-doc/system/wazo-dird/startup.png)

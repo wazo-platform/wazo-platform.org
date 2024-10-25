@@ -1,5 +1,6 @@
 ---
 title: "Developer's Guide (wazo-calld)"
+sidebar_label: Developer's Guide
 ---
 
 # Transfers

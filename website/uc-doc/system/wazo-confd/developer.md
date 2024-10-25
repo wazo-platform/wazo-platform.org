@@ -1,5 +1,6 @@
 ---
 title: Developer's Guide (wazo-confd)
+sidebar_label: Developer's Guide
 ---
 
 wazo-confd resources are organised through a plugin mechanism. There are 2 main plugin categories:

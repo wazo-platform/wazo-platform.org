@@ -1,5 +1,6 @@
 ---
-title: Wazo confgend developer's guide
+title: Developer's guide (wazo-confgend)
+sidebar_label: Developer's Guide
 ---
 
 wazo-confgend uses drivers to implement the logic required to generate configuration files. It uses

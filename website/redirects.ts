@@ -37,6 +37,26 @@ const REDIRECTS: Options['redirects'] = [
     from: '/uc-doc/upgrade/introduction',
     to: '/uc-doc/upgrade',
   },
+  {
+    from: '/uc-doc/upgrade/upgrade_specific_version/introduction',
+    to: '/uc-doc/upgrade/upgrade_specific_version',
+  },
+  {
+    from: '/uc-doc/system/wazo-auth/introduction',
+    to: '/uc-doc/system/wazo-auth',
+  },
+  {
+    from: '/uc-doc/system/wazo-confd/introduction',
+    to: '/uc-doc/system/wazo-confd',
+  },
+  {
+    from: '/uc-doc/system/wazo-confgend/introduction',
+    to: '/uc-doc/system/wazo-confgend',
+  },
+  {
+    from: '/uc-doc/system/wazo-dird/introduction',
+    to: '/uc-doc/system/wazo-dird',
+  },
 ];
 
 export default REDIRECTS

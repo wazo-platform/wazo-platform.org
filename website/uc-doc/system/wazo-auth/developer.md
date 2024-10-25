@@ -1,5 +1,6 @@
 ---
-title: wazo-auth Developer's Guide
+title: Developer's Guide (wazo-auth)
+sidebar_label: Developer's Guide
 ---
 
 ## Architecture
