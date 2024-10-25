@@ -2,9 +2,6 @@
 title: Sound Files
 ---
 
-- [Add Sounds Files](#add-sounds-files)
-- [Convert Your Wav File](#wav-files)
-
 ## Add Sounds Files
 
 On a fresh install, only `en_US` and `fr_FR` sounds are installed. Canadian French and German are

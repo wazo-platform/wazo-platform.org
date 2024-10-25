@@ -2,9 +2,6 @@
 title: Users
 ---
 
-- [csv_import](/uc-doc/administration/users/csv_import)
-- [User Management](/uc-doc/api_sdk/rest_api/confd/user_management)
-
 ## Function keys
 
 Function keys can be configured to customize the user's phone keys. The `blf` field allows the key

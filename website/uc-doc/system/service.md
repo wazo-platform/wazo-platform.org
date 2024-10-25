@@ -2,8 +2,6 @@
 title: 'wazo-service'
 ---
 
-- [Usage](#usage)
-
 Wazo has many running services. To restart the whole stack, the `wazo-service` command can be used
 to make sure the service is restarted in the right order.
 

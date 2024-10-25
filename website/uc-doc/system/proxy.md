@@ -2,12 +2,6 @@
 title: Proxy Configuration
 ---
 
-- [apt](#apt)
-- [provd](#provd)
-- [dhcp-update](#dhcp-update)
-- [xivo-fetchfw](#xivo-fetchfw)
-- [wazo-auth, wazo-dird](#wazo-auth-wazo-dird)
-
 If you use Wazo behind an HTTP proxy, you must do a couple of manipulations for it to work
 correctly.
 

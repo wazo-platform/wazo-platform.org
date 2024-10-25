@@ -2,12 +2,6 @@
 title: 'Mobile Push Notifications'
 ---
 
-- [Configuring push notifications](#configuring-push-notifications)
-  - [Configuring FCM support](#configuring-fcm-support)
-  - [Configuring APNS support](#configuring-apns-support)
-- [Push notification types](#push-notification-types)
-- [Triggering push notifications through the API](#triggering-push-notifications-through-the-api)
-
 The Wazo Platform can generate push notifications for mobile users, through the wazo-webhookd
 component.
 

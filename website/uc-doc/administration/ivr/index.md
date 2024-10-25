@@ -2,19 +2,6 @@
 title: Interactive Voice Response
 ---
 
-- [Introduction](#introduction)
-- [Use Case: Minimal IVR](#use-case-minimal-ivr)
-  - [Flowchart](#flowchart)
-  - [Configuration File and Dialplan](#configuration-file-and-dialplan)
-  - [IVR external dial](#ivr-external-dial)
-  - [IVR internal dial](#ivr-internal-dial)
-- [Use Case: IVR with a schedule](#use-case-ivr-with-a-schedule)
-  - [Flowchart](#flowchart-1)
-  - [Create Schedule](#create-schedule)
-- [Use Case: IVR with submenu](#use-case-ivr-with-submenu)
-  - [Flowchart](#flowchart-2)
-  - [Configuration File and Dialplan](#configuration-file-and-dialplan-1)
-
 ## Introduction
 
 > _Interactive voice response (IVR) is a technology that allows a computer to interact with humans

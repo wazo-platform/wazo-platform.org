@@ -2,9 +2,6 @@
 title: 'wazo-sysconfd'
 ---
 
-- [Configuration File](#sysconfd-configuration)
-  - [request_handlers section](#request-handlers-section)
-
 wazo-sysconfd is the system configuration server for Wazo. It does quite a few different things;
 here's a non exhaustive list:
 

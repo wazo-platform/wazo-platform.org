@@ -2,16 +2,6 @@
 title: WebSocket Event Service
 ---
 
-- [Getting Started](#getting-started)
-  - [Example](#example)
-- [Reference](#reference)
-  - [Authentication](#authentication)
-  - [Events Access Control](#ws-events-acl)
-  - [Status Code](#ws-status-code)
-  - [Protocol](#ws-protocol)
-    - [Client Messages](#client-messages)
-    - [Server Messages](#server-messages)
-
 Wazo offers a service to receive messages published on the
 [bus (e.g. RabbitMQ)](/uc-doc/api_sdk/message_bus) over an encrypted
 [WebSocket](https://en.wikipedia.org/wiki/WebSocket) connection. This ease in building dynamic web

@@ -2,10 +2,6 @@
 title: REST API Troubleshooting
 ---
 
-- [Swagger UI: Can't read from server...](#swagger-ui-cant-read-from-server...)
-  - [Problem](#problem)
-  - [Answer](#answer)
-
 Here is a list of common problems you can encounter with Wazo REST APIs.
 
 ## Swagger UI: Can't read from server...

@@ -2,11 +2,6 @@
 title: Certificates for HTTPS
 ---
 
-- [Wazo and HTTPS](#wazo-and-https)
-- [Let's Encrypt](#lets-encrypt)
-- [Use your own certificate](#use-your-own-certificate)
-- [Revert previous custom HTTPS certificate configuration](#revert-previous-custom-https-certificate-configuration)
-
 X.509 certificates are used to authorize and secure communications with the server. They are mainly
 used for HTTPS, but can also be used for SIPS, CTIS, WSS, etc.
 

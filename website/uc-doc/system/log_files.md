@@ -2,25 +2,6 @@
 title: Log Files
 ---
 
-- [asterisk](#asterisk)
-- [wazo-auth](#wazo-auth)
-- [wazo-agid](#wazo-agid)
-- [wazo-calld](#wazo-calld)
-- [wazo-dird](#wazo-dird)
-- [wazo-upgrade](#wazo-upgrade)
-- [wazo-agentd](#wazo-agentd)
-- [wazo-amid](#wazo-amid)
-- [wazo-call-logd](#wazo-call-logd)
-- [wazo-confd](#wazo-confd)
-- [wazo-confgend](#wazo-confgend)
-- [wazo-phoned](#wazo-phoned)
-- [wazo-dxtora](#wazo-dxtora)
-- [wazo-provd](#wazo-provd)
-- [wazo-purge-db](#wazo-purge-db)
-- [wazo-stat](#wazo-stat)
-- [wazo-sysconfd](#wazo-sysconfd)
-- [wazo-websocketd](#wazo-websocketd)
-
 Every Wazo service has its own log file, placed in `/var/log`.
 
 ## asterisk

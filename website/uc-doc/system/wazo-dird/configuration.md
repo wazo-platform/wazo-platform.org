@@ -2,10 +2,6 @@
 title: 'wazo-dird configuration'
 ---
 
-- [Main Configuration File](#main-configuration-file)
-  - [Root section](#root-section)
-  - [enabled_plugins section](#enabled-plugins-section)
-
 There are three sources of configuration for wazo-dird:
 
 - the [command line options](/uc-doc/system/wazo-dird/introduction#wazo-dird-usage)
