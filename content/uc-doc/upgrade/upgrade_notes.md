@@ -2,6 +2,12 @@
 title: Upgrade notes
 ---
 
+## 24.15 {#24-15}
+
+Consult the
+[24.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.15)
+for more information.
+
 ## 24.14 {#24-14}
 
 - The `xivo-fix-paths-rights` upgrade script has been removed from the `pre-start.d` script
