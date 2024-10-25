@@ -141,6 +141,15 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'uc-doc',
+        path: 'uc-doc',
+        routeBasePath: 'uc-doc',
+        // sidebarPath: './sidebarsCommunity.js',
+      },
+    ],
+    [
       '@docusaurus/plugin-content-blog',
       {
         blogTitle: 'Release notes',
