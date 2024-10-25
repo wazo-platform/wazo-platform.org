@@ -1,7 +1,6 @@
 ---
-title: wazo-confd REST API
+title: wazo-confd
 subtitle: API reference
-sidebar_label: wazo-confd
 ---
 
 import CardList from '@site/src/components/Card/CardList';

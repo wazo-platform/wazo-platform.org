@@ -1,5 +1,6 @@
 ---
 title: Upgrade notes
+sidebar_position: 3
 ---
 
 ## 24.15 {#24-15}
@@ -14,6 +15,10 @@ for more information.
   collection. The core of the changes that this script does has been included in the asterisk
   packaging. If you have any issues with file permissions, it is still possible to run it manually
   by executing `xivo-fix-paths-rights`.
+
+Consult the
+[24.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2024.14)
+for more information.
 
 ## 24.13 {#24-13}
 

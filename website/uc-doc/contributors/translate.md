@@ -1,5 +1,5 @@
 ---
-title: Translating Wazo
+title: Translate
 ---
 
 French and English are maintained by the Wazo authors. Other languages are provided by the

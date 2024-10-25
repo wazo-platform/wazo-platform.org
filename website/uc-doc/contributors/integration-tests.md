@@ -1,3 +1,7 @@
+---
+title: Integration Tests
+---
+
 This document describes the conventional setup for per-component integration tests in wazo projects.
 
 ## Requirements

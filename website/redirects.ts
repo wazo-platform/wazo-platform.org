@@ -60,6 +60,22 @@ const REDIRECTS: Options['redirects'] = [
     from: '/uc-doc/system/wazo-dird/introduction',
     to: '/uc-doc/system/wazo-dird',
   },
+  {
+    from: ['/uc-doc/introduction', '/uc-doc/attribution', '/uc-doc/changelog'],
+    to: '/uc-doc',
+  },
+  {
+    from: '/uc-doc/upgrade/old_upgrade_notes',
+    to: '/uc-doc/upgrade/archives/upgrade_notes',
+  },
+  {
+    from: '/uc-doc/upgrade/upgrade_from_wazo_18_03',
+    to: '/uc-doc/upgrade/archives/upgrade_from_wazo_18_03',
+  },
+  {
+    from: '/uc-doc/upgrade/migrate_i386_to_amd64',
+    to: '/uc-doc/upgrade/archives/migrate_i386_to_amd64',
+  },
 ];
 
 export default REDIRECTS;

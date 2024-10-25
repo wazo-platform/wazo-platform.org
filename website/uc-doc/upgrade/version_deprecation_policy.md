@@ -1,5 +1,5 @@
 ---
-title: Deprecated Wazo versions
+title: Deprecated Versions Policy
 ---
 
 ## General policy

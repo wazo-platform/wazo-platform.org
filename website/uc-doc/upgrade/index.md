@@ -1,5 +1,6 @@
 ---
 title: Upgrading
+sidebar_position: 3
 ---
 
 Upgrading a Wazo is done by executing commands through a terminal on the server. You can connect to

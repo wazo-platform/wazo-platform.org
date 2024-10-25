@@ -1,5 +1,5 @@
 ---
-title: Wazo Guidelines
+title: Our Guidelines
 ---
 
 ## Inter-process communication

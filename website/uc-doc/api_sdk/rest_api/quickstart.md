@@ -1,6 +1,5 @@
 ---
-title: REST API Quickstart
-sidebar_label: Quickstart
+title: Quickstart
 ---
 
 ## Introduction

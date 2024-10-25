@@ -2,5 +2,10 @@
 title: Ecosystem
 ---
 
-<!-- @todo migrate this into docusaurus -->
-- [Supported Devices](https://wazo-platform.org/uc-doc/ecosystem/supported_devices)
+import CardList from '@site/src/components/Card/CardList';
+
+<CardList
+  items={[
+    { text: 'Supported Phone Devices', href: 'https://wazo-platform.org/uc-doc/ecosystem/supported_devices' }
+  ]}
+/>

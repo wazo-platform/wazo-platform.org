@@ -1,5 +1,5 @@
 ---
-title: How to contribute to the Wazo Platform
+title: Contribute to Wazo Platform
 ---
 
 In order to contribute to the Wazo Platform you need to be able to retrieve the source code, edit

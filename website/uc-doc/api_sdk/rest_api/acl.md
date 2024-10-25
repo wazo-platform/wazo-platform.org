@@ -1,6 +1,5 @@
 ---
-title: REST API Permissions
-sidebar_label: Permissions (ACLs)
+title: Permissions (ACLs)
 ---
 
 The tokens delivered by [wazo-auth](/uc-doc/system/wazo-auth/introduction/) have a list of

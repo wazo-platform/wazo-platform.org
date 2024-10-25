@@ -1,5 +1,5 @@
 ---
-title: Contributing to the Documentation
+title: Contribute to Documentation
 ---
 
 ## Documentation guideline {#documentation-guideline}
