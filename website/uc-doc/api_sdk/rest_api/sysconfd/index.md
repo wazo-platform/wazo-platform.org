@@ -1,5 +1,6 @@
 ---
 title: wazo-sysconfd REST API
+sidebar_label: wazo-sysconfd
 ---
 
 import CardList from '@site/src/components/Card/CardList';

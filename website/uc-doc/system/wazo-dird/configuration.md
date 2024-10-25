@@ -1,5 +1,6 @@
 ---
-title: 'wazo-dird configuration'
+title: 'wazo-dird Configuration'
+sidebar_label: Configuration
 ---
 
 There are three sources of configuration for wazo-dird:

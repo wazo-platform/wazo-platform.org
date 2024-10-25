@@ -1,5 +1,6 @@
 ---
 title: REST API Conventions
+sidebar_label: Conventions
 ---
 
 ## Authentication {#rest-api-authentication}

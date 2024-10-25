@@ -1,5 +1,6 @@
 ---
 title: REST API Reference
+sidebar_label: Reference
 ---
 
 ## Access

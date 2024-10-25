@@ -1,5 +1,6 @@
 ---
 title: REST API Troubleshooting
+sidebar_label: Troubleshooting
 ---
 
 Here is a list of common problems you can encounter with Wazo REST APIs.

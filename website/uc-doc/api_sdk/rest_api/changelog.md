@@ -1,5 +1,6 @@
 ---
 title: REST API changelog
+sidebar_label: Changelog
 ---
 
 The changelog of REST API can be found in [GitHub](https://github.com/wazo-platform) repository of

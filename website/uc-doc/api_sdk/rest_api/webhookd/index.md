@@ -1,5 +1,6 @@
 ---
 title: 'wazo-webhookd REST API'
+sidebar_label: wazo-webhookd
 ---
 
 import CardList from '@site/src/components/Card/CardList';

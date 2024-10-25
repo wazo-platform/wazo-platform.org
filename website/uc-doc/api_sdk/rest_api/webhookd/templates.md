@@ -1,5 +1,6 @@
 ---
 title: 'wazo-webhookd HTTP templates'
+sidebar_label: HTTP Templates
 ---
 
 When creating a webhook (i.e. a subscription), you can customize parts of the HTTP request that will
@@ -18,15 +19,44 @@ The following parts of the request are templated:
 
 Given a subscription:
 
-![](/images/uc-doc/api_sdk/rest_api/webhookd/template-subscription.png)
+```js
+{
+  "name": "Hello subscription",
+  "service": "http",
+  "event": [
+    "hello"
+  ],
+  "config": {
+    "content_type": "text/plain",
+    "method": "POST",
+    "url": "https://example.com/event_handler?v=1.0",
+    "body": "I just received an event named {{ event_name }}. from the Wazo server { wazo_uuid }}.\n\nhello = \"{{ event['hello'] }}\""
+  }
+}
+```
 
 When an event is emitted:
 
-![](/images/uc-doc/api_sdk/rest_api/webhookd/template-event.png)
+```js
+{
+  "name": "hello_event",
+  "origin_uuid": "my-wazo",
+  "data": [
+    "hello": "world",
+  ],
+}
+```
 
 Then a HTTP request is sent to `https://example.com`:
 
-![](/images/uc-doc/api_sdk/rest_api/webhookd/template-request.png)
+```
+POST /event_handler?v=1.0
+Content-Type: text/plain
+
+I just received an event named hello_event, from the Wazo server my-wazo.
+
+The event contained the following data: hello = "world"
+```
 
 ## Reference
 
