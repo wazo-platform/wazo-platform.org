@@ -162,7 +162,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        redirects: REDIRECTS
+        redirects: REDIRECTS,
       },
     ],
   ],

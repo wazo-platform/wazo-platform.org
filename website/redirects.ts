@@ -1,4 +1,4 @@
-import type { Options } from '@docusaurus/plugin-client-redirects'
+import type { Options } from '@docusaurus/plugin-client-redirects';
 
 const REDIRECTS: Options['redirects'] = [
   {
@@ -18,7 +18,10 @@ const REDIRECTS: Options['redirects'] = [
     to: '/uc-doc/administration',
   },
   {
-    from: ['/uc-doc/api_sdk/mobile/push_notification', '/uc-doc/api_sdk/mobile'],
+    from: [
+      '/uc-doc/api_sdk/mobile/push_notification',
+      '/uc-doc/api_sdk/mobile',
+    ],
     to: '/uc-doc/api_sdk/mobile_push_notification',
   },
   {
@@ -59,4 +62,4 @@ const REDIRECTS: Options['redirects'] = [
   },
 ];
 
-export default REDIRECTS
+export default REDIRECTS;
