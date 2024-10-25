@@ -1,0 +1,5 @@
+.listing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ifm-spacing-horizontal);
+}
