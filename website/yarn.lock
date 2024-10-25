@@ -1995,6 +1995,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/plugin-client-redirects@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "@docusaurus/plugin-client-redirects@npm:3.5.2"
+  dependencies:
+    "@docusaurus/core": "npm:3.5.2"
+    "@docusaurus/logger": "npm:3.5.2"
+    "@docusaurus/utils": "npm:3.5.2"
+    "@docusaurus/utils-common": "npm:3.5.2"
+    "@docusaurus/utils-validation": "npm:3.5.2"
+    eta: "npm:^2.2.0"
+    fs-extra: "npm:^11.1.1"
+    lodash: "npm:^4.17.21"
+    tslib: "npm:^2.6.0"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 10c0/daf2b7468ea021ed3111f5aa7393cbf468c5c2111538b7ff57f56ef974200026fa23c413e1495c2d73926c32ed269c5d7c7e486b0594a8db28e0c7eba347c93d
+  languageName: node
+  linkType: hard
+
 "@docusaurus/plugin-content-blog@npm:3.5.2":
   version: 3.5.2
   resolution: "@docusaurus/plugin-content-blog@npm:3.5.2"
@@ -12613,6 +12633,7 @@ __metadata:
     "@biomejs/biome": "npm:1.8.3"
     "@docusaurus/core": "npm:^3.5.2"
     "@docusaurus/module-type-aliases": "npm:^3.5.2"
+    "@docusaurus/plugin-client-redirects": "npm:^3.5.2"
     "@docusaurus/preset-classic": "npm:^3.5.2"
     "@docusaurus/theme-mermaid": "npm:^3.5.2"
     "@docusaurus/tsconfig": "npm:^3.5.2"

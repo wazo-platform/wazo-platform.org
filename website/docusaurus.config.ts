@@ -1,6 +1,7 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import REDIRECTS from './redirects';
 
 const config: Config = {
   title: 'Wazo Platform',
@@ -146,7 +147,6 @@ const config: Config = {
         id: 'uc-doc',
         path: 'uc-doc',
         routeBasePath: 'uc-doc',
-        // sidebarPath: './sidebarsCommunity.js',
       },
     ],
     [
@@ -157,6 +157,12 @@ const config: Config = {
         routeBasePath: 'release-notes',
         path: './release-notes',
         authorsMapPath: '../blog/authors.yml',
+      },
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: REDIRECTS
       },
     ],
   ],
