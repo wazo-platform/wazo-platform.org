@@ -7,6 +7,7 @@ const algoliasearch = require('algoliasearch');
 const striptags = require('striptags');
 const RSS = require('rss');
 
+const redirects = require('./website/redirects')
 const config = require('./config');
 const constants = require('./src/contants');
 
@@ -537,37 +538,40 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   // Generate redirect 301
   // ---------
   console.log('Generating 301 redirects');
+  const generate301 = (fromPath, toPath) => {
+    const enhancedFromPath = fromPath.endsWith('.html') ? fromPath : fromPath.endsWith('/') ? fromPath : `${fromPath}/`
+
+    createRedirect({
+      fromPath: enhancedFromPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath,
+    });
+  }
+
   if (corporate) {
     ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-deployd.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-deployd.html');
     });
 
     ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-configuration.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-configuration.html');
     });
 
     ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-authentication.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-authentication.html');
     });
   }
+
+  redirects.default.forEach(redirect => {
+    if(Array.isArray(redirect.from)) {
+      redirect.from.forEach(from => {
+        generate301(from, redirect.to)
+      })
+    }else{
+      generate301(redirect.from, redirect.to)
+    }
+  })
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
