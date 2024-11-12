@@ -74,9 +74,8 @@ const config: Config = {
           position: 'left',
           to: '/docs/intro',
           items: [
-            { to: '/docs/intro', label: 'Introduction' },
-            { to: '/uc-doc', label: 'UC Documentation' },
             { to: '/docs/category/api', label: 'API Documentation' },
+            { to: '/uc-doc', label: 'UC Documentation' },
           ],
         },
         { to: '/blog', label: 'Blog', position: 'left' },
