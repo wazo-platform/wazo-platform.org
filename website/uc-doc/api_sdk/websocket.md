@@ -82,7 +82,7 @@ be surrounded by the following enveloppe:
 Here's a rudimentary example of a web page accessing the service:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />

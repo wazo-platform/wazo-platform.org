@@ -14,8 +14,8 @@ only covers the Wazo prompts, but it may be adapted for Asterisk prompts.
 
 1.  Create an account on Transifex and join the team of translation of Wazo.
 2.  Translate the prompts in the wazo-prompt resource.
-3.  Go to [Transifex](https://www.transifex.com/wazo/wazo) and download the file on your Wazo. You should have
-    a file named like `for_use_wazo_wazo-prompt_pt_BR.ini`.
+3.  Go to [Transifex](https://www.transifex.com/wazo/wazo) and download the file on your Wazo. You
+    should have a file named like `for_use_wazo_wazo-prompt_pt_BR.ini`.
 4.  On your Wazo, download the tool to automate the use of Google TTS:
 
     ```shell

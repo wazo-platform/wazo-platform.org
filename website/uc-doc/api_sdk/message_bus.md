@@ -776,8 +776,8 @@ Those events are published during the different steps of a relocate operation.
 - headers:
   - `"user_uuid:XXX": true` where `XXX` is the initiator's user UUID
 - required ACL: `events.relocates.XXX` where `XXX` is the initiator's user UUID
-- event specific data: a relocate object, see [Documentation](https://wazo-platform.org/documentation), section
-  `wazo-calld`.
+- event specific data: a relocate object, see
+  [Documentation](https://wazo-platform.org/documentation), section `wazo-calld`.
 
 Example:
 

@@ -63,5 +63,6 @@ Where `{user_id}` is the user uuid from the token.
 
 ## Available ACLs
 
-The ACL corresponding to each resource is documented in [auth.wazo.community](https://auth.wazo.community). Some
-resources may not have any associated ACL yet, so you must use `{service}.#` instead.
+The ACL corresponding to each resource is documented in
+[auth.wazo.community](https://auth.wazo.community). Some resources may not have any associated ACL
+yet, so you must use `{service}.#` instead.

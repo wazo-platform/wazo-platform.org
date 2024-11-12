@@ -80,9 +80,9 @@ Now that we have access to REST API specifications, we can use them:
 And that's it, you are ready to use any REST API with your authentication token.
 
 **Note**: Be aware that this token will expire, and that you will need to get a new one when that
-happens. You can take a look at [auth.wazo.community](https://auth.wazo.community) for an easier manual token generation
-process. Note that the `auth.wazo.community` server will never know the tokens that you generate,
-you browser will ask your Wazo directly.
+happens. You can take a look at [auth.wazo.community](https://auth.wazo.community) for an easier
+manual token generation process. Note that the `auth.wazo.community` server will never know the
+tokens that you generate, you browser will ask your Wazo directly.
 
 **Warning**: Also, note that this authentication token gives **all permissions** to anyone who knows
 it. Same goes for the account password we created earlier. Remember to delete this account, or at

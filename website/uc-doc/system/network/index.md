@@ -25,9 +25,9 @@ are applied at startup (i.e. each time the network interface goes up).
     fi
     ```
 
-3.  Fields \<network interface\>, \<destination\> and \<gateway\> should be replaced by your specific
-    configuration. For example, if you want to add a route for 192.168.50.128/25 via 192.168.17.254
-    which should be added when eth0 goes up:
+3.  Fields \<network interface\>, \<destination\> and \<gateway\> should be replaced by your
+    specific configuration. For example, if you want to add a route for 192.168.50.128/25 via
+    192.168.17.254 which should be added when eth0 goes up:
 
     ```sh
     #!/bin/sh

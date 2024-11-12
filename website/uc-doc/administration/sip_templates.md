@@ -8,9 +8,9 @@ of the Wazo platform.
 
 Those templates form a multiple-inheritance hierarchy, such that a template can inherit from parent
 templates, including all options defined in those parent templates while overriding, removing or
-adding some options.
-This results in a powerful way to configure different classes of SIP devices(hardware phones or
-softphones) and support various specific scenarios which require specific configuration.
+adding some options. This results in a powerful way to configure different classes of SIP
+devices(hardware phones or softphones) and support various specific scenarios which require specific
+configuration.
 
 The SIP template API is part of the `wazo-confd` component.
 

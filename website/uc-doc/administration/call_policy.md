@@ -34,16 +34,14 @@ endpoints configuration.
 
 SIP endpoint options can be configured in two ways:
 
-1. through SIP templates, which can be applied to all or a subset of SIP endpoints in a tenant;
-   each tenant has a `global` SIP template which represent common options which can apply to all SIP
-   endpoints. Other templates can specify options for a specific subset of SIP endpoints.
-   See [SIP templates documentation](/uc-doc/administration/sip_templates) for information on how to
+1. through SIP templates, which can be applied to all or a subset of SIP endpoints in a tenant; each
+   tenant has a `global` SIP template which represent common options which can apply to all SIP
+   endpoints. Other templates can specify options for a specific subset of SIP endpoints. See
+   [SIP templates documentation](/uc-doc/administration/sip_templates) for information on how to
    query and configure SIP templates.
 
-2. directly through a SIP endpoint's individual configuration;
-   individual endpoint configuration can be changed through the
-   `/api/confd/1.1/endpoints/sip/{sip_uuid}` REST API endpoint.
-   See
+2. directly through a SIP endpoint's individual configuration; individual endpoint configuration can
+   be changed through the `/api/confd/1.1/endpoints/sip/{sip_uuid}` REST API endpoint. See
    [API reference](/documentation/api/configuration.html#tag/endpoints/operation/update_endpoint_sip)
    for details.
 

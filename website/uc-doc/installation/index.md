@@ -60,7 +60,8 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
    ```
 
 6. Edit the file `inventories/uc-engine` to add your preferences and passwords. The various
-   variables that can be customized are described [here](https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables).
+   variables that can be customized are described
+   [here](https://github.com/wazo-platform/wazo-ansible/blob/master/README.md#variables).
 
    By default, Wazo Platform will install the development version. To install the latest stable
    version, activate the following settings in `inventories/uc-engine`:

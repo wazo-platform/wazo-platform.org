@@ -5,7 +5,8 @@ title: Contribute to Documentation
 ## Documentation guideline {#documentation-guideline}
 
 Here\'s the guideline/conventions to follow for the Wazo documentation. Wazo documentation is
-generated with GatbsyJS. The source code is available on [GitHub](https://github.com/wazo-platform/wazo-platform.org)
+generated with GatbsyJS. The source code is available on
+[GitHub](https://github.com/wazo-platform/wazo-platform.org)
 
 ### Language {#language}
 

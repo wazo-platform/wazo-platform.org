@@ -204,4 +204,3 @@ Here's the list of limitations that are more relevant on an administrator standp
 
 When replicating the database between master and slave, if you encounter problems related to the
 system locale, see `postgresql_localization_errors`
-

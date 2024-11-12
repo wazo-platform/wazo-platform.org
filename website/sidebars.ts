@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       href: '/uc-doc',
-      label: 'UC Documentation'
+      label: 'UC Documentation',
     },
   ],
 };

@@ -8,7 +8,8 @@ title: Stock Plugins Documentation
 
 View name: default_json
 
-Purpose: present directory entries in JSON format. The format is detailed in [documentation](https://wazo-platform.org/documentation).
+Purpose: present directory entries in JSON format. The format is detailed in
+[documentation](https://wazo-platform.org/documentation).
 
 ### headers
 
