@@ -1,0 +1,12 @@
+# Files with docusaurus MDX
+website/uc-doc/system/index.md
+website/uc-doc/ecosystem/index.md
+website/uc-doc/contributors/provisioning/index.md
+website/uc-doc/contributors/index.md
+website/uc-doc/contact_center/index.md
+website/uc-doc/api_sdk/rest_api/webhookd/index.md
+website/uc-doc/api_sdk/rest_api/sysconfd/index.md
+website/uc-doc/api_sdk/rest_api/index.md
+website/uc-doc/api_sdk/rest_api/confd/index.md
+website/uc-doc/api_sdk/rest_api/changelog.md
+website/uc-doc/api_sdk/index.md
