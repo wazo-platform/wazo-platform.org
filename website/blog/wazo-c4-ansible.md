@@ -222,4 +222,4 @@ $ ansible-playbook -i inventories/c4-router-vagrant c4-router.yaml
 
 ## Conclusions
 
-Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as you can see, just by following a few simple steps. For more detailed information and other installation methods please refer to [the official Wazo C4 Install guide](/use-cases/class-4).
+Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as you can see, just by following a few simple steps. For more detailed information and other installation methods please refer to [the official Wazo C4 Install guide](https://wazo-platform.org/use-cases/class-4).

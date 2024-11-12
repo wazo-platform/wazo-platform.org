@@ -30,7 +30,7 @@ Hello Wazo community! Here comes the release of Wazo 17.04!
 
 ---
 
-The instructions for [installing Wazo](/uc-doc/installation/install-system) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
+The instructions for [installing Wazo](/uc-doc/installation) or [upgrading Wazo](/uc-doc/upgrade) are available in the documentation.
 
 See you at the next sprint review!
 

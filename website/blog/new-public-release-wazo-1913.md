@@ -39,7 +39,7 @@ Enter [Wazo Platform](/): an API engine that gives all the API toolbox needed to
 
 ## Where do I start building with Wazo Platform?
 
-The complete documentation is available [here](/documentation) and there is an example of using the API in the [install documentation](/use-cases).
+The complete documentation is available [here](/documentation) and there is an example of using the API in the [install documentation](https://wazo-platform.org/use-cases).
 We certainly are looking forward to seeing what you will build!
 
 ## Wazo was Free Software. How about Wazo Platform?

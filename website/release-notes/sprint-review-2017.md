@@ -37,7 +37,7 @@ See you next year for the release of Wazo Platform 21.01!
 
 ## Resources
 
-- [Install Wazo Platform](/use-cases)
+- [Install Wazo Platform](https://wazo-platform.org/use-cases)
 - [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the
   [breaking changes](/uc-doc/upgrade/upgrade_notes#20-17)
 
