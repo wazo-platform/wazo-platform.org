@@ -69,10 +69,15 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
+          type: 'dropdown',
+          label: 'Documentation',
           position: 'left',
-          label: 'Docs',
+          to: '/docs/intro',
+          items: [
+            { to: '/docs/intro', label: 'Introduction' },
+            { to: '/uc-doc', label: 'UC Documentation' },
+            { to: '/docs/category/api', label: 'API Documentation' },
+          ],
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
