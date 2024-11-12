@@ -10,6 +10,7 @@ services:
       - ./content:/app/content
       - ./website/release-notes:/app/website/release-notes:ro
       - ./website/blog:/app/website/blog:ro
+      - ./website/uc-doc:/app/website/uc-doc:ro
       - ./.prettierrc:/app/.prettierrc:ro
       - ./static:/app/static:ro
       - ./gatsby-node.js:/app/gatsby-node.js:ro
