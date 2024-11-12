@@ -2,35 +2,40 @@
 title: Administration
 ---
 
+import CardList from '@site/src/components/Card/CardList';
+
 All configurations are done via the [`wazo-confd` REST API](/documentation/api/configuration.html).
 
-# Table of contents
+<CardList
+  items={[
+    { text: 'Boss Secretary Filter', href: '/uc-doc/administration/boss_secretary_filter' },
+    { text: 'Call Permissions', href: '/uc-doc/administration/call_permissions' },
+    { text: 'Call Recording', href: '/uc-doc/administration/call_recording' },
+    { text: 'Call Logs CallerID', href: '/uc-doc/administration/call_logs' },
+    { text: 'Caller ID', href: '/uc-doc/administration/callerid' },
+    { text: 'CLI Tools', href: '/uc-doc/administration/cli_tools' },
+    { text: 'Directed Pickup', href: '/uc-doc/administration/directed_pickup' },
+    { text: 'Direct media', href: '/uc-doc/administration/direct_media' },
+    { text: 'Fax', href: '/uc-doc/administration/fax' },
+    { text: 'Graphics', href: '/uc-doc/administration/graphics' },
+    { text: 'Group Pickup', href: '/uc-doc/administration/group_pickup' },
+    { text: 'Import Export', href: '/uc-doc/administration/import_export' },
+    { text: 'Incall', href: '/uc-doc/administration/incall' },
+    { text: 'Interconnections', href: '/uc-doc/administration/interconnections' },
+    { text: 'IVR', href: '/uc-doc/administration/ivr' },
+    { text: 'Music On Hold', href: '/uc-doc/administration/music_on_hold' },
+    { text: 'NAT', href: '/uc-doc/administration/nat' },
+    { text: 'Paging', href: '/uc-doc/administration/paging' },
+    { text: 'Parking', href: '/uc-doc/administration/parking' },
+    { text: 'Provisioning', href: '/uc-doc/administration/provisioning' },
+    { text: 'Security', href: '/uc-doc/administration/security' },
+    { text: 'SCCP', href: '/uc-doc/administration/sccp' },
+    { text: 'Schedules', href: '/uc-doc/administration/schedules' },
+    { text: 'Sound Files', href: '/uc-doc/administration/sound_files' },
+    { text: 'Users', href: '/uc-doc/administration/users' },
+    { text: 'Voicemails', href: '/uc-doc/administration/voicemails' },
+    { text: 'SIP Templates', href: '/uc-doc/administration/sip_templates' },
+    { text: 'Call Policy', href: '/uc-doc/administration/call_policy' },
+  ]}
+/>
 
-- [Boss Secretary Filter](/uc-doc/administration/boss_secretary_filter)
-- [Call Permissions](/uc-doc/administration/call_permissions)
-- [Call Recording](/uc-doc/administration/call_recording)
-- [Call Logs CallerID](/uc-doc/administration/call_logs)
-- [Caller ID](/uc-doc/administration/callerid)
-- [CLI Tools](/uc-doc/administration/cli_tools)
-- [Directed Pickup](/uc-doc/administration/directed_pickup)
-- [Direct media](/uc-doc/administration/direct_media)
-- [Fax](/uc-doc/administration/fax)
-- [Graphics](/uc-doc/administration/graphics)
-- [Group Pickup](/uc-doc/administration/group_pickup)
-- [Import Export](/uc-doc/administration/import_export)
-- [Incall](/uc-doc/administration/incall)
-- [Interconnections](/uc-doc/administration/interconnections)
-- [IVR](/uc-doc/administration/ivr)
-- [Music On Hold](/uc-doc/administration/music_on_hold)
-- [NAT](/uc-doc/administration/nat)
-- [Paging](/uc-doc/administration/paging)
-- [Parking](/uc-doc/administration/parking)
-- [Provisioning](/uc-doc/administration/provisioning)
-- [Security](/uc-doc/administration/security)
-- [SCCP](/uc-doc/administration/sccp)
-- [Schedules](/uc-doc/administration/schedules)
-- [Sound Files](/uc-doc/administration/sound_files)
-- [Users](/uc-doc/administration/users)
-- [Voicemails](/uc-doc/administration/voicemails)
-- [SIP Templates](/uc-doc/administration/sip_templates)
-- [Call Policy](/uc-doc/administration/call_policy)
