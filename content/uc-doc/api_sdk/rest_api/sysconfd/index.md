@@ -15,6 +15,6 @@ resources will be added over time.
 - [ha](/uc-doc/api_sdk/rest_api/sysconfd/ha)
 - [dns](/uc-doc/api_sdk/rest_api/sysconfd/dns)
 - [services](/uc-doc/api_sdk/rest_api/sysconfd/services)
-- [xivo services](/uc-doc/api_sdk/rest_api/sysconfd/xivo_services)
+- [wazo services](/uc-doc/api_sdk/rest_api/sysconfd/wazo_services)
 - [handlers](/uc-doc/api_sdk/rest_api/sysconfd/handlers)
 - [status check](/uc-doc/api_sdk/rest_api/sysconfd/status_check)

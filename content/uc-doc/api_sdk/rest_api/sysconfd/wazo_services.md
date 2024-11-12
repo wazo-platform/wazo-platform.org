@@ -5,5 +5,5 @@ title: Wazo Services
 ## Query
 
 ```
-POST /xivoctl
+PUT /wazoctl
 ```

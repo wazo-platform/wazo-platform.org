@@ -5,7 +5,7 @@ title: Asterisk Voicemail
 ## Query
 
 ```markdown
-GET /delete_voicemail
+DELETE /delete
 ```
 
 ## Parameters
@@ -22,7 +22,7 @@ GET /delete_voicemail
 ## Example requests
 
 ```
-GET /delete_voicemail HTTP/1.1
+DELETE /voicemail HTTP/1.1
 Host: wazoserver
 Accept: application/json
 ```
