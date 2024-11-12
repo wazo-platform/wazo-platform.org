@@ -21,7 +21,7 @@ Here is the call flow to access a REST resource of a Wazo service:
 
 **service**: Service who needs to access a REST resource.
 
-**wazo-{daemon}**: Server that exposes a REST resource. This resource must have an attached ACL.
+**wazo-daemon**: Server that exposes a REST resource. This resource must have an attached ACL.
 
 **wazo-auth**: Server that authenticates the Service and validates the required ACL with the token.
 
