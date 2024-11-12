@@ -1,5 +1,6 @@
 ---
 title: Deprecated Versions Policy
+sidebar_position: 4
 ---
 
 ## General policy

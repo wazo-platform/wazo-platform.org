@@ -1,5 +1,6 @@
 ---
 title: Upgrade to a specific version
+sidebar_position: 3
 ---
 
 ## What is the point?

@@ -1,6 +1,6 @@
 ---
 title: Upgrade notes
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 ## 24.15 {#24-15}
