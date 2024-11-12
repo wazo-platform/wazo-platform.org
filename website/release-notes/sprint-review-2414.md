@@ -1,7 +1,7 @@
 ---
 title: Wazo Platform 24.14 Released
 date: 2024-10-15T08:00:00
-author: wazoplatform
+authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
 slug: release-review-2414
