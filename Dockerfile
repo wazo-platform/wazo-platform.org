@@ -1,5 +1,5 @@
 # From https://github.com/docker-library/docs/blob/master/eclipse-temurin/README.md#using-a-different-base-image
-FROM node:18.5.0-bullseye-slim AS build-node
+FROM node:18.18.2-bullseye-slim AS build-node
 ENV LANG=en_US.UTF-8
 ENV JAVA_HOME=/opt/java/openjdk
 COPY --from=eclipse-temurin:11 $JAVA_HOME $JAVA_HOME

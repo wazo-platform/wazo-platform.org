@@ -7,7 +7,6 @@ const algoliasearch = require('algoliasearch');
 const striptags = require('striptags');
 const RSS = require('rss');
 
-const redirects = require('./website/redirects')
 const config = require('./config');
 const constants = require('./src/contants');
 
@@ -563,15 +562,27 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     });
   }
 
-  redirects.default.forEach(redirect => {
-    if(Array.isArray(redirect.from)) {
-      redirect.from.forEach(from => {
-        generate301(from, redirect.to)
-      })
-    }else{
-      generate301(redirect.from, redirect.to)
-    }
-  })
+  generate301('/uc-doc/administration/contact_directories/general', '/uc-doc/administration/contact_directories');
+  generate301('/uc-doc/administration/interconnections/introduction', '/uc-doc/administration/interconnections');
+  generate301('/uc-doc/administration/provisioning/introduction', '/uc-doc/administration/provisioning');
+  generate301('/uc-doc/administration/users', '/uc-doc/administration');
+  generate301('/uc-doc/api_sdk/mobile/push_notification', '/uc-doc/api_sdk/mobile_push_notification');
+  generate301('/uc-doc/api_sdk/mobile', '/uc-doc/api_sdk/mobile_push_notification');
+  generate301('/uc-doc/contact_center/introduction', '/uc-doc/contact_center');
+  generate301('/uc-doc/high_availability/introduction', '/uc-doc/high_availability');
+  generate301('/uc-doc/installation/install-system', '/uc-doc/installation');
+  generate301('/uc-doc/upgrade/introduction', '/uc-doc/upgrade');
+  generate301('/uc-doc/upgrade/upgrade_specific_version/introduction', '/uc-doc/upgrade/upgrade_specific_version');
+  generate301('/uc-doc/system/wazo-auth/introduction', '/uc-doc/system/wazo-auth');
+  generate301('/uc-doc/system/wazo-confd/introduction', '/uc-doc/system/wazo-confd');
+  generate301('/uc-doc/system/wazo-confgend/introduction', '/uc-doc/system/wazo-confgend');
+  generate301('/uc-doc/system/wazo-dird/introduction', '/uc-doc/system/wazo-dird');
+  generate301('/uc-doc/introduction', '/uc-doc');
+  generate301('/uc-doc/attribution', '/uc-doc');
+  generate301('/uc-doc/changelog', '/uc-doc');
+  generate301('/uc-doc/upgrade/old_upgrade_notes', '/uc-doc/upgrade/archives/upgrade_notes');
+  generate301('/uc-doc/upgrade/upgrade_from_wazo_18_03', '/uc-doc/upgrade/archives/upgrade_from_wazo_18_03');
+  generate301('/uc-doc/upgrade/migrate_i386_to_amd64', '/uc-doc/upgrade/archives/migrate_i386_to_amd64');
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
