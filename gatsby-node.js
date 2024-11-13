@@ -538,7 +538,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   // ---------
   console.log('Generating 301 redirects');
   const generate301 = (fromPath, toPath) => {
-    const enhancedFromPath = fromPath.endsWith('.html') ? fromPath : fromPath.endsWith('/') ? fromPath : `${fromPath}/`
+    const enhancedFromPath = fromPath.endsWith('.html') || fromPath.endsWith('/') ? fromPath : `${fromPath}/`
 
     createRedirect({
       fromPath: enhancedFromPath,
