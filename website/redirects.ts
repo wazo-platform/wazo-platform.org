@@ -61,7 +61,7 @@ const REDIRECTS: Options['redirects'] = [
     to: '/uc-doc/system/wazo-dird',
   },
   {
-    from: ['/uc-doc/introduction', '/uc-doc/attribution', '/uc-doc/changelog'],
+    from: ['/uc-doc/introduction', '/uc-doc/changelog'],
     to: '/uc-doc',
   },
   {

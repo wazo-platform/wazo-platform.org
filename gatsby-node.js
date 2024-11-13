@@ -578,7 +578,6 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   generate301('/uc-doc/system/wazo-confgend/introduction', '/uc-doc/system/wazo-confgend');
   generate301('/uc-doc/system/wazo-dird/introduction', '/uc-doc/system/wazo-dird');
   generate301('/uc-doc/introduction', '/uc-doc');
-  generate301('/uc-doc/attribution', '/uc-doc');
   generate301('/uc-doc/changelog', '/uc-doc');
   generate301('/uc-doc/upgrade/old_upgrade_notes', '/uc-doc/upgrade/archives/upgrade_notes');
   generate301('/uc-doc/upgrade/upgrade_from_wazo_18_03', '/uc-doc/upgrade/archives/upgrade_from_wazo_18_03');
