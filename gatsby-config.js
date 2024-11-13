@@ -7,6 +7,7 @@ const path = require('path');
  */
 
 module.exports = {
+  trailingSlash: 'always',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
