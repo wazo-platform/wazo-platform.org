@@ -36,7 +36,7 @@ We are looking for beta testers for the Wazo Zapier plugin. You can click this [
 
 ---
 
-The instructions for [installing Wazo](/uc-doc/installation/install-system) or [upgrading Wazo](/uc-doc/upgrade/introduction) are available in the documentation.
+The instructions for [installing Wazo](/uc-doc/installation) or [upgrading Wazo](/uc-doc/upgrade) are available in the documentation.
 
 For more details about the aforementioned topics, please see the roadmap linked below.
 

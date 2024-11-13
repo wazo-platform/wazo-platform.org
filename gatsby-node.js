@@ -537,37 +537,52 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   // Generate redirect 301
   // ---------
   console.log('Generating 301 redirects');
+  const generate301 = (fromPath, toPath) => {
+    const enhancedFromPath = fromPath.endsWith('.html') ? fromPath : fromPath.endsWith('/') ? fromPath : `${fromPath}/`
+
+    createRedirect({
+      fromPath: enhancedFromPath,
+      isPermanent: true,
+      redirectInBrowser: true,
+      toPath,
+    });
+  }
+
   if (corporate) {
     ['/api/nestbox-deployd.html', '/documentation/api/nestbox-deployd.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-deployd.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-deployd.html');
     });
 
     ['/api/nestbox-configuration.html', '/documentation/api/nestbox-configuration.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-configuration.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-configuration.html');
     });
 
     ['/api/nestbox-authentication.html', '/documentation/api/nestbox-authentication.html'].forEach((fromPath) => {
-      newPage(fromPath, '404', {});
-      createRedirect({
-        fromPath,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: `/documentation/api/euc-authentication.html`,
-      });
+      generate301(fromPath, '/documentation/api/euc-authentication.html');
     });
   }
+
+  generate301('/uc-doc/administration/contact_directories/general', '/uc-doc/administration/contact_directories');
+  generate301('/uc-doc/administration/interconnections/introduction', '/uc-doc/administration/interconnections');
+  generate301('/uc-doc/administration/provisioning/introduction', '/uc-doc/administration/provisioning');
+  generate301('/uc-doc/administration/users', '/uc-doc/administration');
+  generate301('/uc-doc/api_sdk/mobile/push_notification', '/uc-doc/api_sdk/mobile_push_notification');
+  generate301('/uc-doc/api_sdk/mobile', '/uc-doc/api_sdk/mobile_push_notification');
+  generate301('/uc-doc/contact_center/introduction', '/uc-doc/contact_center');
+  generate301('/uc-doc/high_availability/introduction', '/uc-doc/high_availability');
+  generate301('/uc-doc/installation/install-system', '/uc-doc/installation');
+  generate301('/uc-doc/upgrade/introduction', '/uc-doc/upgrade');
+  generate301('/uc-doc/upgrade/upgrade_specific_version/introduction', '/uc-doc/upgrade/upgrade_specific_version');
+  generate301('/uc-doc/system/wazo-auth/introduction', '/uc-doc/system/wazo-auth');
+  generate301('/uc-doc/system/wazo-confd/introduction', '/uc-doc/system/wazo-confd');
+  generate301('/uc-doc/system/wazo-confgend/introduction', '/uc-doc/system/wazo-confgend');
+  generate301('/uc-doc/system/wazo-dird/introduction', '/uc-doc/system/wazo-dird');
+  generate301('/uc-doc/introduction', '/uc-doc');
+  generate301('/uc-doc/attribution', '/uc-doc');
+  generate301('/uc-doc/changelog', '/uc-doc');
+  generate301('/uc-doc/upgrade/old_upgrade_notes', '/uc-doc/upgrade/archives/upgrade_notes');
+  generate301('/uc-doc/upgrade/upgrade_from_wazo_18_03', '/uc-doc/upgrade/archives/upgrade_from_wazo_18_03');
+  generate301('/uc-doc/upgrade/migrate_i386_to_amd64', '/uc-doc/upgrade/archives/migrate_i386_to_amd64');
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {

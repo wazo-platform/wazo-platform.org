@@ -48,7 +48,7 @@ const Page = ({ pageContext: { installDoc } }) => (
               icon="fa fa-phone"
               introduction="Audio calls, video calls, chat, call centers, conferences, voicemail and more."
               links={[
-                { to: '/uc-doc/installation/install-system', text: 'Install Procedure' },
+                { to: '/uc-doc/installation', text: 'Install Procedure' },
                 { to: '/uc-doc/', text: 'Documentation' },
               ]}
             />

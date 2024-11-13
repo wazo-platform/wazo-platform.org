@@ -846,7 +846,8 @@ body.documentation {
         }
         > a {
           color: #085b77;
-          &:after {
+          .secondary-navigation-submenu-icon {
+            opacity: 1;
             transform: translate(0, -50%) rotate(180deg);
           }
         }
@@ -862,17 +863,23 @@ body.documentation {
         position: relative;
         display: block;
 
-        &:after {
+        .secondary-navigation-submenu-icon {
+          transition: 250ms ease opacity;
           content: '';
-          background: url(/images/icons/chevron-down-solid.svg) top left no-repeat;
-          background-size: contain;
+          background: url(/images/icons/chevron-down-solid.svg) center no-repeat;
+          background-size: 14px 14px;
           display: block;
-          width: 10px;
-          height: 10px;
+          width: 20px;
+          height: 20px;
           position: absolute;
           right: 10px;
           top: 50%;
           transform: translate(0, -50%);
+          opacity: 0.4;
+
+          &:hover, &:active {
+            opacity: 1;
+          }
         }
       }
     }

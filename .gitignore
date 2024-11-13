@@ -60,6 +60,7 @@ public
 config.js
 config-wazo.js
 content/blog/*
+content/uc-doc/*
 
 # Mac files
 .DS_Store

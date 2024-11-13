@@ -1,0 +1,27 @@
+.override {
+  box-shadow: none;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+a.override {
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default),
+              color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+}
+a.override:hover, a.override:active {
+  color: var(--ifm-pagination-nav-color-hover);
+  border-color: var(--ifm-pagination-nav-color-hover);
+}
+
+.card__title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.card__description {
+  color: var(--ifm-color-content-secondary);
+  font-size: var(--ifm-h5-font-size);
+  font-weight: var(--ifm-font-weight-semibold);
+  margin: 0.05rem 0 0;
+}

@@ -1,6 +1,7 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import REDIRECTS from './redirects';
 
 const config: Config = {
   title: 'Wazo Platform',
@@ -68,10 +69,14 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
+          type: 'dropdown',
+          label: 'Documentation',
           position: 'left',
-          label: 'Docs',
+          to: '/docs/intro',
+          items: [
+            { to: '/docs/category/api', label: 'API Documentation' },
+            { to: '/uc-doc', label: 'UC Documentation' },
+          ],
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
@@ -141,6 +146,14 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'uc-doc',
+        path: 'uc-doc',
+        routeBasePath: 'uc-doc',
+      },
+    ],
+    [
       '@docusaurus/plugin-content-blog',
       {
         blogTitle: 'Release notes',
@@ -148,6 +161,12 @@ const config: Config = {
         routeBasePath: 'release-notes',
         path: './release-notes',
         authorsMapPath: '../blog/authors.yml',
+      },
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: REDIRECTS,
       },
     ],
   ],

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 
@@ -79,6 +80,10 @@ const Page = () => {
   const renderLoading = () => <p className="secondary-navigation-empty">Loading ...</p>
 
   const renderLinksRecurse = (linksObject) => {
+    if(!linksObject) {
+      return;
+    }
+
     const subLinksKeys = Object.keys(linksObject);
     let itemKey;
 
@@ -105,7 +110,10 @@ const Page = () => {
 
       return (
         <li key={itemKey} className={getListItemClasses('secondary-navigation-submenu', itemKey)}>
-          <a href={self.path} onClick={(e) => handleMenuClick(e, itemKey)}>{ self ? formatLinkTitle(self.title) : 'More'  }</a>
+          <a href={self.path}>
+            { self ? formatLinkTitle(self.title) : 'More' }
+            <span onClick={(e) => handleMenuClick(e, itemKey)} className="secondary-navigation-submenu-icon"></span>
+          </a>
           <ul>
             { titlesSortedKeys.map(subLinksKey => renderLinksRecurse(linksObject[subLinksKey])) }
           </ul>
