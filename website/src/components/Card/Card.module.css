@@ -4,12 +4,14 @@
 }
 
 a.override {
-  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default),
-              color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  transition: border-color var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default), color var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
   color: var(--ifm-color-content);
   text-decoration: none;
 }
-a.override:hover, a.override:active {
+a.override:hover,
+a.override:active {
   color: var(--ifm-pagination-nav-color-hover);
   border-color: var(--ifm-pagination-nav-color-hover);
 }

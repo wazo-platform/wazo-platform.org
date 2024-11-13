@@ -30,6 +30,8 @@ For more details about the aforementioned topics, please see the [changelog](htt
 
 See you at the next sprint review!
 
+<!-- truncate -->
+
 ## Resources
 
 - [Install Wazo Platform](https://wazo-platform.org/use-cases)

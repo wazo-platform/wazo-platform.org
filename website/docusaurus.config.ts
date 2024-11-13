@@ -8,6 +8,9 @@ const config: Config = {
   tagline: 'An Open Source project to build your own IP telecom platform',
   favicon: 'images/favicon.ico',
   staticDirectories: ['static'],
+  future: {
+    experimental_faster: true,
+  },
   markdown: {
     mermaid: true,
   },
