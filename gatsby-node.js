@@ -540,6 +540,8 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   const generate301 = (fromPath, toPath) => {
     const enhancedFromPath = fromPath.endsWith('.html') || fromPath.endsWith('/') ? fromPath : `${fromPath}/`
 
+    newPage(fromPath, '404', {});
+
     createRedirect({
       fromPath: enhancedFromPath,
       isPermanent: true,
