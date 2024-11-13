@@ -11,6 +11,7 @@ wazo-auth is used to:
 - create and manage policies (named group of permissions).
 - bootstrap third party authentication for Microsoft and Google
 - store tokens for Google and Microsoft
+- handle SAML authentication
 
 ## Schema
 
@@ -29,6 +30,10 @@ The REST API for wazo-auth is available [here](../api/authentication.html).
 The bus events are defined [here](https://github.com/wazo-platform/wazo-bus/blob/master/wazo_bus/resources/auth/events.py).
 
 The database tables are defined [here](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/database/models.py).
+
+The SAML based login is available using SAML wazo-auth APIs, more details are available in its [documentation](../api/authentication.html).
+To be able to use it you need to install the federation metadata XML file and add the corresponding configuration file. Please check
+the example in the wazo-auth [sources](https://github.com/wazo-platform/wazo-auth/blob/master/etc/wazo-auth/config.yml).
 
 ## Policies
 
