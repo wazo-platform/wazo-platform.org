@@ -103,7 +103,7 @@ Other changes from Python 2 to 3 include:
 - Removing the `object` inheritance. It is implicit in Python 3.
 
 To see how a provisioning plugin is developed and some examples, you can read the
-[guide on developing a plugin](https://wazo-platform.org/uc-doc/contributors/provisioning/developing_plugins).
+[guide on developing a plugin](/uc-doc/contributors/provisioning/developing_plugins).
 
 ## Replace the plugin used by the affected devices by a newer version
 
