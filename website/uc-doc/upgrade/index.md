@@ -49,12 +49,12 @@ There are 2 options you can pass to wazo-upgrade:
 ### Upgrading from Wazo 18.03 only
 
 When upgrading from Wazo 18.03, you should follow the specific procedure for
-[Upgrading from Wazo 18.03](/uc-doc/upgrade/upgrade_from_wazo_18_03).
+[Upgrading from Wazo 18.03](/uc-doc/upgrade/archives/upgrade_from_wazo_18_03).
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
-[high availability](/uc-doc/high_availability/introduction):
+[high availability](/uc-doc/high_availability):
 
 1. On the master : deactivate the database replication by commenting the cron in
    `/etc/cron.d/xivo-ha-master`
@@ -83,11 +83,11 @@ Here are the steps for upgrading a cluster, i.e. two Wazo with
 ## Upgrading to a specific version of Wazo
 
 See our recommendation on
-[how to upgrade to a specific version of Wazo](/uc-doc/upgrade/upgrade_specific_version/introduction)
+[how to upgrade to a specific version of Wazo](/uc-doc/upgrade/upgrade_specific_version)
 
 ## Upgrading from i386 (32 bits) to amd64 (64 bits)
 
-- [Migrate from i386 to amd64](/uc-doc/upgrade/migrate_i386_to_amd64)
+- [Migrate from i386 to amd64](/uc-doc/upgrade/archives/migrate_i386_to_amd64)
 
 ## Unsupported versions
 

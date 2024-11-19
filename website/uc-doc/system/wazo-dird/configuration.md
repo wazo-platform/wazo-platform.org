@@ -5,7 +5,7 @@ sidebar_label: Configuration
 
 There are three sources of configuration for wazo-dird:
 
-- the [command line options](/uc-doc/system/wazo-dird/introduction#wazo-dird-usage)
+- the [command line options](/uc-doc/system/wazo-dird#wazo-dird-usage)
 - the main configuration file
 - configuration done using the API
 

@@ -9,6 +9,6 @@ import CardList from '@site/src/components/Card/CardList';
     { text: 'REST API', href: '/uc-doc/api_sdk/rest_api' },
     { text: 'Subroutine', href: '/uc-doc/api_sdk/subroutine' },
     { text: 'Websocket', href: '/uc-doc/api_sdk/websocket' },
-    { text: 'Mobile', href: '/uc-doc/api_sdk/mobile' },
+    { text: 'Mobile', href: '/uc-doc/api_sdk/mobile_push_notification' },
   ]}
 />

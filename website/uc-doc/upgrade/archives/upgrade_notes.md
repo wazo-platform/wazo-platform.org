@@ -17,7 +17,7 @@ for more information.
 ### 20.16 {#20-16}
 
 - The `i386` (32 bits) architecture is now deprecated and will be removed in 21.01 from our debian
-  repository and CI. See [Migrate from i386 to amd64](/uc-doc/upgrade/migrate_i386_to_amd64) for
+  repository and CI. See [Migrate from i386 to amd64](/uc-doc/upgrade/archives/migrate_i386_to_amd64) for
   more information.
 - wazo-auth ACL template feature has been removed. There are no more rendering template that will be
   done for ACL. Endpoints and fields have been deprecated. See
