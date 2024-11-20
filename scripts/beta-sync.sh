@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Goal: Temporary script that copy beta content to old website until migration will be done
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
