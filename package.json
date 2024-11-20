@@ -10,7 +10,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx}' 'tests/src/*.js' 'gatsby-node.js'",
     "format:uc-doc": "prettier --print-width 100 --prose-wrap always --write 'website/uc-doc/**/*.md'",
     "check-format:uc-doc": "prettier --check --print-width 100 --prose-wrap always 'website/uc-doc/**/*.md'",
-    "beta-sync": "sh ./scripts/beta-sync.sh",
+    "beta-sync": "bash ./scripts/beta-sync.sh",
     "start": "npm run develop",
     "serve": "./node_modules/.bin/gatsby serve"
   },
