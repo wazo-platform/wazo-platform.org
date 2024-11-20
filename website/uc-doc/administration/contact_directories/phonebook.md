@@ -22,7 +22,7 @@ As a summary, provisioning a new phonebook directory would follow these general 
 4. Updating the directory profile with the new phonebook source
 
 Steps 3 and 4 should follow
-[the general guidelines provided in the general section](/uc-doc/administration/contact_directories/general#configuring-a-new-directory-source),
+[the general guidelines provided in the general section](/uc-doc/administration/contact_directories#configuring-a-new-directory-source),
 similarly to any contact directory source.
 
 ### Creating phonebooks
@@ -142,12 +142,12 @@ contacts with fields "number", "mobile", "extension", "number_other", "firstname
 "email". The actual fields of the contacts depends only what is provided when
 [creating or importing contacts](#initializing-phonebooks-with-contacts).
 
-See [general documentation](/uc-doc/administration/contact_directories/general) for more details on
-the meaning of the fields.
+See [general documentation](/uc-doc/administration/contact_directories) for more details on the
+meaning of the fields.
 
 Once such a phonebook source entity is created for the new phonebook, this source must be exposed to
 users through a profile resource. See the
-[general documentation for more details on the required API flow](/uc-doc/administration/contact_directories/general).
+[general documentation for more details on the required API flow](/uc-doc/administration/contact_directories).
 
 ## Maintaining phonebooks
 
@@ -155,7 +155,7 @@ users through a profile resource. See the
 
 Phonebooks details can be modified using the `/phonebooks` API. Phonebook sources configuration can
 be modified using the `/phonebooks/sources` API (see [above](#exposing-a-phonebook-source) and
-[general documentation on source configuration](/uc-doc/administration/contact_directories/general)).
+[general documentation on source configuration](/uc-doc/administration/contact_directories)).
 
 ```bash
 curl -i -XPUT -H "Wazo-Tenant: $tenant_uuid" -H "X-Auth-Token: $auth_token" https://localhost/api/dird/backends/phonebook/sources/6818c114-beed-432c-81dd-16b2998823d4 -d'\
@@ -281,6 +281,6 @@ yielding such a response:
 
 ### See also
 
-- [General contact directory documentation](/uc-doc/administration/contact_directories/general)
+- [General contact directory documentation](/uc-doc/administration/contact_directories)
 - [Phonebook administration API reference](/documentation/api/contact.html#tag/phonebook)
 - [Phonebook source API reference](/documentation/api/contact.html#tag/configuration/operation/create_phonebook_source)

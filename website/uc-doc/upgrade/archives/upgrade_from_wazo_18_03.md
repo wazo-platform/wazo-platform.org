@@ -22,7 +22,7 @@ the big gap of versions, there are some corner cases that are not handled automa
 - Check there is no custom certificate configured in `/etc/xivo/custom/custom-certificate.yml`.
 
   - If there is a custom certificate configured, follow
-    [this procedure](https://wazo-platform.org/uc-doc/system/https_certificate#revert-previous-custom-https-certificate-configuration)
+    [this procedure](/uc-doc/system/https_certificate#revert-previous-custom-https-certificate-configuration)
     to remove the custom certificate configuration.
 
 - Check that `wazo-auth-cli` is working properly (a backup/restore may have

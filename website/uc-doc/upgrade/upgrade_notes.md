@@ -750,4 +750,4 @@ for more information.
 
 ## Archives
 
-See our [old upgrade notes](/uc-doc/upgrade/old_upgrade_notes)
+See our [old upgrade notes](/uc-doc/upgrade/archives/upgrade_notes)

@@ -2,10 +2,10 @@
 title: Permissions (ACLs)
 ---
 
-The tokens delivered by [wazo-auth](/uc-doc/system/wazo-auth/introduction/) have a list of
-permissions associated (ACL), that determine which REST resources are authorized for this token.
-Each REST resource has an associated required ACL. When you try to access to a REST resource, this
-resource requests wazo-auth with your token and the required ACL to validate the access.
+The tokens delivered by [wazo-auth](/uc-doc/system/wazo-auth) have a list of permissions associated
+(ACL), that determine which REST resources are authorized for this token. Each REST resource has an
+associated required ACL. When you try to access to a REST resource, this resource requests wazo-auth
+with your token and the required ACL to validate the access.
 
 ## Syntax
 
