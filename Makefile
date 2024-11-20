@@ -1,7 +1,7 @@
 builder:
 	docker compose build
 
-develop:
+develop: builder
 	docker compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
 check-format-uc-doc:
