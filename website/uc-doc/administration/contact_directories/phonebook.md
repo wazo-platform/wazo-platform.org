@@ -142,8 +142,8 @@ contacts with fields "number", "mobile", "extension", "number_other", "firstname
 "email". The actual fields of the contacts depends only what is provided when
 [creating or importing contacts](#initializing-phonebooks-with-contacts).
 
-See [general documentation](/uc-doc/administration/contact_directories) for more details on
-the meaning of the fields.
+See [general documentation](/uc-doc/administration/contact_directories) for more details on the
+meaning of the fields.
 
 Once such a phonebook source entity is created for the new phonebook, this source must be exposed to
 users through a profile resource. See the
