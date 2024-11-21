@@ -66,25 +66,58 @@ For more information conserning anonymous caller ID see the following links
 - https://www.ietf.org/rfc/rfc3323.txt
 - https://www.ietf.org/rfc/rfc3325.txt
 
-### Dynamic Caller ID Choice {#dynamic-caller-id}
+### Dynamic client-side Caller ID selection {#dynamic-caller-id}
 
-Wazo allows the client SIP user agent to specify a caller ID when a call is launched. This is done
+Wazo allows the client SIP user agent to specify a caller ID when a call is initiated. This is done
 using the `X-Wazo-Selected-Caller-ID` SIP header on the `INVITE` of the call. This method of
-selecting the caller ID has precedence over any other method for choosing a caller ID.
+selecting the caller ID has precedence over any other caller id selection method.
 
-The `X-Wazo-Selected-Caller-ID` header must have the following format where `5555551234` and
-`John Doe` can be replaced with appropriate values:
+The `X-Wazo-Selected-Caller-ID` header must follow the following formats, where `5555551234` and
+`John Doe` can be replaced with analogous caller id number and caller id name values:
 
-- `anonymous`
-- `5555551234`
-- `"John Doe" <5555551234>`
+- `anonymous` (a special value for anonymous calls)
+- `5555551234` (a caller id number with no caller id name)
+- `"John Doe" <5555551234>` (a caller id with both a name and number)
 
-The client can use the resource `/api/confd/1.1/users/<uuid>/callerids/outgoing` to find which
-caller ID they can use.
+The client can use the REST API resource
+[`/api/confd/1.1/users/<uuid>/callerids/outgoing`](/documentation/api/configuration.html#tag/users/operation/list_user_callerid_outgoing)
+to list the caller IDs that are available to use.  
+This API relies on caller id information registered in other resources of the Wazo system.  
+Currently, the values provided through this API are based on those resources:
 
-**Note**: The operator will not allow the user to send a caller ID it does not recongnize as valid.
-The number must either be a DID that has been bought from that provider or another number that has
-been verified by the provider.
+- [`incalls`](/uc-doc/administration/incall) directly routed to the user(using a `User` destination
+  type), yielding caller ids of type `associated`
+- [`phone numbers`](/uc-doc/administration/phone_numbers) with the `shared` or `main` flag, yielding
+  caller ids of type `shared` and `main` respectively
+
+For example:
+
+```json
+{
+  "total": 4,
+  "items": [
+    {
+      "number": "+18001234567",
+      "type": "main"
+    },
+    {
+      "number": "8191110000",
+      "type": "associated"
+    },
+    {
+      "type": "anonymous"
+    }
+  ]
+}
+```
+
+**Note**: Most operators will not allow the user to send a caller ID they do not recongnize as
+valid. The number must either be a DID that has been bought from the same trunk provider the call is
+going through or another number that has been verified by that provider.
+
+Refer to
+[outcalls](/uc-doc/administration/interconnections/wazo_with_voip_provider#voip-provider-outcall)
+documentation for how to control the routing of outgoing calls.
 
 ## Caller ID for incoming calls (from a trunk)
 
