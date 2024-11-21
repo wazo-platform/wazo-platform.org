@@ -2,7 +2,7 @@
 title: Phone Numbers
 ---
 
-:::note New in 24.15. :::
+> **New in 24.15.**
 
 A "phone number" resource may be managed through the wazo-confd API under the `/phone-numbers`
 endpoint.
