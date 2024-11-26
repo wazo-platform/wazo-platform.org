@@ -11,8 +11,8 @@ This resource is intended to represent and (eventually) centrally manage _phone 
 may be dialed through the PSTN, or such as may be found as part of a
 [caller ID](/uc-doc/administration/callerid).
 
-Currently, this resource is used allow administrators to provide caller id values for the
-[dynamic caller id feature](/uc-doc/administration/callerid#dynamic-caller-id) separately from
+Currently, this resource is used to allow administrators to provide caller id values for the
+[dynamic caller id feature](/uc-doc/administration/callerid#dynamic-caller-id) independently from
 incalls or outcalls.
 
 ## Creating phone numbers
@@ -100,11 +100,12 @@ Strict-Transport-Security: max-age=31536000
 }
 ```
 
-This request creates 10 numbers, starting with `+18001234560` and ending with `+18001234569`. (some
-parts of the actual json response ommitted for brevity)
+(some parts of the actual json response omitted for brevity)
+
+This request creates 10 numbers, starting with `+18001234560` and ending with `+18001234569`.
 
 Note that if some numbers already exist matching elements enumerated from that range, they will be
-ignored, and only new numbers will be created.
+ignored, and only the new numbers will be created.
 
 ## Updating phone numbers
 
