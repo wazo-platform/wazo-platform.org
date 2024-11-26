@@ -7,12 +7,5 @@ services:
       - '3000:3000'
     working_dir: /app/website
     volumes:
-      - ./src:/app/src:ro
-      - ./scripts:/app/scripts:ro
       - ./website:/app/website
       - ./static:/app/website/static:ro
-      - ./.prettierrc:/app/.prettierrc:ro
-      - ./.prettierignore:/app/.prettierignore:ro
-      - ./config.js:/app/config.js:ro
-      - ./tests:/app/tests:ro
-      - ./Makefile:/app/Makefile:ro
