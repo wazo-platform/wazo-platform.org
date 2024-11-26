@@ -169,3 +169,34 @@ Access-Control-Allow-Origin: *
 Strict-Transport-Security: max-age=31536000
 
 ```
+
+## Notes on resource model
+
+The phone number resource data model is designed to generically represent any phone number that may
+be used legitimately with Wazo, along with some attributes specific to the use case of caller id
+management. This data model may evolve to better address new requirements.
+
+The `number` attribute contains the actual phone number string. The value is validated to conform to
+a numeric string optionally prefixed with a `+` character. These example are all valid values for
+the `number` field in this context:
+
+- `1111`: a four digit number;
+- `+1414`: a four digit number with a leading `+`; not a valid international phone number; would
+  likely be refused as a caller id by a trunk operator which validates the caller id;
+- `+15555550100`: a 11 digit international phone number prefixed with `+`, a valid E.164
+  number(could be refused as a caller id by a trunk operator if that number is not registered with
+  that operator);
+- `5555550100`: a 10 digits national number; a valid phone number under the
+  [North American Numbering Plan](https://www.nanpa.com/) (could be refused as a caller id by a
+  trunk operator if that number is not registered with that operator, or if the operator expects a
+  differently formatted number)
+
+Even though these all pass the API validation, this does not guarantee they will work as outgoing
+caller ids, or that they are valid numbers that can be dialed on the PSTN.
+
+It is recommended to always provide numbers in
+["+E.164" format](https://www.itu.int/rec/T-REC-E.164/en), with a leading `+` character and a full
+international number, ensuring that the number is unambiguous and may be correctly transformed into
+alternative formats if required by other Wazo subsystems(see for example
+[trunk outgoing caller id format configuration](/uc-doc/administration/interconnections/wazo_with_voip_provider#voip-provider-trunk-outgoing-caller-id-format)
+for outgoing calls).
