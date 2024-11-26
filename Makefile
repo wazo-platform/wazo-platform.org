@@ -9,7 +9,7 @@ beta/builder:
 	$(DOCKER_COMPOSE_BETA) build
 
 beta/develop: beta/builder
-	$(DOCKER_COMPOSE_BETA) run --rm --service-ports doc bash -c "yarn install && yarn docusaurus start $(ARGS)"
+	$(DOCKER_COMPOSE_BETA) run --rm --service-ports doc bash -c "yarn install && yarn docusaurus start -h 0.0.0.0 $(ARGS)"
 
 check-format-uc-doc:
 	docker compose run --no-TTY doc yarn check-format:uc-doc
