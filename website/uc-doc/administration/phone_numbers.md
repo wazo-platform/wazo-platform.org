@@ -36,8 +36,23 @@ Location: https://localhost/api/confd/1.1/phone-numbers/ae8b8b0d-ae5f-46ae-b739-
 Access-Control-Allow-Origin: *
 Strict-Transport-Security: max-age=31536000
 
-{"uuid": "ae8b8b0d-ae5f-46ae-b739-d5bcc7744cba", "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521", "number": "+15551234567", "caller_id_name": null, "main": false, "shared": false, "links": [{"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/ae8b8b0d-ae5f-46ae-b739-d5bcc7744cba"}]}
+{
+    "uuid": "ae8b8b0d-ae5f-46ae-b739-d5bcc7744cba",
+    "tenant_uuid": "54eb71f8-1f4b-4ae4-8730-638062fbe521",
+    "number": "+15551234567",
+    "caller_id_name": null,
+    "main": false,
+    "shared": false,
+    "links": [
+        {
+            "rel": "phone_numbers",
+            "href": "https://localhost/api/confd/1.1/phone-numbers/ae8b8b0d-ae5f-46ae-b739-d5bcc7744cba"
+        }
+    ]
+}
 ```
+
+### Bulk creation with phone number ranges
 
 Alternatively, to allow for bulk creation, a contiguous range of phone numbers may be added through
 a
@@ -59,11 +74,34 @@ Connection: keep-alive
 Access-Control-Allow-Origin: *
 Strict-Transport-Security: max-age=31536000
 
-{"created": [{"uuid": "732915ee-0c8e-4764-b85c-166e3d611afc"}, {"uuid": "7a29179c-eab9-483a-9faf-fa81649ad0d1"}, {"uuid": "e6546e95-8f12-420a-915d-f1dc8412f5e9"}, {"uuid": "dfbbca1d-eac2-4590-9750-e1a06810251a"}, {"uuid": "b7b7bca2-d73b-466d-8dfe-b65efe907335"}, {"uuid": "de832b33-4479-4b45-a032-bd82590146e2"}, {"uuid": "7013d573-1451-483e-b413-cc32e795a9ed"}, {"uuid": "422fda57-7c78-4cd0-81f0-6d8fad40f018"}, {"uuid": "0bbddfa5-1725-46ee-858b-f079e1b3cfd0"}, {"uuid": "43f85050-a160-4525-9e8d-526628fafc05"}], "links": [{"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/732915ee-0c8e-4764-b85c-166e3d611afc"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/7a29179c-eab9-483a-9faf-fa81649ad0d1"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/e6546e95-8f12-420a-915d-f1dc8412f5e9"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/dfbbca1d-eac2-4590-9750-e1a06810251a"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/b7b7bca2-d73b-466d-8dfe-b65efe907335"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/de832b33-4479-4b45-a032-bd82590146e2"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/7013d573-1451-483e-b413-cc32e795a9ed"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/422fda57-7c78-4cd0-81f0-6d8fad40f018"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/0bbddfa5-1725-46ee-858b-f079e1b3cfd0"}, {"rel": "phone_numbers", "href": "https://localhost/api/confd/1.1/phone-numbers/43f85050-a160-4525-9e8d-526628fafc05"}], "total": 10}
-
+{
+  "created": [
+    {"uuid": "732915ee-0c8e-4764-b85c-166e3d611afc"},
+    {"uuid": "7a29179c-eab9-483a-9faf-fa81649ad0d1"},
+    {"uuid": "e6546e95-8f12-420a-915d-f1dc8412f5e9"},
+    ...
+  ],
+  "links": [
+    {
+      "rel": "phone_numbers",
+      "href": "https://localhost/api/confd/1.1/phone-numbers/732915ee-0c8e-4764-b85c-166e3d611afc"
+    },
+    {
+      "rel": "phone_numbers",
+      "href": "https://localhost/api/confd/1.1/phone-numbers/7a29179c-eab9-483a-9faf-fa81649ad0d1"
+    },
+    {
+      "rel": "phone_numbers",
+      "href": "https://localhost/api/confd/1.1/phone-numbers/e6546e95-8f12-420a-915d-f1dc8412f5e9"
+    },
+    ...
+  ],
+  "total": 10
+}
 ```
 
-This request creates 10 numbers, starting with `+18001234560` and ending with `+18001234569`.
+This request creates 10 numbers, starting with `+18001234560` and ending with `+18001234569`. (some
+parts of the actual json response ommitted for brevity)
 
 Note that if some numbers already exist matching elements enumerated from that range, they will be
 ignored, and only new numbers will be created.
