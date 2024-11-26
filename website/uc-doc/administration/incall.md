@@ -4,11 +4,12 @@ title: Incall
 
 ## General Configuration
 
-You can configure incoming calls with `/incalls` endpoints.
+You can configure incoming calls with the
+[`/incalls`](https://wazo-platform.org/documentation/api/configuration.html#tag/incalls) endpoints.
 
 ### DID (Direct Inward Dialing) Configuration
 
-When a `+` character is prepended a called DID, the `+` character is discarded.
+When a `+` character is prepended to a called DID, the `+` character is discarded.
 
 #### Example:
 
