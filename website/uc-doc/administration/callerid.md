@@ -72,12 +72,12 @@ Wazo allows the client SIP user agent to specify a caller ID when a call is init
 using the `X-Wazo-Selected-Caller-ID` SIP header on the `INVITE` of the call. This method of
 selecting the caller ID has precedence over any other caller id selection method.
 
-The `X-Wazo-Selected-Caller-ID` header must follow the following formats, where `5555551234` and
+The `X-Wazo-Selected-Caller-ID` header must follow the following formats, where `+15555551234` and
 `John Doe` can be replaced with analogous caller id number and caller id name values:
 
 - `anonymous` (a special value for anonymous calls)
-- `5555551234` (a caller id number with no caller id name)
-- `"John Doe" <5555551234>` (a caller id with both a name and number)
+- `+15555551234` (a caller id number with no caller id name)
+- `"John Doe" <+15555551234>` (a caller id with both a name and number)
 
 The client can use the REST API resource
 [`/api/confd/1.1/users/<uuid>/callerids/outgoing`](/documentation/api/configuration.html#tag/users/operation/list_user_callerid_outgoing)
