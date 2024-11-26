@@ -4,6 +4,13 @@ builder:
 develop: builder
 	docker compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
+DOCKER_COMPOSE_BETA=docker compose -f docker-compose.yml -f docker-compose.beta.yml
+beta/builder:
+	$(DOCKER_COMPOSE_BETA) build
+
+beta/develop: beta/builder
+	$(DOCKER_COMPOSE_BETA) run --rm --service-ports doc bash -c "yarn install && yarn docusaurus start -h 0.0.0.0 $(ARGS)"
+
 check-format-uc-doc:
 	docker compose run --no-TTY doc yarn check-format:uc-doc
 
