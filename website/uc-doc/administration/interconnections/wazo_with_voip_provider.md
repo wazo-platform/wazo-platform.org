@@ -22,7 +22,12 @@ You need the following information from your provider:
 - a password
 - the name of the provider VoIP server
 - a public phone number
-- `POST /trunks {"context": "ctx-<tenant slug>-incall-<UUID>"}` (or another incoming call context)
+- (optionally) the correct format for caller id on outgoing calls
+
+The following requests allow configuring a SIP trunk:
+
+- [`POST /trunks {"context": "ctx-<tenant slug>-incall-<UUID>", "outgoing_caller_id_format": "+E164"}`](/documentation/api/configuration.html#tag/trunks/operation/create_trunk)
+  (or another incoming call context and supported outgoing caller id format type)
 - `POST /endpoints/sip {"username": <username>, "secret": <password>, "type": "peer", "host": "voip.provider.example.com"}`
 - `PUT /trunks/{trunk_id}/endpoints/sip/{sip_id}`
 - `POST /registers/sip {"auth_username": <username>, "auth_password": <password>, "transport": "udp", "remote_host": "voip.provider.example.com"}`
@@ -40,6 +45,15 @@ value of this cycle period, you have to select the appropriate value of the foll
 
 At that point, the Asterisk command `sip show registry` should print a line showing that you are
 registered, meaning your trunk is established.
+
+### Trunk outgoing caller id format{#voip-provider-trunk-outgoing-caller-id-format}
+
+Trunks may be configured with a `outgoing_caller_id_format` attribute(see
+[API reference](/documentation/api/configuration.html#tag/trunks/operation/create_trunk)) which
+controls the type of formatting the trunk operator expects for the caller id number value. This
+setting currently applies to the
+[dynamic caller id number](/uc-doc/administration/callerid#dynamic-caller-id) provided by client
+applications through SIP, before the call is connected to the outgoing trunk.
 
 ## Set the outgoing calls {#voip-provider-outcall}
 
@@ -61,6 +75,15 @@ The most useful special characters to match extensions are:
 
 You can find more details about pattern matching in Asterisk (hence in Wazo) on
 [the Asterisk wiki](https://docs.asterisk.org/Configuration/Dialplan/Pattern-Matching).
+
+### Outgoing caller id{#voip-provider-outcall-outgoing-caller-id}
+
+Outcall extensions may be optionally configured with a `caller_id` attribute(see
+[API reference](/documentation/api/configuration.html#tag/extensions/operation/associate_outcall_extension)),
+which is the caller id that will be used when connecting the calls matched by this outcall extension
+to the outcall's associated trunks.
+
+This caller id is used as is and not subject to the trunk's `outgoing_caller_id_format` setting.
 
 ## Set the incoming calls {#voip-provider-incall}
 
