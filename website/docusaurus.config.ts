@@ -1,6 +1,7 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
+import 'dotenv/config';
 import REDIRECTS from './redirects';
 
 const config: Config = {
@@ -146,6 +147,15 @@ const config: Config = {
     mermaid: {
       theme: { light: 'neutral', dark: 'dark' },
     },
+    ...(process.env.ALGOLIA_APP_ID
+      ? {
+          algolia: {
+            appId: process.env.ALGOLIA_APP_ID,
+            apiKey: process.env.ALGOLIA_API_KEY,
+            indexName: process.env.ALGOLIA_INDEX_NAME,
+          },
+        }
+      : {}),
   } satisfies Preset.ThemeConfig,
   plugins: [
     [
