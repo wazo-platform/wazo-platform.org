@@ -13,7 +13,7 @@ const Page = () => (
         <img src={LogoSquare} alt="Wazo Platform" id="wazo-platform" />
         <p className="intro">An Open Source project to build your own IP&nbsp;telecom platform</p>
         <div className="btns">
-          <Link className="btn btn-cta-secondary" to="uc-doc/installation/install-system">
+          <Link className="btn btn-cta-secondary" to="uc-doc/installation">
             Install
           </Link>
           <Link className="btn btn-cta-primary" to="documentation">

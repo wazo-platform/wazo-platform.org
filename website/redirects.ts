@@ -14,8 +14,8 @@ const REDIRECTS: Options['redirects'] = [
     to: '/uc-doc/administration/provisioning',
   },
   {
-    from: '/uc-doc/administration/users',
-    to: '/uc-doc/administration',
+    from: '/uc-doc/administration/users/users',
+    to: '/uc-doc/administration/users',
   },
   {
     from: [

@@ -32,7 +32,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'SCCP', href: '/uc-doc/administration/sccp' },
     { text: 'Schedules', href: '/uc-doc/administration/schedules' },
     { text: 'Sound Files', href: '/uc-doc/administration/sound_files' },
-    { text: 'Users', href: '/uc-doc/administration/users/users' },
+    { text: 'Users', href: '/uc-doc/administration/users' },
     { text: 'Voicemails', href: '/uc-doc/administration/voicemails' },
     { text: 'SIP Templates', href: '/uc-doc/administration/sip_templates' },
     { text: 'Call Policy', href: '/uc-doc/administration/call_policy' },

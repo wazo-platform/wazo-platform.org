@@ -565,7 +565,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   generate301('/uc-doc/administration/contact_directories/general', '/uc-doc/administration/contact_directories');
   generate301('/uc-doc/administration/interconnections/introduction', '/uc-doc/administration/interconnections');
   generate301('/uc-doc/administration/provisioning/introduction', '/uc-doc/administration/provisioning');
-  generate301('/uc-doc/administration/users', '/uc-doc/administration');
+  generate301('/uc-doc/administration/users/users', '/uc-doc/administration/users');
   generate301('/uc-doc/api_sdk/mobile/push_notification', '/uc-doc/api_sdk/mobile_push_notification');
   generate301('/uc-doc/api_sdk/mobile', '/uc-doc/api_sdk/mobile_push_notification');
   generate301('/uc-doc/contact_center/introduction', '/uc-doc/contact_center');
