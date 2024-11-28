@@ -4,7 +4,7 @@ builder:
 develop: builder
 	docker compose run --service-ports doc env $(ENV) yarn develop -H 0.0.0.0
 
-DOCKER_COMPOSE_BETA=docker compose -f docker-compose.yml -f docker-compose.beta.yml
+DOCKER_COMPOSE_BETA=docker compose -f docker-compose.beta.yml
 beta/builder:
 	$(DOCKER_COMPOSE_BETA) build
 
