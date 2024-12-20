@@ -13,7 +13,6 @@ services to be used:
 - The telephony service interface (wazo-calld)
 - The directory service (wazo-dird)
 - The AMI HTTP interface (wazo-amid)
-- API documentation (xivo-swagger-doc)
 - The websocket interface (wazo-websocketd)
 - Asterisk WebSocket (xivo-config)
 
