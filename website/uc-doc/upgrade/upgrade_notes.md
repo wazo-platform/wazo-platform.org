@@ -3,6 +3,16 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.01 {#25-01}
+
+- The embedded API documentation (`https://<wazo-ip>/api`) has been removed. You can access the same
+  documentation via the [API Console](https://wazo-platform.org/documentation) on the Wazo platform
+  website, using your `<wazo-ip>` for local API access.
+
+Consult the
+[25.01 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.01)
+for more information.
+
 ## 24.17 {#24-17}
 
 Consult the
