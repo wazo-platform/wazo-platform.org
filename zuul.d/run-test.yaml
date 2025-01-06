@@ -24,14 +24,6 @@
           };
         dest: '{{ zuul.project.src_dir }}/config.js'
 
-    - name: configure path prefix
-      when: zuul_log_path is defined
-      lineinfile:
-        line: "pathPrefix: '/logs/{{ zuul_log_path }}/public',"
-        insertafter: 'module.exports = {'
-        path: '{{ zuul.project.src_dir }}/gatsby-config.js'
-        state: present
-
     - name: make
       command: 'make'
       args:

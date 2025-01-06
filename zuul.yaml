@@ -99,6 +99,12 @@
         secret: mattermost
 
 - job:
+    name: yarn-build-test-debug
+    description: Build and test
+    run: zuul.d/run-test.yaml
+    timeout: 10800
+
+- job:
     name: yarn-prettier-uc-doc
     description: Run prettier
     run: zuul.d/run-prettier.yaml
@@ -106,22 +112,5 @@
 - project:
     wazo-check:
       jobs:
-        - yarn-build-copy:
-            nodeset: vm-debian-11-m1m
-        - yarn-prettier-uc-doc:
-            nodeset: vm-debian-11-m1s
-    wazo-gate:
-      jobs:
-        - yarn-build-search-copy:
-            nodeset: vm-debian-11-m1m
-    auto-merge:
-      jobs:
-        - noop
-    post:
-      jobs:
-        - yarn-build-publish:
-            nodeset: vm-debian-11-m1m
-    periodic:
-      jobs:
-        - yarn-build-test:
+        - yarn-build-test-debug:
             nodeset: vm-debian-11-m1m

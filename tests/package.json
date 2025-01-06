@@ -8,6 +8,8 @@
     "test": "status=0;for filename in src/*.js; do node $filename http://server:8000 || status=$?; done; exit $status"
   },
   "dependencies": {
-    "puppeteer": "^1.20.0"
+    "axios": "^1.7.9",
+    "follow-redirects": "^1.15.9",
+    "puppeteer": "^23.11.1"
   }
 }

@@ -1,4 +1,4 @@
-FROM satantime/puppeteer-node:16
+FROM satantime/puppeteer-node:22
 
 RUN mkdir /app
 

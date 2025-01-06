@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const axios = require('axios');
 
 process.setMaxListeners(Infinity);
 
@@ -56,6 +57,21 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // Don't check for mail URLs
+  if (url.indexOf('mailto:') !== -1) {
+    return true;
+  }
+
+  // tldrlegal.com responds status 403
+  if (url.indexOf('tldrlegal.com') !== -1) {
+    return true;
+  }
+
+  // gnu.org responds status 429 when crawling multiple URLs in a row
+  if (url.indexOf('www.gnu.org') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
@@ -81,9 +97,26 @@ const checkUrl = async (browser, url, fromUrl) => {
 
   console.log(`Checking ${url} (from: ${fromUrl}) ...`);
 
-  // Don't check for mail URLs and we got 403s on tldrlegal.com ...
-  if (url.indexOf('mailto:') !== -1 || url.indexOf('tldrlegal') !== -1) {
-    return true;
+  if (!isUrlLocal) {
+    let result = false;
+    let statusCode = null;
+    await axios
+      .get(url)
+      .then(response => {
+        result = true;
+        console.log(response.status, result);
+      })
+      .catch(error => {
+        let message = null;
+        if (!error.response) {
+          message = `Error in ${url} (from ${fromUrl}): Could not get a response: ${error.message}`;
+        } else {
+          message = `Error in ${url} (from ${fromUrl}): status code ${error.response.status}`;
+        }
+        console.error(message);
+        errorUrl.push(message);
+      });
+    return result;
   }
 
   try {
@@ -106,7 +139,9 @@ const checkUrl = async (browser, url, fromUrl) => {
     const failedResponses = responses.filter(response => isResponseFailed(response));
     const allResponsesOk = failedResponses.length === 0;
     if (isResponseFailed(mainResponse) || (isUrlLocal && !allResponsesOk)) {
-      throw new Error(`statuses ${failedResponses.map(response => response.status())}`);
+      throw new Error(
+        `statuses ${failedResponses.map(response => (response ? response.status() : 'unknown'))}`
+      );
     }
 
     let links = await browserPage.evaluate(() =>
@@ -116,13 +151,25 @@ const checkUrl = async (browser, url, fromUrl) => {
     await browserPage.close();
 
     for (let i = 0; i < links.length; i++) {
-      const link = links[i];
-      if (testedUrl.indexOf(link) !== -1 || link.indexOf('#') !== -1) {
+      const rawLink = links[i];
+      const isLinkLocal = rawLink.indexOf(baseUrl) !== -1;
+
+      // avoid local duplicates with trailing slash
+      const link = isLinkLocal ? rawLink.replace(/\/+$/, '') : rawLink;
+
+      const isAnchorLink = link.indexOf('#') !== -1;
+      if (isAnchorLink) {
+        continue;
+      }
+
+      const alreadyTested = testedUrl.indexOf(link) !== -1;
+      if (alreadyTested) {
         continue;
       }
 
       // Do not crawl external link in external url
-      if (!isUrlLocal && link.indexOf(baseUrl) === -1) {
+      const isExternalLinkFromExternalPage = !isUrlLocal && !isLinkLocal;
+      if (isExternalLinkFromExternalPage) {
         continue;
       }
 
