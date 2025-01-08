@@ -3,6 +3,18 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.02 {#25-02}
+
+- The required ACL suffix for the `wazo-auth` service has been updated to align with the
+  [Wazo Standard](/uc-doc/api_sdk/rest_api/acl/#syntax). The new suffix is `.update`, replacing the
+  previous `.edit` suffix. While the old suffix remains functional, it is now deprecated. Policies
+  stored in the database have been migrated automatically, but any custom configuration files will
+  need to be updated manually.
+
+Consult the
+[25.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.02)
+for more information.
+
 ## 25.01 {#25-01}
 
 - The embedded API documentation (`https://<wazo-ip>/api`) has been removed. You can access the same
