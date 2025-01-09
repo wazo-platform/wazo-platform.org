@@ -36,6 +36,7 @@ for more information.
   be removed in any later release.
 
   - `XIVO_HANGUPRINGTIME` -> `WAZO_HANGUPRINGTIME`
+  - `XIVO_REAL_CONTEXT` -> `WAZO_REAL_CONTEXT`
   - `XIVO_REAL_NUMBER` -> `WAZO_REAL_NUMBER`
 
 
