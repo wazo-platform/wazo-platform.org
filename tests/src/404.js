@@ -102,13 +102,13 @@ const checkUrl = async (browser, url, fromUrl) => {
       .then(response => {
         result = response.ok;
         if (!response.ok) {
-          message = `Error in ${url} (from ${fromUrl}): status code ${error.response.status}`;
+          message = `Error in ${url} (from ${fromUrl}): status code ${response.status}`;
           console.error(message);
           errorUrl.push(message);
         }
       })
       .catch(error => {
-        const message = `Error in ${url} (from ${fromUrl}): ${error}`;
+        const message = `Error in ${url} (from ${fromUrl}): ${error.cause}`;
         console.error(message);
         errorUrl.push(message);
       });
