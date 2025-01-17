@@ -232,3 +232,62 @@ class BarPlugin(object):
 
         api.add_resource(BarService, '/users/<uuid:user_uuid>/external/bar', resource_class_args=args)
 ```
+
+### Email Notification
+
+By default `wazo-auth` implement an email notification plugin to send email through SMTP protocol.
+Implementing a new kind of email notification can be done by:
+
+1. Create a python module implementing the
+   [BaseEmailNotification](https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/interfaces.py)
+   interface.
+2. Install the python module with an entry point `wazo_auth.email_notification`.
+3. Add configuration to use the new `email_notification` plugin.
+
+#### Example
+
+```text
+setup.py
+src/plugin.py
+/etc/wazo-auth/conf.d/email_notification.yml
+```
+
+```python
+#!/usr/bin/env python3
+from setuptools import find_packages, setup
+
+setup(
+    name='auth_email_notification_proxy',
+    version='0.1',
+    packages=find_packages(),
+    entry_points={
+        'wazo_auth.email_notification': [
+            'proxy = src.plugin:ProxyEmail',
+        ],
+    }
+)
+```
+
+```python
+import requests
+
+from wazo_auth.interfaces import BaseEmailNotification
+
+
+class ProxyEmail(BaseEmailNotification):
+    def __init__(self, config: dict, **kwargs: dict) -> None:
+        self.proxy_confirmation_url = config['proxy_confirmation_url']
+        self.proxy_password_reset_url = config['proxy_password_reset_url']
+
+    def send_confirmation(self, context: dict) -> None:
+        requests.post(self.proxy_confirmation_url, json=context)
+
+    def send_password_reset(self, context: dict) -> None:
+        requests.post(self.proxy_password_reset_url, json=context)
+```
+
+```yml
+email_notification_plugin: proxy
+proxy_confirmation_url: confirmation.example.com
+proxy_password_reset_url: password_reset.example.com
+```
