@@ -35,7 +35,13 @@ for more information.
   appear in the Asterisk CLI if you try to modify those variables. Support for the old variables may
   be removed in any later release.
 
+  - `XIVO_CID_REWRITTEN` -> `WAZO_CID_REWRITTEN`
+  - `XIVO_GROUPTIMEOUT` -> `WAZO_GROUPTIMEOUT`
   - `XIVO_HANGUPRINGTIME` -> `WAZO_HANGUPRINGTIME`
+  - `XIVO_MAILBOX` -> `WAZO_MAILBOX`
+  - `XIVO_MAILBOX_CONTEXT` -> `WAZO_MAILBOX_CONTEXT`
+  - `XIVO_MAILBOX_LANGUAGE` -> `WAZO_MAILBOX_LANGUAGE`
+  - `XIVO_MAILBOX_OPTIONS` -> `WAZO_MAILBOX_OPTIONS`
   - `XIVO_REAL_CONTEXT` -> `WAZO_REAL_CONTEXT`
   - `XIVO_REAL_NUMBER` -> `WAZO_REAL_NUMBER`
 
