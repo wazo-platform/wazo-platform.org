@@ -23,6 +23,7 @@ sidebar_position: 1
   - `XIVO_MAILBOX_OPTIONS` -> `WAZO_MAILBOX_OPTIONS`
   - `XIVO_REAL_CONTEXT` -> `WAZO_REAL_CONTEXT`
   - `XIVO_REAL_NUMBER` -> `WAZO_REAL_NUMBER`
+  - `XIVO_USEREMAIL` -> `WAZO_USEREMAIL`
 
 - The global dialplan variables in `/etc/xivo/asterisk/xivo_globals.conf` have been renamed from
   `XIVO_FWD_` to `WAZO_FWD_`.
