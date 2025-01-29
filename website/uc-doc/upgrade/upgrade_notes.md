@@ -11,11 +11,11 @@ sidebar_position: 1
   stored in the database have been migrated automatically, but any custom configuration files will
   need to be updated manually.
 - Ring groups and Queues now have the `dtmf_record_toggle_enabled` option. If a call reaches a group
-  or a queue and the callee uses `*3` to start or stop the recording. The group or queue setting
+  or a queue and the callee uses `*3` to start or stop the recording, the group or queue setting
   will be checked instead of the user's configuration option. All existing groups and queues now
   have the recording option enabled to avoid breaking existing installations using `*3` for queued
   calls. If this is not desired you should disable this new option on you group or queue. This
-  change impact the callee's ability to do `*3` only, not the caller.
+  change impacts the callee's ability to do `*3` only, not the caller.
 
 Consult the
 [25.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.02)
