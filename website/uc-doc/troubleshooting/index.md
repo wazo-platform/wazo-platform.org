@@ -50,15 +50,15 @@ Be aware that this workaround will probably not survive any upgrade.
    [pre-user-global-faxdetection]
    exten = s,1,NoOp(Answer call to be able to detect fax if call is external AND user has an email configured)
    same  =   n,GotoIf($["${WAZO_CALLORIGIN}" = "extern"]?:return)
-   same  =   n,GotoIf(${XIVO_USEREMAIL}?:return)
+   same  =   n,GotoIf(${WAZO_USEREMAIL}?:return)
    same  =   n,Set(FAXOPT(faxdetect)=yes) ; Activate dynamically fax detection
    same  =   n,Answer()
    same  =   n,Wait(4) ; You can change the number of seconds it will wait for fax (4 to 6 is good)
    same  =   n,Set(FAXOPT(faxdetect)=no) ; If no fax was detected deactivate dyamically fax detection (needed if you want directmedia to work)
    same  =   n(return),Return()
 
-   exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${WAZO_DSTNUM} - will be sent upon reception to ${XIVO_USEREMAIL})
-   same  =     n,Gosub(faxtomail,s,1(${XIVO_USEREMAIL}))
+   exten = fax,1,NoOp(Fax detected from ${CALLERID(num)} towards ${WAZO_DSTNUM} - will be sent upon reception to ${WAZO_USEREMAIL})
+   same  =     n,Gosub(faxtomail,s,1(${WAZO_USEREMAIL}))
    ```
 
 2. In the file `/etc/xivo/asterisk/xivo_globals.conf` set the global user subroutine to
