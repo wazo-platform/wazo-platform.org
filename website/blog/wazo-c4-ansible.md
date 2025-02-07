@@ -12,19 +12,27 @@ status: published
 
 ## Introduction
 
-In our pursuit of enabling companies to build their IP communication infrastructure and deliver innovative communication services with our open-source, API-centric solutions, Wazo's Class 4 engine can be easily deployed with different methods:
+In our pursuit of enabling companies to build their IP communication infrastructure and deliver
+innovative communication services with our open-source, API-centric solutions, Wazo's Class 4 engine
+can be easily deployed with different methods:
 
-- **Docker compose:** run the platform on a single machine using the Docker images together with docker-compose.
-- **Kubernetes:** install the platform using our Helm chart and run the platform on your Kubernetes cluster.
-- **Ansible-based deployment:** install the platform on a set of Debian Buster machines, either bare-metal or virtual machines, using our Ansible recipes.
+- **Docker compose:** run the platform on a single machine using the Docker images together with
+  docker-compose.
+- **Kubernetes:** install the platform using our Helm chart and run the platform on your Kubernetes
+  cluster.
+- **Ansible-based deployment:** install the platform on a set of Debian Buster machines, either
+  bare-metal or virtual machines, using our Ansible recipes.
 
-So, beside the fast containerized way with docker-compose or helm chart for Kubernetes, Wazo's C4 can be deployed with Ansible on virtual machines or bare-metal.
+So, beside the fast containerized way with docker-compose or helm chart for Kubernetes, Wazo's C4
+can be deployed with Ansible on virtual machines or bare-metal.
 
 <!-- truncate -->
 
 ## Wazo Platform C4 solution
 
-We've already introduced our C4 platform in a previous [blog post](/blog/wazo-platform-c4-overview). Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales.
+We've already introduced our C4 platform in a previous [blog post](/blog/wazo-platform-c4-overview).
+Our SBC and Routing solution has in the last month grown and matured with the introduction of RTP
+Engine, Consul and the automatic configuration of Kamailio nodes as the architecture scales.
 
 The Class 4 engine is made of several components:
 
@@ -35,15 +43,19 @@ The Class 4 engine is made of several components:
 5. PostgreSQL
 6. Redis
 
-If you use the Ansible recipes you need at least two hosts as you cannot run the SBC and the Router on the same machine.
+If you use the Ansible recipes you need at least two hosts as you cannot run the SBC and the Router
+on the same machine.
 
 ## What is Ansible?
 
-[Ansible](https://www.ansible.com/) is an open-source software provisioning, configuration management, and application-deployment tool similar to Chef, Puppet or Salt.
+[Ansible](https://www.ansible.com/) is an open-source software provisioning, configuration
+management, and application-deployment tool similar to Chef, Puppet or Salt.
 
-It is for sure the simplest and the easiest to get started with because it's `"just SSH"`. It uses SSH to connect to servers and run the configured Tasks.
+It is for sure the simplest and the easiest to get started with because it's `"just SSH"`. It uses
+SSH to connect to servers and run the configured Tasks.
 
-If you're new to Ansible, the best way to get started is reading the documentation from the official website:
+If you're new to Ansible, the best way to get started is reading the documentation from the official
+website:
 
 - [Getting started](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
 - [Best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
@@ -54,7 +66,8 @@ If you're new to Ansible, the best way to get started is reading the documentati
 
 To install the Class 4 engine in an all-in-one setup, do the following steps:
 
-1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset on each host you want to use, either bare metal or virtual machine.
+1. Install a Debian 10 Buster system with a default locale with an UTF-8 charset on each host you
+   want to use, either bare metal or virtual machine.
 
 2. Run the following commands as root on the Debian systems to provision sudo, git and Ansible:
 
@@ -70,7 +83,8 @@ To install the Class 4 engine in an all-in-one setup, do the following steps:
 # ansible-galaxy install -r requirements-postgresql.yml
 ```
 
-4. Create the Ansible inventory in `inventories/c4` to specify your hosts and your preferences, as follows:
+4. Create the Ansible inventory in `inventories/c4` to specify your hosts and your preferences, as
+   follows:
 
 Define one or more SBCs:
 
@@ -170,10 +184,11 @@ rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198
 rtpengine_public_address = <PUBLIC IP ADDRESS OF THE MEDIA PROXY> # example: 198.51.100.2
 ```
 
-The various variables that can be customized are described at https://github.com/wazo-platform/wazo-c4-ansible/blob/master/README.md#variables
+The various variables that can be customized are described at
+https://github.com/wazo-platform/wazo-c4-ansible/blob/master/README.md#variables
 
-By default, Wazo Platform will install the development version. To install
-the latest stable version, activate the following settings in your inventory:
+By default, Wazo Platform will install the development version. To install the latest stable
+version, activate the following settings in your inventory:
 
 ```Ini
 [c4:vars]
@@ -189,7 +204,8 @@ Launch the installation by running the following command:
 # ansible-playbook -i inventories/c4 c4.yml
 ```
 
-If you want to test the Class 4 engine on a single host, you can use Vagrant to provision two virtual machines using the provided `Vagrantfile`:
+If you want to test the Class 4 engine on a single host, you can use Vagrant to provision two
+virtual machines using the provided `Vagrantfile`:
 
 ```Ruby
 # -*- mode: ruby -*-
@@ -213,7 +229,8 @@ You can now run:
 $ vargrant up
 ```
 
-You can install the SBC and the Router, together with their dependencies, on the two virtual machines running:
+You can install the SBC and the Router, together with their dependencies, on the two virtual
+machines running:
 
 ```ShellSession
 $ ansible-playbook -i inventories/c4-sbc-vagrant c4-sbc.yaml
@@ -222,4 +239,7 @@ $ ansible-playbook -i inventories/c4-router-vagrant c4-router.yaml
 
 ## Conclusions
 
-Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as you can see, just by following a few simple steps. For more detailed information and other installation methods please refer to [the official Wazo C4 Install guide](https://wazo-platform.org/use-cases/class-4).
+Wazo Platform C4 is easily deployable with our Ansible recipes on bare-metal or virtual machines as
+you can see, just by following a few simple steps. For more detailed information and other
+installation methods please refer to
+[the official Wazo C4 Install guide](https://wazo-platform.org/use-cases/class-4).
