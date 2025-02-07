@@ -47,7 +47,7 @@ If you're new to Ansible, the best way to get started is reading the documentati
 
 - [Getting started](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
 - [Best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
-- [Ansible Workshops](https://aap2.demoredhat.com)
+- [Ansible Workshops](https://labs.demoredhat.com/)
 - [Ansible FAQ](https://docs.ansible.com/ansible/latest/reference_appendices/faq.html)
 
 ## Prerequisites
