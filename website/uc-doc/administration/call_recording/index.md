@@ -2,17 +2,28 @@
 title: Call Recording
 ---
 
-Call recording allows the user or the administrator to record a user's conversation. Recorded files
-are stored on the Wazo server and are accessible using the CDR API.
+Call recording enables users or administrators to record conversations. The recorded files are
+stored on the Wazo server and can be accessed using the CDR API.
 
-## Enabling
+There are two methods to record a call:
 
-There are many ways to enable call recording. It can be done by the administrator or the user
-itself.
+### On-Demand Call Recording
+
+On-demand call recording occurs when a user initiates the recording during an ongoing call. This can
+be done either via the API or by using the `*3` feature code during the call.
+
+### Automatic Call Recording
+
+Automatic call recording is triggered by predefined configurations. This typically happens before
+the call is established, based on the configuration of the call's destination or source.
+
+## Enabling Call Recording
+
+Call recording can be enabled in several ways, either by the administrator or the user.
 
 ### Administrator
 
-The administrator can enable call recording:
+An administrator can enable call recording using the following API call:
 
 ```ascii
 PUT /users/{user_uuid}
@@ -26,47 +37,76 @@ PUT /users/{user_uuid}
 
 ### User
 
-The user can enable and disable call recording using the `*26` extension on its phone. The user can
-also enable call recording during a call using the `*3` extension during the conversation.
+Users can enable or disable call recording using the `*26` extension on their phone. Additionally,
+users can start recording during a call by using the `*3` extension.
 
-## Call Recording Management
+## Managing Call Recording Options
 
 ### Extensions
 
-The extensions for call recording and online call recording are available with extensions resource:
+The extensions for call recording and online call recording can be retrieved using the following
+resource:
 
 - `GET /extensions/features?feature=callrecord`
 
-### Disable user call control management
+### User Call Recording Management
 
-To disable call recording for a user (default: `*26`):
+To enable or disable call recording for a user (default: `*26`):
 
-- Find `extension_id` with `GET /extensions/features?feature=callrecord`
-- Disabled with `PUT /extensions/features/{extenion_id} {"enabled": false}`
+1. Find the `extension_id` using `GET /extensions/features?feature=callrecord`.
+2. Disable or enable it with `PUT /extensions/features/{extension_id} {"enabled": <true|false>}`.
 
-To disable online call recording (default: `*3`):
+To enable or disable on-demand call recording (default: `*3`):
 
-- With `PUT /users/{user_uuid} {"online_call_record_enabled": false}`
+- Use `PUT /users/{user_uuid} {"online_call_record_enabled": <true|false>}`.
 
-### Files
+### Group Call Recording Management
 
-Recordings are located in `/var/lib/wazo/sounds/tenants/<tenant_uuid>/monitor`
+To enable or disable on-demand call recording for a group (default: `*3`):
 
-**Warning**: Since 21.02, renaming or removing a file in this repository will break CDR recordings
-API
+- Use `PUT /groups/{group_uuid} {"dtmf_record_toggle": <true|false>}`.
 
-Recording can be retrieved using the call-logd API. You can download recordings individually for a
-given call or download many recordings at the same time.
+This setting controls whether callees in a call group can use on-demand call recording. The caller's
+ability to use on-demand call recording depends on their individual configuration.
 
-#### Downloading a single recording
+The group configuration overrides the user configuration for the callee.
 
-Downloading a single recording can be done using the following resource.
+### Queue Call Recording Management
+
+To enable or disable on-demand call recording for a queue (default: `*3`):
+
+- Use `PUT /queues/{queue_uuid} {"dtmf_record_toggle": <true|false>}`.
+
+This setting determines whether callees in a queue can use on-demand call recording. The caller's
+ability to use on-demand call recording depends on their individual configuration.
+
+The queue configuration overrides the user configuration for the callee.
+
+### Recording Files
+
+Recordings are stored in `/var/lib/wazo/sounds/tenants/<tenant_uuid>/monitor`.
+
+**Warning**: Starting from version 21.02, renaming or deleting files in this directory will break
+the CDR recordings API.
+
+Recordings can be retrieved using the call-logd API. You can download individual recordings for a
+specific call or download multiple recordings simultaneously.
+
+If a recording is paused and then resumed, only one file will be generated and added to the CDR. If
+multiple recordings are needed for a single call, the user must use the `stop` and `start` API.
+
+- `PUT https://<WAZO STACK HOSTNAME>/api/calld/user/me/calls/{call_id}/record/start`
+- `PUT https://<WAZO STACK HOSTNAME>/api/calld/user/me/calls/{call_id}/record/stop`
+
+#### Downloading a Single Recording
+
+To download a single recording, use the following resource:
 
 `https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/<CDR ID>/recordings/<RECORDING UUID>/media`
 
 The CDR ID and recording UUID can be retrieved from the `/cdr` resource.
 
-Here's an example of the response of a `GET` on `/cdr`
+Here’s an example response from a `GET` request to `/cdr`:
 
 ```json
 {
@@ -114,112 +154,111 @@ Here's an example of the response of a `GET` on `/cdr`
 }
 ```
 
-All of the call's information can be viewed, including the ID of the CDR, `2060` here, and the UUID
-of the recording, `5ea37d0b-0823-4d2b-a18c-b9082e551b50`. There can be multiple recordings on a
-single call depending on the call and the configuration.
+All call details are visible, including the CDR ID (`2060` in this example) and the recording UUID
+(`5ea37d0b-0823-4d2b-a18c-b9082e551b50`). A single call may have multiple recordings depending on
+the call and configuration.
 
-The curl command to download this recording would be the following.
+To download this recording, use the following `curl` command:
 
 ```bash
 curl --insecure -X GET --header 'Accept: audio/wav' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/2060/recordings/5ea37d0b-0823-4d2b-a18c-b9082e551b50/media' --output <MY FILE.wav>
 ```
 
-#### Bulk downloads
+#### Bulk Downloads
 
-If you want to export a large selection of recordings to be consumed externally, you can use the
-bulk download API.
+To export a large number of recordings for external use, you can use the bulk download API.
 
-First you need to create an export, see the
-[API documentation](https://wazo-platform.org/documentation/console/cdr) for all the available
-options for the export.
+First, create an export. Refer to the
+[API documentation](https://wazo-platform.org/documentation/console/cdr) for all available export
+options.
 
 ```bash
 curl --insecure -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Wazo-Tenant: <TENANT UUID>' --header 'X-Auth-Token: ACCESS TOKEN' -d '{}' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/cdr/recordings/media/export?from=2021-04-01T00%3A00%3A00-0500&until=2021-05-01T00%3A00%3A00-0500&recurse=false&email=<USERNAME%40DOMAIN>'
 ```
 
-The result will contain the UUID of your export. You can use that UUID to download the export or
-query its progression.
+The response will include the UUID of your export. Use this UUID to download the export or check its
+status.
 
-To known the status of you export you can use the following command
+To check the status of your export, use:
 
 ```bash
 curl --insecure -X GET --header 'Accept: application/json' --header 'X-Auth-Token: <ACCESS TOKEN>' 'https://<WAZO STACK HOSTNAME>/api/call-logd/1.0/exports/<EXPORT UUID>'
 ```
 
-One the export reaches the status `finished`, mail will be sent to the email address that was in the
-query string of the POST with the link that can be used to download the archive.
+Once the export status is `finished`, an email will be sent to the address provided in the query
+string of the POST request, containing a link to download the archive.
 
-#### Automating an Export
+#### Automating Exports
 
-Let's say you want to get your recordings exported every week. Here's how you would do it.
+To automate weekly exports of your recordings, follow these steps:
 
-1.  Create a user with the appropriate permissions to launch the export.
+1. **Create a user with the necessary permissions to launch the export:**
 
-    ```bash
-    export USER_UUID=$(wazo-auth-cli user create --password <password> <username>)
-    export POLICY_UUID=$(wazo-auth-cli policy create --acl call-logd.cdr.recordings.media.export.create auth.tenants.read -- recording_exporter)
-    wazo-auth-cli user add --policy ${POLICY_UUID} ${USER_UUID}
-    ```
+   ```bash
+   export USER_UUID=$(wazo-auth-cli user create --password <password> <username>)
+   export POLICY_UUID=$(wazo-auth-cli policy create --acl call-logd.cdr.recordings.media.export.create auth.tenants.read -- recording_exporter)
+   wazo-auth-cli user add --policy ${POLICY_UUID} ${USER_UUID}
+   ```
 
-2.  Create a refresh token that will be copied in the script
+2. **Create a refresh token for the script:**
 
-    ```bash
-    wazo-auth-cli -v token create --access_type offline --client_id exporter --auth-username <username> --auth-password <password> 2>&1 | tr ',' '\n' | sed 's/}//g' | grep 'refresh_token' | awk -F': ' '{ print $NF }'
-    ```
+   ```bash
+   wazo-auth-cli -v token create --access_type offline --client_id exporter --auth-username <username> --auth-password <password> 2>&1 | tr ',' '\n' | sed 's/}//g' | grep 'refresh_token' | awk -F': ' '{ print $NF }'
+   ```
 
-    The output of this command is your refresh token. Save it for the script.
+   Save the refresh token output for the script.
 
-3.  Copy the script on you stack
+3. **Copy the script to your stack:**
 
-    You will need to copy the refresh token you created previously into the `REFRESH_TOKEN` variable
-    and add the tenants to export as well as the email address where the export should be sent.
+   Replace the `REFRESH_TOKEN` variable with the token you created earlier. Add the tenants to
+   export and the email address where the export should be sent.
 
-    ```python
-    #!/usr/bin/env python3
+   ```python
+   #!/usr/bin/env python3
 
-    from datetime import datetime, timedelta
-    from wazo_auth_client import Client as AuthClient
-    from wazo_call_logd_client import Client as CallLogdClient
+   from datetime import datetime, timedelta
+   from wazo_auth_client import Client as AuthClient
+   from wazo_call_logd_client import Client as CallLogdClient
 
-    ### Configuration start ###
-    REFRESH_TOKEN = "<REFRESH_TOKEN>"
-    TENANTS = {
-        "<tenant UUID>": "<administrator@this.tenant>",
-    }
-    ### Configuration end ###
+   ### Configuration start ###
+   REFRESH_TOKEN = "<REFRESH_TOKEN>"
+   TENANTS = {
+       "<tenant UUID>": "<administrator@this.tenant>",
+   }
+   ### Configuration end ###
 
-    auth = AuthClient(host='localhost', https=False, prefix=None, port=9497)
-    token = auth.token.new(
-        backend='wazo_user',
-        expiration=60,
-        access_type='online',
-        client_id='exporter',
-        refresh_token=REFRESH_TOKEN,
-    )['token']
+   auth = AuthClient(host='localhost', https=False, prefix=None, port=9497)
+   token = auth.token.new(
+       backend='wazo_user',
+       expiration=60,
+       access_type='online',
+       client_id='exporter',
+       refresh_token=REFRESH_TOKEN,
+   )['token']
 
-    now = datetime.now()
-    start = now - timedelta(days=now.weekday() + 7)   # Monday of the previous week
-    end = start + timedelta(days=7)  # Last Monday (or today)
-    from_ = datetime(start.year, start.month, start.day, 0, 0, 0).isoformat()
-    to = datetime(end.year, end.month, end.day, 0, 0, 0).isoformat()
+   now = datetime.now()
+   start = now - timedelta(days=now.weekday() + 7)   # Monday of the previous week
+   end = start + timedelta(days=7)  # Last Monday (or today)
+   from_ = datetime(start.year, start.month, start.day, 0, 0, 0).isoformat()
+   to = datetime(end.year, end.month, end.day, 0, 0, 0).isoformat()
 
-    call_logd = CallLogdClient(host='localhost', https=False, prefix=None, port=9298, token=token)
-    for tenant_uuid, email in TENANTS.items():
-        call_logd.cdr.export_recording_media(tenant_uuid=tenant_uuid, email=email, from_=from_, to=to)
+   call_logd = CallLogdClient(host='localhost', https=False, prefix=None, port=9298, token=token)
+   for tenant_uuid, email in TENANTS.items():
+       call_logd.cdr.export_recording_media(tenant_uuid=tenant_uuid, email=email, from_=from_, to=to)
 
-    auth.token.revoke(token)
-    ```
+   auth.token.revoke(token)
+   ```
 
-    You can copy this script to `/usr/local/bin/recording_export.py` and make it executable.
+   Save this script to `/usr/local/bin/recording_export.py` and make it executable:
 
-    ```bash
-    chmod +x /usr/local/bin/recording_export.py
-    ```
+   ```bash
+   chmod +x /usr/local/bin/recording_export.py
+   ```
 
-4.  Create a cron job to execute the script weekly
+4. **Create a cron job to run the script weekly:**
 
-    The following example will execute the cron each Monday at 1:22
+   The following example runs the script every Monday at 1:22 AM:
 
-    ```
-    22 1 * * 1 /usr/local/bin/recording_export.py
-    ```
+   ```
+   22 1 * * 1 /usr/local/bin/recording_export.py
+   ```
