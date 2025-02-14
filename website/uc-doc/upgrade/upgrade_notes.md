@@ -28,6 +28,10 @@ sidebar_position: 1
 - The global dialplan variables in `/etc/xivo/asterisk/xivo_globals.conf` have been renamed from
   `XIVO_FWD_` to `WAZO_FWD_`.
 
+Consult the
+[25.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.03)
+for more information.
+
 ## 25.02 {#25-02}
 
 - The required ACL suffix for the `wazo-auth` service has been updated to align with the
