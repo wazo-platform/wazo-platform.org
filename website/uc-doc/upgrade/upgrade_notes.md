@@ -3,6 +3,35 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.03 {#25-03}
+
+- The configuration section names in the confbridge configuration file have been changed to use the
+  prefix `wazo_` instead of `xivo_`. If you manually modified these configuration section in
+  `/etc/asterisk/confbridge.d/*.conf` you MUST use the new names.
+- The following channel variables have been renamed. If you used them in a subroutine you MUST use
+  the new name to maintain a working dialplan in the future. The old names have been kept for
+  retrocompatibility, so your dialplan should keep working for the moment. Deprecation messages will
+  appear in the Asterisk CLI if you try to modify those variables. Support for the old variables may
+  be removed in any later release.
+
+  - `XIVO_CID_REWRITTEN` -> `WAZO_CID_REWRITTEN`
+  - `XIVO_GROUPTIMEOUT` -> `WAZO_GROUPTIMEOUT`
+  - `XIVO_HANGUPRINGTIME` -> `WAZO_HANGUPRINGTIME`
+  - `XIVO_MAILBOX` -> `WAZO_MAILBOX`
+  - `XIVO_MAILBOX_CONTEXT` -> `WAZO_MAILBOX_CONTEXT`
+  - `XIVO_MAILBOX_LANGUAGE` -> `WAZO_MAILBOX_LANGUAGE`
+  - `XIVO_MAILBOX_OPTIONS` -> `WAZO_MAILBOX_OPTIONS`
+  - `XIVO_REAL_CONTEXT` -> `WAZO_REAL_CONTEXT`
+  - `XIVO_REAL_NUMBER` -> `WAZO_REAL_NUMBER`
+  - `XIVO_USEREMAIL` -> `WAZO_USEREMAIL`
+
+- The global dialplan variables in `/etc/xivo/asterisk/xivo_globals.conf` have been renamed from
+  `XIVO_FWD_` to `WAZO_FWD_`.
+
+Consult the
+[25.03 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.03)
+for more information.
+
 ## 25.02 {#25-02}
 
 - The required ACL suffix for the `wazo-auth` service has been updated to align with the

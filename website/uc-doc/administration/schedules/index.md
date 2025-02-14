@@ -24,5 +24,5 @@ redirected to the action of the schedule.
 If you don't want this prompt to be played, you can change the behaviour by:
 
 1. editing the `/etc/xivo/asterisk/xivo_globals.conf` file and setting the
-   `XIVO_FWD_SCHEDULE_OUT_ISDA` to `1`
+   `WAZO_FWD_SCHEDULE_OUT_ISDA` to `1`
 2. reloading the asterisk dialplan with an `asterisk -rx "dialplan reload"`.
