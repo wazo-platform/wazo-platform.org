@@ -180,7 +180,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                 <h2>Get Connected, Contribute & Build value!</h2>
                 <ul className="social-icons list-inline">
                   <li className="list-inline-item">
-                    <a href="https://twitter.com/wazocommunity" target="_blank" rel="noopener noreferrer">
+                    <a href="https://x.com/wazocommunity" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-twitter" />
                     </a>
                   </li>
