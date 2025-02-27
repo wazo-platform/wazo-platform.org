@@ -71,6 +71,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // x.com responds status 400
+  if (url.indexOf('://x.com/') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
