@@ -3,6 +3,12 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.04 {#25-04}
+
+Consult the
+[25.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.04)
+for more information.
+
 ## 25.03 {#25-03}
 
 - The configuration section names in the confbridge configuration file have been changed to use the
