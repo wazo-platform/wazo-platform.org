@@ -21,11 +21,6 @@ Here is a short review of the Wazo Platform 25.04 release.
 - **Ring Groups**: Ring group options such as `dtmf_record_toggle` or options inserted through
   dialplan customization should now be properly applied to connected group members
 
-## Technical
-
-- **Auth**: A new python plugin entrypoint for IdP has been added, enabling support for alternative
-  authentication mechanisms
-
 For more details about the aforementioned topics, please see the
 [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D25.04).
 
