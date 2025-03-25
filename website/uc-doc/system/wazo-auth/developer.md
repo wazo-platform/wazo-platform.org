@@ -294,8 +294,8 @@ proxy_password_reset_url: password_reset.example.com
 
 ### IdP plugins
 
-:::note 
-IdP comes from an abbreviation of "Identity Provider" 
+:::note
+IdP comes from an abbreviation of "Identity Provider"
 :::
 
 The `wazo_auth.idp` entrypoint namespace is supported to register alternative authentication
@@ -380,7 +380,7 @@ class IDPPlugin(Protocol):
   `login` and `password` taken from "Basic" HTTP authentication(HTTP header of the form
   `Authorization: Basic <base64(username:password)>`); the `flask.request` global proxy object may
   be imported and used for direct access to the http request, including any header and the raw
-  request body, if necessary; 
+  request body, if necessary;
   **NOTE**: it is important that the implementation of this method be
   efficient and performant, ideally only looking at request attributes, and not performing any
   additional API call or database query, as this method is called on _each enabled IdP plugin_ for
@@ -414,9 +414,8 @@ through that IdP plugin.
 An IdP plugin can be made authoritative in authenticating any login
 request, which means that a particular IdP implementation can make or break any and
 all authentication to the Wazo platform deployment.  
-Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before deploying it to a production system. 
+Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before deploying it to a production system.
 :::
-
 
 #### Example
 
