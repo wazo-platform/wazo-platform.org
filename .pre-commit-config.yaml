@@ -13,6 +13,6 @@ repos:
       - id: prettier
         alias: prettier-uc-doc
         name: 'prettier formatting for uc-doc documents'
-        args: ['--config', '.prettierrc', '--prose-wrap', 'always']
+        args: ['--config', '.prettierrc']
         files: '^(content/uc-doc|website)/.+?\.md$'
         types_or: [markdown]
