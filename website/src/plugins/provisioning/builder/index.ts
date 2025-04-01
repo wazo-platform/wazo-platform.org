@@ -22,7 +22,7 @@ const generatePages = async ({ plugins, actions }: GeneratePagesOpts) => {
 
   const images = {};
 
-  // Move only needed images to plulic folder
+  // Move only needed images to public folder
   Object.keys(imagesPaths).forEach((basePath) => {
     const vendorName = basePath.split('/').pop();
     const isVendor = vendorName === 'vendors';
