@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("dart-sass"),
+        implementation: require('dart-sass'),
       },
     },
     {
@@ -31,6 +31,15 @@ module.exports = {
       options: {
         // In your gatsby-transformer-remark plugin array
         plugins: [
+          // Graph / Mermaid
+          {
+            resolve: 'gatsby-remark-graph',
+            options: {
+              // this is the language in your code-block that triggers mermaid parsing
+              language: 'mermaid', // default
+              theme: 'default', // could also be dark, forest, or neutral
+            },
+          },
           // Auto title anchor
           {
             resolve: `gatsby-remark-autolink-headers`,
