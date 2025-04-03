@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-remark-graph/gatsby-browser.js b/node_modules/gatsby-remark-graph/gatsby-browser.js
+index afce623..1b807a6 100644
+--- a/node_modules/gatsby-remark-graph/gatsby-browser.js
++++ b/node_modules/gatsby-remark-graph/gatsby-browser.js
+@@ -3,7 +3,7 @@ exports.onInitialClientRender = function (n, config) {
+ 
+   // load initial script
+   const s = document.createElement('script')
+-  s.setAttribute('src', 'https://unpkg.com/mermaid@8.13.4/dist/mermaid.min.js')
++  s.setAttribute('src', 'https://unpkg.com/mermaid@10.9.3/dist/mermaid.min.js')
+   document.head.appendChild(s)
+ 
+   // XXX: ugly hack because onRouteUpdate doesn't know when the react is done
