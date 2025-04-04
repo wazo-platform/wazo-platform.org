@@ -8,4 +8,5 @@ services:
     working_dir: /app/website
     volumes:
       - ./website:/app/website
-      - ./static:/app/website/static:ro
+      - ./static:/app/website/static
+      - ./content:/app/content:ro
