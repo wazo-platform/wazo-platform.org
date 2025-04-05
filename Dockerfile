@@ -16,6 +16,7 @@ RUN java -Djava.awt.headless=true -jar $JAVA_HOME/lib/plantuml.jar -version
 RUN mkdir /app
 COPY ./package.json /app/package.json
 COPY ./yarn.lock /app/yarn.lock
+COPY ./patches /app/patches
 
 WORKDIR /app
 RUN yarn install
