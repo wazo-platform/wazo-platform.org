@@ -294,7 +294,7 @@ proxy_password_reset_url: password_reset.example.com
 
 ### IdP plugins
 
-> **Note**
+> **Note**  
 > IdP comes from an abbreviation of "Identity Provider"
 
 The `wazo_auth.idp` entrypoint namespace is supported to register alternative authentication
@@ -368,22 +368,23 @@ class IDPPlugin(Protocol):
 
 - `load(self, dependencies: IDPPluginDependencies) -> None`: this method is called on an instance of
   the plugin class, once _at startup_ of the wazo-auth service;  
-   this should perform any initialization logic necessary for future invocations of the other methods,
-  such as acquiring resources and references to useful dependencies; the `dependencies` argument is a
-  dictionary containing other code components that may be useful to the plugin implementation, such as
-  the `backends` dictionary containing the available `wazo_auth.backends` plugins, and service objects
-  to interact with core wazo-auth resources such as users, tenants, etc;
+   this should perform any initialization logic necessary for future invocations of the other
+  methods, such as acquiring resources and references to useful dependencies;  
+  the `dependencies` argument is a dictionary containing other code components that may be useful to
+  the plugin implementation, such as the `backends` dictionary containing the available
+  `wazo_auth.backends` plugins, and service objects to interact with core wazo-auth resources such
+  as users, tenants, etc;
 - `can_authenticate(self, args: dict) -> bool`: this method is called from a successfully loaded
   plugin object, to evaluate if the plugin deems itself capable of authenticating the request
   described by the `args` dictionary; `args` contains various request attributes, such as the
   `login` and `password` taken from "Basic" HTTP authentication(HTTP header of the form
   `Authorization: Basic <base64(username:password)>`); the `flask.request` global proxy object may
   be imported and used for direct access to the http request, including any header and the raw
-  request body, if necessary;
-  **NOTE**: it is important that the implementation of this method be
-  efficient and performant, ideally only looking at request attributes, and not performing any
-  additional API call or database query, as this method is called on _each enabled IdP plugin_ for
-  _each login request_, so any latency incurred by this method will affect all login requests;
+  request body, if necessary;  
+  **NOTE**: it is important that the implementation of this method be efficient and performant,
+  ideally only looking at request attributes, and not performing any additional API call or database
+  query, as this method is called on _each enabled IdP plugin_ for _each login request_, so any
+  latency incurred by this method will affect all login requests;
 - `verify_auth(self, args: dict) -> tuple[BaseAuthenticationBackend, str]`: this method is called
   from a successfully loaded plugin object, for any login request for which this plugin's
   `can_authenticate` call was the first to evaluate to `True`, in order to perform any
@@ -391,11 +392,11 @@ class IDPPlugin(Protocol):
   response; any issue found with the login request that should prevent a successful authentication
   should raise an appropriate exception that can be interpreted into an appropriate HTTP response,
   such as `wazo_auth.exceptions.InvalidLoginRequest`;  
-  on successful authentication, this method
-  should return a tuple of two values, the first being a `wazo_auth.backend` instance which can be
-  used to provide the ACLs and metadata for the access token that will be generated, and the second
-  value being a login string that identifies the wazo user being logged in, either the wazo username
-  or an active email address associated to the wazo user;
+  on successful authentication, this method should return a tuple of two values, the first being a
+  `wazo_auth.backend` instance which can be used to provide the ACLs and metadata for the access
+  token that will be generated, and the second value being a login string that identifies the wazo
+  user being logged in, either the wazo username or an active email address associated to the wazo
+  user;
 - `authentication_method`: an attribute(usually a static class attribute) that defines a string
   identifying the authentication method implemented by this IdP; this `authentication_method` may be
   associated to wazo-auth tenants and users in order to constrain tenants and users to the use of a
@@ -409,11 +410,12 @@ wazo-auth user is configured with the `authentication_method` implemented by the
 or tenants configured with the authentication method of an IdP plugin can successfully authenticate
 through that IdP plugin.
 
-> **Warning**
-> An IdP plugin can be made authoritative in authenticating any login
-> request, which means that a particular IdP implementation can make or break any and
-> all authentication to the Wazo platform deployment.  
-> Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before deploying it to a production system.
+> **Warning**  
+> An IdP plugin can be made authoritative in authenticating any login request, which means that a
+> particular IdP implementation can make or break any and all authentication to the Wazo platform
+> deployment.  
+> Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before
+> deploying it to a production system.
 
 #### Example
 
