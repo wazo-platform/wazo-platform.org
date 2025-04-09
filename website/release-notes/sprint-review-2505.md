@@ -18,6 +18,12 @@ Here is a short review of the Wazo Platform 25.05 release.
 - **Performance**: having too many users (1000+) configured with push notifications could delay
   event delivery in certain cases
 
+## New Features in This Release
+
+- **Reverse Lookup**: multiple number formats are now used during reverse directory lookups. This
+  allows an incoming call to match a contact even if the saved number is in a different format than
+  the caller ID number presented by the operator
+
 ## Ongoing Features
 
 - **Blocklist**: enable wazo end-users to manage a personal blocklist of phone numbers from external
