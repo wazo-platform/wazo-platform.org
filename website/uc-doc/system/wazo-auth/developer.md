@@ -322,9 +322,9 @@ address) which is being authenticated.
 
 #### Interface
 
-The plugin interface is defined in the wazo-auth codebase as a python class.
-
-https://github.com/wazo-platform/wazo-auth/blob/master/wazo_auth/interfaces.py#L114-L147
+The plugin interface is defined in
+[the wazo-auth codebase](https://github.com/wazo-platform/wazo-auth/blob/461813a0aea46206ca4846e16882c3ec69e9ac9c/wazo_auth/interfaces.py#L114-L147)
+as a python class.
 
 ```python
 class IDPPluginDependencies(TypedDict, total=False):
