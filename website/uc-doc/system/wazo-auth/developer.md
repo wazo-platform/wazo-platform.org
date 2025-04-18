@@ -27,7 +27,7 @@ The http module is the implementation of the HTTP interface.
 
 ### controller
 
-The controller is the plumbin of wazo-auth, it has no business logic.
+The controller is the plumbing of wazo-auth, it has no business logic.
 
 - Start the HTTP application
 - Load all enabled plugins
@@ -290,4 +290,285 @@ class ProxyEmail(BaseEmailNotification):
 email_notification_plugin: proxy
 proxy_confirmation_url: confirmation.example.com
 proxy_password_reset_url: password_reset.example.com
+```
+
+### IdP plugins
+
+> **Note**  
+> IdP comes from an abbreviation of "Identity Provider"
+
+The `wazo_auth.idp` entrypoint namespace is supported to register alternative authentication
+mechanisms to those supported by default.
+
+An IdP plugin can implement a specific mechanism of authentication for some login requests. This
+would allow, for example, checking credentials from a login request by querying a third party API.
+
+This plugin interface is complemental to the [`wazo_auth.backend` plugin interface](Backends), as
+the authentication mechanism of an IdP must result in the selection of an appropriate
+`wazo_auth.backend` implementation, along with the wazo user identity(wazo username or email
+address) which is being authenticated.
+
+- IdP plugin interface deals with authentication at a more abstract level, by leaving the plugin to
+  process the login request, without imposing expectations such as the presence of a
+  username/password credential; an IdP plugin authentication mechanism may rely on a
+  `wazo_auth.backend` `verify_password` implementation, or not;
+- `wazo_auth.backend` plugins are used both to authenticate the username/password credential of a
+  login request, as well as to provide the ACLs & metadata of the generated access token; IdP
+  plugins cannot affect the ACLs & metadata resulting from a successful login other than by
+  selecting the appropriate `wazo_auth.backend` implementation;
+- an IdP plugin can elect to handle a login request, and can choose(statically or dynamically) which
+  `wazo_auth.backend` implementation to use in the authentication process; this enables new
+  `wazo_auth.backend` implementations to be used without modifying the core wazo-auth code.
+
+#### Interface
+
+The plugin interface is defined in
+[the wazo-auth codebase](https://github.com/wazo-platform/wazo-auth/blob/461813a0aea46206ca4846e16882c3ec69e9ac9c/wazo_auth/interfaces.py#L114-L147)
+as a python class.
+
+```python
+class IDPPluginDependencies(TypedDict, total=False):
+    backends: Mapping[str, Extension]
+    ...
+
+class IDPPlugin(Protocol):
+    loaded: bool = False
+    """
+    Indicates that the plugin has been fully loaded successfully
+    (load method executed completely without errors)
+    """
+    authentication_method: str
+    """
+    identifier for this auth method
+    """
+
+    def load(self, dependencies: IDPPluginDependencies):
+        """
+        Perform required initialization logic,
+        such as extracting dependencies into instance attributes,
+        and set `self.loaded` to `True`
+        """
+        ...
+
+    def can_authenticate(self, args: dict) -> bool:
+        """
+        Evaluate if this plugin is applicable to a login request based on login request args
+
+        Returns true if the plugin can authenticate the login request
+        based on the login request information, false otherwise.
+        """
+        ...
+
+    def verify_auth(self, args: dict) -> tuple[BaseAuthenticationBackend, str]:
+        """
+        Verify(authenticate) login request and return an authentication backend and a login string
+        """
+        ...
+```
+
+- `load(self, dependencies: IDPPluginDependencies) -> None`: this method is called on an instance of
+  the plugin class, once _at startup_ of the wazo-auth service;  
+   this should perform any initialization logic necessary for future invocations of the other
+  methods, such as acquiring resources and references to useful dependencies;  
+  the `dependencies` argument is a dictionary containing other code components that may be useful to
+  the plugin implementation, such as the `backends` dictionary containing the available
+  `wazo_auth.backends` plugins, and service objects to interact with core wazo-auth resources such
+  as users, tenants, etc;
+- `can_authenticate(self, args: dict) -> bool`: this method is called from a successfully loaded
+  plugin object, to evaluate if the plugin deems itself capable of authenticating the request
+  described by the `args` dictionary; `args` contains various request attributes, such as the
+  `login` and `password` taken from "Basic" HTTP authentication(HTTP header of the form
+  `Authorization: Basic <base64(username:password)>`); the `flask.request` global proxy object may
+  be imported and used for direct access to the http request, including any header and the raw
+  request body, if necessary;  
+  **NOTE**: it is important that the implementation of this method be efficient and performant,
+  ideally only looking at request attributes, and not performing any additional API call or database
+  query, as this method is called on _each enabled IdP plugin_ for _each login request_, so any
+  latency incurred by this method will affect all login requests;
+- `verify_auth(self, args: dict) -> tuple[BaseAuthenticationBackend, str]`: this method is called
+  from a successfully loaded plugin object, for any login request for which this plugin's
+  `can_authenticate` call was the first to evaluate to `True`, in order to perform any
+  authentication logic required to verify if the login request is valid and deserves a successful
+  response; any issue found with the login request that should prevent a successful authentication
+  should raise an appropriate exception that can be interpreted into an appropriate HTTP response,
+  such as `wazo_auth.exceptions.InvalidLoginRequest`;  
+  on successful authentication, this method should return a tuple of two values, the first being a
+  `wazo_auth.backend` instance which can be used to provide the ACLs and metadata for the access
+  token that will be generated, and the second value being a login string that identifies the wazo
+  user being logged in, either the wazo username or an active email address associated to the wazo
+  user;
+- `authentication_method`: an attribute(usually a static class attribute) that defines a string
+  identifying the authentication method implemented by this IdP; this `authentication_method` may be
+  associated to wazo-auth tenants and users in order to constrain tenants and users to the use of a
+  specific authentication mechanism; the `authentication_method` of all IdP plugins appear as part
+  of the response to a `GET /0.1/idp` request, enabling a wazo-auth client to discover the available
+  authentication methods;
+
+If an IdP plugin successfully matches and authenticates a login request, the login string returned
+as the second tuple value from the call to `verify_auth` is used to verify that the corresponding
+wazo-auth user is configured with the `authentication_method` implemented by the plugin. Only users
+or tenants configured with the authentication method of an IdP plugin can successfully authenticate
+through that IdP plugin.
+
+> **Warning**  
+> An IdP plugin can be made authoritative in authenticating any login request, which means that a
+> particular IdP implementation can make or break any and all authentication to the Wazo platform
+> deployment.  
+> Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before
+> deploying it to a production system.
+
+#### Example
+
+A simple IdP plugin that authenticates requests based on a custom header(which could contain a
+pre-negotiated API key, or a shared secret, or a JWT token, etc):
+
+```python
+from flask import request
+
+
+class MyIDPPlugin:
+    loaded False
+    authentication_method = 'my_idp'
+
+    def load(self, dependencies: IDPPluginDependencies):
+        self.backend = dependencies['backends']['wazo_user']
+        self.user_service = dependencies['user_service']
+        self.loaded = True
+
+    def can_authenticate(self, args: dict) -> bool:
+        # any request attribute can be accessed using flask.request
+        # for example to check for a custom header
+        return bool(request.headers.get('X-My-IdP-Header'))
+
+    def verify_auth(self, args: dict) -> tuple[BaseAuthenticationBackend, str]:
+        auth_header = request.headers.get('X-My-IdP-Header')
+        assert auth_header
+        # validate header or raise exception
+        info = self._verify_my_idp_header(auth_header)
+        args.update(info)
+        # either HTTP basic auth is used with this method, and `login` comes from the basic auth username
+        # else the plugin must obtain a `login` value corresponding to the wazo username or registered email address
+        return self.backend, args['login']
+
+    def _verify_my_idp_header(self, header: str) -> dict:
+        # may perform a database lookup for a user matching the header
+        # or decode the header into something that can identify the user
+        # or call out an external API service to validate the header
+        # and identify the user
+        ...
+        return user_info
+```
+
+#### Diagrams
+
+A flow chart describing the authentication process in the presence of IdP plugins:
+
+```mermaid
+flowchart TD
+    Start[login request] --> MatchRefreshToken[check match for refresh token auth]
+    MatchRefreshToken -->|match| VerifyRefreshTokenAuth[validate refresh token info]
+    VerifyRefreshTokenAuth -->|success| CreateAccess[create access token]
+    VerifyRefreshTokenAuth -->|failure| Failure[return 401 to client]
+    MatchRefreshToken -->|no match| MatchSAML[check match for SAML auth]
+    MatchSAML -->|match| VerifySAMLAuth[validate SAML info]
+    VerifySAMLAuth -->|success| CreateAccess
+    VerifySAMLAuth -->|failure| Failure
+    MatchSAML -->|no match| MatchLDAP[check match for LDAP auth]
+    MatchLDAP -->|match| VerifyLDAPAuth[validate LDAP info]
+    VerifyLDAPAuth -->|success| CreateAccess
+    VerifyLDAPAuth -->|failure| Failure
+    MatchLDAP -->|no match| TryIdP{try each available IdP plugin}
+    TryIdP --> MatchIdP[IdP can_authenticate?]
+    MatchIdP -->|Yes| VerifyIdP[IdP verify_auth]
+    VerifyIdP -->|Success| CreateAccess
+    VerifyIdP -->|Failure| Failure
+    MatchIdP -->|No| TryNext{try next IdP}
+    TryNext{try next IdP} -->|IdPs remaining| TryIdP
+    TryNext{try next IdP} -->|no IdPs remaining| MatchNative[check match for native auth]
+    MatchNative -->|match| VerifyNativeAuth[validate native auth info]
+    VerifyNativeAuth -->|success| CreateAccess
+    VerifyNativeAuth -->|failure| Failure
+    MatchNative -->|no match| Failure
+    CreateAccess --> Success
+    Success[return access token to client]
+```
+
+A high-level sequence diagram describing the authentication process in the presence of IdP plugins:
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Wazo-Auth
+    Note over Wazo-Auth: On startup
+    Wazo-Auth->>Wazo-Auth: discover & load IdP plugins
+    Wazo-Auth->>Wazo-Auth: detect any missing IdP plugin <br>for authentication methods assigned to users and
+
+    Note over Client, Wazo-Auth: Login request
+
+    Client->>+Wazo-Auth: login request (POST /0.1/tokens)
+    loop for each authentication method & enabled IdP plugin
+        alt authentication method does not match
+            Note over Wazo-Auth: try next authentication method
+        else no more authentication method to try
+            Wazo-Auth -->> Client: 401 response
+        else authentication method matches requests
+            critical authenticate request using IdP
+                Wazo-Auth ->> Wazo-Auth: authenticate request using IdP
+            option authentication succeeds
+                Wazo-Auth ->> Wazo-Auth: creates access token
+                Wazo-Auth -->> Client: 201 response with token
+            option authentication fails
+                Wazo-Auth -->> Client: 401 response
+            end
+        end
+    end
+    deactivate Wazo-Auth
+```
+
+A more focused diagram on the details of the authentication mechanism
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Wazo-Auth-HTTP-Handler
+    participant Wazo-Auth-Controller
+    participant Wazo-Auth-Authentication-Service
+    participant Wazo-Auth-IdP-Plugin
+    participant Wazo-Auth-Backend-Plugin
+    Note over Wazo-Auth-Controller: On startup
+
+    Wazo-Auth-Controller ->> Wazo-Auth-Controller: load & validate IdP plugins
+    Wazo-Auth-Controller ->> Wazo-Auth-Controller: detect missing IdP plugins
+
+    Note over Client, Wazo-Auth-HTTP-Handler: Login request
+
+    Client->>Wazo-Auth-HTTP-Handler: login request (POST /0.1/tokens)
+    Wazo-Auth-HTTP-Handler->>Wazo-Auth-Authentication-Service: authenticate request
+    loop for each IdP
+        Wazo-Auth-Authentication-Service->>Wazo-Auth-IdP-Plugin: can_authenticate
+        alt can_authenticate returns false
+            Note over Wazo-Auth-Authentication-Service: try next plugin
+        else can_authenticate returns true
+            critical verify authentication using IdP
+            Wazo-Auth-Authentication-Service->>Wazo-Auth-IdP-Plugin: verify_auth
+            option verify_auth successful
+                Wazo-Auth-IdP-Plugin-->>Wazo-Auth-Authentication-Service: returns (backend, login)
+            option verify_auth fails(throws exception)
+                Wazo-Auth-IdP-Plugin -->> Wazo-Auth-Authentication-Service: throws exception
+                Note over Wazo-Auth-Authentication-Service: exception bubbles up
+                Note over Wazo-Auth-HTTP-Handler: catches some exceptions
+                Wazo-Auth-HTTP-Handler-->>Client: 401 response
+            end
+            Wazo-Auth-Authentication-Service->Wazo-Auth-HTTP-Handler: returns (backend, login)
+        else no more IdPs to try
+            Wazo-Auth-HTTP-Handler-->>Client: 401 response
+        end
+    end
+    Wazo-Auth-HTTP-Handler->>Wazo-Auth-Token-Service: create token
+    Wazo-Auth-Token-Service->>Wazo-Auth-Backend-Plugin: get_acl
+    Wazo-Auth-Backend-Plugin-->>Wazo-Auth-Token-Service: returns ACL
+    Wazo-Auth-Token-Service->>Wazo-Auth-Backend-Plugin: get_metadata
+    Wazo-Auth-Backend-Plugin-->>Wazo-Auth-Token-Service: returns metadata
+    Wazo-Auth-Token-Service-->>Wazo-Auth-HTTP-Handler: returns token
+    Wazo-Auth-HTTP-Handler-->>Client: 201 response with token
 ```
