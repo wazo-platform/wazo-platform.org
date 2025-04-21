@@ -45,7 +45,7 @@ The token modules contains the business logic of wazo-auth.
 
 wazo-auth is meant to be easy to extend. This section describes how to add features to wazo-auth.
 
-### Backends
+### Backends {#backends}
 
 wazo-auth allows its administrator to configure one or many sources of authentication. Implementing
 a new kind of authentication is quite simple.
@@ -303,7 +303,7 @@ mechanisms to those supported by default.
 An IdP plugin can implement a specific mechanism of authentication for some login requests. This
 would allow, for example, checking credentials from a login request by querying a third party API.
 
-This plugin interface is complemental to the [`wazo_auth.backend` plugin interface](Backends), as
+This plugin interface is complemental to the [`wazo_auth.backend` plugin interface](#backends), as
 the authentication mechanism of an IdP must result in the selection of an appropriate
 `wazo_auth.backend` implementation, along with the wazo user identity(wazo username or email
 address) which is being authenticated.
