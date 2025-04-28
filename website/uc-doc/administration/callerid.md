@@ -163,8 +163,9 @@ The Incoming Call's `caller_id_mode` can prepend, append or overwrite the incomi
 
 ### Reverse Lookup
 
-Reverse lookup is the operation of finding the Caller ID name from the Caller ID number. Wazo can
-lookup this information in multiple sources.
+Reverse lookup is the operation of finding a Caller ID name corresponding to the Caller ID number.
+Wazo can lookup this information in multiple sources configured in
+[wazo-dird contact directories](/uc-doc/administration/contact_directories#reverse-lookups).
 
 This operation is only triggered when the incoming Caller ID has no Caller ID name or when the
 Caller ID name equals the Caller ID number.
