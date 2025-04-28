@@ -9,6 +9,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
 <CardList
   items={[
     { text: 'Boss Secretary Filter', href: '/uc-doc/administration/boss_secretary_filter' },
+    { text: 'Blocklist', href: '/uc-doc/administration/blocklist' },
     { text: 'Call Permissions', href: '/uc-doc/administration/call_permissions' },
     { text: 'Call Recording', href: '/uc-doc/administration/call_recording' },
     { text: 'Call Logs CallerID', href: '/uc-doc/administration/call_logs' },
