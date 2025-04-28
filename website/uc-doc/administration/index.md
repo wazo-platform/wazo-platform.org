@@ -23,6 +23,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'Incall', href: '/uc-doc/administration/incall' },
     { text: 'Interconnections', href: '/uc-doc/administration/interconnections' },
     { text: 'IVR', href: '/uc-doc/administration/ivr' },
+    { text: 'Localization', href: '/uc-doc/administration/localization' },
     { text: 'Music On Hold', href: '/uc-doc/administration/music_on_hold' },
     { text: 'NAT', href: '/uc-doc/administration/nat' },
     { text: 'Paging', href: '/uc-doc/administration/paging' },
@@ -35,7 +36,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'Users', href: '/uc-doc/administration/users' },
     { text: 'Voicemails', href: '/uc-doc/administration/voicemails' },
     { text: 'SIP Templates', href: '/uc-doc/administration/sip_templates' },
-    { text: 'Call Policy', href: '/uc-doc/administration/call_policy' },
+    { text: 'Call Policy', href: '/uc-doc/administration/call_policy' }
   ]}
 />
 
