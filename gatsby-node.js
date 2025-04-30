@@ -442,12 +442,18 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
   // Create api pages
   // ----------
   sections.forEach((section) =>
-    Object.keys(section.modules).forEach((moduleName) =>
+    Object.keys(section.modules).forEach((moduleName) => {
+      const module = section.modules[moduleName];
+
+      if (!module.redocUrl) {
+        return;
+      }
+
       newPage(`/documentation/api/${moduleName}.html`, 'documentation/api', {
         moduleName,
-        module: section.modules[moduleName],
-      })
-    )
+        module,
+      });
+    }),
   );
 
   // Create console pages
