@@ -304,8 +304,8 @@ lookups on a directory source:
 
 - **first_matched_columns** must include all the source contact attributes which may identify a
   phone number which the contact might use to call a wazo user(for example, separate attributes
-  specifying the numbers for an office phone line, a home fixed line and a mobile phone); --
-  **format_columns** must include a `reverse` member attribute which specifies a format string which
+  specifying the numbers for an office phone line, a home fixed line and a mobile phone);
+- **format_columns** must include a `reverse` member attribute which specifies a format string which
   will be used to provide a value for the display name of a matched contact entry(for example,
   allowing to combine `firstname` and `lastname` attributes from the source contact entry into a
   composite name).

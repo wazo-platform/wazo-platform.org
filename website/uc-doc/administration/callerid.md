@@ -13,7 +13,7 @@ In Wazo, the format is: `"Rick Sanchez" <9635559296>`.
 
 Users calling each other will see the Caller ID configured in the `caller_id` field of each user.
 
-## Caller ID for outgoing calls (through a trunk)
+## Caller ID for outgoing calls (through a trunk) {#outgoing-caller-id}
 
 There are multiple settings coming into play:
 
@@ -163,8 +163,9 @@ The Incoming Call's `caller_id_mode` can prepend, append or overwrite the incomi
 
 ### Reverse Lookup
 
-Reverse lookup is the operation of finding the Caller ID name from the Caller ID number. Wazo can
-lookup this information in multiple sources.
+Reverse lookup is the operation of finding a Caller ID name corresponding to the Caller ID number.
+Wazo can lookup this information in multiple sources configured in
+[wazo-dird contact directories](/uc-doc/administration/contact_directories#reverse-lookups).
 
 This operation is only triggered when the incoming Caller ID has no Caller ID name or when the
 Caller ID name equals the Caller ID number.
