@@ -29,8 +29,8 @@ flowchart TD
 
 ## Managing a blocklist
 
-An end-user of Wazo Platform can manage their blocklist through the
-[wazo-confd](/uc-doc/administration/wazo_confd) end-user APIs using the endpoints
+An end-user of Wazo Platform can manage their blocklist through the `wazo-confd` end-user APIs using
+the endpoints
 [`/api/confd/1.1/users/me/blocklist/*`](/documentation/api/configuration.html#tag/blocklist):
 
 ## Administrator oversight
