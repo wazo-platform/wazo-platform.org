@@ -3,6 +3,17 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.07 {#25-07}
+
+- A new feature has been added in the API: blocklisting incoming calls. See
+  [the documentation](/uc-doc/administration/blocklist) for more details. In order for this feature
+  to work correctly, the tenant country must be set in the
+  [Localization API](/documentation/api/configuration.html#tag/localization/operation/update_localization).
+
+Consult the
+[25.07 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.07)
+for more information.
+
 ## 25.06 {#25-06}
 
 Consult the
