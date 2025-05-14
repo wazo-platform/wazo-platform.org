@@ -106,10 +106,12 @@
 - project:
     wazo-check:
       jobs:
-        - yarn-build-copy:
+        - yarn-build-test:
             nodeset: vm-debian-11-m1m
-        - yarn-prettier-uc-doc:
-            nodeset: vm-debian-11-m1s
+#       - yarn-build-copy:
+#           nodeset: vm-debian-11-m1m
+#       - yarn-prettier-uc-doc:
+#           nodeset: vm-debian-11-m1s
     wazo-gate:
       jobs:
         - yarn-build-search-copy:
@@ -120,8 +122,4 @@
     post:
       jobs:
         - yarn-build-publish:
-            nodeset: vm-debian-11-m1m
-    periodic:
-      jobs:
-        - yarn-build-test:
             nodeset: vm-debian-11-m1m
