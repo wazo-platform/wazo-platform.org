@@ -18,7 +18,7 @@ Here is a short review of the Wazo Platform 25.07 release.
 
 ## Bug Fixes
 
-- **Directories**: Tenants with a "/" in there name will now be able to use the favorite feature in directories
+- **Directories**: Tenants with a "/" in their name will now be able to use the favorite feature in directories
 
 ## Technical
 
