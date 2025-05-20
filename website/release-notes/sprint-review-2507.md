@@ -32,16 +32,16 @@ See you at the next sprint review!
 
 - [Install Wazo Platform](/use-cases)
 - [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the
-  [breaking changes](/uc-doc/upgrade/upgrade_notes#25-06)
+  [breaking changes](/uc-doc/upgrade/upgrade_notes#25-07)
 
 <!-- truncate -->
 
 Sources:
 
-- [Upgrade notes](/uc-doc/upgrade/upgrade_notes#25-06)
+- [Upgrade notes](/uc-doc/upgrade/upgrade_notes#25-07)
 - [Wazo Platform 25.07 Changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D25.07)
 
 ## Discussion
 
 Comments or questions in
-[this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-25-06-released).
+[this forum post](https://wazo-platform.discourse.group/t/blog-wazo-platform-25-07-released).
