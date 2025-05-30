@@ -364,6 +364,12 @@ class IDPPlugin(Protocol):
         Verify(authenticate) login request and return an authentication backend and a login string
         """
         ...
+
+    def get_backend(self, args: dict) -> BaseAuthenticationBackend:
+        """
+        Return the wazo_auth.backend to use for the login request
+        """
+        ...
 ```
 
 - `load(self, dependencies: IDPPluginDependencies) -> None`: this method is called on an instance of
@@ -397,6 +403,13 @@ class IDPPlugin(Protocol):
   token that will be generated, and the second value being a login string that identifies the wazo
   user being logged in, either the wazo username or an active email address associated to the wazo
   user;
+- `get_backend(self, args: dict) -> BaseAuthenticationBackend`: this method specifies the
+  `wazo_auth.backend` that should be used for a given authentication request; this method is
+  necessary for interoperability with the refresh token login flow, as the refresh token IdP needs
+  to know the `wazo_auth.backend` implementation to provide as a result of successful authentication
+  based on the user's configured authentication method; this method can be used by the `verify_auth`
+  implementation to select the `wazo_auth.backend` to return(same logic should apply for the IdP's
+  own `verify_auth` and the refresh token flow);
 - `authentication_method`: an attribute(usually a static class attribute) that defines a string
   identifying the authentication method implemented by this IdP; this `authentication_method` may be
   associated to wazo-auth tenants and users in order to constrain tenants and users to the use of a
@@ -427,7 +440,7 @@ from flask import request
 
 
 class MyIDPPlugin:
-    loaded False
+    loaded = False
     authentication_method = 'my_idp'
 
     def load(self, dependencies: IDPPluginDependencies):
@@ -439,6 +452,10 @@ class MyIDPPlugin:
         # any request attribute can be accessed using flask.request
         # for example to check for a custom header
         return bool(request.headers.get('X-My-IdP-Header'))
+
+    def get_backend(self, args: dict) -> BaseAuthenticationBackend:
+        # here the `wazo_auth.backend` is always the same
+        return self.backend
 
     def verify_auth(self, args: dict) -> tuple[BaseAuthenticationBackend, str]:
         auth_header = request.headers.get('X-My-IdP-Header')
