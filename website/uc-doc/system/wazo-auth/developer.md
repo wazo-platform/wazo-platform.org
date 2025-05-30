@@ -403,9 +403,13 @@ class IDPPlugin(Protocol):
   token that will be generated, and the second value being a login string that identifies the wazo
   user being logged in, either the wazo username or an active email address associated to the wazo
   user;
-- `get_backend(self, args: dict) -> BaseAuthenticationBackend`: this method specifies the `wazo_auth.backend` that should be used for a given authentication request;
-  this method is necessary for interoperability with the refresh token login flow, as the refresh token IdP needs to know the `wazo_auth.backend` implementation to provide as a result of successful authentication based on the user's configured authentication method;
-  this method can be used by the `verify_auth` implementation to select the `wazo_auth.backend` to return(same logic should apply for the IdP's own `verify_auth` and the refresh token flow);
+- `get_backend(self, args: dict) -> BaseAuthenticationBackend`: this method specifies the
+  `wazo_auth.backend` that should be used for a given authentication request; this method is
+  necessary for interoperability with the refresh token login flow, as the refresh token IdP needs
+  to know the `wazo_auth.backend` implementation to provide as a result of successful authentication
+  based on the user's configured authentication method; this method can be used by the `verify_auth`
+  implementation to select the `wazo_auth.backend` to return(same logic should apply for the IdP's
+  own `verify_auth` and the refresh token flow);
 - `authentication_method`: an attribute(usually a static class attribute) that defines a string
   identifying the authentication method implemented by this IdP; this `authentication_method` may be
   associated to wazo-auth tenants and users in order to constrain tenants and users to the use of a
