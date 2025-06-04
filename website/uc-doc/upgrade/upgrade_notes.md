@@ -3,6 +3,12 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.08 {#25-08}
+
+Consult the
+[25.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.08)
+for more information.
+
 ## 25.07 {#25-07}
 
 - A new feature has been added in the API: blocklisting incoming calls. See
