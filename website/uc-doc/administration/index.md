@@ -30,7 +30,6 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'Paging', href: '/uc-doc/administration/paging' },
     { text: 'Parking', href: '/uc-doc/administration/parking' },
     { text: 'Provisioning', href: '/uc-doc/administration/provisioning' },
-    { text: 'Ring Groups', href: '/uc-doc/administration/ring_groups' },
     { text: 'Security', href: '/uc-doc/administration/security' },
     { text: 'SCCP', href: '/uc-doc/administration/sccp' },
     { text: 'Schedules', href: '/uc-doc/administration/schedules' },
