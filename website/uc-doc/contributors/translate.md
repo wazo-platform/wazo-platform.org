@@ -14,8 +14,8 @@ Languages and prompts are recorded by several studios. The information for those
 - German : ATS studio
 - Italian : ATS studio
 
-Prompts transcripts are listed in [Transifex](https://www.transifex.com/wazo/wazo/) (\*-prompts).
-You may translate them there.
+Prompts transcripts are listed in [Transifex](https://explore.transifex.com/wazo/wazo/)
+(\*-prompts). You may translate them there.
 
 The prompts used in Wazo are stored in [wazo-sounds](https://github.com/wazo-platform/wazo-sounds)
 git repository. You may also want to
