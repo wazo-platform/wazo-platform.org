@@ -5,12 +5,11 @@ sidebar_position: 1
 
 ## 25.08 {#25-08}
 
-- the value of the `ignore_forward` option of ring groups (not exposed before 25.08 and not
+- The value of the `ignore_forward` option of ring groups (not exposed before 25.08 and not
   effective before 25.04) is migrated (switched) from the previous default of `1` (true) to the new
-  default of `0` (false) to preserve pre-25.04 behavior;  
-  this option may be changed per ring group through the new `ignore_forward` field in the `/groups`
-  wazo-confd API;  
-  see API reference and ring group documentation for more information on this option.
+  default of `0` (false) to preserve pre-25.04 behavior; this option may be changed per ring group
+  through the new `ignore_forward` field in the `/groups` wazo-confd API; see API reference and ring
+  group documentation for more information on this option.
 
 Consult the
 [25.08 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.08)
