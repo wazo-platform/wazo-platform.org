@@ -14,8 +14,7 @@ Here is a short review of the Wazo Platform 25.08 release.
 
 ## New Features in This Release
 
-- **ring group**: ignore_forward option added to groups API; see upgrade notes for related database
-  migration;
+- **ring group**: ignore_forward option added to groups API
 
 ## Technical
 
