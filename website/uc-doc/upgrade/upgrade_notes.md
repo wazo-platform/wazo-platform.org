@@ -3,6 +3,12 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.09 {#25-09}
+
+Consult the
+[25.09 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.09)
+for more information.
+
 ## 25.08 {#25-08}
 
 - The value of the `ignore_forward` option of ring groups (not exposed before 25.08 and not
