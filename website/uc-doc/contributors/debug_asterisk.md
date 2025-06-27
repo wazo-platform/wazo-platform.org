@@ -168,6 +168,128 @@ You can create a backtrace from a core file named `core_file` with:
 gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file > bt-threads.txt
 ```
 
+This provides the stack trace(sequence of function calls) for all threads at the time of the crash.
+
+This assumes the binary `/usr/sbin/asterisk` is the same version of asterisk used to generate the
+coredump file.
+
+As production asterisk installations typically don't include the debugging symbols necessary to
+interpret the coredump, you will need install debug symbol packages alongside the asterisk package.
+
+The `find-dbgsym-packages` tool from the `debian-goodies` package can be used to identify some of
+the debug symbol packages available for the dependencies of an executable:
+
+```shell
+find-dbgsym-packages /usr/sbin/asterisk
+```
+
+### Using docker to build the debugging environment
+
+As analysing a coredump requires the specific asterisk executable used to generate that coredump,
+along with all dependencies and their debug symbol packages, as well as the tooling(e.g. gdb), it
+can be desirable to have a special-purpose debugging environment that is tailored for the task, and
+be able to juggle with multiple debugging environments for different asterisk versions. Using linux
+containers is a useful way to manage these isolated environments.
+
+A docker image can be used to create a special-purpose debugging environment. We can expand on
+[the dockerfile available in the wazoplatform/asterisk repository](https://github.com/wazoplatform/asterisk/blob/master/Dockerfile):
+
+```dockerfile
+FROM debian:bullseye
+LABEL maintainer="Wazo Maintainers <dev@wazo.community>"
+
+ARG WAZO_RELEASE
+ENV DEBIAN_FRONTEND=noninteractive
+
+# basic debian utilities
+RUN apt-get -q update && apt-get -q -y install \
+    apt-utils \
+    gnupg \
+    wget \
+    gdb \
+    debian-goodies
+
+# debian debug repositories for dbgsym and dbg packages
+RUN echo "deb http://deb.debian.org/debian-debug/ bullseye-debug main" >> /etc/apt/sources.list.d/debug.list
+RUN echo "deb http://deb.debian.org/debian-debug/ bullseye-proposed-updates-debug main" >> /etc/apt/sources.list.d/debug.list
+
+# configure wazo repositories for correct wazo release
+RUN echo "deb http://mirror.wazo.community/archive/ $WAZO_RELEASE main" > /etc/apt/sources.list.d/wazo-dist.list
+RUN wget http://mirror.wazo.community/wazo_current.key -O - | apt-key add -
+
+# fetch ast_coredumper script from official asterisk repository
+ADD https://raw.githubusercontent.com/asterisk/asterisk/refs/heads/master/contrib/scripts/ast_coredumper /usr/sbin/ast_coredumper
+RUN chmod +x /usr/sbin/ast_coredumper
+
+# install asterisk packages, any wazo dependencies and debug symbol packages for all dependencies
+# use `find-dbgsym-packages /usr/sbin/asterisk` (from debian-goodies) to find dbgsym packages available for the dependencies of an executable
+RUN apt-get -q update && apt-get -q -y install \
+    libc6-dbg \
+    wazo-libsccp \
+    wazo-res-stasis-amqp \
+    xivo-res-freeze-check-dbgsym \
+    libsrtp2-1-dbg \
+    wazo-res-amqp-dbgsym \
+    wazo-res-stasis-amqp-dbg \
+    wazo-libsccp-dbg \
+    libspeex-dbg \
+    libbsd0-dbgsym libcrypt1-dbgsym libedit2-dbgsym libgcc-s1-dbgsym libicu67-dbgsym liblzma5-dbgsym libmd0-dbgsym libstdc++6-dbgsym libtinfo6-dbgsym liburiparser1-dbgsym libuuid1-dbgsym zlib1g-dbgsym \
+    # install the correct asterisk version from wazo repositories
+    asterisk/$WAZO_RELEASE \
+    asterisk-dbgsym/$WAZO_RELEASE
+
+# create /work volume to mount the coredump file and helper scripts
+VOLUME /work
+
+# run gdb by default
+CMD ["gdb", "/usr/sbin/asterisk"]
+```
+
+Note that `$WAZO_RELEASE` is assumed to be the identifier of a previous release available in the
+archive wazo repository, e.g. `wazo-25.07`. If the asterisk version that produced the coredump is
+part of the current wazo release, the current stable repository can be used instead:
+
+```Dockerfile
+RUN echo "deb http://mirror.wazo.community/debian/ pelican-bullseye main" > /etc/apt/sources.list.d/wazo-dist.list
+```
+
+The image can be built:
+
+```shell
+docker build -t asterisk-debug-env --build-arg WAZO_RELEASE=wazo-25.07 .
+```
+
+(substitute `wazo-25.07` with the appropriate wazo release identifier).
+
+That image can then be used to run gdb on the corefile:
+
+```shell
+docker run -it --rm -v $PWD:/work asterisk-debug-env gdb /usr/sbin/asterisk /work/core_file
+```
+
+(`core_file` being the coredump file in the current directory, being mounted to the `/work`
+directory in the container). Any output needed from gdb can be placed in the `/work` volume to be
+made available in the current directory out of the container.
+
+### ast_coredumper
+
+`ast_coredumper` is a tool provided by the asterisk project that can be used to extract common
+information from a coredump file.
+
+As the script is not bundled into the wazo packages, it can be pulled from the
+[official asterisk github repository](https://github.com/asterisk/asterisk/blob/master/contrib/scripts/ast_coredumper),
+and marked as executable.
+
+```shell
+wget https://raw.githubusercontent.com/asterisk/asterisk/refs/heads/master/contrib/scripts/ast_coredumper
+chmod +x ast_coredumper
+
+ast_coredumper /usr/sbin/asterisk core_file
+```
+
+See
+[official documentation](https://docs.asterisk.org/Development/Debugging/Getting-a-Backtrace/#running-ast_coredumper-for-crashes).
+
 ## Debugging Asterisk Freeze {#debugging-asterisk-freeze}
 
 You can create a backtrace of a running asterisk process with:
@@ -206,30 +328,65 @@ gdb -batch -ex "bt full" -ex "thread apply all bt" /usr/sbin/asterisk core_file 
 
 2. Find mutexes being waited on
 
-```shell
-grep -Eo 'mutex_name=mutex_name@entry=0x[0-9a-z]+' bt-threads.txt | sort | uniq -c
-```
+   - By mutex names used in asterisk functions:
+
+   ```shell
+   grep -Eo 'mutex_name=mutex_name@entry=0x[0-9a-z]+' bt-threads.txt | sort | uniq -c
+   ```
+
+   ```
+       4 mutex_name=mutex_name@entry=0x562d24cc9cfe
+       1 mutex_name=mutex_name@entry=0x562d24cca99b
+       1 mutex_name=mutex_name@entry=0x562d24ccab82
+       1 mutex_name=mutex_name@entry=0x562d24ccb136
+       2 mutex_name=mutex_name@entry=0x562d24ccb386
+       1 mutex_name=mutex_name@entry=0x562d24ccb9a8
+       1 mutex_name=mutex_name@entry=0x562d24ce0e34
+       2 mutex_name=mutex_name@entry=0x562d24ce5b51
+       9 mutex_name=mutex_name@entry=0x562d24ceca31
+       13 mutex_name=mutex_name@entry=0x562d24d0369b
+       1 mutex_name=mutex_name@entry=0x562d24d159b5
+       20 mutex_name=mutex_name@entry=0x562d24d15bb4
+       1 mutex_name=mutex_name@entry=0x7fa1bc3d002a
+       10 mutex_name=mutex_name@entry=0x7fa1bce4f2d2
+   ```
+
+   - By mutex addresses used in lower level lock handling code:
+
+   ```shell
+   grep -Eo 'mutex=0x[0-9a-z]+' bt-threads.txt | sort | uniq -c
+   ```
+
+   ```
+       1 mutex=0x5575c84f8530
+       1 mutex=0x5575c84fbc80
+       1 mutex=0x5575c84fc270
+       1 mutex=0x5575c851a610
+       1 mutex=0x5576017ed180
+       1 mutex=0x557601831720
+       1 mutex=0x55760197b138
+       1 mutex=0x55760197c538
+       1 mutex=0x55760197d938
+       1 mutex=0x55760197f138
+       1 mutex=0x557601980538
+       1 mutex=0x5576019c5d60
+       11 mutex=0x5576019f8800
+       2 mutex=0x557605296000
+       1 mutex=0x557605346900
+       2 mutex=0x5576058cb800
+       1 mutex=0x557605a490e0
+       1 mutex=0x5576065c0f30
+       2 mutex=0x5576066955b8
+       1 mutex=0x7f8d11788148
+   ```
 
 This will produce a list of mutex that you can then search for in the `bt-threads.txt` file.
 
-```
-     4 mutex_name=mutex_name@entry=0x562d24cc9cfe
-     1 mutex_name=mutex_name@entry=0x562d24cca99b
-     1 mutex_name=mutex_name@entry=0x562d24ccab82
-     1 mutex_name=mutex_name@entry=0x562d24ccb136
-     2 mutex_name=mutex_name@entry=0x562d24ccb386
-     1 mutex_name=mutex_name@entry=0x562d24ccb9a8
-     1 mutex_name=mutex_name@entry=0x562d24ce0e34
-     2 mutex_name=mutex_name@entry=0x562d24ce5b51
-     9 mutex_name=mutex_name@entry=0x562d24ceca31
-    13 mutex_name=mutex_name@entry=0x562d24d0369b
-     1 mutex_name=mutex_name@entry=0x562d24d159b5
-    20 mutex_name=mutex_name@entry=0x562d24d15bb4
-     1 mutex_name=mutex_name@entry=0x7fa1bc3d002a
-    10 mutex_name=mutex_name@entry=0x7fa1bce4f2d2
-```
-
 3. Following the locks
+
+To find a cycle, we start with a mutex waited on by a thread, find its owner(the thread currently
+holding that lock), move to that owner thread and see if it is itself waiting on a lock, and
+continue until we see the same thread again.
 
 Starting with the mutex that is being waited on the most, look at one of the thread waiting on this
 lock.
@@ -280,6 +437,33 @@ Now back to `gdb` we can move to thread 135 and repeat the same process.
 
 At a certain point you will notice a loop between the threads. All threads that are part of the loop
 are part of the freeze.
+
+**Note**:A gdb script can be used to automatically iterate over all threads and locks and identify
+the owner of each lock:
+
+```gdb
+# examine-mutexes.gdb
+python
+import gdb
+def examine_mutexes():
+    inferior = gdb.selected_inferior()
+    for thread in inferior.threads():
+        thread.switch()
+        frame = gdb.selected_frame()
+        while frame:
+            frame.select()
+            if frame.name() in ("__GI___pthread_mutex_lock", "__pthread_cond_wait_common"):
+                if (mutex_addr := gdb.lookup_symbol("mutex")[0].value(frame)):
+                    mutex = mutex_addr.cast(gdb.lookup_type("pthread_mutex_t").pointer()).dereference()
+                    print('mutex addr', mutex_addr, ' owner', mutex['__data']['__owner'])
+            frame = frame.older()
+examine_mutexes()
+end
+```
+
+```sh
+gdb -batch -x examine-mutexes.gdb /usr/sbin/asterisk core_file
+```
 
 #### Other threads
 
