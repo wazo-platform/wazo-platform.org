@@ -192,7 +192,7 @@ be able to juggle with multiple debugging environments for different asterisk ve
 containers is a useful way to manage these isolated environments.
 
 A docker image can be used to create a special-purpose debugging environment. We can expand on
-[the dockerfile available in the wazoplatform/asterisk repository](https://github.com/wazoplatform/asterisk/blob/master/Dockerfile):
+[the dockerfile available in the asterisk repository](https://github.com/wazo-platform/asterisk/blob/master/Dockerfile):
 
 ```dockerfile
 FROM debian:bullseye
