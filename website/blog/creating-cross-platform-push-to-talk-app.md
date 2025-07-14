@@ -24,7 +24,7 @@ Here some pictures of the super place where our hackathon took place:
 
 ### Finding an Idea
 
-During our release phase, at the end of each sprint, everyone involved in the process meets up using [mumble](https://www.mumble.com/).
+During our release phase, at the end of each sprint, everyone involved in the process meets up using `https://www.mumble.com/`.
 Why use Mumble in a company that develops telecommunication software? The answer is simple: our software lacks this simple and useful feature for technical people: **Push-to-talk**.
 
 In day-to-day tasks, our customers don't need this kind of feature. That's why it was not at the top of our backlog. We're focusing our effort on their needs.
