@@ -95,7 +95,7 @@ See our recommendation on
 
 ## Troubleshooting {#troubleshooting}
 
-### Invalid signature (before 22.01 only)
+### Invalid signature (before 23.06 only)
 
 You may encounter the following error:
 
@@ -103,7 +103,7 @@ You may encounter the following error:
 The following signatures were invalid: EXPKEYSIG 3F1BF7FC527FBC6A Wazo Release Key <dev.wazo@gmail.com>
 ```
 
-This error happens on all Wazo Platform servers installed before 21.01. See also: the
+This error happens on all Wazo Platform servers installed before 23.06. See also the
 [issue ticket](https://wazo-dev.atlassian.net/browse/WAZO-2622).
 
 To fix the issue, run the following commands:
