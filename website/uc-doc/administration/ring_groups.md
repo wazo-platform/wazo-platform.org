@@ -56,7 +56,7 @@ Ring groups can maintain relationships with other wazo resources:
 - fallback destinations: ring groups can be
   [configured with fallback destinations](/documentation/api/configuration.html#tag/groups/operation/update_group_fallback)
   to redirect calls in some circumstances;
-- [call pickups](/uc-doc/administration/call_pickups): ring groups can be
+- [call pickups](/uc-doc/administration/group_pickup): ring groups can be
   [associated with call pickups](/documentation/api/configuration.html#tag/groups/operation/update_call_pickup_target_groups)
   to allow some users to pick up calls to the without being group members;
 
@@ -228,9 +228,10 @@ $ curl -X PUT \
 ```
 
 Now the group is associated to an existing extension with id `10`. This extension may be any
-extension created through the [extensions API](/uc-doc/administration/extensions). This may be an
-internal extensions for other users in the system to call, or an extension for an incall allowing
-external calls to reach this ring group.
+extension created through the
+[extensions API](/documentation/api/configuration.html#tag/extensions/operation/create_extension).
+This may be an internal extensions for other users in the system to call, or an extension for an
+incall allowing external calls to reach this ring group.
 
 Both member users will receive the call on all their registered lines. If neither answer within the
 30 second timeout, the call will reach the timeout condition. Since there are no fallbacks
