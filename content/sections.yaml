@@ -56,7 +56,7 @@
       color: orange
       repository: wazo-webhookd
       redocUrl: https://example.com/api/webhookd/1.0/api/api.yml
-      apiEvents: false
+      apiEvents: true
 
     cdr:
       title: Call Detail Record
