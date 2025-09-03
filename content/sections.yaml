@@ -1,257 +1,266 @@
 ---
-  - name: Programmable Platform
-    slug: programmable-platform
-    corporate: false
-    modules:
-      authentication:
-        title: Authentication
-        description: Authenticate users and manage groups, policies and ACLs
-        icon: fa fa-key
-        color: green
-        repository: wazo-auth
-        redocUrl: https://example.com/api/auth/0.1/api/api.yml
-        apiEvents: true
+- name: Programmable Platform
+  slug: programmable-platform
+  corporate: false
+  modules:
+    authentication:
+      title: Authentication
+      description: Authenticate users and manage groups, policies and ACLs
+      icon: fa fa-key
+      color: green
+      repository: wazo-auth
+      redocUrl: https://example.com/api/auth/0.1/api/api.yml
+      apiEvents: true
 
-      application:
-        title: Application
-        description: Create your communication application.
-        icon: fa fa-brain
-        color: pink
-        repository: wazo-calld
-        redocUrl: https://example.com/api/calld/1.0/api/api.yml
-        apiEvents: true
+    application:
+      title: Application
+      description: Create your communication application.
+      icon: fa fa-brain
+      color: pink
+      repository: wazo-calld
+      redocUrl: https://example.com/api/calld/1.0/api/api.yml
+      apiEvents: true
 
-      configuration:
-        title: Configuration
-        description: Configure your platform.
-        icon: fa fa-cogs
-        color: blue
-        repository: wazo-confd
-        redocUrl: https://example.com/api/confd/1.1/api/api.yml
-        apiEvents: true
+    configuration:
+      title: Configuration
+      description: Configure your platform.
+      icon: fa fa-cogs
+      color: blue
+      repository: wazo-confd
+      redocUrl: https://example.com/api/confd/1.1/api/api.yml
+      apiEvents: true
 
-      contact:
-        title: Contacts
-        description: Get, manage and search contacts.
-        icon: fa fa-users
-        color: purple
-        repository: wazo-dird
-        graphql: true
-        redocUrl: https://example.com/api/dird/0.1/api/api.yml
-        apiEvents: true
+    contact:
+      title: Contacts
+      description: Get, manage and search contacts.
+      icon: fa fa-users
+      color: purple
+      repository: wazo-dird
+      graphql: true
+      redocUrl: https://example.com/api/dird/0.1/api/api.yml
+      apiEvents: true
 
-      provisioning:
-        title: Phone provisioning
-        description: Provisioning and configuration of phone devices.
-        icon: fa fa-phone
-        color: primary
-        repository: wazo-provd
-        redocUrl: https://example.com/api/provd/0.2/api/api.yml
-        apiEvents: false
+    provisioning:
+      title: Phone provisioning
+      description: Provisioning and configuration of phone devices.
+      icon: fa fa-phone
+      color: primary
+      repository: wazo-provd
+      redocUrl: https://example.com/api/provd/0.2/api/api.yml
+      apiEvents: false
 
-      webhook:
-        title: Webhooks
-        description: Create webhooks based on Wazo events.
-        icon: fa fa-globe
-        color: orange
-        repository: wazo-webhookd
-        redocUrl: https://example.com/api/webhookd/1.0/api/api.yml
-        apiEvents: false
+    webhook:
+      title: Webhooks
+      description: Create webhooks based on Wazo events.
+      icon: fa fa-globe
+      color: orange
+      repository: wazo-webhookd
+      redocUrl: https://example.com/api/webhookd/1.0/api/api.yml
+      apiEvents: true
 
-      cdr:
-        title: Call Detail Record
-        description: Get your CDRs by our API.
-        icon: fa fa-newspaper
-        color: green
-        repository: wazo-call-logd
-        redocUrl: https://example.com/api/call-logd/1.0/api/api.yml
-        apiEvents: true
+    cdr:
+      title: Call Detail Record
+      description: Get your CDRs by our API.
+      icon: fa fa-newspaper
+      color: green
+      repository: wazo-call-logd
+      redocUrl: https://example.com/api/call-logd/1.0/api/api.yml
+      apiEvents: true
 
-      plugins:
-        title: Plugins
-        description: Enhance your platform, add and maintain easily plugins you develop to creating your own value.
-        icon: fa fa-puzzle-piece
-        color: pink
-        repository: wazo-plugind
-        redocUrl: https://example.com/api/plugind/0.2/api/api.yml
-        apiEvents: true
+    plugins:
+      title: Plugins
+      description:
+        Enhance your platform, add and maintain easily plugins you develop to creating your own
+        value.
+      icon: fa fa-puzzle-piece
+      color: pink
+      repository: wazo-plugind
+      redocUrl: https://example.com/api/plugind/0.2/api/api.yml
+      apiEvents: true
 
-      agent:
-        title: Call Center Agent
-        description: Get, manage and search agents.
-        icon: fa fa-headset
-        color: blue
-        repository: wazo-agentd
-        redocUrl: https://example.com/api/agentd/1.0/api/api.yml
-        apiEvents: true
+    agent:
+      title: Call Center Agent
+      description: Get, manage and search agents.
+      icon: fa fa-headset
+      color: blue
+      repository: wazo-agentd
+      redocUrl: https://example.com/api/agentd/1.0/api/api.yml
+      apiEvents: true
 
-      chat:
-        title: Presence and Chat
-        description: Programmable presence and chat.
-        icon: fa fa-comment-dots
-        color: red
-        repository: wazo-chatd
-        redocUrl: https://example.com/api/chatd/1.0/api/api.yml
-        apiEvents: true
+    chat:
+      title: Presence and Chat
+      description: Programmable presence and chat.
+      icon: fa fa-comment-dots
+      color: red
+      repository: wazo-chatd
+      redocUrl: https://example.com/api/chatd/1.0/api/api.yml
+      apiEvents: true
 
-      websocket:
-        title: Websocket
-        description: Get events from Wazo platform via our websocket service.
-        icon: fa fa-meteor
-        color: purple
-        repository: wazo-websocketd
-        apiEvents: false
+    websocket:
+      title: Websocket
+      description: Get events from Wazo platform via our websocket service.
+      icon: fa fa-meteor
+      color: purple
+      repository: wazo-websocketd
+      apiEvents: false
 
-      setup:
-        overview: false
-        title: Initial System Setup
-        description: Facilitates the initial system setup
-        icon: fa fa-cog
-        color: purple
-        repository: wazo-setupd
-        redocUrl: https://example.com/api/setupd/1.0/api/api.yml
-        apiEvents: false
+    setup:
+      overview: false
+      title: Initial System Setup
+      description: Facilitates the initial system setup
+      icon: fa fa-cog
+      color: purple
+      repository: wazo-setupd
+      redocUrl: https://example.com/api/setupd/1.0/api/api.yml
+      apiEvents: false
 
-      router-confd:
-        beta: true
-        title: C4 Router API
-        description: Configuration API for C4 router component.
-        icon: fa fa-code
-        color: orange
-        repository: wazo-router-confd
-        redocUrl: https://raw.githubusercontent.com/wazo-platform/wazo-router-confd/master/docs/api.yaml
-        apiEvents: false
+    router-confd:
+      beta: true
+      title: C4 Router API
+      description: Configuration API for C4 router component.
+      icon: fa fa-code
+      color: orange
+      repository: wazo-router-confd
+      redocUrl: https://raw.githubusercontent.com/wazo-platform/wazo-router-confd/master/docs/api.yaml
+      apiEvents: false
 
-  - name: Management Platform
-    slug: management-platform
-    corporate: true
-    modules:
-      euc-authentication:
-        overview: false
-        repositoryLink: false
-        corporate: true
-        title: Authentication
-        description: Authentication service for the E-UC Portal.
-        icon: fa fa-key
-        color: green
-        repository: wazo-auth
-        redocUrl: https://example.com/api/auth/0.1/api/api.yml
-        apiEvents: false
+- name: Management Platform
+  slug: management-platform
+  corporate: true
+  modules:
+    euc-authentication:
+      overview: false
+      repositoryLink: false
+      corporate: true
+      title: Authentication
+      description: Authentication service for the E-UC Portal.
+      icon: fa fa-key
+      color: green
+      repository: wazo-auth
+      redocUrl: https://example.com/api/auth/0.1/api/api.yml
+      apiEvents: false
 
-      euc-configuration:
-        overview: false
-        repositoryLink: false
-        corporate: true
-        title: Configuration
-        description: Manage your resellers, customers and locations on the E-UC Portal.
-        icon: fa fa-cogs
-        color: red
-        repository: nestbox-confd
-        redocUrl: https://example.com/api/confd/1.0/api/api.yml
-        apiEvents: false
+    euc-configuration:
+      overview: false
+      repositoryLink: false
+      corporate: true
+      title: Configuration
+      description: Manage your resellers, customers and locations on the E-UC Portal.
+      icon: fa fa-cogs
+      color: red
+      repository: nestbox-confd
+      redocUrl: https://example.com/api/confd/1.0/api/api.yml
+      apiEvents: false
 
-      euc-deployd:
-        overview: false
-        repositoryLink: false
-        corporate: true
-        title: Deployment
-        description: Deploy your instances from the E-UC Portal.
-        icon: fa fa-server
-        color: orange
-        repository: wazo-deployd
-        redocUrl: https://example.com/api/deployd/0.1/api/api.yml
-        apiEvents: false
+    euc-deployd:
+      overview: false
+      repositoryLink: false
+      corporate: true
+      title: Deployment
+      description: Deploy your instances from the E-UC Portal.
+      icon: fa fa-server
+      color: orange
+      repository: wazo-deployd
+      redocUrl: https://example.com/api/deployd/0.1/api/api.yml
+      apiEvents: false
 
-      euc-accessd:
-        overview: false
-        repositoryLink: false
-        corporate: true
-        title: Subscriptions
-        description: Manage subscriptions and access rights.
-        icon: fa fa-file-invoice-dollar
-        color: orange
-        repository: swarm-accessd
-        redocUrl: https://example.com/api/accessd/1.0/api/api.yml
-        apiEvents: false
+    euc-accessd:
+      overview: false
+      repositoryLink: false
+      corporate: true
+      title: Subscriptions
+      description: Manage subscriptions and access rights.
+      icon: fa fa-file-invoice-dollar
+      color: orange
+      repository: swarm-accessd
+      redocUrl: https://example.com/api/accessd/1.0/api/api.yml
+      apiEvents: false
 
-  - name: Wazo Client SDK - Demo
-    slug: wazo-client-sdk
-    corporate: false
-    modules:
-      javascript:
-        title: Javascript
-        description: Wazo JavaScript Software Development Kit is an API wrapper to make it easy for you to communicate with our APIs, websockets and WebRTC.
-        icon: fab fa-js
-        color: green
-        url: https://github.com/wazo-platform/wazo-js-sdk
+- name: Wazo Client SDK - Demo
+  slug: wazo-client-sdk
+  corporate: false
+  modules:
+    javascript:
+      title: Javascript
+      description:
+        Wazo JavaScript Software Development Kit is an API wrapper to make it easy for you to
+        communicate with our APIs, websockets and WebRTC.
+      icon: fab fa-js
+      color: green
+      url: https://github.com/wazo-platform/wazo-js-sdk
 
-      python:
-        title: Python
-        description: Wazo Python clients to interact with our APIs and websockets.
-        icon: fab fa-python
-        color: primary
-        url: https://github.com/wazo-platform?utf8=%E2%9C%93&q=-client&type=&language=python
+    python:
+      title: Python
+      description: Wazo Python clients to interact with our APIs and websockets.
+      icon: fab fa-python
+      color: primary
+      url: https://github.com/wazo-platform?utf8=%E2%9C%93&q=-client&type=&language=python
 
-      callkeep:
-        title: Callkeep
-        description: Use iOS CallKit and Android ConnectionService to facilitate your VoIP developement with React Native.
-        icon: fab fa-js
-        color: blue
-        url: https://github.com/react-native-webrtc/react-native-callkeep
+    callkeep:
+      title: Callkeep
+      description:
+        Use iOS CallKit and Android ConnectionService to facilitate your VoIP developement with
+        React Native.
+      icon: fab fa-js
+      color: blue
+      url: https://github.com/react-native-webrtc/react-native-callkeep
 
-      mobile-demo:
-        title: Mobile application demo
-        description: Develop your own mobile application with our JavaScript SDK, WebRTC and React Native library on iOS and Android.
-        icon: fa fa-mobile-alt
-        color: purple
-        url: https://github.com/wazo-platform/wazo-react-native-demo
+    mobile-demo:
+      title: Mobile application demo
+      description:
+        Develop your own mobile application with our JavaScript SDK, WebRTC and React Native library
+        on iOS and Android.
+      icon: fa fa-mobile-alt
+      color: purple
+      url: https://github.com/wazo-platform/wazo-react-native-demo
 
-      webrtc-demo:
-        title: Web application demo
-        description: Create or add communication to a web application with our javascript SDK and WebRTC.
-        icon: fa fa-globe
-        color: red
-        url: https://github.com/wazo-platform/wazo-webrtc-demo
+    webrtc-demo:
+      title: Web application demo
+      description:
+        Create or add communication to a web application with our javascript SDK and WebRTC.
+      icon: fa fa-globe
+      color: red
+      url: https://github.com/wazo-platform/wazo-webrtc-demo
 
-      wdk:
-        title: Develop
-        description: Wazo SDK is our tool to help people to develop with Wazo.
-        icon: fa fa-terminal
-        color: primary
-        url: https://github.com/wazo-platform/wazo-sdk
+    wdk:
+      title: Develop
+      description: Wazo SDK is our tool to help people to develop with Wazo.
+      icon: fa fa-terminal
+      color: primary
+      url: https://github.com/wazo-platform/wazo-sdk
 
-  - name: Internal Platform
-    slug: internal-platform
-    modules:
-      amid:
-        title: Asterisk Manager
-        description: Add REST API for the Asterisk Manager Interface.
-        icon: fa fa-code
-        color: orange
-        repository: wazo-amid
-        redocUrl: https://example.com/api/amid/1.0/api/api.yml
-        apiEvents: true
+- name: Internal Platform
+  slug: internal-platform
+  modules:
+    amid:
+      title: Asterisk Manager
+      description: Add REST API for the Asterisk Manager Interface.
+      icon: fa fa-code
+      color: orange
+      repository: wazo-amid
+      redocUrl: https://example.com/api/amid/1.0/api/api.yml
+      apiEvents: true
 
-      c4-sbc:
-        beta: true
-        title: C4 SBC
-        description: Session Border Controller, based on Kamailio.
-        icon: fa fa-lock
-        color: orange
-        repository: wazo-c4-sbc
+    c4-sbc:
+      beta: true
+      title: C4 SBC
+      description: Session Border Controller, based on Kamailio.
+      icon: fa fa-lock
+      color: orange
+      repository: wazo-c4-sbc
 
-      c4-router:
-        beta: true
-        title: C4 Router
-        description: Routing component, based on Kamailio.
-        icon: fa fa-code-branch
-        color: orange
-        repository: wazo-c4-router
+    c4-router:
+      beta: true
+      title: C4 Router
+      description: Routing component, based on Kamailio.
+      icon: fa fa-code-branch
+      color: orange
+      repository: wazo-c4-router
 
-      rtpe-config:
-        beta: true
-        title: C4 RTPEngine
-        description: Media Proxy, based on Sipwise RTPEngine.
-        icon: fa fa-headphones
-        color: orange
-        repository: wazo-rtpe-config
+    rtpe-config:
+      beta: true
+      title: C4 RTPEngine
+      description: Media Proxy, based on Sipwise RTPEngine.
+      icon: fa fa-headphones
+      color: orange
+      repository: wazo-rtpe-config
