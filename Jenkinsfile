@@ -63,7 +63,7 @@ EOF
             rsync \
               -rlD --delete \
               -e "ssh -o UserKnownHostsFile=${WORKSPACE}/webserver.wazo.community.known_hosts" \
-              public/ root@webserver.wazo.community:/tmp/developers/
+              public/ root@webserver.wazo.community:/tmp/api/
           """
         }
       }
@@ -83,10 +83,10 @@ EOF
               # To prevent that, rsync into temporary directory, then mv 
               # the new website install.
 
-              mv -T /tmp/developers /var/www/developers-new
-              mv -T /var/www/developers /var/www/developers-old
-              mv -T /var/www/developers-new /var/www/developers
-              rm -rf /var/www/developers-old
+              mv -T /tmp/api /var/www/api-new
+              mv -T /var/www/api /var/www/api-old
+              mv -T /var/www/api-new /var/www/api
+              rm -rf /var/www/api-old
           '''
             )
         }
