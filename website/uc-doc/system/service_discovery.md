@@ -2,7 +2,7 @@
 title: Service Discovery
 ---
 
-Wazo can use [consul](https://consul.io) for service discovery. By default it is disabled, but can
+Wazo can use [consul](https://developer.hashicorp.com/consul) for service discovery. By default it is disabled, but can
 be enabled with [Custom Configuration File](/uc-doc/system/configuration_files). Example:
 
 ```yaml
