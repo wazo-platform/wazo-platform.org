@@ -16,13 +16,13 @@ As we started with the deployment of our C4 (Class 4) [SBC and routing solution 
 
 Dynamic scaling brought additional complexity in the configuration of our Kamailio components. Having a cloud-native solution meant that we had to find a way to make SBCs and routers auto-configure themselves without human intervention or static configurations, which will bound the size of our architecture.
 
-We wanted to deploy Wazo on different kinds of platforms, not only containerized with Kubernetes but also with Docker compose or on Virtual machines using Ansible recipes. We had to choose a tool that will help us in service discovery and the flexible configuration of our components. That's where we decided that [HashiCorp Consul](https://www.consul.io) was the right tool to use.
+We wanted to deploy Wazo on different kinds of platforms, not only containerized with Kubernetes but also with Docker compose or on Virtual machines using Ansible recipes. We had to choose a tool that will help us in service discovery and the flexible configuration of our components. That's where we decided that [HashiCorp Consul](https://developer.hashicorp.com/consul) was the right tool to use.
 
 <!-- truncate -->
 
 ## What is Consul?
 
-The [official](https://www.consul.io) definition of Consul is:
+The [official](https://developer.hashicorp.com/consul) definition of Consul is:
 
 `Consul is a service networking solution to connect and secure services across any runtime platform and public or private cloud`
 
@@ -87,7 +87,7 @@ $ curl -X PUT HTTP://${CONSUL_URI}/v1/agent/service/deregister/$HOSTNAME
 
 ## Using consul-template
 
-[Consul-template](https://github.com/hashicorp/consul-template) is a template rendering, notifier, and supervisor for Consul also provided by [Hashicorp](https://www.hashicorp.com/).
+[Consul-template](https://github.com/hashicorp/consul-template) is a template rendering, notifier, and supervisor for Consul also provided by [Hashicorp](https://www.hashicorp.com/en).
 
 It's a daemon that runs queries to and listens to events from your Consul cluster and updates different specified templates on the file system. It can optionally run commands after completing the update process.
 
