@@ -76,6 +76,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // hashicorp.com responds status 429 when crawling multiple URLs in a row
+  if (url.indexOf('hashicorp.com') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
