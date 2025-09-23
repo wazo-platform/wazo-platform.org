@@ -81,6 +81,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // certbot.eff.org triggers "redirect count exceeded"
+  if (url.indexOf('certbot.eff.org') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
