@@ -93,9 +93,4 @@ EOF
       }
     }
   }
-  post {
-    always {
-      cleanWS()
-    }
-  }
 }
