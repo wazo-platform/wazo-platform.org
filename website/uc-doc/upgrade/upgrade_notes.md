@@ -3,6 +3,12 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.14 {#25-14}
+
+Consult the
+[25.14 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.14)
+for more information.
+
 ## 25.13 {#25-13}
 
 Consult the
