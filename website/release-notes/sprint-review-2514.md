@@ -25,8 +25,8 @@ Here is a short review of the Wazo Platform 25.14 release.
 
 ## Technical
 
-- **wazo-agentd-client**: `/by-number/{agent_id}/pause` and `/users/me/agents/pause` now support a
-  `reason` body parameter.
+- **wazo-agentd-client**: `client.agents.pause_by_number` and `client.agents.pause_user_agent` now support a
+  `reason` parameter, which was already supported by the wazo-agentd API endpoints.
 
 ## Ongoing Features
 
