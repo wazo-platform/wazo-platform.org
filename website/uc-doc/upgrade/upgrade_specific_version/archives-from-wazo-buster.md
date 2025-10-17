@@ -4,12 +4,12 @@ title: Upgrade from Wazo > 19.12
 
 Those procedures are valid if your Wazo installation is newer than 19.12
 
-Example to upgrade to Wazo 19.13:
+Example to upgrade to Wazo 19.14:
 
 ```shell
-wazo-dist -a wazo-19.13
+wazo-dist -a wazo-19.14
 apt-get update
-apt-get install wazo-upgrade/wazo-19.13
+apt-get install wazo-upgrade/wazo-19.14
 wazo-upgrade
 wazo-dist -m pelican-buster
 ```
