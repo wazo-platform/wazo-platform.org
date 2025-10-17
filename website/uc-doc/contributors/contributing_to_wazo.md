@@ -39,7 +39,7 @@ also leave your environment in the same state, no files laying around.
 You can execute unittests with the following command
 
 ```shell
-tox -e py37
+tox -e py311
 ```
 
 ### Integration tests {#integration-tests}

@@ -10,7 +10,7 @@ slug: /wazo-calld/dev-notes
 
 ```
 pip install tox
-tox --recreate -e py37
+tox --recreate -e py311
 ```
 
 ## Running integration tests

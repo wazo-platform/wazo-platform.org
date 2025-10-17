@@ -19,15 +19,15 @@ See `wazo-debug --help` for a list of available operations.
 wazo-dist is the wazo repository sources manager. It is used to switch between distributions
 (production, development, release candidate, archived version). Example use cases :
 
-- switch to production repository : `wazo-dist -m pelican-bullseye`
-- switch to development repository : `wazo-dist -m wazo-dev-bullseye`
-- switch to release candidate repository : `wazo-dist -m wazo-rc-bullseye`
-- switch to an archived version's repository: `wazo-dist -a wazo-18.02`
+- switch to production repository : `wazo-dist -m pelican-bookworm`
+- switch to development repository : `wazo-dist -m wazo-dev-bookworm`
+- switch to release candidate repository : `wazo-dist -m wazo-rc-bookworm`
+- switch to an archived version's repository: `wazo-dist -a wazo-25.14`
 
 ### wazo-dist-upgrade
 
 `wazo-dist-upgrade` is used to upgrade Wazo when a major Debian upgrade is required, e.g. upgrading
-from Wazo Platform 23.05 (Debian Buster) to Wazo Platform 23.06 (Debian Bullseye).
+from Wazo Platform 25.15 (Debian Bullseye) to Wazo Platform 25.15 (Debian Bookworm).
 `wazo-dist-upgrade` can only be used when a Debian upgrade is required. Standard upgrades are done
 with `wazo-upgrade`.
 

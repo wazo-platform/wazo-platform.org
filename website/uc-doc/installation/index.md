@@ -26,7 +26,7 @@ Here are the expected resources for a small production installation of around 50
 
 To install the Unified Communication use case in an all-in-one setup, do the following steps:
 
-1. Install a Debian 11 Bullseye system with a default locale with an UTF-8 charset.
+1. Install a Debian 12 Bookworm system with a default locale with an UTF-8 charset.
 2. Run the following commands as root on the Debian system to provision sudo, git and Ansible:
 
    ```shell
@@ -68,8 +68,8 @@ To install the Unified Communication use case in an all-in-one setup, do the fol
 
    ```ini
    [uc_engine:vars]
-   wazo_distribution = pelican-bullseye
-   wazo_distribution_upgrade = pelican-bullseye
+   wazo_distribution = pelican-bookworm
+   wazo_distribution_upgrade = pelican-bookworm
    ```
 
    If you want to install the web user interface, activate the following in your
