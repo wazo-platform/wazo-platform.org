@@ -1,4 +1,3 @@
-version: '3'
 services:
   # Used to run a server to be used by test
   server:
