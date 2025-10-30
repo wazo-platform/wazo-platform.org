@@ -428,7 +428,7 @@ more examples, please see [Type hinting examples](/uc-doc/contributors/typing).
 Type hinting allows one to clearly identify what a function receives and what it returns. The more
 precise you can get with your typing the easier the code will be to understand.
 
-#### Bad Example:
+#### Untyped example:
 
 ```python
 def get_user(user_id):
@@ -441,7 +441,7 @@ def get_user(user_id):
 In this example, it is unclear what we are dealing with. Is the `user_id` a `str`, an `int`, a
 `UUID`? What is the `user` we return? A `User` object, a dict (if so what keys?), a name?
 
-#### Good example:
+#### Typed example:
 
 ```python
 from typing import TypedDict, Union, TYPE_CHECKING
@@ -461,10 +461,11 @@ def get_user(user_id: str) -> UserData:
 
 ### Running the type checker (mypy) {#typing-checking}
 
-We use [`mypy`](https://mypy.readthedocs.io/en/stable/) to do type checking, and it is run via
-[`pre-commit`](https://pre-commit.com/). It can either be run automatically as a git pre-commit hook
-(after `pre-commit install` in your repo), manually with `pre-commit run --all-files` or via tox
-with `tox -e linters`. It is configured in the `pyproject.toml` file.
+We use [`mypy`](https://mypy.readthedocs.io/en/stable/) to do type checking. It is made available in
+wazo projects via [`pre-commit`](https://pre-commit.com/). It can either be run automatically as a
+git pre-commit hook (after `pre-commit install` in your repo), manually with
+`pre-commit run --all-files` or via tox with `tox -e linters`. It is configured in the
+`pyproject.toml` file.
 
 ### Laziness
 
