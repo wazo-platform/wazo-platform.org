@@ -17,11 +17,10 @@ After the upgrade, the system will need to be rebooted.
   currently installed. If your version of Wazo is older than 23.06, you should first upgrade your
   Wazo to Debian Bullseye, following the procedure described in
   [Debian 11 (Bullseye) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/23-06/bullseye).
-- Make sure your have sufficient space for the upgrade. You might run into trouble if you have less
-  than 2 GiB available in the file system that holds the `/var` and `/` directories.
+- Make sure your have sufficient disk space available for the upgrade. You might run into trouble if
+  you have less than 2 GiB available in the file system that holds the `/var` and `/` directories.
 - Make sure you do not have the Gnome Desktop installed, specifically the `gnome-core` package, as
   it can cause dependency conflicts for the upgrade.
-
 - If you have customized the Debian system of your Wazo in some nontrivial way, you might want to
   review the [official Debian release notes](https://www.debian.org/releases/bookworm/releasenotes)
   before the upgrade. Most importantly, you should:
