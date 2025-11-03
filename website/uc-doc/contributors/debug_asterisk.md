@@ -8,8 +8,6 @@ To debug asterisk crashes or freezes, you need the following debug packages on y
 
 Follow the instructions in the sub-section that matches the version you are currently using.
 
-### Wazo >= 19.13
-
 1. Set your Wazo version:
 
    ```shell
@@ -33,91 +31,14 @@ Follow the instructions in the sub-section that matches the version you are curr
 4. Switch back to the production mirror:
 
    ```shell
-    wazo-dist -m pelican-bullseye
-   ```
-
-### Wazo >= 19.04
-
-1. Set your Wazo version:
-
-   ```shell
-   export WAZO_VERSION=<current-wazo-version>
-   ```
-
-2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
-
-   ```shell
-   wazo-dist -a wazo-${WAZO_VERSION}
-   ```
-
-3. Install dependencies:
-
-   ```shell
-   apt-get update
-   apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbgsym wazo-libsccp-dbg
-   ```
-
-4. Switch back to the production mirror:
-
-   ```shell
+   # wazo >= 25.15
+   wazo-dist -m pelican-bookworm
+   # wazo >= 23.06
+   wazo-dist -m pelican-bullseye
+   # wazo >= 19.13
+   wazo-dist -m pelican-buster
+   # wazo >= 19.04
    wazo-dist -m pelican-stretch
-   ```
-
-### Wazo >= 18.03
-
-1. Set your Wazo version:
-
-   ```shell
-   export WAZO_VERSION=<current-wazo-version>
-   ```
-
-2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
-
-   ```shell
-   wazo-dist -a wazo-${WAZO_VERSION}
-   ```
-
-3. Install dependencies:
-
-   ```shell
-   apt-get update
-   apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbgsym wazo-libsccp-dbg
-   ```
-
-4. Switch back to the production mirror:
-
-   ```shell
-   wazo-dist -m phoenix-stretch
-   ```
-
-### Wazo >= 17.01
-
-1. Set your Wazo version:
-
-   ```shell
-   export WAZO_VERSION=<current-wazo-version>
-   ```
-
-2. Update your Wazo mirrors to be sure not to upgrade Asterisk:
-
-   ```shell
-   wazo-dist -a wazo-${WAZO_VERSION}
-   ```
-
-3. Install dependencies:
-
-   ```shell
-   apt-get update
-   apt-get install gdb libc6-dbg
-   apt-get install -t wazo-${WAZO_VERSION} asterisk-dbg wazo-libsccp-dbg
-   ```
-
-4. Switch back to the production mirror:
-
-   ```shell
-   wazo-dist phoenix
    ```
 
 ## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
@@ -195,7 +116,7 @@ A docker image can be used to create a special-purpose debugging environment. We
 [the dockerfile available in the asterisk repository](https://github.com/wazo-platform/asterisk/blob/master/Dockerfile):
 
 ```dockerfile
-FROM debian:bullseye
+FROM debian:bookworm
 LABEL maintainer="Wazo Maintainers <dev@wazo.community>"
 
 ARG WAZO_RELEASE
@@ -210,8 +131,8 @@ RUN apt-get -q update && apt-get -q -y install \
     debian-goodies
 
 # debian debug repositories for dbgsym and dbg packages
-RUN echo "deb http://deb.debian.org/debian-debug/ bullseye-debug main" >> /etc/apt/sources.list.d/debug.list
-RUN echo "deb http://deb.debian.org/debian-debug/ bullseye-proposed-updates-debug main" >> /etc/apt/sources.list.d/debug.list
+RUN echo "deb http://deb.debian.org/debian-debug/ bookworm-debug main" >> /etc/apt/sources.list.d/debug.list
+RUN echo "deb http://deb.debian.org/debian-debug/ bookworm-proposed-updates-debug main" >> /etc/apt/sources.list.d/debug.list
 
 # configure wazo repositories for correct wazo release
 RUN echo "deb http://mirror.wazo.community/archive/ $WAZO_RELEASE main" > /etc/apt/sources.list.d/wazo-dist.list
@@ -246,20 +167,20 @@ CMD ["gdb", "/usr/sbin/asterisk"]
 ```
 
 Note that `$WAZO_RELEASE` is assumed to be the identifier of a previous release available in the
-archive wazo repository, e.g. `wazo-25.07`. If the asterisk version that produced the coredump is
+archive wazo repository, e.g. `wazo-25.15`. If the asterisk version that produced the coredump is
 part of the current wazo release, the current stable repository can be used instead:
 
 ```Dockerfile
-RUN echo "deb http://mirror.wazo.community/debian/ pelican-bullseye main" > /etc/apt/sources.list.d/wazo-dist.list
+RUN echo "deb http://mirror.wazo.community/debian/ pelican-bookworm main" > /etc/apt/sources.list.d/wazo-dist.list
 ```
 
 The image can be built:
 
 ```shell
-docker build -t asterisk-debug-env --build-arg WAZO_RELEASE=wazo-25.07 .
+docker build -t asterisk-debug-env --build-arg WAZO_RELEASE=wazo-25.15 .
 ```
 
-(substitute `wazo-25.07` with the appropriate wazo release identifier).
+(substitute `wazo-25.15` with the appropriate wazo release identifier).
 
 That image can then be used to run gdb on the corefile:
 
@@ -594,37 +515,6 @@ The steps are:
 
 This will create a couple of .deb files in the parent directory, which you can install via `dpkg`.
 
-### Recompiling a vanilla version of Asterisk (Wazo \< 17.17) {#recompiling-a-vanilla-version-of-asterisk-wazo-17.17}
-
-It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
-has none of the Wazo patches applied, to make sure that the problem is present in the original
-upstream code. This is also sometimes necessary before opening a ticket on the
-[Asterisk issue tracker](https://issues.asterisk.org).
-
-The procedure is similar to the one described above. Before calling `dpkg-buildpackage`, you just
-need to:
-
-1.  Make sure `quilt` is installed:
-
-    ```shell
-    apt-get install -y quilt
-    ```
-
-2.  Unapply all the currently applied patches:
-
-    ```shell
-    quilt pop -a
-    ```
-
-3.  Remove all the lines in the `debian/patches/series` file:
-
-    ```shell
-    truncate -s0 debian/patches/series
-    ```
-
-When installing a vanilla version of Asterisk, you'll need to stop `monit`, otherwise it will
-restart asterisk every few minutes.
-
 ### Recompiling a vanilla version of Asterisk (Wazo \>= 19.13) {#recompiling-a-vanilla-version-of-asterisk-wazo-19.13}
 
 It is sometimes useful to produce a "vanilla" version of Asterisk, i.e. a version of Asterisk that
@@ -642,14 +532,14 @@ features include:
 - Voicemail message consultation via REST API
 - Call transfers via REST API
 
-To install the vanilla version of Asterisk (replace 19.13 with your current version of Wazo):
+To install the vanilla version of Asterisk (replace 25.15 with your current version of Wazo):
 
 ```shell
-wazo-dist -a wazo-19.13
+wazo-dist -a wazo-25.15
 apt-get update
-apt-get install -t wazo-19.13 asterisk-vanilla asterisk-vanilla-dbgsym
+apt-get install -t wazo-25.15 asterisk-vanilla asterisk-vanilla-dbgsym
 xivo-fix-paths-rights
-wazo-dist -m pelican-bullseye
+wazo-dist -m pelican-bookworm
 ```
 
 This command should replace the `asterisk` package with `asterisk-vanilla`.
@@ -657,14 +547,14 @@ This command should replace the `asterisk` package with `asterisk-vanilla`.
 Once the packages are installed, you can reproduce the crash and extract the backtrace logs from the
 core dump file. Those file may then be used to file a bug report to Asterisk.
 
-To revert this modification, reinstall `asterisk` (replace 19.13 with your current version of Wazo):
+To revert this modification, reinstall `asterisk` (replace 25.15 with your current version of Wazo):
 
 ```shell
-wazo-dist -a wazo-19.13
+wazo-dist -a wazo-25.15
 apt-get update
-apt-get install -t wazo-19.13 asterisk
+apt-get install -t wazo-25.15 asterisk
 xivo-fix-paths-rights
-wazo-dist -m pelican-bullseye
+wazo-dist -m pelican-bookworm
 ```
 
 ## Running Asterisk under Valgrind {#running-asterisk-under-valgrind}

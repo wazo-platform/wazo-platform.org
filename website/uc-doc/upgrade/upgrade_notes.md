@@ -3,6 +3,21 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 25.15 {#25-15}
+
+- **Debian has been upgraded from version 11 (Bullseye) to 12 (Bookworm).** Please see the following
+  detailed upgrade notes for more information:
+
+  - [Debian 12 (Bookworm) Upgrade Notes](/uc-doc/upgrade/upgrade_notes_details/25-15/bookworm)
+
+- As part of the upgrade to Debian 12, many packages will be updated, notably this includes
+  PostgreSQL from 13 to 15 and Python from 3.9 to 3.11, so be sure to check for compatibility and
+  changes if there are any custom scripts or plugins.
+
+Consult the
+[25.15 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2025.15)
+for more information.
+
 ## 25.14 {#25-14}
 
 Consult the

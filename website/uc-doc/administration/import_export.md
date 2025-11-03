@@ -20,7 +20,7 @@ The import tool must be installed on both the systems we will be exporting from 
 To install it on a Debian based system use the following commands in the command line.
 
 ```shell
-# Debian Bullseye (11)
+# Debian Bookworm (12)
 apt update && apt install git python3-pip python3-setuptools sudo
 cd /tmp
 git clone https://github.com/wazo-platform/wazo-export-import.git

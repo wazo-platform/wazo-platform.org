@@ -1,4 +1,4 @@
-FROM node:20.15.0-bullseye-slim AS build-node
+FROM node:20.15.0-bookworm-slim AS build-node
 ENV LANG=en_US.UTF-8
 
 WORKDIR /app
