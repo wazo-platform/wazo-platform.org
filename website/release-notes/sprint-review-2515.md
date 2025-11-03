@@ -26,6 +26,19 @@ Here is a short review of the Wazo Platform 25.15 release.
   they are compatible with the newer versions.
 - **PostgreSQL**: The database system PostgreSQL has also been upgrade from version 13 to 15.
 
+## Bug fixes
+
+- **Asterisk configuration**: asterisk configuration updates would generate spurious warnings
+  about obsolete context `parkedcalls` being included but missing from dialplan; 
+  default wazo-confgend dialplan template has been updated to avoid these warnings;
+- **CDR**: CDRs for calls to ring groups with linear strategy would omit information
+  on destination user receiving the call;
+  this information is now available in `requested_internal_extension` field;
+- **configuration API**: wazo-confd would not consistently handle HTTP request payloads as JSON, 
+  depending on `Content-Type` header;
+  request payload should now be parsed as JSON irrespective of presence of `Content-Type` header;
+  requests with empty bodies are now rejected as bad requests(invalid JSON);
+  
 For more information on the aforementioned topics, please see the
 [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D25.15).
 
