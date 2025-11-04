@@ -70,6 +70,13 @@ wazo-dist-upgrade -d
   `apt-get purge $(dpkg -l | awk '/^rc/ { print $2 }')`
 - Reboot your system. It is necessary for the new Linux kernel to be effective.
 
+## Notes
+
+- Overall normal memory usage may see a slight increase with respect to previous releases based on
+  Debian Bullseye, of around 5%. To avoid any eventual performance degradation, you should consider
+  reevaluating system resources towards an increase in total available memory, especially if the
+  deployment under bullseye was often close to system limits, or often relying on swap.
+
 ## External Links
 
 - [Official Debian 12 release notes](https://www.debian.org/releases/bookworm/releasenotes)
