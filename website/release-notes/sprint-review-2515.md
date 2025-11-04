@@ -38,7 +38,7 @@ Here is a short review of the Wazo Platform 25.15 release.
   depending on `Content-Type` header;
   request payload should now be parsed as JSON irrespective of presence of `Content-Type` header;
   requests with empty bodies are now rejected as bad requests(invalid JSON);
-  
+
 For more information on the aforementioned topics, please see the
 [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D25.15).
 
@@ -49,7 +49,7 @@ See you at the next sprint review!
 - [Install Wazo Platform](https://wazo-platform.org/use-cases)
 - [Upgrade Wazo and Wazo Platform](/uc-doc/upgrade/). Be sure to read the
   [breaking changes](/uc-doc/upgrade/upgrade_notes#25-15)
-- [Detailed upgrade notes](/uc-doc/upgrade/upgrade_notes_details/25-15/bullseye)
+- [Detailed upgrade notes](/uc-doc/upgrade/upgrade_notes_details/25-15/bookworm)
 
 Sources:
 
