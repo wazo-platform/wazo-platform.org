@@ -76,7 +76,7 @@ seconds after the last data packet was received, and the probe would be sent eve
 3 times before the connection is considered dead and is terminated.
 
 For websocket transports (e.g. `transport-wss` for webrtc), the
-[pjsip transport setting `websocket_write_timeout`](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip/?h=websocket_write_timeout#method)
+[pjsip transport setting `websocket_write_timeout`](https://docs.asterisk.org/Latest_API/API_Documentation/Module_Configuration/res_pjsip/?h=websocket_write_timeout#method)
 may also be useful.  
 Its value is in milliseconds. A lower value means dead websocket connections are terminated faster,
 but also means slow connections/slow processing endpoints may get disconnected.

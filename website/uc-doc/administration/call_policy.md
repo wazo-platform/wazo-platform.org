@@ -29,7 +29,7 @@ A user line or a trunk using the SIP protocol is associated with a SIP endpoint.
 SIP endpoints support a number of configuration options that can affect call duration.
 
 Those options are supported by way of the
-[Asterisk pjsip driver](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip)
+[Asterisk pjsip driver](https://docs.asterisk.org/Latest_API/API_Documentation/Module_Configuration/res_pjsip)
 endpoints configuration.
 
 SIP endpoint options can be configured in two ways:
@@ -47,11 +47,11 @@ SIP endpoint options can be configured in two ways:
 
 SIP endpoint options relevant for controlling call duration include
 
-- [`rtp_timeout`](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip/?h=rtp_timeout#rtp_timeout):
+- [`rtp_timeout`](https://docs.asterisk.org/Latest_API/API_Documentation/Module_Configuration/res_pjsip/?h=rtp_timeout#rtp_timeout):
   this option sets a timeout(in seconds) when no RTP traffic is flowing to this endpoint(meaning no
   audio or video path is functionally established between this endpoint and its peer) _while off
   hold_
-- [`rtp_hold_timeout`](https://docs.asterisk.org/Asterisk_16_Documentation/API_Documentation/Module_Configuration/res_pjsip/?h=rtp_timeout#rtp_timeout_hold):
+- [`rtp_hold_timeout`](https://docs.asterisk.org/Latest_API/API_Documentation/Module_Configuration/res_pjsip/?h=rtp_timeout#rtp_timeout_hold):
   this option sets a timeout(in seconds) when no RTP traffic is flowing to this endpoint(meaning no
   audio or video path is functionally established between this endpoint and its peer) _while
   on-hold_
