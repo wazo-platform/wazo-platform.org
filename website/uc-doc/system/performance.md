@@ -17,8 +17,8 @@ PostgreSQL accepts a maximum of 100 connections.
 
 For example, to modify the number of concurrent requests:
 
-1. If needed, increase the number of maximum database connections by editing
-   `/etc/postgresql/13/main/postgresql.conf`:
+1. If needed, increase the number of maximum database connections by creating
+   `/etc/postgresql/15/main/conf.d/20-custom-max-connections.conf`:
 
 ```ini
 max_connections = 200

@@ -125,13 +125,13 @@ When working with locale and PostgreSQL, there's a few useful commands and thing
 
 - `locale -a` to see the list of currently available locales on your system
 - `locale` to display information about the current locale of your shell
-- `grep ^lc_ /etc/postgresql/13/main/postgresql.conf` to see the locale configuration of your
+- `grep ^lc_ /etc/postgresql/15/main/postgresql.conf` to see the locale configuration of your
   database cluster
 - `sudo -u postgres psql -l` to see the locale of your databases
 - the `/etc/locale.gen` file and the associated `locale-gen` command to configure the available
   system locales
 - `systemctl restart postgresql.service` to restart your database cluster
-- the PostgreSQL log file located at `/var/log/postgresql/postgresql-13-main.log`
+- the PostgreSQL log file located at `/var/log/postgresql/postgresql-15-main.log`
 
 **Note**: You can use any locale with Wazo as long as it uses an UTF-8 encoding.
 
@@ -144,7 +144,7 @@ LOG:  invalid value for parameter "lc_messages": "en_US.UTF-8"
 LOG:  invalid value for parameter "lc_monetary": "en_US.UTF-8"
 LOG:  invalid value for parameter "lc_numeric": "en_US.UTF-8"
 LOG:  invalid value for parameter "lc_time": "en_US.UTF-8"
-FATAL:  configuration file "/etc/postgresql/13/main/postgresql.conf" contains errors
+FATAL:  configuration file "/etc/postgresql/15/main/postgresql.conf" contains errors
 ```
 
 Then this usually means that the locale that is configured in `postgresql.conf` (here `en_US.UTF-8`)
@@ -153,7 +153,7 @@ two choices to fix this issue:
 
 - either make the locale available by uncommenting it in the `/etc/locale.gen` file and running
   `locale-gen`
-- or modify the `/etc/postgresql/13/main/postgresql.conf` file to set the various `lc_*` options to
+- or modify the `/etc/postgresql/15/main/postgresql.conf` file to set the various `lc_*` options to
   a locale that is available on your system
 
 Once this is done, restart your database cluster.
@@ -236,7 +236,7 @@ EOF
 wazo-service start
 ```
 
-You should also modify the `/etc/postgresql/13/main/postgresql.conf` file to set the various `lc_*`
+You should also modify the `/etc/postgresql/15/main/postgresql.conf` file to set the various `lc_*`
 options to the new locale value.
 
 For more information, consult the
