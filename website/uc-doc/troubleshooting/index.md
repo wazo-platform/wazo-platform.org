@@ -116,10 +116,10 @@ the agent statistics, this will be shown as a non-answered call by the agent.
 ## PostgreSQL localization errors {#postgresql-localization-errors}
 
 The database and the underlying
-[database cluster](https://www.postgresql.org/docs/13/interactive/creating-cluster.html) used by
-Wazo is sensitive to the system locale configuration. The locale used by the database and the
-database cluster is set when Wazo is installed. If you change your system locale without particular
-attention to PostgreSQL, you might make the database and database cluster temporarily unusable.
+[database cluster](https://www.postgresql.org/docs/15/creating-cluster.html) used by Wazo is
+sensitive to the system locale configuration. The locale used by the database and the database
+cluster is set when Wazo is installed. If you change your system locale without particular attention
+to PostgreSQL, you might make the database and database cluster temporarily unusable.
 
 When working with locale and PostgreSQL, there's a few useful commands and things to know:
 
@@ -240,7 +240,7 @@ You should also modify the `/etc/postgresql/13/main/postgresql.conf` file to set
 options to the new locale value.
 
 For more information, consult the
-[official documentation on PostgreSQL localization support](https://www.postgresql.org/docs/13/interactive/charset.html).
+[official documentation on PostgreSQL localization support](https://www.postgresql.org/docs/15/charset.html).
 
 ## Originate a call from the Asterisk console
 
