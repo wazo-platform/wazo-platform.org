@@ -560,7 +560,7 @@ disallow_untyped_defs = true
 disallow_incomplete_defs = true
 warn_unused_ignores = true
 strict_equality = true
-strict_concatenate = true
+extra_checks = true
 no_warn_no_return = true
 
 [[tool.mypy.overrides]]
