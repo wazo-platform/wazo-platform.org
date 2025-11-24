@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 25.16 Released
-date: 2025-11-20T17:35:00
+date: 2025-11-24T09:00:00
 authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
