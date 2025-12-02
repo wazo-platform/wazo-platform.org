@@ -496,6 +496,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     Object.keys(section.modules).forEach(
       moduleName =>
         !!section.modules[moduleName].redocUrl &&
+        !!section.modules[moduleName].apiEvents &&
         newPage(`/documentation/events/${moduleName}`, 'documentation/async-api', {
           moduleName,
           module: section.modules[moduleName],
