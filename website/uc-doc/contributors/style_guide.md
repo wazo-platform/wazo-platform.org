@@ -444,7 +444,7 @@ In this example, it is unclear what we are dealing with. Is the `user_id` a `str
 #### Typed example:
 
 ```python
-from typing import TypedDict, Union, TYPE_CHECKING
+from typing import TypedDict
 
 class UserData(TypedDict):
     first_name: str
