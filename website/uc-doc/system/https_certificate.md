@@ -71,38 +71,3 @@ Then restart nginx:
 ```shell
 systemctl restart nginx
 ```
-
-## Revert previous custom HTTPS certificate configuration
-
-Up to Wazo 18.03, the procedure to install a custom HTTPS certificate was much more complex. This
-complex procedure is not needed anymore and should be removed to avoid any conflict with future
-upgrade. You can use the following removal procedure before of after the above configuration steps.
-
-Here is the removal procedure:
-
-```shell
-# backup your certificate / key (optional)
-cp /usr/share/wazo-certs/server.{key,crt} /var/backups
-
-# stop all Wazo Engine services
-wazo-service stop all
-
-# regenerate self-signed certificate
-rm /usr/share/wazo-certs/server.{key,crt}
-dpkg-reconfigure wazo-certs
-
-# remove custom config files
-rm /etc/xivo/custom/custom-certificate.yml
-rm /etc/{wazo,xivo}-*/conf.d/010-custom-certificate.yml
-rm /etc/xivo/custom-templates/system/etc/hosts
-
-# restart services
-xivo-update-config
-wazo-service restart all
-```
-
-Then, the last steps:
-
-- update your directories of type `wazo` to use:
-  - the domain `localhost`
-  - the certificate located in `/usr/share/wazo-certs/server.crt`

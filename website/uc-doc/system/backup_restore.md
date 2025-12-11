@@ -179,7 +179,7 @@ Once the database and files have been restored, you can
 
 - This will destroy all the current data in your database.
 - You have to check the free space on your system partition before extracting the backups.
-- If restoring Wazo >= 18.01 on a different machine, you should not restore the system
+- If restoring on a different machine, you should not restore the system
   configuration, because of network interface names that would change. See
   [Alternative: Restoring and Keeping System Configuration](/uc-doc/system/backup_restore#restore-keep-system-config).
 
