@@ -37,8 +37,6 @@ Follow the instructions in the sub-section that matches the version you are curr
    wazo-dist -m pelican-bullseye
    # wazo >= 19.13
    wazo-dist -m pelican-buster
-   # wazo >= 19.04
-   wazo-dist -m pelican-stretch
    ```
 
 ## So There is a Problem with Asterisk. Now What ? {#so-there-is-a-problem-with-asterisk-now-what}
