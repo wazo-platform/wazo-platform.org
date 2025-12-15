@@ -69,10 +69,6 @@ const REDIRECTS: Options['redirects'] = [
     to: '/uc-doc/upgrade/archives/upgrade_notes',
   },
   {
-    from: '/uc-doc/upgrade/upgrade_from_wazo_18_03',
-    to: '/uc-doc/upgrade/archives/upgrade_from_wazo_18_03',
-  },
-  {
     from: '/uc-doc/upgrade/migrate_i386_to_amd64',
     to: '/uc-doc/upgrade/archives/migrate_i386_to_amd64',
   },

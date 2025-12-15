@@ -29,8 +29,8 @@ When connecting a second SCCP phone, the device will be automatically detected a
 
 ## Auto-provisioning support
 
-Starting from Wazo 18.07, an SCCP device can be associated to a user by entering the user's
-provisioning code directly from the SCCP device while in autoprov mode.
+A SCCP device can be associated to a user by entering the user's provisioning code directly from the
+SCCP device while in autoprov mode.
 
 There's two settings in `GET /asterisk/sccp/general` influencing the auto-provisioning behaviour:
 

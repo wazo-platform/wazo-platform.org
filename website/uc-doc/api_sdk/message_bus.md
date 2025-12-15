@@ -77,55 +77,6 @@ Things to be aware when writing a client/consumer:
 - The published messages are not persistent. When the AMQP broker stops, the messages that are still
   in queues will be lost.
 
-## Changelog {#bus-changelog}
-
-### 19.05
-
-- The following messages have been deleted:
-  - `chat_message_event`
-  - `chat_message_received`
-  - `chat_message_sent`
-  - `endpoint_status_update`
-  - `user_status_update`
-
-### 19.04
-
-- The following messages have been added:
-  - [`fax_outbound_created`](/uc-doc/api_sdk/message_bus#fax-outbound-created)
-  - [`fax_outbound_user_created`](/uc-doc/api_sdk/message_bus#fax-outbound-user-created)
-  - [`fax_outbound_succeeded`](/uc-doc/api_sdk/message_bus#fax-outbound-succeeded)
-  - [`fax_outbound_user_succeeded`](/uc-doc/api_sdk/message_bus#fax-outbound-user-succeeded)
-  - [`fax_outbound_failed`](/uc-doc/api_sdk/message_bus#fax-outbound-failed)
-  - [`fax_outbound_user_failed`](/uc-doc/api_sdk/message_bus#fax-outbound-user-failed)
-
-### 19.03
-
-- The following messages have been added:
-  - [`conference_record_started`](/uc-doc/api_sdk/message_bus#bus-conference-record-started)
-  - [`conference_record_stopped`](/uc-doc/api_sdk/message_bus#bus-conference-record-stopped)
-  - [`conference_participant_talk_started`](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-started)
-  - [`conference_participant_talk_stopped`](/uc-doc/api_sdk/message_bus#bus-conference-participant-talk-stopped)
-
-## 19.02
-
-- The following messages have been added:
-  - [`conference_participant_joined`](/uc-doc/api_sdk/message_bus#bus-conference-participant-joined)
-  - [`conference_participant_left`](/uc-doc/api_sdk/message_bus#bus-conference-participant-left)
-  - [`conference_participant_muted`](/uc-doc/api_sdk/message_bus#bus-conference-participant-muted)
-  - [`conference_participant_unmuted`](/uc-doc/api_sdk/message_bus#bus-conference-participant-unmuted)
-
-### 18.04
-
-- The following messages have been added:
-  - [`auth_tenant_created`](/uc-doc/api_sdk/message_bus#bus-auth-tenant-created)
-  - [`auth_tenant_deleted`](/uc-doc/api_sdk/message_bus#bus-auth-tenant-deleted)
-  - [`auth_tenant_updated`](/uc-doc/api_sdk/message_bus#bus-auth-tenant-updated)
-
-### 18.02
-
-- The following message has been added:
-  - [`auth_user_external_auth_authorized`](/uc-doc/api_sdk/message_bus#bus-external-auth-authorized)
-
 ## Events {#bus-events}
 
 Events that are sent to the bus use a JSON serialization format with the content-type

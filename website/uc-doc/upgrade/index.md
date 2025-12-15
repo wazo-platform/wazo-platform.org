@@ -44,13 +44,6 @@ There are 2 options you can pass to wazo-upgrade:
 - Check that services are correctly working like SIP registration, ISDN link status,
   internal/incoming/outgoing calls, Wazo Client connections etc.
 
-## Version-specific upgrade procedures {#version-specific-upgrade}
-
-### Upgrading from Wazo 18.03 only
-
-When upgrading from Wazo 18.03, you should follow the specific procedure for
-[Upgrading from Wazo 18.03](/uc-doc/upgrade/archives/upgrade_from_wazo_18_03).
-
 ## Upgrading a cluster {#upgrading-a-cluster}
 
 Here are the steps for upgrading a cluster, i.e. two Wazo with
