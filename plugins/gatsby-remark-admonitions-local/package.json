@@ -1,0 +1,9 @@
+{
+  "name": "gatsby-remark-admonitions-local",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Local Gatsby remark plugin for admonitions",
+  "dependencies": {
+    "unist-util-visit": "^2.0.3"
+  }
+}
