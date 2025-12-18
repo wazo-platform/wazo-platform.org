@@ -423,12 +423,15 @@ wazo-auth user is configured with the `authentication_method` implemented by the
 or tenants configured with the authentication method of an IdP plugin can successfully authenticate
 through that IdP plugin.
 
-> **Warning**  
-> An IdP plugin can be made authoritative in authenticating any login request, which means that a
-> particular IdP implementation can make or break any and all authentication to the Wazo platform
-> deployment.  
-> Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before
-> deploying it to a production system.
+:::warning
+
+An IdP plugin can be made authoritative in authenticating any login request, which means that a
+particular IdP implementation can make or break any and all authentication to the Wazo platform
+deployment.  
+Be careful to load only trusted IdP plugins, and properly test an IdP plugin implementation before
+deploying it to a production system.
+
+:::
 
 #### Example
 
