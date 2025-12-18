@@ -64,7 +64,7 @@ const walk = dir => {
   });
 };
 
-const getArticles = async (graphql, newPageRef) => {
+const getArticles = async (graphql, newPageRef, reporter) => {
   console.info('generating articles');
   const articlesResponses = await graphql(`
     {
@@ -99,7 +99,12 @@ const getArticles = async (graphql, newPageRef) => {
 
   // Handle errors
   if (articlesResponses.errors) {
-    reporter.panicOnBuild(`Error while running "blog articles" GraphQL query.`);
+    console.error('GraphQL errors:', JSON.stringify(articlesResponses.errors, null, 2));
+    reporter.panicOnBuild(
+      `Error while running "blog articles" GraphQL query: ${articlesResponses.errors
+        .map(e => e.message)
+        .join(', ')}`
+    );
     return;
   }
 
@@ -153,7 +158,7 @@ const getArticles = async (graphql, newPageRef) => {
   return articles;
 };
 
-const getTutorials = async (graphql, newPageRef) => {
+const getTutorials = async (graphql, newPageRef, reporter) => {
   console.info('generating tutorials');
   const tutorialsResponse = await graphql(`
     {
@@ -249,7 +254,7 @@ const walk_md_files = (dir, path, acc, index) => {
   return acc;
 };
 
-exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
+exports.createPages = async ({ graphql, actions: { createPage, createRedirect }, reporter }) => {
   console.log(`Building ${corporate ? 'developers.wazo.io' : 'wazo-platform.org'}`);
   try {
     fs.writeFile(
@@ -354,10 +359,10 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
     // Create contribute page
     await newPage('/contribute', 'contribute/index', { content: contributeDoc });
     // Create blog page
-    const articles = await getArticles(graphql, newPage);
+    const articles = await getArticles(graphql, newPage, reporter);
     await newPage('/blog', 'blog/index', { articles });
     // Create tutorials page
-    const tutorials = await getTutorials(graphql, newPage);
+    const tutorials = await getTutorials(graphql, newPage, reporter);
     await newPage('/tutorials', 'tutorials/index', { tutorials });
     // Create ecosystem page
     await newPage('/ecosystem', 'ecosystem/index', { content: ecosystemDoc });
