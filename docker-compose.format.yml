@@ -6,3 +6,4 @@ services:
       - ./website/release-notes:/app/website/release-notes:rw
       - ./website/blog:/app/website/blog:rw
       - ./website/uc-doc:/app/website/uc-doc:rw
+      - ./.prettierrc:/app/.prettierrc:ro
