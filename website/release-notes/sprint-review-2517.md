@@ -23,7 +23,7 @@ Here is a short review of the Wazo Platform 25.17 release.
 
 - **Recording**: The beep sound played when starting/stopping a call recording will be heard by both parties of the call.
 - **`*guest` provisioning extension**: users can now again use `*guest` extension feature to reset a hardware phone to autoprovisioning state
-- **`*31`/`*30` agent login extension feature**: agent login through extension feature (*30 or *31) now selects the calling endpoint as the agent interface which will receive queue calls
+- **`*31`/`*30` agent login extension feature**: agent login through extension feature (`*30` or `*31`) now selects the calling endpoint as the agent interface which will receive queue calls
 
 For more details about the aforementioned topics, please see the [changelog](https://wazo-dev.atlassian.net/issues/?jql=project%3DWAZO%20AND%20fixVersion%3D25.17).
 
