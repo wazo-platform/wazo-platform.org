@@ -2,6 +2,7 @@ services:
   doc:
     volumes:
       - ./src:/app/src:rw
+      - ./tests:/app/tests:rw
       - ./content:/app/content:rw
       - ./website/release-notes:/app/website/release-notes:rw
       - ./website/blog:/app/website/blog:rw
