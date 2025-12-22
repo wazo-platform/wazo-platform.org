@@ -13,12 +13,14 @@ Hello Wazo Platform community!
 Here is a short review of the Wazo Platform 25.17 release.
 
 ## New Features in This Release
+
 - **data-only push notifications**: push notifications `missedCall`, `voicemailReceived` and `messageReceived`, are updated for application-level "data-only" handling, in order to allow mobile applications to implement custom & extended handling and rendering; 
   on Android/FCM, those notifications are "data-only" and need custom application logic to handle and display to users; 
   on iOS/APNS, those notifications are "hybrid" and are still handled/displayed by iOS natively, but may now trigger application logic.
 - **Agent**: User agents may now login/logoff per queue individually using new agent API endpoints.
 
 ## Bug Fixes
+
 - **Recording**: The beep sound played when starting/stopping a call recording will be heard by both parties of the call.
 - **`*guest` provisioning extension**: users can now again use `*guest` extension feature to reset a hardware phone to autoprovisioning state
 - **`*31`/`*30` agent login extension feature**: agent login through extension feature (*30 or *31) now selects the calling endpoint as the agent interface which will receive queue calls
