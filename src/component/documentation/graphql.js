@@ -17,7 +17,7 @@ const styles = {
   input: {
     width: '100%',
     padding: '5px 8px',
-    marginRight: 10
+    marginRight: 10,
   },
 
   button: {
@@ -26,7 +26,7 @@ const styles = {
     padding: '8px 0',
     minWidth: 160,
     color: '#000',
-    marginRight: 20
+    marginRight: 20,
   },
 
   subtitle: {
@@ -55,13 +55,13 @@ const styles = {
   },
 };
 
-const Page = ({ pageContext: { moduleName, module, modules }}) => {
+const Page = ({ pageContext: { moduleName, module, modules } }) => {
   const graphqlRef = useRef(null);
   const url = new URL(module.redocUrl);
 
   const pathnameArr = url.pathname.split('/');
   const pathname = `/api/${pathnameArr[2]}/${pathnameArr[3]}/graphql`;
-  
+
   const [{ apiKey, baseUrl }, setCookie] = useCookies(['apiKey', 'baseUrl']);
 
   const [tempBaseUrl, setTempBaseUrl] = useState(baseUrl || '');
@@ -96,41 +96,43 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
   let buttonLabel = 'Validate';
   if (loading) {
     buttonLabel = 'Loading...';
-  }else if(hasValidToken){
+  } else if (hasValidToken) {
     buttonLabel = 'Reset';
   }
 
   const validate = () => {
-    if(hasValidToken) {
+    if (hasValidToken) {
       setError(null);
       setCookie('apiKey', '');
       return;
-    };
+    }
     const authURL = new URL(modules.authentication.redocUrl);
-    const auth = authURL.pathname.split('/'); 
+    const auth = authURL.pathname.split('/');
     setLoading(true);
     fetch(`${baseUrl}/api/${auth[2]}/${auth[3]}/token`, {
       method: 'POST',
       headers: {
-        Authorization: "Basic " + btoa(apiKey),
+        Authorization: 'Basic ' + btoa(apiKey),
         accept: 'application/json',
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ expiration: 3600 }),
-    }).then(d => d.json()).then(response => {
-      if(response.data && response.data.token) {
-        setCookie('apiKey', response.data.token);
-        setLoading(false);
-      } else {
-        throw new Error((response.reason && response.reason[0]) || 'Unknown Error')
-      }
     })
-    .catch(e => {
-      console.warn(e);
-      setLoading(false);
-      setCookie('apiKey', '');
-      setError(e);
-    });
+      .then(d => d.json())
+      .then(response => {
+        if (response.data && response.data.token) {
+          setCookie('apiKey', response.data.token);
+          setLoading(false);
+        } else {
+          throw new Error((response.reason && response.reason[0]) || 'Unknown Error');
+        }
+      })
+      .catch(e => {
+        console.warn(e);
+        setLoading(false);
+        setCookie('apiKey', '');
+        setError(e);
+      });
   };
 
   const setBaseUrl = () => {
@@ -138,7 +140,7 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
       setCookie('apiKey', '');
     }
     setCookie('baseUrl', tempBaseUrl);
-  }
+  };
 
   function graphQLFetcher(graphQLParams) {
     return fetch(`${baseUrl}${pathname}`, {
@@ -161,7 +163,8 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
           onKeyDown={e => {
             if (e.key === 'Enter') {
               setBaseUrl();
-            }}}
+            }
+          }}
           id="input_baseUrl"
           name="baseUrl"
           placeholder="https://<YOUR_WAZO_IP>"
@@ -192,7 +195,8 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
           onKeyDown={e => {
             if (e.key === 'Enter') {
               validate();
-            }}}
+            }
+          }}
           value={apiKey}
         />
         <button
@@ -200,7 +204,9 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
           type="button"
           id="explore"
           onClick={() => validate()}
-        >{buttonLabel}</button>
+        >
+          {buttonLabel}
+        </button>
       </div>
       <div id="graphiql" ref={graphqlRef} style={show ? {} : styles.wrapper}>
         {show && <GraphiQL ref={graphqlRef} fetcher={graphQLFetcher} editorTheme="cm-s-material" />}
@@ -208,6 +214,6 @@ const Page = ({ pageContext: { moduleName, module, modules }}) => {
       </div>
     </Layout>
   );
-}
+};
 
-export default Page
+export default Page;

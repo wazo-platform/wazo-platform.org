@@ -81,4 +81,4 @@ const Page = ({ pageContext: { installDoc } }) => (
   </Layout>
 );
 
-export default Page
+export default Page;

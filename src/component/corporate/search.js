@@ -11,7 +11,7 @@ import {
 } from 'react-instantsearch-dom';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { algoliaIndexDeveloper as indexName} from '../../contants'
+import { algoliaIndexDeveloper as indexName } from '../../contants';
 
 const config = require('../../../config');
 
@@ -80,31 +80,35 @@ const By = styled.span`
   }
 `;
 
-const Input = connectSearchBox(({ refine, focused, currentRefinement, isSearchStalled, createURL, ...rest }) => (
-  <form className="form-inline search-form justify-content-center">
-    <input
-      type="text"
-      className="form-control search-input"
-      placeholder="Search"
-      aria-label="Search"
-      onChange={e => refine(e.target.value)}
-      {...rest}
-    />
-  </form>
-));
-
-const PageHit = clickHandler => ({ hit }) => (
-  <div>
-    <Link to={hit.pagePath} onClick={clickHandler}>
-      <h6>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h6>
-    </Link>
-    <Link className="snippet-link" to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
-      <Snippet attribute="content" hit={hit} tagName="mark" />
-    </Link>
-  </div>
+const Input = connectSearchBox(
+  ({ refine, focused, currentRefinement, isSearchStalled, createURL, ...rest }) => (
+    <form className="form-inline search-form justify-content-center">
+      <input
+        type="text"
+        className="form-control search-input"
+        placeholder="Search"
+        aria-label="Search"
+        onChange={e => refine(e.target.value)}
+        {...rest}
+      />
+    </form>
+  )
 );
+
+const PageHit =
+  clickHandler =>
+  ({ hit }) => (
+    <div>
+      <Link to={hit.pagePath} onClick={clickHandler}>
+        <h6>
+          <Highlight attribute="title" hit={hit} tagName="mark" />
+        </h6>
+      </Link>
+      <Link className="snippet-link" to={`/overview/${hit.moduleName}.html`} onClick={clickHandler}>
+        <Snippet attribute="content" hit={hit} tagName="mark" />
+      </Link>
+    </div>
+  );
 
 const events = ['mousedown', 'touchstart'];
 
@@ -116,8 +120,10 @@ export default class Search extends Component {
   list = React.createRef();
   state = { query: '', focused: false };
 
-  searchClient = config.algolia && !!config.algolia.appId && !!config.algolia.publicKey ?
-    algoliasearch(config.algolia.appId, config.algolia.publicKey) : null;
+  searchClient =
+    config.algolia && !!config.algolia.appId && !!config.algolia.publicKey
+      ? algoliasearch(config.algolia.appId, config.algolia.publicKey)
+      : null;
 
   updateState = state => this.setState(state);
 

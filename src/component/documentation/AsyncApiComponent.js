@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import "@asyncapi/react-component/styles/default.min.css";
-import "./async-api.css";
+import '@asyncapi/react-component/styles/default.min.css';
+import './async-api.css';
 
 const SERVER_ROOT = 'https://asyncapi.wazo.community/wazo-platform';
 
@@ -32,13 +32,16 @@ const AsyncApiComponent = ({ module }) => {
         const schema = await response.text();
 
         const AsyncApiStandalone = require('@asyncapi/react-component/browser/standalone');
-        await AsyncApiStandalone.render({
-          schema,
-          config,
-        }, ref.current);
+        await AsyncApiStandalone.render(
+          {
+            schema,
+            config,
+          },
+          ref.current
+        );
       } catch (e) {
         console.warn(e);
-        setNone(true)
+        setNone(true);
       }
 
       setLoading(false);
@@ -63,6 +66,6 @@ const AsyncApiComponent = ({ module }) => {
       <div ref={ref} />
     </>
   );
-}
+};
 
 export default AsyncApiComponent;

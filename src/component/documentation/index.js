@@ -10,7 +10,7 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // Tailor the following test to your environment.
   // This example assumes that any internal link (intended for Gatsby)
   // will start with exactly one slash, and that anything else is external.
-  const internal = /^\/(?!\/)/.test(to)
+  const internal = /^\/(?!\/)/.test(to);
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
     return (
@@ -22,19 +22,25 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
       >
         {children}
       </GatsbyLink>
-    )
+    );
   }
   return (
     <a href={to} {...other}>
       {children}
     </a>
-  )
-}
+  );
+};
 
 const Module = ({ moduleName, module }) => (
   <div id={moduleName} className={`item item-blue col-lg-4 col-6`}>
     <div className="item-inner">
-      <Link to={module.overview === false ? `#${moduleName}` : module.url || `/documentation/overview/${moduleName}.html`}>
+      <Link
+        to={
+          module.overview === false
+            ? `#${moduleName}`
+            : module.url || `/documentation/overview/${moduleName}.html`
+        }
+      >
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
         </div>
@@ -78,7 +84,10 @@ const Module = ({ moduleName, module }) => (
           )}
 
           {module.repositoryLink !== false && (
-            <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
+            <a
+              href={`https://github.com/wazo-platform/${module.repository}`}
+              className="list-group-item"
+            >
               <i className="fab fa-github" /> {module.repository}
             </a>
           )}
@@ -104,7 +113,11 @@ const Page = ({ pageContext: { sections } }) => (
           <div className="container">
             <div className="cards-wrapper row">
               {Object.keys(section.modules).map(moduleName => (
-                <Module key={moduleName} moduleName={moduleName} module={section.modules[moduleName]} />
+                <Module
+                  key={moduleName}
+                  moduleName={moduleName}
+                  module={section.modules[moduleName]}
+                />
               ))}
             </div>
           </div>
@@ -114,4 +127,4 @@ const Page = ({ pageContext: { sections } }) => (
   </Layout>
 );
 
-export default Page
+export default Page;

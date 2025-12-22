@@ -16,4 +16,4 @@ const Page = ({ pageContext: { news } }) => (
   </Layout>
 );
 
-export default Page
+export default Page;

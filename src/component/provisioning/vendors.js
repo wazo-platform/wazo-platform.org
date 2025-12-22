@@ -5,9 +5,16 @@ import TableOfContents from '../uc-doc/TableOfContents';
 import Vendors from './components/Vendors';
 import './provisioning.scss';
 
-const breadcrumbs = [{ link: '/uc-doc/ecosystem/supported_devices', label: 'Supported Devices', active: true }]
-const Page = ({ pageContext: { plugins, images, content, title = 'Supported Devices' }}) => (
-  <Layout pageTitle="Supported Devices" PageTitleComponent="p" breadcrumbs={breadcrumbs} className="template-uc-doc contribute">
+const breadcrumbs = [
+  { link: '/uc-doc/ecosystem/supported_devices', label: 'Supported Devices', active: true },
+];
+const Page = ({ pageContext: { plugins, images, content, title = 'Supported Devices' } }) => (
+  <Layout
+    pageTitle="Supported Devices"
+    PageTitleComponent="p"
+    breadcrumbs={breadcrumbs}
+    className="template-uc-doc contribute"
+  >
     <div className="container principal">
       <div className="main-content main-content-on-right-side">
         <div className="main-content-left-col">
@@ -22,4 +29,4 @@ const Page = ({ pageContext: { plugins, images, content, title = 'Supported Devi
   </Layout>
 );
 
-export default Page
+export default Page;

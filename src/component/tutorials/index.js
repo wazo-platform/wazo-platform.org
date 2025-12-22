@@ -11,7 +11,10 @@ const Tutorials = ({ pageContext: { tutorials: tutorialsRaw } }) => {
         <div className="tutorials-items">
           {tutorials.map(({ title, slug, author, summary, thumbnail }) => (
             <Link key={slug} to={`/tutorials/${slug}`} className="tutorials-items-item">
-              <div class="thumbnail" style={{ backgroundImage: `url(/images/tutorials/${thumbnail})` }} />
+              <div
+                class="thumbnail"
+                style={{ backgroundImage: `url(/images/tutorials/${thumbnail})` }}
+              />
 
               <h2 className="title">{title}</h2>
               <p className="summary">{summary}...</p>
@@ -24,4 +27,4 @@ const Tutorials = ({ pageContext: { tutorials: tutorialsRaw } }) => {
   );
 };
 
-export default Tutorials
+export default Tutorials;

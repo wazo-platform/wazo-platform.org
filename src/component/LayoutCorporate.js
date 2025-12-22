@@ -11,12 +11,7 @@ const WazoHeader = () => {
         <div className="container">
           <div className="site-logo">
             <a href="/" title="Wazo" rel="home">
-              <img
-                className="header-image"
-                alt="Wazo"
-                src="/images/logo-wazo.svg"
-                title="Wazo"
-              />
+              <img className="header-image" alt="Wazo" src="/images/logo-wazo.svg" title="Wazo" />
             </a>
           </div>
 
@@ -29,13 +24,19 @@ const WazoHeader = () => {
               <div id="primary-menu" className="main-nav">
                 <ul id="menu-nav_light" className=" menu sf-menu">
                   <li>
-                    <a target="_blank" rel="noreferrer" href="https://developers.wazo.io">Developers Docs</a>
+                    <a target="_blank" rel="noreferrer" href="https://developers.wazo.io">
+                      Developers Docs
+                    </a>
                   </li>
                   <li>
-                    <a target="_blank" rel="noreferrer" href="https://wazo.io/">Corporate Site</a>
+                    <a target="_blank" rel="noreferrer" href="https://wazo.io/">
+                      Corporate Site
+                    </a>
                   </li>
                   <li>
-                    <a target="_blank" rel="noreferrer" href="https://support.wazo.io/hc/en-us">Support</a>
+                    <a target="_blank" rel="noreferrer" href="https://support.wazo.io/hc/en-us">
+                      Support
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -45,17 +46,15 @@ const WazoHeader = () => {
       </div>
     </>
   );
-}
+};
 
 const Header = ({ children }) => (
   <header className="header">
     <WazoHeader />
 
-    <div className='sub'>
-      { children }
-    </div>
+    <div className="sub">{children}</div>
   </header>
-)
+);
 
 const HomeHeader = () => (
   <Header>
@@ -103,39 +102,40 @@ const PageHeader = () => (
   </header>
 );
 
-const Page = ({children, isHome}) => {
+const Page = ({ children, isHome }) => {
   const now = new Date();
   return (
-  <div className="page-wrapper">
-    <Helmet>
-      <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" />
-    </Helmet>
+    <div className="page-wrapper">
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" />
+      </Helmet>
 
-    {isHome ? <HomeHeader /> : <PageHeader />}
+      {isHome ? <HomeHeader /> : <PageHeader />}
 
-    {children}
+      {children}
 
-    <footer className="footer text-center">
-      <div className="container">
-        <small className="copyright">
-          Designed with <i className="fas fa-heart" /> by Xiaoying Riley for developers
-        </small>
-
-        <div>
+      <footer className="footer text-center">
+        <div className="container">
           <small className="copyright">
-            Copyright &copy; 2016-{ now.getFullYear() } <a href="https://wazo.io">Wazo Communication Inc</a>
+            Designed with <i className="fas fa-heart" /> by Xiaoying Riley for developers
           </small>
+
+          <div>
+            <small className="copyright">
+              Copyright &copy; 2016-{now.getFullYear()}{' '}
+              <a href="https://wazo.io">Wazo Communication Inc</a>
+            </small>
+          </div>
         </div>
-      </div>
-    </footer>
-  </div>
+      </footer>
+    </div>
   );
 };
 
-export default Page
+export default Page;
