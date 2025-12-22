@@ -3,9 +3,13 @@
 repos:
   - repo: local
     hooks:
+      - id: format
+        name: format js files
+        entry: make format
+        language: system
+        pass_filenames: false
       - id: format-uc-doc
         name: format uc-doc markdown files
         entry: make format-uc-doc
         language: system
-        files: '^website/uc-doc/.+?\.md$'
         pass_filenames: false
