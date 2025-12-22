@@ -11,7 +11,7 @@ const ADMONITION_TYPES = {
 };
 
 // Regex to match opening admonition: :::type optional title
-const ADMONITION_START_REGEX = /^:::(note|tip|info|warning|danger|caution)(?:\s+(.+))?$/;
+const ADMONITION_START_REGEX = /^:::(note|tip|info|warning|danger|caution)(?:\s*|\s+(.+))$/;
 // Regex to match closing admonition: :::
 const ADMONITION_END_REGEX = /^:::$/;
 
