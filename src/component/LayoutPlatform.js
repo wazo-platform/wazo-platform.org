@@ -245,7 +245,7 @@ const Page = ({
             </small>
 
             <small className="copyright">
-              Copyright 2016-2023 The Wazo Authors (see the AUTHORS file)
+              Copyright 2016-2025 The Wazo Authors  (see the AUTHORS file)
             </small>
           </div>
         </div>
