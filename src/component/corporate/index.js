@@ -27,7 +27,11 @@ const Module = ({ moduleName, module }) => (
   <div id={moduleName} className={`item item-red col-lg-4 col-6`}>
     <div className="item-inner">
       <ExternalOrInternalLink
-        to={module.overview === false ? `#${moduleName}` : module.url || `/documentation/overview/${moduleName}.html`}
+        to={
+          module.overview === false
+            ? `#${moduleName}`
+            : module.url || `/documentation/overview/${moduleName}.html`
+        }
       >
         <div className="icon-holder">
           <i className={`icon ${module.icon}`} />
@@ -72,7 +76,10 @@ const Module = ({ moduleName, module }) => (
           )}
 
           {module.repositoryLink !== false && (
-            <a href={`https://github.com/wazo-platform/${module.repository}`} className="list-group-item">
+            <a
+              href={`https://github.com/wazo-platform/${module.repository}`}
+              className="list-group-item"
+            >
               <i className="fab fa-github" /> {module.repository}
             </a>
           )}
@@ -88,13 +95,17 @@ const Page = ({ pageContext: { sections } }) => (
       <title>Wazo project documentation for developers</title>
     </Helmet>
     <section className="cards-section text-center">
-      {sections.map((section) => (
+      {sections.map(section => (
         <div key={section.name}>
           <h3>{section.name}</h3>
           <div className="container">
             <div className="cards-wrapper row">
-              {Object.keys(section.modules).map((moduleName) => (
-                <Module key={moduleName} moduleName={moduleName} module={section.modules[moduleName]} />
+              {Object.keys(section.modules).map(moduleName => (
+                <Module
+                  key={moduleName}
+                  moduleName={moduleName}
+                  module={section.modules[moduleName]}
+                />
               ))}
             </div>
           </div>
@@ -104,4 +115,4 @@ const Page = ({ pageContext: { sections } }) => (
   </Layout>
 );
 
-export default Page
+export default Page;

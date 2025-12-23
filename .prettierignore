@@ -1,4 +1,5 @@
 # @todo: when migration done... rewrite theses file to .mdx and remove
+# prettier does not format embedded html correctly
 website/uc-doc/administration/index.md
 website/uc-doc/system/index.md
 website/uc-doc/ecosystem/index.md
@@ -12,3 +13,6 @@ website/uc-doc/api_sdk/rest_api/confd/index.md
 website/uc-doc/api_sdk/rest_api/changelog.md
 website/uc-doc/api_sdk/index.md
 website/uc-doc/index.md
+website/static/
+zuul.d
+zuul.yaml

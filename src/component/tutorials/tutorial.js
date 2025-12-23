@@ -6,11 +6,16 @@ import Layout from '../Layout';
 const Page = ({ pageContext: { title, author, category, content, ogimage } }) => (
   <Layout pageTitle={title} className="article" section="tutorials">
     <Helmet>
-      {ogimage && <meta property="og:image" content={`https://wazo-platform.org/images/tutorials/${ogimage}`} />}
+      {ogimage && (
+        <meta
+          property="og:image"
+          content={`https://wazo-platform.org/images/tutorials/${ogimage}`}
+        />
+      )}
     </Helmet>
     <div className="container main">
       <div className="article--content">
-        <div dangerouslySetInnerHTML={{ __html: content}} />
+        <div dangerouslySetInnerHTML={{ __html: content }} />
 
         <div className="article--content--footer">
           <span className="article--content--footer-author">{author}</span>
@@ -21,4 +26,4 @@ const Page = ({ pageContext: { title, author, category, content, ogimage } }) =>
   </Layout>
 );
 
-export default Page
+export default Page;

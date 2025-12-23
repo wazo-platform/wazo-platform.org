@@ -8,10 +8,17 @@ import '../styles/platform/pretty-docs.scss';
 import '../styles/platform/documentation.scss';
 import '../styles/platform/styles.scss';
 
-const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitleComponent = 'h1' }) => {
+const Page = ({
+  children,
+  section,
+  className,
+  pageTitle,
+  pageTitleDate,
+  PageTitleComponent = 'h1',
+}) => {
   const [searchEnabled, setSearchEnabled] = useState(false);
 
-  const scrollToAnchor = (hash) => {
+  const scrollToAnchor = hash => {
     if (!hash) {
       return;
     }
@@ -34,14 +41,14 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
   });
 
   const bodyAttributes = { class: section };
-  const headTitle = [pageTitle, 'Wazo Platform'].filter((value) => Boolean(value)).join(' - ');
+  const headTitle = [pageTitle, 'Wazo Platform'].filter(value => Boolean(value)).join(' - ');
 
   const navigationClasses = ['main-nav', 'navbar-expand-md'];
   if (searchEnabled) {
     navigationClasses.push('main-nav-search-enabled');
   }
 
-  const handleSearch = (e) => {
+  const handleSearch = e => {
     e.preventDefault();
     const newStateSearchEnabled = !searchEnabled;
     setSearchEnabled(newStateSearchEnabled);
@@ -71,7 +78,12 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
             <img src={LogoHoriz} alt="Wazo Platform" id="wazo-platform-nav" />
           </Link>
           <nav id="main-nav" className={navigationClasses.join(' ')} role="navigation">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-collapse"
+            >
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar" />
               <span className="icon-bar" />
@@ -86,7 +98,12 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/documentation" activeClassName="active" partiallyActive>
+                  <Link
+                    className="nav-link"
+                    to="/documentation"
+                    activeClassName="active"
+                    partiallyActive
+                  >
                     API
                   </Link>
                 </li>
@@ -101,23 +118,43 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/tutorials" activeClassName="active" partiallyActive>
+                  <Link
+                    className="nav-link"
+                    to="/tutorials"
+                    activeClassName="active"
+                    partiallyActive
+                  >
                     Tutorials
                   </Link>
-                </li>                <li className="nav-item">
-                  <Link className="nav-link" to="/contribute" activeClassName="active" partiallyActive>
+                </li>{' '}
+                <li className="nav-item">
+                  <Link
+                    className="nav-link"
+                    to="/contribute"
+                    activeClassName="active"
+                    partiallyActive
+                  >
                     Contribute
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/ecosystem" activeClassName="active" partiallyActive>
+                  <Link
+                    className="nav-link"
+                    to="/ecosystem"
+                    activeClassName="active"
+                    partiallyActive
+                  >
                     Ecosystem
                   </Link>
                 </li>
                 <li className="nav-item nav-item-search last">
                   <Search />
                   <a className="nav-link" href="#search" title="Search" onClick={handleSearch}>
-                    {searchEnabled ? <i className="far fa-times-circle"></i> : <i className="fas fa-search"></i>}
+                    {searchEnabled ? (
+                      <i className="far fa-times-circle"></i>
+                    ) : (
+                      <i className="fas fa-search"></i>
+                    )}
                     &nbsp;Search
                   </a>
                 </li>
@@ -146,7 +183,8 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
               <div className="coll">
                 <h2>Community Supported</h2>
                 <p>
-                  Wazo Platform is supported by its community. Use our various channels to reach out.
+                  Wazo Platform is supported by its community. Use our various channels to reach
+                  out.
                 </p>
 
                 <ul>
@@ -165,7 +203,8 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                 <div>
                   <h2>Publications</h2>
                   <p>
-                    Video @ Kamailio World: <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
+                    Video @ Kamailio World:{' '}
+                    <a href="https://youtu.be/d1hOR27r4uY?t=2642">Dangerous Demos</a>
                   </p>
                   <p>
                     Video @ the Telecom Application Development Summit:{' '}
@@ -185,7 +224,11 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="https://github.com/wazo-platform" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://github.com/wazo-platform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-github" />
                     </a>
                   </li>
@@ -202,7 +245,7 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
             </small>
 
             <small className="copyright">
-              Copyright 2016-2023 The Wazo Authors  (see the AUTHORS file)
+              Copyright 2016-2025 The Wazo Authors  (see the AUTHORS file)
             </small>
           </div>
         </div>
@@ -211,4 +254,4 @@ const Page = ({ children, section, className, pageTitle, pageTitleDate, PageTitl
   );
 };
 
-export default Page
+export default Page;

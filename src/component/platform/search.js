@@ -11,7 +11,7 @@ import {
 } from 'react-instantsearch-dom';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
-import { algoliaIndexPlatform as indexName } from '../../contants'
+import { algoliaIndexPlatform as indexName } from '../../contants';
 
 const config = require('../../../config');
 
@@ -23,8 +23,8 @@ const list = css`
   z-index: 2;
   right: 0;
   top: 40px;
-  border: 1px solid #EEE;
-  box-shadow: 0px 2x 5px rgba(0,0,0,0.75);
+  border: 1px solid #eee;
+  box-shadow: 0px 2x 5px rgba(0, 0, 0, 0.75);
   text-align: left;
 
   @media only screen and (max-width: 989px) {
@@ -43,7 +43,6 @@ const list = css`
     .snippet-link {
       color: #888;
       font-weight: normal;
-
     }
 
     mark {
@@ -59,7 +58,6 @@ export const HitsWrapper = styled.div`
   ${list};
   color: #616670;
   border-radius: 4px;
-
 
   * {
     margin-top: 0;
@@ -113,18 +111,20 @@ const Input = connectSearchBox(({ refine, onFocus, collapse }) => (
   </form>
 ));
 
-const PageHit = clickHandler => ({ hit }) => (
-  <div>
-    <Link to={`/${hit.pagePath}`} onClick={clickHandler}>
-      <h6>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h6>
-    </Link>
-    <Link className="snippet-link" to={`/${hit.pagePath}`} onClick={clickHandler}>
-      <Snippet attribute="content" hit={hit} tagName="mark" />
-    </Link>
-  </div>
-);
+const PageHit =
+  clickHandler =>
+  ({ hit }) => (
+    <div>
+      <Link to={`/${hit.pagePath}`} onClick={clickHandler}>
+        <h6>
+          <Highlight attribute="title" hit={hit} tagName="mark" />
+        </h6>
+      </Link>
+      <Link className="snippet-link" to={`/${hit.pagePath}`} onClick={clickHandler}>
+        <Snippet attribute="content" hit={hit} tagName="mark" />
+      </Link>
+    </div>
+  );
 
 const events = ['mousedown', 'touchstart'];
 
@@ -136,10 +136,12 @@ export default class Search extends Component {
   list = React.createRef();
   state = { query: '', focused: false };
 
-  searchClient = config.algolia && !!config.algolia.appId && !!config.algolia.publicKey ?
-    algoliasearch(config.algolia.appId, config.algolia.publicKey, {
-      indexName: 'wazo-platform-development',
-    }) : null;
+  searchClient =
+    config.algolia && !!config.algolia.appId && !!config.algolia.publicKey
+      ? algoliasearch(config.algolia.appId, config.algolia.publicKey, {
+          indexName: 'wazo-platform-development',
+        })
+      : null;
 
   updateState = state => this.setState(state);
 

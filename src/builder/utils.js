@@ -29,11 +29,13 @@ const walk = (basePath, regexp, encoding = 'utf8', custom = false) => {
       // HEADS UP: hard code
       const wazo_plugin = `${basePath.split('/')[4]}-${basePath.split('/')[5]}`;
       const content = fs.readFileSync(filePath, encoding);
-      results[dirname][file] = custom ? {
-          path: path.dirname(filePath),
-          file: content,
-          wazo_plugin,
-        } : content;
+      results[dirname][file] = custom
+        ? {
+            path: path.dirname(filePath),
+            file: content,
+            wazo_plugin,
+          }
+        : content;
     }
   });
 
@@ -73,11 +75,16 @@ const getProvisioningPlugins = () => {
 
           const installPath = `${localPath}/install.md`;
           const limitationsPath = `${localPath}/limitations.md`;
-          const install = fs.existsSync(installPath) ? fs.readFileSync(installPath, { encoding:'utf8', flag:'r' }) : null;
-          const limitations = fs.existsSync(limitationsPath) ? fs.readFileSync(limitationsPath, { encoding:'utf8', flag:'r' }) : null;
+          const install = fs.existsSync(installPath)
+            ? fs.readFileSync(installPath, { encoding: 'utf8', flag: 'r' })
+            : null;
+          const limitations = fs.existsSync(limitationsPath)
+            ? fs.readFileSync(limitationsPath, { encoding: 'utf8', flag: 'r' })
+            : null;
 
           cachedPlugins[vendor][phone][firmware] = content.capabilities[capabilityName];
-          cachedPlugins[vendor][phone][firmware].wazo_plugin = `${wazo_plugin} (v${content.version})`;
+          cachedPlugins[vendor][phone][firmware].wazo_plugin =
+            `${wazo_plugin} (v${content.version})`;
           cachedPlugins[vendor][phone][firmware].install = install;
           cachedPlugins[vendor][phone][firmware].limitations = limitations;
         });

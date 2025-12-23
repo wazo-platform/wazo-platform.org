@@ -2,7 +2,9 @@ services:
   doc:
     volumes:
       - ./src:/app/src:rw
+      - ./tests:/app/tests:rw
       - ./content:/app/content:rw
       - ./website/release-notes:/app/website/release-notes:rw
       - ./website/blog:/app/website/blog:rw
       - ./website/uc-doc:/app/website/uc-doc:rw
+      - ./.prettierrc:/app/.prettierrc:ro

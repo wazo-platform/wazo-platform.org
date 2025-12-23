@@ -6,7 +6,9 @@ import Helmet from 'react-helmet';
 import Layout from '../Layout';
 
 const flatten = (text, child) =>
-  typeof child === 'string' ? text + child : React.Children.toArray(child.props.children).reduce(flatten, text);
+  typeof child === 'string'
+    ? text + child
+    : React.Children.toArray(child.props.children).reduce(flatten, text);
 
 const getMenuComponents = currentMenus => {
   const BigHeading = props => {
@@ -92,10 +94,7 @@ const getContentComponents = (module, onEnter, onLeave) => {
     img: props => (
       <object
         type="image/svg+xml"
-        data={`../../diagrams/${module.repository
-          .split('-')
-          .splice(1)
-          .join('-')}-${props.src}`}
+        data={`../../diagrams/${module.repository.split('-').splice(1).join('-')}-${props.src}`}
         aria-label={props.alt}
       />
     ),
@@ -151,4 +150,4 @@ const Page = ({ pageContext: { moduleName, module, overview } }) => {
   );
 };
 
-export default Page
+export default Page;

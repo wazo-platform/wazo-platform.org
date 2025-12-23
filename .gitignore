@@ -74,3 +74,6 @@ yarn-error.log
 
 tests/node_modules/
 static/provisioning
+
+**/build
+**/.docusaurus

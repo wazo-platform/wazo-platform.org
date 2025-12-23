@@ -144,7 +144,8 @@ const Page = () => (
               <span className="small">Services: calld, confd, agentd</span>
             </li>
             <li>
-              <strong>Engine layer</strong>: internal services for core functionalities(audio/video, provisioning, ...)
+              <strong>Engine layer</strong>: internal services for core functionalities(audio/video,
+              provisioning, ...)
               <br />
               <span className="small">
                 Services: asterisk, confd, agid, amid, provd, kamailio, rtpengine
