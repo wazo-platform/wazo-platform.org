@@ -4,7 +4,7 @@ title: Message Bus
 
 The message bus is used to receive events from Wazo. It is provided by an
 [AMQP](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) 0-9-1 broker (namely,
-[RabbitMQ](https://previous.rabbitmq.com/v2_8_x/documentation.html)) that is integrated in Wazo.
+[RabbitMQ](https://www.rabbitmq.com/docs/3.13)) that is integrated in Wazo.
 
 ## Usage
 
@@ -68,7 +68,7 @@ main()
 ```
 
 If you are new to AMQP, you might want to look at the
-[RabbitMQ tutorial](https://previous.rabbitmq.com/v2_8_x/getstarted.html).
+[RabbitMQ tutorial](https://www.rabbitmq.com/tutorials).
 
 ### Notes
 
