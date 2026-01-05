@@ -31,6 +31,10 @@ module.exports = {
       options: {
         // In your gatsby-transformer-remark plugin array
         plugins: [
+          // Admonitions (note, tip, info, warning, caution, danger)
+          {
+            resolve: 'gatsby-remark-admonitions-local',
+          },
           // Graph / Mermaid
           {
             resolve: 'gatsby-remark-graph',
