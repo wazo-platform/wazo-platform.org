@@ -38,6 +38,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'Schedules', href: '/uc-doc/administration/schedules' },
     { text: 'SIP Templates', href: '/uc-doc/administration/sip_templates' },
     { text: 'Sound Files', href: '/uc-doc/administration/sound_files' },
+    { text: 'Stack Plugins', href: '/uc-doc/administration/plugins' },
     { text: 'Users', href: '/uc-doc/administration/users' },
     { text: 'Voicemails', href: '/uc-doc/administration/voicemails' }
   ]}
