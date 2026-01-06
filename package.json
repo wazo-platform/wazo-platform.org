@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn beta-sync && ./node_modules/.bin/gatsby build --prefix-paths",
     "develop": "yarn beta-sync && ./node_modules/.bin/gatsby develop",
-    "format": "prettier --ignore-pattern 'website/uc-doc/**' --write '**/*.js'",
+    "format": "prettier --write '!website/uc-doc' '**/*.js'",
     "format:uc-doc": "prettier --write 'website/uc-doc/**/*.md'",
     "check-format:uc-doc": "prettier --check 'website/uc-doc/**/*.md'",
     "beta-sync": "bash ./scripts/beta-sync.sh",

@@ -58,6 +58,7 @@ const Page = ({
     }
   };
 
+  // prettier-ignore
   return (
     <div className="main">
       <Helmet bodyAttributes={bodyAttributes}>
