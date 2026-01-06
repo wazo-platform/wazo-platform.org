@@ -86,6 +86,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // www.asterisk.org returns 403 here due to Cloudflare bot protection on our CI/IPs
+  if (url.indexOf('www.asterisk.org') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
