@@ -43,8 +43,9 @@ There are 2 options you can pass to wazo-upgrade:
   upgrade).
 - Check that services are correctly working like SIP registration, ISDN link status,
   internal/incoming/outgoing calls, Wazo Client connections etc.
-- If you have installed plugins using [wazo-plugind](/docs/api/wazo-plugind/description), you may
-  need to reinstall them. See [wazo-plugind Plugins](#wazo-plugind-plugins) for more details.
+- Non-official plugins installed with [wazo-plugind](/docs/api/wazo-plugind/description) may need to
+  be reinstalled or upgraded; See
+  [plugins administration documentation](/uc-doc/administration/plugins) for more information.
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 
@@ -87,28 +88,6 @@ See our recommendation on
 ## Unsupported versions
 
 - [Version Deprecation Policy](/uc-doc/upgrade/version_deprecation_policy)
-
-## wazo-plugind Plugins {#wazo-plugind-plugins}
-
-Plugins installed through [wazo-plugind](/docs/api/wazo-plugind/description) are not automatically
-upgraded. If a new version of a plugin is required for compatibility with a new wazo stack version,
-the administrator is responsible for uninstalling the old version, and installing the new version.
-
-Additionally, manual re-installation may be required following an upgrade, depending on the type of
-plugin and the type of upgrade.
-
-- **Patch-based plugins**: plugins using source code patches need to be systematically re-installed
-  following _any_ wazo stack upgrade;
-- **Upgrades involving Debian version changes**: following a wazo upgrade involving a Debian version
-  change, python-based plugins also need to be systematically upgraded/re-installed; generally, a
-  Debian version upgrade involves a python version change, which implies packaging and code changes
-  for python-based projects, so supported plugins should see new updated versions made available,
-  which should be installed following the upgrade in replacement of the previous version; plugins
-  not officially supported by Wazo (custom or community-supported) may become incompatible if no
-  maintenance effort is made;
-
-See [plugins administration documentation](/uc-doc/administration/plugins) for instructions on
-listing and reinstalling plugins using `wazo-plugind-cli`.
 
 ## Troubleshooting {#troubleshooting}
 
