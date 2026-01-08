@@ -129,8 +129,20 @@ wazo-plugind-cli -c 'help <command>'
 
 ## Plugin Maintenance After Upgrades
 
-Plugins may need to be reinstalled or upgraded after upgrading the Wazo stack (see
-[Reinstalling](#reinstalling-plugins) and [Upgrading](#upgrading-plugins) for instructions).
+Plugins may need to be reinstalled or upgraded after upgrading the Wazo stack.
+
+While official plugins may be automatically upgraded during Wazo-Platform upgrades, new
+wazo-platform releases may bring breaking changes to custom plugins. If a new compatible version of
+a plugin is made available, the plugin will need to be manually upgraded.
+
+Wazo-Platform releases which involve a Debian distribution upgrade likely require upgrading or
+reinstalling plugins.
+
+Non-official patch-based plugins require manually reinstalling after each Wazo-Platform upgrade, and
+are likely to break without proper maintenance work since they depend on a specific state of the
+Wazo-Platform code.
+
+See [Reinstalling](#reinstalling-plugins) and [Upgrading](#upgrading-plugins) instructions.
 
 See [version-specific upgrade notes](/uc-doc/upgrade/upgrade_notes) for specific recommendations.
 
