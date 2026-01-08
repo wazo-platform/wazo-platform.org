@@ -96,17 +96,22 @@ branch.
 
 ### Upgrading plugins
 
-There is no upgrade command, and plugins are not automatically upgraded.
-
-A change in the underlying system may incur a break in compatibility with a specific plugin version.
-If the plugin is maintained, a new version would be made available when breaking changes occur. In
-this case, or if an improved version is made available, the new version would need to be installed
-after uninstalling the previous version.
+There is no upgrade command. Upgrading a plugin manually can be done by installing a new version of
+the plugin with the same name. When installing a plugin that already exists, the version from the
+metadata of the installation target is compared with the version already installed, and the
+installation target is installed if the version differs, replacing the previous installation.
 
 ```shell
-wazo-plugind-cli -c "uninstall myorg/myplugin"
 wazo-plugind-cli -c "install git https://github.com/myorg/myplugin --ref <new revision>"
 ```
+
+Official plugins may be automatically upgraded during wazo-platform upgrades if new versions are
+made available.
+
+Custom plugins (outside the "official" namespace) are not automatically upgraded.
+
+Breaking changes between wazo-platform releases may require upgrading plugins to a compatible
+version.
 
 ### Getting Help
 
@@ -125,10 +130,9 @@ wazo-plugind-cli -c 'help <command>'
 ## Plugin Maintenance After Upgrades
 
 Plugins may need to be reinstalled or upgraded after upgrading the Wazo stack (see
-[Reinstalling](#reinstalling-plugins) and [Upgrading](#upgrading-plugins)).
+[Reinstalling](#reinstalling-plugins) and [Upgrading](#upgrading-plugins) for instructions).
 
-See [the upgrade procedure documentation](/uc-doc/upgrade) and
-[version-specific upgrade notes](/uc-doc/upgrade/upgrade_notes) for specific recommendations.
+See [version-specific upgrade notes](/uc-doc/upgrade/upgrade_notes) for specific recommendations.
 
 ## See Also
 
