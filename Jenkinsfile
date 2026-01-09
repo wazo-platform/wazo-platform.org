@@ -31,7 +31,7 @@ pipeline {
     SSH_CREDS = credentials('ssh-private-key-for-webserver')
   }
   stages {
-    stage ("Cleanup") {
+    stage ("Prepare") {
       steps {
         sh """
           set -xe
@@ -47,7 +47,7 @@ pipeline {
         """
       }
     }
-    stage ("Prepare") {
+    stage ("Deploy") {
       steps {
         sshagent(credentials: ['ssh-private-key-for-webserver']) {
           sh """
@@ -64,7 +64,7 @@ EOF
         }
       }
     }
-    stage ("Deploy") {
+    stage ("Publish") {
       steps {
         script {
           def remote_webserver_community = buildSSHRemote(host: webserver_community, allowAnyHosts: true)
