@@ -10,7 +10,7 @@ def buildSSHRemote(params) {
   } else {
     remote.identityFile = env.SSH_CREDS
   }
-  remote.logLevel = 'SEVERE'  // Setting any logLevel will remove host from public log
+  remote.logLevel = 'SEVERE' // Setting any logLevel will remove host from public log
   return remote
 }
 
@@ -21,7 +21,6 @@ pipeline {
   triggers {
     pollSCM 'H 0 * * *'
   }
-
   options {
     timestamps()
   }
@@ -33,7 +32,6 @@ pipeline {
     CONFIG_FILE_PATH = credentials('wazo-doc-tools-credentials')
     SSH_CREDS = credentials('ssh-private-key-for-webserver')
   }
-
   stages {
     stage ("Cleanup") {
       steps {
@@ -68,7 +66,6 @@ EOF
         }
       }
     }
-
     stage ("Deploy") {
       steps {
         script {
@@ -80,15 +77,15 @@ EOF
 
               # If we use rsync directly and rsync fails with "Broken pipe", then it
               # will break the website installation.
-              # To prevent that, rsync into temporary directory, then mv 
+              # To prevent that, rsync into temporary directory, then mv
               # the new website install.
 
               mv -T /tmp/api /var/www/api-new
               mv -T /var/www/api /var/www/api-old
               mv -T /var/www/api-new /var/www/api
               rm -rf /var/www/api-old
-          '''
-            )
+            '''
+          )
         }
       }
     }
