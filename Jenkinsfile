@@ -39,10 +39,8 @@ pipeline {
 
           make ENV=CORPORATE=1 builder
           make ENV=CORPORATE=1 build
+          docker compose down
 
-          sudo curl -L -o /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/v2.39.2/docker-compose-linux-x86_64
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose down
           rm config.js
         """
       }
