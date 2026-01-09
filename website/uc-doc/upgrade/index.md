@@ -43,6 +43,9 @@ There are 2 options you can pass to wazo-upgrade:
   upgrade).
 - Check that services are correctly working like SIP registration, ISDN link status,
   internal/incoming/outgoing calls, Wazo Client connections etc.
+- Non-official plugins installed with [wazo-plugind](/docs/api/wazo-plugind/description) may need to
+  be reinstalled or upgraded; See
+  [plugins administration documentation](/uc-doc/administration/plugins) for more information.
 
 ## Upgrading a cluster {#upgrading-a-cluster}
 

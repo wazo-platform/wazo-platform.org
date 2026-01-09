@@ -53,6 +53,11 @@ wazo-dist-upgrade -d
 
 ## After the upgrade
 
+- Reinstall/upgrade wazo-plugind plugins; The Python version change from 3.9 to 3.11 means that
+  Python-based plugins will no longer work until reinstalled, and new versions of those plugins may
+  be required for continued compatibility. See [Stack Plugins](/uc-doc/administration/plugins)
+  administration documentation for instructions.
+
 - Verify that any changes you had made to your configuration files are still present and working.
 
   During the upgrade, new versions of configuration files are installed, and these might override
