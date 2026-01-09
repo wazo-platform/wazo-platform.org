@@ -17,16 +17,14 @@ def buildSSHRemote(params) {
 def webserver_community = 'webserver.wazo.community'
 
 pipeline {
-
+  agent {
+    label 'general-debian12-medium'
+  }
   triggers {
     pollSCM 'H 0 * * *'
   }
   options {
     timestamps()
-  }
-
-  agent {
-    label 'general-medium'
   }
   environment {
     CONFIG_FILE_PATH = credentials('wazo-doc-tools-credentials')
