@@ -33,16 +33,16 @@ pipeline {
   stages {
     stage ("Prepare") {
       steps {
-        sh """
+        sh '''
           set -xe
-          cp ${CONFIG_FILE_PATH} config.js
+          cp "${CONFIG_FILE_PATH}" config.js
 
           make ENV=CORPORATE=1 builder
           make ENV=CORPORATE=1 build
           docker compose down
 
           rm config.js
-        """
+        '''
       }
     }
     stage ("Deploy") {
