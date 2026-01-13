@@ -14,5 +14,7 @@ website/uc-doc/api_sdk/rest_api/changelog.md
 website/uc-doc/api_sdk/index.md
 website/uc-doc/index.md
 website/static/
+# minified javascript
+static/js
 zuul.d
 zuul.yaml

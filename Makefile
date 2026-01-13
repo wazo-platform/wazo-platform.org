@@ -11,14 +11,17 @@ beta/builder:
 beta/develop: beta/builder
 	$(DOCKER_COMPOSE_BETA) run --rm --service-ports doc bash -c "yarn install && yarn docusaurus start -h 0.0.0.0 $(ARGS)"
 
+
+DOCKER_COMPOSE_FORMAT=docker compose -f docker-compose.yml -f docker-compose.format.yml
+FORMAT_RUN=$(DOCKER_COMPOSE_FORMAT) run --no-TTY --build --rm --user "$(shell id -u):$(shell id -g)" doc
 check-format-uc-doc:
-	docker compose run --no-TTY doc yarn check-format:uc-doc
+	$(FORMAT_RUN) yarn check-format:uc-doc
 
 format:
-	docker compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format
+	$(FORMAT_RUN) yarn format
 
 format-uc-doc:
-	docker compose -f docker-compose.yml -f docker-compose.format.yml run doc yarn format:uc-doc
+	$(FORMAT_RUN) yarn format:uc-doc
 
 build:
 	rm -rf public

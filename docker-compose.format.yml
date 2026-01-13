@@ -7,4 +7,9 @@ services:
       - ./website/release-notes:/app/website/release-notes:rw
       - ./website/blog:/app/website/blog:rw
       - ./website/uc-doc:/app/website/uc-doc:rw
+      - ./config.js:/app/config.js:rw
+      - ./gatsby-browser.js:/app/gatsby-browser.js:rw
+      - ./static:/app/static:rw
       - ./.prettierrc:/app/.prettierrc:ro
+      - ./.prettierignore:/app/.prettierignore:ro
+      - ./.gitignore:/app/.gitignore:ro
