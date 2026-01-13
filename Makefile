@@ -13,7 +13,7 @@ beta/develop: beta/builder
 
 
 DOCKER_COMPOSE_FORMAT=docker compose -f docker-compose.yml -f docker-compose.format.yml
-FORMAT_RUN=$(DOCKER_COMPOSE_FORMAT) run --build --rm --user "$(shell id -u):$(shell id -g)" doc
+FORMAT_RUN=$(DOCKER_COMPOSE_FORMAT) run --no-TTY --build --rm --user "$(shell id -u):$(shell id -g)" doc
 check-format-uc-doc:
 	$(FORMAT_RUN) yarn check-format:uc-doc
 
