@@ -52,7 +52,7 @@ This depends on the git hosting service's support for private repository access 
 :::note Git versioning
 
 A git plugin may be installed from a specific branch, or a specific reference, using the `--ref`
-option. With no `--ref`, the default branch (usually `main` or `master`) is used.
+option. With no `--ref`, the default branch name `master` is used.
 
 A branch is a mutable reference, so installing from a branch may install an arbitrary version of the
 plugin source at different moments in time, which may result in installing an unstable version.
