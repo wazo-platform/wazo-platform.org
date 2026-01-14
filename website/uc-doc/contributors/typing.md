@@ -616,7 +616,7 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.991
+    rev: v1.19.1
     hooks:
       - id: mypy
         language_version: '3.11'
