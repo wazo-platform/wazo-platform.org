@@ -95,4 +95,4 @@ To wrap it up Wazo Platform C4 is now easily deployable on a Kubernetes cluster.
 - https://kubernetes.io/
 - https://helm.sh/
 - https://auth0.com/blog/kubernetes-tutorial-step-by-step-introduction-to-basic-concepts/
-- https://blog.newrelic.com/engineering/what-is-kubernetes/
+- https://newrelic.com/blog/infrastructure-monitoring/what-is-kubernetes

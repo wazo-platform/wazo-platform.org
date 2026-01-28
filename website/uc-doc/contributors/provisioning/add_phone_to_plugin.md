@@ -252,5 +252,5 @@ For example, `yealink-v85: add T41S support`.
 
 You are now ready to open the pull request on GitHub. To see how to open a Pull request, GitHub
 again provides
-[a tutorial](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests) on this
+[a tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) on this
 subject.
