@@ -109,15 +109,19 @@ support).
 
 ### Reading shared voicemail messages
 
-A new endpoint was added to `wazo-calld` to handle messages in various voicemail inboxes.
+wazo-calld APIs can be used to read messages from all voicemails available to a user, including
+personal and shared voicemails (see
+[API reference](/documentation/api/application.html#tag/voicemails/paths/~1users~1me~1voicemails~1messages/get)):
 
 ```sh
 curl https://<STACK>:<PORT>/api/calld/1.0/users/me/voicemails/messages?voicemail_type=all \
   -H 'X-Auth-Token: <TOKEN>'
 ```
 
-The `voicemail_type` parameter must be one of 3 values
+The `voicemail_type` parameter can be one of 3 values:
 
-- `all`: List all messages from both personal and global voicemails (default behavior when omitted)
+- `all`: List all messages from both personal and global voicemails
 - `personal`: Only list messages from personal voicemail
 - `global`: Only list messages from shared voicemail
+
+Omitting the parameter will default to `all`.
