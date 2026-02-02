@@ -51,33 +51,39 @@ The shared voicemail feature has these limitations:
 There are 2 ways to enable the shared voicemail feature:
 
 1. Create a new shared voicemail
+   ([API reference](/documentation/api/configuration.html#tag/voicemails/operation/create_voicemail))
 
 ```sh
-curl -x POST \
+curl -X POST \
   https://<STACK>:<PORT>/api/confd/1.1/voicemails \
+  -H 'Content-Type: application/json' \
   -H 'X-Auth-Token: <TOKEN>' \
   -H 'Wazo-Tenant: <TENANT_UUID>' \
   -d '{
-  "accesstype": "global",
-  <...>
+  "name": "Shared Voicemail",
+  "number": "8000",
+  "context": "default",
+  "accesstype": "global"
 }'
 ```
 
-2. Promote an existent voicemail to be shared
+2. Promote an existing voicemail to be shared, by changing its `accesstype` property
+   ([API reference](/documentation/api/configuration.html#tag/voicemails/operation/update_voicemail))
 
 ```sh
-curl -x PUT \
+curl -X PUT \
   https://<STACK>:<PORT>/api/confd/1.1/voicemails/<VOICEMAIL_ID> \
+  -H 'Content-Type: application/json' \
   -H 'X-Auth-Token: <TOKEN>' \
   -H 'Wazo-Tenant: <TENANT_UUID>' \
   -d '{
-    "accesstype": "global",
-    <...>
+    "accesstype": "global"
   }'
 ```
 
-In both cases, the `accesstype` property must be the value `global` to be configured as a shared
-voicemail. By default, the property will be of value `personal` and will not be shared.
+In both cases, the `accesstype` property must be set to `"global"` to be configured as a shared
+voicemail.  
+By default, a voicemail is created with an `accesstype` of `personal` and will not be shared.
 
 ## Shared voicemail notifications
 
