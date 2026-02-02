@@ -29,7 +29,7 @@ anyone from the same context will be able to listen to its messages, change its 
 greeting messages.
 
 **Warning**: For security reasons, an incoming call with
-`{"destination": {"appplication: "voicemail"}` with the same context as the voicemail should be
+`{"destination": {"application": "voicemail"}}` with the same context as the voicemail should be
 avoided if a voicemail has no password.
 
 ## Configuring a tenant-level shared voicemail
