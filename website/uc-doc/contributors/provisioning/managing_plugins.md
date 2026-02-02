@@ -47,7 +47,7 @@ are the steps to follow :
 2. Update `VERSION` number in `plugins/wazo-snom/8.7.3.25.5/entry.py`
 3. Update `VERSION` number in `plugins/wazo-snom/8.7.3.25.5/plugin-info`
 4. Download the new firmware files (`.bin` files from
-   [snom website](https://service.snom.com/display/wiki/Deskphones+Firmware))
+   [snom website](https://service.snom.com/spaces/wiki/pages/234331309/Deskphones+Firmware))
 5. Update `VERSION` number and URIs in `plugins/wazo-snom/8.7.3.25.5/pkgs/pkgs.db` (with URIs of
    downloaded files from the Snom website)
 6. Update sizes and SHA1 checksums in `plugins/wazo-snom/8.7.3.25.5/pkgs/pkgs.db` (using the helper
