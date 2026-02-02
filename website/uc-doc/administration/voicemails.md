@@ -34,14 +34,16 @@ avoided if a voicemail has no password.
 
 ## Configuring a tenant-level shared voicemail
 
-A voicemail can be configured to be shared across all users in its tenant. The principal use-case
-for this shared voicemail is for micro-tenants where you want all its users to be able to administer
-the voicemail.
+A voicemail can be configured to be shared across all users in its tenant.
 
-Think for example a small company with no dedicated receptionist/dispatcher and wants all its users
-to be notified on new messages and be able to administer them.
+A use case is for a small company, with no dedicated receptionist, where voicemail management
+responsibility is shared between all employees.
 
-The shared voicemail feature has these few limitations:
+All tenant users will have both read and write access (message management) to the shared voicemail.
+Voicemail notifications (e.g. new messages, message read, message deleted, etc) will be sent to all
+users in the tenant.
+
+The shared voicemail feature has these limitations:
 
 - No granular access control; all users within the tenant will have access to the voicemail
 - Only a single shared voicemail can exist within a tenant
