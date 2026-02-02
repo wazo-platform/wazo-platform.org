@@ -85,12 +85,29 @@ In both cases, the `accesstype` property must be set to `"global"` to be configu
 voicemail.  
 By default, a voicemail is created with an `accesstype` of `personal` and will not be shared.
 
-## Shared voicemail notifications
+### Shared voicemail events
 
-No additional configuration is required to enable push notifications when receiving a new message in
-a shared voicemail. It is configured out-of-the-box.
+Shared voicemails generate tenant-level bus events (as opposed to user-level events for personal
+voicemails). All users in the tenant can subscribe to these events.
 
-## Reading shared voicemail messages
+- when a new message is received: `global_voicemail_message_created`
+- when a message is read: `global_voicemail_message_updated`
+- when a message is deleted: `global_voicemail_message_deleted`
+
+Those events require an ACL pattern of `events.voicemails.global.messages.#`.
+
+See [wazo-calld events reference](https://api.wazo.io/documentation/events/application/).
+
+### Shared voicemail push notifications
+
+Shared voicemails will generate push notifications just like non-shared (_personal_) voicemails. All
+tenant users will receive push notifications for new messages in the shared voicemails.
+
+No additional configuration is required to enable those push notifications (see
+[Push notifications](/uc-doc/api_sdk/mobile_push_notification) for general push notifications
+support).
+
+### Reading shared voicemail messages
 
 A new endpoint was added to `wazo-calld` to handle messages in various voicemail inboxes.
 
