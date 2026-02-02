@@ -46,7 +46,7 @@ users in the tenant.
 The shared voicemail feature has these limitations:
 
 - No granular access control; all users within the tenant will have access to the voicemail
-- Only a single shared voicemail can exist within a tenant
+- Only a single shared voicemail can exist per context (typically one per tenant)
 
 There are 2 ways to enable the shared voicemail feature:
 
