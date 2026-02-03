@@ -1,6 +1,7 @@
 name: Test deployment
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - master
