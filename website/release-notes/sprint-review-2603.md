@@ -12,11 +12,11 @@ Hello Wazo Platform community!
 
 Here is a short review of the Wazo Platform 26.03 release.
 
+## New Features in This Release
+- **CDR recordings**: streaming of recordings from wazo-call-logd API now supported (e.g. for html5 `<audio>` element support with playback control)
+
 ## Bug Fixes
 - **Ring group & Mobile**: when calling users in a ring group, mobile wakeup mechanism was not using the value of user_timeout for the ring timeout
-
-## Technical
-- **CDR recordings**: streaming of recordings from wazo-call-logd API now supported (e.g. for html5 `<audio>` element support with playback control)
 
 See you at the next release review!
 
