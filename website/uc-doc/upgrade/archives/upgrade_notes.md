@@ -125,9 +125,7 @@ for more information.
 - `xivo-sysconfd` has been renamed to `wazo-sysconfd`
 - Call recording will now play a beep when the recording starts and end. This behavior can be
   modified in `/etc/xivo/asterisk/xivo_globals.conf` by modifying the `WAZO_MIXMONITOR_OPTIONS`. See
-  the
-  [Asterisk documentation](https://docs.asterisk.org/Asterisk_18_Documentation/API_Documentation/Dialplan_Applications/MixMonitor)
-  for available options.
+  the Asterisk documentation for available options.
 - The group resource is now identified by a UUID instead of sequential ID. The API using sequential
   ID will keep working for a while. Policies with permissions for a specific group will have to be
   changed to use the UUID of the group instead of its ID. This only happens if you create policies
