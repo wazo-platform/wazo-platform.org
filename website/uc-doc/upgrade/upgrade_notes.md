@@ -11,6 +11,12 @@ sidebar_position: 1
   logs the agent into all queues assigned to them, emitting the usual queue login bus events.
 - When an agent logs off from their last remaining logged in queue, the agent now logs off entirely.
 
+## 26.04 {#26-04}
+
+Consult the
+[26.04 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2026.04)
+for more information.
+
 ## 26.03 {#26-03}
 
 Consult the
