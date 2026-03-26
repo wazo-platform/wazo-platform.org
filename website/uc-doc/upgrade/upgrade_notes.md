@@ -11,6 +11,11 @@ for more information.
 
 ## 26.02 {#26-02}
 
+- **Agent login/logoff behavior has changed.** Queue memberships are now persisted across agent
+  login/logout cycles instead of being rebuilt from scratch. Agents logged out before the upgrade
+  will have their queue associations cleared; they will need to manually re-activate their queues
+  using the per-queue login/logoff API.
+
 Consult the
 [26.02 Tickets](https://wazo-dev.atlassian.net/issues/?jql=project%20%3D%20WAZO%20AND%20fixVersion%20%3D%2026.02)
 for more information.
