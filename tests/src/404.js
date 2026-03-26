@@ -91,6 +91,11 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // cisco.com responds status 403
+  if (url.indexOf('cisco.com') !== -1) {
+    return true;
+  }
+
   return false;
 }
 
