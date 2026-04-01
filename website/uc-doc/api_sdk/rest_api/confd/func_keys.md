@@ -180,7 +180,6 @@ Currently supported services:
 - `incallfilter`: Incoming call filtering
 - `enablednd`: Enable "Do not disturb" mode
 - `pickup`: Group Interception
-- `calllistening`: Listen to online calls
 - `directoryaccess`: Directory access
 - `fwdundoall`: Disable all forwaring
 - `enablevm`: Enable Voicemail
