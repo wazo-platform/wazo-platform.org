@@ -49,7 +49,7 @@ Il est aussi intéressant d'avoir d'autres ouvertures possibles. Cela m'a amené
 
 # Mattermost
 
-Si vous souhaitez avoir plus d'informations sur Mattermost, je vous invite à consulter leur site web [directement](https://mattermost.org). Nous utilisons de notre côté la version communautaire et nous sommes globalement toujours à jour.
+Si vous souhaitez avoir plus d'informations sur Mattermost, je vous invite à consulter leur site web [directement](https://mattermost.com). Nous utilisons de notre côté la version communautaire et nous sommes globalement toujours à jour.
 
 ![mattermost.png](../static/images/blog/wazo-webhook/mattermost.png 'Mattermost screenshot')
 
