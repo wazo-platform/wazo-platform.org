@@ -3,6 +3,11 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.05 {#26-05}
+
+- **Groups & Queues recording.** `dtmf_record_toggle` has to be set to `True` for groups
+  and queue to allow for automatic recording on the answerer's side.
+
 ## 26.03 {#26-03}
 
 Consult the
