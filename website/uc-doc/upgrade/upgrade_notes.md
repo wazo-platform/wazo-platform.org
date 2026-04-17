@@ -3,6 +3,11 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.05 {#26-05}
+
+- The `-c` flag of `wazo-agentd-cli` is no longer needed and is deprecated. It will be removed in a
+  future version.
+
 ## 26.03 {#26-03}
 
 Consult the
