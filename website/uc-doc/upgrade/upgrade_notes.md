@@ -7,6 +7,8 @@ sidebar_position: 1
 
 - The `-c` flag of `wazo-agentd-cli` is no longer needed and is deprecated. It will be removed in a
   future version.
+- When an agent logs in and has no previously logged in queues, the login flow now automatically
+  logs the agent into all queues assigned to them, emitting the usual queue login bus events.
 
 ## 26.03 {#26-03}
 
