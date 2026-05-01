@@ -9,6 +9,7 @@ sidebar_position: 1
   future version.
 - When an agent logs in and has no previously logged in queues, the login flow now automatically
   logs the agent into all queues assigned to them, emitting the usual queue login bus events.
+- When an agent logs off from their last remaining logged in queue, the agent now logs off entirely.
 
 ## 26.03 {#26-03}
 
