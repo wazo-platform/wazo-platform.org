@@ -14,7 +14,6 @@ Here is a short review of the Wazo Platform 26.05 release.
 
 ## Bug Fixes
 - **recording**: pausing/resuming a recording for a queue agent while in a call is now fixed.
-- **provisioning**: provisioning a phone using the provisioning code when the main (first) line of a user assigned the WebRTC endpoint to the phone. The API now hides the provisioning code in the user listing for that case
 - **trunks**: when deleting a tenant, associated trunks stayed registered on asterisk. This now has been fixed.
 - **upgrade**: wazo-confd was improved to avoid timeouts when upgrading a system with 2,000 users or more.
  
