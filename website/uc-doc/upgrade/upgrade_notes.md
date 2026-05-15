@@ -3,6 +3,10 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.06 {#26-06}
+
+- Fixed a critical security issue in wazo-webhookd.
+
 ## 26.05 {#26-05}
 
 - The `-c` flag of `wazo-agentd-cli` is no longer needed and is deprecated. It will be removed in a
