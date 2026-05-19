@@ -16,13 +16,13 @@ Here is a short review of the Wazo Platform 26.06 release.
 - **Mobile PSTN Fallback**: mobile app call path in wazo-calld now supports a fallback to PSTN when mobile app does not register in time
  
 ## Bug Fixes
-- **switchboards**: fix a phantom call scenario when a blind transfer is done to an IVR option that calls a switchboard
-- **diversion**: fix a missing SIP Diversion header when a group reaches a fallback or is forwarded
+- **switchboards**: fixed a phantom call scenario when a blind transfer is done to an IVR option that calls a switchboard
+- **diversion**: fixed a missing SIP Diversion header when a group reaches a fallback or is forwarded
 - **devices**: fixed an issue where deleting a user reset a device to autoprov even though other users were assigned to another line of the same device
 - **webhooks**: fixed a security issue
  
 ## Technical
-- **bus**: Switched consumer queues to exclusive to align with RabbitMQ's deprecation of transient non-exclusive queues and ensure forward compatibility.
+- **bus**: switched consumer queues to exclusive to align with RabbitMQ's deprecation of transient non-exclusive queues and ensure forward compatibility
 
 See you at the next release review!
 
