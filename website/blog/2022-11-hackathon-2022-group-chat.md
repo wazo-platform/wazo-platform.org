@@ -103,7 +103,7 @@ are more than one character. This is how variations for an emoji are handled ❤
 ![front view cottage (small)](../static/images/blog/hackathon-2022/group-chat/create-room.jpg)
 ![rear view cottage lake (small)](../static/images/blog/hackathon-2022/group-chat/emoji-picker.jpg)
 
-For the UI part, we used the [SolidJS](https://www.solidjs.com/) reactive library and our SDK
+For the UI part, we used the [SolidJS](https://github.com/solidjs/solid) reactive library and our SDK
 [wazo-js-sdk](https://github.com/wazo-platform/wazo-js-sdk). Building the UI was quite
 straightforward since our SDK handled token creation and allowed us to use the preconfigured
 WebSocket Client.
