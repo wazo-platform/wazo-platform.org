@@ -3,6 +3,14 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.07 {#26-07}
+
+- CDRs now indicate when an unanswered call was redirected to a voicemail: `call_status` is reported
+  as `voicemail` (instead of `unknown`), and `destination_details` carries a `voicemail` type with
+  the voicemail's `id` and `name`. The other `destination_*` fields are unchanged (they still
+  describe the dialed user). This applies to calls placed after the upgrade only; existing CDRs are
+  not backfilled.
+
 ## 26.06 {#26-06}
 
 - Fixed a critical security issue in wazo-webhookd.
