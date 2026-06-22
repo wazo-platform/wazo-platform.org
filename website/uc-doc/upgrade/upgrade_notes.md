@@ -3,6 +3,8 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.07 {#26-07}
+
 ## 26.06 {#26-06}
 
 - Fixed a critical security issue in wazo-webhookd.
