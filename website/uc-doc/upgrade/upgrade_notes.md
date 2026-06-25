@@ -5,6 +5,10 @@ sidebar_position: 1
 
 ## 26.07 {#26-07}
 
+- The `wazo-chatd` per-user identity endpoints (`/users/{user_uuid}/identities`) have been removed
+  and replaced with a tenant-scoped `/identities` set. The `/users/me/identities` endpoint is
+  unaffected.
+
 ## 26.06 {#26-06}
 
 - Fixed a critical security issue in wazo-webhookd.
