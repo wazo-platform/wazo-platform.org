@@ -19,20 +19,20 @@ wazo-plugind REST API.
 List all installed plugins:
 
 ```shell
-wazo-plugind-cli -c "list"
+wazo-plugind-cli list
 ```
 
 ### Installing Plugins
 
 ```shell
-wazo-plugind-cli -c "install <method> <source> [--ref reference] [--async]"
+wazo-plugind-cli install <method> <source> [--ref reference] [--async]
 ```
 
 For example, to install a plugin `official/myplugin` from a github source, with a tag reference for
 a specific version:
 
 ```shell
-wazo-plugind-cli -c "install git https://github.com/myorg/myplugin --ref v1.0"
+wazo-plugind-cli install git https://github.com/myorg/myplugin --ref v1.0
 ```
 
 :::note Private plugins
@@ -42,7 +42,7 @@ URL. For example, a github private plugin can be installed using an access token
 permissions:
 
 ```shell
-wazo-plugind-cli -c "install git https://<access token>@github.com/myorg/myprivateplugin"
+wazo-plugind-cli install git https://<access token>@github.com/myorg/myprivateplugin
 ```
 
 This depends on the git hosting service's support for private repository access URLs.
@@ -70,7 +70,7 @@ with the same expected result.
 Uninstall an installed plugin through its full name:
 
 ```shell
-wazo-plugind-cli -c "uninstall <namespace>/<name>"
+wazo-plugind-cli uninstall <namespace>/<name>
 ```
 
 See [Listing plugins](#listing-plugins) to see installed plugins and their full name.
@@ -81,8 +81,8 @@ To reinstall a plugin (e.g. after a system upgrade), [uninstall it](#uninstallin
 then [install it](#installing-plugins) again:
 
 ```shell
-wazo-plugind-cli -c "uninstall <namespace>/<name>"
-wazo-plugind-cli -c "install <method> <source> [...]"
+wazo-plugind-cli uninstall <namespace>/<name>
+wazo-plugind-cli install <method> <source> [...]
 ```
 
 :::note Reinstalling the same version
@@ -102,7 +102,7 @@ metadata of the installation target is compared with the version already install
 installation target is installed if the version differs, replacing the previous installation.
 
 ```shell
-wazo-plugind-cli -c "install git https://github.com/myorg/myplugin --ref <new revision>"
+wazo-plugind-cli install git https://github.com/myorg/myplugin --ref <new revision>
 ```
 
 Official plugins may be automatically upgraded during wazo-platform upgrades if new versions are
@@ -118,13 +118,13 @@ version.
 For a complete list of available commands:
 
 ```shell
-wazo-plugind-cli -c 'help'
+wazo-plugind-cli help
 ```
 
 For usage help on a specific command:
 
 ```shell
-wazo-plugind-cli -c 'help <command>'
+wazo-plugind-cli help <command>
 ```
 
 ## Plugin Maintenance After Upgrades
