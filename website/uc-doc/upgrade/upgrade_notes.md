@@ -3,6 +3,11 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.08 {#26-08}
+
+- The `-c` flag of `wazo-plugind-cli` is no longer needed and is deprecated. It will be removed in a
+  future version.
+
 ## 26.07 {#26-07}
 
 ## 26.06 {#26-06}
