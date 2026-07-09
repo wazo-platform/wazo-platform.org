@@ -7,6 +7,11 @@ sidebar_position: 1
 
 - The `-c` flag of `wazo-plugind-cli` is no longer needed and is deprecated. It will be removed in a
   future version.
+- REST API worker threads of Wazo services now scale with demand: new `rest_api.min_threads` setting
+  (threads kept ready at all times), and `rest_api.max_threads` is now a ceiling instead of a fixed
+  thread count. Custom `max_threads` values are automatically renamed to `min_threads`, so tuned
+  systems keep the same number of always-ready threads. See the
+  [performance documentation](/uc-doc/system/performance) for details.
 
 ## 26.07 {#26-07}
 
