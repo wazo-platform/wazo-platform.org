@@ -562,7 +562,9 @@ warn_unused_ignores = true
 strict_equality = true
 extra_checks = true
 no_warn_no_return = true
+scripts_are_modules = true  # default pre-commit behavior
 
+explicit_package_bases = true
 [[tool.mypy.overrides]]
 module = [
     "*.tests.*",
