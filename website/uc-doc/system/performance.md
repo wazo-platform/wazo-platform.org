@@ -7,38 +7,29 @@ may require some modifications to improve the performance or quality of calls.
 
 ## Increase the number of concurrent requests
 
-Wazo services can handle multiple requests concurrently. The setting `max_threads` will define the
-number of threads and database connections that Wazo daemons will keep ready for processing
-requests.
+Wazo services can handle multiple requests concurrently. Two settings control the pool of worker
+threads processing requests: `min_threads` defines the number of threads and database connections
+that Wazo daemons keep ready at all times, and `max_threads` defines the ceiling the pool can grow
+to when the demand increases. Extra threads and database connections are released automatically when
+the demand decreases.
 
-Since this setting increases the number of database connections, you may also have to increase the
-maximum number of database connections. By default, Wazo uses a maximum of about 50 connections and
-PostgreSQL accepts a maximum of 100 connections.
+Database connections scale with the thread pool: a service holds `min_threads` connections
+permanently and may open up to `max_threads` connections during peaks. The sum of `max_threads` over
+all services should stay below the maximum number of database connections. Wazo configures
+PostgreSQL with `max_connections = 2048` by default, which leaves ample headroom.
 
 For example, to modify the number of concurrent requests:
 
-1. If needed, increase the number of maximum database connections by creating
-   `/etc/postgresql/15/main/conf.d/20-custom-max-connections.conf`:
-
-```ini
-max_connections = 200
-```
-
-2. Then restart the database and all services to apply the change:
-
-```shell
-wazo-service restart all
-```
-
-3. Increase the number of concurrent requests for `wazo-chatd` (for example) by creating a new file
+1. Increase the number of concurrent requests for `wazo-chatd` (for example) by creating a new file
    `/etc/wazo-chatd/conf.d/50-threads.yml`:
 
 ```yaml
 rest_api:
-  max_threads: 25
+  min_threads: 10
+  max_threads: 200
 ```
 
-4. Then restart the service to apply the change:
+2. Then restart the service to apply the change:
 
 ```shell
 systemctl restart wazo-chatd
