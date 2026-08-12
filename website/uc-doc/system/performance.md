@@ -34,3 +34,41 @@ rest_api:
 ```shell
 systemctl restart wazo-chatd
 ```
+
+## Scale wazo-auth to several processes
+
+The thread pool above scales a service inside one process, which Python limits to roughly one CPU
+core. Beyond that, wazo-auth can run as several processes. Its work is split into three roles,
+selected with the repeatable `--role` option or the `roles` configuration key:
+
+- `api`: serve the REST API
+- `scheduler`: run the periodic tasks (expired token and session cleanup)
+- `init`: run the one-shot startup tasks (schema upgrade, policy update, bootstrap user)
+
+One process runs all three by default, so an existing installation is unchanged. Instances
+coordinate through PostgreSQL advisory locks (startup tasks serialized, a single scheduler leader
+elected), so running several is safe.
+
+Add API-only processes with the systemd template, the instance name being the port to listen on:
+
+```shell
+systemctl enable --now wazo-auth-worker@19497
+```
+
+Workers stop and start with `wazo-auth.service`. Send traffic to them by adding one line per worker
+in `/etc/nginx/conf.d/wazo-auth-upstream.conf`:
+
+```nginx
+upstream wazo-auth {
+    server 127.0.0.1:9497;
+    server 127.0.0.1:19497;
+}
+```
+
+```shell
+nginx -t && systemctl reload nginx
+```
+
+Public and internal requests both use this upstream, so both are load balanced. Each instance logs
+to journald (`journalctl -t wazo-auth-worker@19497`), and the nginx access logs report which backend
+served a request in `$upstream_addr`.
