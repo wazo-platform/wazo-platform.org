@@ -3,6 +3,16 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.09 {#26-09}
+
+- The `--http-worker` flag of `wazo-auth` (26.08) and the `rest_api.reuse_port` setting it required
+  have been removed; if set in `/etc/wazo-auth/conf.d/`, the latter is now ignored. Extra processes
+  are started with the `wazo-auth-worker@<port>` systemd units and declared in the nginx upstream,
+  as described in the [performance documentation](/uc-doc/system/performance).
+- Wazo services now reach `wazo-auth` through nginx (`http://localhost/api/auth`) instead of
+  `localhost:9497`. Internal requests are logged in `/var/log/nginx/wazo-internal.access.log`, and
+  nginx being on that path, the services can no longer authenticate each other while it is stopped.
+
 ## 26.08 {#26-08}
 
 - The `-c` flag of `wazo-plugind-cli` is no longer needed and is deprecated. It will be removed in a
