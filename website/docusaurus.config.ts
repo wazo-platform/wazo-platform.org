@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 import 'dotenv/config';
 import REDIRECTS from './redirects';
+import pluginsDocumentationInit from './src/plugins/documentation/builder/index';
 import pluginsProvisioningInit from './src/plugins/provisioning/builder/index';
 
 const config: Config = {
@@ -79,7 +80,7 @@ const config: Config = {
           position: 'left',
           to: '/docs/intro',
           items: [
-            { to: '/docs/category/api', label: 'API Documentation' },
+            { to: '/documentation', label: 'API Documentation' },
             { to: '/uc-doc', label: 'UC Documentation' },
           ],
         },
@@ -185,6 +186,7 @@ const config: Config = {
       },
     ],
     pluginsProvisioningInit,
+    pluginsDocumentationInit,
   ],
 };
 
