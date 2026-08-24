@@ -44,7 +44,7 @@ Your contribution should not break any existing tests and when possible,
 it should add tests for the code you are adding. We use 3 kind of tests.
 unit tests, integration tests and acceptance tests.
 
-If you need to create a new REST API, follow [the REST API guidelines](/contribute/rest).
+If you need to create a new REST API, follow [the REST API guidelines](/docs/contribute/rest-api).
 
 ## Unit tests
 
@@ -129,7 +129,7 @@ contribution merged.
 
 ## Add new service
 
-If you need to create a new service, follow [the new service guidelines](/contribute/new_service).
+If you need to create a new service, follow [the new service guidelines](/docs/contribute/new-service).
 
 ## Asking for help
 

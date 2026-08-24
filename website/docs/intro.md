@@ -28,12 +28,12 @@ Wazo Platform is defined by 4 layers:
 - <strong>Application layer</strong>: SDK to build mobile and web apps
   - Repository: [wazo-js-sdk](https://github.com/wazo-platform/wazo-js-sdk)
 - <strong>Business layer</strong>: REST API to manage users, phones, call centers, load balancing, billing...
-  - Services: [wazo-calld](./wazo-calld), [wazo-confd](./wazo-confd), [wazo-agentd](./wazo-agentd)
+  - Services: [wazo-calld](/documentation/overview/application), [wazo-confd](/documentation/overview/configuration), [wazo-agentd](/documentation/overview/agent)
 - <strong>Engine layer</strong>: internal services for core functionalities (audio/video, provisioning...)
-  - Services: [wazo-confd](./wazo-confd), [wazo-amid](./wazo-amid), [wazo-provd](./wazo-provd), asterisk, kamailio, rtpengine
+  - Services: [wazo-confd](/documentation/overview/configuration), [wazo-amid](/documentation/overview/amid), [wazo-provd](/documentation/overview/provisioning), asterisk, kamailio, rtpengine
 - <strong>Technical layer</strong>: internal services for the Operating System, HTTP, internal messaging, database...
 
-  - Services and Debian: [wazo-auth](./wazo-auth), [wazo-webhookd](./wazo-webhookd), [wazo-websocketd](./wazo-websocketd), nginx, rabbitmq, postgresql
+  - Services and Debian: [wazo-auth](/documentation/overview/authentication), [wazo-webhookd](/documentation/overview/webhook), [wazo-websocketd](/documentation/overview/websocket), nginx, rabbitmq, postgresql
 
 <br/>
 ![Technical layers](../static/images/docs/Technical_Layers_2019_V3.png)
