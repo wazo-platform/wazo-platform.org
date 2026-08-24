@@ -144,6 +144,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.oneDark,
+      additionalLanguages: ['ini', 'ruby', 'shell-session'],
     },
     mermaid: {
       theme: { light: 'neutral', dark: 'dark' },

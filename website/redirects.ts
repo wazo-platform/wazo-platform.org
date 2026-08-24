@@ -72,6 +72,26 @@ const REDIRECTS: Options['redirects'] = [
     from: '/uc-doc/upgrade/migrate_i386_to_amd64',
     to: '/uc-doc/upgrade/archives/migrate_i386_to_amd64',
   },
+  {
+    from: '/contribute',
+    to: '/docs/contribute',
+  },
+  {
+    from: '/contribute/code',
+    to: '/docs/contribute/codebase',
+  },
+  {
+    from: '/contribute/new_service',
+    to: '/docs/contribute/new-service',
+  },
+  {
+    from: '/contribute/rest',
+    to: '/docs/contribute/rest-api',
+  },
+  {
+    from: ['/tutorials', '/tutorials/authenticate-user-wazo-api'],
+    to: '/docs/tutorials/authenticate-user-wazo-api',
+  },
 ];
 
 export default REDIRECTS;
