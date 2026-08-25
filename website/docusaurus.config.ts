@@ -186,6 +186,7 @@ const config: Config = {
         routeBasePath: 'release-notes',
         path: './release-notes',
         authorsMapPath: '../blog/authors.yml',
+        blogSidebarCount: 10,
       },
     ],
     [
