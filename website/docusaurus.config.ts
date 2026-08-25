@@ -76,7 +76,7 @@ const config: Config = {
       items: [
         {
           type: 'dropdown',
-          label: 'Unified Communication Documentation',
+          label: 'Unified Communication',
           position: 'left',
           to: '/docs/intro',
           items: [
@@ -90,8 +90,6 @@ const config: Config = {
         },
         { to: '/documentation', label: 'API References', position: 'left' },
         { to: '/docs/contribute', label: 'Contribute', position: 'left' },
-        { to: '/ecosystem', label: 'Ecosystem', position: 'left' },
-        { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
         {
           href: 'https://github.com/wazo-platform',
@@ -139,6 +137,10 @@ const config: Config = {
             {
               label: 'Release notes',
               to: '/release-notes',
+            },
+            {
+              label: 'Ecosystem',
+              to: '/ecosystem',
             },
             {
               label: 'GitHub',

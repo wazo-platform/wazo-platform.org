@@ -71,10 +71,10 @@ const loadOverviews = (sections: DocSection[]) => {
   return overviews;
 };
 
-const plugin: PluginModule<LoadedContent> = async () => ({
+const plugin: PluginModule = async () => ({
   name: 'documentation-pages-build',
 
-  async loadContent() {
+  async loadContent(): Promise<LoadedContent> {
     const allSections = load(
       fs.readFileSync(SECTIONS_FILE, 'utf8'),
     ) as DocSection[];
@@ -85,7 +85,7 @@ const plugin: PluginModule<LoadedContent> = async () => ({
   },
 
   async contentLoaded({ content, actions }) {
-    const { sections, overviews } = content;
+    const { sections, overviews } = content as LoadedContent;
 
     const allModules: Record<string, DocModule> = Object.assign(
       {},
