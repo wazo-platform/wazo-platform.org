@@ -125,6 +125,12 @@
   min-height: 30vh;
 }
 
+/* hide the spec's x-logo in redoc's sidebar: the site navbar already carries
+   the wazo logo (redoc classes are hashed, so match the structure) */
+.doc-api-light .menu-content > div:first-child:has(a > img) {
+  display: none;
+}
+
 /* redoc, swagger-ui and the asyncapi viewer are light-only third-party UIs:
    render them on a light surface even when the site is in dark mode */
 .doc-api-light {
