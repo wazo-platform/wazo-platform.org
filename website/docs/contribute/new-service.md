@@ -6,7 +6,6 @@ description: New service guidelines
 slug: /contribute/new-service
 ---
 
-# New service guidelines
 
 ## Rationale
 

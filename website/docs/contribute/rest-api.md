@@ -6,7 +6,6 @@ description: REST API guidelines
 slug: /contribute/rest-api
 ---
 
-# REST API guidelines
 
 ## Rationale
 

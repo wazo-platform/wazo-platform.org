@@ -6,7 +6,6 @@ description: Introducing Wazo Platform
 slug: /intro
 ---
 
-# Introduction
 
 Wazo Platform allows developers to build solutions that fit any business and technical
 requirements. Fully open source and based on open Source components, Wazo Platform aims to

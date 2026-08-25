@@ -6,7 +6,6 @@ description: Contributing to the Wazo Platform codebase
 slug: /contribute/codebase
 ---
 
-# How to contribute to the codebase
 
 In order to contribute to Wazo Platform you need to be able to
 retrieve the source code, edit the code, try your changes and contribute
