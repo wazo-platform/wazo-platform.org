@@ -71,6 +71,10 @@ const loadOverviews = (sections: DocSection[]) => {
   return overviews;
 };
 
+// archived: the C4 engine is no longer documented on this site
+// (sections.yaml is shared with the corporate Gatsby build, so filter here)
+const ARCHIVED_MODULES = ['c4-sbc', 'c4-router', 'rtpe-config', 'router-confd'];
+
 const plugin: PluginModule = async () => ({
   name: 'documentation-pages-build',
 
@@ -78,9 +82,17 @@ const plugin: PluginModule = async () => ({
     const allSections = load(
       fs.readFileSync(SECTIONS_FILE, 'utf8'),
     ) as DocSection[];
-    const sections = allSections.filter(
-      (section) => section.corporate !== true,
-    );
+    const sections = allSections
+      .filter((section) => section.corporate !== true)
+      .map((section) => ({
+        ...section,
+        modules: Object.fromEntries(
+          Object.entries(section.modules).filter(
+            ([moduleName]) => !ARCHIVED_MODULES.includes(moduleName),
+          ),
+        ),
+      }))
+      .filter((section) => Object.keys(section.modules).length > 0);
     return { sections, overviews: loadOverviews(sections) };
   },
 

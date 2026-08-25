@@ -169,9 +169,22 @@ const REDIRECTS: Options['redirects'] = [
     from: '/docs/wazo-provd/admin-notes',
     to: '/documentation/overview/provisioning-admin',
   },
+  // C4 engine archived: its pages redirect to the closest live page
   {
-    from: '/docs/wazo-router-confd',
-    to: '/documentation/overview/router-confd',
+    from: [
+      '/docs/wazo-router-confd',
+      '/documentation/overview/router-confd',
+      '/documentation/overview/c4-router',
+      '/documentation/overview/c4-sbc',
+      '/documentation/overview/rtpe-config',
+      '/documentation/api/router-confd',
+      '/documentation/console/router-confd',
+    ],
+    to: '/documentation',
+  },
+  {
+    from: '/use-cases/class-4',
+    to: '/use-cases',
   },
   {
     from: '/docs/wazo-webhookd',
