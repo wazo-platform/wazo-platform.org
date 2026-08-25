@@ -125,6 +125,19 @@
   min-height: 30vh;
 }
 
+/* redoc, swagger-ui and the asyncapi viewer are light-only third-party UIs:
+   render them on a light surface even when the site is in dark mode */
+.doc-api-light {
+  background: #fff;
+  color: #1c1e21;
+  color-scheme: light;
+  --ifm-font-color-base: #1c1e21;
+  --ifm-heading-color: #1c1e21;
+  --ifm-color-content: #1c1e21;
+  --ifm-link-color: var(--ifm-color-primary-darker);
+  border-radius: 6px;
+}
+
 .doc-graphiql {
   height: calc(100vh - 200px);
 }

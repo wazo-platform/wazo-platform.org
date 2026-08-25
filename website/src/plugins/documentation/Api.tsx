@@ -1,10 +1,17 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
+import { lazy, Suspense } from 'react';
 
 import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import { getModuleSpecUrl } from './helper';
 import './documentation.css';
+
+// redoc's browser bundle crashes when required synchronously (module init
+// order); an async chunk avoids it and never runs during SSG.
+const RedocStandalone = lazy(() =>
+  import('redoc').then((m) => ({ default: m.RedocStandalone })),
+);
 
 type Props = {
   route: {
@@ -33,23 +40,26 @@ const redocOptions = {
   },
 };
 
+const loading = <div className="doc-loading">Loading…</div>;
+
 const Api = ({ route }: Props) => {
   const { moduleName, module } = route?.customData || {};
 
   return (
     <Layout title={`API Reference - ${module.title}`} noFooter>
       <Canonical path={`/documentation/api/${moduleName}`} />
-      <BrowserOnly fallback={<div className="doc-loading">Loading…</div>}>
-        {() => {
-          const RedocStandalone = require('./RedocBrowser').default;
-          return (
-            <RedocStandalone
-              options={redocOptions}
-              specUrl={getModuleSpecUrl(module)}
-            />
-          );
-        }}
-      </BrowserOnly>
+      <div className="doc-api-light">
+        <BrowserOnly fallback={loading}>
+          {() => (
+            <Suspense fallback={loading}>
+              <RedocStandalone
+                options={redocOptions}
+                specUrl={getModuleSpecUrl(module)}
+              />
+            </Suspense>
+          )}
+        </BrowserOnly>
+      </div>
     </Layout>
   );
 };

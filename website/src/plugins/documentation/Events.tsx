@@ -102,7 +102,7 @@ const Events = ({ route }: Props) => {
               ),
           )}
         </div>
-        <div className="doc-console__main">
+        <div className="doc-console__main doc-api-light">
           <AsyncApi service={getServiceName(module.redocUrl)} />
         </div>
       </div>

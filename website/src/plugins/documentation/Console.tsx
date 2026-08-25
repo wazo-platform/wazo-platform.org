@@ -62,7 +62,7 @@ const Console = ({ route }: Props) => {
               ),
           )}
         </div>
-        <div className="doc-console__main">
+        <div className="doc-console__main doc-api-light">
           <BrowserOnly fallback={<div className="doc-loading">Loading…</div>}>
             {() => {
               const SwaggerUI = require('./SwaggerUIBrowser').default;

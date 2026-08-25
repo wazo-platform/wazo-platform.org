@@ -14458,10 +14458,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "mobx@npm:7.0.3"
-  checksum: 10c0/c6b560bbd7d2d9ee89ad833ba3b010375ecda0f60da12a08554ac817276e33bc7a6b6f0990e9690a50918f461a210e7538db7e52494c09c1211c26abde7f86e0
+"mobx@npm:^6.13.5":
+  version: 6.16.1
+  resolution: "mobx@npm:6.16.1"
+  checksum: 10c0/8450dab51fa133c9dde9f6c9b42cdc9f16c70cf2b989acc25b2cf2c66948def053ad3f1fdfc3bc256ece394e607e9c15dbfe88792ffa81a041e2ec92ae268cdb
   languageName: node
   linkType: hard
 
@@ -19636,7 +19636,7 @@ __metadata:
     graphiql: "npm:^1.9.13"
     graphql: "npm:^17.0.2"
     js-yaml: "npm:^5.3.0"
-    mobx: "npm:^7.0.3"
+    mobx: "npm:^6.13.5"
     prism-react-renderer: "npm:^2.4.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
