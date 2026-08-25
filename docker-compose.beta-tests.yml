@@ -1,0 +1,19 @@
+# Same scrap tests as docker-compose-tests.yml, but against the Docusaurus
+# build (website/build) served with the production nginx clean-URL rule.
+services:
+  server:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./website/build:/usr/share/nginx/html:ro
+      - ./tests/nginx-beta.conf:/etc/nginx/conf.d/default.conf:ro
+    expose:
+      - '8000'
+
+  test:
+    build: tests
+    volumes:
+      - ./tests/src:/app/src:ro
+      - ./tests/package.json:/app/package.json:ro
+    command: yarn test
+    depends_on:
+      - server

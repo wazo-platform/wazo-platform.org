@@ -33,6 +33,11 @@ build:
 test:
 	docker compose -f docker-compose.yml -f docker-compose-tests.yml up --exit-code-from test test
 
+# Runs the same scrap tests against the Docusaurus build (expects website/build to exist)
+beta/test:
+	docker compose -f docker-compose.beta-tests.yml up --build --exit-code-from test test
+	docker compose -f docker-compose.beta-tests.yml down
+
 clean:
 	docker compose down
 
@@ -57,4 +62,4 @@ plantuml-run:
 	java -jar ${JAVA_HOME}/lib/plantuml.jar -tsvg -o$(DIAGRAM_DIRECTORY) $^
 
 
-.PHONY: builder build develop format test clean import plantuml-diagrams
+.PHONY: builder build develop format test beta/test clean import plantuml-diagrams

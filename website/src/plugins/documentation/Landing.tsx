@@ -59,7 +59,12 @@ const ModuleCard = ({
         <div className="card__footer doc-module-card__links">
           {module.overview !== false && <Link to={overviewUrl}>Overview</Link>}
           {module.redocUrl && (
-            <Link to={`/documentation/api/${moduleName}`}>API Reference</Link>
+            <Link
+              to={`/documentation/api/${moduleName}`}
+              className="api-reference"
+            >
+              API Reference
+            </Link>
           )}
           {module.redocUrl && (
             <Link to={`/documentation/console/${moduleName}`}>API Console</Link>
