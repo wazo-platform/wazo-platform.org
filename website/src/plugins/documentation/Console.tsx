@@ -1,5 +1,6 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import { useCallback, useState } from 'react';
 import 'swagger-ui-react/swagger-ui.css';
@@ -39,6 +40,10 @@ const Console = ({ route }: Props) => {
   return (
     <Layout title={`Console - ${module.title}`}>
       <Canonical path={`/documentation/console/${moduleName}`} />
+      <PageHero
+        title={`API Console — ${module.title}`}
+        description="Try the API against your own Wazo engine: set its base URL and credentials, then explore."
+      />
       <ApiToolbar
         pathname={pathname}
         authUrl={authUrl}

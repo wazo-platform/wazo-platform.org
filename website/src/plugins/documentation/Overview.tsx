@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import Mermaid from '@theme/Mermaid';
 import type { ComponentProps, ReactNode } from 'react';
@@ -84,6 +85,7 @@ const Overview = ({ route }: Props) => {
   return (
     <Layout title={`Documentation: ${module.title}`}>
       <Canonical path={path} />
+      <PageHero title={module.title} description={module.description} />
       <div className="container doc-overview">
         <aside className="doc-overview__menu">
           <nav>
@@ -103,7 +105,6 @@ const Overview = ({ route }: Props) => {
           </nav>
         </aside>
         <main className="doc-overview__content markdown">
-          <h1>{module.title}</h1>
           <ReactMarkdown components={markdownComponents}>
             {overview || ''}
           </ReactMarkdown>

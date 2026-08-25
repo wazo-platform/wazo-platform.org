@@ -1,6 +1,6 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
-import { lazy, Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 
 import Canonical from './Canonical';
 import type { DocModule } from './builder';

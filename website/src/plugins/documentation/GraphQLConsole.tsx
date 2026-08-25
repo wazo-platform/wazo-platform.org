@@ -1,4 +1,5 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import { useCallback, useState } from 'react';
 import 'graphiql/graphiql.min.css';
@@ -51,6 +52,10 @@ const GraphQLConsole = ({ route }: Props) => {
   return (
     <Layout title={`GraphQL - ${module.title}`}>
       <Canonical path={`/documentation/graphql/${moduleName}`} />
+      <PageHero
+        title={`GraphQL — ${module.title}`}
+        description="Query the service with GraphQL against your own Wazo engine."
+      />
       <ApiToolbar
         pathname={pathname}
         authUrl={authUrl}

@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import { useEffect, useRef, useState } from 'react';
 import '@asyncapi/react-component/styles/default.min.css';
@@ -84,6 +85,10 @@ const Events = ({ route }: Props) => {
   return (
     <Layout title={`API Events - ${module.title}`}>
       <Canonical path={`/documentation/events/${moduleName}`} />
+      <PageHero
+        title={`API Events — ${module.title}`}
+        description="Events this service publishes on the Wazo Platform message bus."
+      />
       <div className="container doc-console">
         <div className="doc-console__siblings">
           {Object.keys(modules).map(

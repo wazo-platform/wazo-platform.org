@@ -1,5 +1,6 @@
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 
 import Canonical from './Canonical';
@@ -15,7 +16,7 @@ type Props = {
   };
 };
 
-const ModuleCard = ({
+const ModuleRow = ({
   moduleName,
   module,
 }: {
@@ -23,65 +24,49 @@ const ModuleCard = ({
   module: DocModule;
 }) => {
   const icon = iconifyName(module.icon);
-  const overviewUrl = `/documentation/overview/${moduleName}`;
-  const mainUrl =
-    module.overview === false ? undefined : module.url || overviewUrl;
 
   return (
-    <div id={moduleName} className="card doc-module-card">
-      <div className="card__header">
-        {mainUrl ? (
-          <Link to={mainUrl} className="doc-module-card__title">
-            {icon && <Icon icon={icon} width={32} height={32} />}
-            <h3>
-              {module.title}
-              {module.beta && (
-                <span className="badge badge--secondary">BETA</span>
-              )}
-            </h3>
+    <div id={moduleName} className="doc-row">
+      <div className="doc-row__icon">
+        {icon && <Icon icon={icon} width={18} height={18} />}
+      </div>
+      <div className="doc-row__ident">
+        <b>
+          {module.title}
+          {module.beta && <span className="doc-badge-beta">BETA</span>}
+        </b>
+        <span>{module.description}</span>
+      </div>
+      <div className="doc-row__links">
+        {module.url && <a href={module.url}>GitHub</a>}
+        {!module.url && module.overview !== false && (
+          <Link to={`/documentation/overview/${moduleName}`}>Overview</Link>
+        )}
+        {module.redocUrl && (
+          <Link
+            to={`/documentation/api/${moduleName}`}
+            className="api-reference"
+          >
+            API Reference
           </Link>
-        ) : (
-          <div className="doc-module-card__title">
-            {icon && <Icon icon={icon} width={32} height={32} />}
-            <h3>
-              {module.title}
-              {module.beta && (
-                <span className="badge badge--secondary">BETA</span>
-              )}
-            </h3>
-          </div>
+        )}
+        {module.redocUrl && (
+          <Link to={`/documentation/console/${moduleName}`}>Console</Link>
+        )}
+        {module.apiEvents && (
+          <Link to={`/documentation/events/${moduleName}`}>Events</Link>
+        )}
+        {module.graphql && (
+          <Link to={`/documentation/graphql/${moduleName}`}>GraphQL</Link>
         )}
       </div>
-      <div className="card__body">
-        <p>{module.description}</p>
+      <div className="doc-row__repo">
+        {module.repositoryLink !== false && module.repository && (
+          <a href={`https://github.com/wazo-platform/${module.repository}`}>
+            {module.repository}
+          </a>
+        )}
       </div>
-      {!module.url && (
-        <div className="card__footer doc-module-card__links">
-          {module.overview !== false && <Link to={overviewUrl}>Overview</Link>}
-          {module.redocUrl && (
-            <Link
-              to={`/documentation/api/${moduleName}`}
-              className="api-reference"
-            >
-              API Reference
-            </Link>
-          )}
-          {module.redocUrl && (
-            <Link to={`/documentation/console/${moduleName}`}>API Console</Link>
-          )}
-          {module.apiEvents && (
-            <Link to={`/documentation/events/${moduleName}`}>API Events</Link>
-          )}
-          {module.graphql && (
-            <Link to={`/documentation/graphql/${moduleName}`}>GraphQL</Link>
-          )}
-          {module.repositoryLink !== false && module.repository && (
-            <a href={`https://github.com/wazo-platform/${module.repository}`}>
-              <Icon icon="fa-brands:github" /> {module.repository}
-            </a>
-          )}
-        </div>
-      )}
     </div>
   );
 };
@@ -95,14 +80,25 @@ const Landing = ({ route }: Props) => {
       description="Wazo Platform APIs and services documentation"
     >
       <Canonical path="/documentation" />
+      <PageHero
+        title="API Documentation"
+        description="Every Wazo Platform service, with its overview, REST reference, live console and event schemas — everything you need to program the platform."
+      >
+        <div className="doc-hero-chips">
+          {sections.map((section) => (
+            <a key={section.slug} href={`#${section.slug}`}>
+              {section.name}
+            </a>
+          ))}
+        </div>
+      </PageHero>
       <main className="container doc-landing">
-        <h1>Documentation</h1>
         {sections.map((section) => (
           <section key={section.slug} id={section.slug}>
             <h2>{section.name}</h2>
-            <div className="doc-landing__grid">
+            <div className="doc-rows">
               {Object.entries(section.modules).map(([moduleName, module]) => (
-                <ModuleCard
+                <ModuleRow
                   key={moduleName}
                   moduleName={moduleName}
                   module={module}
