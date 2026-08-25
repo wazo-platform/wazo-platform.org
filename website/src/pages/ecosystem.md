@@ -3,12 +3,7 @@ title: Ecosystem
 description: Open Source projects and commercial products using Wazo Platform
 ---
 
-import PageHero from '@site/src/components/PageHero';
-
-<PageHero
-  title="Ecosystem"
-  description="Open Source projects and commercial products built on Wazo Platform."
-/>
+# Ecosystem
 
 Wazo Platform is used by Open Source projects and commercial products. If you want to be added to
 the list below, do not hesitate to create a

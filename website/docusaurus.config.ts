@@ -74,6 +74,7 @@ const config: Config = {
         srcDark: 'images/logo-horiz.svg',
       },
       items: [
+        { to: '/documentation', label: 'API References', position: 'left' },
         {
           type: 'dropdown',
           label: 'Unified Communication',
@@ -88,7 +89,6 @@ const config: Config = {
             },
           ],
         },
-        { to: '/documentation', label: 'API References', position: 'left' },
         { to: '/docs/contribute', label: 'Contribute', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
         {
@@ -186,7 +186,7 @@ const config: Config = {
         routeBasePath: 'release-notes',
         path: './release-notes',
         authorsMapPath: '../blog/authors.yml',
-        blogSidebarCount: 10,
+        blogSidebarCount: 15,
       },
     ],
     [

@@ -29,10 +29,3 @@ header.page-hero .page-hero__inner p {
   max-width: 720px;
   margin: 0;
 }
-
-/* markdown pages render inside the theme container: let the band span it */
-main .page-hero {
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  margin-bottom: 2rem;
-}

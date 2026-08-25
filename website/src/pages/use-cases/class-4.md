@@ -3,12 +3,9 @@ title: Install the Class 4 engine
 description: Install procedure for the Wazo Platform Class 4 engine
 ---
 
-import PageHero from '@site/src/components/PageHero';
+# Install the Class 4 engine (BETA)
 
-<PageHero
-  title="Install the Class 4 engine (BETA)"
-  description="This procedure is a BETA and may be not up-to-date. Use at your own risk!"
-/>
+**Note**: This procedure is a BETA and may be not up-to-date. Use at your own risk!
 
 ## Supported environments
 
