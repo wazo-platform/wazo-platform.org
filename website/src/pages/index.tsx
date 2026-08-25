@@ -32,6 +32,12 @@ function HomepageHeader() {
           >
             Get started
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/uc-doc/installation"
+          >
+            Installation
+          </Link>
         </div>
       </div>
     </header>
