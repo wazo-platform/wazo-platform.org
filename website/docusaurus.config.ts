@@ -76,13 +76,11 @@ const config: Config = {
       items: [
         {
           type: 'dropdown',
-          label: 'Documentation',
+          label: 'Unified Communication Documentation',
           position: 'left',
           to: '/docs/intro',
           items: [
             { to: '/docs/intro', label: 'Introduction' },
-            { to: '/documentation', label: 'API Documentation' },
-            { to: '/uc-doc', label: 'UC Documentation' },
             { to: '/uc-doc/installation', label: 'Installation' },
             {
               to: '/docs/tutorials/authenticate-user-wazo-api',
@@ -90,7 +88,7 @@ const config: Config = {
             },
           ],
         },
-        { to: '/use-cases', label: 'Use Cases', position: 'left' },
+        { to: '/documentation', label: 'API References', position: 'left' },
         { to: '/docs/contribute', label: 'Contribute', position: 'left' },
         { to: '/ecosystem', label: 'Ecosystem', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
