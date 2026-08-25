@@ -11,7 +11,7 @@ In order to contribute to Wazo Platform you need to be able to
 retrieve the source code, edit the code, try your changes and contribute
 the code to the Git repository.
 
-# Getting the code
+## Getting the code
 
 The source code for Wazo Platform is available on
 [GitHub](https://github.com/wazo-platform). Our GitHub organization contains
@@ -27,7 +27,7 @@ You can then
 [clone](https://help.github.com/en/articles/cloning-a-repository) the
 desired repositories on you hard drive and start coding.
 
-# Editing the code
+## Editing the code
 
 Most of Wazo Platform is written in Python, following the
 [PEP8](https://www.python.org/dev/peps/pep-0008/) conventions. You can
@@ -45,7 +45,7 @@ unit tests, integration tests and acceptance tests.
 
 If you need to create a new REST API, follow [the REST API guidelines](/docs/contribute/rest-api).
 
-## Unit tests
+### Unit tests
 
 Unittests are small tests that exercise a function or method in your
 code. These tests should be fast and should not depend on other services
@@ -58,7 +58,7 @@ You can execute unittests with the following command
 tox -e py37
 ```
 
-## Integration tests
+### Integration tests
 
 Integration tests exercise a service as a black box. Each test uses
 the public API of the service to assert that it passes. Our
@@ -83,7 +83,7 @@ make test
 
 For more details see [integration tests documentation](/uc-doc/contributors/integration-tests)
 
-## Acceptance tests
+### Acceptance tests
 
 Acceptance tests are longer tests that uses Wazo Platform to test a feature
 from end-to-end. These tests are usually longer to execute and require a
@@ -93,7 +93,7 @@ acceptance tests are automatic
 [wazo-acceptance](https://github.com/wazo-platform/wazo-acceptance) and other
 are executed manually at the end of each sprint.
 
-## Trying your code
+### Trying your code
 
 After writing your code and checking that it does not break any tests,
 you should try it. The "easiest" way to do so is to use a virtual
@@ -111,14 +111,14 @@ The installation instructions for wdk are contained in its
 [README](https://github.com/wazo-platform/wazo-sdk/blob/master/README.md) as
 well as its usage instructions.
 
-## Debugging and profiling
+### Debugging and profiling
 
 To debug Asterisk follow [this guide](/uc-doc/contributors/debug_asterisk). To
 debug daemons follow [this guide](/uc-doc/contributors/debug_daemon).
 
 To profile python code follow [this guide](/uc-doc/contributors/profile_python).
 
-# Contributing your code
+## Contributing your code
 
 Once you are satisfied with your modifications, you can submit a [pull
 request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
@@ -126,11 +126,11 @@ At this point you should watch your pull request to see if anyone or
 anything comments on it and respond to comments to eventually get your
 contribution merged.
 
-## Add new service
+### Add new service
 
 If you need to create a new service, follow [the new service guidelines](/docs/contribute/new-service).
 
-## Asking for help
+### Asking for help
 
 The Wazo Platform developers can be contacted on our
 [MatterMost](https://mm.wazo.community/wazo-platform/channels/town-square)

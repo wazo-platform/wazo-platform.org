@@ -15,12 +15,14 @@
   padding-bottom: 2.25rem;
 }
 
-.page-hero__inner h1 {
+/* header.page-hero prefix: outweigh infima's `.markdown h1:first-child`
+   margins when the hero renders inside docs content */
+header.page-hero .page-hero__inner h1 {
   font-size: 2.25rem;
   margin: 0;
 }
 
-.page-hero__inner p {
+header.page-hero .page-hero__inner p {
   font-size: 1.05rem;
   color: var(--ifm-color-emphasis-700);
   line-height: 1.5;

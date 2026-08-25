@@ -18,9 +18,9 @@ Graphics are available for the following resources :
 
 Each graphic is available with different time range: `day`, `week`, `month`, `year`
 
-# Troubleshooting
+## Troubleshooting
 
-## Missing graphs
+### Missing graphs
 
 Symptoms:
 
