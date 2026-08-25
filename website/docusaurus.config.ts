@@ -80,10 +80,19 @@ const config: Config = {
           position: 'left',
           to: '/docs/intro',
           items: [
+            { to: '/docs/intro', label: 'Introduction' },
             { to: '/documentation', label: 'API Documentation' },
             { to: '/uc-doc', label: 'UC Documentation' },
+            { to: '/uc-doc/installation', label: 'Installation' },
+            {
+              to: '/docs/tutorials/authenticate-user-wazo-api',
+              label: 'Tutorials',
+            },
           ],
         },
+        { to: '/use-cases', label: 'Use Cases', position: 'left' },
+        { to: '/docs/contribute', label: 'Contribute', position: 'left' },
+        { to: '/ecosystem', label: 'Ecosystem', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
         {

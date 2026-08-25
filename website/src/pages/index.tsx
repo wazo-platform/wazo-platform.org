@@ -33,7 +33,10 @@ function HomepageHeader() {
             Get started
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx(
+              'button button--primary button--lg',
+              styles.installButton,
+            )}
             to="/uc-doc/installation"
           >
             Installation

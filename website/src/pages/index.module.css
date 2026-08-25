@@ -22,3 +22,14 @@
   justify-content: center;
   gap: 1rem;
 }
+
+/* stand out against the hero, which already uses the primary background */
+.installButton {
+  --ifm-button-background-color: var(--ifm-color-primary-dark);
+  --ifm-button-border-color: var(--ifm-color-primary-dark);
+}
+
+.installButton:hover {
+  --ifm-button-background-color: var(--ifm-color-primary-darker);
+  --ifm-button-border-color: var(--ifm-color-primary-darker);
+}

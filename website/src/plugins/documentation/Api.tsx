@@ -41,7 +41,7 @@ const Api = ({ route }: Props) => {
       <Canonical path={`/documentation/api/${moduleName}`} />
       <BrowserOnly fallback={<div className="doc-loading">Loading…</div>}>
         {() => {
-          const { RedocStandalone } = require('redoc');
+          const RedocStandalone = require('./RedocBrowser').default;
           return (
             <RedocStandalone
               options={redocOptions}

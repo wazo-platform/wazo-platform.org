@@ -60,7 +60,7 @@ const GraphQLConsole = ({ route }: Props) => {
         {show ? (
           <BrowserOnly fallback={<div className="doc-loading">Loading…</div>}>
             {() => {
-              const GraphiQL = require('graphiql').default;
+              const GraphiQL = require('./GraphiQLBrowser').default;
               return <GraphiQL fetcher={graphQLFetcher} />;
             }}
           </BrowserOnly>
