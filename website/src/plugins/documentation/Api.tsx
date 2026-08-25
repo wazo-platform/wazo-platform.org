@@ -1,4 +1,5 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import { Suspense, lazy } from 'react';
 
@@ -48,6 +49,10 @@ const Api = ({ route }: Props) => {
   return (
     <Layout title={`API Reference - ${module.title}`} noFooter>
       <Canonical path={`/documentation/api/${moduleName}`} />
+      <PageHero
+        title={`API Reference — ${module.title}`}
+        description={module.description}
+      />
       <div className="doc-api-light">
         <BrowserOnly fallback={loading}>
           {() => (
