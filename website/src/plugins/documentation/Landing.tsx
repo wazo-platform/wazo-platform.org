@@ -3,7 +3,6 @@ import { Icon } from '@iconify/react';
 import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 
-import Canonical from './Canonical';
 import type { DocModule, DocSection } from './builder';
 import { iconifyName } from './helper';
 import './documentation.css';
@@ -12,6 +11,7 @@ type Props = {
   route: {
     customData?: {
       sections: DocSection[];
+      overviewPages: string[];
     };
   };
 };
@@ -19,9 +19,11 @@ type Props = {
 const ModuleRow = ({
   moduleName,
   module,
+  hasOverview,
 }: {
   moduleName: string;
   module: DocModule;
+  hasOverview: boolean;
 }) => {
   const icon = iconifyName(module.icon);
 
@@ -39,7 +41,7 @@ const ModuleRow = ({
       </div>
       <div className="doc-row__links">
         {module.url && <a href={module.url}>GitHub</a>}
-        {!module.url && module.overview !== false && (
+        {!module.url && hasOverview && (
           <Link to={`/documentation/overview/${moduleName}`}>Overview</Link>
         )}
         {module.redocUrl && (
@@ -73,13 +75,13 @@ const ModuleRow = ({
 
 const Landing = ({ route }: Props) => {
   const sections = route?.customData?.sections || [];
+  const overviewPages = new Set(route?.customData?.overviewPages || []);
 
   return (
     <Layout
       title="Documentation for developers"
       description="Wazo Platform APIs and services documentation"
     >
-      <Canonical path="/documentation" />
       <PageHero
         title="API Documentation"
         description="Every Wazo Platform service, with its overview, REST reference, live console and event schemas — everything you need to program the platform."
@@ -102,6 +104,7 @@ const Landing = ({ route }: Props) => {
                   key={moduleName}
                   moduleName={moduleName}
                   module={module}
+                  hasOverview={overviewPages.has(moduleName)}
                 />
               ))}
             </div>

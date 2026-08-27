@@ -1,0 +1,15 @@
+C4Container
+    System_Boundary(amid_platform, "amid application") {
+        Container(amid, "wazo-amid", "Python", "Asterisk proxy service")
+        Container(asterisk, "Asterisk", "C", "Back to Back User agent")
+        Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+    }
+
+    Person(User, "User")
+
+    Rel(User, amid, " ", "REST")
+    Rel(asterisk, amid, "Receives AMI events", "AMI")
+    Rel(amid, asterisk, "Sends AMI commands", "AJAM")
+    Rel(amid, bus, "Publishs Wazo platform events", "AMQP")
+    Rel(amid, auth, "Authenticates", "REST")

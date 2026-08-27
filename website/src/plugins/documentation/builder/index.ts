@@ -32,12 +32,28 @@ type LoadedContent = {
 };
 
 const SECTIONS_FILE = '../content/sections.yaml';
-const OVERVIEW_DIR = './documentation';
+const OVERVIEW_DIR = '../content';
 
 const componentPath = (name: string) =>
   `@site/src/plugins/documentation/${name}`;
 
 const shortName = (repository: string) => repository.replace('wazo-', '');
+
+// The Gatsby build renders the `.puml` diagrams next to each overview into
+// `<name>.svg`; here we swap those image references for the mermaid source
+// committed alongside them as `<name>.mmd`, so `content/` stays the single
+// source of truth for both builds.
+const inlineMermaidDiagrams = (content: string, dir: string) =>
+  content.replace(
+    /^!\[[^\]]*\]\(([^)]+)\.svg\)$/gm,
+    (imageRef: string, name: string) => {
+      const diagram = path.join(dir, `${name}.mmd`);
+      if (!fs.existsSync(diagram)) {
+        return imageRef;
+      }
+      return `\`\`\`mermaid\n${fs.readFileSync(diagram, 'utf8').trim()}\n\`\`\``;
+    },
+  );
 
 const loadOverviews = (sections: DocSection[]) => {
   const overviews: Record<string, string> = {};
@@ -58,7 +74,10 @@ const loadOverviews = (sections: DocSection[]) => {
           continue;
         }
 
-        const content = fs.readFileSync(path.join(dir, file), 'utf8');
+        const content = inlineMermaidDiagrams(
+          fs.readFileSync(path.join(dir, file), 'utf8'),
+          dir,
+        );
         const pageName =
           file === 'description.md'
             ? moduleName
@@ -73,7 +92,12 @@ const loadOverviews = (sections: DocSection[]) => {
 
 // archived: the C4 engine is no longer documented on this site
 // (sections.yaml is shared with the corporate Gatsby build, so filter here)
-const ARCHIVED_MODULES = ['c4-sbc', 'c4-router', 'rtpe-config', 'router-confd'];
+export const ARCHIVED_MODULES = [
+  'c4-sbc',
+  'c4-router',
+  'rtpe-config',
+  'router-confd',
+];
 
 const plugin: PluginModule = async () => ({
   name: 'documentation-pages-build',
@@ -109,7 +133,9 @@ const plugin: PluginModule = async () => ({
       path: '/documentation',
       component: componentPath('Landing.tsx'),
       exact: true,
-      customData: { sections },
+      // the overview pages actually generated below, so the landing links
+      // cannot drift from the routes
+      customData: { sections, overviewPages: Object.keys(overviews) },
     });
 
     for (const section of sections) {

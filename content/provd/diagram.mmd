@@ -1,0 +1,40 @@
+C4Container
+    Person(phone, "Desktop Phone")
+    Person(consumer, "API consumer")
+
+    System_Boundary(provd_system, "Provisioning") {
+        Container(provd_app, "provd", "Python", "Provisioning service")
+        Container(dxtorc, "dxtorc", "Python", "DHCP info transfer client")
+        Container(dxtora, "dxtora", "Python", "DHCP info transfer daemon")
+        System(dhcp_server, "DHCP Server")
+        Container(asterisk, "Asterisk", "C", "Media server")
+        Container(confd, "wazo-confd", "Python", "Configuration service")
+        Container(agid, "wazo-agid", "Python", "AGI service")
+        Container(amid, "wazo-amid", "Python", "AMI proxy service")
+        ContainerDb(filesystem, "File System", "/var/lib/wazo-provd", "JSON database and provisioning plugins")
+    }
+    Container(auth, "wazo-auth", "Python", "Authentication service")
+    System_Ext(provd_plugins, "Provd device plugins repository")
+
+    Rel(phone, dhcp_server, "DHCP")
+    Rel(phone, provd_app, "HTTP/TFTP")
+    Rel(phone, asterisk, "SIP/SCCP")
+
+    Rel(agid, asterisk, "AGI")
+    Rel(agid, confd, "REST")
+
+    Rel(amid, asterisk, "HTTP")
+    Rel(provd_app, amid, "REST")
+
+    Rel(dhcp_server, dxtorc, "subprocess")
+    Rel(dxtorc, dxtora, "UNIX socket")
+    Rel(dxtora, provd_app, "REST")
+
+    Rel(confd, provd_app, "REST")
+
+    Rel(provd_app, filesystem, " ")
+    Rel(provd_app, auth, "REST")
+
+    Rel(consumer, confd, "REST")
+
+    Rel(provd_app, provd_plugins, "HTTP")

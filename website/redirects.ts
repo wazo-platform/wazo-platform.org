@@ -1,5 +1,7 @@
 import type { Options } from '@docusaurus/plugin-client-redirects';
 
+import { ARCHIVED_MODULES } from './src/plugins/documentation/builder';
+
 const REDIRECTS: Options['redirects'] = [
   {
     from: '/uc-doc/administration/contact_directories/general',
@@ -173,12 +175,11 @@ const REDIRECTS: Options['redirects'] = [
   {
     from: [
       '/docs/wazo-router-confd',
-      '/documentation/overview/router-confd',
-      '/documentation/overview/c4-router',
-      '/documentation/overview/c4-sbc',
-      '/documentation/overview/rtpe-config',
-      '/documentation/api/router-confd',
-      '/documentation/console/router-confd',
+      ...ARCHIVED_MODULES.flatMap((m) => [
+        `/documentation/overview/${m}`,
+        `/documentation/api/${m}`,
+        `/documentation/console/${m}`,
+      ]),
     ],
     to: '/documentation',
   },

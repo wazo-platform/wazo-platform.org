@@ -1,0 +1,18 @@
+C4Container
+    System_Boundary(webhookd_platform, "Webhook application") {
+        Container(webhookd, "wazo-webhookd", "Python", "Webhook service")
+        Container(db, "Postgresql", "C", "Database")
+        Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+    }
+
+    System_Ext(external_webapp, "HTTP Server", "External Applications")
+    Person(User, "User")
+
+    Rel(User, webhookd, "Configures wanted events", "REST")
+
+    Rel(webhookd, db, "SQL")
+    Rel(bus, webhookd, "Receives Wazo platform events", "AMQP")
+
+    Rel(webhookd, auth, "Authenticates", "REST")
+    Rel(webhookd, external_webapp, "Send Wazo platform events", "HTTP")

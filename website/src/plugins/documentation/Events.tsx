@@ -4,7 +4,6 @@ import Layout from '@theme/Layout';
 import { useEffect, useRef, useState } from 'react';
 import '@asyncapi/react-component/styles/default.min.css';
 
-import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import { getServiceName } from './helper';
 import './documentation.css';
@@ -21,17 +20,21 @@ const asyncApiConfig = {
 const AsyncApi = ({ service }: { service: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
-  const [none, setNone] = useState(true);
+  const [none, setNone] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     (async () => {
       setNone(false);
       setLoading(true);
 
-      const filename = `wazo-${service.replace('-', '_')}.yml`;
+      const filename = `wazo-${service.replaceAll('-', '_')}.yml`;
 
       try {
-        const response = await fetch(`${SERVER_ROOT}/${filename}`);
+        const response = await fetch(`${SERVER_ROOT}/${filename}`, {
+          signal: controller.signal,
+        });
         if (response.status !== 200) {
           throw new Error(
             `There are no event listing available for service "${service}"`,
@@ -41,17 +44,25 @@ const AsyncApi = ({ service }: { service: string }) => {
         const schema = await response.text();
 
         const AsyncApiStandalone = require('@asyncapi/react-component/browser/standalone');
-        await AsyncApiStandalone.render(
-          { schema, config: asyncApiConfig },
-          ref.current,
-        );
+        if (ref.current) {
+          ref.current.innerHTML = '';
+          await AsyncApiStandalone.render(
+            { schema, config: asyncApiConfig },
+            ref.current,
+          );
+        }
       } catch (e) {
+        if (controller.signal.aborted) {
+          return;
+        }
         console.warn(e);
         setNone(true);
       }
 
       setLoading(false);
     })();
+
+    return () => controller.abort();
   }, [service]);
 
   return (
@@ -84,7 +95,6 @@ const Events = ({ route }: Props) => {
 
   return (
     <Layout title={`API Events - ${module.title}`}>
-      <Canonical path={`/documentation/events/${moduleName}`} />
       <PageHero
         title={`API Events — ${module.title}`}
         description="Events this service publishes on the Wazo Platform message bus."

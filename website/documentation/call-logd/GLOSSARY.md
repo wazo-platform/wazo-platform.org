@@ -1,3 +1,0 @@
-#### CEL
-
-Channel Events Logging

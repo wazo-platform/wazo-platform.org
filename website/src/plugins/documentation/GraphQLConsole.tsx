@@ -6,7 +6,6 @@ import 'graphiql/graphiql.min.css';
 
 import type { ApiCredentials } from './ApiToolbar';
 import ApiToolbar from './ApiToolbar';
-import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import './documentation.css';
 
@@ -51,7 +50,6 @@ const GraphQLConsole = ({ route }: Props) => {
 
   return (
     <Layout title={`GraphQL - ${module.title}`}>
-      <Canonical path={`/documentation/graphql/${moduleName}`} />
       <PageHero
         title={`GraphQL — ${module.title}`}
         description="Query the service with GraphQL against your own Wazo engine."

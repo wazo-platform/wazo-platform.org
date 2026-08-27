@@ -1,0 +1,22 @@
+sequenceDiagram
+    actor Alice
+    actor Bob
+    participant webhookd
+    participant auth
+    participant Bus
+    participant Asterisk
+    participant calld as wazo-calld
+    participant sms as SMS Service<br/>(external)
+
+    Alice->>webhookd: Listen to 'user_voicemail_message_created'
+    webhookd->>auth: Validate token
+    auth-->>webhookd: Token OK
+    webhookd->>Bus: Subscribe to 'user_voicemail_message_created'
+    webhookd-->>Alice: OK
+
+    Bob->>Asterisk: Leave voicemail message
+    Asterisk->>Bus: AMI event 'MessageWaiting'
+    Bus->>calld: parse 'MessageWaiting'
+    calld->>Bus: Send event 'user_voicemail_message_created'
+    Bus->>webhookd: Publish event 'user_voicemail_message_created'
+    webhookd->>sms: Make HTTP request

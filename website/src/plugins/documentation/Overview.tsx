@@ -2,10 +2,10 @@ import { Icon } from '@iconify/react';
 import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import Mermaid from '@theme/Mermaid';
-import type { ComponentProps, ReactNode } from 'react';
+import { Children } from 'react';
+import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import './documentation.css';
 
@@ -43,6 +43,13 @@ const headingComponent =
     <Tag id={slugify(flatten(children))}>{children}</Tag>
   );
 
+const isMermaidBlock = (children: ReactNode) => {
+  const [child] = Children.toArray(children) as ReactElement<{
+    className?: string;
+  }>[];
+  return child?.props?.className === 'language-mermaid';
+};
+
 const markdownComponents = {
   h1: () => null,
   h2: headingComponent('h2'),
@@ -50,7 +57,17 @@ const markdownComponents = {
   h4: headingComponent('h4'),
   h5: headingComponent('h5'),
   h6: headingComponent('h6'),
-  code: ({ className, children, ...props }: ComponentProps<'code'>) => {
+  // a mermaid diagram must not stay wrapped in the <pre> react-markdown emits,
+  // or infima styles it as a grey code sample
+  pre: ({ children }: ComponentProps<'pre'>) =>
+    isMermaidBlock(children) ? <>{children}</> : <pre>{children}</pre>,
+  // `node` is react-markdown's own prop, it must not reach the DOM
+  code: ({
+    className,
+    children,
+    node: _node,
+    ...props
+  }: ComponentProps<'code'> & { node?: unknown }) => {
     if (className === 'language-mermaid') {
       return <Mermaid value={String(children).trim()} />;
     }
@@ -77,14 +94,12 @@ const getMenuEntries = (overview: string) => {
 };
 
 const Overview = ({ route }: Props) => {
-  const { pageName, module, overview } = route?.customData || {};
+  const { module, overview } = route?.customData || {};
 
-  const path = `/documentation/overview/${pageName}`;
   const menuEntries = getMenuEntries(overview || '');
 
   return (
     <Layout title={`Documentation: ${module.title}`}>
-      <Canonical path={path} />
       <PageHero title={module.title} description={module.description} />
       <div className="container doc-overview">
         <aside className="doc-overview__menu">

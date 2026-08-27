@@ -1,0 +1,39 @@
+sequenceDiagram
+    participant Alice
+    participant confd
+
+    Alice->>confd: Create Line<br/>POST /lines<br/>{"context": "ctx-#lt;tenant slug#gt;-internal-#lt;uuid#gt;"}
+    confd-->>Alice: {"id": 11, ...}
+
+    Alice->>confd: Create an extension<br/>POST /extensions<br/>{"exten": "1234", "context": "ctx-#lt;tenant slug#gt;-internal-#lt;uuid#gt;"}
+    confd-->>Alice: {"id": 22, ...}
+
+    Alice->>confd: Associate the line-extension<br/>PUT /lines/11/extensions/22
+    confd-->>Alice: ​
+
+    Alice->>confd: Create a user<br/>POST /users<br/>{"firstname": "Alice"}
+    confd->>Alice: {"uuid": "44444444-...", ...}
+
+    Alice->>confd: Associate the user-line<br/>PUT /users/44444444-.../lines/11
+    confd->>Alice: ​
+
+    Alice->>confd: Create the SIP endpoint<br/>POST /endpoints/sip<br/>{}
+    confd->>Alice: {"id": 66, ...}
+
+    Alice->>confd: Associate the line-endpoint<br/>PUT /lines/11/endpoints/sip/66
+    confd->>Alice: ​
+
+    Alice->>confd: Get the device ID (autocreated by provd)<br/>GET /devices?search=88:88:88:88:88:88<br/>or  GET /devices?search=192.168.88.
+    confd->>Alice: {"id": "888...", ...}
+
+    Alice->>confd: Associate the line-device<br/>PUT /lines/11/devices/8888
+    confd->>Alice: ​
+
+    Alice->>confd: Re-synchronize the device (optional):<br/>PUT /devices/8888/synchronize
+    confd->>Alice: ​
+
+    Alice->>confd: Create the voicemail<br/>POST /voicemails<br/>{"name": "Alice's voicemail",  "number": "1234",  "context": "ctx-#lt;tenant slug#gt;-internal-#lt;uuid#gt;"}
+    confd->>Alice: {"id": 1010, ..}
+
+    Alice->>confd: Associate the user-voicemail<br/>PUT /users/44444444-.../voicemails/1010
+    confd->>Alice: ​

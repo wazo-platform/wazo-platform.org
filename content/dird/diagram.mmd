@@ -1,0 +1,37 @@
+C4Container
+    Person(user, "App user")
+    Person(phone, "Phone")
+
+    System_Boundary(dird_system, "Directory") {
+        Container(dird_app, "wazo-dird", "Python", "Directory service")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+        ContainerDb(pgsql, "PostgreSQL", "C", "Database")
+        Container(bus, "RabbitMQ", "Erlang", "Message bus")
+        Container(agid, "wazo-agid", "Python", "AGI service")
+        Container(asterisk, "Asterisk", "C", "Media server")
+        Container(phoned, "wazo-phoned", "Python", "Phone directory proxy service")
+    }
+
+    Container_Boundary(extern, "Sources") {
+        Container(confd, "wazo-confd", "Python", "Configuration service")
+        System_Ext(ldap, "LDAP server")
+        System_Ext(google, "Google")
+        System_Ext(microsoft, "Microsoft Office 365")
+    }
+
+    Rel(dird_app, auth, " ", "REST")
+    Rel(phoned, dird_app, " ", "REST")
+    Rel(agid, dird_app, " ", "REST")
+    Rel(asterisk, agid, " ", "AGI")
+    Rel(dird_app, pgsql, " ", "SQL")
+    Rel(dird_app, bus, " ", "AMQP")
+
+    Rel(dird_app, confd, " ", "REST")
+    Rel(dird_app, ldap, " ", "LDAP")
+    Rel(dird_app, google, " ", "REST")
+    Rel(dird_app, microsoft, " ", "REST")
+
+    Rel(user, dird_app, " ", "REST")
+
+    Rel(phone, asterisk, " ", "SIP/SCCP")
+    Rel(phone, phoned, " ", "REST")

@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant User
+    participant dird
+    participant auth
+    participant confd
+    participant google
+    participant office365
+    participant ldap
+
+    User->>dird: token and search term "Alice"
+    dird->>auth: validate token
+    auth->>dird: allow
+    dird->>confd: "Alice"
+    dird->>google: "Alice"
+    dird->>office365: "Alice"
+    dird->>ldap: "Alice"
+    dird->>User: Contact list

@@ -35,8 +35,10 @@ test:
 
 # Runs the same scrap tests against the Docusaurus build (expects website/build to exist)
 beta/test:
-	docker compose -f docker-compose.beta-tests.yml up --build --exit-code-from test test
-	docker compose -f docker-compose.beta-tests.yml down
+	docker compose -f docker-compose.beta-tests.yml up --build --exit-code-from test test; \
+	status=$$?; \
+	docker compose -f docker-compose.beta-tests.yml down; \
+	exit $$status
 
 clean:
 	docker compose down

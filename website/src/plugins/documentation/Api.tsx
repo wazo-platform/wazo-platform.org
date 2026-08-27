@@ -3,7 +3,6 @@ import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
 import { Suspense, lazy } from 'react';
 
-import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import { getModuleSpecUrl } from './helper';
 import './documentation.css';
@@ -48,7 +47,6 @@ const Api = ({ route }: Props) => {
 
   return (
     <Layout title={`API Reference - ${module.title}`} noFooter>
-      <Canonical path={`/documentation/api/${moduleName}`} />
       <PageHero
         title={`API Reference — ${module.title}`}
         description={module.description}

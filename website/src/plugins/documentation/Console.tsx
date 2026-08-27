@@ -7,7 +7,6 @@ import 'swagger-ui-react/swagger-ui.css';
 
 import type { ApiCredentials } from './ApiToolbar';
 import ApiToolbar from './ApiToolbar';
-import Canonical from './Canonical';
 import type { DocModule } from './builder';
 import { getModuleSpecUrl, getServiceName } from './helper';
 import './documentation.css';
@@ -39,7 +38,6 @@ const Console = ({ route }: Props) => {
 
   return (
     <Layout title={`Console - ${module.title}`}>
-      <Canonical path={`/documentation/console/${moduleName}`} />
       <PageHero
         title={`API Console — ${module.title}`}
         description="Try the API against your own Wazo engine: set its base URL and credentials, then explore."

@@ -32,8 +32,8 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "graphiql": "^1.9.13",
-    "graphql": "^17.0.2",
-    "js-yaml": "^5.3.0",
+    "graphql": "^16.9.0",
+    "js-yaml": "^4.1.0",
     "mobx": "^6.13.5",
     "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
@@ -41,7 +41,7 @@
     "react-markdown": "^9.0.1",
     "redoc": "^2.5.3",
     "styled-components": "^6.5.3",
-    "swagger-ui-react": "^4.15.5"
+    "swagger-ui-react": "^5.17.14"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -49,7 +49,7 @@
     "@docusaurus/tsconfig": "^3.6.1",
     "@docusaurus/types": "^3.6.1",
     "@lottiefiles/react-lottie-player": "^3.5.4",
-    "@types/swagger-ui-react": "^4",
+    "@types/swagger-ui-react": "^5",
     "typescript": "~5.6.3"
   },
   "browserslist": {

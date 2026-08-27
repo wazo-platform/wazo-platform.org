@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor Alice
+    participant asterisk
+    participant amid
+    participant bus
+    participant chatd
+    participant websocketd
+    actor Bob
+
+    Alice->>asterisk: compose *10
+
+    opt Internal events
+        asterisk-->>amid: Event DeviceStateChange<br/>name: PJSIP/alice<br/>state: ringing
+        amid-->>bus: Event DeviceStateChange<br/>name: PJSIP/alice<br/>state: ringing
+        bus-->>chatd: Event DeviceStateChange<br/>name: PJSIP/alice<br/>state: ringing
+    end
+
+    opt Wazo platform events
+        chatd->>bus: Event Presence Alice
+        bus-->>websocketd: Event Presence Alice
+        websocketd->>Bob: Event Presence Alice
+        websocketd->>Alice: Event Presence Alice
+    end
