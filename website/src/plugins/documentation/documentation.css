@@ -233,6 +233,55 @@
   display: none;
 }
 
+/* --- third-party embed isolation ------------------------------------------
+   redoc, swagger-ui, graphiql and the asyncapi viewer each ship a complete
+   stylesheet written against browser defaults. Infima styles bare elements
+   globally (h1-h6, a, p, code, pre, kbd, table, img, hr, strong, lists,
+   blockquote), so those declarations land inside the widgets and fight their
+   CSS -- e.g. `pre { background-color }` paints over swagger-ui's version
+   pill, hiding its white label, and `table { display: block }` breaks widget
+   tables.
+
+   Reverting exactly those elements to the user-agent baseline inside an embed
+   restores the assumption the widgets were built on. `:where()` pins the rule
+   at specificity 0-1-0, so it always outranks infima's 0-0-1 bare-element
+   selectors and always yields to the widgets' own class-scoped rules -- no
+   per-widget selectors to chase when a spec or a library version changes.
+   `all` does not cover custom properties, so the --ifm-* values set below
+   still reach the widgets that read them. */
+:is(.doc-api-light, .doc-graphiql)
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    code,
+    pre,
+    kbd,
+    img,
+    hr,
+    strong,
+    ol,
+    ul,
+    li,
+    blockquote,
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td
+  ) {
+  all: revert;
+  /* infima's `* { box-sizing: border-box }` is 0-0-0, so the revert above
+     would drop it back to content-box and break widget layouts */
+  box-sizing: border-box;
+}
+
 /* redoc, swagger-ui and the asyncapi viewer are light-only third-party UIs:
    render them on a light surface even when the site is in dark mode */
 .doc-api-light {
