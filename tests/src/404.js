@@ -56,6 +56,16 @@ function isUrlWhitelisted(url, fromUrl) {
     return true;
   }
 
+  // kamailio.org times out from CI runners
+  if (url.indexOf('kamailio.org') !== -1) {
+    return true;
+  }
+
+  // docs.ansible.com rate-limits automated requests (429)
+  if (url.indexOf('docs.ansible.com') !== -1) {
+    return true;
+  }
+
   // Don't check for mail URLs
   if (url.indexOf('mailto:') !== -1) {
     return true;
