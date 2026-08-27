@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 import 'dotenv/config';
 import REDIRECTS from './redirects';
+import pluginsDocumentationInit from './src/plugins/documentation/builder/index';
 import pluginsProvisioningInit from './src/plugins/provisioning/builder/index';
 
 const config: Config = {
@@ -73,17 +74,22 @@ const config: Config = {
         srcDark: 'images/logo-horiz.svg',
       },
       items: [
+        { to: '/documentation', label: 'API References', position: 'left' },
         {
           type: 'dropdown',
-          label: 'Documentation',
+          label: 'Unified Communication',
           position: 'left',
           to: '/docs/intro',
           items: [
-            { to: '/docs/category/api', label: 'API Documentation' },
-            { to: '/uc-doc', label: 'UC Documentation' },
+            { to: '/docs/intro', label: 'Introduction' },
+            { to: '/uc-doc/installation', label: 'Installation' },
+            {
+              to: '/docs/tutorials/authenticate-user-wazo-api',
+              label: 'Tutorials',
+            },
           ],
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/docs/contribute', label: 'Contribute', position: 'left' },
         { to: '/release-notes', label: 'Release notes', position: 'left' },
         {
           href: 'https://github.com/wazo-platform',
@@ -96,17 +102,62 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
-              label: 'Docs',
+              label: 'Introduction',
               to: '/docs/intro',
+            },
+            {
+              label: 'Install the platform',
+              to: '/uc-doc/installation',
+            },
+            {
+              label: 'Unified Communication guide',
+              to: '/uc-doc',
+            },
+            {
+              label: 'API references',
+              to: '/documentation',
+            },
+            {
+              label: 'Tutorials',
+              to: '/docs/tutorials/authenticate-user-wazo-api',
+            },
+          ],
+        },
+        {
+          title: 'Use cases',
+          items: [
+            {
+              label: 'Unified Communication',
+              to: '/use-cases#unified-communication',
+            },
+            {
+              label: 'Contact center',
+              to: '/use-cases#programmable-contact-center',
+            },
+            {
+              label: 'AI voice applications',
+              to: '/use-cases#ai-assisted-voice-applications',
+            },
+            {
+              label: 'Embedded communications',
+              to: '/use-cases#embedded-communications',
+            },
+            {
+              label: 'All use cases',
+              to: '/use-cases',
             },
           ],
         },
         {
           title: 'Community',
           items: [
+            {
+              label: 'Contribute',
+              to: '/docs/contribute',
+            },
             {
               label: 'Mattermost',
               href: 'https://mm.wazo.community/wazo-platform/',
@@ -133,6 +184,10 @@ const config: Config = {
               to: '/release-notes',
             },
             {
+              label: 'Ecosystem',
+              to: '/ecosystem',
+            },
+            {
               label: 'GitHub',
               href: 'https://github.com/wazo-platform',
             },
@@ -144,6 +199,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.oneDark,
+      additionalLanguages: ['ini', 'ruby', 'shell-session'],
     },
     mermaid: {
       theme: { light: 'neutral', dark: 'dark' },
@@ -175,6 +231,7 @@ const config: Config = {
         routeBasePath: 'release-notes',
         path: './release-notes',
         authorsMapPath: '../blog/authors.yml',
+        blogSidebarCount: 15,
       },
     ],
     [
@@ -184,6 +241,7 @@ const config: Config = {
       },
     ],
     pluginsProvisioningInit,
+    pluginsDocumentationInit,
   ],
 };
 

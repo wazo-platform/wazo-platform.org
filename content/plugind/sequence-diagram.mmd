@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant admin
+    participant plugind
+    participant auth
+    participant repo
+    participant bus
+
+    admin->>plugind: install plugin #lt;git URI#gt;
+    plugind->>auth: authorize token?
+    plugind->>admin: 201
+    plugind->>repo: git clone #lt;git URI#gt;
+    plugind->>plugind: build
+    plugind->>plugind: package
+    plugind->>plugind: install
+    plugind->>bus: install completed event

@@ -145,7 +145,7 @@ You now have the basic requirements to use our Programmable API. It's time to bu
 Want to put into practice what you learn in this tutorial? Try to create a simple application that
 manages wazo-auth users. You'll get familiar with all common operations GET, CREATE, UPDATE and
 DELETE. See the [Authentication API
-specifications](https://wazo-platform.org/documentation/api/authentication.html) for more.
+specifications](/documentation/api/authentication) for more.
 
 ## Conclusion
 
@@ -156,4 +156,4 @@ refresh tokens to offer a nice user experience and avoid storing sensitive user 
 
 - Original content of this tutorial comes from the [Refresh Token in
   Wazo](/blog/wazo-auth-refresh-token) blog post.
-- [API specifications](https://wazo-platform.org/documentation/)
+- [API specifications](/documentation)

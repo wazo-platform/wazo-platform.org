@@ -1,0 +1,30 @@
+C4Container
+    Person(user, "User")
+    Person(phone, "Phone")
+
+    System_Boundary(calld_system, "Call application") {
+        Container(calld_app, "wazo-calld", "Python", "Call application service")
+        Container(asterisk, "Asterisk", "C", "Media server")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+        Container(amid, "wazo-amid", "Python", "AMI proxy service")
+        Container(bus, "RabbitMQ", "Erlang", "Message bus")
+        Container(confd, "wazo-confd", "Python", "Configuration service")
+    }
+
+    Rel(user, phone, "uses")
+    Rel(user, calld_app, " ", "REST")
+
+    Rel(calld_app, auth, " ", "REST")
+    Rel(calld_app, amid, " ", "REST")
+
+    Rel(amid, asterisk, " ", "HTTP")
+    Rel(amid, asterisk, " ", "TCP")
+    Rel(amid, bus, " ", "AMQP")
+
+    Rel(asterisk, phone, " ", "SIP/SCCP")
+
+    Rel(phone, asterisk, " ")
+
+    Rel(calld_app, bus, " ", "AMQP")
+    Rel(calld_app, confd, " ", "REST")
+    Rel(calld_app, asterisk, " ", "REST")

@@ -1,5 +1,7 @@
 import type { Options } from '@docusaurus/plugin-client-redirects';
 
+import { ARCHIVED_MODULES } from './src/plugins/documentation/builder';
+
 const REDIRECTS: Options['redirects'] = [
   {
     from: '/uc-doc/administration/contact_directories/general',
@@ -71,6 +73,135 @@ const REDIRECTS: Options['redirects'] = [
   {
     from: '/uc-doc/upgrade/migrate_i386_to_amd64',
     to: '/uc-doc/upgrade/archives/migrate_i386_to_amd64',
+  },
+  {
+    from: '/contribute',
+    to: '/docs/contribute',
+  },
+  {
+    from: '/contribute/code',
+    to: '/docs/contribute/codebase',
+  },
+  {
+    from: '/contribute/new_service',
+    to: '/docs/contribute/new-service',
+  },
+  {
+    from: '/contribute/rest',
+    to: '/docs/contribute/rest-api',
+  },
+  {
+    from: ['/tutorials', '/tutorials/authenticate-user-wazo-api'],
+    to: '/docs/tutorials/authenticate-user-wazo-api',
+  },
+  // former hand-maintained /docs/api pages, replaced by /documentation/overview
+  {
+    from: '/docs/category/api',
+    to: '/documentation',
+  },
+  {
+    from: '/docs/wazo-agentd',
+    to: '/documentation/overview/agent',
+  },
+  {
+    from: '/docs/wazo-agentd/dev-notes',
+    to: '/documentation/overview/agent-core',
+  },
+  {
+    from: '/docs/wazo-amid',
+    to: '/documentation/overview/amid',
+  },
+  {
+    from: '/docs/wazo-auth',
+    to: '/documentation/overview/authentication',
+  },
+  {
+    from: '/docs/wazo-auth/admin-notes',
+    to: '/documentation/overview/authentication-admin',
+  },
+  {
+    from: '/docs/wazo-auth/dev-notes',
+    to: '/documentation/overview/authentication-dev',
+  },
+  {
+    from: '/docs/wazo-call-logd',
+    to: '/documentation/overview/cdr',
+  },
+  {
+    from: '/docs/wazo-call-logd/admin-notes',
+    to: '/documentation/overview/cdr-admin',
+  },
+  {
+    from: '/docs/wazo-calld',
+    to: '/documentation/overview/application',
+  },
+  {
+    from: '/docs/wazo-calld/dev-notes',
+    to: '/documentation/overview/application-dev',
+  },
+  {
+    from: '/docs/wazo-chatd',
+    to: '/documentation/overview/chat',
+  },
+  {
+    from: '/docs/wazo-confd',
+    to: '/documentation/overview/configuration',
+  },
+  {
+    from: '/docs/wazo-dird',
+    to: '/documentation/overview/contact',
+  },
+  {
+    from: '/docs/wazo-dird/glossary',
+    to: '/documentation/overview/contact-glossary',
+  },
+  {
+    from: '/docs/wazo-plugind',
+    to: '/documentation/overview/plugins',
+  },
+  {
+    from: '/docs/wazo-plugind/admin-notes',
+    to: '/documentation/overview/plugins-admin',
+  },
+  {
+    from: '/docs/wazo-provd',
+    to: '/documentation/overview/provisioning',
+  },
+  {
+    from: '/docs/wazo-provd/admin-notes',
+    to: '/documentation/overview/provisioning-admin',
+  },
+  // C4 engine archived: its pages redirect to the closest live page
+  {
+    from: [
+      '/docs/wazo-router-confd',
+      ...ARCHIVED_MODULES.flatMap((m) => [
+        `/documentation/overview/${m}`,
+        `/documentation/api/${m}`,
+        `/documentation/console/${m}`,
+      ]),
+    ],
+    to: '/documentation',
+  },
+  {
+    from: '/use-cases/class-4',
+    to: '/use-cases',
+  },
+  {
+    from: '/docs/wazo-webhookd',
+    to: '/documentation/overview/webhook',
+  },
+  {
+    from: '/docs/wazo-webhookd/dev-notes',
+    to: '/documentation/overview/webhook-core',
+  },
+  {
+    from: '/docs/wazo-websocketd',
+    to: '/documentation/overview/websocket',
+  },
+  {
+    from: '/docs/wazo-websocketd/dev-notes',
+    to: '/documentation/overview/websocket-app',
   },
 ];
 

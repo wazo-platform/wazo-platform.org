@@ -1,0 +1,22 @@
+C4Container
+    System_Boundary(confd_platform, "Configuration application") {
+        Container(confd, "wazo-confd", "Python", "Configuration service")
+
+        Container(db, "Postgresql", "C", "Database")
+        Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+
+        Container(provd, "wazo-provd", "Python", "Provisionning service")
+        Container(sysconfd, "wazo-sysconfd", "Python", "Operating system configuration service")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+    }
+
+    Person(User, "User")
+
+    Rel(User, confd, "uses", "REST")
+
+    Rel(confd, db, " ", "SQL")
+    Rel(confd, bus, "Recevied Wazo platform events", "AMQP")
+
+    Rel(confd, auth, "Authenticates", "REST")
+    Rel(confd, provd, "Configures devices", "REST")
+    Rel(confd, sysconfd, "Runs Operating System commands", "REST")

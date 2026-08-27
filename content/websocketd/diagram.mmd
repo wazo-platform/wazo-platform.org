@@ -1,0 +1,12 @@
+C4Container
+    System_Boundary(websocketd_platform, "Websocketd application") {
+        Container(websocketd, "wazo-websocketd", "Python", "Websocketd service")
+        Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+    }
+
+    Person(User, "User")
+
+    Rel(User, websocketd, "Receives events", "REST")
+    Rel(websocketd, bus, "Receives Wazo platform events", "AMQP")
+    Rel(websocketd, auth, "Authenticates", "REST")

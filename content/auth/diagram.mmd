@@ -1,0 +1,20 @@
+C4Container
+    Person(user, "User")
+
+    System_Boundary(auth_system, "Authentication") {
+        Container(auth_app, "wazo-auth", "Python", "Authentication service")
+        ContainerDb(pgsql, "PostgreSQL", "C", "Database")
+        Container(bus, "RabbitMQ", "Erlang", "Message bus")
+    }
+
+    System_Ext(oauth2, "wazo-oauth2")
+    System_Ext(google, "Google")
+    System_Ext(microsoft, "Microsoft Office 365")
+
+    Rel(user, auth_app, " ", "REST")
+    Rel(auth_app, oauth2, " ", "WS")
+
+    Rel(auth_app, pgsql, " ", "SQL")
+    Rel(google, oauth2, " ", "REST")
+    Rel(microsoft, oauth2, " ", "REST")
+    Rel(auth_app, bus, " ", "AMQP")

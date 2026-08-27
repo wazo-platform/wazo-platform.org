@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor Alice
+    participant chatd
+    participant bus
+    participant websocketd
+    actor Bob
+
+    Alice->>chatd: Create a room<br/>POST /users/me/rooms<br/>{users:[#lt;uuid:bob#gt;]}
+    chatd-->>Alice: ​
+    Alice->>chatd: Create a message<br/>POST /users/me/rooms/#lt;uuid#gt;/messages
+    chatd-->>bus: Publish message<br/>as Wazo platform event
+    bus-->>websocketd: Relay message
+
+    websocketd->>Bob: Receive message

@@ -51,6 +51,8 @@ See you at the next sprint review!
   [breaking changes](/uc-doc/upgrade/upgrade_notes#25-15)
 - [Detailed upgrade notes](/uc-doc/upgrade/upgrade_notes_details/25-15/bookworm)
 
+<!-- truncate -->
+
 Sources:
 
 - [Upgrade notes](/uc-doc/upgrade/upgrade_notes#25-15)

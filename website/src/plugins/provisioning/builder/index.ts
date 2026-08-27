@@ -83,16 +83,19 @@ const generatePages = async ({ plugins, actions }: GeneratePagesOpts) => {
   });
 };
 
-const plugin: PluginModule<LoadedContent> = async () => ({
+const plugin: PluginModule = async () => ({
   name: 'provisioning-pages-build',
 
-  async loadContent() {
+  async loadContent(): Promise<LoadedContent> {
     const plugins = getProvisioningPlugins();
     return { plugins };
   },
 
   async contentLoaded({ content, actions }) {
-    await generatePages({ plugins: content.plugins, actions });
+    await generatePages({
+      plugins: (content as LoadedContent).plugins,
+      actions,
+    });
   },
 });
 

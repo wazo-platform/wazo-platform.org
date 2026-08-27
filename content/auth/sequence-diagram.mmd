@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant User
+    participant auth
+    participant dird
+
+    User->>auth: POST /token
+    auth->>User: Token
+
+    User->>dird: GET /dir/lookup & token
+    dird->>auth: token & ACL
+    auth->>dird: 204 or 403
+
+    dird->>User: Result

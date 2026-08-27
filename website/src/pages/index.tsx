@@ -32,6 +32,15 @@ function HomepageHeader() {
           >
             Get started
           </Link>
+          <Link
+            className={clsx(
+              'button button--primary button--lg',
+              styles.installButton,
+            )}
+            to="/uc-doc/installation"
+          >
+            Installation
+          </Link>
         </div>
       </div>
     </header>

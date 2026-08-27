@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant Phone1000
+    participant asterisk
+    participant Phone1001
+    participant User
+    participant calld
+
+    Phone1000->>asterisk: Call 1001
+    asterisk->>Phone1001: 1001
+    Phone1001->>User: answers
+    asterisk->>calld: Event
+    calld->>User: Event
+    User->>calld: DELETE /calls/{call_id}
+    calld->>asterisk: Hangup
+    asterisk->>calld: OK
+    asterisk->>Phone1001: Bye
+    calld->>User: 204

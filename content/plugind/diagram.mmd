@@ -1,0 +1,15 @@
+C4Container
+    Person(user, "Admin")
+
+    System_Boundary(dird_system, "Plugin") {
+        Container(plugind_app, "wazo-plugind", "Python", "Plugin service")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+        Container(bus, "RabbitMQ", "Erlang", "Message bus")
+    }
+
+    System_Ext(git, "Git repository")
+
+    Rel(plugind_app, auth, "REST")
+    Rel(user, plugind_app, "REST")
+    Rel(plugind_app, git, "git")
+    Rel(plugind_app, bus, "AMQP")

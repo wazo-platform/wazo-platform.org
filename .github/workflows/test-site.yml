@@ -1,0 +1,44 @@
+name: Site tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'website/**'
+      - 'content/**'
+      - 'static/**'
+      - 'tests/**'
+      - 'Makefile'
+      - 'docker-compose.beta-tests.yml'
+      - '.github/workflows/test-site.yml'
+  schedule:
+    # nightly, mirrors the Zuul periodic yarn-build-test job of the Gatsby site
+    - cron: '30 4 * * *'
+
+jobs:
+  test-site:
+    name: Broken links & swagger checks
+    runs-on: ubuntu-latest
+    # the nightly run also crawls every external link; PR runs are
+    # internal-only and finish in a fraction of the time
+    timeout-minutes: ${{ github.event_name == 'pull_request' && 60 || 180 }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Build website
+        run: |
+          corepack enable
+          cd website
+          yarn install --immutable
+          yarn build
+
+      - name: Run scrap tests against the build
+        run: make beta/test
+        env:
+          SKIP_EXTERNAL_LINKS: ${{ github.event_name == 'pull_request' }}

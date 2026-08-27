@@ -1,0 +1,20 @@
+C4Container
+    Container(asterisk, "Asterisk", "C", "Back2Back Agent")
+    Container(amid, "wazo-amid", "Python", "")
+
+    System_Boundary(call_logd_platform, "Call-logd application") {
+        Container(call_logd, "wazo-call-logd", "Python", "Call-log service")
+        Container(db, "Postgresql", "C", "Database")
+        Container(bus, "RabbitMQ", "Erlang", "Messaging Bus")
+        Container(auth, "wazo-auth", "Python", "Authentication service")
+    }
+
+    Person(User, "User")
+
+    Rel(amid, bus, "Push events", "AMQP")
+    Rel(amid, asterisk, " ")
+    Rel(asterisk, db, "Push raw call logs", "SQL")
+    Rel(call_logd, db, "Push and Fetch call-log", "SQL")
+    Rel(call_logd, bus, "Publishs and Recevied internal events", "AMQP")
+    Rel(call_logd, auth, "Authenticates", "REST")
+    Rel(User, call_logd, "Retrieves call history", "REST")

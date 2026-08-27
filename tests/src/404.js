@@ -9,6 +9,13 @@ const errorUrl = [];
 const EXCLUDED_EXTENSIONS = ['yml'];
 
 function isUrlWhitelisted(url, fromUrl) {
+  // PR runs check internal links only. The external crawl is slow and depends
+  // on third-party availability -- the domain list below is the evidence -- so
+  // it stays on the nightly schedule. Set by .github/workflows/test-site.yml.
+  if (process.env.SKIP_EXTERNAL_LINKS === 'true' && url.indexOf(baseUrl) === -1) {
+    return true;
+  }
+
   // Jira links are a tad flaky and tend to mess with the process, skipping
   const isJira = url.indexOf('wazo-dev.atlassian.net') !== -1;
   if (isJira) {
@@ -53,6 +60,16 @@ function isUrlWhitelisted(url, fromUrl) {
 
   // wazo.io website links are flaky
   if (url.indexOf('https://wazo.io') !== -1) {
+    return true;
+  }
+
+  // kamailio.org times out from CI runners
+  if (url.indexOf('kamailio.org') !== -1) {
+    return true;
+  }
+
+  // docs.ansible.com rate-limits automated requests (429)
+  if (url.indexOf('docs.ansible.com') !== -1) {
     return true;
   }
 
