@@ -102,17 +102,62 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
-              label: 'Docs',
+              label: 'Introduction',
               to: '/docs/intro',
+            },
+            {
+              label: 'Install the platform',
+              to: '/uc-doc/installation',
+            },
+            {
+              label: 'Unified Communication guide',
+              to: '/uc-doc',
+            },
+            {
+              label: 'API references',
+              to: '/documentation',
+            },
+            {
+              label: 'Tutorials',
+              to: '/docs/tutorials/authenticate-user-wazo-api',
+            },
+          ],
+        },
+        {
+          title: 'Use cases',
+          items: [
+            {
+              label: 'Unified Communication',
+              to: '/use-cases#unified-communication',
+            },
+            {
+              label: 'Contact center',
+              to: '/use-cases#programmable-contact-center',
+            },
+            {
+              label: 'AI voice applications',
+              to: '/use-cases#ai-assisted-voice-applications',
+            },
+            {
+              label: 'Embedded communications',
+              to: '/use-cases#embedded-communications',
+            },
+            {
+              label: 'All use cases',
+              to: '/use-cases',
             },
           ],
         },
         {
           title: 'Community',
           items: [
+            {
+              label: 'Contribute',
+              to: '/docs/contribute',
+            },
             {
               label: 'Mattermost',
               href: 'https://mm.wazo.community/wazo-platform/',
