@@ -15,5 +15,8 @@ services:
       - ./tests/src:/app/src:ro
       - ./tests/package.json:/app/package.json:ro
     command: yarn test
+    environment:
+      # forwarded from the host; set on PR runs so only internal links are checked
+      - SKIP_EXTERNAL_LINKS
     depends_on:
       - server
