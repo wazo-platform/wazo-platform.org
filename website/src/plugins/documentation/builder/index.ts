@@ -53,8 +53,7 @@ const inlineMermaidDiagrams = (content: string, dir: string) =>
         // image reference in place would ship a guaranteed 404 that nothing
         // else on this site catches -- fail loudly instead
         throw new Error(
-          `Missing mermaid sidecar for "${imageRef}" in ${dir}: expected ${diagram}. ` +
-            'Add the mermaid source next to the .puml (see README.md, "Content Change").',
+          `Missing mermaid sidecar for "${imageRef}" in ${dir}: expected ${diagram}. Add the mermaid source next to the .puml (see README.md, "Content Change").`,
         );
       }
       return `\`\`\`mermaid\n${fs.readFileSync(diagram, 'utf8').trim()}\n\`\`\``;
