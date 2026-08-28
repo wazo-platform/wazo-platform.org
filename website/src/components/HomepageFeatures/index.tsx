@@ -1,18 +1,16 @@
-import { Icon } from '@iconify/react';
 import Heading from '@theme/Heading';
-import clsx from 'clsx';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  kicker: string;
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
+    kicker: '01 / Interfaces',
     title: 'Programmable Interfaces',
-    Svg: () => <Icon fontSize={64} icon="mdi:monitor-mobile-phone" />,
     description: (
       <>
         All the programmable interfaces are mobile and web friendly: WebRTC,
@@ -21,8 +19,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    kicker: '02 / API-first',
     title: 'Easy to Consume',
-    Svg: () => <Icon fontSize={64} icon="mdi:api" />,
     description: (
       <>
         We designed the platform with an API-First approach. Building blocks are
@@ -32,8 +30,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    kicker: '03 / Proven',
     title: 'Battlefield Tested',
-    Svg: () => <Icon fontSize={64} icon="mdi:shield" />,
     description: (
       <>
         The core Telecom engine is implemented using the Asterisk, RTPEngine and
@@ -44,28 +42,22 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
+const Feature = ({ kicker, title, description }: FeatureItem) => (
+  <div className={styles.feature}>
+    <div className={styles.featureKicker}>{kicker}</div>
+    <Heading as="h3" className={styles.featureTitle}>
+      {title}
+    </Heading>
+    <p className={styles.featureText}>{description}</p>
+  </div>
+);
 
 const HomepageFeatures = () => (
-  <section className={styles.features}>
-    <div className="container">
-      <div className="row">
-        {FeatureList.map((props) => (
-          <Feature key={props.title} {...props} />
-        ))}
-      </div>
+  <section className="container">
+    <div className={styles.features}>
+      {FeatureList.map((props) => (
+        <Feature key={props.title} {...props} />
+      ))}
     </div>
   </section>
 );

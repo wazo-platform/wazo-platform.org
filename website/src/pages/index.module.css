@@ -3,33 +3,247 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
+/* --- hero ---------------------------------------------------------------- */
+
+.hero {
+  background: linear-gradient(180deg, var(--wazo-tint) 0%, transparent 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 4.5rem;
+}
+
+.heroTitle {
+  font-size: 3.6rem;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 30em;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.buttonOutline {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+}
+
+.buttonOutline:hover {
+  border-color: var(--wazo-tint-border);
+  background: var(--wazo-tint);
+  color: var(--ifm-font-color-base);
+}
+
+.heroTags {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.heroTags span {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ifm-color-primary-dark);
+}
+
+/* --- hero panel: the "open all the way down" stack ------------------------ */
+
+.heroPanel {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 18px 44px -28px rgba(60, 80, 30, 0.28);
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
+.heroPanelHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--wazo-tint);
 }
 
-/* stand out against the hero, which already uses the primary background */
-.installButton {
-  --ifm-button-background-color: var(--ifm-color-primary-dark);
-  --ifm-button-border-color: var(--ifm-color-primary-dark);
+.heroPanelKicker {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary-dark);
 }
 
-.installButton:hover {
-  --ifm-button-background-color: var(--ifm-color-primary-darker);
-  --ifm-button-border-color: var(--ifm-color-primary-darker);
+.heroPanelNote {
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.heroPanelBody {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stackCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 11px;
+  padding: 0.9rem 1rem;
+}
+
+.stackCard b {
+  font-size: 0.9rem;
+}
+
+.stackCard > span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.2rem;
+  line-height: 1.5;
+}
+
+.stackCardDashed {
+  border-style: dashed;
+  border-color: var(--wazo-tint-border);
+}
+
+.stackCardHighlight {
+  border-color: var(--wazo-tint-border);
+  background: var(--wazo-tint);
+}
+
+.stackCardTitleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stackCardTitleRow span {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.66rem;
+  color: var(--ifm-color-primary-dark);
+}
+
+.stackArrow {
+  display: flex;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-400);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.stackChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+}
+
+.stackChips span {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.69rem;
+  color: var(--ifm-color-primary-dark);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--wazo-tint-border);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+.stackChipsMuted span {
+  color: var(--ifm-color-emphasis-600);
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+.heroPanelFooter {
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--wazo-tint);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* --- community banner ------------------------------------------------------ */
+
+.community {
+  margin: 6rem 0 2rem;
+  border: 1px solid var(--wazo-tint-border);
+  border-radius: 18px;
+  background: var(--wazo-tint);
+  padding: 3.25rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.communityTitle {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  margin-bottom: 0.75rem;
+}
+
+.communityText {
+  font-size: 1.03rem;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 38em;
+  margin: 0;
+}
+
+.communityButtons {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* --- responsive ------------------------------------------------------------ */
+
+@media screen and (max-width: 996px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .community {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    margin-top: 4rem;
+  }
 }

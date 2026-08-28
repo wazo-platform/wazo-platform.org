@@ -1,0 +1,140 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 5rem 0 1.6rem;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  font-size: 1.03rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 34em;
+  margin: 0;
+}
+
+.allLink {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 1.1rem;
+  border-radius: 9px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.allLink:hover {
+  border-color: var(--wazo-tint-border);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.rows {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 300px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.1rem 1.5rem;
+}
+
+.row + .row {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.rowIdent {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.rowIcon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--wazo-tint);
+  border: 1px solid var(--wazo-tint-border);
+  color: var(--ifm-color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowName {
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.rowDescription {
+  font-size: 0.81rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 2px;
+}
+
+.rowLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rowLinks a {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 0.75rem;
+  border-radius: 7px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary-dark);
+}
+
+.rowLinks a:hover {
+  background: var(--wazo-tint);
+  border-color: var(--wazo-tint-border);
+  text-decoration: none;
+}
+
+.rowRepo {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+@media screen and (max-width: 996px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .rowRepo {
+    display: none;
+  }
+}

@@ -15,6 +15,14 @@
   --ifm-color-primary-lightest: #a1b863;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: "Plus Jakarta Sans", system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+  /* green tints shared by the homepage sections (see index.module.css) */
+  --wazo-tint: rgba(114, 147, 61, 0.1);
+  --wazo-tint-strong: rgba(114, 147, 61, 0.16);
+  --wazo-tint-border: rgba(114, 147, 61, 0.25);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -28,4 +36,23 @@
   --ifm-color-primary-lightest: #b9e37e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --wazo-tint: rgba(152, 196, 81, 0.1);
+  --wazo-tint-strong: rgba(152, 196, 81, 0.16);
+  --wazo-tint-border: rgba(152, 196, 81, 0.3);
+}
+
+/* footer, per the homepage redesign */
+.footer--dark {
+  --ifm-footer-background-color: #2e3440;
+  --ifm-footer-color: #d5d9e0;
+  --ifm-footer-link-color: #c3c9d3;
+  --ifm-footer-title-color: #ffffff;
+}
+
+.footer--dark .footer__bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #3d4351;
+  color: #9aa2b0;
+  font-size: 0.85rem;
 }
