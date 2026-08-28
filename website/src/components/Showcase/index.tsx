@@ -3,11 +3,12 @@ import Heading from '@theme/Heading';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+// widths of the two placeholder bars in each contact row
 const contacts = [
-  { name: '72%', detail: '46%' },
-  { name: '60%', detail: '38%' },
-  { name: '80%', detail: '42%' },
-  { name: '55%', detail: '34%' },
+  { id: 'a', nameWidth: '72%', detailWidth: '46%' },
+  { id: 'b', nameWidth: '60%', detailWidth: '38%' },
+  { id: 'c', nameWidth: '80%', detailWidth: '42%' },
+  { id: 'd', nameWidth: '55%', detailWidth: '34%' },
 ];
 
 const bars = [10, 20, 14, 26, 16, 8, 18, 12];
@@ -28,11 +29,11 @@ const SoftphoneWireframe = () => (
           <div className={styles.sidebarSearch} />
           <div className={styles.sidebarList}>
             {contacts.map((contact) => (
-              <div key={contact.name} className={styles.contact}>
+              <div key={contact.id} className={styles.contact}>
                 <div className={styles.contactAvatar} />
                 <div className={styles.contactLines}>
-                  <div style={{ width: contact.name }} />
-                  <div style={{ width: contact.detail }} />
+                  <div style={{ width: contact.nameWidth }} />
+                  <div style={{ width: contact.detailWidth }} />
                 </div>
               </div>
             ))}

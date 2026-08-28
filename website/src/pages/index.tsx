@@ -22,7 +22,9 @@ const HeroPanel = () => (
           Softphone, contact center, embedded voice — yours to design.
         </span>
       </div>
-      <div className={styles.stackArrow}>↓</div>
+      <div className={styles.stackArrow} aria-hidden="true">
+        ↓
+      </div>
       <div className={clsx(styles.stackCard, styles.stackCardHighlight)}>
         <div className={styles.stackCardTitleRow}>
           <b>Wazo Platform APIs</b>
@@ -35,7 +37,9 @@ const HeroPanel = () => (
           <span>Webhooks</span>
         </div>
       </div>
-      <div className={styles.stackArrow}>↓</div>
+      <div className={styles.stackArrow} aria-hidden="true">
+        ↓
+      </div>
       <div className={styles.stackCard}>
         <b>Open telecom core</b>
         <div className={clsx(styles.stackChips, styles.stackChipsMuted)}>

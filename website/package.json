@@ -27,6 +27,8 @@
     "@docusaurus/plugin-client-redirects": "^3.6.1",
     "@docusaurus/preset-classic": "^3.6.1",
     "@docusaurus/theme-mermaid": "^3.6.1",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@iconify/react": "^5.0.2",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
@@ -48,7 +50,6 @@
     "@docusaurus/module-type-aliases": "^3.6.1",
     "@docusaurus/tsconfig": "^3.6.1",
     "@docusaurus/types": "^3.6.1",
-    "@lottiefiles/react-lottie-player": "^3.5.4",
     "@types/swagger-ui-react": "^5",
     "typescript": "~5.6.3"
   },

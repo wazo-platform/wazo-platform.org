@@ -212,6 +212,7 @@
 }
 
 .callActions > span {
+  flex: none;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -246,5 +247,15 @@
   .points {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  /* the 168px sidebar column no longer fits, and `.window` clips rather
+     than scrolls -- drop the contact list and keep the call panel */
+  .windowBody {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
   }
 }

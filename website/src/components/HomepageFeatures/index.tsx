@@ -45,7 +45,7 @@ const FeatureList: FeatureItem[] = [
 const Feature = ({ kicker, title, description }: FeatureItem) => (
   <div className={styles.feature}>
     <div className={styles.featureKicker}>{kicker}</div>
-    <Heading as="h3" className={styles.featureTitle}>
+    <Heading as="h2" className={styles.featureTitle}>
       {title}
     </Heading>
     <p className={styles.featureText}>{description}</p>

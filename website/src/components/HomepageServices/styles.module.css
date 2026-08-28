@@ -41,85 +41,9 @@
   text-decoration: none;
 }
 
-.rows {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--ifm-background-surface-color);
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 300px 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.1rem 1.5rem;
-}
-
-.row + .row {
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.rowIdent {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.rowIcon {
-  flex: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
-  background: var(--wazo-tint);
-  border: 1px solid var(--wazo-tint-border);
-  color: var(--ifm-color-primary-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rowName {
-  font-size: 0.94rem;
-  font-weight: 700;
-}
-
-.rowDescription {
-  font-size: 0.81rem;
-  color: var(--ifm-color-emphasis-600);
-  margin-top: 2px;
-}
-
-.rowLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.rowLinks a {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  padding: 0 0.75rem;
-  border-radius: 7px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-background-color);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ifm-color-primary-dark);
-}
-
-.rowLinks a:hover {
-  background: var(--wazo-tint);
-  border-color: var(--wazo-tint-border);
-  text-decoration: none;
-}
-
-.rowRepo {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.75rem;
-  color: var(--ifm-color-emphasis-500);
-}
+/* the rows themselves reuse .doc-rows / .doc-row from
+   src/plugins/documentation/documentation.css, so the homepage and
+   /documentation render the same widget */
 
 @media screen and (max-width: 996px) {
   .header {
@@ -127,14 +51,5 @@
     align-items: flex-start;
     gap: 1rem;
     margin-top: 3rem;
-  }
-
-  .row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .rowRepo {
-    display: none;
   }
 }

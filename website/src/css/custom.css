@@ -4,6 +4,15 @@
  * work well for content-centric websites.
  */
 
+/* self-hosted so no visitor IP reaches a third-party font CDN at page load */
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #72933d;

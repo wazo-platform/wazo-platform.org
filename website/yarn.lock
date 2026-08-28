@@ -3815,6 +3815,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/jetbrains-mono@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource/jetbrains-mono@npm:5.3.0"
+  checksum: 10c0/1351b2350e893f5da39559ed90ff0e5e60bcc876b1f40531ad081ad4bf2f3cda3fa9e8940364aef5a7430ae3140685c9cd4819c36d8ad62bcd3fa37e3cc66b1d
+  languageName: node
+  linkType: hard
+
+"@fontsource/plus-jakarta-sans@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource/plus-jakarta-sans@npm:5.3.0"
+  checksum: 10c0/22342f0e6f8a834c2ffcaa695a2fd90909742f64cc4104ddc87a8df74462c11c254b3e43e2ca4335d9b406678ebdd13173841bca00de77b568f1791ced3747df
+  languageName: node
+  linkType: hard
+
 "@graphiql/react@npm:^0.10.0":
   version: 0.10.0
   resolution: "@graphiql/react@npm:0.10.0"
@@ -4024,17 +4038,6 @@ __metadata:
   version: 2.0.5
   resolution: "@leichtgewicht/ip-codec@npm:2.0.5"
   checksum: 10c0/14a0112bd59615eef9e3446fea018045720cd3da85a98f801a685a818b0d96ef2a1f7227e8d271def546b2e2a0fe91ef915ba9dc912ab7967d2317b1a051d66b
-  languageName: node
-  linkType: hard
-
-"@lottiefiles/react-lottie-player@npm:^3.5.4":
-  version: 3.5.4
-  resolution: "@lottiefiles/react-lottie-player@npm:3.5.4"
-  dependencies:
-    lottie-web: "npm:^5.12.2"
-  peerDependencies:
-    react: 16 - 18
-  checksum: 10c0/fbd154c1291648d1c652e37cbd95e71991a48c6c6da2f1de7cc632fd6c4b4e5ab35336ee788cf65f01c036dae89f7cfbe89638c6ee6048590b0c9a671289e480
   languageName: node
   linkType: hard
 
@@ -13000,13 +13003,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lottie-web@npm:^5.12.2":
-  version: 5.12.2
-  resolution: "lottie-web@npm:5.12.2"
-  checksum: 10c0/0aeaf631b10a76afd025df70c2a1486543530708e07a316946c08e55891dac483ffbaf2bf3648ae0b9c54c733118a0a086fd150aa76f7848606214c67ad72c30
-  languageName: node
-  linkType: hard
-
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -19312,8 +19308,9 @@ __metadata:
     "@docusaurus/theme-mermaid": "npm:^3.6.1"
     "@docusaurus/tsconfig": "npm:^3.6.1"
     "@docusaurus/types": "npm:^3.6.1"
+    "@fontsource/jetbrains-mono": "npm:^5.3.0"
+    "@fontsource/plus-jakarta-sans": "npm:^5.3.0"
     "@iconify/react": "npm:^5.0.2"
-    "@lottiefiles/react-lottie-player": "npm:^3.5.4"
     "@mdx-js/react": "npm:^3.1.0"
     "@types/swagger-ui-react": "npm:^5"
     clsx: "npm:^2.1.1"
