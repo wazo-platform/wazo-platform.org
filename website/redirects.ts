@@ -8,6 +8,10 @@ const REDIRECTS: Options['redirects'] = [
     to: '/uc-doc/administration/contact_directories',
   },
   {
+    from: '/uc-doc/administration/call-policy',
+    to: '/uc-doc/administration/call_policy',
+  },
+  {
     from: '/uc-doc/administration/interconnections/introduction',
     to: '/uc-doc/administration/interconnections',
   },
