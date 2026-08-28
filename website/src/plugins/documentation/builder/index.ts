@@ -134,13 +134,19 @@ const plugin: PluginModule = async () => ({
     );
     const authUrl = allModules.authentication?.redocUrl;
 
+    // the overview pages actually generated below, so the landing links
+    // cannot drift from the routes
+    const landingData = { sections, overviewPages: Object.keys(overviews) };
+
+    // same data for consumers outside this plugin's own routes (the homepage
+    // services section), so their links cannot drift either
+    actions.setGlobalData(landingData);
+
     actions.addRoute({
       path: '/documentation',
       component: componentPath('Landing.tsx'),
       exact: true,
-      // the overview pages actually generated below, so the landing links
-      // cannot drift from the routes
-      customData: { sections, overviewPages: Object.keys(overviews) },
+      customData: landingData,
     });
 
     for (const section of sections) {

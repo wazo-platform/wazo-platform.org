@@ -1,44 +1,261 @@
 .demo {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 4rem;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  gap: 1rem;
+  padding-top: 6rem;
 }
 
-.description {
-  margin: 0 0 10rem 0;
-  flex: 0 0 70ch;
+.title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.description p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ifm-color-emphasis-700);
   text-wrap: pretty;
 }
 
-.animation {
-  flex: 0 0 640px;
-  height: 640px;
-  width: 100%;
-  max-width: 640px;
-  margin-top: -96px !important;
+.points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.9rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
-@media (max-width: 1280px) {
+.points b {
+  display: block;
+  font-size: 0.94rem;
+  margin-bottom: 0.3rem;
+}
+
+.points span {
+  font-size: 0.84rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.5;
+}
+
+/* --- softphone wireframe ----------------------------------------------- */
+
+.frame {
+  border: 1px solid var(--wazo-tint-border);
+  border-radius: 16px;
+  background: var(--wazo-tint);
+  padding: 1.1rem;
+}
+
+.window {
+  border: 1px solid var(--wazo-tint-border);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  overflow: hidden;
+  box-shadow: 0 14px 34px -24px rgba(60, 80, 30, 0.3);
+}
+
+.windowBar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: var(--wazo-tint);
+  border-bottom: 1px solid var(--wazo-tint-border);
+}
+
+.windowDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--wazo-tint-strong);
+}
+
+.windowTitle {
+  margin-left: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary-dark);
+  letter-spacing: 0.04em;
+}
+
+.windowBody {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  min-height: 320px;
+}
+
+.sidebar {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-color);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sidebarSearch {
+  height: 28px;
+  border-radius: 7px;
+  background: var(--wazo-tint);
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.contactAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--wazo-tint-strong);
+}
+
+.contactLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactLines div:first-child {
+  height: 7px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+}
+
+.contactLines div:last-child {
+  height: 6px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px dashed var(--wazo-tint-border);
+}
+
+.call {
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.callAvatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--wazo-tint);
+  border: 1px solid var(--wazo-tint-border);
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.callLines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.callLines div:first-child {
+  height: 9px;
+  width: 128px;
+  border-radius: 5px;
+  background: var(--wazo-tint-strong);
+}
+
+.callLines div:last-child {
+  height: 7px;
+  width: 76px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.waveform {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 26px;
+  margin-top: 2px;
+}
+
+.waveform span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--wazo-tint-strong);
+}
+
+.callActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.callActions > span {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--wazo-tint);
+  border: 1px solid var(--wazo-tint-border);
+  color: var(--ifm-color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.callActions > .callHangup {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.frameCaption {
+  padding: 14px 4px 2px;
+  font-size: 0.8rem;
+  color: var(--ifm-color-primary-dark);
+  text-align: center;
+}
+
+@media screen and (max-width: 996px) {
   .demo {
-    flex-direction: column;
-    padding: 2rem;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 4rem;
   }
 
-  .description {
-    flex: 1;
-    margin: 2rem;
-    max-width: 70ch;
-    text-align: center;
+  .points {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
-  .animation {
-    margin-top: -192px !important;
+  /* the 168px sidebar column no longer fits, and `.window` clips rather
+     than scrolls -- drop the contact list and keep the call panel */
+  .windowBody {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
