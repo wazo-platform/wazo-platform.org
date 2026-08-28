@@ -11,7 +11,7 @@ All configurations are done via the [`wazo-confd` REST API](/documentation/api/c
     { text: 'Boss Secretary Filter', href: '/uc-doc/administration/boss_secretary_filter' },
     { text: 'Blocklist', href: '/uc-doc/administration/blocklist' },
     { text: 'Call Permissions', href: '/uc-doc/administration/call_permissions' },
-    { text: 'Call Policy', href: '/uc-doc/administration/call-policy' },
+    { text: 'Call Policy', href: '/uc-doc/administration/call_policy' },
     { text: 'Call Recording', href: '/uc-doc/administration/call_recording' },
     { text: 'Call Logs CallerID', href: '/uc-doc/administration/call_logs' },
     { text: 'Caller ID', href: '/uc-doc/administration/callerid' },

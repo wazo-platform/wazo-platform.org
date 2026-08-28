@@ -1,6 +1,5 @@
 ---
 title: Call Policy
-slug: call-policy
 ---
 
 There exists multiple ways to constrain calls performed through the Wazo platform.
