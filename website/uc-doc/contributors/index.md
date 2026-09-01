@@ -14,6 +14,7 @@ import CardList from '@site/src/components/Card/CardList';
     { text: 'Debug Asterisk', href: '/uc-doc/contributors/debug_asterisk' },
     { text: 'Debug Daemon', href: '/uc-doc/contributors/debug_daemon' },
     { text: 'Contributing to Wazo', href: '/uc-doc/contributors/contributing_to_wazo' },
+    { text: 'Development Mirror', href: '/uc-doc/contributors/dev_mirror' },
     { text: 'Generate Custom Prompts', href: '/uc-doc/contributors/generate_custom_prompts' },
     { text: 'Guidelines', href: '/uc-doc/contributors/guidelines' },
     { text: 'Network', href: '/uc-doc/contributors/network' },
