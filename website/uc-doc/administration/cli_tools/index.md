@@ -24,6 +24,9 @@ wazo-dist is the wazo repository sources manager. It is used to switch between d
 - switch to release candidate repository : `wazo-dist -m wazo-rc-bookworm`
 - switch to an archived version's repository: `wazo-dist -a wazo-25.14`
 
+See the [development mirror](/uc-doc/contributors/dev_mirror) documentation for the differences
+between these distributions.
+
 ### wazo-dist-upgrade
 
 `wazo-dist-upgrade` is used to upgrade Wazo when a major Debian upgrade is required, e.g. upgrading
