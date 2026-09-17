@@ -4,6 +4,11 @@ id: intro
 title: Introduction
 description: Introducing Wazo Platform
 slug: /intro
+# the UC docs are a separate plugin instance, so the Next button needs an
+# explicit target -- see src/theme/DocItem/Paginator
+pagination_next_link:
+  title: Installation
+  permalink: /uc-doc/installation
 ---
 
 

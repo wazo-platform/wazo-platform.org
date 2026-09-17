@@ -43,14 +43,22 @@
   flex-wrap: wrap;
 }
 
+/* a white surface on the green-tinted hero: emphasis-300 reads at 1.2:1 there
+   and even emphasis-600 stays faint next to the solid primary button, so the
+   outline is drawn at emphasis-700 (5.7:1) */
 .buttonOutline {
   background: var(--ifm-background-surface-color);
-  border-color: var(--ifm-color-emphasis-300);
+  border-color: var(--ifm-color-emphasis-700);
   color: var(--ifm-font-color-base);
 }
 
+/* the emphasis scale inverts in dark mode -- 700 would be a near-white outline */
+[data-theme="dark"] .buttonOutline {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
 .buttonOutline:hover {
-  border-color: var(--wazo-tint-border);
+  border-color: var(--ifm-color-primary);
   background: var(--wazo-tint);
   color: var(--ifm-font-color-base);
 }

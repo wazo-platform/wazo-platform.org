@@ -77,14 +77,19 @@ const Console = ({ route }: Props) => {
                   docExpansion="none"
                   tryItOutEnabled
                   requestInterceptor={(req) => {
-                    // make sure it starts with /api
                     const url = new URL(req.url);
-                    if (baseUrl && url.pathname.indexOf('/api') === -1) {
-                      let overridedUrl = `${url.origin}/api/${getServiceName(module.redocUrl)}${url.pathname}`;
-                      if (url.search) {
-                        overridedUrl += url.search;
+                    if (baseUrl) {
+                      // the spec's own scheme/host reach the request through
+                      // swagger's Schemes picker, which the console hides --
+                      // so pin it to the engine the toolbar points at
+                      const target = new URL(baseUrl);
+                      url.protocol = target.protocol;
+                      url.host = target.host;
+                      // make sure it starts with /api
+                      if (url.pathname.indexOf('/api') === -1) {
+                        url.pathname = `/api/${getServiceName(module.redocUrl)}${url.pathname}`;
                       }
-                      req.url = overridedUrl;
+                      req.url = url.toString();
                     }
                     // if there's content in the apiKey field, let's use it
                     if (apiKey) {
