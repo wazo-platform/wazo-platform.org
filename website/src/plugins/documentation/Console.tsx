@@ -22,6 +22,15 @@ type Props = {
   };
 };
 
+// the toolbar takes the base URL as free text, so it need not be a valid one
+const parseBaseUrl = (value: string) => {
+  try {
+    return new URL(value);
+  } catch {
+    return null;
+  }
+};
+
 const Console = ({ route }: Props) => {
   const { moduleName, module, modules, authUrl } = route?.customData || {};
   const [{ apiKey, baseUrl }, setCredentials] = useState<ApiCredentials>({
@@ -77,14 +86,25 @@ const Console = ({ route }: Props) => {
                   docExpansion="none"
                   tryItOutEnabled
                   requestInterceptor={(req) => {
-                    // make sure it starts with /api
                     const url = new URL(req.url);
-                    if (baseUrl && url.pathname.indexOf('/api') === -1) {
-                      let overridedUrl = `${url.origin}/api/${getServiceName(module.redocUrl)}${url.pathname}`;
-                      if (url.search) {
-                        overridedUrl += url.search;
+                    const target = parseBaseUrl(baseUrl);
+                    if (target) {
+                      // the spec's own scheme/host reach the request through
+                      // swagger's Schemes picker, which the console hides --
+                      // so pin it to the engine the toolbar points at
+                      url.protocol = target.protocol;
+                      url.host = target.host;
+                      // make sure it starts with /api
+                      if (url.pathname.indexOf('/api') === -1) {
+                        url.pathname = `/api/${getServiceName(module.redocUrl)}${url.pathname}`;
                       }
-                      req.url = overridedUrl;
+                      // the spec is fetched from `${baseUrl}${pathname}`, so a
+                      // base URL carrying a path prefix has to reach the calls
+                      const prefix = target.pathname.replace(/\/$/, '');
+                      if (prefix && !url.pathname.startsWith(`${prefix}/`)) {
+                        url.pathname = prefix + url.pathname;
+                      }
+                      req.url = url.toString();
                     }
                     // if there's content in the apiKey field, let's use it
                     if (apiKey) {

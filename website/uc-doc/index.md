@@ -1,6 +1,6 @@
 ---
 title: Unified Communication Documentation
-sidebar_label: Introduction
+sidebar_label: Overview
 sidebar_position: 1
 ---
 

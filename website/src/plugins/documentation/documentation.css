@@ -154,10 +154,15 @@
 }
 
 .doc-toolbar {
+  position: sticky;
+  /* the navbar is `navbar--fixed-top`, so park the toolbar right under it */
+  top: var(--ifm-navbar-height);
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
   display: flex;
   justify-content: space-between;
   gap: 10px;
   background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
   padding: 10px 5vw;
   width: 100%;
 }
@@ -169,6 +174,14 @@
   border-radius: 4px;
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
+}
+
+/* the browser's default focus ring is blue, which reads as a foreign accent
+   next to the green toolbar */
+.doc-toolbar input:focus {
+  border-color: var(--ifm-color-primary);
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
 }
 
 .doc-toolbar button {
@@ -293,6 +306,31 @@
   --ifm-color-content: #1c1e21;
   --ifm-link-color: var(--ifm-color-primary-darker);
   border-radius: 6px;
+}
+
+/* swagger-ui is built for a full page of its own: 50px around the info block
+   and 24px tag rows waste a lot of height inside the console card */
+.doc-api-light .swagger-ui .info {
+  margin: 20px 0;
+}
+
+/* the contact block only points back at this very site, and the spec
+   description repeats the page hero */
+.doc-api-light .swagger-ui .info .info__contact,
+.doc-api-light .swagger-ui .info .description {
+  display: none;
+}
+
+/* the console toolbar above already targets the engine and injects the token,
+   so swagger's scheme picker and Authorize dialog have nothing left to do */
+.doc-api-light .swagger-ui .scheme-container {
+  display: none;
+}
+
+.doc-api-light .swagger-ui .opblock-tag {
+  font-size: 18px;
+  padding: 6px 20px 6px 10px;
+  margin: 0;
 }
 
 .doc-graphiql {

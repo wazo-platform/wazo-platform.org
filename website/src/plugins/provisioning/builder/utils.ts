@@ -2,7 +2,28 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import slugify from './slugify';
+
 let cachedPlugins = null;
+
+/* Upstream renames models between plugin versions -- v84/v85 ship "T57W" and
+   v86/v87 ship "T57(W)" for the same phone -- and both spellings slugify to
+   the same route, so one page used to overwrite the other and drop its
+   firmwares. Fold them into a single entry, under the more descriptive
+   spelling. */
+const mergePhoneName = (phones: Record<string, unknown>, phone: string) => {
+  const slug = slugify(phone);
+  const existing = Object.keys(phones).find((name) => slugify(name) === slug);
+  if (!existing || existing === phone) {
+    return phone;
+  }
+  if (phone.length <= existing.length) {
+    return existing;
+  }
+  phones[phone] = phones[existing];
+  delete phones[existing];
+  return phone;
+};
 
 export const walk = (
   basePath: string,
@@ -70,10 +91,11 @@ export const getProvisioningPlugins = () => {
         const content = JSON.parse(file);
 
         Object.keys(content.capabilities).forEach((capabilityName) => {
-          const [vendor, phone, firmware] = capabilityName.split(', ');
+          const [vendor, phoneName, firmware] = capabilityName.split(', ');
           if (!(vendor in cachedPlugins)) {
             cachedPlugins[vendor] = {};
           }
+          const phone = mergePhoneName(cachedPlugins[vendor], phoneName);
           if (!(phone in cachedPlugins[vendor])) {
             cachedPlugins[vendor][phone] = {};
           }
