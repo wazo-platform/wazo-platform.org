@@ -2,7 +2,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import PageHero from '@site/src/components/PageHero';
 import Layout from '@theme/Layout';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import 'swagger-ui-react/swagger-ui.css';
 
 import type { ApiCredentials } from './ApiToolbar';
@@ -38,10 +38,14 @@ const Console = ({ route }: Props) => {
     baseUrl: '',
   });
 
-  const onCredentialsChange = useCallback(
-    (credentials: ApiCredentials) => setCredentials(credentials),
-    [],
-  );
+  // swagger-ui-react reads requestInterceptor only on mount, so the
+  // interceptor reads credentials from a ref instead of its closure
+  const credentialsRef = useRef<ApiCredentials>({ apiKey: '', baseUrl: '' });
+
+  const onCredentialsChange = useCallback((credentials: ApiCredentials) => {
+    credentialsRef.current = credentials;
+    setCredentials(credentials);
+  }, []);
 
   const pathname = new URL(module.redocUrl).pathname;
 
@@ -86,6 +90,7 @@ const Console = ({ route }: Props) => {
                   docExpansion="none"
                   tryItOutEnabled
                   requestInterceptor={(req) => {
+                    const { apiKey, baseUrl } = credentialsRef.current;
                     const url = new URL(req.url);
                     const target = parseBaseUrl(baseUrl);
                     if (target) {
