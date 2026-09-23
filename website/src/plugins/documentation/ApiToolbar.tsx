@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getStoredValue, setStoredValue } from './helper';
+import { getStoredValue, normalizeBaseUrl, setStoredValue } from './helper';
 
 export type ApiCredentials = {
   apiKey: string;
@@ -24,7 +24,7 @@ const ApiToolbar = ({ pathname, authUrl, onChange }: Props) => {
 
   useEffect(() => {
     const storedApiKey = getStoredValue('apiKey');
-    const storedBaseUrl = getStoredValue('baseUrl');
+    const storedBaseUrl = normalizeBaseUrl(getStoredValue('baseUrl'));
     setApiKey(storedApiKey);
     setBaseUrl(storedBaseUrl);
     setTempBaseUrl(storedBaseUrl);
@@ -87,11 +87,13 @@ const ApiToolbar = ({ pathname, authUrl, onChange }: Props) => {
   };
 
   const applyBaseUrl = () => {
-    if (tempBaseUrl === '') {
+    const nextBaseUrl = normalizeBaseUrl(tempBaseUrl);
+    setTempBaseUrl(nextBaseUrl);
+    if (nextBaseUrl === '') {
       update({ apiKey: '', baseUrl: '' });
       return;
     }
-    update({ baseUrl: tempBaseUrl });
+    update({ baseUrl: nextBaseUrl });
   };
 
   return (
