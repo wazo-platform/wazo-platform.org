@@ -41,3 +41,12 @@ export const setStoredValue = (key: string, value: string) => {
     // ignore storage failures (private mode, etc.)
   }
 };
+
+// the toolbar takes the base URL as free text: default a bare host to https
+export const normalizeBaseUrl = (value: string) => {
+  const trimmed = value.trim().replace(/\/+$/, '');
+  if (!trimmed || /^[a-z][a-z\d+.-]*:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  return `https://${trimmed}`;
+};

@@ -36,6 +36,7 @@ jobs:
           corepack enable
           cd website
           yarn install --immutable
+          yarn test
           yarn build
 
       - name: Run scrap tests against the build
