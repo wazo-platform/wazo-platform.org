@@ -3,8 +3,16 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.10 {#26-10}
+
 ## 26.09 {#26-09}
 
+- `wazo-upgrade` now installs the new version of `/etc/nginx/sites-available/wazo` instead of
+  stopping on an interactive prompt when the file was modified locally. The previous file is kept as
+  `/etc/nginx/sites-available/wazo.dpkg-old`, and custom TLS certificate paths (e.g. certbot) are
+  restored automatically. Other local changes (e.g. a custom `server_name`, rate limiting or
+  redirect blocks) are not restored: `wazo-check-conffiles` reports the file at the end of the
+  upgrade, and these changes must be merged back manually.
 - The `--http-worker` flag of `wazo-auth` (26.08) and the `rest_api.reuse_port` setting it required
   have been removed; if set in `/etc/wazo-auth/conf.d/`, the latter is now ignored. Extra processes
   are started with the `wazo-auth-worker@<port>` systemd units and declared in the nginx upstream,
