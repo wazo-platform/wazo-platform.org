@@ -150,9 +150,7 @@ A `type` of `custom` is only ever returned, never accepted. It means the stored 
 longer one of those available to the user, because the phone number was removed from the tenant for
 example.
 
-A `type` of `unset` is also only ever returned, never accepted. It means the user never chose a
-default. The user's own caller ID is presented: unlike `default`, the outgoing call's caller ID is
-never applied. A client can also tell that nobody made a choice, and push a choice of its own.
+A user who never chose a default reads as `default`, and their calls behave as such.
 
 End users can read and set their own default through
 [`/api/confd/1.1/users/me/callerids/outgoing/default`](/documentation/api/configuration.html#tag/users/operation/get_user_me_callerid_outgoing_default),
