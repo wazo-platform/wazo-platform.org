@@ -25,12 +25,12 @@ There are multiple settings coming into play:
 
 The current logic for outgoing calls is:
 
-- If the call uses dynamic caller ID selection use the received Caller ID
-- If the call is not emitted by a user: use the outgoing call's Caller ID
-- If the call is emitted by a user:
-  - If the `outgoing_caller_id` is Default, use the outgoing call's Caller ID
-  - If the `outgoing_caller_id` is Anonymous, remove the Caller ID
-  - If the `outgoing_caller_id` is set, use it
+- If the call is not emitted by a user, use the outgoing call's Caller ID
+- If the call uses [dynamic caller ID selection](#dynamic-caller-id), use the received Caller ID
+- otherwise, If the call is emitted by a user:
+  - If the `outgoing_caller_id` is "default" or empty (unset), use the outgoing call's Caller ID
+  - If the `outgoing_caller_id` is "anonymous", use [anonymous caller id](#anonymous-caller-id)
+  - If the `outgoing_caller_id` is otherwise set to a valid caller id, use it
 
 Once the call is sent into the trunk, the operator may still override the Caller ID before routing
 the call to the destination. Each operator has its own rules about Caller ID: some will always
@@ -137,9 +137,9 @@ It can be read and set with the REST API resource
 The `type` field accepts:
 
 - `default`, to defer to the rest of the outgoing caller ID logic described above
-- `anonymous`, to remove the caller ID, as described in
+- `anonymous`, to omit a caller id and make an anonymous call, as described in
   [Anonymous Caller ID](/uc-doc/administration/callerid#anonymous-caller-id)
-- `main`, `associated` or `shared`, to present `number`
+- `main`, `associated` or `shared`, to present the corresponding `number` and `caller_id_name`
 
 For those last three, `number` must be one of the numbers listed by
 `/api/confd/1.1/users/<uuid>/callerids/outgoing`; any other number is rejected. It is stored as
