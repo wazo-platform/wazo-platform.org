@@ -33,10 +33,10 @@ const parseBaseUrl = (value: string) => {
 
 const Console = ({ route }: Props) => {
   const { moduleName, module, modules, authUrl } = route?.customData || {};
-  const [{ apiKey, baseUrl }, setCredentials] = useState<ApiCredentials>({
-    apiKey: '',
-    baseUrl: '',
-  });
+  // null until the toolbar has read the stored credentials: on a client-side
+  // navigation BrowserOnly renders at once, and mounting swagger before that
+  // would fetch the default spec instead of the one on the stored engine
+  const [credentials, setCredentials] = useState<ApiCredentials | null>(null);
 
   // swagger-ui-react reads requestInterceptor only on mount, so the
   // interceptor reads credentials from a ref instead of its closure
@@ -81,6 +81,10 @@ const Console = ({ route }: Props) => {
         <div className="doc-console__main doc-api-light">
           <BrowserOnly fallback={<div className="doc-loading">Loading…</div>}>
             {() => {
+              if (!credentials) {
+                return <div className="doc-loading">Loading…</div>;
+              }
+              const { baseUrl } = credentials;
               const SwaggerUI = require('./SwaggerUIBrowser').default;
               return (
                 <SwaggerUI
