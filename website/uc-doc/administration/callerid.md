@@ -18,18 +18,19 @@ Users calling each other will see the Caller ID configured in the `caller_id` fi
 There are multiple settings coming into play:
 
 - [Dynamic caller ID selection](/uc-doc/administration/callerid#dynamic-caller-id)
-- The calling user's `outgoing_caller_id`
+- The calling user's `outgoing_caller_id`, see
+  [Default Caller ID selection](/uc-doc/administration/callerid#default-caller-id)
 - The outgoing call's `caller_id` (one for each `extension`)
 - The trunk's operator rules
 
 The current logic for outgoing calls is:
 
-- If the call uses dynamic caller ID selection use the received Caller ID
-- If the call is not emitted by a user: use the outgoing call's Caller ID
-- If the call is emitted by a user:
-  - If the `outgoing_caller_id` is Default, use the outgoing call's Caller ID
-  - If the `outgoing_caller_id` is Anonymous, remove the Caller ID
-  - If the `outgoing_caller_id` is set, use it
+- If the call is not emitted by a user, use the outgoing call's Caller ID
+- If the call uses [dynamic caller ID selection](#dynamic-caller-id), use the received Caller ID
+- otherwise, If the call is emitted by a user:
+  - If the `outgoing_caller_id` is "default" or empty (unset), use the outgoing call's Caller ID
+  - If the `outgoing_caller_id` is "anonymous", use [anonymous caller id](#anonymous-caller-id)
+  - If the `outgoing_caller_id` is otherwise set to a valid caller id, use it
 
 Once the call is sent into the trunk, the operator may still override the Caller ID before routing
 the call to the destination. Each operator has its own rules about Caller ID: some will always
@@ -114,6 +115,47 @@ For example:
 **Note**: Most operators will not allow the user to send a caller ID they do not recongnize as
 valid. The number must either be a DID that has been bought from the same trunk provider the call is
 going through or another number that has been verified by that provider.
+
+### Default Caller ID selection {#default-caller-id}
+
+A SIP user agent that cannot add the `X-Wazo-Selected-Caller-ID` header, a hardware phone for
+instance, presents the caller ID stored on the user instead. That stored value is the user's
+`outgoing_caller_id`, and it applies to every outgoing call the user makes, from any device, unless
+that particular call carries the header.
+
+It can be read and set with the REST API resource
+[`/api/confd/1.1/users/<uuid>/callerids/outgoing/default`](/documentation/api/configuration.html#tag/users/operation/get_user_callerid_outgoing_default):
+
+```json
+{
+  "type": "main",
+  "number": "+18001234567",
+  "caller_id_name": "Acme Corp"
+}
+```
+
+The `type` field accepts:
+
+- `default`, to defer to the rest of the outgoing caller ID logic described above
+- `anonymous`, to omit a caller id and make an anonymous call, as described in
+  [Anonymous Caller ID](/uc-doc/administration/callerid#anonymous-caller-id)
+- `main`, `associated` or `shared`, to present the corresponding `number` and `caller_id_name`
+
+For those last three, `number` must be one of the numbers listed by
+`/api/confd/1.1/users/<uuid>/callerids/outgoing`; any other number is rejected. It is stored as
+listed there, and the trunk's `outgoing_caller_id_format` is applied when the call is placed.
+
+A `type` of `custom` is only ever returned, never accepted. It means the stored caller ID is no
+longer one of those available to the user, because the phone number was removed from the tenant for
+example.
+
+A user who never chose a default reads as `default`, and their calls behave as such.
+
+End users can read and set their own default through
+[`/api/confd/1.1/users/me/callerids/outgoing/default`](/documentation/api/configuration.html#tag/users/operation/get_user_me_callerid_outgoing_default),
+and list the caller IDs available to them through
+[`/api/confd/1.1/users/me/callerids/outgoing`](/documentation/api/configuration.html#tag/users/operation/list_user_me_callerid_outgoing).
+Unlike the admin resources, these need no tenant-wide permission on the user.
 
 Refer to
 [outcalls](/uc-doc/administration/interconnections/wazo_with_voip_provider#voip-provider-outcall)
