@@ -142,9 +142,8 @@ The `type` field accepts:
 - `main`, `associated` or `shared`, to present `number`
 
 For those last three, `number` must be one of the numbers listed by
-`/api/confd/1.1/users/<uuid>/callerids/outgoing`; any other number is rejected. It is stored in
-`+E.164` form whenever it can be parsed, and the trunk's `outgoing_caller_id_format` is applied when
-the call is placed.
+`/api/confd/1.1/users/<uuid>/callerids/outgoing`; any other number is rejected. It is stored as
+listed there, and the trunk's `outgoing_caller_id_format` is applied when the call is placed.
 
 A `type` of `custom` is only ever returned, never accepted. It means the stored caller ID is no
 longer one of those available to the user, because the phone number was removed from the tenant for
