@@ -28,6 +28,9 @@ Here is a short review of the Wazo Platform 26.10 release.
   during call hangup
 - **configuration management/SIP transports**: PJSIP transports now accept IPv6
   addresses with a port or a scope identifier
+- **configuration management/API documentation**: the PJSIP configuration API
+  documentation no longer offers placeholder values as selectable choices for
+  `codec_prefs_*` and `password_digest`
 - **auth**: the `Strict-Transport-Security` header is now sent on `/api/auth/`
   responses
 - **upgrade**: `wazo-dist-upgrade` no longer uses the end-of-life
