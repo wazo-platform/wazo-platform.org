@@ -97,13 +97,9 @@ class Service:
     def load(self, dependencies):
         ...
         bus_consumer = dependencies['bus_consumer']
-        bus_consumer.subscribe_to_event_names(uuid=uuid.uuid4(),
-                                              event_names=['user_created'],
-                                              user_uuid=None,
-                                              wazo_uuid=None,
-                                              callback=self.on_user_created)
+        bus_consumer.subscribe('user_created', self.on_user_created)
 
-    def on_user_created(self, body, event):
+    def on_user_created(self, body):
         logger.debug('User %s has been created!', body['uuid'])
 ```
 
