@@ -3,6 +3,13 @@ title: Upgrade notes
 sidebar_position: 1
 ---
 
+## 26.11 {#26-11}
+
+- The deprecated `subscribe_to_event_names` and `unsubscribe_from_event_names` methods of the
+  `wazo-webhookd` bus consumer have been removed. Custom `wazo-webhookd` plugins must use
+  `subscribe` and `unsubscribe` instead. See the
+  [`wazo-webhookd` changelog](https://github.com/wazo-platform/wazo-webhookd/blob/master/CHANGELOG.md#2611).
+
 ## 26.10 {#26-10}
 
 ## 26.09 {#26-09}
