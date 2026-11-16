@@ -1,6 +1,6 @@
 ---
 title: Wazo Platform 26.11 Released
-date: 2026-11-23T08:00:00
+date: 2026-11-16T08:00:00
 authors: wazoplatform
 category: Wazo Platform
 tags: [wazo-platform, development]
