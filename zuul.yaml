@@ -36,21 +36,6 @@
           Z7hTJE2+WhU13iEWiBF1mUrjj/nkWrn2JAQ4XfjuiittvtUTPtw1ga3bzV7lgg=
 
 - secret:
-    name: publication
-    data:
-      private_key: !encrypted/pkcs1-oaep
-        - Ve7kty+jVOnl/QJ0iFnYWrCo8DGvV0CIBIDObrcrNDEh3o1aypwE380jLZlTJKL6ABPKq
-          fBC5gFtIlhm9+GBk9136l9zyLNf74JXI3Pejz4P27W+RLTTQlB0ee1zxeWLg3KORgxyud
-          RoDSKgtKV7zUriLoRDYPLQv2fMTHB8l6YJCW86GxuwEkND93SQQemaDD6uYlwuOGNoxjW
-          Ew5YNx/qIdRi4aUtMNV4t0XEpRpxp26RQYGvihlFlsR8Dj41yWK9Xa4KX9PjGlPw1Dp6L
-          AKxlRkCRHOXbBTTKgpWMCz8s+FbjzRypAEwAiKdHbQJEla+6/AVZQYj84dI1H4YUsJvsd
-          PaC3Po4ERP8JlnpTU2hmwU23X3BI7Zj7WNMNeKtVCF+qJR42Z2IOYZ6xl3EOQWHNT+NcP
-          +27Hn2MiL7ZMdTQkp/n0dXLdyHRdWpGUO/bkgBKY3Az+OeBULm1XrQFHnLTXueNJXZ4C8
-          X2q9yNca/WLtvroI9hGK/efVuD7f+YurLCPyGS7N8L9swetTUeq5bvc9dalW+Iocdy9p8
-          8fwDg4nNrfYoR1PzxJT2gWBPNUhamby7jAS9ss++XqMCrDcxO5ny0bE/Yhd8SCGbwDBDP
-          cWynT4XeBJ4s3xyqlViOf2g/Gi6UieHJNRJkpaY/gOU12hT0bNQtPUmf8fuXsA=
-
-- secret:
     name: mattermost
     data:
       api_key: !encrypted/pkcs1-oaep
@@ -77,16 +62,6 @@
     secrets:
       - name: algolia
         secret: algolia
-
-- job:
-    name: yarn-build-publish
-    description: Build with search and publish
-    run: zuul.d/run.yaml
-    secrets:
-      - name: algolia
-        secret: algolia
-      - name: publication
-        secret: publication
 
 - job:
     name: yarn-build-test
@@ -117,10 +92,6 @@
     auto-merge:
       jobs:
         - noop
-    post:
-      jobs:
-        - yarn-build-publish:
-            nodeset: vm-debian-12-m1m
     periodic:
       jobs:
         - yarn-build-test:
