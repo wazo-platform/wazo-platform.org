@@ -21,10 +21,12 @@ pipeline {
     label 'general-amd64-debian12-medium'
   }
   triggers {
+    githubPush()
     pollSCM 'H 0 * * *'
   }
   options {
     timestamps()
+    disableConcurrentBuilds()
   }
   environment {
     CONFIG_FILE_PATH = credentials('wazo-doc-tools-credentials')
@@ -37,8 +39,13 @@ pipeline {
           set -xe
           cp "${CONFIG_FILE_PATH}" config.js
 
-          make ENV=CORPORATE=1 builder
+          rm -rf public-corporate public-platform
+
+          make builder
           make ENV=CORPORATE=1 build
+          mv public public-corporate
+          make build
+          mv public public-platform
           docker compose down
 
           rm config.js
@@ -57,7 +64,12 @@ EOF
             rsync \
               -rlD --delete \
               -e "ssh -o UserKnownHostsFile=${WORKSPACE}/webserver.wazo.community.known_hosts" \
-              public/ root@webserver.wazo.community:/tmp/api/
+              public-corporate/ root@webserver.wazo.community:/tmp/api/
+
+            rsync \
+              -rlD --delete \
+              -e "ssh -o UserKnownHostsFile=${WORKSPACE}/webserver.wazo.community.known_hosts" \
+              public-platform/ root@webserver.wazo.community:/tmp/wazo-platform/
           """
         }
       }
@@ -80,6 +92,11 @@ EOF
               mv -T /var/www/api /var/www/api-old
               mv -T /var/www/api-new /var/www/api
               rm -rf /var/www/api-old
+
+              mv -T /tmp/wazo-platform /var/www/wazo-platform-new
+              mv -T /var/www/wazo-platform /var/www/wazo-platform-old
+              mv -T /var/www/wazo-platform-new /var/www/wazo-platform
+              rm -rf /var/www/wazo-platform-old
             '''
           )
         }
