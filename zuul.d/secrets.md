@@ -12,19 +12,6 @@ zuul-client encrypt --tenant local --project github.com/org/project --secret-nam
 Specifically for this repository:
 
 ```sh
-    # Algolia secrets
-    # Get them from https://www.algolia.com/apps/LH48PBHM7P/api-keys/all
-    echo -n $appId_unencrypted > /etc/zuul/appId_unencrypted
-    zuul-client encrypt --tenant local --project github.com/wazo-platform/wazo-platform.org --secret-name algolia --field-name appId --infile /etc/zuul/appId_unencrypted --outfile /etc/zuul/appId.yaml
-
-    # Admin API Key
-    echo -n $apiKey_unencrypted > /etc/zuul/apiKey_unencrypted
-    zuul-client encrypt --tenant local --project github.com/wazo-platform/wazo-platform.org --secret-name algolia --field-name apiKey --infile /etc/zuul/apiKey_unencrypted --outfile /etc/zuul/apiKey.yaml
-
-    # Search-Only API Key
-    echo -n $publicKey_unencrypted > /etc/zuul/publicKey_unencrypted
-    zuul-client encrypt --tenant local --project github.com/wazo-platform/wazo-platform.org --secret-name algolia --field-name publicKey --infile /etc/zuul/publicKey_unencrypted --outfile /etc/zuul/publicKey.yaml
-
     # Mattermost secret
     # Gt it from https://mm.wazo.community/wazo/integrations/incoming_webhooks (the URL last part only !)
     echo -n $mm_webhook_id_unencrypted > /etc/zuul/mm_webhook_id_unencrypted

@@ -1,41 +1,4 @@
 - secret:
-    name: algolia
-    data:
-      appId: !encrypted/pkcs1-oaep
-        - iRRa8AZUlfIGs8s4k8l0dXsWprPGbYuicyTWL+N3weSRvJ0sbY5NSHItpSBYJpBVBxjRc
-          O101YAAP/JokWZOe917oBaKnUsXFHyn0p01d6rfN7pac8O57eKjqPGL2VID5z513D4KYj
-          ol9J6GO/3+3vxJoXJsu6oel+Zn//mYW+8bdLtdpYahLjC2inBtbUPEMUyG9+Ii2LxtJQu
-          ukbVGYFdy1Wtja2ihEwTpPiT8nFEPfdQX/Wi5ORZG0JaFNW5tDZs4tdHofTll98GMI8PV
-          85HXuVJFnUFr1gyB/9ggOabQldR9Bnc26ktspruXfmbNjLYNDqZF9HSJ4+fLja4ayt/y6
-          O5RIBhuqwsH4YiT7s+hcEulysPdfHhzCwLpAyjV3ywtMgPWwaOF//oJuWS/ajsRCj/cbs
-          PWLzdKKbVlyGNDSVCeHInzJt7HgQNNc7eeYLQVSeIdlmfUMSeDf7B595nC0+ID9UYMQrp
-          wQwEsCZPj3beCazRfw0DppGwRUZWIptSIqhAWffNjRapjnHAcVCCbDeGCMlddFIn1VGJ/
-          Cd2/Qy6rVyeI5brjTv1TN2tTLWdcG+k6lvqL0qf7Snl/n2wjXqHvM8eVeCB8gu9UZ8nvK
-          31Rq7hdQTKr3Muk8gEdNhMq7Ctyh9pEgDtuWXZLg3vc/BOKjQBQDvx1qqh+ibQ=
-      apiKey: !encrypted/pkcs1-oaep
-        - oHqG/MCcAcZL618lpAR5NOrelcAIaqqGy4zgHG6jN8AuGOKWwqxNROfS3jWBGTtsRwWLY
-          +6snC0JelqAGctNrITa7VivKK7f0fM3dgDiFk8rAIDwebMKOOzjtwQ+tKAfrUg2ShzBWk
-          KiHdObI/61wkkY4Izcnp5sfF8Jhos1xPrsGluskiZ3cEVWT/wmIQxfkv8JvshsoeuMv3Z
-          xUdNBW1kq6Xe10YLxnjvGfoxIm5oepTMChj9M7e3GRy2CFUNNRCQOGAKd1IJlVoof9i29
-          xoo5AEamFVT5OXU/QSAuZoEWEgek4nLQHQFCe+1t8GF+TbFWvqpvBkCDVfqfJ64VV3Ybr
-          wpkVRAKoigEezwcCw8oheTVmpNqay6312bRF9GHcCcWMfHadLKtAd0Edl12KHUVifOQGk
-          sqO2HXIBERNDgm+yA2mpkjFouExLrj/gtVYqqbGpmbH9U2iWbr0aMCRqfboExV/FVTNch
-          qTG/XH6tsr7f7WTRkPij6lfap4TJZG1F4sz40Ua6LVv/9wbyj1IXv4yydMUE4STQ6zL0K
-          rDtVBdR2yFQE2MEA4KurYFOOLwznI2chSnaJzBYvN4VG8Wcg4Tio/e9IcC8devbBgpnxd
-          JiqUnIr6u0vEsEbyabgtsPYB8Ki1TuiNCEbpQ0Wnj69tpzyglCAeJtq6nnGS2Q=
-      publicKey: !encrypted/pkcs1-oaep
-        - eGqDUMpDAd4UpQj4ThnEBsOogYBC1mUQAJ5t0qigQyratGKhKQJfVx6cBKi96+WlPdk3p
-          6vEagRlWczId3zywQk0ZYTjNkzfiP5Hsg9a2nK/OUspKmCdYEFGyHYhRCfER6J4XWofLW
-          BTa3Y1jNcjv25N1EqvEPqm3cDQsJuNGh6K0Yt2eTEjd8UTCCOs71fdOEaD7kAiEsbfP+E
-          rVWP351mTAiuhYsZTUJpP1RwJbwUrygIKGBhJ8br7/Pve62x/C+zctruRD54SmXbmA83/
-          u9ZJINcdmmyzFwsltcnGidSK8FlLWG4qyrLzlnI2EziJ12EbHsVclbK032OrrpT3xhbQk
-          xf37WERFiuYouSlM7EcVqgboJP/yY733Nqg56Fm0vp+ecaX20hkNbK2Hl3zvq8hl6Ki8S
-          piVTE72qgIKL0KQb4ekzsB6HkXcTyuZ1IaoBstmNKhN2BC8ek10csjmrBlv+7yAB1e6YD
-          9DPFeD/gmqMuydO1ZZLqgclv350aDMjjAae1h/wdaBGcZJZd1m6QyMR+wk9ug2RXWwOx/
-          vGEE2J80SKjzwr+/6AbEFMBbKXz1DNNNf0P5JIclB3V5HywOHVLvnlKKCnrQzBzoXP7jk
-          Z7hTJE2+WhU13iEWiBF1mUrjj/nkWrn2JAQ4XfjuiittvtUTPtw1ga3bzV7lgg=
-
-- secret:
     name: mattermost
     data:
       api_key: !encrypted/pkcs1-oaep
@@ -54,14 +17,6 @@
     name: yarn-build-copy
     description: Build and copy
     run: zuul.d/run-copy.yaml
-
-- job:
-    name: yarn-build-search-copy
-    description: Build with search and copy
-    run: zuul.d/run-search-copy.yaml
-    secrets:
-      - name: algolia
-        secret: algolia
 
 - job:
     name: yarn-build-test
@@ -87,7 +42,7 @@
             nodeset: vm-debian-12-m1s
     wazo-gate:
       jobs:
-        - yarn-build-search-copy:
+        - yarn-build-copy:
             nodeset: vm-debian-12-m1m
     auto-merge:
       jobs:
