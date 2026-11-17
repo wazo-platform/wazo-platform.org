@@ -83,10 +83,7 @@ EOF
             command: '''
               set -euo pipefail
 
-              # If we use rsync directly and rsync fails with "Broken pipe", then it
-              # will break the website installation.
-              # To prevent that, rsync into temporary directory, then mv
-              # the new website install.
+              # Never rsync into the live directory: a broken transfer would leave the site half-updated.
 
               mv -T /var/www/api /var/www/api-old
               mv -T /var/www/api-new /var/www/api
