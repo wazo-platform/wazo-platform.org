@@ -101,4 +101,9 @@ EOF
       }
     }
   }
+  post {
+    failure {
+      mattermostSend color: 'danger', channel: '#monitoring', message: "wazo-platform.org publication [failed](${BUILD_URL}) :nuke:"
+    }
+  }
 }
