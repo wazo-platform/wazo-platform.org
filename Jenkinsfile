@@ -64,12 +64,12 @@ EOF
             rsync \
               -rlD --delete \
               -e "ssh -o UserKnownHostsFile=${WORKSPACE}/webserver.wazo.community.known_hosts" \
-              public-corporate/ root@webserver.wazo.community:/tmp/api/
+              public-corporate/ root@webserver.wazo.community:/var/www/api-new/
 
             rsync \
               -rlD --delete \
               -e "ssh -o UserKnownHostsFile=${WORKSPACE}/webserver.wazo.community.known_hosts" \
-              public-platform/ root@webserver.wazo.community:/tmp/wazo-platform/
+              public-platform/ root@webserver.wazo.community:/var/www/wazo-platform-new/
           """
         }
       }
@@ -88,12 +88,10 @@ EOF
               # To prevent that, rsync into temporary directory, then mv
               # the new website install.
 
-              mv -T /tmp/api /var/www/api-new
               mv -T /var/www/api /var/www/api-old
               mv -T /var/www/api-new /var/www/api
               rm -rf /var/www/api-old
 
-              mv -T /tmp/wazo-platform /var/www/wazo-platform-new
               mv -T /var/www/wazo-platform /var/www/wazo-platform-old
               mv -T /var/www/wazo-platform-new /var/www/wazo-platform
               rm -rf /var/www/wazo-platform-old
